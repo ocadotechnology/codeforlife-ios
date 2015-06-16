@@ -7,81 +7,46 @@
 //
 
 import UIKit
+import WebKit
 
-class WebViewController: UIViewController, UIWebViewDelegate {
+class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
-    @IBOutlet weak var webView: UIWebView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var containerView: UIView! = nil
     
-    var url = NSURL(string:"http://localhost:8000/")!
+    var webView: WKWebView?
+    
+    var url = NSURL(string:"http://google.com")!
+    
+    override func loadView() {
+        super.loadView()
+        setupWebView()
+        self.view = self.webView
+    }
+    
+    /* Set up webView
+     * This function should be called right after super.loadView() to
+     * set up the webView as soon as possible
+     */
+    private func setupWebView() {
+        self.webView = WKWebView()
+        self.webView!.allowsBackForwardNavigationGestures = true
+        self.webView!.navigationDelegate = self
+        self.webView!.UIDelegate = self
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize left swipe gesture recognizer
-        var leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("webViewSwipe:"))
-        leftSwipe.direction = .Left
-        
-        // Initialize right swipe gesture recognizer
-        var rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("webViewSwipe:"))
-        rightSwipe.direction = .Right
-        
-        // Assign Delegate and Gesture Recognizers
-        webView.delegate = self
-        webView.addGestureRecognizer(leftSwipe)
-        webView.addGestureRecognizer(rightSwipe)
-        
-        // Set up Activity Indicator
-        activityIndicator.hidesWhenStopped = true
-        
         // Load Request
         var request = NSURLRequest(URL: url)
-        webView.loadRequest(request)
-        
+        webView!.loadRequest(request)
         
     }
-    
-    // handles webView Swipe
-    func webViewSwipe(sender:UISwipeGestureRecognizer) {
-        switch sender.direction {
-            /*
-            * Swipe Left => Go forward
-            * Swipe Right => Go back
-            */
-        case UISwipeGestureRecognizerDirection.Left:
-            println("Swipe Left")
-            if webView.canGoForward {
-                webView.goForward()
-            }
-        case UISwipeGestureRecognizerDirection.Right:
-            println("Swipe Right")
-            if webView.canGoBack {
-                webView.goBack()
-            }
-        default: break
-        }
-    }
-    
     
     /*********************/
-    /* UIWebViewDelegate */
+    /* WKWebViewDelegate */
     /*********************/
     
-    func webViewDidFinishLoad(webView: UIWebView) {
-        print("webViewDidFinishLoad is called")
-        activityIndicator.stopAnimating()
-    }
     
-    func webViewDidStartLoad(webView: UIWebView) {
-        println("webViewDidStartLoad is called")
-        activityIndicator.startAnimating()
-    }
-    
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        println("webView is called:")
-        println("-- \(request.URL!)")
-        println("-- \(navigationType.rawValue)")
-        return true
-    }
-
 }

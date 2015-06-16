@@ -15,32 +15,15 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cR8-vy-RnM">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DJL-LD-xcL">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cR8-vy-RnM" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="2nM-Wb-NJ5"/>
-                            <constraint firstItem="cR8-vy-RnM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="L6l-tN-2Gh"/>
-                            <constraint firstAttribute="trailing" secondItem="cR8-vy-RnM" secondAttribute="trailing" id="Mh6-mG-sU9"/>
-                            <constraint firstItem="cR8-vy-RnM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Q7i-vB-ejX"/>
-                            <constraint firstAttribute="centerY" secondItem="DJL-LD-xcL" secondAttribute="centerY" id="f7Z-n2-H2o"/>
-                            <constraint firstAttribute="centerX" secondItem="DJL-LD-xcL" secondAttribute="centerX" id="lhk-86-cMX"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="DJL-LD-xcL" id="5jM-fB-opN"/>
-                        <outlet property="webView" destination="cR8-vy-RnM" id="vO7-nP-T9y"/>
+                        <outlet property="containerView" destination="8bC-Xf-vdC" id="bde-UZ-KDo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="256" y="439"/>
         </scene>
     </scenes>
 </document>
