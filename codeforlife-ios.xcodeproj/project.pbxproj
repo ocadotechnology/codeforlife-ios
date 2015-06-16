@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
-		ED0BC5931B305D720060FC84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5921B305D720060FC84 /* ViewController.swift */; };
 		ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5941B305D720060FC84 /* Main.storyboard */; };
 		ED0BC5981B305D720060FC84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5971B305D720060FC84 /* Images.xcassets */; };
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
 		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
+		ED0BC5B31B3062E60060FC84 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +29,13 @@
 		ED0BC58B1B305D720060FC84 /* codeforlife-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codeforlife-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC58F1B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5901B305D720060FC84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED0BC5921B305D720060FC84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ED0BC5951B305D720060FC84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED0BC5971B305D720060FC84 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ED0BC59A1B305D720060FC84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ED0BC5A01B305D720060FC84 /* codeforlife-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "codeforlife-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
+		ED0BC5B21B3062E60060FC84 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +77,8 @@
 		ED0BC58D1B305D720060FC84 /* codeforlife-ios */ = {
 			isa = PBXGroup;
 			children = (
-				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
-				ED0BC5921B305D720060FC84 /* ViewController.swift */,
+				ED0BC5B21B3062E60060FC84 /* WebViewController.swift */,
 				ED0BC5941B305D720060FC84 /* Main.storyboard */,
-				ED0BC5971B305D720060FC84 /* Images.xcassets */,
-				ED0BC5991B305D720060FC84 /* LaunchScreen.xib */,
 				ED0BC58E1B305D720060FC84 /* Supporting Files */,
 			);
 			path = "codeforlife-ios";
@@ -90,6 +87,9 @@
 		ED0BC58E1B305D720060FC84 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED0BC5991B305D720060FC84 /* LaunchScreen.xib */,
+				ED0BC5971B305D720060FC84 /* Images.xcassets */,
+				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
 				ED0BC58F1B305D720060FC84 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED0BC5931B305D720060FC84 /* ViewController.swift in Sources */,
+				ED0BC5B31B3062E60060FC84 /* WebViewController.swift in Sources */,
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +411,7 @@
 				ED0BC5AC1B305D720060FC84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED0BC5AD1B305D720060FC84 /* Build configuration list for PBXNativeTarget "codeforlife-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				ED0BC5AF1B305D720060FC84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
