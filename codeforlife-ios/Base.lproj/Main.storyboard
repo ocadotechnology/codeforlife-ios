@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,15 +17,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z57-zZ-Fra">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z57-zZ-Fra">
+                                <rect key="frame" x="0.0" y="21" width="600" height="539"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="JAB-63-Oug"/>
                                 </connections>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vL3-ji-gE0">
+                                <rect key="frame" x="16" y="567" width="75" height="22"/>
+                                <state key="normal" title="Play" image="play.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OMY-I7-s6Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2z-Fq-ixz">
+                                <rect key="frame" x="99" y="567" width="75" height="22"/>
+                                <state key="normal" title="Stop" image="stop.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Prg-cA-TVk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adl-qi-UDY">
+                                <rect key="frame" x="504" y="567" width="75" height="22"/>
+                                <state key="normal" title="Clear" image="clear.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressClear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vlx-gU-AOs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6U-aB-Yzc">
+                                <rect key="frame" x="182" y="567" width="75" height="22"/>
+                                <state key="normal" title="Step" image="step.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressStepOver:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xpb-46-qCI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Adl-qi-UDY" secondAttribute="bottom" constant="11" id="2J6-jQ-XWB"/>
+                            <constraint firstItem="z57-zZ-Fra" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="1" id="3j4-yG-XiO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Adl-qi-UDY" secondAttribute="trailing" constant="5" id="ARo-yN-pA8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="K6U-aB-Yzc" secondAttribute="bottom" constant="11" id="C1d-JU-fsg"/>
+                            <constraint firstItem="K6U-aB-Yzc" firstAttribute="leading" secondItem="U2z-Fq-ixz" secondAttribute="trailing" constant="8" id="Hw5-En-Lj5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="U2z-Fq-ixz" secondAttribute="bottom" constant="11" id="ITc-aI-vMH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="z57-zZ-Fra" secondAttribute="bottom" constant="40" id="PC3-xn-afD"/>
+                            <constraint firstItem="U2z-Fq-ixz" firstAttribute="leading" secondItem="vL3-ji-gE0" secondAttribute="trailing" constant="8" id="YbO-Zt-Ilc"/>
+                            <constraint firstItem="vL3-ji-gE0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="m4B-RF-YAE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vL3-ji-gE0" secondAttribute="bottom" constant="11" id="sQq-FE-Z38"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="gameWebView" destination="z57-zZ-Fra" id="VlA-rc-xkj"/>
@@ -34,4 +87,10 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="clear.png" width="20" height="20"/>
+        <image name="play.png" width="20" height="20"/>
+        <image name="step.png" width="20" height="20"/>
+        <image name="stop.png" width="20" height="20"/>
+    </resources>
 </document>

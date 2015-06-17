@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1D560111B31EEDA006C8D54 /* clear-icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = D1D560101B31EEDA006C8D54 /* clear-icon.svg */; };
+		D1D560181B31FF97006C8D54 /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D560141B31FF97006C8D54 /* clear.png */; };
+		D1D560191B31FF97006C8D54 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D560151B31FF97006C8D54 /* play.png */; };
+		D1D5601A1B31FF97006C8D54 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D560161B31FF97006C8D54 /* stop.png */; };
+		D1D5601B1B31FF97006C8D54 /* step.png in Resources */ = {isa = PBXBuildFile; fileRef = D1D560171B31FF97006C8D54 /* step.png */; };
 		ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
 		ED0BC5931B305D720060FC84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5921B305D720060FC84 /* ViewController.swift */; };
 		ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5941B305D720060FC84 /* Main.storyboard */; };
@@ -26,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1D560101B31EEDA006C8D54 /* clear-icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "clear-icon.svg"; path = "codeforlife-ios/Resources/clear-icon.svg"; sourceTree = "<group>"; };
+		D1D560141B31FF97006C8D54 /* clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clear.png; path = "codeforlife-ios/Resources/clear.png"; sourceTree = "<group>"; };
+		D1D560151B31FF97006C8D54 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = "codeforlife-ios/Resources/play.png"; sourceTree = "<group>"; };
+		D1D560161B31FF97006C8D54 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop.png; path = "codeforlife-ios/Resources/stop.png"; sourceTree = "<group>"; };
+		D1D560171B31FF97006C8D54 /* step.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = step.png; path = "codeforlife-ios/Resources/step.png"; sourceTree = "<group>"; };
 		ED0BC58B1B305D720060FC84 /* codeforlife-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codeforlife-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC58F1B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5901B305D720060FC84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,9 +66,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1D5600F1B31EEC0006C8D54 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D1D560141B31FF97006C8D54 /* clear.png */,
+				D1D560151B31FF97006C8D54 /* play.png */,
+				D1D560161B31FF97006C8D54 /* stop.png */,
+				D1D560171B31FF97006C8D54 /* step.png */,
+				D1D560101B31EEDA006C8D54 /* clear-icon.svg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		ED0BC5821B305D720060FC84 = {
 			isa = PBXGroup;
 			children = (
+				D1D5600F1B31EEC0006C8D54 /* Resources */,
 				ED0BC58D1B305D720060FC84 /* codeforlife-ios */,
 				ED0BC5A31B305D720060FC84 /* codeforlife-iosTests */,
 				ED0BC58C1B305D720060FC84 /* Products */,
@@ -194,8 +217,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */,
+				D1D560111B31EEDA006C8D54 /* clear-icon.svg in Resources */,
+				D1D560181B31FF97006C8D54 /* clear.png in Resources */,
+				D1D5601A1B31FF97006C8D54 /* stop.png in Resources */,
 				ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */,
 				ED0BC5981B305D720060FC84 /* Images.xcassets in Resources */,
+				D1D560191B31FF97006C8D54 /* play.png in Resources */,
+				D1D5601B1B31FF97006C8D54 /* step.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
