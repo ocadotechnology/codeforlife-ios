@@ -77,22 +77,14 @@
 		ED0BC58D1B305D720060FC84 /* codeforlife-ios */ = {
 			isa = PBXGroup;
 			children = (
-				ED0BC5B21B3062E60060FC84 /* WebViewController.swift */,
+				EDFF14DE1B316EA900962C68 /* Controllers */,
 				ED0BC5941B305D720060FC84 /* Main.storyboard */,
-				ED0BC58E1B305D720060FC84 /* Supporting Files */,
-			);
-			path = "codeforlife-ios";
-			sourceTree = "<group>";
-		};
-		ED0BC58E1B305D720060FC84 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
 				ED0BC5991B305D720060FC84 /* LaunchScreen.xib */,
 				ED0BC5971B305D720060FC84 /* Images.xcassets */,
 				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
 				ED0BC58F1B305D720060FC84 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "codeforlife-ios";
 			sourceTree = "<group>";
 		};
 		ED0BC5A31B305D720060FC84 /* codeforlife-iosTests */ = {
@@ -110,6 +102,14 @@
 				ED0BC5A51B305D720060FC84 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDFF14DE1B316EA900962C68 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED0BC5B21B3062E60060FC84 /* WebViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
