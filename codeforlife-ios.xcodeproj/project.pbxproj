@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D4CA7DA51B31CFE400C09F74 /* ComandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DA41B31CFE400C09F74 /* ComandFactory.swift */; };
+		D4CA7DA71B31D05E00C09F74 /* CodeForLifeContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DA61B31D05E00C09F74 /* CodeForLifeContext.swift */; };
 		ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
-		ED0BC5931B305D720060FC84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5921B305D720060FC84 /* ViewController.swift */; };
 		ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5941B305D720060FC84 /* Main.storyboard */; };
 		ED0BC5981B305D720060FC84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5971B305D720060FC84 /* Images.xcassets */; };
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
 		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
-		EF41E369A94159C05C0D5C95 /* PlayCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41EBD4CD1D1496CA79E666 /* PlayCommand.swift */; };
-		EF41EB997CA39D5E2FFC0FD7 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41EF14B0DA510AC4863A4E /* Command.swift */; };
+		ED0BC5B31B3062E60060FC84 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* WebViewController.swift */; };
+		EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E7F0402D1DF38E4BA7F2 /* Level.swift */; };
+		EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41EF6A25333A3581240948 /* Command.swift */; };
+		EF41EA99727ABC5A5820353A /* WebViewLoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */; };
+		EF41EC23FA06F017C164A345 /* LoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E2129A80D9C91F236ACA /* LoadLevelCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,18 +33,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A870087E59B342A6EF1BED1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D4CA7DA41B31CFE400C09F74 /* ComandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComandFactory.swift; sourceTree = "<group>"; };
+		D4CA7DA61B31D05E00C09F74 /* CodeForLifeContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeForLifeContext.swift; sourceTree = "<group>"; };
+		D77FE0166D1735B9290ACD65 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D98E0ACB1B0824664611C8C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		ED0BC58B1B305D720060FC84 /* codeforlife-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codeforlife-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC58F1B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5901B305D720060FC84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED0BC5921B305D720060FC84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ED0BC5951B305D720060FC84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED0BC5971B305D720060FC84 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ED0BC59A1B305D720060FC84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ED0BC5A01B305D720060FC84 /* codeforlife-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "codeforlife-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
-		EF41EBD4CD1D1496CA79E666 /* PlayCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayCommand.swift; sourceTree = "<group>"; };
-		EF41EF14B0DA510AC4863A4E /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		ED0BC5B21B3062E60060FC84 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewLoadLevelCommand.swift; sourceTree = "<group>"; };
+		EF41E2129A80D9C91F236ACA /* LoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadLevelCommand.swift; sourceTree = "<group>"; };
+		EF41E7F0402D1DF38E4BA7F2 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		EF41EF6A25333A3581240948 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +73,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61C117FDD7A1D26AE44D9944 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D77FE0166D1735B9290ACD65 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2AF43A393D5AF94DEDD107C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D98E0ACB1B0824664611C8C0 /* Pods.debug.xcconfig */,
+				7A870087E59B342A6EF1BED1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ED0BC5821B305D720060FC84 = {
 			isa = PBXGroup;
 			children = (
 				ED0BC58D1B305D720060FC84 /* codeforlife-ios */,
 				ED0BC5A31B305D720060FC84 /* codeforlife-iosTests */,
 				ED0BC58C1B305D720060FC84 /* Products */,
+				C2AF43A393D5AF94DEDD107C /* Pods */,
+				61C117FDD7A1D26AE44D9944 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,23 +113,17 @@
 		ED0BC58D1B305D720060FC84 /* codeforlife-ios */ = {
 			isa = PBXGroup;
 			children = (
-				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
-				ED0BC5921B305D720060FC84 /* ViewController.swift */,
+				EF41E915F3D86464F05017BA /* Command */,
+				EF41E60503222496376BD198 /* Model */,
+				EDFF14DE1B316EA900962C68 /* Controllers */,
 				ED0BC5941B305D720060FC84 /* Main.storyboard */,
-				ED0BC5971B305D720060FC84 /* Images.xcassets */,
 				ED0BC5991B305D720060FC84 /* LaunchScreen.xib */,
-				ED0BC58E1B305D720060FC84 /* Supporting Files */,
-				EF41E4BEB88DF3C656E678DF /* Command */,
+				ED0BC5971B305D720060FC84 /* Images.xcassets */,
+				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
+				ED0BC58F1B305D720060FC84 /* Info.plist */,
+				D4CA7DA61B31D05E00C09F74 /* CodeForLifeContext.swift */,
 			);
 			path = "codeforlife-ios";
-			sourceTree = "<group>";
-		};
-		ED0BC58E1B305D720060FC84 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ED0BC58F1B305D720060FC84 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		ED0BC5A31B305D720060FC84 /* codeforlife-iosTests */ = {
@@ -117,11 +143,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EF41E4BEB88DF3C656E678DF /* Command */ = {
+		EDFF14DE1B316EA900962C68 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EF41EF14B0DA510AC4863A4E /* Command.swift */,
-				EF41EBD4CD1D1496CA79E666 /* PlayCommand.swift */,
+				ED0BC5B21B3062E60060FC84 /* WebViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EF41E4E3EAC1148C5AC6FCBE /* WebViewCommand */ = {
+			isa = PBXGroup;
+			children = (
+				EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */,
+			);
+			path = WebViewCommand;
+			sourceTree = "<group>";
+		};
+		EF41E60503222496376BD198 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF41E7F0402D1DF38E4BA7F2 /* Level.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF41E915F3D86464F05017BA /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				EF41EF6A25333A3581240948 /* Command.swift */,
+				EF41E2129A80D9C91F236ACA /* LoadLevelCommand.swift */,
+				EF41E4E3EAC1148C5AC6FCBE /* WebViewCommand */,
+				D4CA7DA41B31CFE400C09F74 /* ComandFactory.swift */,
 			);
 			path = Command;
 			sourceTree = "<group>";
@@ -133,9 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED0BC5AA1B305D720060FC84 /* Build configuration list for PBXNativeTarget "codeforlife-ios" */;
 			buildPhases = (
+				228301655C29CD40002A4D48 /* Check Pods Manifest.lock */,
 				ED0BC5871B305D720060FC84 /* Sources */,
 				ED0BC5881B305D720060FC84 /* Frameworks */,
 				ED0BC5891B305D720060FC84 /* Resources */,
+				6B0A2E8A54BBF6754D40DF7C /* Embed Pods Frameworks */,
+				BAA1180D204418E4679A6A4F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -221,15 +276,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		228301655C29CD40002A4D48 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6B0A2E8A54BBF6754D40DF7C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAA1180D204418E4679A6A4F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ED0BC5871B305D720060FC84 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED0BC5931B305D720060FC84 /* ViewController.swift in Sources */,
+				D4CA7DA51B31CFE400C09F74 /* ComandFactory.swift in Sources */,
+				ED0BC5B31B3062E60060FC84 /* WebViewController.swift in Sources */,
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
-				EF41EB997CA39D5E2FFC0FD7 /* Command.swift in Sources */,
-				EF41E369A94159C05C0D5C95 /* PlayCommand.swift in Sources */,
+				EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */,
+				EF41EC23FA06F017C164A345 /* LoadLevelCommand.swift in Sources */,
+				D4CA7DA71B31D05E00C09F74 /* CodeForLifeContext.swift in Sources */,
+				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
+				EF41EA99727ABC5A5820353A /* WebViewLoadLevelCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +463,7 @@
 		};
 		ED0BC5AB1B305D720060FC84 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D98E0ACB1B0824664611C8C0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "codeforlife-ios/Info.plist";
@@ -366,6 +474,7 @@
 		};
 		ED0BC5AC1B305D720060FC84 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A870087E59B342A6EF1BED1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "codeforlife-ios/Info.plist";
@@ -427,6 +536,7 @@
 				ED0BC5AC1B305D720060FC84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED0BC5AD1B305D720060FC84 /* Build configuration list for PBXNativeTarget "codeforlife-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +545,7 @@
 				ED0BC5AF1B305D720060FC84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

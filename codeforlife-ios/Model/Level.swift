@@ -5,6 +5,11 @@
 
 import Foundation
 
-protocol Command {
-    func excute<T>(response: T -> Void );
+class Level {
+    var number: Int;
+
+    init(number: Int){
+        self.number = number;
+    }
+
 }
