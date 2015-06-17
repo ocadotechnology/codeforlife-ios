@@ -13,6 +13,8 @@
 		ED0BC5981B305D720060FC84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5971B305D720060FC84 /* Images.xcassets */; };
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
 		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
+		EF41E369A94159C05C0D5C95 /* PlayCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41EBD4CD1D1496CA79E666 /* PlayCommand.swift */; };
+		EF41EB997CA39D5E2FFC0FD7 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41EF14B0DA510AC4863A4E /* Command.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		ED0BC5A01B305D720060FC84 /* codeforlife-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "codeforlife-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
+		EF41EBD4CD1D1496CA79E666 /* PlayCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayCommand.swift; sourceTree = "<group>"; };
+		EF41EF14B0DA510AC4863A4E /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				ED0BC5971B305D720060FC84 /* Images.xcassets */,
 				ED0BC5991B305D720060FC84 /* LaunchScreen.xib */,
 				ED0BC58E1B305D720060FC84 /* Supporting Files */,
+				EF41E4BEB88DF3C656E678DF /* Command */,
 			);
 			path = "codeforlife-ios";
 			sourceTree = "<group>";
@@ -110,6 +115,15 @@
 				ED0BC5A51B305D720060FC84 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF41E4BEB88DF3C656E678DF /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				EF41EF14B0DA510AC4863A4E /* Command.swift */,
+				EF41EBD4CD1D1496CA79E666 /* PlayCommand.swift */,
+			);
+			path = Command;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +228,8 @@
 			files = (
 				ED0BC5931B305D720060FC84 /* ViewController.swift in Sources */,
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
+				EF41EB997CA39D5E2FFC0FD7 /* Command.swift in Sources */,
+				EF41E369A94159C05C0D5C95 /* PlayCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
