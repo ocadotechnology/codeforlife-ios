@@ -16,6 +16,9 @@
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
 		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
 		ED0BC5B31B3062E60060FC84 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* WebViewController.swift */; };
+		ED1EB0671B32C09800A595EF /* BaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0631B32C09800A595EF /* BaseAction.swift */; };
+		ED1EB0681B32C09800A595EF /* TestBaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0641B32C09800A595EF /* TestBaseAction.swift */; };
+		ED1EB0691B32C09800A595EF /* CustomizedWKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */; };
 		EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E7F0402D1DF38E4BA7F2 /* Level.swift */; };
 		EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41EF6A25333A3581240948 /* Command.swift */; };
 		EF41EA99727ABC5A5820353A /* WebViewLoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */; };
@@ -48,6 +51,9 @@
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
 		ED0BC5B21B3062E60060FC84 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		ED1EB0631B32C09800A595EF /* BaseAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAction.swift; sourceTree = "<group>"; };
+		ED1EB0641B32C09800A595EF /* TestBaseAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBaseAction.swift; sourceTree = "<group>"; };
+		ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedWKDelegate.swift; sourceTree = "<group>"; };
 		EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewLoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E2129A80D9C91F236ACA /* LoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E7F0402D1DF38E4BA7F2 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 		ED0BC58D1B305D720060FC84 /* codeforlife-ios */ = {
 			isa = PBXGroup;
 			children = (
+				ED1EB0621B32C09800A595EF /* Actions */,
+				ED1EB0651B32C09800A595EF /* Delegates */,
 				EF41E915F3D86464F05017BA /* Command */,
 				EF41E60503222496376BD198 /* Model */,
 				EDFF14DE1B316EA900962C68 /* Controllers */,
@@ -141,6 +149,25 @@
 				ED0BC5A51B305D720060FC84 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED1EB0621B32C09800A595EF /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				ED1EB0631B32C09800A595EF /* BaseAction.swift */,
+				ED1EB0641B32C09800A595EF /* TestBaseAction.swift */,
+			);
+			name = Actions;
+			path = Command/Actions;
+			sourceTree = "<group>";
+		};
+		ED1EB0651B32C09800A595EF /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */,
+			);
+			name = Delegates;
+			path = Command/Delegates;
 			sourceTree = "<group>";
 		};
 		EDFF14DE1B316EA900962C68 /* Controllers */ = {
@@ -333,9 +360,12 @@
 				ED0BC5B31B3062E60060FC84 /* WebViewController.swift in Sources */,
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
 				EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */,
+				ED1EB0681B32C09800A595EF /* TestBaseAction.swift in Sources */,
+				ED1EB0671B32C09800A595EF /* BaseAction.swift in Sources */,
 				EF41EC23FA06F017C164A345 /* LoadLevelCommand.swift in Sources */,
 				D4CA7DA71B31D05E00C09F74 /* CodeForLifeContext.swift in Sources */,
 				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
+				ED1EB0691B32C09800A595EF /* CustomizedWKDelegate.swift in Sources */,
 				EF41EA99727ABC5A5820353A /* WebViewLoadLevelCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
