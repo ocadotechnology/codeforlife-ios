@@ -10,8 +10,9 @@ import UIKit
 import WebKit
 import SnapKit
 
-class WebViewController: UIViewController {
 
+class WebViewController: UIViewController {
+    
     @IBOutlet var containerView: UIView! = nil
     
     var webView: WKWebView? {
@@ -29,13 +30,6 @@ class WebViewController: UIViewController {
         return wkDelegate
     }
     
-    var url = NSURL(string:"http://localhost:8000/")!
-    
-    
-    /* Set up webView
-     * This function should be called right after super.loadView() to
-     * set up the webView as soon as possible
-     */
     private func setupWebView() {
         self.webView = WKWebView()
         self.webView!.allowsBackForwardNavigationGestures = true
@@ -53,7 +47,7 @@ class WebViewController: UIViewController {
         })
         
         // Load Request
-        var request = NSURLRequest(URL: url)
+        var request = NSURLRequest(URL: kCFLWebsiteURL!)
         webView!.loadRequest(request)
         
     }

@@ -10,6 +10,7 @@
 		B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4CA7DA51B31CFE400C09F74 /* ComandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DA41B31CFE400C09F74 /* ComandFactory.swift */; };
 		D4CA7DA71B31D05E00C09F74 /* CodeForLifeContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DA61B31D05E00C09F74 /* CodeForLifeContext.swift */; };
+		D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */; };
 		ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
 		ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5941B305D720060FC84 /* Main.storyboard */; };
 		ED0BC5981B305D720060FC84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5971B305D720060FC84 /* Images.xcassets */; };
@@ -39,6 +40,7 @@
 		7A870087E59B342A6EF1BED1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D4CA7DA41B31CFE400C09F74 /* ComandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComandFactory.swift; sourceTree = "<group>"; };
 		D4CA7DA61B31D05E00C09F74 /* CodeForLifeContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeForLifeContext.swift; sourceTree = "<group>"; };
+		D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		D77FE0166D1735B9290ACD65 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98E0ACB1B0824664611C8C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		ED0BC58B1B305D720060FC84 /* codeforlife-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codeforlife-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
 				ED0BC58F1B305D720060FC84 /* Info.plist */,
 				D4CA7DA61B31D05E00C09F74 /* CodeForLifeContext.swift */,
+				D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */,
 			);
 			path = "codeforlife-ios";
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				EF41EC23FA06F017C164A345 /* LoadLevelCommand.swift in Sources */,
 				D4CA7DA71B31D05E00C09F74 /* CodeForLifeContext.swift in Sources */,
 				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
+				D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */,
 				ED1EB0691B32C09800A595EF /* CustomizedWKDelegate.swift in Sources */,
 				EF41EA99727ABC5A5820353A /* WebViewLoadLevelCommand.swift in Sources */,
 			);

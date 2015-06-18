@@ -17,7 +17,7 @@ class WebViewLoadLevelCommand : LoadLevelCommand {
     override func excute<Level>(response: Level -> Void) {
         var urlStr = webView.URL!.absoluteString
         urlStr = urlStr?.stringByReplacingOccurrencesOfString(webView.URL!.relativePath!, withString: "")
-        urlStr = urlStr! + "/rapidrouter/\(level.number)";
+        urlStr = urlStr! + kCFLRapidRouter + "\(level.number)";
         var url = NSURL(string: urlStr!);
         
         var request = NSURLRequest(URL: url!);
