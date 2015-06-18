@@ -16,7 +16,7 @@
 		ED0BC5981B305D720060FC84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5971B305D720060FC84 /* Images.xcassets */; };
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
 		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
-		ED0BC5B31B3062E60060FC84 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* WebViewController.swift */; };
+		ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* GameViewController.swift */; };
 		ED1EB0671B32C09800A595EF /* BaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0631B32C09800A595EF /* BaseAction.swift */; };
 		ED1EB0681B32C09800A595EF /* TestBaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0641B32C09800A595EF /* TestBaseAction.swift */; };
 		ED1EB0691B32C09800A595EF /* CustomizedWKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */; };
@@ -53,7 +53,7 @@
 		ED0BC5A01B305D720060FC84 /* codeforlife-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "codeforlife-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
-		ED0BC5B21B3062E60060FC84 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		ED0BC5B21B3062E60060FC84 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ED1EB0631B32C09800A595EF /* BaseAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAction.swift; sourceTree = "<group>"; };
 		ED1EB0641B32C09800A595EF /* TestBaseAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBaseAction.swift; sourceTree = "<group>"; };
 		ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedWKDelegate.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		EDFF14DE1B316EA900962C68 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ED0BC5B21B3062E60060FC84 /* WebViewController.swift */,
+				ED0BC5B21B3062E60060FC84 /* GameViewController.swift */,
 				ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */,
 			);
 			path = Controllers;
@@ -361,7 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4CA7DA51B31CFE400C09F74 /* ComandFactory.swift in Sources */,
-				ED0BC5B31B3062E60060FC84 /* WebViewController.swift in Sources */,
+				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
 				ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */,
 				EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */,

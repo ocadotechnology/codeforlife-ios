@@ -11,7 +11,7 @@ import WebKit
 import SnapKit
 
 
-class WebViewController: UIViewController {
+class GameViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet var containerView: UIView! = nil
     
@@ -25,13 +25,16 @@ class WebViewController: UIViewController {
     
     var level: Int? {
         didSet {
-            updateUI()
+            if (self.isViewLoaded()) {
+                updateUI()
+            }
         }
     }
-    
+
     private func setupWebView() {
         self.webView = WKWebView()
         self.webView!.allowsBackForwardNavigationGestures = true
+        self.webView?.navigationDelegate = self
         
     }
     
@@ -40,7 +43,6 @@ class WebViewController: UIViewController {
         setupWebView()
         self.activityIndicator.hidesWhenStopped = true
         self.containerView.addSubview(self.webView!)
-        self.containerView.sendSubviewToBack(self.webView!)
         self.webView?.snp_makeConstraints({ (make) -> Void in
             make.edges.equalTo(self.containerView)
         })
@@ -48,6 +50,7 @@ class WebViewController: UIViewController {
     }
     
     private func updateUI() {
+        self.activityIndicator.startAnimating()
         if let requestedLevel = self.level {
             if let command = CommandFactory.loadLevelCommand(requestedLevel) {
                 command.excute() { (level: Level) -> Void in
@@ -55,6 +58,10 @@ class WebViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        self.activityIndicator.stopAnimating()
     }
     
 }

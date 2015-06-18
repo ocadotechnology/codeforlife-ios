@@ -51,7 +51,7 @@ class LevelTableViewController: UITableViewController {
 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let wvc = segue.destinationViewController as? WebViewController {
+        if let wvc = segue.destinationViewController as? GameViewController {
             if let identifier = segue.identifier {
                 switch identifier {
                 case kCFLLoadLevelSegueIdentifier:
