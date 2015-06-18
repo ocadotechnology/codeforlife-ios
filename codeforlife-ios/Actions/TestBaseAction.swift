@@ -8,10 +8,14 @@
 
 import Foundation
 
-class TestBaseAction: BaseAction {
+class TestBaseAction: Action {
     
     init() {
         super.init(url: "https://api.github.com/users/joeyynchan", httpMethod: "GET")
+    }
+    
+    override func processData(data: NSDictionary) {
+        showRequestDetails()
     }
     
 }

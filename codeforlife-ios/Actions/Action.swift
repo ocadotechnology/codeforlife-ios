@@ -12,14 +12,16 @@
 
 import Foundation
 
-class BaseAction {
+protocol ActionProtocol {
+    func processData(data: NSDictionary)
+}
+
+class Action : ActionProtocol {
     
     var url: String?
     var httpMethod: String?
     var params = [String: String]()
-    
-    var jsonResult: NSDictionary? { didSet { } }
-    var statusCode: Int? { didSet { showRequestDetails() } }
+    var delegate = ActionDelegate()
     
     init(url : String, httpMethod: String)
     {
@@ -27,7 +29,7 @@ class BaseAction {
         self.httpMethod = httpMethod
     }
     
-    private func prepareHttpRequest() -> NSMutableURLRequest {
+    func prepareHTTPRequest() -> NSMutableURLRequest {
         var request = NSMutableURLRequest(URL: NSURL(string: self.url!)!)
         request.HTTPMethod = self.httpMethod!
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -42,17 +44,8 @@ class BaseAction {
     
     func execute()
     {
-        var request = prepareHttpRequest()
-        var task = NSURLSession.sharedSession().dataTaskWithRequest(request) {(data, response, error) -> Void in
-            var err: NSError?
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
-            self.jsonResult = jsonResult
-            if let httpResponse = response as? NSHTTPURLResponse {
-                self.statusCode = httpResponse.statusCode
-            }
-        }
-        task.resume()
-        
+        var request = prepareHTTPRequest()
+        self.delegate.execute(request, processData: processData)
     }
     
     // Shows Request Detail in console
@@ -61,12 +54,10 @@ class BaseAction {
         println("===Request Detail===")
         println("  -- URL        : \(url)")
         println("  -- Method     : \(httpMethod)")
-        println("  -- Status Code: \(statusCode)")
-        println("  -- Data       : \(jsonResult)")
     }
     
-    func processJSONData() {
-        
+    func processData(data: NSDictionary) {
+        NSException(name: "Impelement processData for \(self)", reason: "" , userInfo: nil).raise()
     }
     
 }

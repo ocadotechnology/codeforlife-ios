@@ -17,10 +17,14 @@
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
 		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
 		ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* GameViewController.swift */; };
-		ED1EB0671B32C09800A595EF /* BaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0631B32C09800A595EF /* BaseAction.swift */; };
+		ED1EB0671B32C09800A595EF /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0631B32C09800A595EF /* Action.swift */; };
 		ED1EB0681B32C09800A595EF /* TestBaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0641B32C09800A595EF /* TestBaseAction.swift */; };
 		ED1EB0691B32C09800A595EF /* CustomizedWKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */; };
 		ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */; };
+		ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */; };
+		ED1EB0711B331A2800A595EF /* FetchLevelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0701B331A2800A595EF /* FetchLevelAction.swift */; };
+		ED1EB0731B331B7100A595EF /* FetchLevelsActionMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */; };
+		ED1EB0751B331C7100A595EF /* APIActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */; };
 		EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E7F0402D1DF38E4BA7F2 /* Level.swift */; };
 		EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41EF6A25333A3581240948 /* Command.swift */; };
 		EF41EA99727ABC5A5820353A /* WebViewLoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */; };
@@ -54,10 +58,14 @@
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
 		ED0BC5B21B3062E60060FC84 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		ED1EB0631B32C09800A595EF /* BaseAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAction.swift; sourceTree = "<group>"; };
+		ED1EB0631B32C09800A595EF /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		ED1EB0641B32C09800A595EF /* TestBaseAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBaseAction.swift; sourceTree = "<group>"; };
 		ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedWKDelegate.swift; sourceTree = "<group>"; };
 		ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableViewController.swift; sourceTree = "<group>"; };
+		ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
+		ED1EB0701B331A2800A595EF /* FetchLevelAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelAction.swift; sourceTree = "<group>"; };
+		ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelsActionMockDelegate.swift; sourceTree = "<group>"; };
+		ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIActionDelegate.swift; sourceTree = "<group>"; };
 		EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewLoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E2129A80D9C91F236ACA /* LoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E7F0402D1DF38E4BA7F2 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -159,8 +167,12 @@
 		ED1EB0621B32C09800A595EF /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				ED1EB0631B32C09800A595EF /* BaseAction.swift */,
+				ED1EB0631B32C09800A595EF /* Action.swift */,
+				ED1EB0701B331A2800A595EF /* FetchLevelAction.swift */,
 				ED1EB0641B32C09800A595EF /* TestBaseAction.swift */,
+				ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */,
+				ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */,
+				ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -365,11 +377,15 @@
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
 				ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */,
 				EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */,
+				ED1EB0711B331A2800A595EF /* FetchLevelAction.swift in Sources */,
+				ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */,
 				ED1EB0681B32C09800A595EF /* TestBaseAction.swift in Sources */,
-				ED1EB0671B32C09800A595EF /* BaseAction.swift in Sources */,
+				ED1EB0671B32C09800A595EF /* Action.swift in Sources */,
 				EF41EC23FA06F017C164A345 /* LoadLevelCommand.swift in Sources */,
+				ED1EB0731B331B7100A595EF /* FetchLevelsActionMockDelegate.swift in Sources */,
 				D4CA7DA71B31D05E00C09F74 /* CodeForLifeContext.swift in Sources */,
 				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
+				ED1EB0751B331C7100A595EF /* APIActionDelegate.swift in Sources */,
 				D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */,
 				ED1EB0691B32C09800A595EF /* CustomizedWKDelegate.swift in Sources */,
 				EF41EA99727ABC5A5820353A /* WebViewLoadLevelCommand.swift in Sources */,

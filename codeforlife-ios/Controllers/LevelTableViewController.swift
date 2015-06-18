@@ -20,8 +20,7 @@ class LevelTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.levels = fetchLevels()
-        
+        FetchLevelsAction(viewController: self).execute()
     }
     
     func fetchLevels() -> [[Level]] {
