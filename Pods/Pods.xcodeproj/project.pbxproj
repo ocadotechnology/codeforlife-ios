@@ -264,6 +264,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
+				TargetAttributes = {
+					95A4B0FC4E3481EE9D20E757 = {
+						DevelopmentTeam = N7ZF4N38C3;
+					};
+				};
 			};
 			buildConfigurationList = 8F940D525B0D19673D49A2BC /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -367,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B3ED08CE42CE75BF280D60FF /* Pods-SnapKit-Private.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -382,6 +388,7 @@
 				MODULEMAP_FILE = "Target Support Files/Pods-SnapKit/Pods-SnapKit.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = SnapKit;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -487,6 +494,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B3ED08CE42CE75BF280D60FF /* Pods-SnapKit-Private.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -502,6 +510,7 @@
 				MODULEMAP_FILE = "Target Support Files/Pods-SnapKit/Pods-SnapKit.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = SnapKit;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
