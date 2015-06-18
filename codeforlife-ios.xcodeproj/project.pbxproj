@@ -120,8 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				ED1EB0621B32C09800A595EF /* Actions */,
-				ED1EB0651B32C09800A595EF /* Delegates */,
 				EF41E915F3D86464F05017BA /* Command */,
+				ED1EB0651B32C09800A595EF /* Delegates */,
 				EF41E60503222496376BD198 /* Model */,
 				EDFF14DE1B316EA900962C68 /* Controllers */,
 				ED0BC5941B305D720060FC84 /* Main.storyboard */,
@@ -157,8 +157,7 @@
 				ED1EB0631B32C09800A595EF /* BaseAction.swift */,
 				ED1EB0641B32C09800A595EF /* TestBaseAction.swift */,
 			);
-			name = Actions;
-			path = Command/Actions;
+			path = Actions;
 			sourceTree = "<group>";
 		};
 		ED1EB0651B32C09800A595EF /* Delegates */ = {
@@ -166,8 +165,7 @@
 			children = (
 				ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */,
 			);
-			name = Delegates;
-			path = Command/Delegates;
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		EDFF14DE1B316EA900962C68 /* Controllers */ = {
