@@ -15,47 +15,45 @@ class WebViewController: UIViewController {
     
     @IBOutlet var containerView: UIView! = nil
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var webView: WKWebView? {
         didSet {
             CodeForLifeContext.webView = webView
         }
     }
     
-    var wkDelegate = CustomizedWKDelegate(verbal: false)
-    
-    var uiDelegate: WKUIDelegate {
-        return wkDelegate
-    }
-    var nvDelegate: WKNavigationDelegate {
-        return wkDelegate
+    var level: Int? {
+        didSet {
+            updateUI()
+        }
     }
     
     private func setupWebView() {
         self.webView = WKWebView()
         self.webView!.allowsBackForwardNavigationGestures = true
-        self.webView!.navigationDelegate = nvDelegate
-        self.webView!.UIDelegate = uiDelegate
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        self.containerView.addSubview(self.webView!);
+        self.activityIndicator.hidesWhenStopped = true
+        self.containerView.addSubview(self.webView!)
+        self.containerView.sendSubviewToBack(self.webView!)
         self.webView?.snp_makeConstraints({ (make) -> Void in
             make.edges.equalTo(self.containerView)
         })
-        
-        // Load Request
-        var request = NSURLRequest(URL: kCFLWebsiteURL!)
-        webView!.loadRequest(request)
-        
+        updateUI()
     }
     
-    @IBAction func didLoadlLevelTouch(sender: UIButton) {
-        var command:LoadLevelCommand = CommandFactory.loadLevelCommand(1)!;
-        command.excute() { (level: Level) -> Void in
-             println("Level \(level.number) loaded")
+    private func updateUI() {
+        if let requestedLevel = self.level {
+            if let command = CommandFactory.loadLevelCommand(requestedLevel) {
+                command.excute() { (level: Level) -> Void in
+                    println("Level \(level.number) loaded")
+                }
+            }
         }
     }
     
