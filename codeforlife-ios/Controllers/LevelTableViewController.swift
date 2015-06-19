@@ -34,6 +34,12 @@ class LevelTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return levels[section].count
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var indexPath = tableView.indexPathForSelectedRow()!
+        var level = levels[indexPath.section][indexPath.row]
+        performSegueWithIdentifier("LoadLevel", sender: self)
+    }
 
     private struct Storyboard {
         static let CellReuseIdentifier = "Level"
@@ -50,14 +56,26 @@ class LevelTableViewController: UITableViewController {
 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let wvc = segue.destinationViewController as? GameViewController {
+//        if let wvc = segue.destinationViewController as? GameViewController {
+//            if let identifier = segue.identifier {
+//                switch identifier {
+//                case kCFLLoadLevelSegueIdentifier:
+//                    var indexPath = tableView.indexPathForSelectedRow()!
+//                    var level = levels[indexPath.section][indexPath.row]
+//                    wvc.level = level.number
+//                default: break
+//                }
+//            }
+//        }
+        println(segue.destinationViewController)
+        if let gmvc = segue.destinationViewController as? GameViewController {
             if let identifier = segue.identifier {
                 switch identifier {
-                case kCFLLoadLevelSegueIdentifier:
-                    var indexPath = tableView.indexPathForSelectedRow()!
-                    var level = levels[indexPath.section][indexPath.row]
-                    wvc.level = level.number
-                default: break
+                    case kCFLLoadLevelSegueIdentifier:
+                        var indexPath = tableView.indexPathForSelectedRow()!
+                        var level = levels[indexPath.section][indexPath.row]
+                        gmvc.level = level.number
+                    default: break
                 }
             }
         }

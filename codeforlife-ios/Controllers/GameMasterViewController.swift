@@ -1,23 +1,19 @@
 //
-//  GameMenuViewController.swift
+//  GameMasterViewController.swift
 //  codeforlife-ios
 //
-//  Created by Joey Chan on 18/06/2015.
+//  Created by Joey Chan on 19/06/2015.
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
 import UIKit
 
-class GameViewController: UISplitViewController {
-    
-    var level : Int?
+class GameMasterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let detailViewController = self.viewControllers.last as? GameDetailViewController {
-            detailViewController.level = self.level
-        }
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
