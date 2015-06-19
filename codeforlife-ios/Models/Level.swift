@@ -7,11 +7,12 @@ import Foundation
 
 class Level {
     
-    var number: Int;
+    var number: Int? = 0
     var description: String?
 
-    init(number: Int){
-        self.number = number;
+    init(number: Int, description: String){
+        self.number = number
+        self.description = description
     }
 
 }

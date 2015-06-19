@@ -17,13 +17,9 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDele
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var webView: WKWebView? {
-        didSet {
-            CodeForLifeContext.webView = webView
-        }
-    }
+    var webView: WKWebView?
     
-    var level: Int? {
+    var level: Level? {
         didSet {
             if (self.isViewLoaded()) {
                 updateUI()
@@ -35,6 +31,9 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDele
         self.webView = WKWebView()
         self.webView?.navigationDelegate = self
         self.webView?.UIDelegate = self
+        self.webView?.scrollView.maximumZoomScale = 1.0
+        self.webView?.scrollView.minimumZoomScale = 1.0
+        self.webView?.multipleTouchEnabled = false
     }
     
     override func viewDidLoad() {
@@ -51,11 +50,7 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDele
     private func updateUI() {
         self.activityIndicator.startAnimating()
         if let requestedLevel = self.level {
-            if let command = CommandFactory.loadLevelCommand(requestedLevel) {
-                command.execute() { (level: Level) -> Void in
-                    println("Level \(level.number) loaded")
-                }
-            }
+            GVLoadLevelCommand(level: requestedLevel, webView: webView!).execute {}
         }
     }
     

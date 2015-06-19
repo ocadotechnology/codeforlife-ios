@@ -6,22 +6,22 @@
 import Foundation
 import WebKit
 
-class WebViewLoadLevelCommand : LoadLevelCommand {
-    var webView: WKWebView
+class GVLoadLevelCommand : LoadLevelCommand {
+    
+    var webView: WKWebView?
 
-    init(levelNumber: Int, webView: WKWebView) {
+    init(level: Level, webView: WKWebView) {
+        super.init(level: level)
         self.webView = webView
-        super.init(levelNumber: levelNumber)
     }
 
     override func execute<Level>(response: Level -> Void) {
-        var urlStr = kCFLDomain + kCFLRapidRouter + "\(level.number)";
+        var urlStr = kCFLDomain + kCFLRapidRouter + "\(level.number!)";
+        println(urlStr)
         var url = NSURL(string: urlStr);
         
         var request = NSURLRequest(URL: url!);
-        webView.loadRequest(request)
-
-        response(level as! Level)
+        webView!.loadRequest(request)
     }
 }
 

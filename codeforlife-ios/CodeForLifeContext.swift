@@ -11,5 +11,5 @@ import Foundation
 import WebKit
 
 struct CodeForLifeContext {
-    static var webView: WKWebView? = nil;
+    //static var webView: WKWebView? = nil;
 }

@@ -14,6 +14,7 @@ import Foundation
 
 protocol ActionProtocol {
     func processData(data: NSDictionary)
+    func switchToMock() -> Action?
 }
 
 class Action : ActionProtocol {
@@ -58,6 +59,10 @@ class Action : ActionProtocol {
     
     func processData(data: NSDictionary) {
         NSException(name: "Impelement processData for \(self)", reason: "" , userInfo: nil).raise()
+    }
+    
+    func switchToMock() -> Action? {
+        return nil
     }
     
 }

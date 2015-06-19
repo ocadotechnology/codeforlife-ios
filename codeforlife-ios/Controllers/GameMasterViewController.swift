@@ -32,6 +32,7 @@ class GameMasterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor=UIColor(red: 160/255.0, green: 213/255.0, blue: 58/255.0, alpha: 1.0)
     }
 
     @IBAction func blockly() {

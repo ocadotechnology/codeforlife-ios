@@ -10,7 +10,9 @@ import UIKit
 
 class GameViewController: UISplitViewController {
     
-    var level : Int?
+    let MasterViewWidth = 70.0 as Float
+    
+    var level : Level?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,7 @@ class GameViewController: UISplitViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        setMasterViewWidth(50.0)
+        setMasterViewWidth(MasterViewWidth)
     }
     
     private func setupGameViews() {
@@ -34,6 +36,12 @@ class GameViewController: UISplitViewController {
     
     private func setMasterViewWidth(width: Float) {
         self.setValue(NSNumber(float: width), forKey: "_masterColumnWidth")
+    }
+    
+    func loadGameRequest(request: NSURLRequest) {
+        if let detailViewController = self.viewControllers.last as? GameDetailViewController {
+            detailViewController.webView?.loadRequest(request)
+        }
     }
 
 }

@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		D4CA7DA51B31CFE400C09F74 /* ComandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DA41B31CFE400C09F74 /* ComandFactory.swift */; };
 		D4CA7DA71B31D05E00C09F74 /* CodeForLifeContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DA61B31D05E00C09F74 /* CodeForLifeContext.swift */; };
 		D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */; };
+		ED0A770A1B34560600267191 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0A77091B34560600267191 /* LabelTableViewCell.swift */; };
 		ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
 		ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5941B305D720060FC84 /* Main.storyboard */; };
 		ED0BC5981B305D720060FC84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5971B305D720060FC84 /* Images.xcassets */; };
@@ -21,7 +21,7 @@
 		ED1EB0691B32C09800A595EF /* CustomizedWKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */; };
 		ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */; };
 		ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */; };
-		ED1EB0711B331A2800A595EF /* FetchLevelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0701B331A2800A595EF /* FetchLevelAction.swift */; };
+		ED1EB0711B331A2800A595EF /* FetchLevelsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0701B331A2800A595EF /* FetchLevelsAction.swift */; };
 		ED1EB0731B331B7100A595EF /* FetchLevelsActionMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */; };
 		ED1EB0751B331C7100A595EF /* APIActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */; };
 		ED1EB0771B33242900A595EF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0761B33242900A595EF /* GameViewController.swift */; };
@@ -41,7 +41,7 @@
 		ED236EB81B34268B00B63380 /* JavaScriptConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EB71B34268B00B63380 /* JavaScriptConstants.swift */; };
 		EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E7F0402D1DF38E4BA7F2 /* Level.swift */; };
 		EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41EF6A25333A3581240948 /* Command.swift */; };
-		EF41EA99727ABC5A5820353A /* WebViewLoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */; };
+		EF41EA99727ABC5A5820353A /* GVLoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */; };
 		EF41EC23FA06F017C164A345 /* LoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E2129A80D9C91F236ACA /* LoadLevelCommand.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,11 +57,11 @@
 
 /* Begin PBXFileReference section */
 		7A870087E59B342A6EF1BED1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		D4CA7DA41B31CFE400C09F74 /* ComandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComandFactory.swift; sourceTree = "<group>"; };
 		D4CA7DA61B31D05E00C09F74 /* CodeForLifeContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeForLifeContext.swift; sourceTree = "<group>"; };
 		D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		D77FE0166D1735B9290ACD65 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98E0ACB1B0824664611C8C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		ED0A77091B34560600267191 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		ED0BC58B1B305D720060FC84 /* codeforlife-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codeforlife-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC58F1B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5901B305D720060FC84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,8 +76,8 @@
 		ED1EB0661B32C09800A595EF /* CustomizedWKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedWKDelegate.swift; sourceTree = "<group>"; };
 		ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableViewController.swift; sourceTree = "<group>"; };
 		ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
-		ED1EB0701B331A2800A595EF /* FetchLevelAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelAction.swift; sourceTree = "<group>"; };
-		ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelsActionMockDelegate.swift; sourceTree = "<group>"; };
+		ED1EB0701B331A2800A595EF /* FetchLevelsAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelsAction.swift; sourceTree = "<group>"; };
+		ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchLevelsActionMockDelegate.swift; path = ../FetchLevelsActionMockDelegate.swift; sourceTree = "<group>"; };
 		ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIActionDelegate.swift; sourceTree = "<group>"; };
 		ED1EB0761B33242900A595EF /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ED236E991B33FC7600B63380 /* GameMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMasterViewController.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		ED236EB31B3422F100B63380 /* GVQuitCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVQuitCommand.swift; sourceTree = "<group>"; };
 		ED236EB51B34244A00B63380 /* GVBlocklyCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVBlocklyCommand.swift; sourceTree = "<group>"; };
 		ED236EB71B34268B00B63380 /* JavaScriptConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JavaScriptConstants.swift; sourceTree = "<group>"; };
-		EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewLoadLevelCommand.swift; sourceTree = "<group>"; };
+		EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GVLoadLevelCommand.swift; path = WebViewCommand/GVLoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E2129A80D9C91F236ACA /* LoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E7F0402D1DF38E4BA7F2 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		EF41EF6A25333A3581240948 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
@@ -136,6 +136,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		ED0A77011B344E5900267191 /* APIDelegates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIDelegates;
+			sourceTree = "<group>";
+		};
+		ED0A77021B344E6800267191 /* MockDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */,
+			);
+			path = MockDelegates;
+			sourceTree = "<group>";
+		};
+		ED0A77051B34553000267191 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED0A77091B34560600267191 /* LabelTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		ED0BC5821B305D720060FC84 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +188,7 @@
 				EF41E60503222496376BD198 /* Models */,
 				EDFF14DE1B316EA900962C68 /* Controllers */,
 				ED0BC5941B305D720060FC84 /* Main.storyboard */,
+				ED0A77051B34553000267191 /* Views */,
 				ED0BC5991B305D720060FC84 /* LaunchScreen.xib */,
 				ED0BC5971B305D720060FC84 /* Images.xcassets */,
 				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
@@ -197,10 +221,11 @@
 			isa = PBXGroup;
 			children = (
 				ED1EB0631B32C09800A595EF /* Action.swift */,
-				ED1EB0701B331A2800A595EF /* FetchLevelAction.swift */,
 				ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */,
-				ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */,
 				ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */,
+				ED1EB0701B331A2800A595EF /* FetchLevelsAction.swift */,
+				ED0A77021B344E6800267191 /* MockDelegates */,
+				ED0A77011B344E5900267191 /* APIDelegates */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -243,14 +268,6 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		EF41E4E3EAC1148C5AC6FCBE /* WebViewCommand */ = {
-			isa = PBXGroup;
-			children = (
-				EF41E082E4588ED15570D506 /* WebViewLoadLevelCommand.swift */,
-			);
-			path = WebViewCommand;
-			sourceTree = "<group>";
-		};
 		EF41E60503222496376BD198 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,10 +280,9 @@
 			isa = PBXGroup;
 			children = (
 				EF41EF6A25333A3581240948 /* Command.swift */,
-				D4CA7DA41B31CFE400C09F74 /* ComandFactory.swift */,
-				ED236EA11B341CF800B63380 /* GameViewCommands */,
 				EF41E2129A80D9C91F236ACA /* LoadLevelCommand.swift */,
-				EF41E4E3EAC1148C5AC6FCBE /* WebViewCommand */,
+				EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */,
+				ED236EA11B341CF800B63380 /* GameViewCommands */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -323,6 +339,7 @@
 				TargetAttributes = {
 					ED0BC58A1B305D720060FC84 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = N7ZF4N38C3;
 					};
 					ED0BC59F1B305D720060FC84 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -422,7 +439,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4CA7DA51B31CFE400C09F74 /* ComandFactory.swift in Sources */,
 				ED236EB41B3422F100B63380 /* GVQuitCommand.swift in Sources */,
 				ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */,
 				ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */,
@@ -434,7 +450,7 @@
 				ED236EAA1B3422B400B63380 /* GVStepCommand.swift in Sources */,
 				EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */,
 				ED236EB61B34244A00B63380 /* GVBlocklyCommand.swift in Sources */,
-				ED1EB0711B331A2800A595EF /* FetchLevelAction.swift in Sources */,
+				ED1EB0711B331A2800A595EF /* FetchLevelsAction.swift in Sources */,
 				ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */,
 				ED1EB0671B32C09800A595EF /* Action.swift in Sources */,
 				ED236EA81B3422AC00B63380 /* GVStopCommand.swift in Sources */,
@@ -445,6 +461,7 @@
 				ED236EB01B3422C900B63380 /* GVHelpCommand.swift in Sources */,
 				D4CA7DA71B31D05E00C09F74 /* CodeForLifeContext.swift in Sources */,
 				ED236E9C1B3415E500B63380 /* GVPlayCommand.swift in Sources */,
+				ED0A770A1B34560600267191 /* LabelTableViewCell.swift in Sources */,
 				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
 				ED1EB0751B331C7100A595EF /* APIActionDelegate.swift in Sources */,
 				ED236E9A1B33FC7600B63380 /* GameMasterViewController.swift in Sources */,
@@ -452,7 +469,7 @@
 				ED236EB21B3422D800B63380 /* GVMuteCommand.swift in Sources */,
 				ED236EB81B34268B00B63380 /* JavaScriptConstants.swift in Sources */,
 				ED1EB0691B32C09800A595EF /* CustomizedWKDelegate.swift in Sources */,
-				EF41EA99727ABC5A5820353A /* WebViewLoadLevelCommand.swift in Sources */,
+				EF41EA99727ABC5A5820353A /* GVLoadLevelCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,9 +599,14 @@
 			baseConfigurationReference = D98E0ACB1B0824664611C8C0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "codeforlife-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -593,9 +615,13 @@
 			baseConfigurationReference = 7A870087E59B342A6EF1BED1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "codeforlife-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

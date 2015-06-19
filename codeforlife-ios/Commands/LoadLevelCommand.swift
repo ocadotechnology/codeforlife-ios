@@ -6,14 +6,15 @@
 import Foundation
 
 class LoadLevelCommand : Command {
+    
     var level: Level;
-
-    convenience init() {
-       self.init(levelNumber: 0)
+    
+    init(level: Level) {
+        self.level = level;
     }
 
-    init(levelNumber: Int) {
-        self.level = Level(number: levelNumber)
+    convenience init(levelNumber: Int, description: String) {
+        self.init(level: Level(number: levelNumber, description: description))
     }
     
     func execute<Level>(response: Level -> Void) {

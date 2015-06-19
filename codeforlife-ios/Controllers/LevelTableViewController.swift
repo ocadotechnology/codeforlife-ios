@@ -27,9 +27,9 @@ class LevelTableViewController: UITableViewController {
         FetchLevelsAction(viewController: self).execute()
     }
     
-    func fetchLevels() -> [[Level]] {
-        return [[Level(number: 1),Level(number: 2),Level(number: 3)],[Level(number: 4), Level(number: 5), Level(number: 6)]]
-    }
+//    func fetchLevels() -> [[Level]] {
+//        return [[Level(number: 1),Level(number: 2),Level(number: 3)],[Level(number: 4), Level(number: 5), Level(number: 6)]]
+//    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return levels.count
@@ -47,9 +47,10 @@ class LevelTableViewController: UITableViewController {
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
         let level = levels[indexPath.section][indexPath.row]
-        cell.textLabel!.text = "Level \(level.number)"
+        cell.numberLabel.text =  "Level \(level.number!)"
+        cell.descriptionLabel.text = level.description
         return cell
     }
 
@@ -60,7 +61,7 @@ class LevelTableViewController: UITableViewController {
                     case kCFLLoadLevelSegueIdentifier:
                         var indexPath = tableView.indexPathForSelectedRow()!
                         var level = levels[indexPath.section][indexPath.row]
-                        gameViewController.level = level.number
+                        gameViewController.level = level
                     default: break
                 }
             }
