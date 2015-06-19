@@ -14,7 +14,16 @@ class GameViewController: UISplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupGameViews()
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        setMasterViewWidth(50.0)
+    }
+    
+    private func setupGameViews() {
         if let detailViewController = self.viewControllers.last as? GameDetailViewController {
             detailViewController.level = self.level
             if let masterViewController = self.viewControllers.first as? GameMasterViewController {
@@ -22,21 +31,9 @@ class GameViewController: UISplitViewController {
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setMasterViewWidth(width: Float) {
+        self.setValue(NSNumber(float: width), forKey: "_masterColumnWidth")
     }
-    */
 
 }
