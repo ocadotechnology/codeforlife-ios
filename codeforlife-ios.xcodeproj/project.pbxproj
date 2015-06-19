@@ -24,8 +24,6 @@
 		ED1EB0711B331A2800A595EF /* FetchLevelsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0701B331A2800A595EF /* FetchLevelsAction.swift */; };
 		ED1EB0731B331B7100A595EF /* FetchLevelsActionMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */; };
 		ED1EB0751B331C7100A595EF /* APIActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */; };
-		ED1EB0771B33242900A595EF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0761B33242900A595EF /* GameViewController.swift */; };
-		ED236E9A1B33FC7600B63380 /* GameMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E991B33FC7600B63380 /* GameMasterViewController.swift */; };
 		ED236E9C1B3415E500B63380 /* GVPlayCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E9B1B3415E500B63380 /* GVPlayCommand.swift */; };
 		ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */; };
 		ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EA31B341E9F00B63380 /* GameViewCommand.swift */; };
@@ -79,8 +77,6 @@
 		ED1EB0701B331A2800A595EF /* FetchLevelsAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelsAction.swift; sourceTree = "<group>"; };
 		ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchLevelsActionMockDelegate.swift; path = ../FetchLevelsActionMockDelegate.swift; sourceTree = "<group>"; };
 		ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIActionDelegate.swift; sourceTree = "<group>"; };
-		ED1EB0761B33242900A595EF /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		ED236E991B33FC7600B63380 /* GameMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMasterViewController.swift; sourceTree = "<group>"; };
 		ED236E9B1B3415E500B63380 /* GVPlayCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVPlayCommand.swift; sourceTree = "<group>"; };
 		ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GVJavaScriptCommand.swift; path = "codeforlife-ios/Commands/GameViewCommands/GVJavaScriptCommand.swift"; sourceTree = SOURCE_ROOT; };
 		ED236EA31B341E9F00B63380 /* GameViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCommand.swift; sourceTree = "<group>"; };
@@ -260,8 +256,6 @@
 		EDFF14DE1B316EA900962C68 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ED236E991B33FC7600B63380 /* GameMasterViewController.swift */,
-				ED1EB0761B33242900A595EF /* GameViewController.swift */,
 				ED0BC5B21B3062E60060FC84 /* GameDetailViewController.swift */,
 				ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */,
 			);
@@ -455,7 +449,6 @@
 				ED1EB0671B32C09800A595EF /* Action.swift in Sources */,
 				ED236EA81B3422AC00B63380 /* GVStopCommand.swift in Sources */,
 				ED236EA61B3422A100B63380 /* GVClearCommand.swift in Sources */,
-				ED1EB0771B33242900A595EF /* GameViewController.swift in Sources */,
 				EF41EC23FA06F017C164A345 /* LoadLevelCommand.swift in Sources */,
 				ED1EB0731B331B7100A595EF /* FetchLevelsActionMockDelegate.swift in Sources */,
 				ED236EB01B3422C900B63380 /* GVHelpCommand.swift in Sources */,
@@ -464,7 +457,6 @@
 				ED0A770A1B34560600267191 /* LabelTableViewCell.swift in Sources */,
 				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
 				ED1EB0751B331C7100A595EF /* APIActionDelegate.swift in Sources */,
-				ED236E9A1B33FC7600B63380 /* GameMasterViewController.swift in Sources */,
 				D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */,
 				ED236EB21B3422D800B63380 /* GVMuteCommand.swift in Sources */,
 				ED236EB81B34268B00B63380 /* JavaScriptConstants.swift in Sources */,

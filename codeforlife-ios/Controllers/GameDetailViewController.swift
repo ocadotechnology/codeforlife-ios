@@ -67,6 +67,47 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDele
         }
     }
     
+    @IBAction func blockly() {
+        GVBlocklyCommand(gameView: webView!).execute {}
+    }
+    
+    @IBAction func clear() {
+        GVClearCommand(gameView: webView!).execute {}
+    }
+    
+    
+    @IBAction func play() {
+        GVPlayCommand(gameView: webView!).execute {}
+    }
+    
+    @IBAction func stop() {
+        GVStopCommand(gameView: webView!).execute {}
+    }
+    
+    @IBAction func step() {
+        GVStepCommand(gameView: webView!).execute {}
+    }
+    
+    @IBAction func load() {
+        GVLoadCommand(gameView: webView!).execute {}
+    }
+    
+    @IBAction func save() {
+        GVSaveCommand(gameView: webView!).execute {}
+    }
+    
+    @IBAction func help() {
+        GVHelpCommand(gameView: webView!).execute {}
+    }
+    
+    @IBAction func mute() {
+        GVMuteCommand(gameView: webView!).execute {}
+    }
+    
+    @IBAction func quit() {
+        GVQuitCommand(gameView: webView!).execute {}
+    }
+    
     private func removeGameDetailViewTabMenu(){
         runJavaScript(
             "document.getElementById('tabs').style.width = '0px';" +
