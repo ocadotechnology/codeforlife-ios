@@ -5,7 +5,6 @@
 
 import Foundation
 
-class PlayCommand : Command {
-    
-
+protocol Command {
+    func execute<T>(response: T -> Void );
 }

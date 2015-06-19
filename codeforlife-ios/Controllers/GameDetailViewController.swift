@@ -11,7 +11,7 @@ import WebKit
 import SnapKit
 
 
-class GameDetailViewController: UIViewController, WKNavigationDelegate {
+class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     @IBOutlet var containerView: UIView! = nil
     
@@ -33,14 +33,12 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate {
 
     private func setupWebView() {
         self.webView = WKWebView()
-        self.webView!.allowsBackForwardNavigationGestures = true
         self.webView?.navigationDelegate = self
-        
+        self.webView?.UIDelegate = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("viewDidLoad()")
         setupWebView()
         self.activityIndicator.hidesWhenStopped = true
         self.containerView.addSubview(self.webView!)
@@ -54,7 +52,7 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate {
         self.activityIndicator.startAnimating()
         if let requestedLevel = self.level {
             if let command = CommandFactory.loadLevelCommand(requestedLevel) {
-                command.excute() { (level: Level) -> Void in
+                command.execute() { (level: Level) -> Void in
                     println("Level \(level.number) loaded")
                 }
             }
@@ -62,7 +60,23 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate {
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        removeGameDetailViewTabMenu()
         self.activityIndicator.stopAnimating()
     }
+    
+    func runJavaScript(script: String) {
+        self.webView?.evaluateJavaScript(script) {(data, error) -> Void in
+            if error != nil {
+                println(error.description)
+            }
+        }
+    }
+    
+    private func removeGameDetailViewTabMenu(){
+        runJavaScript(
+            "document.getElementById('tabs').style.width = '0px';" +
+            "document.getElementById('tabs').style.display = 'none';")
+    }
+
     
 }

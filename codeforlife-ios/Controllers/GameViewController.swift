@@ -17,6 +17,9 @@ class GameViewController: UISplitViewController {
 
         if let detailViewController = self.viewControllers.last as? GameDetailViewController {
             detailViewController.level = self.level
+            if let masterViewController = self.viewControllers.first as? GameMasterViewController {
+                masterViewController.gameDetailViewController = detailViewController
+            }
         }
     }
 

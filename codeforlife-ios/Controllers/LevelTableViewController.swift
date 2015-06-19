@@ -12,6 +12,10 @@ class LevelTableViewController: UITableViewController {
     
     let kCFLLoadLevelSegueIdentifier = "LoadLevel"
     
+    private struct Storyboard {
+        static let CellReuseIdentifier = "Level"
+    }
+    
     var levels = [[Level]]() {
         didSet {
             self.tableView.reloadData()
@@ -41,45 +45,26 @@ class LevelTableViewController: UITableViewController {
         performSegueWithIdentifier("LoadLevel", sender: self)
     }
 
-    private struct Storyboard {
-        static let CellReuseIdentifier = "Level"
-    }
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
-
         let level = levels[indexPath.section][indexPath.row]
         cell.textLabel!.text = "Level \(level.number)"
-
         return cell
     }
 
-
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let wvc = segue.destinationViewController as? GameViewController {
-//            if let identifier = segue.identifier {
-//                switch identifier {
-//                case kCFLLoadLevelSegueIdentifier:
-//                    var indexPath = tableView.indexPathForSelectedRow()!
-//                    var level = levels[indexPath.section][indexPath.row]
-//                    wvc.level = level.number
-//                default: break
-//                }
-//            }
-//        }
-        println(segue.destinationViewController)
-        if let gmvc = segue.destinationViewController as? GameViewController {
+        if let gameViewController = segue.destinationViewController as? GameViewController {
             if let identifier = segue.identifier {
                 switch identifier {
                     case kCFLLoadLevelSegueIdentifier:
                         var indexPath = tableView.indexPathForSelectedRow()!
                         var level = levels[indexPath.section][indexPath.row]
-                        gmvc.level = level.number
+                        gameViewController.level = level.number
                     default: break
                 }
             }
         }
-
     }
 
 

@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="-1035" y="-537"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Master View Controller-->
         <scene sceneID="hxm-9m-9Yb">
             <objects>
-                <viewController id="faA-h7-pie" sceneMemberID="viewController">
+                <viewController id="faA-h7-pie" customClass="GameMasterViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LdB-Y6-Tiw"/>
                         <viewControllerLayoutGuide type="bottom" id="zYF-S0-UJm"/>
@@ -52,13 +52,141 @@
                     <view key="view" contentMode="scaleToFill" id="0VU-YW-bU4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXb-AU-L9Q">
+                                <rect key="frame" x="277" y="99" width="50" height="30"/>
+                                <state key="normal" title="Blockly">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="blockly" destination="faA-h7-pie" eventType="touchUpInside" id="cKq-6Z-zfO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6r-VL-yAt">
+                                <rect key="frame" x="284" y="137" width="37" height="30"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clear" destination="faA-h7-pie" eventType="touchUpInside" id="lZd-CZ-v7x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUm-iv-PXl">
+                                <rect key="frame" x="287" y="175" width="30" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="play" destination="faA-h7-pie" eventType="touchUpInside" id="OOW-gF-0lJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crg-gR-beR">
+                                <rect key="frame" x="284" y="213" width="33" height="30"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stop" destination="faA-h7-pie" eventType="touchUpInside" id="K1m-Fb-mXv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkh-bW-YCf">
+                                <rect key="frame" x="284" y="251" width="32" height="30"/>
+                                <state key="normal" title="Step">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="step" destination="faA-h7-pie" eventType="touchUpInside" id="5vB-RK-xhQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKC-yv-EHd">
+                                <rect key="frame" x="285" y="285" width="35" height="30"/>
+                                <state key="normal" title="Load">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="load" destination="faA-h7-pie" eventType="touchUpInside" id="cla-m8-loq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-S6-Eqw">
+                                <rect key="frame" x="285" y="323" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save" destination="faA-h7-pie" eventType="touchUpInside" id="1YO-4l-b1T"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-yW-Hfh">
+                                <rect key="frame" x="284" y="356" width="32" height="30"/>
+                                <state key="normal" title="Help">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="help" destination="faA-h7-pie" eventType="touchUpInside" id="3bt-cS-FAj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5A-go-U16">
+                                <rect key="frame" x="286" y="432" width="30" height="30"/>
+                                <state key="normal" title="Quit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="quit" destination="faA-h7-pie" eventType="touchUpInside" id="4nU-Sh-rln"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZR-57-KSc">
+                                <rect key="frame" x="283" y="394" width="35" height="30"/>
+                                <state key="normal" title="Mute">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mute" destination="faA-h7-pie" eventType="touchUpInside" id="Gpt-zW-E6q"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H6r-VL-yAt" firstAttribute="top" secondItem="lXb-AU-L9Q" secondAttribute="bottom" constant="8" id="28m-0S-Pqq"/>
+                            <constraint firstItem="RZR-57-KSc" firstAttribute="top" secondItem="DCB-yW-Hfh" secondAttribute="bottom" constant="8" symbolic="YES" id="6yR-fs-gId"/>
+                            <constraint firstItem="lXb-AU-L9Q" firstAttribute="centerX" secondItem="H6r-VL-yAt" secondAttribute="centerX" constant="-0.5" id="7bv-9H-pB4"/>
+                            <constraint firstItem="4LM-S6-Eqw" firstAttribute="top" secondItem="WKC-yv-EHd" secondAttribute="bottom" constant="8" id="8sp-eO-dQ6"/>
+                            <constraint firstItem="crg-gR-beR" firstAttribute="top" secondItem="lUm-iv-PXl" secondAttribute="bottom" constant="8" id="Bs7-Vw-nSV"/>
+                            <constraint firstItem="WKC-yv-EHd" firstAttribute="top" secondItem="wkh-bW-YCf" secondAttribute="bottom" constant="4" id="FzN-mQ-hc6"/>
+                            <constraint firstItem="WKC-yv-EHd" firstAttribute="centerX" secondItem="wkh-bW-YCf" secondAttribute="centerX" constant="2.5" id="GgT-Vx-dpt"/>
+                            <constraint firstItem="lUm-iv-PXl" firstAttribute="centerX" secondItem="crg-gR-beR" secondAttribute="centerX" constant="1.5" id="Oa3-HD-ruy"/>
+                            <constraint firstItem="crg-gR-beR" firstAttribute="centerX" secondItem="wkh-bW-YCf" secondAttribute="centerX" constant="0.5" id="Ov0-L2-WMY"/>
+                            <constraint firstItem="RZR-57-KSc" firstAttribute="centerX" secondItem="I5A-go-U16" secondAttribute="centerX" id="R9M-PR-Udn"/>
+                            <constraint firstItem="DCB-yW-Hfh" firstAttribute="centerX" secondItem="RZR-57-KSc" secondAttribute="centerX" id="R9S-25-e7y"/>
+                            <constraint firstItem="WKC-yv-EHd" firstAttribute="centerX" secondItem="4LM-S6-Eqw" secondAttribute="centerX" constant="0.5" id="Wsa-dU-nJn"/>
+                            <constraint firstItem="lUm-iv-PXl" firstAttribute="top" secondItem="H6r-VL-yAt" secondAttribute="bottom" constant="8" id="Ywy-nq-Oc6"/>
+                            <constraint firstItem="DCB-yW-Hfh" firstAttribute="top" secondItem="4LM-S6-Eqw" secondAttribute="bottom" constant="3" id="bYn-Q6-hze"/>
+                            <constraint firstItem="DCB-yW-Hfh" firstAttribute="centerX" secondItem="4LM-S6-Eqw" secondAttribute="centerX" constant="-2" id="bbP-AV-NDA"/>
+                            <constraint firstItem="I5A-go-U16" firstAttribute="top" secondItem="RZR-57-KSc" secondAttribute="bottom" constant="8" symbolic="YES" id="fXF-Hp-Blr"/>
+                            <constraint firstItem="WKC-yv-EHd" firstAttribute="top" secondItem="wkh-bW-YCf" secondAttribute="bottom" constant="4" id="geb-BP-ptK"/>
+                            <constraint firstItem="DCB-yW-Hfh" firstAttribute="top" secondItem="4LM-S6-Eqw" secondAttribute="bottom" constant="3" id="jNY-7z-RVn"/>
+                            <constraint firstItem="wkh-bW-YCf" firstAttribute="top" secondItem="crg-gR-beR" secondAttribute="bottom" constant="8" id="jki-jP-oGy"/>
+                            <constraint firstItem="H6r-VL-yAt" firstAttribute="centerX" secondItem="lUm-iv-PXl" secondAttribute="centerX" constant="0.5" id="jlh-sO-SmC"/>
+                            <constraint firstAttribute="centerX" secondItem="lXb-AU-L9Q" secondAttribute="centerX" constant="-2" id="r9Q-m4-i5F"/>
+                            <constraint firstItem="lXb-AU-L9Q" firstAttribute="top" secondItem="LdB-Y6-Tiw" secondAttribute="bottom" constant="35" id="vHH-go-tJn"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4qH-QP-Phi"/>
+                    <connections>
+                        <outlet property="blocklyButton" destination="lXb-AU-L9Q" id="bV2-5S-kP2"/>
+                        <outlet property="clearButton" destination="H6r-VL-yAt" id="UH0-du-s0i"/>
+                        <outlet property="helpButton" destination="DCB-yW-Hfh" id="Yqq-cU-kHH"/>
+                        <outlet property="loadButton" destination="WKC-yv-EHd" id="aOO-Pz-LWt"/>
+                        <outlet property="muteButton" destination="RZR-57-KSc" id="shM-bY-PWH"/>
+                        <outlet property="playButton" destination="lUm-iv-PXl" id="swp-Ei-nS3"/>
+                        <outlet property="quitButton" destination="I5A-go-U16" id="etS-g7-jqf"/>
+                        <outlet property="saveButton" destination="4LM-S6-Eqw" id="DhO-dG-Ef8"/>
+                        <outlet property="stepButton" destination="wkh-bW-YCf" id="YU5-K3-z4S"/>
+                        <outlet property="stopButton" destination="crg-gR-beR" id="ZBh-P6-J5z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mz-9P-yoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="-851"/>
+            <point key="canvasLocation" x="423" y="-837"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="kFD-ob-jER">
@@ -66,7 +194,7 @@
                 <splitViewController id="gUr-UI-76S" customClass="GameViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="a9t-vx-Sv6"/>
-                        <segue destination="fEe-yC-3ug" kind="relationship" relationship="masterViewController" id="AM6-Jl-snK"/>
+                        <segue destination="faA-h7-pie" kind="relationship" relationship="masterViewController" id="M0s-wZ-4AR"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVk-jA-snL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -113,24 +241,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="423" y="-171"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="PzN-uL-nYv">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fEe-yC-3ug" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7yO-I0-uO6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="faA-h7-pie" kind="relationship" relationship="rootViewController" id="9Gz-X7-vDA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jht-wM-qML" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="423" y="-851"/>
         </scene>
     </scenes>
 </document>

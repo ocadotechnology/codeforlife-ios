@@ -14,7 +14,7 @@ class WebViewLoadLevelCommand : LoadLevelCommand {
         super.init(levelNumber: levelNumber)
     }
 
-    override func excute<Level>(response: Level -> Void) {
+    override func execute<Level>(response: Level -> Void) {
         var urlStr = kCFLDomain + kCFLRapidRouter + "\(level.number)";
         var url = NSURL(string: urlStr);
         

@@ -7,29 +7,69 @@
 //
 
 import UIKit
+import WebKit
 
 class GameMasterViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBOutlet weak var blocklyButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var stepButton: UIButton!
+    @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var muteButton: UIButton!
+    @IBOutlet weak var quitButton: UIButton!
+    
+    var gameDetailViewController: GameDetailViewController? {
+        didSet {
+            self.gameView = gameDetailViewController?.webView
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    var gameView : WKWebView?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
 
+    @IBAction func blockly() {
+        GVBlocklyCommand(gameView: gameView!).execute({})
+    }
+    
+    @IBAction func clear() {
+        GVClearCommand(gameView: gameView!).execute({})
+    }
+    
+    @IBAction func play() {
+        GVPlayCommand(gameView: gameView!).execute({})
+    }
+    
+    @IBAction func stop() {
+        GVStopCommand(gameView: gameView!).execute({})
+    }
+
+    @IBAction func step() {
+        GVStepCommand(gameView: gameView!).execute({})
+    }
+    
+    @IBAction func load() {
+        GVLoadCommand(gameView: gameView!).execute({})
+    }
+
+    @IBAction func save() {
+        GVSaveCommand(gameView: gameView!).execute({})
+    }
+    
+    @IBAction func help() {
+        GVHelpCommand(gameView: gameView!).execute({})
+    }
+    
+    @IBAction func mute() {
+        GVMuteCommand(gameView: gameView!).execute({})
+    }
+    @IBAction func quit() {
+        GVQuitCommand(gameView: gameView!).execute({})
+    }
 }

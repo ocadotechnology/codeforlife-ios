@@ -16,7 +16,7 @@ class LoadLevelCommand : Command {
         self.level = Level(number: levelNumber)
     }
     
-    func excute<Level>(response: Level -> Void) {
+    func execute<Level>(response: Level -> Void) {
         NSException(name: "Absract LoadLevelCommand method called", reason: "" , userInfo: nil).raise()
     }
 }
