@@ -20,18 +20,14 @@ class FetchLevelsAction : Action, ActionProtocol
     }
     
     override func processData(data: NSDictionary) {
+        var levels = Levels()
+        levels.addSection("Getting Started")
+        levels.getSection(0)?.addLevel(Level(number: 1, description: "Can you help the van get to the house?"))
+        levels.getSection(0)?.addLevel(Level(number: 2, description: "This time the house is further away."))
+        levels.getSection(0)?.addLevel(Level(number: 3, description: "Can you make the van turn right?"))
+        
         if let viewController = self.viewController as? LevelTableViewController {
-            viewController.levels = [
-                [
-                    Level(number: 1, description: "Can you help the van get to the house?"),
-                    Level(number: 2, description: "This time the house is further away."),
-                    Level(number: 3, description: "Can you make the van turn right?")
-                ],
-                [
-                    Level(number: 5, description: "Good work! You are ready for something harder."),
-                    Level(number: 6, description: "Well done! Let's use all three blocks")
-                ]
-            ]
+            viewController.levels = levels
         }
     }
     

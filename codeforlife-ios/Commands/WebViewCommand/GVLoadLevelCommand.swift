@@ -17,7 +17,6 @@ class GVLoadLevelCommand : LoadLevelCommand {
 
     override func execute<Level>(response: Level -> Void) {
         var urlStr = kCFLDomain + kCFLRapidRouter + "\(level.number!)";
-        println(urlStr)
         var url = NSURL(string: urlStr);
         
         var request = NSURLRequest(URL: url!);

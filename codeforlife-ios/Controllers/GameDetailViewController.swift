@@ -13,7 +13,7 @@ import SnapKit
 
 class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
-    @IBOutlet var containerView: UIView! = nil
+    @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -29,6 +29,7 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDele
 
     private func setupWebView() {
         self.webView = WKWebView()
+        self.webView?.backgroundColor = UIColor.blackColor()
         self.webView?.navigationDelegate = self
         self.webView?.UIDelegate = self
         self.webView?.scrollView.maximumZoomScale = 1.0
@@ -113,6 +114,5 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDele
             "document.getElementById('tabs').style.width = '0px';" +
             "document.getElementById('tabs').style.display = 'none';")
     }
-
     
 }

@@ -16,7 +16,7 @@ class LevelTableViewController: UITableViewController {
         static let CellReuseIdentifier = "Level"
     }
     
-    var levels = [[Level]]() {
+    var levels = Levels() {
         didSet {
             self.tableView.reloadData()
         }
@@ -26,29 +26,25 @@ class LevelTableViewController: UITableViewController {
         super.viewDidLoad()
         FetchLevelsAction(viewController: self).execute()
     }
-    
-//    func fetchLevels() -> [[Level]] {
-//        return [[Level(number: 1),Level(number: 2),Level(number: 3)],[Level(number: 4), Level(number: 5), Level(number: 6)]]
-//    }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return levels.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return levels[section].count
+        return levels.sections[section].count
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var indexPath = tableView.indexPathForSelectedRow()!
-        var level = levels[indexPath.section][indexPath.row]
+        var level = levels.sections[indexPath.section].levels[indexPath.row]
         performSegueWithIdentifier("LoadLevel", sender: self)
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
-        let level = levels[indexPath.section][indexPath.row]
+        var level = levels.sections[indexPath.section].levels[indexPath.row]
         cell.numberLabel.text =  "Level \(level.number!)"
         cell.descriptionLabel.text = level.description
         return cell
@@ -60,13 +56,23 @@ class LevelTableViewController: UITableViewController {
                 switch identifier {
                     case kCFLLoadLevelSegueIdentifier:
                         var indexPath = tableView.indexPathForSelectedRow()!
-                        var level = levels[indexPath.section][indexPath.row]
-                        gameViewController.level = level
+                        if let section = levels.getSection(indexPath.section) {
+                            if let level = section.getLevel(indexPath.row) {
+                                gameViewController.level = level
+                            }
+                        }
                     default: break
                 }
             }
         }
     }
-
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section + 1) : \(levels.getSection(section)!.name!)"
+    }
+    
+    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {
+        
+    }
 
 }
