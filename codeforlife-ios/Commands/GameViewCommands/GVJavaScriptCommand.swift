@@ -17,10 +17,16 @@ class GVJavaScriptCommand : GameViewCommand {
         super.init(gameView: gameView)
         self.javascript = javascript
     }
+
+    override func execute<Int>(response: Int -> Void) {
+        gameView?.evaluateJavaScript(javascript!) { (data, error) -> Void in
+        }
+    }
     
-    override func execute<String>(response: String -> Void) {
-        gameView?.evaluateJavaScript(javascript!, completionHandler: { (data, error) -> Void in
-        })
+    func execute(response:() -> Void = {} ) {
+        gameView?.evaluateJavaScript(javascript!) { (data, error) -> Void in
+            response()
+        }
     }
     
     

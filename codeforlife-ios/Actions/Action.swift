@@ -11,36 +11,28 @@
  */
 
 import Foundation
+import Alamofire
 
 protocol ActionProtocol {
-    func processData(data: NSDictionary)
+    func processData(data: NSData)
     func switchToMock() -> Action?
 }
 
 class Action : ActionProtocol {
     
-    var url: String?
-    var httpMethod: String?
+    var url: URLStringConvertible
+    var method: Alamofire.Method
     var params = [String: String]()
     var delegate = ActionDelegate()
     
-    init(url : String, httpMethod: String)
+    init(url : String, httpMethod: Alamofire.Method)
     {
         self.url = url
-        self.httpMethod = httpMethod
+        self.method = httpMethod
     }
     
-    func prepareHTTPRequest() -> NSMutableURLRequest {
-        var request = NSMutableURLRequest(URL: NSURL(string: self.url!)!)
-        request.HTTPMethod = self.httpMethod!
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        var err: NSError?
-        if request.HTTPMethod == "POST" {
-            request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
-        }
-        return request
+    func prepareHTTPRequest() -> Request {
+        return Alamofire.request(method, url)
     }
     
     func execute()
@@ -54,10 +46,10 @@ class Action : ActionProtocol {
     func showRequestDetails() {
         println("===Request Detail===")
         println("  -- URL        : \(url)")
-        println("  -- Method     : \(httpMethod)")
+        println("  -- Method     : \(method)")
     }
     
-    func processData(data: NSDictionary) {
+    func processData(data: NSData) {
         NSException(name: "Impelement processData for \(self)", reason: "" , userInfo: nil).raise()
     }
     

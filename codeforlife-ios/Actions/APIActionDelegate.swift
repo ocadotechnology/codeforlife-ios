@@ -7,17 +7,22 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class APIActionDeletage : ActionDelegate, ActionDelegateProtocol {
     
-    override func execute(request: NSMutableURLRequest, processData: (NSDictionary -> Void)) {
-        var task = NSURLSession.sharedSession().dataTaskWithRequest(request) {(data, response, error) -> Void in
-            var err: NSError?
-            if let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary {
-                processData(jsonResult)
+    override func execute(request: Request, processData: (NSData -> Void)) {
+        request.responseJSON { (req, res, json, error) in
+            if(error != nil) {
+                NSLog("Error: \(error)")
+                println(req)
+                println(res)
+            }
+            else {
+                processData(JSON(json!).rawData()!)
             }
         }
-        task.resume()
     }
     
 }

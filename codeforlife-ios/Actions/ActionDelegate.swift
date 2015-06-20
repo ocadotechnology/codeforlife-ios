@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol ActionDelegateProtocol {
-    func execute(request : NSMutableURLRequest, processData: (NSDictionary -> Void))
+    func execute(request : Request, processData: (NSData -> Void))
 }
 
 class ActionDelegate : ActionDelegateProtocol {
 
-    func execute(request : NSMutableURLRequest, processData: (NSDictionary -> Void)) {
+    func execute(request : Request, processData: (NSData -> Void)) {
         NSException(name: "Implement execute() for \(self)", reason: "" , userInfo: nil).raise()
     }
     

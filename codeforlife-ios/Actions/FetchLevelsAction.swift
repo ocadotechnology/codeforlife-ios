@@ -8,32 +8,44 @@
 
 import UIKit
 import Foundation
+import SwiftyJSON
+import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
     var viewController: UIViewController?
 
     init(viewController: UIViewController) {
-        super.init(url: kCFLFetchLevelsAction, httpMethod: "POST")
+        super.init(url: kCFLFetchLevelsAction, httpMethod: Alamofire.Method.GET)
         self.delegate = FetchLevelsActionMockDelegate()
         self.viewController = viewController
     }
     
-    override func processData(data: NSDictionary) {
+    override func processData(data: NSData) {
+        
+        var levels = Levels()
+        
+        let json = JSON(data: data)
+        if let sectionArray = json.array {
+            for section in sectionArray {
+                if let sectionName = section["section"].string {
+                    var newSection = levels.addSection(sectionName)!
+                    if let levelArray = section["levels"].array {
+                        for level in levelArray {
+                            if let number = level["level"].int {
+                                if let description = level["description"].string {
+                                    newSection.addLevel(Level(number: number, description: description))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
         if let viewController = self.viewController as? LevelTableViewController {
-            viewController.levels = [
-                [
-                    Level(number: 1, description: "Can you help the van get to the house?"),
-                    Level(number: 2, description: "This time the house is further away."),
-                    Level(number: 3, description: "Can you make the van turn right?")
-                ],
-                [
-                    Level(number: 5, description: "Good work! You are ready for something harder."),
-                    Level(number: 6, description: "Well done! Let's use all three blocks")
-                ]
-            ]
+            viewController.levels = levels
         }
     }
-    
     
 }

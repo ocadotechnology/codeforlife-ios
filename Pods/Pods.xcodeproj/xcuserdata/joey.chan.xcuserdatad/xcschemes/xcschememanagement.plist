@@ -4,25 +4,45 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SnapKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>95A4B0FC4E3481EE9D20E757</key>
+		<key>9D43BB259B32862B8F1677B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5F11BF8C85DD1984A6C2EAF</key>
+		<key>F2418C804D792D4EB9512260</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F69D58020B16BE82A0A9CCDE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA7781232FB29DB33D6381C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

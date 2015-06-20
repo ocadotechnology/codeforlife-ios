@@ -12,7 +12,7 @@ import WebKit
 class GVQuitCommand : GVJavaScriptCommand {
        
     init(gameView: WKWebView) {
-        super.init(gameView: gameView, javascript: kC4LGameViewQuitCommandJavaScript)
+        super.init(gameView: gameView, javascript: "")
     }
     
 }

@@ -6,5 +6,5 @@
 import Foundation
 
 protocol Command {
-    func execute<T>(response: T -> Void );
+    func execute<T>(response: T -> Void )
 }
