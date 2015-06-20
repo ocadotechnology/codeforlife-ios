@@ -22,7 +22,6 @@ class FetchLevelsAction : Action, ActionProtocol
     
     override func processData(data: NSData) {
         
-        println(NSString(data: data, encoding: NSUTF8StringEncoding)!)
         var levels = Levels()
         
         let json = JSON(data: data)
@@ -42,11 +41,6 @@ class FetchLevelsAction : Action, ActionProtocol
                 }
             }
         }
-//        
-//        levels.addSection("Getting Started")
-//        levels.getSection(0)?.addLevel(Level(number: 1, description: "Can you help the van get to the house?"))
-//        levels.getSection(0)?.addLevel(Level(number: 2, description: "This time the house is further away."))
-//        levels.getSection(0)?.addLevel(Level(number: 3, description: "Can you make the van turn right?"))
         
         if let viewController = self.viewController as? LevelTableViewController {
             viewController.levels = levels
