@@ -11,7 +11,16 @@ import WebKit
 import SnapKit
 
 
-class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+    
+    var mute = false {
+        didSet {
+            muteButton.setTitle(mute ? "Unmute" : "Mute", forState: UIControlState.Normal)
+        }
+    }
+    
+    
+    @IBOutlet weak var muteButton: UIButton!
     
     @IBOutlet weak var containerView: UIView!
     
@@ -101,12 +110,9 @@ class GameDetailViewController: UIViewController, WKNavigationDelegate, WKUIDele
         GVHelpCommand(gameView: webView!).execute {}
     }
     
-    @IBAction func mute() {
+    @IBAction func mute(sender: UIButton) {
         GVMuteCommand(gameView: webView!).execute {}
-    }
-    
-    @IBAction func quit() {
-        GVQuitCommand(gameView: webView!).execute {}
+        mute = !mute
     }
     
     private func removeGameDetailViewTabMenu(){

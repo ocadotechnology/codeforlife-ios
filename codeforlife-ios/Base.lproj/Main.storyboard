@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="2669" y="248"/>
         </scene>
-        <!--Game Detail View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GameDetailViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -96,6 +96,16 @@
                                 <rect key="frame" x="327" y="300" width="20" height="20"/>
                                 <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYk-RM-yzG">
+                                <rect key="frame" x="16" y="28" width="50" height="30"/>
+                                <state key="normal" title="Blockly">
+                                    <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="blockly" destination="BYZ-38-t0r" eventType="touchUpInside" id="H39-zO-6H3"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfX-5T-tpo">
                                 <rect key="frame" x="23" y="66" width="37" height="30"/>
                                 <state key="normal" title="Clear">
@@ -156,16 +166,6 @@
                                     <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iui-Zm-qBz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-pe-nfK">
-                                <rect key="frame" x="24" y="294" width="32" height="30"/>
-                                <state key="normal" title="Help">
-                                    <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="help" destination="BYZ-38-t0r" eventType="touchUpInside" id="cLB-4T-Ayo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4y-CQ-Ao4">
                                 <rect key="frame" x="26" y="370" width="30" height="30"/>
                                 <state key="normal" title="Quit">
@@ -183,17 +183,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="mute" destination="BYZ-38-t0r" eventType="touchUpInside" id="deN-ac-SkT"/>
+                                    <action selector="mute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="olc-ml-UVV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYk-RM-yzG">
-                                <rect key="frame" x="16" y="28" width="50" height="30"/>
-                                <state key="normal" title="Blockly">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-pe-nfK">
+                                <rect key="frame" x="24" y="294" width="32" height="30"/>
+                                <state key="normal" title="Help">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="blockly" destination="BYZ-38-t0r" eventType="touchUpInside" id="H39-zO-6H3"/>
+                                    <action selector="help" destination="BYZ-38-t0r" eventType="touchUpInside" id="cLB-4T-Ayo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -249,6 +249,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="DAA-NT-in3" id="CZB-JE-9me"/>
                         <outlet property="containerView" destination="CRU-fo-ynQ" id="yJ4-4E-X6j"/>
+                        <outlet property="muteButton" destination="fPp-Oe-ja2" id="sjG-tN-md9"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="wmI-TC-Fom"/>
                     </connections>
                 </viewController>

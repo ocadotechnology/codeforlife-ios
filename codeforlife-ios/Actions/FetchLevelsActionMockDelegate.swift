@@ -8,10 +8,11 @@
 
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 class FetchLevelsActionMockDelegate: ActionDelegate, ActionDelegateProtocol
 {
-    override func execute(request: NSMutableURLRequest, processData: (NSData -> Void)) {
+    override func execute(request: Request, processData: (NSData -> Void)) {
         var json = JSON(
             [
                 [

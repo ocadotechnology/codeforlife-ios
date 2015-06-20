@@ -9,13 +9,14 @@
 import UIKit
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
     var viewController: UIViewController?
 
     init(viewController: UIViewController) {
-        super.init(url: kCFLFetchLevelsAction, httpMethod: "POST")
+        super.init(url: kCFLFetchLevelsAction, httpMethod: Alamofire.Method.GET)
         self.delegate = FetchLevelsActionMockDelegate()
         self.viewController = viewController
     }
@@ -46,6 +47,5 @@ class FetchLevelsAction : Action, ActionProtocol
             viewController.levels = levels
         }
     }
-    
     
 }
