@@ -9,12 +9,12 @@
 import Foundation
 
 protocol ActionDelegateProtocol {
-    func execute(request : NSMutableURLRequest, processData: (NSDictionary -> Void))
+    func execute(request : NSMutableURLRequest, processData: (NSData -> Void))
 }
 
 class ActionDelegate : ActionDelegateProtocol {
 
-    func execute(request : NSMutableURLRequest, processData: (NSDictionary -> Void)) {
+    func execute(request : NSMutableURLRequest, processData: (NSData -> Void)) {
         NSException(name: "Implement execute() for \(self)", reason: "" , userInfo: nil).raise()
     }
     

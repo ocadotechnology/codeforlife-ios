@@ -13,7 +13,7 @@
 import Foundation
 
 protocol ActionProtocol {
-    func processData(data: NSDictionary)
+    func processData(data: NSData)
     func switchToMock() -> Action?
 }
 
@@ -57,7 +57,7 @@ class Action : ActionProtocol {
         println("  -- Method     : \(httpMethod)")
     }
     
-    func processData(data: NSDictionary) {
+    func processData(data: NSData) {
         NSException(name: "Impelement processData for \(self)", reason: "" , userInfo: nil).raise()
     }
     

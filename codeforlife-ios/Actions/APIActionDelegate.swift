@@ -10,12 +10,9 @@ import Foundation
 
 class APIActionDeletage : ActionDelegate, ActionDelegateProtocol {
     
-    override func execute(request: NSMutableURLRequest, processData: (NSDictionary -> Void)) {
+    override func execute(request: NSMutableURLRequest, processData: (NSData -> Void)) {
         var task = NSURLSession.sharedSession().dataTaskWithRequest(request) {(data, response, error) -> Void in
-            var err: NSError?
-            if let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary {
-                processData(jsonResult)
-            }
+            processData(data)
         }
         task.resume()
     }
