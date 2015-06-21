@@ -37,6 +37,8 @@
 		ED236EB81B34268B00B63380 /* JavaScriptConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EB71B34268B00B63380 /* JavaScriptConstants.swift */; };
 		EDC8C1E81B35A32A004B1358 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1E71B35A32A004B1358 /* Levels.swift */; };
 		EDC8C1EC1B35BA29004B1358 /* LevelSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1EB1B35BA29004B1358 /* LevelSection.swift */; };
+		EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */; };
+		EDC8C1F31B36A25F004B1358 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */; };
 		EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E7F0402D1DF38E4BA7F2 /* Level.swift */; };
 		EF41E77C1F0D471AEDC534AC /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41EF6A25333A3581240948 /* Command.swift */; };
 		EF41EA99727ABC5A5820353A /* GVLoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */; };
@@ -90,6 +92,8 @@
 		ED236EB71B34268B00B63380 /* JavaScriptConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JavaScriptConstants.swift; path = ../JavaScriptConstants.swift; sourceTree = "<group>"; };
 		EDC8C1E71B35A32A004B1358 /* Levels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		EDC8C1EB1B35BA29004B1358 /* LevelSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSection.swift; sourceTree = "<group>"; };
+		EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewButton.swift; sourceTree = "<group>"; };
+		EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GVLoadLevelCommand.swift; path = WebViewCommand/GVLoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E2129A80D9C91F236ACA /* LoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E7F0402D1DF38E4BA7F2 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				ED0A77091B34560600267191 /* LabelTableViewCell.swift */,
+				EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			children = (
 				D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */,
 				ED236EB71B34268B00B63380 /* JavaScriptConstants.swift */,
+				EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -451,8 +457,10 @@
 				ED236EA81B3422AC00B63380 /* GVStopCommand.swift in Sources */,
 				ED236EA61B3422A100B63380 /* GVClearCommand.swift in Sources */,
 				EDC8C1EC1B35BA29004B1358 /* LevelSection.swift in Sources */,
+				EDC8C1F31B36A25F004B1358 /* ColorConstants.swift in Sources */,
 				EF41EC23FA06F017C164A345 /* LoadLevelCommand.swift in Sources */,
 				ED1EB0731B331B7100A595EF /* FetchLevelsActionMockDelegate.swift in Sources */,
+				EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */,
 				ED236EB01B3422C900B63380 /* GVHelpCommand.swift in Sources */,
 				ED236E9C1B3415E500B63380 /* GVPlayCommand.swift in Sources */,
 				ED0A770A1B34560600267191 /* LabelTableViewCell.swift in Sources */,

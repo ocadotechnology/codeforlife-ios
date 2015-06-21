@@ -10,15 +10,7 @@ import UIKit
 import WebKit
 import SnapKit
 
-
 class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
-    
-    var mute = false {
-        didSet {
-            muteButton.setTitle(mute ? "Unmute" : "Mute", forState: UIControlState.Normal)
-        }
-    }
-    
     
     @IBOutlet weak var muteButton: UIButton!
     
@@ -28,22 +20,18 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     var webView: WKWebView?
     
+    var mute = false {
+        didSet {
+            muteButton.setTitle(mute ? "Unmute" : "Mute", forState: UIControlState.Normal)
+        }
+    }
+    
     var level: Level? {
         didSet {
             if (self.isViewLoaded()) {
                 updateUI()
             }
         }
-    }
-
-    private func setupWebView() {
-        self.webView = WKWebView()
-        self.webView?.backgroundColor = UIColor.blackColor()
-        self.webView?.navigationDelegate = self
-        self.webView?.UIDelegate = self
-        self.webView?.scrollView.maximumZoomScale = 1.0
-        self.webView?.scrollView.minimumZoomScale = 1.0
-        self.webView?.multipleTouchEnabled = false
     }
     
     override func viewDidLoad() {
@@ -55,6 +43,15 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             make.edges.equalTo(self.containerView)
         })
         updateUI()
+    }
+    
+    private func setupWebView() {
+        self.webView = WKWebView()
+        self.webView?.navigationDelegate = self
+        self.webView?.UIDelegate = self
+        self.webView?.scrollView.maximumZoomScale = 1.0
+        self.webView?.scrollView.minimumZoomScale = 1.0
+        self.webView?.multipleTouchEnabled = false
     }
     
     private func updateUI() {
@@ -75,6 +72,10 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
                 println(error.description)
             }
         }
+    }
+    
+    private func removeGameDetailViewTabMenu(){
+        runJavaScript("document.getElementById('tabs').style.display = 'none';")
     }
     
     @IBAction func blockly() {
@@ -113,12 +114,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     @IBAction func mute(sender: UIButton) {
         GVMuteCommand(gameView: webView!).execute {}
         mute = !mute
-    }
-    
-    private func removeGameDetailViewTabMenu(){
-        runJavaScript(
-            "document.getElementById('tabs').style.width = '0px';" +
-            "document.getElementById('tabs').style.display = 'none';")
     }
     
 }

@@ -89,15 +89,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRU-fo-ynQ" userLabel="Game View Container">
-                                <rect key="frame" x="74" y="20" width="526" height="580"/>
+                                <rect key="frame" x="76" y="20" width="524" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAA-NT-in3">
-                                <rect key="frame" x="327" y="300" width="20" height="20"/>
+                                <rect key="frame" x="328" y="300" width="20" height="20"/>
                                 <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYk-RM-yzG">
-                                <rect key="frame" x="16" y="28" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYk-RM-yzG" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="28" width="80" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="PTq-eT-Fha"/>
+                                </constraints>
                                 <state key="normal" title="Blockly">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,8 +112,8 @@
                                     <action selector="blockly" destination="BYZ-38-t0r" eventType="touchUpInside" id="H39-zO-6H3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfX-5T-tpo">
-                                <rect key="frame" x="23" y="66" width="37" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfX-5T-tpo" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-3.5" y="66" width="80" height="30"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,8 +122,8 @@
                                     <action selector="clear" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lnm-SW-yCH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAJ-YL-sXS">
-                                <rect key="frame" x="26" y="104" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAJ-YL-sXS" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="104" width="80" height="30"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,8 +132,8 @@
                                     <action selector="play" destination="BYZ-38-t0r" eventType="touchUpInside" id="jqF-Nw-Vyp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-XT-XrS">
-                                <rect key="frame" x="24" y="142" width="33" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-XT-XrS" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4.5" y="142" width="80" height="30"/>
                                 <state key="normal" title="Stop">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,8 +142,8 @@
                                     <action selector="stop" destination="BYZ-38-t0r" eventType="touchUpInside" id="rzG-gX-6mM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO2-9D-qpi">
-                                <rect key="frame" x="24" y="180" width="32" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO2-9D-qpi" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-5" y="180" width="80" height="30"/>
                                 <state key="normal" title="Step">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,8 +152,8 @@
                                     <action selector="step" destination="BYZ-38-t0r" eventType="touchUpInside" id="FK4-gr-UfM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QR5-0K-beD">
-                                <rect key="frame" x="23" y="218" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QR5-0K-beD" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4.5" y="218" width="80" height="30"/>
                                 <state key="normal" title="Load">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -156,8 +162,8 @@
                                     <action selector="load" destination="BYZ-38-t0r" eventType="touchUpInside" id="UiJ-dE-Xhl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alq-aQ-5rx">
-                                <rect key="frame" x="23" y="256" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alq-aQ-5rx" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-5" y="256" width="80" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -166,8 +172,8 @@
                                     <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iui-Zm-qBz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4y-CQ-Ao4">
-                                <rect key="frame" x="26" y="370" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4y-CQ-Ao4" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="370" width="80" height="30"/>
                                 <state key="normal" title="Quit">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,8 +182,8 @@
                                     <segue destination="TZe-U8-cfb" kind="unwind" unwindAction="unwindToLevelTableView:" id="7sT-I7-6gY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPp-Oe-ja2">
-                                <rect key="frame" x="23" y="332" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPp-Oe-ja2" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4.5" y="332" width="80" height="30"/>
                                 <state key="normal" title="Mute">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -186,8 +192,8 @@
                                     <action selector="mute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="olc-ml-UVV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-pe-nfK">
-                                <rect key="frame" x="24" y="294" width="32" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-pe-nfK" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-5" y="294" width="80" height="30"/>
                                 <state key="normal" title="Help">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -201,7 +207,8 @@
                         <constraints>
                             <constraint firstItem="Mms-pe-nfK" firstAttribute="centerX" secondItem="fPp-Oe-ja2" secondAttribute="centerX" id="1hf-IU-D1g"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CRU-fo-ynQ" secondAttribute="trailing" constant="-16" id="24R-Ah-aaN"/>
-                            <constraint firstItem="nYk-RM-yzG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="28d-G9-NiB"/>
+                            <constraint firstItem="nYk-RM-yzG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="28d-G9-NiB"/>
+                            <constraint firstItem="vO2-9D-qpi" firstAttribute="width" secondItem="nYk-RM-yzG" secondAttribute="width" id="2QX-nP-Qrb"/>
                             <constraint firstItem="vO2-9D-qpi" firstAttribute="top" secondItem="ghl-XT-XrS" secondAttribute="bottom" constant="8" symbolic="YES" id="3s2-E0-at2"/>
                             <constraint firstItem="QR5-0K-beD" firstAttribute="top" secondItem="vO2-9D-qpi" secondAttribute="bottom" id="46j-0J-rqj"/>
                             <constraint firstItem="Mms-pe-nfK" firstAttribute="top" secondItem="Alq-aQ-5rx" secondAttribute="bottom" constant="8" symbolic="YES" id="6Fg-nn-cDf"/>
@@ -209,15 +216,19 @@
                             <constraint firstItem="QR5-0K-beD" firstAttribute="top" secondItem="vO2-9D-qpi" secondAttribute="bottom" constant="8" symbolic="YES" id="EgW-Ay-s8T"/>
                             <constraint firstItem="DAA-NT-in3" firstAttribute="centerX" secondItem="CRU-fo-ynQ" secondAttribute="centerX" id="Eon-dG-lIQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CRU-fo-ynQ" secondAttribute="bottom" id="GdS-lp-Srx"/>
+                            <constraint firstItem="nYk-RM-yzG" firstAttribute="width" secondItem="ghl-XT-XrS" secondAttribute="width" id="HXS-qo-M6u"/>
                             <constraint firstItem="fPp-Oe-ja2" firstAttribute="centerX" secondItem="W4y-CQ-Ao4" secondAttribute="centerX" id="J0z-Q8-hkN"/>
                             <constraint firstItem="Mms-pe-nfK" firstAttribute="top" secondItem="Alq-aQ-5rx" secondAttribute="bottom" id="Jnb-Dm-Sc5"/>
                             <constraint firstItem="qfX-5T-tpo" firstAttribute="centerX" secondItem="pAJ-YL-sXS" secondAttribute="centerX" id="LeJ-0E-RMP"/>
+                            <constraint firstItem="fPp-Oe-ja2" firstAttribute="width" secondItem="W4y-CQ-Ao4" secondAttribute="width" id="MW9-id-51T"/>
                             <constraint firstItem="W4y-CQ-Ao4" firstAttribute="top" secondItem="fPp-Oe-ja2" secondAttribute="bottom" constant="8" symbolic="YES" id="Nge-vH-Ec3"/>
                             <constraint firstItem="DAA-NT-in3" firstAttribute="centerY" secondItem="CRU-fo-ynQ" secondAttribute="centerY" id="OEc-lt-nIB"/>
                             <constraint firstAttribute="trailing" secondItem="CRU-fo-ynQ" secondAttribute="trailing" id="Oj3-gS-7cN"/>
                             <constraint firstItem="pAJ-YL-sXS" firstAttribute="top" secondItem="qfX-5T-tpo" secondAttribute="bottom" constant="8" symbolic="YES" id="QU4-1n-l8e"/>
                             <constraint firstItem="Alq-aQ-5rx" firstAttribute="top" secondItem="QR5-0K-beD" secondAttribute="bottom" constant="8" symbolic="YES" id="S3b-2b-Fh8"/>
-                            <constraint firstItem="CRU-fo-ynQ" firstAttribute="leading" secondItem="nYk-RM-yzG" secondAttribute="trailing" constant="8" symbolic="YES" id="XBP-fx-NQb"/>
+                            <constraint firstItem="QR5-0K-beD" firstAttribute="width" secondItem="nYk-RM-yzG" secondAttribute="width" id="VOu-LI-KVa"/>
+                            <constraint firstItem="CRU-fo-ynQ" firstAttribute="leading" secondItem="nYk-RM-yzG" secondAttribute="trailing" id="XBP-fx-NQb"/>
+                            <constraint firstItem="Mms-pe-nfK" firstAttribute="width" secondItem="Alq-aQ-5rx" secondAttribute="width" id="YnY-rd-EsD"/>
                             <constraint firstItem="fPp-Oe-ja2" firstAttribute="top" secondItem="Mms-pe-nfK" secondAttribute="bottom" constant="8" symbolic="YES" id="aFl-eR-Vpj"/>
                             <constraint firstItem="nYk-RM-yzG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="bWl-kw-XH3"/>
                             <constraint firstItem="qfX-5T-tpo" firstAttribute="top" secondItem="nYk-RM-yzG" secondAttribute="bottom" constant="8" symbolic="YES" id="cCy-0i-GHw"/>
@@ -225,12 +236,17 @@
                             <constraint firstItem="ghl-XT-XrS" firstAttribute="centerX" secondItem="vO2-9D-qpi" secondAttribute="centerX" id="dLg-7d-Pi9"/>
                             <constraint firstItem="pAJ-YL-sXS" firstAttribute="centerX" secondItem="ghl-XT-XrS" secondAttribute="centerX" id="ddS-dh-VfL"/>
                             <constraint firstItem="nYk-RM-yzG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="dg3-Vf-zJw"/>
+                            <constraint firstItem="qfX-5T-tpo" firstAttribute="width" secondItem="nYk-RM-yzG" secondAttribute="width" id="eca-dW-HMe"/>
                             <constraint firstItem="QR5-0K-beD" firstAttribute="centerX" secondItem="vO2-9D-qpi" secondAttribute="centerX" id="g5U-lj-eLb"/>
                             <constraint firstItem="Mms-pe-nfK" firstAttribute="centerX" secondItem="Alq-aQ-5rx" secondAttribute="centerX" id="h8Y-U3-b1g"/>
+                            <constraint firstItem="qfX-5T-tpo" firstAttribute="width" secondItem="nYk-RM-yzG" secondAttribute="width" id="iKE-4I-vou"/>
                             <constraint firstItem="QR5-0K-beD" firstAttribute="centerX" secondItem="Alq-aQ-5rx" secondAttribute="centerX" id="k84-em-uMF"/>
+                            <constraint firstItem="fPp-Oe-ja2" firstAttribute="width" secondItem="Mms-pe-nfK" secondAttribute="width" id="n7N-sS-VT8"/>
                             <constraint firstAttribute="centerX" secondItem="DAA-NT-in3" secondAttribute="centerX" id="oNg-4C-Yfe"/>
+                            <constraint firstItem="QR5-0K-beD" firstAttribute="width" secondItem="Alq-aQ-5rx" secondAttribute="width" id="oTU-yO-mf6"/>
                             <constraint firstItem="ghl-XT-XrS" firstAttribute="top" secondItem="pAJ-YL-sXS" secondAttribute="bottom" constant="8" symbolic="YES" id="psM-BW-Sx6"/>
                             <constraint firstItem="CRU-fo-ynQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qId-gd-rfZ"/>
+                            <constraint firstItem="pAJ-YL-sXS" firstAttribute="width" secondItem="qfX-5T-tpo" secondAttribute="width" id="sw3-P0-5wJ"/>
                             <constraint firstAttribute="centerY" secondItem="DAA-NT-in3" secondAttribute="centerY" id="uGa-0N-4qo"/>
                         </constraints>
                         <variation key="default">
