@@ -12,13 +12,22 @@ import SnapKit
 
 class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
-    @IBOutlet weak var muteButton: UIButton!
+    @IBOutlet weak var blocklyButton: GameViewButton!
+    @IBOutlet weak var saveButton: GameViewButton!
+    @IBOutlet weak var loadButton: GameViewButton!
+    @IBOutlet weak var muteButton: GameViewButton!
     
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var webView: WKWebView?
+    var webView: WKWebView? {
+        didSet {
+            CommandFactory.gameView = webView
+        }
+    }
+    
+    var level: Level?
     
     var mute = false {
         didSet {
@@ -26,23 +35,33 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }
     }
     
-    var level: Level? {
+    var currentTab: GameViewButton? {
         didSet {
-            if (self.isViewLoaded()) {
-                updateUI()
+            for button in buttonSet {
+                button.selected = false;
             }
+            currentTab?.selected = true
         }
     }
+    
+    var buttonSet = [GameViewButton]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
+        setupButtonSet()
         self.activityIndicator.hidesWhenStopped = true
         self.containerView.addSubview(self.webView!)
         self.webView?.snp_makeConstraints({ (make) -> Void in
             make.edges.equalTo(self.containerView)
         })
-        updateUI()
+        
+        self.activityIndicator.startAnimating()
+        
+        // Load Level
+        if let requestedLevel = self.level {
+            GVLoadLevelCommand(level: requestedLevel, webView: webView!).execute {}
+        }
     }
     
     private func setupWebView() {
@@ -54,15 +73,17 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         self.webView?.multipleTouchEnabled = false
     }
     
-    private func updateUI() {
-        self.activityIndicator.startAnimating()
-        if let requestedLevel = self.level {
-            GVLoadLevelCommand(level: requestedLevel, webView: webView!).execute {}
-        }
+    private func setupButtonSet() {
+        currentTab = blocklyButton
+        buttonSet.append(blocklyButton)
+        buttonSet.append(loadButton)
+        buttonSet.append(saveButton)
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        removeGameDetailViewTabMenu()
+        runJavaScript(
+            "document.getElementById('right').style.marginLeft = '0px';" +
+            "document.getElementById('tabs').style.display = 'none';")
         self.activityIndicator.stopAnimating()
     }
     
@@ -74,46 +95,49 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }
     }
     
-    private func removeGameDetailViewTabMenu(){
-        runJavaScript("document.getElementById('tabs').style.display = 'none';")
-    }
-    
     @IBAction func blockly() {
-        GVBlocklyCommand(gameView: webView!).execute {}
+        GVBlocklyCommand(gameView: webView!).execute {
+            self.currentTab = self.blocklyButton
+        }
     }
     
     @IBAction func clear() {
-        GVClearCommand(gameView: webView!).execute {}
+        GVClearCommand(gameView: webView!).execute()
     }
     
     
     @IBAction func play() {
-        GVPlayCommand(gameView: webView!).execute {}
+        GVPlayCommand(gameView: webView!).execute()
     }
     
     @IBAction func stop() {
-        GVStopCommand(gameView: webView!).execute {}
+        GVStopCommand(gameView: webView!).execute()
     }
     
     @IBAction func step() {
-        GVStepCommand(gameView: webView!).execute {}
+        GVStepCommand(gameView: webView!).execute()
     }
     
     @IBAction func load() {
-        GVLoadCommand(gameView: webView!).execute {}
+        GVLoadCommand(gameView: webView!).execute {
+            self.currentTab = self.loadButton
+        }
     }
     
     @IBAction func save() {
-        GVSaveCommand(gameView: webView!).execute {}
+        GVSaveCommand(gameView: webView!).execute {
+            self.currentTab = self.saveButton
+        }
     }
     
     @IBAction func help() {
-        GVHelpCommand(gameView: webView!).execute {}
+        GVHelpCommand(gameView: webView!).execute()
     }
-    
-    @IBAction func mute(sender: UIButton) {
-        GVMuteCommand(gameView: webView!).execute {}
-        mute = !mute
+
+    @IBAction func muteSound() {
+        GVMuteCommand(gameView: webView!).execute {
+            self.mute = !self.mute
+        }
     }
     
 }

@@ -96,24 +96,25 @@
                                 <rect key="frame" x="328" y="300" width="20" height="20"/>
                                 <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYk-RM-yzG" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-4" y="28" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYk-RM-yzG" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="28" width="80" height="32"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="PTq-eT-Fha"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Blockly">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="blockly" destination="BYZ-38-t0r" eventType="touchUpInside" id="H39-zO-6H3"/>
+                                    <action selector="blockly" destination="BYZ-38-t0r" eventType="touchUpInside" id="kom-Wf-U5f"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfX-5T-tpo" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-3.5" y="66" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfX-5T-tpo" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="68" width="80" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -122,8 +123,9 @@
                                     <action selector="clear" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lnm-SW-yCH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAJ-YL-sXS" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-4" y="104" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAJ-YL-sXS" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="108" width="80" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -132,8 +134,9 @@
                                     <action selector="play" destination="BYZ-38-t0r" eventType="touchUpInside" id="jqF-Nw-Vyp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-XT-XrS" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-4.5" y="142" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghl-XT-XrS" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="148" width="80" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Stop">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -142,8 +145,9 @@
                                     <action selector="stop" destination="BYZ-38-t0r" eventType="touchUpInside" id="rzG-gX-6mM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO2-9D-qpi" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-5" y="180" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO2-9D-qpi" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="188" width="80" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Step">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,28 +156,31 @@
                                     <action selector="step" destination="BYZ-38-t0r" eventType="touchUpInside" id="FK4-gr-UfM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QR5-0K-beD" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-4.5" y="218" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QR5-0K-beD" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="228" width="80" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Load">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="load" destination="BYZ-38-t0r" eventType="touchUpInside" id="UiJ-dE-Xhl"/>
+                                    <action selector="load" destination="BYZ-38-t0r" eventType="touchUpInside" id="bgx-o8-1m3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alq-aQ-5rx" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-5" y="256" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alq-aQ-5rx" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="268" width="80" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iui-Zm-qBz"/>
+                                    <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gfu-l3-puW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4y-CQ-Ao4" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-4" y="370" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4y-CQ-Ao4" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="388" width="80" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Quit">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -182,18 +189,20 @@
                                     <segue destination="TZe-U8-cfb" kind="unwind" unwindAction="unwindToLevelTableView:" id="7sT-I7-6gY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPp-Oe-ja2" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-4.5" y="332" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPp-Oe-ja2" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="348" width="80" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Mute">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="mute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="olc-ml-UVV"/>
+                                    <action selector="muteSound" destination="BYZ-38-t0r" eventType="touchUpInside" id="vr8-zn-xWW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-pe-nfK" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                <rect key="frame" x="-5" y="294" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mms-pe-nfK" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="308" width="80" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Help">
                                     <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -264,8 +273,11 @@
                     <navigationItem key="navigationItem" id="bI6-P7-s5v"/>
                     <connections>
                         <outlet property="activityIndicator" destination="DAA-NT-in3" id="CZB-JE-9me"/>
+                        <outlet property="blocklyButton" destination="nYk-RM-yzG" id="S1G-Lq-PX3"/>
                         <outlet property="containerView" destination="CRU-fo-ynQ" id="yJ4-4E-X6j"/>
+                        <outlet property="loadButton" destination="QR5-0K-beD" id="BqT-nN-v0g"/>
                         <outlet property="muteButton" destination="fPp-Oe-ja2" id="sjG-tN-md9"/>
+                        <outlet property="saveButton" destination="Alq-aQ-5rx" id="uve-wj-DA2"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="wmI-TC-Fom"/>
                     </connections>
                 </viewController>
