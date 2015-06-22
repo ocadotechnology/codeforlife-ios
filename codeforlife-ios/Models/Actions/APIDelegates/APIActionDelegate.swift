@@ -10,9 +10,9 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class APIActionDeletage : ActionDelegate, ActionDelegateProtocol {
+class APIActionDeletage : ActionDelegate {
     
-    override func execute(request: Request, processData: (NSData -> Void)) {
+    func execute(request: Request, processData: (NSData -> Void), callback: () -> Void) {
         request.responseJSON { (req, res, json, error) in
             if(error != nil) {
                 NSLog("Error: \(error)")
@@ -22,6 +22,7 @@ class APIActionDeletage : ActionDelegate, ActionDelegateProtocol {
             else {
                 processData(JSON(json!).rawData()!)
             }
+            callback()
         }
     }
     

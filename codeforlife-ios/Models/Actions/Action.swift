@@ -23,7 +23,7 @@ class Action : ActionProtocol {
     var url: URLStringConvertible
     var method: Alamofire.Method
     var params = [String: String]()
-    var delegate = ActionDelegate()
+    var delegate : ActionDelegate?
     
     init(url : String, httpMethod: Alamofire.Method)
     {
@@ -35,14 +35,16 @@ class Action : ActionProtocol {
         return Alamofire.request(method, url)
     }
     
-    func execute()
+    func execute(callback: () -> Void = {})
     {
         var request = prepareHTTPRequest()
-        self.delegate.execute(request, processData: processData)
+        if let delegate = self.delegate {
+            delegate.execute(request, processData: processData, callback: callback)
+        } else {
+            fatalError("Action delegate is probably nil")
+        }
     }
     
-    // Shows Request Detail in console
-    // Never call this before REQUEST is initialized
     func showRequestDetails() {
         println("===Request Detail===")
         println("  -- URL        : \(url)")
@@ -50,7 +52,7 @@ class Action : ActionProtocol {
     }
     
     func processData(data: NSData) {
-        NSException(name: "Impelement processData for \(self)", reason: "" , userInfo: nil).raise()
+        fatalError("Implement processData() for \(self)")
     }
     
     func switchToMock() -> Action? {

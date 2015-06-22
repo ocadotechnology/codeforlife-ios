@@ -13,18 +13,13 @@ class GVJavaScriptCommand : GameViewCommand {
     
     var javascript: String?
     
-    init(gameView: WKWebView, javascript: String) {
-        super.init(gameView: gameView)
+    init(gameViewController: GameViewController, javascript: String) {
+        super.init(gameViewController: gameViewController)
         self.javascript = javascript
-    }
-
-    override func execute<Int>(response: Int -> Void) {
-        gameView?.evaluateJavaScript(javascript!) { (data, error) -> Void in
-        }
     }
     
     func execute(response:() -> Void = {} ) {
-        gameView?.evaluateJavaScript(javascript!) { (data, error) -> Void in
+        gameViewController.runJavaScript(javascript!) {
             response()
         }
     }

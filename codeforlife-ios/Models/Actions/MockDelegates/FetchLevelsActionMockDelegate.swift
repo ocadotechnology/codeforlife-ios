@@ -10,9 +10,9 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class FetchLevelsActionMockDelegate: ActionDelegate, ActionDelegateProtocol
+class FetchLevelsActionMockDelegate: ActionDelegate
 {
-    override func execute(request: Request, processData: (NSData -> Void)) {
+    func execute(request: Request, processData: (NSData -> Void), callback: () -> Void) {
         var json = JSON(
             [
                 [
@@ -39,5 +39,6 @@ class FetchLevelsActionMockDelegate: ActionDelegate, ActionDelegateProtocol
         
         var data = json.rawData()
         processData(data!)
+        callback()
     }
 }
