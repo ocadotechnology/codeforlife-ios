@@ -10,12 +10,13 @@ import UIKit
 import WebKit
 import SnapKit
 
-class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
     @IBOutlet weak var blocklyButton: GameViewButton!
     @IBOutlet weak var saveButton: GameViewButton!
     @IBOutlet weak var loadButton: GameViewButton!
     @IBOutlet weak var muteButton: GameViewButton!
+    @IBOutlet weak var playButton: GameViewButton!
     
     @IBOutlet weak var containerView: UIView!
     
@@ -35,6 +36,12 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }
     }
     
+    var playing = false {
+        didSet {
+            
+        }
+    }
+    
     var currentTab: GameViewButton? {
         didSet {
             for button in buttonSet {
@@ -45,6 +52,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     var buttonSet = [GameViewButton]()
+    
+    var handler: GameViewInteractionHandler?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +74,10 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     private func setupWebView() {
-        self.webView = WKWebView()
+        handler = GameViewInteractionHandler(gameViewController: self)
+        var config = WKWebViewConfiguration()
+        config.userContentController.addScriptMessageHandler(handler!, name: "handler")
+        self.webView = WKWebView(frame: self.containerView.frame, configuration: config)
         self.webView?.navigationDelegate = self
         self.webView?.UIDelegate = self
         self.webView?.scrollView.maximumZoomScale = 1.0
@@ -81,18 +93,12 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        runJavaScript(
+        webView.evaluateJavaScript(
             "document.getElementById('right').style.marginLeft = '0px';" +
-            "document.getElementById('tabs').style.display = 'none';")
+            "document.getElementById('tabs').style.display = 'none';"
+            , completionHandler: nil)
+        handler!.askForCurrentTab()
         self.activityIndicator.stopAnimating()
-    }
-    
-    func runJavaScript(script: String) {
-        self.webView?.evaluateJavaScript(script) {(data, error) -> Void in
-            if error != nil {
-                println(error.description)
-            }
-        }
     }
     
     @IBAction func blockly() {

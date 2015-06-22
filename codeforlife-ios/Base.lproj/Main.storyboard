@@ -277,6 +277,7 @@
                         <outlet property="containerView" destination="CRU-fo-ynQ" id="yJ4-4E-X6j"/>
                         <outlet property="loadButton" destination="QR5-0K-beD" id="BqT-nN-v0g"/>
                         <outlet property="muteButton" destination="fPp-Oe-ja2" id="sjG-tN-md9"/>
+                        <outlet property="playButton" destination="pAJ-YL-sXS" id="uLB-tq-thf"/>
                         <outlet property="saveButton" destination="Alq-aQ-5rx" id="uve-wj-DA2"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="wmI-TC-Fom"/>
                     </connections>

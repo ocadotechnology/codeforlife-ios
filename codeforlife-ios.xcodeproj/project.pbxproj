@@ -35,6 +35,7 @@
 		ED236EB41B3422F100B63380 /* GVQuitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EB31B3422F100B63380 /* GVQuitCommand.swift */; };
 		ED236EB61B34244A00B63380 /* GVBlocklyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EB51B34244A00B63380 /* GVBlocklyCommand.swift */; };
 		ED236EB81B34268B00B63380 /* JavaScriptConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EB71B34268B00B63380 /* JavaScriptConstants.swift */; };
+		EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */; };
 		EDC8C1E81B35A32A004B1358 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1E71B35A32A004B1358 /* Levels.swift */; };
 		EDC8C1EC1B35BA29004B1358 /* LevelSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1EB1B35BA29004B1358 /* LevelSection.swift */; };
 		EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */; };
@@ -91,6 +92,7 @@
 		ED236EB31B3422F100B63380 /* GVQuitCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVQuitCommand.swift; sourceTree = "<group>"; };
 		ED236EB51B34244A00B63380 /* GVBlocklyCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVBlocklyCommand.swift; sourceTree = "<group>"; };
 		ED236EB71B34268B00B63380 /* JavaScriptConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JavaScriptConstants.swift; path = ../JavaScriptConstants.swift; sourceTree = "<group>"; };
+		EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewInteractionHandler.swift; sourceTree = "<group>"; };
 		EDC8C1E71B35A32A004B1358 /* Levels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		EDC8C1EB1B35BA29004B1358 /* LevelSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSection.swift; sourceTree = "<group>"; };
 		EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewButton.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				EF41E7F0402D1DF38E4BA7F2 /* Level.swift */,
 				EDC8C1EB1B35BA29004B1358 /* LevelSection.swift */,
 				EDC8C1E71B35A32A004B1358 /* Levels.swift */,
+				EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				ED236EB01B3422C900B63380 /* GVHelpCommand.swift in Sources */,
 				ED236E9C1B3415E500B63380 /* GVPlayCommand.swift in Sources */,
 				ED0A770A1B34560600267191 /* LabelTableViewCell.swift in Sources */,
+				EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */,
 				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
 				ED1EB0751B331C7100A595EF /* APIActionDelegate.swift in Sources */,
 				D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */,
