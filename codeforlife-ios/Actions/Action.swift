@@ -50,7 +50,7 @@ class Action : ActionProtocol {
     }
     
     func processData(data: NSData) {
-        NSException(name: "Impelement processData for \(self)", reason: "" , userInfo: nil).raise()
+        fatalError("Implement processData() for \(self)")
     }
     
     func switchToMock() -> Action? {

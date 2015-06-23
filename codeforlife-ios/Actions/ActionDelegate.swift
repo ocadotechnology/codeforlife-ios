@@ -16,7 +16,7 @@ protocol ActionDelegateProtocol {
 class ActionDelegate : ActionDelegateProtocol {
 
     func execute(request : Request, processData: (NSData -> Void)) {
-        NSException(name: "Implement execute() for \(self)", reason: "" , userInfo: nil).raise()
+        fatalError("Implement execute<T>() for \(self)")
     }
     
 }

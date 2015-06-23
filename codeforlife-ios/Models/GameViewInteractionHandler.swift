@@ -28,24 +28,28 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                 if let type = json["type"].string {
                     if let content = json["content"].array {
                         switch type {
-                            case "changeCurrentTabToBlockly":
-                                gameViewController?.currentTab = gameViewController?.blocklyButton
-                            case "changeCurrentTabToLoad":
-                                gameViewController?.currentTab = gameViewController?.loadButton
-                            case "changeCurrentTabToSave":
-                                gameViewController?.currentTab = gameViewController?.saveButton
+                            case "changeCurrentTabSelectedToBlockly":
+                                gameViewController!.currentTab = gameViewController!.blocklyButton
+                            case "changeCurrentTabSelectedToLoad":
+                                gameViewController!.currentTab = gameViewController!.loadButton
+                            case "changeCurrentTabSelectedToSave":
+                                gameViewController!.currentTab = gameViewController!.saveButton
                             case "mute":
-                                gameViewController?.mute = true
-                            case "unmute":
-                                gameViewController?.mute = false
-                            case "isPlaying":
-                                TODO(content)
-                            case "isPaused":
-                                TODO(content)
-                            case "isStopped":
-                                TODO(content)
-                            case "isFinished":
-                                TODO(content)
+                                gameViewController!.mute = !gameViewController!.mute
+                            case "onPlayControls":
+                                gameViewController!.controlMode = GameViewController.ControlMode.onPlayControls
+                            case "onPauseControls":
+                                gameViewController!.controlMode = GameViewController.ControlMode.onPauseControls
+                            case "onStepControls":
+                                gameViewController!.controlMode = GameViewController.ControlMode.onStepControls
+                            case "onStopControls":
+                                gameViewController!.controlMode = GameViewController.ControlMode.onStopControls
+                            case "onResumeControls":
+                                gameViewController!.controlMode = GameViewController.ControlMode.onResumeControls
+                            case "preGameMessage":
+                                TODO()
+                            case "postGameMessage":
+                                TODO()
                             default: break
                         }
                     }
@@ -58,16 +62,8 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         gameViewController!.webView!.evaluateJavaScript(script, completionHandler: nil)
     }
     
-    func askForCurrentTab() {
-        executeJavaScript(
-            "var result = ocargo.game.currentTabSelected;" +
-            "window.webkit.messageHandlers.handler.postMessage(\"{'name':'joey'}\")"
-        )
-    }
-    
-    func TODO(content: [JSON]) {
+    private func TODO() {
         fatalError("TODO")
     }
-    
     
 }

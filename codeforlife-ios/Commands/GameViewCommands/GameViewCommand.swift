@@ -9,6 +9,10 @@
 import Foundation
 import WebKit
 
+protocol Command {
+    func execute<T>(response: T -> Void )
+}
+
 class GameViewCommand : Command {
     
     var gameView: WKWebView?
@@ -18,7 +22,7 @@ class GameViewCommand : Command {
     }
     
     func execute<T>(response: T -> Void) {
-        NSException(name: "Absract GameViewCommand method called", reason: "" , userInfo: nil).raise()
+        fatalError("Absract GameViewCommand method called")
     }
     
 }

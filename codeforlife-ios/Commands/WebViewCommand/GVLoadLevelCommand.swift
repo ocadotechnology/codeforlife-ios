@@ -6,21 +6,22 @@
 import Foundation
 import WebKit
 
-class GVLoadLevelCommand : LoadLevelCommand {
+class GVLoadLevelCommand : GameViewCommand {
+
+    var level: Level?
     
-    var webView: WKWebView?
-
-    init(level: Level, webView: WKWebView) {
-        super.init(level: level)
-        self.webView = webView
+    init(level: Level, gameView: WKWebView) {
+        super.init(gameView: gameView)
+        self.level = level
     }
-
-    override func execute<Level>(response: Level -> Void) {
-        var urlStr = kCFLDomain + kCFLRapidRouter + "\(level.number!)";
+    
+    override func execute<Level> (response: Level -> Void) {
+        var urlStr = kCFLDomain + kCFLRapidRouter + "\(level!.number!)";
         var url = NSURL(string: urlStr);
         
         var request = NSURLRequest(URL: url!);
-        webView!.loadRequest(request)
+        gameView!.loadRequest(request)
     }
+    
 }
 

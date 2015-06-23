@@ -211,6 +211,80 @@
                                     <action selector="help" destination="BYZ-38-t0r" eventType="touchUpInside" id="cLB-4T-Ayo"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiZ-h9-ATy">
+                                <rect key="frame" x="339" y="427" width="245" height="165"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP8-ee-414">
+                                        <rect key="frame" x="85" y="5" width="75" height="75"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="6IN-mL-VFl"/>
+                                            <constraint firstAttribute="height" constant="75" id="6Yu-Du-ybw"/>
+                                        </constraints>
+                                        <state key="normal" title="Forward">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cargoMoveForward" destination="BYZ-38-t0r" eventType="touchUpInside" id="HJJ-YA-NOU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hia-pM-Vbl">
+                                        <rect key="frame" x="165" y="85" width="75" height="75"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="Dcs-tS-jU3"/>
+                                            <constraint firstAttribute="width" constant="75" id="ekK-hd-Jhq"/>
+                                        </constraints>
+                                        <state key="normal" title="Right">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cargoTurnRight" destination="BYZ-38-t0r" eventType="touchUpInside" id="k4k-rI-jKO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ask-5s-JX7">
+                                        <rect key="frame" x="5" y="85" width="75" height="75"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="48B-6l-e3J"/>
+                                            <constraint firstAttribute="width" constant="75" id="BsX-X6-iWP"/>
+                                        </constraints>
+                                        <state key="normal" title="Left">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cargoTurnLeft" destination="BYZ-38-t0r" eventType="touchUpInside" id="UXw-sf-oKB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRo-YN-aX3">
+                                        <rect key="frame" x="85.5" y="85" width="75" height="75"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="Rqw-E9-owr"/>
+                                            <constraint firstAttribute="height" constant="75" id="uyL-5v-jEN"/>
+                                        </constraints>
+                                        <state key="normal" title="Go">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="play" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bf6-u8-ADR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="0.02" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hia-pM-Vbl" secondAttribute="bottom" constant="5" id="0XC-cf-PBt"/>
+                                    <constraint firstAttribute="width" constant="245" id="Csq-Ud-IZ0"/>
+                                    <constraint firstAttribute="bottom" secondItem="VRo-YN-aX3" secondAttribute="bottom" constant="5" id="Egu-Qe-wVf"/>
+                                    <constraint firstAttribute="height" constant="165" id="N0s-wF-Rff"/>
+                                    <constraint firstItem="Ask-5s-JX7" firstAttribute="leading" secondItem="fiZ-h9-ATy" secondAttribute="leading" constant="5" id="R2P-4l-Yqg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ask-5s-JX7" secondAttribute="bottom" constant="5" id="UZ9-Zu-uRb"/>
+                                    <constraint firstItem="EP8-ee-414" firstAttribute="top" secondItem="fiZ-h9-ATy" secondAttribute="top" constant="5" id="X4F-zz-bOy"/>
+                                    <constraint firstAttribute="centerX" secondItem="VRo-YN-aX3" secondAttribute="centerX" id="ahQ-p1-gB1"/>
+                                    <constraint firstAttribute="centerX" secondItem="EP8-ee-414" secondAttribute="centerX" id="hwr-LN-7Lg"/>
+                                    <constraint firstAttribute="trailing" secondItem="hia-pM-Vbl" secondAttribute="trailing" constant="5" id="tje-CU-nrY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.62745098040000002" green="0.7725490196" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -257,6 +331,8 @@
                             <constraint firstItem="CRU-fo-ynQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qId-gd-rfZ"/>
                             <constraint firstItem="pAJ-YL-sXS" firstAttribute="width" secondItem="qfX-5T-tpo" secondAttribute="width" id="sw3-P0-5wJ"/>
                             <constraint firstAttribute="centerY" secondItem="DAA-NT-in3" secondAttribute="centerY" id="uGa-0N-4qo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fiZ-h9-ATy" secondAttribute="bottom" constant="8" id="ve2-E8-jvF"/>
+                            <constraint firstItem="fiZ-h9-ATy" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="veU-KU-R0P"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

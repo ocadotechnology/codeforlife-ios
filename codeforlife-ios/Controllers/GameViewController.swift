@@ -12,6 +12,12 @@ import SnapKit
 
 class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
+    let blocklyButtonText = "Blockly"
+    let pythonButtonText = "Python"
+    let muteToUnmuteButtonText = "Unmute"
+    let unmuteToMuteButtonText = "Mute"
+    let scriptMessageHandlerTitle = "handler"
+    
     @IBOutlet weak var blocklyButton: GameViewButton!
     @IBOutlet weak var saveButton: GameViewButton!
     @IBOutlet weak var loadButton: GameViewButton!
@@ -22,23 +28,45 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    enum ControlMode {
+        case onPlayControls
+        case onPauseControls
+        case onStepControls
+        case onStopControls
+        case onResumeControls
+    }
+    
     var webView: WKWebView? {
         didSet {
-            CommandFactory.gameView = webView
+            GameViewCommandFactory.gameView = webView
         }
     }
+    
+    var buttonSet = [GameViewButton]()
+    
+    var handler: GameViewInteractionHandler?
     
     var level: Level?
     
-    var mute = false {
+    var cargoController: VehicleController?
+    
+    var blocklyEnabled = false {
         didSet {
-            muteButton.setTitle(mute ? "Unmute" : "Mute", forState: UIControlState.Normal)
+            blocklyButton.setTitle(blocklyEnabled ? blocklyButtonText : pythonButtonText, forState: UIControlState.Normal)
         }
     }
     
-    var playing = false {
+    var mute = false {
         didSet {
-            
+            muteButton.setTitle(mute ? muteToUnmuteButtonText : unmuteToMuteButtonText, forState: UIControlState.Normal)
+        }
+    }
+    
+    var finish = false {
+        didSet {
+            if finish {
+                // TODO: show PostGame Message
+            }
         }
     }
     
@@ -51,32 +79,41 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         }
     }
     
-    var buttonSet = [GameViewButton]()
-    
-    var handler: GameViewInteractionHandler?
+    var controlMode = ControlMode.onStopControls {
+        didSet {
+            switch controlMode {
+                case ControlMode.onPlayControls: onPlayControls()
+                case ControlMode.onPauseControls: onPauseControls()
+                case ControlMode.onStepControls: onStepControls()
+                case ControlMode.onStopControls:  onStopControls()
+                case ControlMode.onResumeControls: onResumeControls()
+                default: break;
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
+        setupCargoController()
         setupButtonSet()
         self.activityIndicator.hidesWhenStopped = true
         self.containerView.addSubview(self.webView!)
         self.webView?.snp_makeConstraints({ (make) -> Void in
             make.edges.equalTo(self.containerView)
         })
-        
         self.activityIndicator.startAnimating()
         
         // Load Level
         if let requestedLevel = self.level {
-            GVLoadLevelCommand(level: requestedLevel, webView: webView!).execute {}
+            GameViewCommandFactory.LoadLevelCommand(requestedLevel).execute {}
         }
     }
     
     private func setupWebView() {
         handler = GameViewInteractionHandler(gameViewController: self)
         var config = WKWebViewConfiguration()
-        config.userContentController.addScriptMessageHandler(handler!, name: "handler")
+        config.userContentController.addScriptMessageHandler(handler!, name: scriptMessageHandlerTitle)
         self.webView = WKWebView(frame: self.containerView.frame, configuration: config)
         self.webView?.navigationDelegate = self
         self.webView?.UIDelegate = self
@@ -92,58 +129,98 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         buttonSet.append(saveButton)
     }
     
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        webView.evaluateJavaScript(
-            "document.getElementById('right').style.marginLeft = '0px';" +
-            "document.getElementById('tabs').style.display = 'none';"
-            , completionHandler: nil)
-        handler!.askForCurrentTab()
-        self.activityIndicator.stopAnimating()
+    private func setupCargoController() {
+        self.cargoController = CargoController(gameViewController: self)
+    }
+    
+    func onPlayControls() {
+        playButton.setTitle("Pause", forState: UIControlState.Normal)
+    }
+    
+    func onStepControls() {
+        playButton.setTitle("Resume", forState: UIControlState.Normal)
+    }
+    
+    func onStopControls() {
+        playButton.setTitle("Play", forState: UIControlState.Normal)
+    }
+    
+    func onPauseControls() {
+        playButton.setTitle("Resume", forState: UIControlState.Normal)
+    }
+    
+    func onResumeControls() {
+        playButton.setTitle("Pause", forState: UIControlState.Normal)
     }
     
     @IBAction func blockly() {
-        GVBlocklyCommand(gameView: webView!).execute {
+        GameViewCommandFactory.BlocklyCommand().execute {
             self.currentTab = self.blocklyButton
         }
     }
     
     @IBAction func clear() {
-        GVClearCommand(gameView: webView!).execute()
+        GameViewCommandFactory.ClearCommand().execute()
     }
     
-    
     @IBAction func play() {
-        GVPlayCommand(gameView: webView!).execute()
+        GameViewCommandFactory.PlayCommand().execute()
     }
     
     @IBAction func stop() {
-        GVStopCommand(gameView: webView!).execute()
+        GameViewCommandFactory.StopCommand().execute()
     }
     
     @IBAction func step() {
-        GVStepCommand(gameView: webView!).execute()
+        GameViewCommandFactory.StepCommand().execute()
     }
     
     @IBAction func load() {
-        GVLoadCommand(gameView: webView!).execute {
+        GameViewCommandFactory.LoadCommand().execute {
             self.currentTab = self.loadButton
         }
     }
     
     @IBAction func save() {
-        GVSaveCommand(gameView: webView!).execute {
+        GameViewCommandFactory.SaveCommand().execute {
             self.currentTab = self.saveButton
         }
     }
     
     @IBAction func help() {
-        GVHelpCommand(gameView: webView!).execute()
+        GameViewCommandFactory.HelpCommand().execute()
     }
 
     @IBAction func muteSound() {
-        GVMuteCommand(gameView: webView!).execute {
+        GameViewCommandFactory.MuteCommand().execute {
             self.mute = !self.mute
         }
+    }
+    
+    @IBAction func cargoMoveForward() {
+        self.cargoController!.moveForward()
+    }
+    
+    @IBAction func cargoTurnLeft() {
+        self.cargoController!.turnLeft()
+    }
+    
+    @IBAction func cargoTurnRight() {
+        self.cargoController!.turnRight()
+    }
+    
+    
+    func runJavaScript(javaScript: String) {
+        webView!.evaluateJavaScript(javaScript, completionHandler: nil)
+    }
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        webView.evaluateJavaScript(
+            "document.getElementById('right').style.marginLeft = '0px';" +
+            "document.getElementById('tabs').style.display = 'none';" +
+            "document.getElementById('direct_drive').style.display = 'none';"
+            , completionHandler: nil)
+        self.activityIndicator.stopAnimating()
     }
     
 }
