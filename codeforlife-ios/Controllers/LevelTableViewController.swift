@@ -11,10 +11,7 @@ import UIKit
 class LevelTableViewController: UITableViewController {
     
     let kCFLLoadLevelSegueIdentifier = "LoadLevel"
-    
-    private struct Storyboard {
-        static let CellReuseIdentifier = "Level"
-    }
+    let CellReuseIdentifier = "Level"
     
     var levels = Levels() {
         didSet {
@@ -43,7 +40,7 @@ class LevelTableViewController: UITableViewController {
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
         var level = levels.sections[indexPath.section].levels[indexPath.row]
         cell.numberLabel.text =  "Level \(level.number!)"
         cell.descriptionLabel.text = level.description
