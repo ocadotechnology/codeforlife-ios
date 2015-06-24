@@ -22,26 +22,51 @@ class CargoController: VehicleController {
     let turnRightJavaScript = "$('#turnRight').trigger('click');"
     let goJavaScript = "$('#play_radio').trigger('click');"
     
-    var gameViewController: GameViewController?
+    var gameViewController: GameViewController
     
     init(gameViewController: GameViewController) {
         self.gameViewController = gameViewController
     }
     
     func moveForward() {
-        gameViewController!.runJavaScript(moveForwardJavaScript)
+        gameViewController.runJavaScript(moveForwardJavaScript)
     }
     
     func turnLeft() {
-        gameViewController!.runJavaScript(turnLeftJavaScript)
+        gameViewController.runJavaScript(turnLeftJavaScript)
     }
     
     func turnRight() {
-        gameViewController!.runJavaScript(turnRightJavaScript)
+        gameViewController.runJavaScript(turnRightJavaScript)
     }
     
     func go() {
-        gameViewController!.runJavaScript(goJavaScript)
+        gameViewController.runJavaScript(goJavaScript)
+    }
+    
+}
+
+class NativeCarController: VehicleController {
+    
+    var car : Player
+    
+    init(gameViewController: GameViewController) {
+        car = gameViewController.gameMapViewController!.skView!.gameScene!.player
+    }
+    
+    func moveForward() {
+        car.moveForward(50, duration: 1)
+    }
+    
+    func turnLeft() {
+        car.turnLeft(50, duration: 1)
+    }
+    
+    func turnRight() {
+        car.turnRight(50, duration: 1)
+    }
+    
+    func go() {
     }
     
 }

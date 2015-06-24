@@ -11,6 +11,6 @@ import Alamofire
 
 protocol ActionDelegate {
 
-    func execute(request : Request, processData: (NSData -> Void), callback: () -> Void)
+    func execute(processData: (NSData -> Void), callback: () -> Void)
     
 }

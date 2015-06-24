@@ -19,12 +19,13 @@ class Levels {
     init() {}
     
     func addSection(section: String) -> LevelSection? {
-        sections.append(LevelSection(name: section))
-        if let newSection = sections.last {
-            return newSection
-        } else {
-            return nil
+        var newSection = LevelSection(name: section)
+        if let previousSection = sections.last {
+            previousSection.nextSection = newSection
+            newSection.previousSection = previousSection
         }
+        sections.append(newSection)
+        return newSection
     }
     
     func getSection(index: Int) -> LevelSection? {

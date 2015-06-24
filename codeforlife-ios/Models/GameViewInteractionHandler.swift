@@ -12,58 +12,105 @@ import WebKit
 
 class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
-    static let command = "window.webkit.messageHandlers.handler.postMessage(result)"
+    struct JSONIdentifier {
+        static let Tag = "tag"
+        static let Title = "title"
+        static let Context = "context"
+    }
+    
+    struct JSONTag {
+        static let ResetBlocks = "blocklyReset"
+        static let MoveForward = "moveForward"
+        static let TurnLeft = "turnLeft"
+        static let TurnRight = "turnRight"
+        static let Mute = "mute"
+        static let OnPlay = "onPlayControls"
+        static let OnPause = "onPauseControls"
+        static let OnStep = "onStepControls"
+        static let OnStop = "onStopControls"
+        static let OnResume = "onResumeControls"
+        static let PreGameMsg = "preGameMessage"
+        static let WinWithNextLevel = "winWithNextLevel"
+        static let Fail = "fail"
+        static let Help = "help"
+    }
 
     var gameViewController: GameViewController?
     
-    init(gameViewController: GameViewController) {
-        self.gameViewController = gameViewController
-    }
-    
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if let result = message.body as? NSString {
-//            let result2 = "{\"name\":\"Joey\"}"
+            //println(result)
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
-                if let type = json["type"].string {
-                    if let content = json["content"].array {
-                        switch type {
-                            case "changeCurrentTabSelectedToBlockly":
-                                gameViewController!.currentTab = gameViewController!.blocklyButton
-                            case "changeCurrentTabSelectedToLoad":
-                                gameViewController!.currentTab = gameViewController!.loadButton
-                            case "changeCurrentTabSelectedToSave":
-                                gameViewController!.currentTab = gameViewController!.saveButton
-                            case "mute":
-                                gameViewController!.mute = !gameViewController!.mute
-                            case "onPlayControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onPlayControls
-                            case "onPauseControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onPauseControls
-                            case "onStepControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onStepControls
-                            case "onStopControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onStopControls
-                            case "onResumeControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onResumeControls
-                            case "preGameMessage":
-                                TODO()
-                            case "postGameMessage":
-                                TODO()
-                            default: break
+                if let tag = json[JSONIdentifier.Tag].string {
+                    switch tag {
+                        case JSONTag.ResetBlocks:
+                            gameViewController!.blockTableViewController!.clearBlocks()
+                        case JSONTag.MoveForward:
+                            gameViewController!.blockTableViewController!.addBlock(Forward())
+                            gameViewController!.gameMapViewController!.skView!.gameScene!.player.moveForward(50, duration: 1)
+                        case JSONTag.TurnLeft:
+                            gameViewController!.blockTableViewController!.addBlock(Left())
+                            gameViewController!.gameMapViewController!.skView!.gameScene!.player.turnLeft(50, duration: 1)
+                        case JSONTag.TurnRight:
+                            gameViewController!.blockTableViewController!.addBlock(Right())
+                            gameViewController!.gameMapViewController!.skView!.gameScene!.player.turnRight(50, duration: 1)
+                        case JSONTag.Mute:
+                            gameViewController!.gameMenuViewController!.mute = !gameViewController!.gameMenuViewController!.mute
+                        case JSONTag.OnPlay:
+                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPlayControls
+                        case JSONTag.OnPause:
+                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPauseControls
+                        case JSONTag.OnStep:
+                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStepControls
+                        case JSONTag.OnStop:
+                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStopControls
+                        case JSONTag.OnResume:
+                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
+                        case JSONTag.PreGameMsg:
+                            if let title = json[JSONIdentifier.Title].string {
+                                if let context = json[JSONIdentifier.Context].string {
+                                    if let controller = self.gameViewController!.gameMessageViewController {
+                                        controller.message = PreGameMessage(title: title, context: context,
+                                            action: controller.closeMenu)
+                                        controller.toggleMenu()
+                                    }
+                                }
+                            }
+                        case JSONTag.WinWithNextLevel:
+                            if let title = json[JSONIdentifier.Title].string {
+                                if let leadMsg = json["leadMsg"].string {
+                                    if let controller = gameViewController!.postGameMessageViewController {
+                                        controller.message = PostGameMessage(title: title, context: leadMsg,
+                                            nextLevelAction: controller.gotoNextLevelAndDismiss,
+                                            playAgainAction: controller.playAgainAndDismiss)
+                                        controller.openMenu()
+                                    }
+                                }
+                            }
+                        case JSONTag.Fail:
+                            if let title = json[JSONIdentifier.Title].string {
+                                if let leadMsg = json["leadMsg"].string {
+                                    if let controller = gameViewController!.gameMessageViewController {
+                                        controller.message = ErrorMessage(title: title, context: leadMsg,
+                                            action: controller.closeMenu)
+                                        controller.openMenu()
+                                    }
+                                }
                         }
+                        case JSONTag.Help:
+                            if let message = json["message"].string {
+                                if let controller = gameViewController!.helpViewController {
+                                    controller.message = HelpMessage(context: message,
+                                        action: controller.closeMenu)
+                                    controller.toggleMenu()
+                                }
+                            }
+                        default: break
                     }
                 }
             }
         }
-    }
-    
-    func executeJavaScript(script: String) {
-        gameViewController!.webView!.evaluateJavaScript(script, completionHandler: nil)
-    }
-    
-    private func TODO() {
-        fatalError("TODO")
     }
     
 }

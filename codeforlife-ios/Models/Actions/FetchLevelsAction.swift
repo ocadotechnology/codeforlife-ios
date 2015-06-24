@@ -9,35 +9,28 @@
 import UIKit
 import Foundation
 import SwiftyJSON
-import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
-    var viewController: UIViewController?
+    var viewController: UIViewController
 
-    init(viewController: UIViewController) {
-        super.init(url: kCFLFetchLevelsAction, httpMethod: Alamofire.Method.GET)
-        self.delegate = FetchLevelsActionMockDelegate()
+    init(viewController: UIViewController, episode: Int) {
         self.viewController = viewController
+        super.init()
+        self.delegate = FetchLevelsActionDelegate(episode: episode)
     }
     
     override func processData(data: NSData) {
         
-        var levels = Levels()
+        var levels = [Level]()
         
         let json = JSON(data: data)
-        if let sectionArray = json.array {
-            for section in sectionArray {
-                if let sectionName = section["section"].string {
-                    var newSection = levels.addSection(sectionName)!
-                    if let levelArray = section["levels"].array {
-                        for level in levelArray {
-                            if let number = level["level"].int {
-                                if let description = level["description"].string {
-                                    newSection.addLevel(Level(number: number, description: description))
-                                }
-                            }
-                        }
+        println(json)
+        if let levelArray = json.array {
+            for level in levelArray {
+                if let number = level["level"].int {
+                    if let description = level["description"].string {
+                        levels.append(Level(number: number, description: description))
                     }
                 }
             }
@@ -46,6 +39,16 @@ class FetchLevelsAction : Action, ActionProtocol
         if let viewController = self.viewController as? LevelTableViewController {
             viewController.levels = levels
         }
+    }
+    
+    override func switchToDev() -> Action {
+        self.delegate = FetchLevelsActionDevDeletage()
+        return self
+    }
+    
+    override func switchToMock() -> Action {
+        self.delegate = FetchLevelsActionMockDelegate()
+        return self
     }
     
 }

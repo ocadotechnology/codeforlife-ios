@@ -10,7 +10,7 @@ import Foundation
 import WebKit
 
 protocol Command {
-    func execute<T>(response: T -> Void )
+    func execute(response: () -> Void )
 }
 
 class GameViewCommand : Command {
@@ -21,7 +21,7 @@ class GameViewCommand : Command {
         self.gameViewController = gameViewController
     }
     
-    func execute<T>(response: T -> Void) {
+    func execute(response: () -> Void) {
         fatalError("Absract GameViewCommand method called")
     }
     
