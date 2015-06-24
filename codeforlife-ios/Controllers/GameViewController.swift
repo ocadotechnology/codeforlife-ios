@@ -46,8 +46,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
     var level: Level?
     
-    var cargoController: VehicleController?
-    
     var blocklyEnabled = false {
         didSet {
             blocklyButton.setTitle(blocklyEnabled ? blocklyButtonText : pythonButtonText, forState: UIControlState.Normal)
@@ -94,7 +92,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         super.viewDidLoad()
         GameViewCommandFactory.gameViewController = self
         setupWebView(self.containerView.frame)
-        setupCargoController()
         setupButtonSet()
         self.activityIndicator.hidesWhenStopped = true
         self.containerView.addSubview(self.webView!)
@@ -126,10 +123,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         buttonSet.append(blocklyButton)
         buttonSet.append(loadButton)
         buttonSet.append(saveButton)
-    }
-    
-    func setupCargoController() {
-        self.cargoController = CargoController(gameViewController: self)
     }
     
     func onPlayControls() {
@@ -196,19 +189,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         }
     }
     
-    @IBAction func cargoMoveForward() {
-        self.cargoController!.moveForward()
-    }
-    
-    @IBAction func cargoTurnLeft() {
-        self.cargoController!.turnLeft()
-    }
-    
-    @IBAction func cargoTurnRight() {
-        self.cargoController!.turnRight()
-    }
-    
-    
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {
         webView!.evaluateJavaScript(javaScript) { ( _, _) in
             callback()
@@ -228,7 +208,19 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
             callBack()
             self.callBack = nil
         }
-        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let directDriveViewController = segue.destinationViewController as? DirectDriveViewController {
+            if let identifier = segue.identifier {
+                switch identifier {
+                case "PopDirectDrive":
+                    directDriveViewController.controller = CargoController(gameViewController: self)
+                    directDriveViewController.preferredContentSize = CGSize(width: 245, height: 165)
+                default: break
+                }
+            }
+        }
     }
     
 }

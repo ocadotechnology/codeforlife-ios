@@ -42,11 +42,11 @@ class GameViewControllerTests: XCTestCase {
         XCTAssertNotNil(controller!.webView, "WebView is nil after initialization")
     }
     
-    func test4SetUpCargoController() {
-        XCTAssertNil(controller!.cargoController as? CargoController, "CargoController is not nil before initialization")
-        controller!.setupCargoController()
-        XCTAssertNotNil(controller!.cargoController as? CargoController, "CargoController is nil after initialization")
-    }
+//    func test4SetUpCargoController() {
+//        XCTAssertNil(controller!.cargoController, "CargoController is not nil before initialization")
+//        controller!.setupCargoController()
+//        XCTAssertNotNil(controller!.cargoController, "CargoController is nil after initialization")
+//    }
     
     // TODO
     func test5SetUpButtonSet() {
