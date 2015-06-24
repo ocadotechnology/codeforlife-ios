@@ -66,7 +66,7 @@
 		ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
 		ED1EB0701B331A2800A595EF /* FetchLevelsAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelsAction.swift; sourceTree = "<group>"; };
 		ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchLevelsActionMockDelegate.swift; path = ../FetchLevelsActionMockDelegate.swift; sourceTree = "<group>"; };
-		ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIActionDelegate.swift; sourceTree = "<group>"; };
+		ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIActionDelegate.swift; path = ../APIActionDelegate.swift; sourceTree = "<group>"; };
 		ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GVJavaScriptCommand.swift; path = "codeforlife-ios/Commands/GameViewCommands/GVJavaScriptCommand.swift"; sourceTree = SOURCE_ROOT; };
 		ED236EA31B341E9F00B63380 /* GameViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCommand.swift; sourceTree = "<group>"; };
 		EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewInteractionHandler.swift; sourceTree = "<group>"; };
@@ -119,6 +119,7 @@
 		ED0A77011B344E5900267191 /* APIDelegates */ = {
 			isa = PBXGroup;
 			children = (
+				ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */,
 			);
 			path = APIDelegates;
 			sourceTree = "<group>";
@@ -200,7 +201,6 @@
 			children = (
 				ED1EB0631B32C09800A595EF /* Action.swift */,
 				ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */,
-				ED1EB0741B331C7100A595EF /* APIActionDelegate.swift */,
 				ED1EB0701B331A2800A595EF /* FetchLevelsAction.swift */,
 				ED0A77021B344E6800267191 /* MockDelegates */,
 				ED0A77011B344E5900267191 /* APIDelegates */,

@@ -9,14 +9,8 @@
 import Foundation
 import Alamofire
 
-protocol ActionDelegateProtocol {
-    func execute(request : Request, processData: (NSData -> Void))
-}
+protocol ActionDelegate {
 
-class ActionDelegate : ActionDelegateProtocol {
-
-    func execute(request : Request, processData: (NSData -> Void)) {
-        fatalError("Implement execute<T>() for \(self)")
-    }
+    func execute(request : Request, processData: (NSData -> Void), callback: () -> Void)
     
 }
