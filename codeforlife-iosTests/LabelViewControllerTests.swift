@@ -9,11 +9,11 @@
 import UIKit
 import XCTest
 
-class LabelViewControllerTest: XCTestCase {
+class LabelViewControllerTests: XCTestCase {
     
     var controller: LevelTableViewController?
     
-    var timeout = 10
+    var timeout: NSTimeInterval = 10
     
     let expectedMockSectionCount = 2
     let expectedMockLevelInSectionZeroCount = 4
@@ -26,7 +26,7 @@ class LabelViewControllerTest: XCTestCase {
         FetchLevelsAction(viewController: controller!).execute {
             expectation.fulfill()
         }
-        waitForExpectationsWithTimeout(10) {(error) in
+        waitForExpectationsWithTimeout(timeout) {(error) in
             println("FetchLevelAction cannot be performed properly")
         }
 

@@ -36,11 +36,9 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         case onResumeControls
     }
     
-    var webView: WKWebView? {
-        didSet {
-            GameViewCommandFactory.gameView = webView
-        }
-    }
+    var webView: WKWebView?
+    
+    var callBack: (() -> Void)?
     
     var buttonSet = [GameViewButton]()
     
@@ -94,7 +92,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupWebView()
+        GameViewCommandFactory.gameViewController = self
+        setupWebView(self.containerView.frame)
         setupCargoController()
         setupButtonSet()
         self.activityIndicator.hidesWhenStopped = true
@@ -110,11 +109,11 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         }
     }
     
-    private func setupWebView() {
+    func setupWebView(frame: CGRect) {
         handler = GameViewInteractionHandler(gameViewController: self)
         var config = WKWebViewConfiguration()
         config.userContentController.addScriptMessageHandler(handler!, name: scriptMessageHandlerTitle)
-        self.webView = WKWebView(frame: self.containerView.frame, configuration: config)
+        self.webView = WKWebView(frame: frame, configuration: config)
         self.webView?.navigationDelegate = self
         self.webView?.UIDelegate = self
         self.webView?.scrollView.maximumZoomScale = 1.0
@@ -122,14 +121,14 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         self.webView?.multipleTouchEnabled = false
     }
     
-    private func setupButtonSet() {
+    func setupButtonSet() {
         currentTab = blocklyButton
         buttonSet.append(blocklyButton)
         buttonSet.append(loadButton)
         buttonSet.append(saveButton)
     }
     
-    private func setupCargoController() {
+    func setupCargoController() {
         self.cargoController = CargoController(gameViewController: self)
     }
     
@@ -210,8 +209,10 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     
-    func runJavaScript(javaScript: String) {
-        webView!.evaluateJavaScript(javaScript, completionHandler: nil)
+    func runJavaScript(javaScript: String, callback: () -> Void = {}) {
+        webView!.evaluateJavaScript(javaScript) { ( _, _) in
+            callback()
+        }
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
@@ -220,7 +221,14 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
             "document.getElementById('tabs').style.display = 'none';" +
             "document.getElementById('direct_drive').style.display = 'none';"
             , completionHandler: nil)
-        self.activityIndicator.stopAnimating()
+        if activityIndicator != nil {
+            self.activityIndicator.stopAnimating()
+        }
+        if let callBack = self.callBack {
+            callBack()
+            self.callBack = nil
+        }
+        
     }
     
 }

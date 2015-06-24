@@ -22,46 +22,46 @@ let kC4LGameViewBlocklyCommandJavaScript = "$('#blockly_radio').trigger('click')
 
 class GameViewCommandFactory {
     
-    static var gameView: WKWebView?
+    static var gameViewController: GameViewController?
     
     static func BlocklyCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameView: gameView!, javascript: kC4LGameViewBlocklyCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewBlocklyCommandJavaScript)
     }
     
     static func ClearCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameView: gameView!, javascript: kC4LGameViewClearCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewClearCommandJavaScript)
     }
     
     static func PlayCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameView: gameView!, javascript: kC4LGameViewPlayCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewPlayCommandJavaScript)
     }
     
     static func StopCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameView: gameView!, javascript: kC4LGameViewStopCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewStopCommandJavaScript)
     }
     
     static func StepCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameView: gameView!, javascript: kC4LGameViewStepCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewStepCommandJavaScript)
     }
     
     static func LoadCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameView: gameView!, javascript: kC4LGameViewLoadCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewLoadCommandJavaScript)
     }
     
     static func SaveCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameView: gameView!, javascript: kC4LGameViewSaveCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewSaveCommandJavaScript)
     }
     
     static func HelpCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameView: gameView!, javascript: kC4LGameViewHelpCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewHelpCommandJavaScript)
     }
     
     static func MuteCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameView: gameView!, javascript: kC4LGameViewMuteCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewMuteCommandJavaScript)
     }
     
-    static func LoadLevelCommand(level: Level) -> GVLoadLevelCommand {
-        return GVLoadLevelCommand(level: level, gameView: gameView!)
+    static func LoadLevelCommand(level: Level, gameViewController: GameViewController = gameViewController!) -> GVLoadLevelCommand {
+        return GVLoadLevelCommand(level: level, gameViewController: gameViewController)
         
     }
     

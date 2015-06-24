@@ -10,17 +10,18 @@ class GVLoadLevelCommand : GameViewCommand {
 
     var level: Level?
     
-    init(level: Level, gameView: WKWebView) {
-        super.init(gameView: gameView)
+    init(level: Level, gameViewController: GameViewController) {
+        super.init(gameViewController: gameViewController)
         self.level = level
     }
     
-    override func execute<Level> (response: Level -> Void) {
+    func execute(response:() -> Void) {
         var urlStr = kCFLDomain + kCFLRapidRouter + "\(level!.number!)";
         var url = NSURL(string: urlStr);
         
         var request = NSURLRequest(URL: url!);
-        gameView!.loadRequest(request)
+        gameViewController.webView!.loadRequest(request)
+        gameViewController.callBack = response
     }
     
 }

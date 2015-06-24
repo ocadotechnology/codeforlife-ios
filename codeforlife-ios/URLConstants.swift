@@ -10,6 +10,6 @@ import Foundation
 
 let kCFLWebsiteURL = NSURL(string:"https://www.codeforlife.education/")
 
-let kCFLDomain = "https://www.codeforlife.education/"
+let kCFLDomain = "https://www.codeforlife.education"
 let kCFLFetchLevelsAction = "TODO"
 let kCFLRapidRouter = "/rapidrouter/"

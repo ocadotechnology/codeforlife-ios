@@ -15,10 +15,10 @@ protocol Command {
 
 class GameViewCommand : Command {
     
-    var gameView: WKWebView?
+    var gameViewController: GameViewController
     
-    init(gameView: WKWebView) {
-        self.gameView = gameView
+    init(gameViewController: GameViewController ) {
+        self.gameViewController = gameViewController
     }
     
     func execute<T>(response: T -> Void) {
