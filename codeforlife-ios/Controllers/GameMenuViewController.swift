@@ -54,7 +54,7 @@ class GameMenuViewController: UIViewController {
     }
 
     @IBAction func hideMenu() {
-        view.hidden = true
+        gameViewController!.toggleMenu()
     }
     
     @IBAction func clear() {
