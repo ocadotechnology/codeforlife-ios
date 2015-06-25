@@ -20,12 +20,11 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     let webViewPortion: CGFloat = 0.7
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var menuButton: GameViewButton!
     
     // Frames
     let directDriveFrame = CGSize(width: 245, height: 165)
-    let gameMenuFrame = CGSize(width: 80, height: 300)
     let webViewFrame = CGSize(width: 0, height: 0)
+    let gameMenuFrame = CGSize(width: 80, height: 250)
     
     // Controllers
     var gameMenuViewController: GameMenuViewController?
@@ -36,11 +35,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     var callBack: (() -> Void)?
     var handler = GameViewInteractionHandler()
     var level: Level?
-    var menuOpen = false {
-        didSet {
-            showMenu(menuOpen)
-        }
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,17 +87,17 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     func setupMenu() {
         gameMenuViewController = storyboard?.instantiateViewControllerWithIdentifier("GameMenuViewController") as? GameMenuViewController
         gameMenuViewController!.gameViewController = self
-        addChildViewController(gameMenuViewController!)
         gameMenuViewController!.view.frame = CGRect(
             x: 5,
             y: view.frame.height - gameMenuFrame.height,
             width: gameMenuFrame.width,
             height: gameMenuFrame.height)
-        view.addSubview(gameMenuViewController!.view)
-        gameMenuViewController!.didMoveToParentViewController(self)
         gameMenuViewController!.view.center = CGPointMake(
             gameMenuViewController!.view.center.x,
-            gameMenuViewController!.view.center.y + gameMenuFrame.height)
+            gameMenuViewController!.view.center.y + gameMenuFrame.height - 40)
+        addChildViewController(gameMenuViewController!)
+        gameMenuViewController!.didMoveToParentViewController(self)
+        view.addSubview(gameMenuViewController!.view)
         handler.gameMenuViewController = self.gameMenuViewController
     }
     
@@ -126,26 +121,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         }
     }
     
-    @IBAction func toggleMenu() {
-        menuOpen = !menuOpen
-    }
-    
-    func showMenu(open: Bool) {
-        let c = open ? (1 as CGFloat) : (-1 as CGFloat)
-        UIView.animateWithDuration(1.0) {
-            let newCenter = CGPointMake(
-                self.menuButton.center.x,
-                self.menuButton.center.y - c*self.gameMenuFrame.height)
-            self.menuButton.center = newCenter
-            
-            var view = self.gameMenuViewController!.view
-            let newCenter2 = CGPointMake(
-                view.center.x,
-                view.center.y - c*self.gameMenuFrame.height)
-            view.center = newCenter2
-        }
-    }
-    
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {
         webView!.evaluateJavaScript(javaScript) { ( _, _) in
             callback()
@@ -157,6 +132,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
             "document.getElementById('right').style.marginLeft = '0px';" +
             "document.getElementById('tabs').style.display = 'none';" +
             "document.getElementById('tab_panes').style.display = 'none';" +
+            "document.getElementById('consoleSlider').style.display = 'none';" +
+            "document.getElementById('paper').style.width = '100%';" +
             "document.getElementById('direct_drive').style.display = 'none';"
             , completionHandler: nil)
         if activityIndicator != nil {

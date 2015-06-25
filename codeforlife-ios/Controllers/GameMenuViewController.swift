@@ -15,6 +15,8 @@ class GameMenuViewController: UIViewController {
     let muteToUnmuteButtonText = "Unmute"
     let unmuteToMuteButtonText = "Mute"
     
+    
+    
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
     
@@ -52,11 +54,26 @@ class GameMenuViewController: UIViewController {
             }
         }
     }
+    
+    var menuOpen = false {
+        didSet {
+            showMenu(menuOpen)
+        }
+    }
 
-    @IBAction func hideMenu() {
-        gameViewController!.toggleMenu()
+    @IBAction func toggleMenu() {
+        menuOpen = !menuOpen
     }
     
+    func showMenu(open: Bool) {
+        let c = open ? (1 as CGFloat) : (-1 as CGFloat)
+        UIView.animateWithDuration(0.5) {
+            self.view.center = CGPointMake(
+                self.view.center.x,
+                self.view.center.y - c*(self.gameViewController!.gameMenuFrame.height - 40))
+        }
+    }
+
     @IBAction func clear() {
         GameViewCommandFactory.ClearCommand().execute()
         

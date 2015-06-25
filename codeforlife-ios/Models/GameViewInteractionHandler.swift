@@ -38,11 +38,12 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         checkControllers()
         if let result = message.body as? NSString {
+            println(result)
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
-                if let type = json["type"].string {
+                if let tag = json["tag"].string {
                     if let content = json["content"].array {
-                        switch type {
+                        switch tag {
                             case "mute":
                                 gameMenuViewController!.mute = !gameMenuViewController!.mute
                             case "onPlayControls":
@@ -59,8 +60,14 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                                 TODO()
                             case "postGameMessage":
                                 TODO()
-                            case "clearBlocks":
+                            case "blocklyReset":
                                 blockTableViewController!.clearBlocks()
+                            case "moveForward":
+                                gameViewController!.blockTableViewController!.addBlock(Forward())
+                            case "turnLeft":
+                                gameViewController!.blockTableViewController!.addBlock(Left())
+                            case "turnRight":
+                                gameViewController!.blockTableViewController!.addBlock(Right())
                             default: break
                         }
                     }
