@@ -60,6 +60,7 @@
 		EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66941B3C0977009020A5 /* Block.swift */; };
 		EDBB669B1B3C1007009020A5 /* BlockTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66961B3C0A61009020A5 /* BlockTableViewController.swift */; };
 		EDBB669C1B3C1181009020A5 /* BlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66981B3C0B34009020A5 /* BlockTableViewCell.swift */; };
+		EDBB669D1B3C35D6009020A5 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66831B3AC448009020A5 /* GameView.swift */; };
 		EDC8C1E81B35A32A004B1358 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1E71B35A32A004B1358 /* Levels.swift */; };
 		EDC8C1EC1B35BA29004B1358 /* LevelSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1EB1B35BA29004B1358 /* LevelSection.swift */; };
 		EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */; };
@@ -81,7 +82,7 @@
 
 /* Begin PBXFileReference section */
 		7A870087E59B342A6EF1BED1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLConstants.swift; path = ../URLConstants.swift; sourceTree = "<group>"; };
+		D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		D77FE0166D1735B9290ACD65 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98E0ACB1B0824664611C8C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		ED0A77091B34560600267191 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
@@ -292,8 +293,8 @@
 				EDC8C1E71B35A32A004B1358 /* Levels.swift */,
 				EF41E7F0402D1DF38E4BA7F2 /* Level.swift */,
 				EDC8C1EB1B35BA29004B1358 /* LevelSection.swift */,
-				EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */,
 				EDAEFBAC1B39934F003398EE /* VehicleController.swift */,
+				EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */,
 				ED1EB0621B32C09800A595EF /* Actions */,
 				ED236EA11B341CF800B63380 /* GameViewCommands */,
 			);
@@ -552,6 +553,7 @@
 				EDBB667E1B3AA18F009020A5 /* LabelTableViewCell.swift in Sources */,
 				EDBB668E1B3AF135009020A5 /* DirectDriveViewController.swift in Sources */,
 				EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */,
+				EDBB669D1B3C35D6009020A5 /* GameView.swift in Sources */,
 				EDBB66911B3B0103009020A5 /* GameMenuViewController.swift in Sources */,
 				EDBB66701B3AA06E009020A5 /* FetchLevelsAction.swift in Sources */,
 				EDBB66781B3AA07E009020A5 /* LevelSection.swift in Sources */,

@@ -64,7 +64,9 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         webView!.UIDelegate = self
         view.addSubview(webView!)
         view.sendSubviewToBack(webView!)
-        activityIndicator.startAnimating()
+        if let activitIndicator = self.activityIndicator {
+            activityIndicator.startAnimating()
+        }
     }
     
     func setupBlockly() {

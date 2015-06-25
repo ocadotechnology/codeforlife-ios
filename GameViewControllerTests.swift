@@ -31,21 +31,17 @@ class GameViewControllerTests: XCTestCase {
     func test1ControllerNotNil() {
         XCTAssertNotNil(controller, "GameViewController is nil")
     }
-
-//    func test2ContainerView() {
-//        XCTAssertNil(controller!.containerView, "ContainerView should be nil in Controller Test")
-//    }
     
-//    func test3WebView() {
+//    func test2WebView() {
 //        XCTAssertNil(controller!.webView, "WebView is not nil before initialization")
-//        controller!.setupWebView(frame)
+//        controller!.setupWebView()
 //        XCTAssertNotNil(controller!.webView, "WebView is nil after initialization")
 //    }
     
-//    func test4SetUpCargoController() {
-//        XCTAssertNil(controller!.cargoController, "CargoController is not nil before initialization")
-//        controller!.setupCargoController()
-//        XCTAssertNotNil(controller!.cargoController, "CargoController is nil after initialization")
+//    func test4SetUpDirectDrive() {
+//        XCTAssertNil(controller!.directDriveViewController, "DirectDriveController is not nil before initialization")
+//        controller!.setupDirectDrive()
+//        XCTAssertNotNil(controller!.directDriveViewController, "CargoController is nil after initialization")
 //    }
     
 //    // TODO
