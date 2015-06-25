@@ -18,6 +18,10 @@ class BlockTableViewController: UITableViewController {
         }
     }
     
+    func clearBlocks() {
+        blocks = [Block]()
+    }
+    
     func addBlock(newBlock: Block) {
         blocks.append(newBlock)
     }
@@ -41,12 +45,9 @@ class BlockTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! BlockTableViewCell
         var block = blocks[indexPath.row]
-        cell.stepNumber.text =  "Step \(indexPath.row)"
+        cell.stepNumber.text =  "Step \(indexPath.row + 1)"
         cell.blockDescription.text = block.description
         return cell
     }
-
-
-
 
 }

@@ -23,33 +23,26 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         super.init()
     }
     
-    init(gameViewController: GameViewController) {
-        self.gameViewController = gameViewController
-    }
-    
-    init(gameMenuViewController: GameMenuViewController) {
-        self.gameMenuViewController = gameMenuViewController
-    }
-    
-    init(gameViewController: GameViewController, gameMenuViewController: GameMenuViewController) {
-        self.gameViewController = gameViewController
-        self.gameMenuViewController = gameMenuViewController
+    private func checkControllers() {
+        if gameViewController == nil {
+            fatalError("GameViewController is nil")
+        } else if gameMenuViewController == nil {
+            fatalError("GameMenuViewController is nil")
+        } else if blockTableViewController == nil {
+            fatalError("BlockTableViewController is nil")
+        } else if directDriveViewController == nil {
+            fatalError("DirectDriveViewController is nil")
+        }
     }
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
+        checkControllers()
         if let result = message.body as? NSString {
-//            let result2 = "{\"name\":\"Joey\"}"
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let type = json["type"].string {
                     if let content = json["content"].array {
                         switch type {
-//                            case "changeCurrentTabSelectedToBlockly":
-//                                gameMenuViewController!.currentTab = gameMenuViewController!.blocklyButton
-//                            case "changeCurrentTabSelectedToLoad":
-//                                gameMenuViewController!.currentTab = gameMenuViewController!.loadButton
-//                            case "changeCurrentTabSelectedToSave":
-//                                gameMenuViewController!.currentTab = gameMenuViewController!.saveButton
                             case "mute":
                                 gameMenuViewController!.mute = !gameMenuViewController!.mute
                             case "onPlayControls":
@@ -66,6 +59,8 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                                 TODO()
                             case "postGameMessage":
                                 TODO()
+                            case "clearBlocks":
+                                blockTableViewController!.clearBlocks()
                             default: break
                         }
                     }

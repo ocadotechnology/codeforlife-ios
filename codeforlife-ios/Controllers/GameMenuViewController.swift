@@ -53,11 +53,6 @@ class GameMenuViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
     @IBAction func hideMenu() {
         view.hidden = true
     }
@@ -78,10 +73,7 @@ class GameMenuViewController: UIViewController {
     }
     
     @IBAction func muteSound() {
-        GameViewCommandFactory.MuteCommand().execute {
-            self.mute = !self.mute
-        }
-        
+        GameViewCommandFactory.MuteCommand().execute()
     }
     
     func onPlayControls() {

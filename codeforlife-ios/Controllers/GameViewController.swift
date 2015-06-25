@@ -17,60 +17,51 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     let muteToUnmuteButtonText = "Unmute"
     let unmuteToMuteButtonText = "Mute"
     let scriptMessageHandlerTitle = "handler"
-    
-    let directDriveFrame = CGSize(width: 245, height: 165)
-    
-    let gameMenuFrame = CGSize(width: 80, height: 500)
-    
-    let webViewFrame = CGSize(width: 0, height: 0)
+    let webViewPortion: CGFloat = 0.7
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // Frames
+    let directDriveFrame = CGSize(width: 245, height: 165)
+    let gameMenuFrame = CGSize(width: 80, height: 500)
+    let webViewFrame = CGSize(width: 0, height: 0)
+    
+    // Controllers
     var gameMenuViewController: GameMenuViewController?
-    
     var directDriveViewController: DirectDriveViewController?
-    
     var blockTableViewController: BlockTableViewController?
     
     var webView: WKWebView?
-    
     var callBack: (() -> Void)?
-    
     var handler = GameViewInteractionHandler()
-    
     var level: Level?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GameViewCommandFactory.gameViewController = self
-        handler.gameViewController = self
+        setupControllers()
         setupWebView()
         setupBlockly()
         setupMenu()
         setupDirectDrive()
-        
-        // Load Level
-        if let requestedLevel = self.level {
-            GameViewCommandFactory.LoadLevelCommand(requestedLevel).execute {}
-        }
+        loadLevel()
+    }
+    
+    func setupControllers() {
+        GameViewCommandFactory.gameViewController = self
+        handler.gameViewController = self
     }
     
     func setupWebView() {
-        
         var config = WKWebViewConfiguration()
         config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
-        
-        let frame = CGRect(
-            x: view.frame.width/2,
+        webView = WKWebView(frame: CGRect(
+            x: view.frame.width * (1 - webViewPortion),
             y: 0,
-            width: view.frame.width/2,
+            width: view.frame.width * webViewPortion,
             height: view.frame.height)
-        
-        webView = WKWebView(frame: frame, configuration: config)
+            , configuration: config)
         webView!.navigationDelegate = self
         webView!.UIDelegate = self
-        println("webView!.frame = \(webView!.frame)")
-        println("webView!.bounds = \(webView!.bounds)")
         view.addSubview(webView!)
         view.sendSubviewToBack(webView!)
         activityIndicator.startAnimating()
@@ -82,13 +73,12 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         blockTableViewController!.view.frame = CGRect(
             x: 0,
             y: 0,
-            width: view.frame.width/2,
+            width: view.frame.width*(1-webViewPortion),
             height: view.frame.height)
-        println("blockly!.frame = \(blockTableViewController!.view.frame)")
-        println("blockly!.bounds = \(blockTableViewController!.view.bounds)")
         view.addSubview(blockTableViewController!.view)
         view.sendSubviewToBack(blockTableViewController!.view)
         blockTableViewController!.didMoveToParentViewController(self)
+        handler.blockTableViewController = self.blockTableViewController
     }
     
     func setupMenu() {
@@ -116,12 +106,18 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
             height: directDriveFrame.height)
         view.addSubview(directDriveViewController!.view)
         directDriveViewController!.didMoveToParentViewController(self)
+        handler.directDriveViewController = self.directDriveViewController
+    }
+    
+    func loadLevel() {
+        if let requestedLevel = self.level {
+            GameViewCommandFactory.LoadLevelCommand(requestedLevel).execute {}
+        }
     }
     
     @IBAction func toggleMenu() {
         gameMenuViewController!.view.hidden = !gameMenuViewController!.view.hidden
     }
-    
     
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {
         webView!.evaluateJavaScript(javaScript) { ( _, _) in
@@ -133,6 +129,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         webView.evaluateJavaScript(
             "document.getElementById('right').style.marginLeft = '0px';" +
             "document.getElementById('tabs').style.display = 'none';" +
+            "document.getElementById('tab_panes').style.display = 'none';" +
             "document.getElementById('direct_drive').style.display = 'none';"
             , completionHandler: nil)
         if activityIndicator != nil {

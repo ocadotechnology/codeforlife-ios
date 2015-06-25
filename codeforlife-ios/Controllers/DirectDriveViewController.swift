@@ -18,7 +18,7 @@ class DirectDriveViewController: UIViewController, VehicleController {
     var controller: VehicleController?
 
     @IBAction func moveForward() {
-        self.controller!.moveForward()
+        controller!.moveForward()
     }
     
     @IBAction func turnLeft() {
