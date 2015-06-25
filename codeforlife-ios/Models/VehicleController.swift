@@ -30,14 +30,17 @@ class CargoController: VehicleController {
     
     func moveForward() {
         gameViewController!.runJavaScript(moveForwardJavaScript)
+        gameViewController!.blockTableViewController!.addBlock(Forward())
     }
     
     func turnLeft() {
         gameViewController!.runJavaScript(turnLeftJavaScript)
+        gameViewController!.blockTableViewController!.addBlock(Left())
     }
     
     func turnRight() {
         gameViewController!.runJavaScript(turnRightJavaScript)
+        gameViewController!.blockTableViewController!.addBlock(Right())
     }
     
     func go() {

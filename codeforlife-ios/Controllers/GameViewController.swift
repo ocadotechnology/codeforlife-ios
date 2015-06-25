@@ -18,87 +18,36 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     let unmuteToMuteButtonText = "Mute"
     let scriptMessageHandlerTitle = "handler"
     
-    @IBOutlet weak var blocklyButton: GameViewButton!
-    @IBOutlet weak var saveButton: GameViewButton!
-    @IBOutlet weak var loadButton: GameViewButton!
-    @IBOutlet weak var muteButton: GameViewButton!
-    @IBOutlet weak var playButton: GameViewButton!
+    let directDriveFrame = CGSize(width: 245, height: 165)
     
-    @IBOutlet weak var containerView: UIView!
+    let gameMenuFrame = CGSize(width: 80, height: 500)
+    
+    let webViewFrame = CGSize(width: 0, height: 0)
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    enum ControlMode {
-        case onPlayControls
-        case onPauseControls
-        case onStepControls
-        case onStopControls
-        case onResumeControls
-    }
+    var gameMenuViewController: GameMenuViewController?
+    
+    var directDriveViewController: DirectDriveViewController?
+    
+    var blockTableViewController: BlockTableViewController?
     
     var webView: WKWebView?
     
     var callBack: (() -> Void)?
     
-    var buttonSet = [GameViewButton]()
-    
-    var handler: GameViewInteractionHandler?
+    var handler = GameViewInteractionHandler()
     
     var level: Level?
-    
-    var blocklyEnabled = false {
-        didSet {
-            blocklyButton.setTitle(blocklyEnabled ? blocklyButtonText : pythonButtonText, forState: UIControlState.Normal)
-        }
-    }
-    
-    var mute = false {
-        didSet {
-            muteButton.setTitle(mute ? muteToUnmuteButtonText : unmuteToMuteButtonText, forState: UIControlState.Normal)
-        }
-    }
-    
-    var finish = false {
-        didSet {
-            if finish {
-                // TODO: show PostGame Message
-            }
-        }
-    }
-    
-    var currentTab: GameViewButton? {
-        didSet {
-            for button in buttonSet {
-                button.selected = false;
-            }
-            currentTab?.selected = true
-        }
-    }
-    
-    var controlMode = ControlMode.onStopControls {
-        didSet {
-            switch controlMode {
-                case ControlMode.onPlayControls: onPlayControls()
-                case ControlMode.onPauseControls: onPauseControls()
-                case ControlMode.onStepControls: onStepControls()
-                case ControlMode.onStopControls:  onStopControls()
-                case ControlMode.onResumeControls: onResumeControls()
-                default: break;
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GameViewCommandFactory.gameViewController = self
-        setupWebView(self.containerView.frame)
-        setupButtonSet()
-        self.activityIndicator.hidesWhenStopped = true
-        self.containerView.addSubview(self.webView!)
-        self.webView?.snp_makeConstraints({ (make) -> Void in
-            make.edges.equalTo(self.containerView)
-        })
-        self.activityIndicator.startAnimating()
+        handler.gameViewController = self
+        setupWebView()
+        setupBlockly()
+        setupMenu()
+        setupDirectDrive()
         
         // Load Level
         if let requestedLevel = self.level {
@@ -106,88 +55,73 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         }
     }
     
-    func setupWebView(frame: CGRect) {
-        handler = GameViewInteractionHandler(gameViewController: self)
+    func setupWebView() {
+        
         var config = WKWebViewConfiguration()
-        config.userContentController.addScriptMessageHandler(handler!, name: scriptMessageHandlerTitle)
-        self.webView = WKWebView(frame: frame, configuration: config)
-        self.webView?.navigationDelegate = self
-        self.webView?.UIDelegate = self
-        self.webView?.scrollView.maximumZoomScale = 1.0
-        self.webView?.scrollView.minimumZoomScale = 1.0
-        self.webView?.multipleTouchEnabled = false
+        config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
+        
+        let frame = CGRect(
+            x: view.frame.width/2,
+            y: 0,
+            width: view.frame.width/2,
+            height: view.frame.height)
+        
+        webView = WKWebView(frame: frame, configuration: config)
+        webView!.navigationDelegate = self
+        webView!.UIDelegate = self
+        println("webView!.frame = \(webView!.frame)")
+        println("webView!.bounds = \(webView!.bounds)")
+        view.addSubview(webView!)
+        view.sendSubviewToBack(webView!)
+        activityIndicator.startAnimating()
     }
     
-    func setupButtonSet() {
-        currentTab = blocklyButton
-        buttonSet.append(blocklyButton)
-        buttonSet.append(loadButton)
-        buttonSet.append(saveButton)
+    func setupBlockly() {
+        blockTableViewController = storyboard?.instantiateViewControllerWithIdentifier("BlockTableViewController") as? BlockTableViewController
+        addChildViewController(blockTableViewController!)
+        blockTableViewController!.view.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: view.frame.width/2,
+            height: view.frame.height)
+        println("blockly!.frame = \(blockTableViewController!.view.frame)")
+        println("blockly!.bounds = \(blockTableViewController!.view.bounds)")
+        view.addSubview(blockTableViewController!.view)
+        view.sendSubviewToBack(blockTableViewController!.view)
+        blockTableViewController!.didMoveToParentViewController(self)
     }
     
-    func onPlayControls() {
-        playButton.setTitle("Pause", forState: UIControlState.Normal)
+    func setupMenu() {
+        gameMenuViewController = storyboard?.instantiateViewControllerWithIdentifier("GameMenuViewController") as? GameMenuViewController
+        addChildViewController(gameMenuViewController!)
+        gameMenuViewController!.view.frame = CGRect(
+            x: 5,
+            y: view.frame.height - gameMenuFrame.height,
+            width: gameMenuFrame.width,
+            height: gameMenuFrame.height)
+        view.addSubview(gameMenuViewController!.view)
+        gameMenuViewController!.didMoveToParentViewController(self)
+        gameMenuViewController!.view.hidden = true
+        handler.gameMenuViewController = self.gameMenuViewController
     }
     
-    func onStepControls() {
-        playButton.setTitle("Resume", forState: UIControlState.Normal)
+    func setupDirectDrive() {
+        directDriveViewController = storyboard?.instantiateViewControllerWithIdentifier("DirectDriveViewController") as? DirectDriveViewController
+        directDriveViewController!.controller = CargoController(gameViewController: self)
+        addChildViewController(directDriveViewController!)
+        directDriveViewController!.view.frame = CGRect(
+            x: view.frame.width - directDriveFrame.width - 5,
+            y: view.frame.height - directDriveFrame.height - 5,
+            width: directDriveFrame.width,
+            height: directDriveFrame.height)
+        view.addSubview(directDriveViewController!.view)
+        directDriveViewController!.didMoveToParentViewController(self)
     }
     
-    func onStopControls() {
-        playButton.setTitle("Play", forState: UIControlState.Normal)
+    @IBAction func toggleMenu() {
+        gameMenuViewController!.view.hidden = !gameMenuViewController!.view.hidden
     }
     
-    func onPauseControls() {
-        playButton.setTitle("Resume", forState: UIControlState.Normal)
-    }
-    
-    func onResumeControls() {
-        playButton.setTitle("Pause", forState: UIControlState.Normal)
-    }
-    
-    @IBAction func blockly() {
-        GameViewCommandFactory.BlocklyCommand().execute {
-            self.currentTab = self.blocklyButton
-        }
-    }
-    
-    @IBAction func clear() {
-        GameViewCommandFactory.ClearCommand().execute()
-    }
-    
-    @IBAction func play() {
-        GameViewCommandFactory.PlayCommand().execute()
-    }
-    
-    @IBAction func stop() {
-        GameViewCommandFactory.StopCommand().execute()
-    }
-    
-    @IBAction func step() {
-        GameViewCommandFactory.StepCommand().execute()
-    }
-    
-    @IBAction func load() {
-        GameViewCommandFactory.LoadCommand().execute {
-            self.currentTab = self.loadButton
-        }
-    }
-    
-    @IBAction func save() {
-        GameViewCommandFactory.SaveCommand().execute {
-            self.currentTab = self.saveButton
-        }
-    }
-    
-    @IBAction func help() {
-        GameViewCommandFactory.HelpCommand().execute()
-    }
-
-    @IBAction func muteSound() {
-        GameViewCommandFactory.MuteCommand().execute {
-            self.mute = !self.mute
-        }
-    }
     
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {
         webView!.evaluateJavaScript(javaScript) { ( _, _) in
@@ -207,19 +141,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         if let callBack = self.callBack {
             callBack()
             self.callBack = nil
-        }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let directDriveViewController = segue.destinationViewController as? DirectDriveViewController {
-            if let identifier = segue.identifier {
-                switch identifier {
-                case "PopDirectDrive":
-                    directDriveViewController.controller = CargoController(gameViewController: self)
-                    directDriveViewController.preferredContentSize = CGSize(width: 245, height: 165)
-                default: break
-                }
-            }
         }
     }
     

@@ -15,9 +15,25 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     static let command = "window.webkit.messageHandlers.handler.postMessage(result)"
 
     var gameViewController: GameViewController?
+    var gameMenuViewController: GameMenuViewController?
+    var blockTableViewController: BlockTableViewController?
+    var directDriveViewController: DirectDriveViewController?
+    
+    override init() {
+        super.init()
+    }
     
     init(gameViewController: GameViewController) {
         self.gameViewController = gameViewController
+    }
+    
+    init(gameMenuViewController: GameMenuViewController) {
+        self.gameMenuViewController = gameMenuViewController
+    }
+    
+    init(gameViewController: GameViewController, gameMenuViewController: GameMenuViewController) {
+        self.gameViewController = gameViewController
+        self.gameMenuViewController = gameMenuViewController
     }
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
@@ -28,24 +44,24 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                 if let type = json["type"].string {
                     if let content = json["content"].array {
                         switch type {
-                            case "changeCurrentTabSelectedToBlockly":
-                                gameViewController!.currentTab = gameViewController!.blocklyButton
-                            case "changeCurrentTabSelectedToLoad":
-                                gameViewController!.currentTab = gameViewController!.loadButton
-                            case "changeCurrentTabSelectedToSave":
-                                gameViewController!.currentTab = gameViewController!.saveButton
+//                            case "changeCurrentTabSelectedToBlockly":
+//                                gameMenuViewController!.currentTab = gameMenuViewController!.blocklyButton
+//                            case "changeCurrentTabSelectedToLoad":
+//                                gameMenuViewController!.currentTab = gameMenuViewController!.loadButton
+//                            case "changeCurrentTabSelectedToSave":
+//                                gameMenuViewController!.currentTab = gameMenuViewController!.saveButton
                             case "mute":
-                                gameViewController!.mute = !gameViewController!.mute
+                                gameMenuViewController!.mute = !gameMenuViewController!.mute
                             case "onPlayControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onPlayControls
+                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPlayControls
                             case "onPauseControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onPauseControls
+                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPauseControls
                             case "onStepControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onStepControls
+                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStepControls
                             case "onStopControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onStopControls
+                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStopControls
                             case "onResumeControls":
-                                gameViewController!.controlMode = GameViewController.ControlMode.onResumeControls
+                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
                             case "preGameMessage":
                                 TODO()
                             case "postGameMessage":
@@ -58,9 +74,9 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         }
     }
     
-    func executeJavaScript(script: String) {
-        gameViewController!.webView!.evaluateJavaScript(script, completionHandler: nil)
-    }
+//    func executeJavaScript(script: String) {
+//        gameViewController!.webView!.evaluateJavaScript(script, completionHandler: nil)
+//    }
     
     private func TODO() {
         fatalError("TODO")
