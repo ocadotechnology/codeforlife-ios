@@ -18,7 +18,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Frames
-    let directDriveFrame = CGSize(width: 245, height: 165)
     let webViewFrame = CGSize(width: 0, height: 0)
     
     // Controllers
@@ -85,21 +84,17 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         gameMenuViewController!.gameViewController = self
         gameMenuViewController!.view.frame = gameMenuViewController!.frame
         gameMenuViewController!.view.center = gameMenuViewController!.hidePosition
-        addChildViewController(gameMenuViewController!)
         gameMenuViewController!.didMoveToParentViewController(self)
+        addChildViewController(gameMenuViewController!)
         view.addSubview(gameMenuViewController!.view)
         handler.gameMenuViewController = self.gameMenuViewController
     }
     
     func setupDirectDrive() {
         directDriveViewController = storyboard?.instantiateViewControllerWithIdentifier("DirectDriveViewController") as? DirectDriveViewController
-        directDriveViewController!.controller = CargoController(gameViewController: self)
+        directDriveViewController!.gameViewController = self
+        directDriveViewController!.view.frame = directDriveViewController!.frame
         addChildViewController(directDriveViewController!)
-        directDriveViewController!.view.frame = CGRect(
-            x: view.frame.width - directDriveFrame.width - 5,
-            y: view.frame.height - directDriveFrame.height - 5,
-            width: directDriveFrame.width,
-            height: directDriveFrame.height)
         view.addSubview(directDriveViewController!.view)
         directDriveViewController!.didMoveToParentViewController(self)
         handler.directDriveViewController = self.directDriveViewController
@@ -108,8 +103,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     func setupHelpView() {
         helpViewController = storyboard?.instantiateViewControllerWithIdentifier("HelpViewController") as? HelpViewController
         helpViewController?.gameViewController = self
-        addChildViewController(helpViewController!)
         helpViewController!.view.frame = helpViewController!.frame
+        addChildViewController(helpViewController!)
         view.addSubview(helpViewController!.view)
         helpViewController!.didMoveToParentViewController(self)
     }
