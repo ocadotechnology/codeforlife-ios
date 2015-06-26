@@ -42,43 +42,42 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let tag = json["tag"].string {
-                    if let content = json["content"].array {
-                        switch tag {
-                            case "mute":
-                                gameMenuViewController!.mute = !gameMenuViewController!.mute
-                            case "onPlayControls":
-                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPlayControls
-                            case "onPauseControls":
-                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPauseControls
-                            case "onStepControls":
-                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStepControls
-                            case "onStopControls":
-                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStopControls
-                            case "onResumeControls":
-                                gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
-                            case "preGameMessage":
-                                TODO()
-                            case "postGameMessage":
-                                TODO()
-                            case "blocklyReset":
-                                blockTableViewController!.clearBlocks()
-                            case "moveForward":
-                                gameViewController!.blockTableViewController!.addBlock(Forward())
-                            case "turnLeft":
-                                gameViewController!.blockTableViewController!.addBlock(Left())
-                            case "turnRight":
-                                gameViewController!.blockTableViewController!.addBlock(Right())
-                            default: break
-                        }
+                    switch tag {
+                        case "mute":
+                            gameMenuViewController!.mute = !gameMenuViewController!.mute
+                        case "onPlayControls":
+                            gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPlayControls
+                        case "onPauseControls":
+                            gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPauseControls
+                        case "onStepControls":
+                            gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStepControls
+                        case "onStopControls":
+                            gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStopControls
+                        case "onResumeControls":
+                            gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
+                        case "preGameMessage":
+                            TODO()
+                        case "postGameMessage":
+                            TODO()
+                        case "help":
+                            if let message = json["message"].string {
+                                gameViewController!.helpViewController!.context = message
+                                gameViewController!.helpViewController!.open = !gameViewController!.helpViewController!.open
+                            }
+                        case "blocklyReset":
+                            blockTableViewController!.clearBlocks()
+                        case "moveForward":
+                            gameViewController!.blockTableViewController!.addBlock(Forward())
+                        case "turnLeft":
+                            gameViewController!.blockTableViewController!.addBlock(Left())
+                        case "turnRight":
+                            gameViewController!.blockTableViewController!.addBlock(Right())
+                        default: break
                     }
                 }
             }
         }
     }
-    
-//    func executeJavaScript(script: String) {
-//        gameViewController!.webView!.evaluateJavaScript(script, completionHandler: nil)
-//    }
     
     private func TODO() {
         fatalError("TODO")

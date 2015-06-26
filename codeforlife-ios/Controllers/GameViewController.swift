@@ -25,11 +25,13 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     let directDriveFrame = CGSize(width: 245, height: 165)
     let webViewFrame = CGSize(width: 0, height: 0)
     let gameMenuFrame = CGSize(width: 150, height: 300)
+    let helpMessageFrame = CGSize(width: 500, height: 500)
     
     // Controllers
     var gameMenuViewController: GameMenuViewController?
     var directDriveViewController: DirectDriveViewController?
     var blockTableViewController: BlockTableViewController?
+    var helpViewController: HelpViewController?
     
     var webView: WKWebView?
     var callBack: (() -> Void)?
@@ -44,6 +46,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         setupWebView()
         setupMenu()
         setupDirectDrive()
+        setupHelpView()
         loadLevel()
     }
     
@@ -113,6 +116,20 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         view.addSubview(directDriveViewController!.view)
         directDriveViewController!.didMoveToParentViewController(self)
         handler.directDriveViewController = self.directDriveViewController
+    }
+    
+    func setupHelpView() {
+        helpViewController = storyboard?.instantiateViewControllerWithIdentifier("HelpViewController") as? HelpViewController
+        helpViewController?.gameViewController = self
+        addChildViewController(helpViewController!)
+        println(view.center)
+        helpViewController!.view.frame = CGRect(
+            x: view.center.x - helpMessageFrame.width/2,
+            y: view.frame.height,
+            width: helpMessageFrame.width,
+            height: helpMessageFrame.height)
+        view.addSubview(helpViewController!.view)
+        helpViewController!.didMoveToParentViewController(self)
     }
     
     func loadLevel() {
