@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class HelpMessage: Message {
+    
+    init(context: String, action: ()->Void = {}) {
+        super.init(title: "Help", subtitle: "", context: context, button: "OK", action: action)
+    }
+    
+}

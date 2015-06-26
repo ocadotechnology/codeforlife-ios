@@ -38,7 +38,6 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         checkControllers()
         if let result = message.body as? NSString {
-            println(result)
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let tag = json["tag"].string {
@@ -56,13 +55,18 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                         case "onResumeControls":
                             gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
                         case "preGameMessage":
-                            TODO()
+                            if let title = json["title"].string {
+                                if let context = json["context"].string {
+                                }
+                        }
                         case "postGameMessage":
                             TODO()
                         case "help":
                             if let message = json["message"].string {
-                                gameViewController!.helpViewController!.context = message
-                                gameViewController!.helpViewController!.open = !gameViewController!.helpViewController!.open
+                                gameViewController!.helpViewController!.message = HelpMessage(context: message) {
+                                    self.gameViewController!.helpViewController!.open = false
+                                }
+                                self.gameViewController!.helpViewController!.open = !self.gameViewController!.helpViewController!.open
                             }
                         case "blocklyReset":
                             blockTableViewController!.clearBlocks()

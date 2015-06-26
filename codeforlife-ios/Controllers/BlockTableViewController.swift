@@ -42,10 +42,6 @@ class BlockTableViewController: UITableViewController {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

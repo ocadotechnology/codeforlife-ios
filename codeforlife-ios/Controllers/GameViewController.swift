@@ -13,18 +13,34 @@ import SnapKit
 class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
     let scriptMessageHandlerTitle = "handler"
+    
     let webViewPortion: CGFloat = 0.7
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    // Frames
     let webViewFrame = CGSize(width: 0, height: 0)
+    let webViewCornerRadius: CGFloat = 10
+    let webViewOffset: CGFloat = 10
+    
+    let webViewPreloadScript =
+        "document.getElementById('right').style.marginLeft = '0px';" +
+        "document.getElementById('tabs').style.display = 'none';" +
+        "document.getElementById('tab_panes').style.display = 'none';" +
+        "document.getElementById('consoleSlider').style.display = 'none';" +
+        "document.getElementById('paper').style.width = '100%';" +
+        "document.getElementById('direct_drive').style.display = 'none';"
+    
+    private struct StoryBoardIdentifier {
+        static let GameMenu = "GameMenuViewController"
+        static let DirecDrive = "DirectDriveViewController"
+        static let Blockly = "BlockTableViewController"
+        static let HelpMessage = "HelpMessageViewController"
+    }
+
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Controllers
     var gameMenuViewController: GameMenuViewController?
     var directDriveViewController: DirectDriveViewController?
     var blockTableViewController: BlockTableViewController?
-    var helpViewController: HelpViewController?
+    var helpViewController: HelpMessageViewController?
     
     var webView: WKWebView?
     var callBack: (() -> Void)?
@@ -48,28 +64,25 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupWebView() {
-        let offset = 10 as CGFloat
         var config = WKWebViewConfiguration()
         config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
         webView = WKWebView(frame: CGRect(
-            x: view.frame.width * (1 - webViewPortion) + offset,
-            y: offset,
-            width: view.frame.width * webViewPortion - 2*offset,
-            height: view.frame.height - 2*offset)
+            x: view.frame.width * (1 - webViewPortion) + webViewOffset,
+            y: webViewOffset,
+            width: view.frame.width * webViewPortion - 2 * webViewOffset,
+            height: view.frame.height - 2 * webViewOffset)
             , configuration: config)
         webView!.navigationDelegate = self
         webView!.UIDelegate = self
-        webView!.layer.cornerRadius = 10
+        webView!.layer.cornerRadius = webViewCornerRadius
         webView!.layer.masksToBounds = true
         view.addSubview(webView!)
         view.sendSubviewToBack(webView!)
-        if let activitIndicator = self.activityIndicator {
-            activityIndicator.startAnimating()
-        }
+        activityIndicator?.startAnimating()
     }
     
     func setupBlockly() {
-        blockTableViewController = storyboard?.instantiateViewControllerWithIdentifier("BlockTableViewController") as? BlockTableViewController
+        blockTableViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.Blockly) as? BlockTableViewController
         blockTableViewController!.gameViewController = self
         blockTableViewController!.view.frame = blockTableViewController!.frame
         blockTableViewController!.tableView.layer.cornerRadius = 10
@@ -82,7 +95,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupMenu() {
-        gameMenuViewController = storyboard?.instantiateViewControllerWithIdentifier("GameMenuViewController") as? GameMenuViewController
+        gameMenuViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.GameMenu) as? GameMenuViewController
         gameMenuViewController!.gameViewController = self
         gameMenuViewController!.view.frame = gameMenuViewController!.frame
         gameMenuViewController!.view.center = gameMenuViewController!.hidePosition
@@ -93,7 +106,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupDirectDrive() {
-        directDriveViewController = storyboard?.instantiateViewControllerWithIdentifier("DirectDriveViewController") as? DirectDriveViewController
+        directDriveViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.DirecDrive) as? DirectDriveViewController
         directDriveViewController!.gameViewController = self
         directDriveViewController!.view.frame = directDriveViewController!.frame
         addChildViewController(directDriveViewController!)
@@ -103,8 +116,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupHelpView() {
-        helpViewController = storyboard?.instantiateViewControllerWithIdentifier("HelpViewController") as? HelpViewController
-        helpViewController?.gameViewController = self
+        helpViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? HelpMessageViewController
+        helpViewController!.gameViewController = self
         helpViewController!.view.frame = helpViewController!.frame
         addChildViewController(helpViewController!)
         view.addSubview(helpViewController!.view)
@@ -124,21 +137,10 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        webView.evaluateJavaScript(
-            "document.getElementById('right').style.marginLeft = '0px';" +
-            "document.getElementById('tabs').style.display = 'none';" +
-            "document.getElementById('tab_panes').style.display = 'none';" +
-            "document.getElementById('consoleSlider').style.display = 'none';" +
-            "document.getElementById('paper').style.width = '100%';" +
-            "document.getElementById('direct_drive').style.display = 'none';"
-            , completionHandler: nil)
-        if activityIndicator != nil {
-            self.activityIndicator.stopAnimating()
-        }
-        if let callBack = self.callBack {
-            callBack()
-            self.callBack = nil
-        }
+        webView.evaluateJavaScript(webViewPreloadScript, completionHandler: nil)
+            self.activityIndicator?.stopAnimating()
+        self.callBack?()
+        self.callBack = nil
     }
     
 }
