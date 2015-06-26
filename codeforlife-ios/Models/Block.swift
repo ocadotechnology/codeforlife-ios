@@ -15,6 +15,13 @@ class Block {
     }
 }
 
+class Start: Block {
+    override init() {
+        super.init()
+        description = "Start"
+    }
+}
+
 class Forward: Block {
     override init() {
         super.init()

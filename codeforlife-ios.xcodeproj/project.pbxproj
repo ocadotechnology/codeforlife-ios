@@ -30,6 +30,8 @@
 		ED6F798C1B3D566900DD2AFE /* PreGameMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F798B1B3D566900DD2AFE /* PreGameMessageViewController.swift */; };
 		ED6F798E1B3D567400DD2AFE /* PostGameMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F798D1B3D567400DD2AFE /* PostGameMessageViewController.swift */; };
 		ED6F798F1B3D5A0E00DD2AFE /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79891B3D565B00DD2AFE /* HelpViewController.swift */; };
+		ED6F79911B3D7D9200DD2AFE /* DirectDriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */; };
+		ED6F79921B3D7DD400DD2AFE /* DirectDriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */; };
 		EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */; };
 		EDAEFBAD1B39934F003398EE /* VehicleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAC1B39934F003398EE /* VehicleController.swift */; };
 		EDBB666A1B3AA018009020A5 /* LabelViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66691B3AA018009020A5 /* LabelViewControllerTests.swift */; };
@@ -113,6 +115,7 @@
 		ED6F79891B3D565B00DD2AFE /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		ED6F798B1B3D566900DD2AFE /* PreGameMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessageViewController.swift; sourceTree = "<group>"; };
 		ED6F798D1B3D567400DD2AFE /* PostGameMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostGameMessageViewController.swift; sourceTree = "<group>"; };
+		ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectDriveButton.swift; sourceTree = "<group>"; };
 		EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewInteractionHandler.swift; sourceTree = "<group>"; };
 		EDAEFBAC1B39934F003398EE /* VehicleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleController.swift; path = "codeforlife-ios/Models/VehicleController.swift"; sourceTree = SOURCE_ROOT; };
 		EDBB66691B3AA018009020A5 /* LabelViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelViewControllerTests.swift; sourceTree = "<group>"; };
@@ -193,6 +196,7 @@
 				EDBB66831B3AC448009020A5 /* GameView.swift */,
 				EDBB66981B3C0B34009020A5 /* BlockTableViewCell.swift */,
 				ED6F79871B3D46CF00DD2AFE /* GameMenuView.swift */,
+				ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -517,6 +521,7 @@
 				ED6F798E1B3D567400DD2AFE /* PostGameMessageViewController.swift in Sources */,
 				EDC8C1E81B35A32A004B1358 /* Levels.swift in Sources */,
 				EDBB66971B3C0A61009020A5 /* BlockTableViewController.swift in Sources */,
+				ED6F79911B3D7D9200DD2AFE /* DirectDriveButton.swift in Sources */,
 				ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */,
 				ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */,
 				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
@@ -564,6 +569,7 @@
 				EDBB669C1B3C1181009020A5 /* BlockTableViewCell.swift in Sources */,
 				EDBB66741B3AA07A009020A5 /* GameViewCommand.swift in Sources */,
 				EDBB666C1B3AA06A009020A5 /* URLConstants.swift in Sources */,
+				ED6F79921B3D7DD400DD2AFE /* DirectDriveButton.swift in Sources */,
 				EDBB66751B3AA07A009020A5 /* GVJavaScriptCommand.swift in Sources */,
 				ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */,
 				EDBB669B1B3C1007009020A5 /* BlockTableViewController.swift in Sources */,

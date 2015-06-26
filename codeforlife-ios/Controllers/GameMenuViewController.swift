@@ -15,7 +15,11 @@ class GameMenuViewController: UIViewController {
     let muteToUnmuteButtonText = "Unmute"
     let unmuteToMuteButtonText = "Mute"
     
-    let gameMenuFrame = CGSize(width: 150, height: 300)
+    var gameMenuFrame: CGSize {
+        return CGSize(
+            width: self.gameViewController!.view.frame.width*(1-self.gameViewController!.webViewPortion) - 2*10,
+            height: 300)
+    }
     let offset = 40 as CGFloat
     
     @IBOutlet weak var muteButton: GameViewButton!
@@ -37,7 +41,7 @@ class GameMenuViewController: UIViewController {
     
     var hidePosition : CGPoint {
         return CGPointMake(
-            self.gameMenuFrame.width/2,
+            self.gameMenuFrame.width/2 + 10,
             self.gameViewController!.view.frame.height + gameMenuFrame.height/2 - offset)
     }
     

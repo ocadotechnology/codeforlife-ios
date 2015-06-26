@@ -48,16 +48,19 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupWebView() {
+        let offset = 10 as CGFloat
         var config = WKWebViewConfiguration()
         config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
         webView = WKWebView(frame: CGRect(
-            x: view.frame.width * (1 - webViewPortion),
-            y: 0,
-            width: view.frame.width * webViewPortion,
-            height: view.frame.height)
+            x: view.frame.width * (1 - webViewPortion) + offset,
+            y: offset,
+            width: view.frame.width * webViewPortion - 2*offset,
+            height: view.frame.height - 2*offset)
             , configuration: config)
         webView!.navigationDelegate = self
         webView!.UIDelegate = self
+        webView!.layer.cornerRadius = 10
+        webView!.layer.masksToBounds = true
         view.addSubview(webView!)
         view.sendSubviewToBack(webView!)
         if let activitIndicator = self.activityIndicator {
@@ -67,12 +70,11 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
     func setupBlockly() {
         blockTableViewController = storyboard?.instantiateViewControllerWithIdentifier("BlockTableViewController") as? BlockTableViewController
+        blockTableViewController!.gameViewController = self
+        blockTableViewController!.view.frame = blockTableViewController!.frame
+        blockTableViewController!.tableView.layer.cornerRadius = 10
+        blockTableViewController!.tableView.layer.masksToBounds = true
         addChildViewController(blockTableViewController!)
-        blockTableViewController!.view.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: view.frame.width*(1-webViewPortion),
-            height: view.frame.height)
         view.addSubview(blockTableViewController!.view)
         view.sendSubviewToBack(blockTableViewController!.view)
         blockTableViewController!.didMoveToParentViewController(self)
@@ -84,9 +86,9 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         gameMenuViewController!.gameViewController = self
         gameMenuViewController!.view.frame = gameMenuViewController!.frame
         gameMenuViewController!.view.center = gameMenuViewController!.hidePosition
-        gameMenuViewController!.didMoveToParentViewController(self)
         addChildViewController(gameMenuViewController!)
         view.addSubview(gameMenuViewController!.view)
+        gameMenuViewController!.didMoveToParentViewController(self)
         handler.gameMenuViewController = self.gameMenuViewController
     }
     
