@@ -41,6 +41,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     var directDriveViewController: DirectDriveViewController?
     var blockTableViewController: BlockTableViewController?
     var helpViewController: HelpMessageViewController?
+    var gameMessageViewController: HelpMessageViewController?
     
     var webView: WKWebView?
     var callBack: (() -> Void)?
@@ -55,6 +56,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         setupMenu()
         setupDirectDrive()
         setupHelpView()
+        setupGameMessageViewController()
         loadLevel()
     }
     
@@ -122,6 +124,15 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         addChildViewController(helpViewController!)
         view.addSubview(helpViewController!.view)
         helpViewController!.didMoveToParentViewController(self)
+    }
+    
+    func setupGameMessageViewController() {
+        gameMessageViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? HelpMessageViewController
+        gameMessageViewController!.gameViewController = self
+        gameMessageViewController!.view.frame = gameMessageViewController!.frame
+        addChildViewController(gameMessageViewController!)
+        view.addSubview(gameMessageViewController!.view)
+        gameMessageViewController!.didMoveToParentViewController(self)
     }
     
     func loadLevel() {

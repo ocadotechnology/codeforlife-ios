@@ -410,6 +410,9 @@
                                         <exclude reference="CFv-JD-2x3"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="executeButtonAction" destination="cjy-5G-m8N" eventType="touchUpInside" id="zBB-pq-CeE"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEG-Vn-cL8" userLabel="HelpContentScrollView">
                                 <rect key="frame" x="16" y="99" width="568" height="422"/>

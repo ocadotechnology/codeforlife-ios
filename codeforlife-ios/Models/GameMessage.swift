@@ -9,5 +9,9 @@
 import Foundation
 
 class GameMessage: Message {
+
+    init(title: String, context: String, action: () -> Void = {}) {
+        super.init(title: title, subtitle: "", context: context, button: "Play", action: action)
+    }
     
 }

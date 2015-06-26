@@ -74,7 +74,7 @@ class HelpMessageViewController: UIViewController {
         messageButton.backgroundColor = kC4lMessageButtonBackgroundColour
     }
     
-    @IBAction func dismissMenu() {
+    @IBAction func executeButtonAction() {
         if let action = message?.action {
             action()
         }

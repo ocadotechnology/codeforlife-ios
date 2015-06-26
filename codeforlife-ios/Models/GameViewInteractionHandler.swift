@@ -57,6 +57,11 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                         case "preGameMessage":
                             if let title = json["title"].string {
                                 if let context = json["context"].string {
+                                    gameViewController!.gameMessageViewController!.message = GameMessage(title: title, context: context) {
+                                        println("HI")
+                                        self.gameViewController!.gameMessageViewController!.open = false
+                                    }
+                                    self.gameViewController!.gameMessageViewController!.open = !self.gameViewController!.gameMessageViewController!.open
                                 }
                         }
                         case "postGameMessage":
