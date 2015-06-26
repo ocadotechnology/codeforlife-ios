@@ -24,7 +24,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     // Frames
     let directDriveFrame = CGSize(width: 245, height: 165)
     let webViewFrame = CGSize(width: 0, height: 0)
-    let gameMenuFrame = CGSize(width: 80, height: 250)
+    let gameMenuFrame = CGSize(width: 150, height: 300)
     
     // Controllers
     var gameMenuViewController: GameMenuViewController?
@@ -40,8 +40,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControllers()
-        setupWebView()
         setupBlockly()
+        setupWebView()
         setupMenu()
         setupDirectDrive()
         loadLevel()

@@ -70,7 +70,7 @@ class GameMenuViewController: UIViewController {
         UIView.animateWithDuration(0.5) {
             self.view.center = CGPointMake(
                 self.view.center.x,
-                self.view.center.y - c*(self.gameViewController!.gameMenuFrame.height - 40))
+                self.view.center.y - c*(self.gameViewController!.gameMenuFrame.height - 50))
         }
     }
 

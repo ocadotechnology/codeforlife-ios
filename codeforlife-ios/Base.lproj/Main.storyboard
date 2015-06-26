@@ -84,7 +84,7 @@
                         <viewControllerLayoutGuide type="top" id="g10-AU-EM4"/>
                         <viewControllerLayoutGuide type="bottom" id="5Xs-f8-Kr7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ilv-5T-Wef">
+                    <view key="view" contentMode="scaleToFill" id="ilv-5T-Wef" customClass="GameMenuView" customModule="codeforlife_ios" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -92,16 +92,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zm-h8-Jda" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="46" width="600" height="32"/>
+                                        <rect key="frame" x="0.0" y="51" width="600" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="VCS-Cp-ika"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="fvy-fu-fFw"/>
+                                            <constraint firstAttribute="height" constant="35" id="rb0-iM-SmO"/>
                                             <constraint firstAttribute="height" constant="50" id="zq0-0y-1bK"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <state key="normal" title="Clear">
-                                            <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -115,16 +115,16 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfy-1c-ose" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="86" width="600" height="32"/>
+                                        <rect key="frame" x="0.0" y="94" width="600" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="NVq-TN-gZd"/>
                                             <constraint firstAttribute="height" constant="50" id="rPJ-tL-5N6"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="sGs-fx-3NQ"/>
+                                            <constraint firstAttribute="height" constant="35" id="xW7-0I-eLk"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <state key="normal" title="Play">
-                                            <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -138,16 +138,16 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGD-ml-QgG" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="206" width="600" height="32"/>
+                                        <rect key="frame" x="0.0" y="223" width="600" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="29M-mb-XuM"/>
+                                            <constraint firstAttribute="height" constant="35" id="7oO-u0-n7p"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="Ece-qy-Fey"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="K2j-SS-69S"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <state key="normal" title="Quit">
-                                            <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -161,16 +161,16 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mfj-nm-gDD" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="166" width="600" height="32"/>
+                                        <rect key="frame" x="0.0" y="180" width="600" height="35"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="QXf-C7-mcx"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="mT8-oO-JBZ"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="v7d-29-ln5"/>
                                             <constraint firstAttribute="height" constant="50" id="yo1-SK-6Mo"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <state key="normal" title="Mute">
-                                            <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -184,16 +184,16 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOz-0R-aDf" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="126" width="600" height="32"/>
+                                        <rect key="frame" x="0.0" y="137" width="600" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="4Fh-Ho-G6j"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="I1i-cK-BvW"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="20" id="PDd-Ln-n4R"/>
+                                            <constraint firstAttribute="height" constant="35" id="SLT-Dm-oLD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <state key="normal" title="Help">
-                                            <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -207,10 +207,13 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgg-Ee-0gd" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8" width="600" height="30"/>
+                                        <rect key="frame" x="0.0" y="8" width="600" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="vEA-Td-vd5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <state key="normal" title="Menu">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="toggleMenu" destination="7Ne-xJ-S2H" eventType="touchUpInside" id="VHG-gV-jAr"/>
@@ -311,6 +314,9 @@
                                 <exclude reference="7k7-Op-87N"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outlet property="containerView" destination="HXq-64-4eI" id="xzL-4t-EyK"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="muteButton" destination="Mfj-nm-gDD" id="9ut-Mi-36D"/>
@@ -471,65 +477,68 @@
         <scene sceneID="9rr-1X-ngg">
             <objects>
                 <tableViewController storyboardIdentifier="BlockTableViewController" id="C9i-bB-pgh" customClass="BlockTableViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="LEi-Za-5Nl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" id="LEi-Za-5Nl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Block" rowHeight="45" id="edM-Ay-qx7" customClass="BlockTableViewCell" customModule="codeforlife_ios" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Block" rowHeight="80" id="edM-Ay-qx7" customClass="BlockTableViewCell" customModule="codeforlife_ios" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="edM-Ay-qx7" id="1oZ-Ur-2bj">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="blockDescription" lineBreakMode="tailTruncation" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49i-Fh-Xdi">
-                                            <rect key="frame" x="8" y="17" width="584" height="19.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stepNumber" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-8O-Tjv">
-                                            <rect key="frame" x="8" y="5" width="584" height="12"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypA-j1-hCS">
+                                            <rect key="frame" x="-7" y="8" width="599" height="63.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stepNumber" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-8O-Tjv">
+                                                    <rect key="frame" x="5" y="5" width="594" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="EZD-Tq-JuX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="EZD-Tq-JuX"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="blockDescription" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49i-Fh-Xdi">
+                                                    <rect key="frame" x="10" y="30" width="569" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.0" green="0.75294117647058822" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="EZD-Tq-JuX"/>
+                                                <constraint firstAttribute="bottom" secondItem="49i-Fh-Xdi" secondAttribute="bottom" id="3La-Qh-TxU"/>
+                                                <constraint firstItem="49i-Fh-Xdi" firstAttribute="top" secondItem="Mhp-8O-Tjv" secondAttribute="bottom" constant="8" symbolic="YES" id="APX-dn-KGr"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mhp-8O-Tjv" secondAttribute="trailing" id="S9Q-31-aQE"/>
+                                                <constraint firstAttribute="trailing" secondItem="49i-Fh-Xdi" secondAttribute="trailing" constant="20" symbolic="YES" id="Z4l-iP-upc"/>
+                                                <constraint firstItem="Mhp-8O-Tjv" firstAttribute="leading" secondItem="ypA-j1-hCS" secondAttribute="leading" constant="5" id="cAa-8R-dx9"/>
+                                                <constraint firstItem="49i-Fh-Xdi" firstAttribute="leading" secondItem="ypA-j1-hCS" secondAttribute="leading" constant="10" id="nTK-Nv-GE6"/>
+                                                <constraint firstItem="Mhp-8O-Tjv" firstAttribute="top" secondItem="ypA-j1-hCS" secondAttribute="top" constant="5" id="wPH-ac-VJf"/>
+                                                <constraint firstItem="Mhp-8O-Tjv" firstAttribute="top" secondItem="ypA-j1-hCS" secondAttribute="top" constant="20" symbolic="YES" id="zkZ-yo-7A2"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="EZD-Tq-JuX"/>
+                                                    <exclude reference="zkZ-yo-7A2"/>
                                                 </mask>
                                             </variation>
-                                        </label>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="49i-Fh-Xdi" firstAttribute="leading" secondItem="1oZ-Ur-2bj" secondAttribute="leadingMargin" id="3AP-nQ-o9h"/>
-                                        <constraint firstItem="49i-Fh-Xdi" firstAttribute="leading" secondItem="Mhp-8O-Tjv" secondAttribute="leading" id="52a-Vj-eL2"/>
-                                        <constraint firstItem="Mhp-8O-Tjv" firstAttribute="trailing" secondItem="1oZ-Ur-2bj" secondAttribute="trailingMargin" id="EhC-vd-pZc"/>
-                                        <constraint firstItem="Mhp-8O-Tjv" firstAttribute="leading" secondItem="1oZ-Ur-2bj" secondAttribute="leadingMargin" id="F61-kb-qXm"/>
-                                        <constraint firstItem="49i-Fh-Xdi" firstAttribute="top" secondItem="Mhp-8O-Tjv" secondAttribute="bottom" constant="8" symbolic="YES" id="TBb-Db-BTM"/>
-                                        <constraint firstItem="49i-Fh-Xdi" firstAttribute="trailing" secondItem="Mhp-8O-Tjv" secondAttribute="trailing" id="Xep-Hi-I8n"/>
-                                        <constraint firstItem="Mhp-8O-Tjv" firstAttribute="top" secondItem="1oZ-Ur-2bj" secondAttribute="top" constant="5" id="bws-Pb-LbX"/>
-                                        <constraint firstItem="49i-Fh-Xdi" firstAttribute="width" secondItem="Mhp-8O-Tjv" secondAttribute="width" id="gG2-i3-k4E"/>
-                                        <constraint firstItem="Mhp-8O-Tjv" firstAttribute="centerX" secondItem="1oZ-Ur-2bj" secondAttribute="centerX" id="kFs-JD-wxX"/>
-                                        <constraint firstItem="49i-Fh-Xdi" firstAttribute="top" secondItem="Mhp-8O-Tjv" secondAttribute="bottom" id="kT9-Ri-uOy"/>
-                                        <constraint firstItem="Mhp-8O-Tjv" firstAttribute="leading" secondItem="49i-Fh-Xdi" secondAttribute="leading" id="mwF-GH-Q2J"/>
-                                        <constraint firstItem="49i-Fh-Xdi" firstAttribute="top" secondItem="Mhp-8O-Tjv" secondAttribute="bottom" constant="56" id="z9f-VS-E9o"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="49i-Fh-Xdi" secondAttribute="bottom" id="zYO-zu-K2W"/>
+                                        <constraint firstItem="ypA-j1-hCS" firstAttribute="leading" secondItem="1oZ-Ur-2bj" secondAttribute="leadingMargin" constant="-15" id="8E0-lZ-pyX"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ypA-j1-hCS" secondAttribute="trailing" id="Dha-Ws-7TB"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ypA-j1-hCS" secondAttribute="bottom" id="OLi-6g-gn5"/>
+                                        <constraint firstItem="ypA-j1-hCS" firstAttribute="top" secondItem="1oZ-Ur-2bj" secondAttribute="topMargin" id="wGX-eN-oyf"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="kFs-JD-wxX"/>
-                                            <exclude reference="mwF-GH-Q2J"/>
-                                            <exclude reference="52a-Vj-eL2"/>
-                                            <exclude reference="TBb-Db-BTM"/>
-                                            <exclude reference="Xep-Hi-I8n"/>
-                                            <exclude reference="z9f-VS-E9o"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="blockDescription" destination="49i-Fh-Xdi" id="gdY-Fl-NCE"/>
+                                    <outlet property="containerView" destination="ypA-j1-hCS" id="xvl-gd-tqT"/>
                                     <outlet property="stepNumber" destination="Mhp-8O-Tjv" id="re3-LZ-BNX"/>
                                 </connections>
                             </tableViewCell>
