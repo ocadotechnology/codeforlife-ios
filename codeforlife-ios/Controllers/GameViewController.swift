@@ -33,8 +33,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         static let Blockly = "BlockTableViewController"
         static let HelpMessage = "HelpMessageViewController"
     }
-
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // Controllers
     var gameMenuViewController: GameMenuViewController?
@@ -47,20 +45,22 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     var callBack: (() -> Void)?
     var handler = GameViewInteractionHandler()
     var level: Level?
+
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupControllers()
-        setupBlockly()
+        setupGameViewController()
+        setupBlocklyTableViewController()
         setupWebView()
-        setupMenu()
-        setupDirectDrive()
-        setupHelpView()
+        setupGameMenuViewController()
+        setupDirectDriveViewController()
+        setupHelpMessageViewController()
         setupGameMessageViewController()
         loadLevel()
     }
     
-    func setupControllers() {
+    func setupGameViewController() {
         GameViewCommandFactory.gameViewController = self
         handler.gameViewController = self
     }
@@ -83,7 +83,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         activityIndicator?.startAnimating()
     }
     
-    func setupBlockly() {
+    func setupBlocklyTableViewController() {
         blockTableViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.Blockly) as? BlockTableViewController
         blockTableViewController!.gameViewController = self
         blockTableViewController!.view.frame = blockTableViewController!.frame
@@ -96,7 +96,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         handler.blockTableViewController = self.blockTableViewController
     }
     
-    func setupMenu() {
+    func setupGameMenuViewController() {
         gameMenuViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.GameMenu) as? GameMenuViewController
         gameMenuViewController!.gameViewController = self
         gameMenuViewController!.view.frame = gameMenuViewController!.frame
@@ -107,7 +107,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         handler.gameMenuViewController = self.gameMenuViewController
     }
     
-    func setupDirectDrive() {
+    func setupDirectDriveViewController() {
         directDriveViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.DirecDrive) as? DirectDriveViewController
         directDriveViewController!.gameViewController = self
         directDriveViewController!.view.frame = directDriveViewController!.frame
@@ -117,7 +117,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         handler.directDriveViewController = self.directDriveViewController
     }
     
-    func setupHelpView() {
+    func setupHelpMessageViewController() {
         helpViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? HelpMessageViewController
         helpViewController!.gameViewController = self
         helpViewController!.view.frame = helpViewController!.frame
