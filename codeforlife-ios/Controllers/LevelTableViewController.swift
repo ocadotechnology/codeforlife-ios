@@ -35,7 +35,7 @@ class LevelTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var indexPath = tableView.indexPathForSelectedRow()!
         var level = levels.sections[indexPath.section].levels[indexPath.row]
-        performSegueWithIdentifier("LoadLevel", sender: self)
+        performSegueWithIdentifier(kCFLLoadLevelSegueIdentifier, sender: self)
     }
 
 

@@ -14,16 +14,10 @@ class GameMenuViewController: UIViewController {
     let pythonButtonText = "Python"
     let muteToUnmuteButtonText = "Unmute"
     let unmuteToMuteButtonText = "Mute"
-    
-    var gameMenuFrame: CGSize {
-        return CGSize(
-            width: self.gameViewController!.view.frame.width*(1-self.gameViewController!.webViewPortion) - 2*10,
-            height: 300)
-    }
-    let offset = 40 as CGFloat
-    
-    @IBOutlet weak var muteButton: GameViewButton!
-    @IBOutlet weak var playButton: GameViewButton!
+    let menuOffset: CGFloat = 40            // Offset to always show the head of the menu
+    let frameOffset: CGFloat = 10
+    let frameHeight: CGFloat = 300
+    let animationDuration: NSTimeInterval = 0.5
     
     enum ControlMode {
         case onPlayControls
@@ -33,16 +27,30 @@ class GameMenuViewController: UIViewController {
         case onResumeControls
     }
     
+    private struct PlayButtonText {
+        static let onPlayControls = "Pause"
+        static let onPauseControls = "Resume"
+        static let onStepControls = "Resume"
+        static let onStopControls = "Play"
+        static let onResumeControls = "Pause"
+    }
+    
+    var gameMenuFrame: CGSize {
+        return CGSize(
+            width: self.gameViewController!.view.frame.width*(1-self.gameViewController!.webViewPortion) - 2*frameOffset,
+            height: frameHeight)
+    }
+    
     var showPosition : CGPoint {
         return CGPointMake(
             self.hidePosition.x,
-            self.hidePosition.y - gameMenuFrame.height + offset + 10)
+            self.hidePosition.y - gameMenuFrame.height + menuOffset + frameOffset)
     }
     
     var hidePosition : CGPoint {
         return CGPointMake(
-            self.gameMenuFrame.width/2 + 10,
-            self.gameViewController!.view.frame.height + gameMenuFrame.height/2 - offset)
+            self.gameMenuFrame.width/2 + frameOffset,
+            self.gameViewController!.view.frame.height + gameMenuFrame.height/2 - menuOffset)
     }
     
     var frame: CGRect {
@@ -72,29 +80,29 @@ class GameMenuViewController: UIViewController {
     
     var menuOpen = false {
         didSet {
-            UIView.animateWithDuration(0.5) {
+            UIView.animateWithDuration(animationDuration) {
                 self.view.center = self.menuOpen ? self.showPosition : self.hidePosition
             }
         }
     }
-
+    
+    @IBOutlet weak var muteButton: GameViewButton!
+    @IBOutlet weak var playButton: GameViewButton!
+    
     @IBAction func toggleMenu() {
         menuOpen = !menuOpen
     }
 
     @IBAction func clear() {
         GameViewCommandFactory.ClearCommand().execute()
-        
     }
     
     @IBAction func play() {
         GameViewCommandFactory.PlayCommand().execute()
-        
     }
     
     @IBAction func help() {
         GameViewCommandFactory.HelpCommand().execute()
-        
     }
     
     @IBAction func muteSound() {
@@ -102,23 +110,23 @@ class GameMenuViewController: UIViewController {
     }
     
     func onPlayControls() {
-        playButton.setTitle("Pause", forState: UIControlState.Normal)
-    }
-    
-    func onStepControls() {
-        playButton.setTitle("Resume", forState: UIControlState.Normal)
-    }
-    
-    func onStopControls() {
-        playButton.setTitle("Play", forState: UIControlState.Normal)
+        playButton.setTitle(PlayButtonText.onPlayControls, forState: UIControlState.Normal)
     }
     
     func onPauseControls() {
-        playButton.setTitle("Resume", forState: UIControlState.Normal)
+        playButton.setTitle(PlayButtonText.onPauseControls, forState: UIControlState.Normal)
+    }
+    
+    func onStepControls() {
+        playButton.setTitle(PlayButtonText.onStepControls, forState: UIControlState.Normal)
+    }
+    
+    func onStopControls() {
+        playButton.setTitle(PlayButtonText.onStopControls, forState: UIControlState.Normal)
     }
     
     func onResumeControls() {
-        playButton.setTitle("Pause", forState: UIControlState.Normal)
+        playButton.setTitle(PlayButtonText.onResumeControls, forState: UIControlState.Normal)
     }
     
 }

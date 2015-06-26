@@ -11,16 +11,17 @@ import UIKit
 class BlockTableViewController: UITableViewController {
     
     let CellReuseIdentifier = "Block"
-    let offset = 10 as CGFloat
+    let frameOffset: CGFloat = 10
+    let bottomOffset: CGFloat = 40
     
     var gameViewController: GameViewController?
     
     var frame: CGRect {
         return CGRect(
-            x: offset,
-            y: offset,
-            width: self.gameViewController!.view.frame.width*(1-self.gameViewController!.webViewPortion) - 2*offset,
-            height: self.gameViewController!.view.frame.height - 2*offset - 40)
+            x: frameOffset,
+            y: frameOffset,
+            width: self.gameViewController!.view.frame.width*(1-self.gameViewController!.webViewPortion) - 2*frameOffset,
+            height: self.gameViewController!.view.frame.height - 2*frameOffset - bottomOffset)
     }
     
     var blocks: [Block] = [Start()] {
@@ -57,11 +58,11 @@ class BlockTableViewController: UITableViewController {
         cell.blockDescription.text = block.description
         
         if indexPath.row == 0 {
-            cell.containerView.backgroundColor = UIColor(red: 208/255.0, green: 112/255.0, blue: 112/255.0, alpha: 1)       // #D07070
+            cell.containerView.backgroundColor = kC4LBlocklyStartBlockColour
         } else if indexPath.row % 2 == 0 {
-            cell.containerView.backgroundColor = UIColor(red: 0/255.0, green: 176/255.0, blue: 208/255.0, alpha: 1)         // #00B0D0
+            cell.containerView.backgroundColor = kC4lBlocklyEvenBlockColour
         } else {
-            cell.containerView.backgroundColor = UIColor(red: 7*16/255.0, green: 12*16/255.0, blue: 15*16/255.0, alpha: 1)  // #70C0F0
+            cell.containerView.backgroundColor = kC4lBlocklyOddBlockColour
         }
         
         return cell

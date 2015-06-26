@@ -10,8 +10,8 @@ import UIKit
 
 class DirectDriveViewController: UIViewController, VehicleController {
     
-    
     let directDriveFrame = CGSize(width: 245, height: 165)
+    let frameOffset: CGFloat = 10
 
     @IBOutlet weak var forwardButton: DirectDriveButton!
     @IBOutlet weak var goButton: DirectDriveButton!
@@ -28,8 +28,8 @@ class DirectDriveViewController: UIViewController, VehicleController {
     
     var frame: CGRect {
         return CGRect(
-            x: self.gameViewController!.view.frame.width - directDriveFrame.width - 10,
-            y: self.gameViewController!.view.frame.height - directDriveFrame.height - 10,
+            x: self.gameViewController!.view.frame.width - directDriveFrame.width - frameOffset,
+            y: self.gameViewController!.view.frame.height - directDriveFrame.height - frameOffset,
             width: directDriveFrame.width,
             height: directDriveFrame.height)
     }
