@@ -15,7 +15,8 @@ class GameMenuViewController: UIViewController {
     let muteToUnmuteButtonText = "Unmute"
     let unmuteToMuteButtonText = "Mute"
     
-    
+    let gameMenuFrame = CGSize(width: 150, height: 300)
+    let offset = 40 as CGFloat
     
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
@@ -28,13 +29,23 @@ class GameMenuViewController: UIViewController {
         case onResumeControls
     }
     
-    var gameViewController: GameViewController?
+    var showPosition : CGPoint {
+        return CGPointMake(
+            self.hidePosition.x,
+            self.hidePosition.y - gameMenuFrame.height + offset + 10)
+    }
     
-//    var blocklyEnabled = false {
-//        didSet {
-//            blocklyButton.setTitle(blocklyEnabled ? blocklyButtonText : pythonButtonText, forState: UIControlState.Normal)
-//        }
-//    }
+    var hidePosition : CGPoint {
+        return CGPointMake(
+            self.gameMenuFrame.width/2,
+            self.gameViewController!.view.frame.height + gameMenuFrame.height/2 - offset)
+    }
+    
+    var frame: CGRect {
+        return  CGRect(origin: CGPointMake(0, 0), size: gameMenuFrame)
+    }
+    
+    var gameViewController: GameViewController?
     
     var mute = false {
         didSet {
@@ -57,21 +68,14 @@ class GameMenuViewController: UIViewController {
     
     var menuOpen = false {
         didSet {
-            showMenu(menuOpen)
+            UIView.animateWithDuration(0.5) {
+                self.view.center = self.menuOpen ? self.showPosition : self.hidePosition
+            }
         }
     }
 
     @IBAction func toggleMenu() {
         menuOpen = !menuOpen
-    }
-    
-    func showMenu(open: Bool) {
-        let c = open ? (1 as CGFloat) : (-1 as CGFloat)
-        UIView.animateWithDuration(0.5) {
-            self.view.center = CGPointMake(
-                self.view.center.x,
-                self.view.center.y - c*(self.gameViewController!.gameMenuFrame.height - 50))
-        }
     }
 
     @IBAction func clear() {

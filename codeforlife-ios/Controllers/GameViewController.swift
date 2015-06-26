@@ -12,10 +12,6 @@ import SnapKit
 
 class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
-    let blocklyButtonText = "Blockly"
-    let pythonButtonText = "Python"
-    let muteToUnmuteButtonText = "Unmute"
-    let unmuteToMuteButtonText = "Mute"
     let scriptMessageHandlerTitle = "handler"
     let webViewPortion: CGFloat = 0.7
     
@@ -24,8 +20,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     // Frames
     let directDriveFrame = CGSize(width: 245, height: 165)
     let webViewFrame = CGSize(width: 0, height: 0)
-    let gameMenuFrame = CGSize(width: 150, height: 300)
-    let helpMessageFrame = CGSize(width: 500, height: 500)
     
     // Controllers
     var gameMenuViewController: GameMenuViewController?
@@ -37,7 +31,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     var callBack: (() -> Void)?
     var handler = GameViewInteractionHandler()
     var level: Level?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,14 +83,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     func setupMenu() {
         gameMenuViewController = storyboard?.instantiateViewControllerWithIdentifier("GameMenuViewController") as? GameMenuViewController
         gameMenuViewController!.gameViewController = self
-        gameMenuViewController!.view.frame = CGRect(
-            x: 5,
-            y: view.frame.height - gameMenuFrame.height,
-            width: gameMenuFrame.width,
-            height: gameMenuFrame.height)
-        gameMenuViewController!.view.center = CGPointMake(
-            gameMenuViewController!.view.center.x,
-            gameMenuViewController!.view.center.y + gameMenuFrame.height - 40)
+        gameMenuViewController!.view.frame = gameMenuViewController!.frame
+        gameMenuViewController!.view.center = gameMenuViewController!.hidePosition
         addChildViewController(gameMenuViewController!)
         gameMenuViewController!.didMoveToParentViewController(self)
         view.addSubview(gameMenuViewController!.view)
@@ -122,12 +109,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         helpViewController = storyboard?.instantiateViewControllerWithIdentifier("HelpViewController") as? HelpViewController
         helpViewController?.gameViewController = self
         addChildViewController(helpViewController!)
-        println(view.center)
-        helpViewController!.view.frame = CGRect(
-            x: view.center.x - helpMessageFrame.width/2,
-            y: view.frame.height,
-            width: helpMessageFrame.width,
-            height: helpMessageFrame.height)
+        helpViewController!.view.frame = helpViewController!.frame
         view.addSubview(helpViewController!.view)
         helpViewController!.didMoveToParentViewController(self)
     }

@@ -15,17 +15,27 @@ class HelpViewController: UIViewController {
     @IBOutlet weak var contextTextView: UITextView!
     @IBOutlet weak var dismissButton: UIButton!
     
-    var hidePosition: CGPoint?
-    var showPosition: CGPoint?
+    let helpMessageFrame = CGSize(width: 500, height: 500)
     
-    var gameViewController: GameViewController? {
-        didSet {
-            showPosition = gameViewController!.view.center
-            hidePosition = CGPointMake(
-                self.view.center.x,
-                gameViewController!.view.frame.height + gameViewController!.helpMessageFrame.height/2)
-        }
+    var hidePosition: CGPoint {
+        return CGPointMake(
+            self.view.center.x,
+            gameViewController!.view.frame.height + helpMessageFrame.height/2)
     }
+    
+    var showPosition: CGPoint {
+        return gameViewController!.view.center
+    }
+    
+    var frame: CGRect {
+        return CGRect(
+            x: self.gameViewController!.view.center.x - helpMessageFrame.width/2,
+            y: self.gameViewController!.view.frame.height,
+            width: helpMessageFrame.width,
+            height: helpMessageFrame.height)
+    }
+    
+    var gameViewController: GameViewController?
     
     var helpTitle: String? {
         didSet {
@@ -41,16 +51,8 @@ class HelpViewController: UIViewController {
     
     var open = false {
         didSet {
-            if open {
-                UIView.animateWithDuration(0.5) {
-                    self.view.center = self.gameViewController!.view.center
-                }
-            } else {
-                UIView.animateWithDuration(0.5) {
-                    self.view.center = CGPointMake(
-                        self.view.center.x,
-                        self.gameViewController!.view.frame.height + self.gameViewController!.helpMessageFrame.height/2)
-                }
+            UIView.animateWithDuration(0.5) {
+                self.view.center = self.open ? self.showPosition: self.hidePosition
             }
         }
     }
