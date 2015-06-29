@@ -38,13 +38,21 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     var gameMenuViewController: GameMenuViewController?
     var directDriveViewController: DirectDriveViewController?
     var blockTableViewController: BlockTableViewController?
-    var helpViewController: HelpMessageViewController?
-    var gameMessageViewController: HelpMessageViewController?
+    var helpViewController: MessageViewController?
+    var gameMessageViewController: MessageViewController?
+    var postGameMessageViewController: MessageViewController?
     
     var webView: WKWebView?
     var callBack: (() -> Void)?
     var handler = GameViewInteractionHandler()
-    var level: Level?
+    
+    var level: Level? {
+        didSet {
+            if isViewLoaded() {
+                loadLevel(self.level!)
+            }
+        }
+    }
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -57,7 +65,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         setupDirectDriveViewController()
         setupHelpMessageViewController()
         setupGameMessageViewController()
-        loadLevel()
+        setupPostGameMessageViewController()
+        loadLevel(self.level!)
     }
     
     func setupGameViewController() {
@@ -93,7 +102,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         view.addSubview(blockTableViewController!.view)
         view.sendSubviewToBack(blockTableViewController!.view)
         blockTableViewController!.didMoveToParentViewController(self)
-        handler.blockTableViewController = self.blockTableViewController
     }
     
     func setupGameMenuViewController() {
@@ -104,7 +112,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         addChildViewController(gameMenuViewController!)
         view.addSubview(gameMenuViewController!.view)
         gameMenuViewController!.didMoveToParentViewController(self)
-        handler.gameMenuViewController = self.gameMenuViewController
     }
     
     func setupDirectDriveViewController() {
@@ -114,11 +121,10 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         addChildViewController(directDriveViewController!)
         view.addSubview(directDriveViewController!.view)
         directDriveViewController!.didMoveToParentViewController(self)
-        handler.directDriveViewController = self.directDriveViewController
     }
     
     func setupHelpMessageViewController() {
-        helpViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? HelpMessageViewController
+        helpViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? MessageViewController
         helpViewController!.gameViewController = self
         helpViewController!.view.frame = helpViewController!.frame
         addChildViewController(helpViewController!)
@@ -127,7 +133,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupGameMessageViewController() {
-        gameMessageViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? HelpMessageViewController
+        gameMessageViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? MessageViewController
         gameMessageViewController!.gameViewController = self
         gameMessageViewController!.view.frame = gameMessageViewController!.frame
         addChildViewController(gameMessageViewController!)
@@ -135,10 +141,17 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         gameMessageViewController!.didMoveToParentViewController(self)
     }
     
-    func loadLevel() {
-        if let requestedLevel = self.level {
-            GameViewCommandFactory.LoadLevelCommand(requestedLevel).execute {}
-        }
+    func setupPostGameMessageViewController() {
+        postGameMessageViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? MessageViewController
+        postGameMessageViewController!.gameViewController = self
+        postGameMessageViewController!.view.frame = postGameMessageViewController!.frame
+        addChildViewController(postGameMessageViewController!)
+        view.addSubview(postGameMessageViewController!.view)
+        postGameMessageViewController!.didMoveToParentViewController(self)
+    }
+    
+    func loadLevel(level: Level) {
+        GameViewCommandFactory.LoadLevelCommand(level).execute()
     }
     
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {

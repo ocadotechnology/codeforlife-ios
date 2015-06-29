@@ -369,118 +369,19 @@
             </objects>
             <point key="canvasLocation" x="3391" y="248"/>
         </scene>
-        <!--Help Message View Controller-->
+        <!--Message View Controller-->
         <scene sceneID="ei4-8z-TMX">
             <objects>
-                <viewController storyboardIdentifier="HelpMessageViewController" id="cjy-5G-m8N" customClass="HelpMessageViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpMessageViewController" id="cjy-5G-m8N" customClass="MessageViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6CL-44-7wB"/>
                         <viewControllerLayoutGuide type="bottom" id="O3A-dY-AGQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="g2M-kp-FNc" userLabel="ContainerView">
+                    <view key="view" contentMode="scaleToFill" id="g2M-kp-FNc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bza-GW-Lzr" userLabel="TitleLabel">
-                                <rect key="frame" x="26" y="28" width="548" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="u9W-ze-ec0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ob-yl-hp2" userLabel="SubtitleLabel">
-                                <rect key="frame" x="36" y="78" width="568" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hed-xL-2nR" userLabel="DismissButton">
-                                <rect key="frame" x="41" y="520" width="518" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="CFv-JD-2x3"/>
-                                    <constraint firstAttribute="height" constant="60" id="PUa-Vl-TKM"/>
-                                </constraints>
-                                <state key="normal" title="OK">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="CFv-JD-2x3"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="executeButtonAction" destination="cjy-5G-m8N" eventType="touchUpInside" id="zBB-pq-CeE"/>
-                                </connections>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEG-Vn-cL8" userLabel="HelpContentScrollView">
-                                <rect key="frame" x="16" y="99" width="568" height="422"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Context" translatesAutoresizingMaskIntoConstraints="NO" id="KZM-Vt-BKM" userLabel="Context">
-                                        <rect key="frame" x="20" y="20" width="528" height="382"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="KZM-Vt-BKM" secondAttribute="bottom" constant="20" symbolic="YES" id="19L-7y-82g"/>
-                                    <constraint firstItem="KZM-Vt-BKM" firstAttribute="centerY" secondItem="zEG-Vn-cL8" secondAttribute="centerY" id="1cr-B5-Cdk"/>
-                                    <constraint firstItem="KZM-Vt-BKM" firstAttribute="top" secondItem="zEG-Vn-cL8" secondAttribute="top" constant="20" symbolic="YES" id="MLq-Xd-SKL"/>
-                                    <constraint firstItem="KZM-Vt-BKM" firstAttribute="top" secondItem="zEG-Vn-cL8" secondAttribute="top" id="WDu-nW-xLN"/>
-                                    <constraint firstAttribute="trailing" secondItem="KZM-Vt-BKM" secondAttribute="trailing" constant="20" symbolic="YES" id="f3i-NG-O0j"/>
-                                    <constraint firstItem="KZM-Vt-BKM" firstAttribute="centerX" secondItem="zEG-Vn-cL8" secondAttribute="centerX" id="fa6-Ax-bQx"/>
-                                    <constraint firstItem="KZM-Vt-BKM" firstAttribute="leading" secondItem="zEG-Vn-cL8" secondAttribute="leading" constant="20" symbolic="YES" id="hBs-ze-dvb"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="WDu-nW-xLN"/>
-                                    </mask>
-                                </variation>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Hed-xL-2nR" firstAttribute="top" secondItem="zEG-Vn-cL8" secondAttribute="bottom" id="16U-Dm-s8S"/>
-                            <constraint firstItem="9ob-yl-hp2" firstAttribute="trailing" secondItem="g2M-kp-FNc" secondAttribute="trailingMargin" constant="20" id="4zL-XH-bCv"/>
-                            <constraint firstItem="9ob-yl-hp2" firstAttribute="leading" secondItem="g2M-kp-FNc" secondAttribute="leadingMargin" constant="20" id="Dkl-Xe-4fZ"/>
-                            <constraint firstItem="Bza-GW-Lzr" firstAttribute="top" secondItem="6CL-44-7wB" secondAttribute="bottom" constant="8" symbolic="YES" id="Hqk-IK-Qrf"/>
-                            <constraint firstItem="9ob-yl-hp2" firstAttribute="top" secondItem="Bza-GW-Lzr" secondAttribute="bottom" id="Myg-bh-ZUa"/>
-                            <constraint firstItem="6CL-44-7wB" firstAttribute="top" secondItem="Bza-GW-Lzr" secondAttribute="bottom" constant="-100" id="Np2-Qb-xzR"/>
-                            <constraint firstItem="zEG-Vn-cL8" firstAttribute="leading" secondItem="9ob-yl-hp2" secondAttribute="trailing" id="R9x-Wx-Wos"/>
-                            <constraint firstItem="zEG-Vn-cL8" firstAttribute="top" secondItem="9ob-yl-hp2" secondAttribute="bottom" id="THb-hC-dVb"/>
-                            <constraint firstItem="zEG-Vn-cL8" firstAttribute="leading" secondItem="g2M-kp-FNc" secondAttribute="leadingMargin" id="VC5-zh-Bac"/>
-                            <constraint firstItem="O3A-dY-AGQ" firstAttribute="top" secondItem="Hed-xL-2nR" secondAttribute="bottom" constant="20" id="XHf-ch-ObA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Hed-xL-2nR" secondAttribute="trailing" constant="25" id="YyM-Tr-fQ0"/>
-                            <constraint firstAttribute="centerX" secondItem="Bza-GW-Lzr" secondAttribute="centerX" id="aAn-Ji-Drv"/>
-                            <constraint firstItem="zEG-Vn-cL8" firstAttribute="top" secondItem="Bza-GW-Lzr" secondAttribute="bottom" id="aRv-AW-w3n"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zEG-Vn-cL8" secondAttribute="trailing" id="dR3-Od-dzx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9ob-yl-hp2" secondAttribute="trailing" id="g8m-ZG-eLB"/>
-                            <constraint firstItem="Hed-xL-2nR" firstAttribute="leading" secondItem="g2M-kp-FNc" secondAttribute="leadingMargin" constant="25" id="jIg-PG-q7o"/>
-                            <constraint firstAttribute="centerX" secondItem="Hed-xL-2nR" secondAttribute="centerX" id="mTf-aM-iqj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Bza-GW-Lzr" secondAttribute="trailing" constant="10" id="qPa-yQ-01N"/>
-                            <constraint firstItem="Bza-GW-Lzr" firstAttribute="leading" secondItem="g2M-kp-FNc" secondAttribute="leadingMargin" constant="10" id="wMm-oh-wgx"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Np2-Qb-xzR"/>
-                                <exclude reference="aAn-Ji-Drv"/>
-                                <exclude reference="g8m-ZG-eLB"/>
-                                <exclude reference="R9x-Wx-Wos"/>
-                                <exclude reference="aRv-AW-w3n"/>
-                                <exclude reference="mTf-aM-iqj"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <connections>
-                        <outlet property="containerView" destination="g2M-kp-FNc" id="GAb-re-2oE"/>
-                        <outlet property="contextTextView" destination="KZM-Vt-BKM" id="IHp-aH-Mdc"/>
-                        <outlet property="helpContentScrollView" destination="zEG-Vn-cL8" id="O2d-ad-n95"/>
-                        <outlet property="messageButton" destination="Hed-xL-2nR" id="jaH-qM-6t2"/>
-                        <outlet property="subtitleLabel" destination="9ob-yl-hp2" id="iRM-Un-o8z"/>
-                        <outlet property="titleLabel" destination="Bza-GW-Lzr" id="wIu-WB-PsW"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejV-6P-6h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -42,7 +42,7 @@ class LevelTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
         var level = levels.sections[indexPath.section].levels[indexPath.row]
-        cell.numberLabel.text =  "Level \(level.number!)"
+        cell.numberLabel.text =  "Level \(level.number)"
         cell.descriptionLabel.text = level.description
         return cell
     }

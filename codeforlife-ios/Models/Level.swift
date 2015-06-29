@@ -7,8 +7,9 @@ import Foundation
 
 class Level {
     
-    var number: Int? = 0
-    var description: String?
+    var number: Int
+    var description: String
+    var nextLevel: Level?
 
     init(number: Int, description: String){
         self.number = number

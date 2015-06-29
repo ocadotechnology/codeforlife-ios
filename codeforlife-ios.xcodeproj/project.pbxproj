@@ -26,16 +26,14 @@
 		ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */; };
 		ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EA31B341E9F00B63380 /* GameViewCommand.swift */; };
 		ED6F79881B3D46CF00DD2AFE /* GameMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79871B3D46CF00DD2AFE /* GameMenuView.swift */; };
-		ED6F798A1B3D565B00DD2AFE /* HelpMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79891B3D565B00DD2AFE /* HelpMessageViewController.swift */; };
-		ED6F798F1B3D5A0E00DD2AFE /* HelpMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79891B3D565B00DD2AFE /* HelpMessageViewController.swift */; };
+		ED6F798A1B3D565B00DD2AFE /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79891B3D565B00DD2AFE /* MessageViewController.swift */; };
+		ED6F798F1B3D5A0E00DD2AFE /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79891B3D565B00DD2AFE /* MessageViewController.swift */; };
 		ED6F79911B3D7D9200DD2AFE /* DirectDriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */; };
 		ED6F79921B3D7DD400DD2AFE /* DirectDriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */; };
 		ED6F79941B3D866F00DD2AFE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79931B3D866F00DD2AFE /* Message.swift */; };
 		ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79931B3D866F00DD2AFE /* Message.swift */; };
 		ED6F79971B3D9DF000DD2AFE /* HelpMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79961B3D9DF000DD2AFE /* HelpMessage.swift */; };
-		ED6F79991B3D9F1D00DD2AFE /* GameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79981B3D9F1D00DD2AFE /* GameMessage.swift */; };
 		ED6F799A1B3DA10700DD2AFE /* HelpMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79961B3D9DF000DD2AFE /* HelpMessage.swift */; };
-		ED6F799B1B3DA10C00DD2AFE /* GameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79981B3D9F1D00DD2AFE /* GameMessage.swift */; };
 		ED6F799C1B3DB34900DD2AFE /* GameMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79871B3D46CF00DD2AFE /* GameMenuView.swift */; };
 		EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */; };
 		EDAEFBAD1B39934F003398EE /* VehicleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAC1B39934F003398EE /* VehicleController.swift */; };
@@ -76,6 +74,30 @@
 		EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */; };
 		EDC8C1F31B36A25F004B1358 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */; };
 		EDC8C1F51B381213004B1358 /* GameViewCommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* GameViewCommandFactory.swift */; };
+		EDDF0F0D1B416C4E00F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
+		EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */; };
+		EDDF0F121B416E4700F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
+		EDDF0F131B416E4A00F2D779 /* PreGameMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */; };
+		EDDF0F151B41783F00F2D779 /* PreGameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */; };
+		EDDF0F161B4178B700F2D779 /* PreGameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */; };
+		EDDF0F1C1B417B6100F2D779 /* ErrorMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F1B1B417B6100F2D779 /* ErrorMessageView.xib */; };
+		EDDF0F1D1B417B6100F2D779 /* ErrorMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F1B1B417B6100F2D779 /* ErrorMessageView.xib */; };
+		EDDF0F1F1B417DBC00F2D779 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F1E1B417DBC00F2D779 /* ErrorMessageView.swift */; };
+		EDDF0F201B417DBC00F2D779 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F1E1B417DBC00F2D779 /* ErrorMessageView.swift */; };
+		EDFE933A1B41804900E01322 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE93391B41804900E01322 /* ErrorMessage.swift */; };
+		EDFE933B1B41808700E01322 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE93391B41804900E01322 /* ErrorMessage.swift */; };
+		EDFE933D1B4181FF00E01322 /* PostGameMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE933C1B4181FF00E01322 /* PostGameMessageView.swift */; };
+		EDFE933E1B4181FF00E01322 /* PostGameMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE933C1B4181FF00E01322 /* PostGameMessageView.swift */; };
+		EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE933F1B41820A00E01322 /* HelpMessageView.swift */; };
+		EDFE93411B41820A00E01322 /* HelpMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE933F1B41820A00E01322 /* HelpMessageView.swift */; };
+		EDFE93431B41821A00E01322 /* PostGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE93421B41821A00E01322 /* PostGameMessageView.xib */; };
+		EDFE93441B41821A00E01322 /* PostGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE93421B41821A00E01322 /* PostGameMessageView.xib */; };
+		EDFE93461B41822600E01322 /* HelpMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE93451B41822600E01322 /* HelpMessageView.xib */; };
+		EDFE93471B41822600E01322 /* HelpMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFE93451B41822600E01322 /* HelpMessageView.xib */; };
+		EDFE93491B41826A00E01322 /* PostGameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE93481B41826A00E01322 /* PostGameMessage.swift */; };
+		EDFE934A1B41826A00E01322 /* PostGameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE93481B41826A00E01322 /* PostGameMessage.swift */; };
+		EDFE934C1B4182E200E01322 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE934B1B4182E200E01322 /* MessageView.swift */; };
+		EDFE934D1B4182E200E01322 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE934B1B4182E200E01322 /* MessageView.swift */; };
 		EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E7F0402D1DF38E4BA7F2 /* Level.swift */; };
 		EF41EA99727ABC5A5820353A /* GVLoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */; };
 /* End PBXBuildFile section */
@@ -115,11 +137,10 @@
 		ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GVJavaScriptCommand.swift; path = "codeforlife-ios/Models/GameViewCommands/GVJavaScriptCommand.swift"; sourceTree = SOURCE_ROOT; };
 		ED236EA31B341E9F00B63380 /* GameViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCommand.swift; sourceTree = "<group>"; };
 		ED6F79871B3D46CF00DD2AFE /* GameMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMenuView.swift; sourceTree = "<group>"; };
-		ED6F79891B3D565B00DD2AFE /* HelpMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMessageViewController.swift; sourceTree = "<group>"; };
+		ED6F79891B3D565B00DD2AFE /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectDriveButton.swift; sourceTree = "<group>"; };
 		ED6F79931B3D866F00DD2AFE /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ED6F79961B3D9DF000DD2AFE /* HelpMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMessage.swift; sourceTree = "<group>"; };
-		ED6F79981B3D9F1D00DD2AFE /* GameMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMessage.swift; sourceTree = "<group>"; };
 		EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewInteractionHandler.swift; sourceTree = "<group>"; };
 		EDAEFBAC1B39934F003398EE /* VehicleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleController.swift; path = "codeforlife-ios/Models/VehicleController.swift"; sourceTree = SOURCE_ROOT; };
 		EDBB66691B3AA018009020A5 /* LabelViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelViewControllerTests.swift; sourceTree = "<group>"; };
@@ -134,6 +155,18 @@
 		EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewButton.swift; sourceTree = "<group>"; };
 		EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		EDC8C1F41B381213004B1358 /* GameViewCommandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCommandFactory.swift; sourceTree = "<group>"; };
+		EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreGameMessageView.xib; path = ../../PreGameMessageView.xib; sourceTree = "<group>"; };
+		EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessageView.swift; sourceTree = "<group>"; };
+		EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessage.swift; sourceTree = "<group>"; };
+		EDDF0F1B1B417B6100F2D779 /* ErrorMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorMessageView.xib; sourceTree = "<group>"; };
+		EDDF0F1E1B417DBC00F2D779 /* ErrorMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
+		EDFE93391B41804900E01322 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		EDFE933C1B4181FF00E01322 /* PostGameMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostGameMessageView.swift; sourceTree = "<group>"; };
+		EDFE933F1B41820A00E01322 /* HelpMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMessageView.swift; sourceTree = "<group>"; };
+		EDFE93421B41821A00E01322 /* PostGameMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostGameMessageView.xib; sourceTree = "<group>"; };
+		EDFE93451B41822600E01322 /* HelpMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpMessageView.xib; sourceTree = "<group>"; };
+		EDFE93481B41826A00E01322 /* PostGameMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostGameMessage.swift; sourceTree = "<group>"; };
+		EDFE934B1B4182E200E01322 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVLoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E7F0402D1DF38E4BA7F2 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,11 +227,17 @@
 		ED0A77051B34553000267191 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EDDF0F1A1B417B3200F2D779 /* xib */,
 				ED0A77091B34560600267191 /* LabelTableViewCell.swift */,
 				EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */,
 				EDBB66981B3C0B34009020A5 /* BlockTableViewCell.swift */,
 				ED6F79871B3D46CF00DD2AFE /* GameMenuView.swift */,
 				ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */,
+				EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */,
+				EDDF0F1E1B417DBC00F2D779 /* ErrorMessageView.swift */,
+				EDFE933C1B4181FF00E01322 /* PostGameMessageView.swift */,
+				EDFE933F1B41820A00E01322 /* HelpMessageView.swift */,
+				EDFE934B1B4182E200E01322 /* MessageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,6 +329,17 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		EDDF0F1A1B417B3200F2D779 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */,
+				EDDF0F1B1B417B6100F2D779 /* ErrorMessageView.xib */,
+				EDFE93421B41821A00E01322 /* PostGameMessageView.xib */,
+				EDFE93451B41822600E01322 /* HelpMessageView.xib */,
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
 		EDFF14DE1B316EA900962C68 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,7 +348,7 @@
 				EDBB668C1B3AEEFC009020A5 /* DirectDriveViewController.swift */,
 				EDBB668F1B3B009C009020A5 /* GameMenuViewController.swift */,
 				EDBB66961B3C0A61009020A5 /* BlockTableViewController.swift */,
-				ED6F79891B3D565B00DD2AFE /* HelpMessageViewController.swift */,
+				ED6F79891B3D565B00DD2AFE /* MessageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -312,9 +362,11 @@
 				EDC8C1EB1B35BA29004B1358 /* LevelSection.swift */,
 				EDAEFBAC1B39934F003398EE /* VehicleController.swift */,
 				EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */,
-				ED6F79961B3D9DF000DD2AFE /* HelpMessage.swift */,
-				ED6F79981B3D9F1D00DD2AFE /* GameMessage.swift */,
 				ED6F79931B3D866F00DD2AFE /* Message.swift */,
+				EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */,
+				ED6F79961B3D9DF000DD2AFE /* HelpMessage.swift */,
+				EDFE93481B41826A00E01322 /* PostGameMessage.swift */,
+				EDFE93391B41804900E01322 /* ErrorMessage.swift */,
 				ED1EB0621B32C09800A595EF /* Actions */,
 				ED236EA11B341CF800B63380 /* GameViewCommands */,
 			);
@@ -408,8 +460,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDDF0F1C1B417B6100F2D779 /* ErrorMessageView.xib in Resources */,
+				EDFE93461B41822600E01322 /* HelpMessageView.xib in Resources */,
 				ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */,
 				ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */,
+				EDDF0F0D1B416C4E00F2D779 /* PreGameMessageView.xib in Resources */,
+				EDFE93431B41821A00E01322 /* PostGameMessageView.xib in Resources */,
 				ED0BC5981B305D720060FC84 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +474,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDDF0F121B416E4700F2D779 /* PreGameMessageView.xib in Resources */,
+				EDFE93471B41822600E01322 /* HelpMessageView.xib in Resources */,
+				EDFE93441B41821A00E01322 /* PostGameMessageView.xib in Resources */,
+				EDDF0F1D1B417B6100F2D779 /* ErrorMessageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +585,7 @@
 				EDBB66971B3C0A61009020A5 /* BlockTableViewController.swift in Sources */,
 				ED6F79911B3D7D9200DD2AFE /* DirectDriveButton.swift in Sources */,
 				ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */,
+				EDFE933A1B41804900E01322 /* ErrorMessage.swift in Sources */,
 				ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */,
 				ED6F79941B3D866F00DD2AFE /* Message.swift in Sources */,
 				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
@@ -532,27 +593,33 @@
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
 				ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */,
 				EDAEFBAD1B39934F003398EE /* VehicleController.swift in Sources */,
+				EDDF0F1F1B417DBC00F2D779 /* ErrorMessageView.swift in Sources */,
 				EDBB66991B3C0B34009020A5 /* BlockTableViewCell.swift in Sources */,
 				ED1EB0711B331A2800A595EF /* FetchLevelsAction.swift in Sources */,
 				ED6F79881B3D46CF00DD2AFE /* GameMenuView.swift in Sources */,
 				ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */,
 				ED1EB0671B32C09800A595EF /* Action.swift in Sources */,
+				EDFE934C1B4182E200E01322 /* MessageView.swift in Sources */,
 				EDC8C1EC1B35BA29004B1358 /* LevelSection.swift in Sources */,
 				EDC8C1F31B36A25F004B1358 /* ColorConstants.swift in Sources */,
 				EDBB66901B3B009C009020A5 /* GameMenuViewController.swift in Sources */,
+				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
+				EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */,
 				ED1EB0731B331B7100A595EF /* FetchLevelsActionMockDelegate.swift in Sources */,
 				EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */,
 				ED0A770A1B34560600267191 /* LabelTableViewCell.swift in Sources */,
 				EDBB66951B3C0977009020A5 /* Block.swift in Sources */,
 				EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */,
+				EDFE93491B41826A00E01322 /* PostGameMessage.swift in Sources */,
 				EDBB668D1B3AEEFC009020A5 /* DirectDriveViewController.swift in Sources */,
 				ED6F79971B3D9DF000DD2AFE /* HelpMessage.swift in Sources */,
 				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
-				ED6F79991B3D9F1D00DD2AFE /* GameMessage.swift in Sources */,
 				ED1EB0751B331C7100A595EF /* APIActionDelegate.swift in Sources */,
 				D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */,
 				EF41EA99727ABC5A5820353A /* GVLoadLevelCommand.swift in Sources */,
-				ED6F798A1B3D565B00DD2AFE /* HelpMessageViewController.swift in Sources */,
+				ED6F798A1B3D565B00DD2AFE /* MessageViewController.swift in Sources */,
+				EDFE933D1B4181FF00E01322 /* PostGameMessageView.swift in Sources */,
+				EDDF0F151B41783F00F2D779 /* PreGameMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,28 +630,34 @@
 				ED6F799A1B3DA10700DD2AFE /* HelpMessage.swift in Sources */,
 				EDBB667F1B3AA18F009020A5 /* GameViewButton.swift in Sources */,
 				EDBB667D1B3AA16D009020A5 /* GameViewController.swift in Sources */,
+				EDFE934D1B4182E200E01322 /* MessageView.swift in Sources */,
 				EDBB666B1B3AA029009020A5 /* LevelTableViewController.swift in Sources */,
+				EDFE934A1B41826A00E01322 /* PostGameMessage.swift in Sources */,
 				ED6F799C1B3DB34900DD2AFE /* GameMenuView.swift in Sources */,
 				EDBB66821B3AB36C009020A5 /* GameViewControllerTests.swift in Sources */,
 				EDBB66711B3AA072009020A5 /* FetchLevelsActionMockDelegate.swift in Sources */,
 				EDBB667A1B3AA07E009020A5 /* GameViewInteractionHandler.swift in Sources */,
 				EDBB666F1B3AA06E009020A5 /* ActionDelegate.swift in Sources */,
 				EDBB66771B3AA07E009020A5 /* Level.swift in Sources */,
+				EDDF0F131B416E4A00F2D779 /* PreGameMessageView.swift in Sources */,
 				EDBB666E1B3AA06E009020A5 /* Action.swift in Sources */,
 				EDBB669C1B3C1181009020A5 /* BlockTableViewCell.swift in Sources */,
 				EDBB66741B3AA07A009020A5 /* GameViewCommand.swift in Sources */,
 				EDBB666C1B3AA06A009020A5 /* URLConstants.swift in Sources */,
 				ED6F79921B3D7DD400DD2AFE /* DirectDriveButton.swift in Sources */,
 				ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */,
+				EDFE93411B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				EDBB66751B3AA07A009020A5 /* GVJavaScriptCommand.swift in Sources */,
 				ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */,
-				ED6F799B1B3DA10C00DD2AFE /* GameMessage.swift in Sources */,
+				EDDF0F201B417DBC00F2D779 /* ErrorMessageView.swift in Sources */,
 				EDBB669B1B3C1007009020A5 /* BlockTableViewController.swift in Sources */,
 				EDBB667E1B3AA18F009020A5 /* LabelTableViewCell.swift in Sources */,
 				EDBB668E1B3AF135009020A5 /* DirectDriveViewController.swift in Sources */,
 				EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */,
-				ED6F798F1B3D5A0E00DD2AFE /* HelpMessageViewController.swift in Sources */,
+				ED6F798F1B3D5A0E00DD2AFE /* MessageViewController.swift in Sources */,
+				EDDF0F161B4178B700F2D779 /* PreGameMessage.swift in Sources */,
 				EDBB66911B3B0103009020A5 /* GameMenuViewController.swift in Sources */,
+				EDFE933E1B4181FF00E01322 /* PostGameMessageView.swift in Sources */,
 				EDBB66701B3AA06E009020A5 /* FetchLevelsAction.swift in Sources */,
 				EDBB66781B3AA07E009020A5 /* LevelSection.swift in Sources */,
 				EDBB66721B3AA076009020A5 /* APIActionDelegate.swift in Sources */,
@@ -593,6 +666,7 @@
 				EDBB66791B3AA07E009020A5 /* Levels.swift in Sources */,
 				EDBB66761B3AA07A009020A5 /* GVLoadLevelCommand.swift in Sources */,
 				EDBB666A1B3AA018009020A5 /* LabelViewControllerTests.swift in Sources */,
+				EDFE933B1B41808700E01322 /* ErrorMessage.swift in Sources */,
 				EDBB66731B3AA07A009020A5 /* GameViewCommandFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +797,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -738,6 +813,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

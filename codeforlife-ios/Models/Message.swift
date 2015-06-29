@@ -15,6 +15,7 @@ class Message {
     var context: String?
     var buttonText: String?
     var action: (() -> Void)?
+    var controller: MessageViewController?
     
     init(title: String, subtitle: String, context: String, button: String, action: () -> Void = {}) {
         self.title = title
@@ -22,6 +23,10 @@ class Message {
         self.context = context
         self.buttonText = button
         self.action = action
+    }
+    
+    func updateUI() {
+        fatalError("Implement updateUI!")
     }
     
 }
