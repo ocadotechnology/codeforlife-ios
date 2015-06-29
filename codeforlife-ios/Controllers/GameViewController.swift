@@ -94,60 +94,57 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
     func setupBlocklyTableViewController() {
         blockTableViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.Blockly) as? BlockTableViewController
-        blockTableViewController!.gameViewController = self
-        blockTableViewController!.view.frame = blockTableViewController!.frame
-        blockTableViewController!.tableView.layer.cornerRadius = 10
-        blockTableViewController!.tableView.layer.masksToBounds = true
-        addChildViewController(blockTableViewController!)
-        view.addSubview(blockTableViewController!.view)
-        view.sendSubviewToBack(blockTableViewController!.view)
-        blockTableViewController!.didMoveToParentViewController(self)
+        if let controller = blockTableViewController {
+            controller.gameViewController = self
+            controller.view.frame = controller.frame
+            controller.tableView.layer.cornerRadius = 10
+            controller.tableView.layer.masksToBounds = true
+            addChildViewController(controller)
+            view.addSubview(controller.view)
+            view.sendSubviewToBack(controller.view)
+            controller.didMoveToParentViewController(self)
+            
+        }
     }
     
     func setupGameMenuViewController() {
         gameMenuViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.GameMenu) as? GameMenuViewController
-        gameMenuViewController!.gameViewController = self
-        gameMenuViewController!.view.frame = gameMenuViewController!.frame
-        gameMenuViewController!.view.center = gameMenuViewController!.hidePosition
-        addChildViewController(gameMenuViewController!)
-        view.addSubview(gameMenuViewController!.view)
-        gameMenuViewController!.didMoveToParentViewController(self)
+        if let controller = gameMenuViewController {
+            controller.gameViewController = self
+            controller.view.frame = controller.frame
+            controller.view.center = controller.hidePosition
+            addChildViewController(controller)
+            view.addSubview(controller.view)
+            controller.didMoveToParentViewController(self)
+        }
     }
     
     func setupDirectDriveViewController() {
         directDriveViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.DirecDrive) as? DirectDriveViewController
-        directDriveViewController!.gameViewController = self
-        directDriveViewController!.view.frame = directDriveViewController!.frame
-        addChildViewController(directDriveViewController!)
-        view.addSubview(directDriveViewController!.view)
-        directDriveViewController!.didMoveToParentViewController(self)
+        setupController(directDriveViewController!)
+    }
+    
+    private func setupController(controller: SubGameViewController) {
+        controller.gameViewController = self
+        controller.view.frame = controller.frame
+        addChildViewController(controller)
+        view.addSubview(controller.view)
+        controller.didMoveToParentViewController(self)
     }
     
     func setupHelpMessageViewController() {
         helpViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? MessageViewController
-        helpViewController!.gameViewController = self
-        helpViewController!.view.frame = helpViewController!.frame
-        addChildViewController(helpViewController!)
-        view.addSubview(helpViewController!.view)
-        helpViewController!.didMoveToParentViewController(self)
+        setupController(helpViewController!)
     }
     
     func setupGameMessageViewController() {
         gameMessageViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? MessageViewController
-        gameMessageViewController!.gameViewController = self
-        gameMessageViewController!.view.frame = gameMessageViewController!.frame
-        addChildViewController(gameMessageViewController!)
-        view.addSubview(gameMessageViewController!.view)
-        gameMessageViewController!.didMoveToParentViewController(self)
+        setupController(gameMessageViewController!)
     }
     
     func setupPostGameMessageViewController() {
         postGameMessageViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? MessageViewController
-        postGameMessageViewController!.gameViewController = self
-        postGameMessageViewController!.view.frame = postGameMessageViewController!.frame
-        addChildViewController(postGameMessageViewController!)
-        view.addSubview(postGameMessageViewController!.view)
-        postGameMessageViewController!.didMoveToParentViewController(self)
+        setupController(postGameMessageViewController!)
     }
     
     func loadLevel(level: Level) {

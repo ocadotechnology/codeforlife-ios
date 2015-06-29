@@ -17,11 +17,12 @@ class PreGameMessageView: MessageView {
 
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var containerView: UIScrollView!
     @IBOutlet weak var contextView: UITextView!
     
-    class func instsanceFromXib() -> PreGameMessageView {
-        return UINib(nibName: "PreGameMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PreGameMessageView
+    class func instsanceFromXib(message: Message) -> PreGameMessageView {
+        var view = UINib(nibName: "PreGameMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PreGameMessageView
+        view.message = message
+        return view
     }
 
     @IBAction func executeAction() {
@@ -31,7 +32,6 @@ class PreGameMessageView: MessageView {
     override func reloadContent() {
         titleLabel.text = message!.title
         contextView.text = message!.context
-        messageButton.titleLabel!.text = message!.buttonText
     }
     
     override func drawRect(rect: CGRect) {

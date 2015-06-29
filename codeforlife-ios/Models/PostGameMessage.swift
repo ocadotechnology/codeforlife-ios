@@ -12,20 +12,11 @@ class PostGameMessage: Message {
     
     var playAgainAction: (() -> Void)?
     
-    init(title: String, context: String, button: String, nextLevelAction: () -> Void, playAgainAction: () -> Void) {
-        super.init(
-            title: title,
-            subtitle: "",
-            context: context,
-            button: button,
-            action: nextLevelAction)
+    init(title: String, context: String, nextLevelAction: () -> Void, playAgainAction: () -> Void) {
+        super.init(title: title, context: context, action: nextLevelAction)
         self.playAgainAction = playAgainAction
+        self.view = PostGameMessageView.instsanceFromXib(self)
     }
-    
-    override func updateUI() {
-        var view = PostGameMessageView.instsanceFromXib()
-        view.message = self
-        controller!.view = view
-    }
+
     
 }

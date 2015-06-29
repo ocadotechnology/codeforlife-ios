@@ -11,22 +11,16 @@ import Foundation
 class Message {
     
     var title: String?
-    var subtitle: String?
     var context: String?
-    var buttonText: String?
     var action: (() -> Void)?
     var controller: MessageViewController?
+    var view: MessageView
     
-    init(title: String, subtitle: String, context: String, button: String, action: () -> Void = {}) {
+    init(title: String, context: String, action: () -> Void) {
         self.title = title
-        self.subtitle = subtitle
         self.context = context
-        self.buttonText = button
         self.action = action
-    }
-    
-    func updateUI() {
-        fatalError("Implement updateUI!")
+        self.view = MessageView()
     }
     
 }

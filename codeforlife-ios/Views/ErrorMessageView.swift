@@ -19,8 +19,10 @@ class ErrorMessageView: MessageView {
     @IBOutlet weak var contextView: UITextView!
     @IBOutlet weak var messageButton: UIButton!
     
-    class func instsanceFromXib() -> ErrorMessageView {
-        return UINib(nibName: "ErrorMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! ErrorMessageView
+    class func instsanceFromXib(message: Message) -> ErrorMessageView {
+        var view = UINib(nibName: "ErrorMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! ErrorMessageView
+        view.message = message
+        return view
     }
     
     @IBAction func executeAction() {
@@ -30,7 +32,6 @@ class ErrorMessageView: MessageView {
     override func reloadContent() {
         titleLabel.text = message!.title
         contextView.text = message!.context
-        messageButton.titleLabel!.text = message!.buttonText
     }
     
     override func drawRect(rect: CGRect) {

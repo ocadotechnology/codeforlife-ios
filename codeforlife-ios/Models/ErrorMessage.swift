@@ -10,20 +10,9 @@ import Foundation
 
 class ErrorMessage: Message {
     
-    init(title: String, context: String, button: String, action: () -> Void) {
-        super.init(
-            title: title,
-            subtitle: "",
-            context: context,
-            button: button,
-            action: action)
+    override init(title: String, context: String, action: () -> Void) {
+        super.init(title: title, context: context, action: action)
+        self.view = ErrorMessageView.instsanceFromXib(self)
     }
-    
-    override func updateUI() {
-        var view = ErrorMessageView.instsanceFromXib()
-        view.message = self
-        controller!.view = view
-    }
-    
     
 }

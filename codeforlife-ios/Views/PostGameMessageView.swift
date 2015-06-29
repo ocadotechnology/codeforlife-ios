@@ -20,8 +20,10 @@ class PostGameMessageView: MessageView {
     @IBOutlet weak var contextView: UITextView!
     @IBOutlet weak var playAgainButton: UIButton!
     
-    class func instsanceFromXib() -> PostGameMessageView {
-        return UINib(nibName: "PostGameMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PostGameMessageView
+    class func instsanceFromXib(message: Message) -> PostGameMessageView {
+        var view = UINib(nibName: "PostGameMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PostGameMessageView
+        view.message = message
+        return view
     }
     
     @IBAction func executeNextLevelAction() {

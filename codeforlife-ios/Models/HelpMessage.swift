@@ -11,13 +11,9 @@ import Foundation
 class HelpMessage: Message {
     
     init(context: String, action: () -> Void) {
-        super.init(title: "Help", subtitle: "", context: context, button: "OK", action: action)
+        super.init(title: "Help", context: context, action: action)
+        self.view = HelpMessageView.instsanceFromXib(self)
     }
     
-    override func updateUI() {
-        var view = HelpMessageView.instsanceFromXib()
-        view.message = self
-        controller!.view = view
-    }
     
 }

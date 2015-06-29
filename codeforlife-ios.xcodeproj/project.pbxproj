@@ -98,6 +98,8 @@
 		EDFE934A1B41826A00E01322 /* PostGameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE93481B41826A00E01322 /* PostGameMessage.swift */; };
 		EDFE934C1B4182E200E01322 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE934B1B4182E200E01322 /* MessageView.swift */; };
 		EDFE934D1B4182E200E01322 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE934B1B4182E200E01322 /* MessageView.swift */; };
+		EDFE934F1B419FF900E01322 /* SubGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE934E1B419FF900E01322 /* SubGameViewController.swift */; };
+		EDFE93501B419FF900E01322 /* SubGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE934E1B419FF900E01322 /* SubGameViewController.swift */; };
 		EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E7F0402D1DF38E4BA7F2 /* Level.swift */; };
 		EF41EA99727ABC5A5820353A /* GVLoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */; };
 /* End PBXBuildFile section */
@@ -167,6 +169,7 @@
 		EDFE93451B41822600E01322 /* HelpMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpMessageView.xib; sourceTree = "<group>"; };
 		EDFE93481B41826A00E01322 /* PostGameMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostGameMessage.swift; sourceTree = "<group>"; };
 		EDFE934B1B4182E200E01322 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		EDFE934E1B419FF900E01322 /* SubGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubGameViewController.swift; sourceTree = "<group>"; };
 		EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GVLoadLevelCommand.swift; sourceTree = "<group>"; };
 		EF41E7F0402D1DF38E4BA7F2 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -349,6 +352,7 @@
 				EDBB668F1B3B009C009020A5 /* GameMenuViewController.swift */,
 				EDBB66961B3C0A61009020A5 /* BlockTableViewController.swift */,
 				ED6F79891B3D565B00DD2AFE /* MessageViewController.swift */,
+				EDFE934E1B419FF900E01322 /* SubGameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -606,6 +610,7 @@
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */,
 				ED1EB0731B331B7100A595EF /* FetchLevelsActionMockDelegate.swift in Sources */,
+				EDFE934F1B419FF900E01322 /* SubGameViewController.swift in Sources */,
 				EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */,
 				ED0A770A1B34560600267191 /* LabelTableViewCell.swift in Sources */,
 				EDBB66951B3C0977009020A5 /* Block.swift in Sources */,
@@ -654,6 +659,7 @@
 				EDBB667E1B3AA18F009020A5 /* LabelTableViewCell.swift in Sources */,
 				EDBB668E1B3AF135009020A5 /* DirectDriveViewController.swift in Sources */,
 				EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */,
+				EDFE93501B419FF900E01322 /* SubGameViewController.swift in Sources */,
 				ED6F798F1B3D5A0E00DD2AFE /* MessageViewController.swift in Sources */,
 				EDDF0F161B4178B700F2D779 /* PreGameMessage.swift in Sources */,
 				EDBB66911B3B0103009020A5 /* GameMenuViewController.swift in Sources */,

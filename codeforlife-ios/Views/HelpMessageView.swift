@@ -19,8 +19,10 @@ class HelpMessageView: MessageView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contextView: UITextView!
     
-    class func instsanceFromXib() -> HelpMessageView {
-        return UINib(nibName: "HelpMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! HelpMessageView
+    class func instsanceFromXib(message: Message) -> HelpMessageView {
+        var view = UINib(nibName: "HelpMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! HelpMessageView
+        view.message = message
+        return view
     }
     
     @IBAction func executeAction() {
@@ -30,7 +32,6 @@ class HelpMessageView: MessageView {
     override func reloadContent() {
         titleLabel.text = message!.title
         contextView.text = message!.context
-        messageButton.titleLabel!.text = message!.buttonText
     }
     
     override func drawRect(rect: CGRect) {

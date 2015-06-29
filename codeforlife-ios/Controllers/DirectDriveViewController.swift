@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DirectDriveViewController: UIViewController, VehicleController {
+class DirectDriveViewController: SubGameViewController, VehicleController {
     
     let directDriveFrame = CGSize(width: 245, height: 165)
     let frameOffset: CGFloat = 10
@@ -20,13 +20,13 @@ class DirectDriveViewController: UIViewController, VehicleController {
     
     var controller: VehicleController?
     
-    var gameViewController: GameViewController? {
+    override var gameViewController: GameViewController? {
         didSet {
             controller = CargoController(gameViewController: gameViewController!)
         }
     }
     
-    var frame: CGRect {
+    override var frame: CGRect {
         return CGRect(
             x: self.gameViewController!.view.frame.width - directDriveFrame.width - frameOffset,
             y: self.gameViewController!.view.frame.height - directDriveFrame.height - frameOffset,

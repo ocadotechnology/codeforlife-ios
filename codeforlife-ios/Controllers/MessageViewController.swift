@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageViewController: UIViewController {
+class MessageViewController: SubGameViewController {
     
     let messageFrame = CGSize(width: 500, height: 500)
     
@@ -27,7 +27,7 @@ class MessageViewController: UIViewController {
         return gameViewController!.view.center
     }
     
-    var frame: CGRect {
+    override var frame: CGRect {
         return CGRect(
             x: self.gameViewController!.view.center.x - messageFrame.width/2,
             y: self.gameViewController!.view.frame.height,
@@ -37,14 +37,12 @@ class MessageViewController: UIViewController {
     
     var message: Message? {
         didSet {
-            message?.controller = self
-            message?.updateUI()
+            self.view = message?.view
         }
     }
     
-    var gameViewController: GameViewController?
     
-    var open = false {
+    private var open = false {
         didSet {
             UIView.animateWithDuration(0.5) {
                 self.view.center = self.open ? self.showPosition: self.hidePosition
@@ -57,9 +55,33 @@ class MessageViewController: UIViewController {
     }
     
     func executeButtonAction() {
-        if let action = message?.action {
-            action()
-        }
+        message?.action?()
     }
+    
+    func toggleMenu() {
+        open = !open
+    }
+    
+    func openMenu() {
+        open = true
+    }
+    
+    func closeMenu() {
+        open = false
+    }
+    
+    func gotoNextLevelAndDismiss() {
+        if let nextLevel = gameViewController!.level?.nextLevel {
+            gameViewController!.level = nextLevel
+        }
+        closeMenu()
+    }
+    
+    func playAgainAndDismiss() {
+        self.gameViewController!.level = self.gameViewController!.level
+        closeMenu()
+    }
+    
+    
 
 }
