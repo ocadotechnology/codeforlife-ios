@@ -21,7 +21,7 @@ class LevelTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        FetchLevelsAction(viewController: self).execute()
+        FetchLevelsAction(viewController: self).switchToMock().execute()
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

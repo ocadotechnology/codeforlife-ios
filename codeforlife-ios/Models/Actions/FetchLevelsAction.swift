@@ -13,12 +13,12 @@ import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
-    var viewController: UIViewController?
+    var viewController: UIViewController
 
     init(viewController: UIViewController) {
-        super.init(url: kCFLFetchLevelsAction, httpMethod: Alamofire.Method.GET)
-        self.delegate = FetchLevelsActionMockDelegate()
         self.viewController = viewController
+        super.init()
+        self.delegate = FetchLevelsActionDeletage()
     }
     
     override func processData(data: NSData) {
@@ -26,6 +26,7 @@ class FetchLevelsAction : Action, ActionProtocol
         var levels = Levels()
         
         let json = JSON(data: data)
+        println(json)
         if let sectionArray = json.array {
             for section in sectionArray {
                 if let sectionName = section["section"].string {
@@ -46,6 +47,16 @@ class FetchLevelsAction : Action, ActionProtocol
         if let viewController = self.viewController as? LevelTableViewController {
             viewController.levels = levels
         }
+    }
+    
+    override func switchToDev() -> Action {
+        self.delegate = FetchLevelsActionDevDeletage()
+        return self
+    }
+    
+    override func switchToMock() -> Action {
+        self.delegate = FetchLevelsActionMockDelegate()
+        return self
     }
     
 }

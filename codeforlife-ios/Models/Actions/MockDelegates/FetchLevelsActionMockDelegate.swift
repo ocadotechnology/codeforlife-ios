@@ -12,7 +12,7 @@ import Alamofire
 
 class FetchLevelsActionMockDelegate: ActionDelegate
 {
-    func execute(request: Request, processData: (NSData -> Void), callback: () -> Void) {
+    func execute(processData: (NSData -> Void), callback: () -> Void) {
         var json = JSON(
             [
                 [

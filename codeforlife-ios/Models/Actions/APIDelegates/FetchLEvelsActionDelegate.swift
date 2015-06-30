@@ -10,10 +10,15 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class APIActionDeletage : ActionDelegate {
+class FetchLevelsActionDeletage : ActionDelegate {
     
-    func execute(request: Request, processData: (NSData -> Void), callback: () -> Void) {
-        request.responseJSON { (req, res, json, error) in
+    let url = ""
+    let method = Alamofire.Method.GET
+    
+    func execute(processData: (NSData -> Void), callback: () -> Void) {
+        Alamofire
+            .request(method, url)
+            .responseJSON { (req, res, json, error) in
             if(error != nil) {
                 NSLog("Error: \(error)")
                 println(req)
