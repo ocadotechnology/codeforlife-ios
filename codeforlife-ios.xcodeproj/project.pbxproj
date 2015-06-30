@@ -30,6 +30,8 @@
 		ED1A93381B42AE81004E6AD4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93361B42AE81004E6AD4 /* Player.swift */; };
 		ED1A933A1B42B02A004E6AD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1A93391B42B02A004E6AD4 /* Images.xcassets */; };
 		ED1A933B1B42B02A004E6AD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1A93391B42B02A004E6AD4 /* Images.xcassets */; };
+		ED1A933D1B42C1BC004E6AD4 /* GameMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A933C1B42C1BC004E6AD4 /* GameMapView.swift */; };
+		ED1A933E1B42C1BC004E6AD4 /* GameMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A933C1B42C1BC004E6AD4 /* GameMapView.swift */; };
 		ED1EB0671B32C09800A595EF /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0631B32C09800A595EF /* Action.swift */; };
 		ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */; };
 		ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */; };
@@ -149,6 +151,7 @@
 		ED1A93321B42A9F0004E6AD4 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		ED1A93361B42AE81004E6AD4 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		ED1A93391B42B02A004E6AD4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "codeforlife-ios/Images.xcassets"; sourceTree = "<group>"; };
+		ED1A933C1B42C1BC004E6AD4 /* GameMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapView.swift; sourceTree = "<group>"; };
 		ED1EB0631B32C09800A595EF /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableViewController.swift; sourceTree = "<group>"; };
 		ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +264,7 @@
 				EDFE933F1B41820A00E01322 /* HelpMessageView.swift */,
 				EDFE934B1B4182E200E01322 /* MessageView.swift */,
 				ED1A93251B428A36004E6AD4 /* BlockTableView.swift */,
+				ED1A933C1B42C1BC004E6AD4 /* GameMapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -634,6 +638,7 @@
 				ED1A93371B42AE81004E6AD4 /* Player.swift in Sources */,
 				EDFE933A1B41804900E01322 /* ErrorMessage.swift in Sources */,
 				ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */,
+				ED1A933D1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
 				ED6F79941B3D866F00DD2AFE /* Message.swift in Sources */,
 				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
 				EDC8C1F51B381213004B1358 /* GameViewCommandFactory.swift in Sources */,
@@ -719,6 +724,7 @@
 				EDBB66701B3AA06E009020A5 /* FetchLevelsAction.swift in Sources */,
 				EDBB66781B3AA07E009020A5 /* LevelSection.swift in Sources */,
 				EDBB66721B3AA076009020A5 /* APIActionDelegate.swift in Sources */,
+				ED1A933E1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
 				EDBB667B1B3AA07E009020A5 /* VehicleController.swift in Sources */,
 				ED1A93341B42A9F0004E6AD4 /* GameScene.swift in Sources */,
 				EDBB666D1B3AA06A009020A5 /* ColorConstants.swift in Sources */,
