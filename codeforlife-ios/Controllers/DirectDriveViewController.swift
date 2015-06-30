@@ -22,8 +22,8 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     
     override var gameViewController: GameViewController? {
         didSet {
-            controller = NativeCarController(gameViewController: gameViewController!)
-            //controller = CargoController(gameViewController: gameViewController!)
+            //controller = NativeCarController(gameViewController: gameViewController!)
+            controller = CargoController(gameViewController: gameViewController!)
         }
     }
     
