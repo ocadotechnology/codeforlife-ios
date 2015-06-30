@@ -81,7 +81,5 @@ class MessageViewController: SubGameViewController {
         self.gameViewController!.level = self.gameViewController!.level
         closeMenu()
     }
-    
-    
 
 }

@@ -26,13 +26,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         "document.getElementById('consoleSlider').style.display = 'none';" +
         "document.getElementById('paper').style.width = '100%';" +
         "document.getElementById('direct_drive').style.display = 'none';"
-    
-    private struct StoryBoardIdentifier {
-        static let GameMenu = "GameMenuViewController"
-        static let DirecDrive = "DirectDriveViewController"
-        static let Blockly = "BlockTableViewController"
-        static let HelpMessage = "HelpMessageViewController"
-    }
+
     
     // Controllers
     var gameMenuViewController: GameMenuViewController?
@@ -59,8 +53,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGameViewController()
-        setupBlocklyTableViewController()
         setupWebView()
+        setupBlocklyTableViewController()
         setupGameMenuViewController()
         setupDirectDriveViewController()
         setupHelpMessageViewController()
@@ -72,6 +66,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     func setupGameViewController() {
         GameViewCommandFactory.gameViewController = self
         handler.gameViewController = self
+        StoryboardFactory.activeStoryboard = self.storyboard
     }
     
     func setupWebView() {
@@ -93,57 +88,32 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupBlocklyTableViewController() {
-        blockTableViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.Blockly) as? BlockTableViewController
-        if let controller = blockTableViewController {
-            controller.gameViewController = self
-            controller.view.frame = controller.frame
-            controller.tableView.layer.cornerRadius = 10
-            controller.tableView.layer.masksToBounds = true
-            addChildViewController(controller)
-            view.addSubview(controller.view)
-            view.sendSubviewToBack(controller.view)
-            controller.didMoveToParentViewController(self)
-            
-        }
+        blockTableViewController = StoryboardFactory.BlocklyViewControllerInstance()
+        setupController(blockTableViewController!)
     }
     
     func setupGameMenuViewController() {
-        gameMenuViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.GameMenu) as? GameMenuViewController
-        if let controller = gameMenuViewController {
-            controller.gameViewController = self
-            controller.view.frame = controller.frame
-            controller.view.center = controller.hidePosition
-            addChildViewController(controller)
-            view.addSubview(controller.view)
-            controller.didMoveToParentViewController(self)
-        }
+        gameMenuViewController = StoryboardFactory.GameMenuViewControllerInstance()
+        setupController(gameMenuViewController!)
     }
     
     func setupDirectDriveViewController() {
-        directDriveViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.DirecDrive) as? DirectDriveViewController
+        directDriveViewController = StoryboardFactory.DirectDriveViewControllerInstance()
         setupController(directDriveViewController!)
     }
     
-    private func setupController(controller: SubGameViewController) {
-        controller.gameViewController = self
-        controller.view.frame = controller.frame
-        addChildViewController(controller)
-        view.addSubview(controller.view)
-        controller.didMoveToParentViewController(self)
-    }
-    
     func setupHelpMessageViewController() {
-        helpViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? MessageViewController
+        helpViewController = StoryboardFactory.MessageViewControllerInstance()
         setupController(helpViewController!)
     }
     
     func setupGameMessageViewController() {
-        gameMessageViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? MessageViewController
+        gameMessageViewController = StoryboardFactory.MessageViewControllerInstance()
         setupController(gameMessageViewController!)
     }
     
     func setupPostGameMessageViewController() {
-        postGameMessageViewController = storyboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.HelpMessage) as? MessageViewController
+        postGameMessageViewController = StoryboardFactory.MessageViewControllerInstance()
         setupController(postGameMessageViewController!)
     }
     
@@ -155,6 +125,13 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         webView!.evaluateJavaScript(javaScript) { ( _, _) in
             callback()
         }
+    }
+
+    private func setupController(controller: SubGameViewController) {
+        controller.gameViewController = self
+        addChildViewController(controller)
+        view.addSubview(controller.view)
+        controller.didMoveToParentViewController(self)
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {

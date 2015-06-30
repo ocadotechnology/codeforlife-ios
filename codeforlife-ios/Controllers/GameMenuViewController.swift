@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameMenuViewController: UIViewController {
+class GameMenuViewController: SubGameViewController {
     
     let blocklyButtonText = "Blockly"
     let pythonButtonText = "Python"
@@ -53,11 +53,9 @@ class GameMenuViewController: UIViewController {
             self.gameViewController!.view.frame.height + gameMenuFrame.height/2 - menuOffset)
     }
     
-    var frame: CGRect {
+    override var frame: CGRect {
         return  CGRect(origin: CGPointMake(0, 0), size: gameMenuFrame)
     }
-    
-    var gameViewController: GameViewController?
     
     var mute = false {
         didSet {
@@ -88,6 +86,11 @@ class GameMenuViewController: UIViewController {
     
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        view.center = hidePosition
+    }
     
     @IBAction func toggleMenu() {
         menuOpen = !menuOpen

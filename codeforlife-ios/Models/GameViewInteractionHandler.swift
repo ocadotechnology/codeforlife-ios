@@ -39,6 +39,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if let result = message.body as? NSString {
+            println(result)
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let tag = json[JSONIdentifier.Tag].string {
@@ -99,7 +100,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                                 if let controller = gameViewController!.helpViewController {
                                     controller.message = HelpMessage(context: message,
                                         action: controller.closeMenu)
-                                    controller.openMenu()
+                                    controller.toggleMenu()
                                 }
                             }
                         default: break

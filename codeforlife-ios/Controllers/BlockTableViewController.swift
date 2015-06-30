@@ -8,15 +8,15 @@
 
 import UIKit
 
-class BlockTableViewController: UITableViewController {
+class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITableViewDataSource {
     
     let CellReuseIdentifier = "Block"
     let frameOffset: CGFloat = 10
     let bottomOffset: CGFloat = 40
     
-    var gameViewController: GameViewController?
+    @IBOutlet var tableView: BlockTableView!
     
-    var frame: CGRect {
+    override var frame: CGRect {
         return CGRect(
             x: frameOffset,
             y: frameOffset,
@@ -41,17 +41,19 @@ class BlockTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return blocks.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! BlockTableViewCell
         var block = blocks[indexPath.row]
         cell.stepNumber.text = indexPath.row == 0 ? "" : "Step \(indexPath.row)"

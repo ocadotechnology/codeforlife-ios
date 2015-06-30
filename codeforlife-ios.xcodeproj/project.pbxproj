@@ -17,6 +17,10 @@
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
 		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
 		ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* GameViewController.swift */; };
+		ED1A93231B42836B004E6AD4 /* StoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93221B42836B004E6AD4 /* StoryboardFactory.swift */; };
+		ED1A93241B4284B7004E6AD4 /* StoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93221B42836B004E6AD4 /* StoryboardFactory.swift */; };
+		ED1A93261B428A36004E6AD4 /* BlockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93251B428A36004E6AD4 /* BlockTableView.swift */; };
+		ED1A93271B428A36004E6AD4 /* BlockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93251B428A36004E6AD4 /* BlockTableView.swift */; };
 		ED1EB0671B32C09800A595EF /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0631B32C09800A595EF /* Action.swift */; };
 		ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */; };
 		ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */; };
@@ -130,6 +134,8 @@
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
 		ED0BC5B21B3062E60060FC84 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		ED1A93221B42836B004E6AD4 /* StoryboardFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFactory.swift; sourceTree = "<group>"; };
+		ED1A93251B428A36004E6AD4 /* BlockTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableView.swift; sourceTree = "<group>"; };
 		ED1EB0631B32C09800A595EF /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableViewController.swift; sourceTree = "<group>"; };
 		ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +247,7 @@
 				EDFE933C1B4181FF00E01322 /* PostGameMessageView.swift */,
 				EDFE933F1B41820A00E01322 /* HelpMessageView.swift */,
 				EDFE934B1B4182E200E01322 /* MessageView.swift */,
+				ED1A93251B428A36004E6AD4 /* BlockTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +353,7 @@
 		EDFF14DE1B316EA900962C68 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ED1A93221B42836B004E6AD4 /* StoryboardFactory.swift */,
 				ED0BC5B21B3062E60060FC84 /* GameViewController.swift */,
 				ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */,
 				EDBB668C1B3AEEFC009020A5 /* DirectDriveViewController.swift */,
@@ -602,6 +610,7 @@
 				ED1EB0711B331A2800A595EF /* FetchLevelsAction.swift in Sources */,
 				ED6F79881B3D46CF00DD2AFE /* GameMenuView.swift in Sources */,
 				ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */,
+				ED1A93231B42836B004E6AD4 /* StoryboardFactory.swift in Sources */,
 				ED1EB0671B32C09800A595EF /* Action.swift in Sources */,
 				EDFE934C1B4182E200E01322 /* MessageView.swift in Sources */,
 				EDC8C1EC1B35BA29004B1358 /* LevelSection.swift in Sources */,
@@ -613,6 +622,7 @@
 				EDFE934F1B419FF900E01322 /* SubGameViewController.swift in Sources */,
 				EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */,
 				ED0A770A1B34560600267191 /* LabelTableViewCell.swift in Sources */,
+				ED1A93261B428A36004E6AD4 /* BlockTableView.swift in Sources */,
 				EDBB66951B3C0977009020A5 /* Block.swift in Sources */,
 				EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */,
 				EDFE93491B41826A00E01322 /* PostGameMessage.swift in Sources */,
@@ -657,6 +667,7 @@
 				EDDF0F201B417DBC00F2D779 /* ErrorMessageView.swift in Sources */,
 				EDBB669B1B3C1007009020A5 /* BlockTableViewController.swift in Sources */,
 				EDBB667E1B3AA18F009020A5 /* LabelTableViewCell.swift in Sources */,
+				ED1A93271B428A36004E6AD4 /* BlockTableView.swift in Sources */,
 				EDBB668E1B3AF135009020A5 /* DirectDriveViewController.swift in Sources */,
 				EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */,
 				EDFE93501B419FF900E01322 /* SubGameViewController.swift in Sources */,
@@ -670,6 +681,7 @@
 				EDBB667B1B3AA07E009020A5 /* VehicleController.swift in Sources */,
 				EDBB666D1B3AA06A009020A5 /* ColorConstants.swift in Sources */,
 				EDBB66791B3AA07E009020A5 /* Levels.swift in Sources */,
+				ED1A93241B4284B7004E6AD4 /* StoryboardFactory.swift in Sources */,
 				EDBB66761B3AA07A009020A5 /* GVLoadLevelCommand.swift in Sources */,
 				EDBB666A1B3AA018009020A5 /* LabelViewControllerTests.swift in Sources */,
 				EDFE933B1B41808700E01322 /* ErrorMessage.swift in Sources */,
