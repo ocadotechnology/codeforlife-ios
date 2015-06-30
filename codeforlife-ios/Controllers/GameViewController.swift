@@ -35,6 +35,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     var helpViewController: MessageViewController?
     var gameMessageViewController: MessageViewController?
     var postGameMessageViewController: MessageViewController?
+    var gameMapViewController: GameMapViewController?
     
     var webView: WKWebView?
     var callBack: (() -> Void)?
@@ -54,6 +55,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         super.viewDidLoad()
         setupGameViewController()
         setupWebView()
+        setupGameMapViewController()
         setupBlocklyTableViewController()
         setupGameMenuViewController()
         setupDirectDriveViewController()
@@ -79,12 +81,16 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
             height: view.frame.height - 2 * webViewOffset)
             , configuration: config)
         webView!.navigationDelegate = self
-        webView!.UIDelegate = self
         webView!.layer.cornerRadius = webViewCornerRadius
         webView!.layer.masksToBounds = true
         view.addSubview(webView!)
         view.sendSubviewToBack(webView!)
         activityIndicator?.startAnimating()
+    }
+    
+    func setupGameMapViewController() {
+        gameMapViewController = StoryboardFactory.GameMapViewControllerInstance()
+        setupController(gameMapViewController!)
     }
     
     func setupBlocklyTableViewController() {

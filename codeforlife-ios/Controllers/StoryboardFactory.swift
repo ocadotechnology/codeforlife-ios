@@ -18,6 +18,7 @@ class StoryboardFactory {
         static let DirecDrive = "DirectDriveViewController"
         static let Blockly = "BlockTableViewController"
         static let Message = "MessageViewController"
+        static let GameMap = "GameMapViewController"
     }
     
     static func BlocklyViewControllerInstance() -> BlockTableViewController {
@@ -35,6 +36,10 @@ class StoryboardFactory {
     
     static func MessageViewControllerInstance() -> MessageViewController {
         return activeStoryboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.Message) as! MessageViewController
+    }
+    
+    static func GameMapViewControllerInstance() -> GameMapViewController {
+        return activeStoryboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.GameMap) as! GameMapViewController
     }
     
 }

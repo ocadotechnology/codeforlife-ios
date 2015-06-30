@@ -15,6 +15,7 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     let bottomOffset: CGFloat = 40
     
     @IBOutlet var tableView: BlockTableView!
+    @IBOutlet var containerView: UIView!
     
     override var frame: CGRect {
         return CGRect(
@@ -36,6 +37,12 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     
     func addBlock(newBlock: Block) {
         blocks.append(newBlock)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        containerView.layer.cornerRadius = 10
+        containerView.layer.masksToBounds = true
     }
 
     override func viewDidLoad() {

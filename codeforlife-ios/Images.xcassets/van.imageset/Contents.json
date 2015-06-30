@@ -2,7 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "b2kzsnai_vector.pdf"
     },
     {
       "idiom" : "universal",

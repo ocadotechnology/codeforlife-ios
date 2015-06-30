@@ -74,7 +74,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVR-60-J2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2669" y="248"/>
+            <point key="canvasLocation" x="3391" y="-522"/>
         </scene>
         <!--Game Menu View Controller-->
         <scene sceneID="GEn-CA-lej">
@@ -326,7 +326,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCw-JG-S4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AQj-Vj-aRe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4108" y="-412"/>
+            <point key="canvasLocation" x="2662" y="973"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -369,6 +369,24 @@
             </objects>
             <point key="canvasLocation" x="3391" y="248"/>
         </scene>
+        <!--Game Map View Controller-->
+        <scene sceneID="CGG-lB-JO1">
+            <objects>
+                <viewController storyboardIdentifier="GameMapViewController" id="seJ-0X-RCm" customClass="GameMapViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mlJ-oC-wPC"/>
+                        <viewControllerLayoutGuide type="bottom" id="SUH-Ue-Jdn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CZy-ZG-bZM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leV-SW-IPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4100" y="248"/>
+        </scene>
         <!--Message View Controller-->
         <scene sceneID="ei4-8z-TMX">
             <objects>
@@ -385,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejV-6P-6h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3401" y="927"/>
+            <point key="canvasLocation" x="3391" y="973"/>
         </scene>
         <!--Direct Drive View Controller-->
         <scene sceneID="l4p-Xh-esH">
@@ -493,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLq-k8-Ddp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4108" y="248"/>
+            <point key="canvasLocation" x="4100" y="973"/>
         </scene>
         <!--Block Table View Controller-->
         <scene sceneID="4zM-Ez-NrB">
@@ -582,12 +600,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="FcY-LZ-v8w" id="rVu-7n-xNR"/>
                         <outlet property="tableView" destination="LEi-Za-5Nl" id="CdU-fs-lyd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3R-rU-Zms" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4108" y="927"/>
+            <point key="canvasLocation" x="2662" y="248"/>
         </scene>
     </scenes>
 </document>
