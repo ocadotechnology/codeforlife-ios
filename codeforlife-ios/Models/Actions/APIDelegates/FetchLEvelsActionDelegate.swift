@@ -12,10 +12,10 @@ import SwiftyJSON
 
 class FetchLevelsActionDelegate : APIActionDelegate {
     
-    init(episode: Int) {
+    init(url: String) {
         super.init()
-        url = ""
-        method = Alamofire.Method.GET
+        self.url = url
+        self.method = Alamofire.Method.GET
     }
     
 }

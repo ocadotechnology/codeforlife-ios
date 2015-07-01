@@ -26,7 +26,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        FetchEpisodesAction(viewController: self).switchToMock().execute()
+        FetchEpisodesAction(viewController: self).switchToDev().execute()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -40,7 +40,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! EpisodeTableViewCell
         var episode = episodes[indexPath.row]
-        cell.titleLabel.text = "Episode \(episode.number) : \(episode.name)"
+        cell.titleLabel.text = "Episode \(indexPath.row+1) : \(episode.name)"
         
         return cell
     }

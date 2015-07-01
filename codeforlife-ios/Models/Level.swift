@@ -7,13 +7,17 @@ import Foundation
 
 class Level {
     
-    var number: Int
-    var description: String
+    var name: String
+    var title: String
+    var url: String
     var nextLevel: Level?
+    var webViewUrl: String
 
-    init(number: Int, description: String){
-        self.number = number
-        self.description = description
+    init(name: String, title: String, url: String){
+        self.title = title
+        self.url = url
+        self.name = name
+        self.webViewUrl = kCFLDomain + kCFLRapidRouter + self.name
     }
 
 }

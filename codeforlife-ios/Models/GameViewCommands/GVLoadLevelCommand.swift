@@ -16,7 +16,7 @@ class GVLoadLevelCommand : GameViewCommand {
     }
     
     func execute(response:() -> Void = {}) {
-        var urlStr = kCFLDomain + kCFLRapidRouter + "\(level!.number)";
+        var urlStr = level!.webViewUrl;
         var url = NSURL(string: urlStr);
         
         var request = NSURLRequest(URL: url!);

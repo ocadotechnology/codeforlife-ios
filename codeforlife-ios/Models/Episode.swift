@@ -10,12 +10,10 @@ import Foundation
 
 class Episode {
     
-    var number: Int
     var name: String
     var url: String
 
-    init(episode: Int, name: String, url: String) {
-        self.number = episode
+    init(name: String, url: String) {
         self.name = name
         self.url = url
     }

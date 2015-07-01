@@ -12,8 +12,13 @@ import SwiftyJSON
 
 class FetchLevelsActionDevDeletage : ActionDelegate {
     
-    let url = "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/levels"
-    let method = Alamofire.Method.GET
+    var url: String
+    var method: Alamofire.Method
+    
+    init(url: String) {
+        self.url = url
+        self.method = Alamofire.Method.GET
+    }
     
     func execute(processData: (NSData -> Void), callback: () -> Void) {
         
