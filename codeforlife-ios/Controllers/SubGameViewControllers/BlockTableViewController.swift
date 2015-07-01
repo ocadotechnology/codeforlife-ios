@@ -28,6 +28,8 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     var blocks: [Block] = [Start()] {
         didSet {
             self.tableView.reloadData()
+            let indexPath = NSIndexPath(forRow: blocks.count - 1, inSection: 0)
+            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         }
     }
     
@@ -50,6 +52,7 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.dataSource = self
         tableView.delegate = self
+        //tableView.setContentOffset(CGPointMake(0, tableView.contentSize.height - tableView.bounds.size.height), animated: true)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

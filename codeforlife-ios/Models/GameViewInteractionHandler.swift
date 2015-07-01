@@ -70,6 +70,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                         case JSONTag.OnResume:
                             gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
                         case JSONTag.PreGameMsg:
+                            gameViewController!.directDriveViewController!.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {
                                 if let context = json[JSONIdentifier.Context].string {
                                     if let controller = self.gameViewController!.gameMessageViewController {
@@ -80,6 +81,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                                 }
                             }
                         case JSONTag.WinWithNextLevel:
+                            gameViewController!.directDriveViewController!.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {
                                 if let leadMsg = json["leadMsg"].string {
                                     if let controller = gameViewController!.postGameMessageViewController {
@@ -91,12 +93,14 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                                 }
                             }
                         case JSONTag.Fail:
+                            gameViewController!.directDriveViewController!.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {
                                 if let leadMsg = json["leadMsg"].string {
                                     if let controller = gameViewController!.gameMessageViewController {
                                         controller.message = ErrorMessage(title: title, context: leadMsg,
                                             action: controller.closeMenu)
                                         controller.openMenu()
+                                        
                                     }
                                 }
                         }
