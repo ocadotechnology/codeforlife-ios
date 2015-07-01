@@ -14,12 +14,16 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     let CellReuseIdentifier = "Level"
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var requestedEpisode: Episode?
     
     var episode : Episode? {
         didSet {
             if isViewLoaded() {
-                FetchLevelsAction(viewController: self, url: episode!.url).switchToDev().execute()
+                FetchLevelsAction(viewController: self, url: episode!.url).switchToDev().execute {
+                    activityIndicator?.stopAnimating()
+                }
             }
         }
     }
@@ -73,8 +77,6 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {
-        
-    }
+    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {}
 
 }
