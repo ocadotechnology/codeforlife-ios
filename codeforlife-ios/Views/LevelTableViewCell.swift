@@ -1,17 +1,18 @@
 //
-//  EpisodeTableViewCell.swift
+//  TableViewCell.swift
 //  codeforlife-ios
 //
-//  Created by Joey Chan on 01/07/2015.
+//  Created by Joey Chan on 19/06/2015.
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
 import UIKit
 
-class EpisodeTableViewCell: UITableViewCell {
+class LevelTableViewCell: UITableViewCell {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
@@ -23,7 +24,7 @@ class EpisodeTableViewCell: UITableViewCell {
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
+        //        super.setSelected(selected, animated: animated)
     }
 
 }

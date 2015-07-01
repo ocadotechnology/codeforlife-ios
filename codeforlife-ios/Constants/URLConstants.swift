@@ -8,8 +8,8 @@
 
 import Foundation
 
-let Mode = MockMode
-//let Mode = DevMode
+//let Mode = MockMode
+let Mode = DevMode
 let DevMode = "d"
 let MockMode = "m"
 let NonDevMode = "n"
