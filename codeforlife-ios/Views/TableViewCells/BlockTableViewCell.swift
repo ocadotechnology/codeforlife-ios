@@ -19,4 +19,13 @@ class BlockTableViewCell: UITableViewCell {
         containerView.layer.cornerRadius = 10
         containerView.layer.masksToBounds = true
     }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        //        super.setSelected(selected, animated: animated)
+    }
+    
+    override func setHighlighted(highlighted: Bool, animated: Bool) {
+//        super.setHighlighted(highlighted, animated: animated)
+    }
+
 }

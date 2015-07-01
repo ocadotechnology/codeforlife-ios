@@ -55,8 +55,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGameViewController()
-        setupWebView()
-//        setupGameMapViewController()
+        //setupWebView()
+        setupGameMapViewController()
         setupBlocklyTableViewController()
         setupGameMenuViewController()
         setupDirectDriveViewController()
@@ -67,9 +67,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupGameViewController() {
-        GameViewCommandFactory.gameViewController = self
+        StaticContext.MainGameViewController = self
         handler.gameViewController = self
-        ViewControllerFactory.activeStoryboard = self.storyboard
     }
     
     func setupWebView() {
@@ -90,52 +89,60 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupGameMapViewController() {
-        gameMapViewController = ViewControllerFactory.GameMapViewControllerInstance()
+        gameMapViewController = GameMapViewController.sharedInstance
         setupController(gameMapViewController!)
     }
     
     func setupBlocklyTableViewController() {
-        blockTableViewController = ViewControllerFactory.BlocklyViewControllerInstance()
+        blockTableViewController = BlockTableViewController.sharedInstance
         setupController(blockTableViewController!)
     }
     
     func setupGameMenuViewController() {
-        gameMenuViewController = ViewControllerFactory.GameMenuViewControllerInstance()
+        gameMenuViewController = GameMenuViewController.sharedInstance
         setupController(gameMenuViewController!)
     }
     
     func setupDirectDriveViewController() {
-        directDriveViewController = ViewControllerFactory.DirectDriveViewControllerInstance()
+        directDriveViewController = DirectDriveViewController.sharedInstance
         setupController(directDriveViewController!)
     }
     
     func setupHelpMessageViewController() {
-        helpViewController = ViewControllerFactory.MessageViewControllerInstance()
+        helpViewController = MessageViewController.MessageViewControllerInstance()
         setupController(helpViewController!)
     }
     
     func setupGameMessageViewController() {
-        gameMessageViewController = ViewControllerFactory.MessageViewControllerInstance()
+        gameMessageViewController = MessageViewController.MessageViewControllerInstance()
         setupController(gameMessageViewController!)
     }
     
     func setupPostGameMessageViewController() {
-        postGameMessageViewController = ViewControllerFactory.MessageViewControllerInstance()
+        postGameMessageViewController = MessageViewController.MessageViewControllerInstance()
         setupController(postGameMessageViewController!)
     }
     
     func loadLevel(level: Level) {
-        GameViewCommandFactory.LoadLevelCommand(level).execute()
+        FetchLevelAction(self).execute {
+            if let controller = self.gameMessageViewController,
+                level = self.level {
+                controller.message = PreGameMessage(title: "Level \(level.name)", context: level.description!,
+                    action: controller.closeMenu)
+                self.gameMapViewController?.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: [Node]())
+                controller.toggleMenu()
+            }
+        }
+        CommandFactory.LoadLevelCommand(level).execute()
     }
     
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {
-        webView!.evaluateJavaScript(javaScript) { ( _, _) in
+        webView?.evaluateJavaScript(javaScript) { ( _, _) in
             callback()
         }
     }
 
     private func setupController(controller: SubGameViewController) {
-        controller.gameViewController = self
         addChildViewController(controller)
         view.addSubview(controller.view)
         controller.didMoveToParentViewController(self)

@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 import WebKit
 
+// Deprecated
 class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     struct JSONIdentifier {
@@ -33,28 +34,26 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         static let WinWithNextLevel = "winWithNextLevel"
         static let Fail = "fail"
         static let Help = "help"
+        static let getTryAgainButtonHtml = "getTryAgainButtonHtml"
     }
 
     var gameViewController: GameViewController?
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if let result = message.body as? NSString {
-            println(result)
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let tag = json[JSONIdentifier.Tag].string {
+                    println(tag)
                     switch tag {
                         case JSONTag.ResetBlocks:
                             gameViewController!.blockTableViewController!.clearBlocks()
                         case JSONTag.MoveForward:
                             gameViewController!.blockTableViewController!.addBlock(Forward())
-                            gameViewController!.gameMapViewController?.skView!.gameScene!.player.moveForward(50, duration: 1)
                         case JSONTag.TurnLeft:
                             gameViewController!.blockTableViewController!.addBlock(Left())
-                            gameViewController!.gameMapViewController?.skView!.gameScene!.player.turnLeft(50, duration: 1)
                         case JSONTag.TurnRight:
                             gameViewController!.blockTableViewController!.addBlock(Right())
-                            gameViewController!.gameMapViewController?.skView!.gameScene!.player.turnRight(50, duration: 1)
                         case JSONTag.Mute:
                             gameViewController!.gameMenuViewController!.mute = !gameViewController!.gameMenuViewController!.mute
                         case JSONTag.OnPlay:
@@ -70,6 +69,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                         case JSONTag.OnResume:
                             gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
                         case JSONTag.PreGameMsg:
+                            gameViewController!.directDriveViewController!.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {
                                 if let context = json[JSONIdentifier.Context].string {
                                     if let controller = self.gameViewController!.gameMessageViewController {
@@ -80,6 +80,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                                 }
                             }
                         case JSONTag.WinWithNextLevel:
+                            gameViewController!.directDriveViewController!.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {
                                 if let leadMsg = json["leadMsg"].string {
                                     if let controller = gameViewController!.postGameMessageViewController {
@@ -91,12 +92,14 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                                 }
                             }
                         case JSONTag.Fail:
+                            gameViewController!.directDriveViewController!.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {
                                 if let leadMsg = json["leadMsg"].string {
                                     if let controller = gameViewController!.gameMessageViewController {
                                         controller.message = ErrorMessage(title: title, context: leadMsg,
                                             action: controller.closeMenu)
                                         controller.openMenu()
+                                        
                                     }
                                 }
                         }
@@ -108,6 +111,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                                     controller.toggleMenu()
                                 }
                             }
+                        
                         default: break
                     }
                 }

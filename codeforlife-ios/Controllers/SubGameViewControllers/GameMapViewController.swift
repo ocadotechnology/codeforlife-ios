@@ -11,15 +11,27 @@ import SpriteKit
 
 class GameMapViewController: SubGameViewController {
     
+    static let sharedInstance = StaticContext.storyboard.instantiateViewControllerWithIdentifier("GameMapViewController") as! GameMapViewController
+    
     var skView: GameMapView?
+    var map: Map? {
+        didSet {
+            map?.removeAllChildren()
+            map?.size = frame.size
+            map!.scaleMode = .ResizeFill
+            skView?.presentScene(map!)
+            map?.draw()
+        }
+    }
     
     override var frame: CGRect {
         get {
+            let controller = StaticContext.MainGameViewController!
             return CGRect(
-                x: self.gameViewController!.view.frame.width * (1 - self.gameViewController!.webViewPortion) + self.gameViewController!.webViewOffset,
-                y: self.gameViewController!.webViewOffset,
-                width: self.gameViewController!.view.frame.width * self.gameViewController!.webViewPortion - 2 * self.gameViewController!.webViewOffset,
-                height: self.gameViewController!.view.frame.height - 2 * self.gameViewController!.webViewOffset)
+                x: controller.view.frame.width * (1 - controller.webViewPortion) + controller.webViewOffset,
+                y: controller.webViewOffset,
+                width: controller.view.frame.width * controller.webViewPortion - 2 * controller.webViewOffset,
+                height: controller.view.frame.height - 2 * controller.webViewOffset)
         }
     }
     
@@ -30,9 +42,6 @@ class GameMapViewController: SubGameViewController {
         skView?.showsFPS = true
         skView?.showsNodeCount = true
         skView?.ignoresSiblingOrder = true
-        skView?.gameScene = GameScene(size: frame.size)
-        skView?.gameScene!.scaleMode = .ResizeFill
-        skView?.presentScene(skView?.gameScene)
     }
 
 }

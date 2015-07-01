@@ -10,6 +10,8 @@ import UIKit
 
 class GameMenuViewController: SubGameViewController {
     
+    static let sharedInstance = StaticContext.storyboard.instantiateViewControllerWithIdentifier("GameMenuViewController") as! GameMenuViewController
+    
     let blocklyButtonText = "Blockly"
     let pythonButtonText = "Python"
     let muteToUnmuteButtonText = "Unmute"
@@ -25,19 +27,23 @@ class GameMenuViewController: SubGameViewController {
         case onStepControls
         case onStopControls
         case onResumeControls
+        
+        var text : String {
+            switch self {
+            case .onPlayControls:   return "Pause"
+            case .onPauseControls:  return "Resume"
+            case .onStepControls:   return "Resume"
+            case .onStopControls:   return "Play"
+            case .onResumeControls: return "Pause"
+            }
+        }
     }
     
-    private struct PlayButtonText {
-        static let onPlayControls = "Pause"
-        static let onPauseControls = "Resume"
-        static let onStepControls = "Resume"
-        static let onStopControls = "Play"
-        static let onResumeControls = "Pause"
-    }
+    var delegate: GameMenuViewControllerDelegate = GameMenuViewControllerNativeDelegate()
     
     var gameMenuFrame: CGSize {
         return CGSize(
-            width: self.gameViewController!.view.frame.width*(1-self.gameViewController!.webViewPortion) - 2*frameOffset,
+            width: StaticContext.MainGameViewController!.view.frame.width*(1-StaticContext.MainGameViewController!.webViewPortion) - 2*frameOffset,
             height: frameHeight)
     }
     
@@ -50,7 +56,7 @@ class GameMenuViewController: SubGameViewController {
     var hidePosition : CGPoint {
         return CGPointMake(
             self.gameMenuFrame.width/2 + frameOffset,
-            self.gameViewController!.view.frame.height + gameMenuFrame.height/2 - menuOffset)
+            StaticContext.MainGameViewController!.view.frame.height + gameMenuFrame.height/2 - menuOffset)
     }
     
     override var frame: CGRect {
@@ -65,14 +71,7 @@ class GameMenuViewController: SubGameViewController {
     
     var controlMode = ControlMode.onStopControls {
         didSet {
-            switch controlMode {
-            case ControlMode.onPlayControls: onPlayControls()
-            case ControlMode.onPauseControls: onPauseControls()
-            case ControlMode.onStepControls: onStepControls()
-            case ControlMode.onStopControls:  onStopControls()
-            case ControlMode.onResumeControls: onResumeControls()
-            default: break;
-            }
+            playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
         }
     }
     
@@ -97,39 +96,19 @@ class GameMenuViewController: SubGameViewController {
     }
 
     @IBAction func clear() {
-        GameViewCommandFactory.ClearCommand().execute()
+        delegate.clear()
     }
     
     @IBAction func play() {
-        GameViewCommandFactory.PlayCommand().execute()
+        delegate.play()
     }
     
     @IBAction func help() {
-        GameViewCommandFactory.HelpCommand().execute()
+        delegate.help()
     }
     
     @IBAction func muteSound() {
-        GameViewCommandFactory.MuteCommand().execute()
-    }
-    
-    func onPlayControls() {
-        playButton.setTitle(PlayButtonText.onPlayControls, forState: UIControlState.Normal)
-    }
-    
-    func onPauseControls() {
-        playButton.setTitle(PlayButtonText.onPauseControls, forState: UIControlState.Normal)
-    }
-    
-    func onStepControls() {
-        playButton.setTitle(PlayButtonText.onStepControls, forState: UIControlState.Normal)
-    }
-    
-    func onStopControls() {
-        playButton.setTitle(PlayButtonText.onStopControls, forState: UIControlState.Normal)
-    }
-    
-    func onResumeControls() {
-        playButton.setTitle(PlayButtonText.onResumeControls, forState: UIControlState.Normal)
+        delegate.muteSound()
     }
     
 }

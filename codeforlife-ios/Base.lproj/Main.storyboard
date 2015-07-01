@@ -8,7 +8,7 @@
         <!--Episode View Controller-->
         <scene sceneID="kIc-Kq-7Lq">
             <objects>
-                <viewController id="Wct-S4-3Ba" customClass="EpisodeViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EpisodeViewController" id="Wct-S4-3Ba" customClass="EpisodeViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b1S-qc-tEd"/>
                         <viewControllerLayoutGuide type="bottom" id="9o0-bz-dZh"/>
@@ -96,7 +96,7 @@
         <!--Level Table View Controller-->
         <scene sceneID="7O8-OV-w0X">
             <objects>
-                <viewController id="WFQ-We-wxG" customClass="LevelTableViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LevelTableViewController" id="WFQ-We-wxG" customClass="LevelTableViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O9T-hj-bNY"/>
                         <viewControllerLayoutGuide type="bottom" id="vBJ-Yh-iXP"/>
@@ -557,7 +557,7 @@
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="BYZ-38-t0r" customClass="GameViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

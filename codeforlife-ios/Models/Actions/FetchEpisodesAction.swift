@@ -18,7 +18,7 @@ class FetchEpisodesAction : Action, ActionProtocol {
     
     var viewController: UIViewController
     
-    init(viewController: UIViewController) {
+    init(_ viewController: UIViewController) {
         self.viewController = viewController
         super.init(delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET))
     }
@@ -48,11 +48,13 @@ class FetchEpisodesAction : Action, ActionProtocol {
     }
     
     override func switchToDev() -> Action {
+        self.mode = DevMode
         self.delegate = APIActionDelegate(url: devUrl, method: Alamofire.Method.GET)
         return self
     }
     
     override func switchToMock() -> Action {
+        self.mode = MockMode
         self.delegate = FetchEpisodesActionMockDelegate()
         return self
     }

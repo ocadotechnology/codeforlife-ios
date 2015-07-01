@@ -10,6 +10,10 @@ import UIKit
 
 class MessageViewController: SubGameViewController {
     
+    static func MessageViewControllerInstance() -> MessageViewController {
+        return StaticContext.storyboard.instantiateViewControllerWithIdentifier("MessageViewController") as! MessageViewController
+    }
+    
     let messageFrame = CGSize(width: 500, height: 500)
     
     let containerViewCornerRadius: CGFloat = 50
@@ -20,17 +24,17 @@ class MessageViewController: SubGameViewController {
     var hidePosition: CGPoint {
         return CGPointMake(
             self.view.center.x,
-            gameViewController!.view.frame.height + messageFrame.height/2)
+            StaticContext.MainGameViewController!.view.frame.height + messageFrame.height/2)
     }
     
     var showPosition: CGPoint {
-        return gameViewController!.view.center
+        return StaticContext.MainGameViewController!.view.center
     }
     
     override var frame: CGRect {
         return CGRect(
-            x: self.gameViewController!.view.center.x - messageFrame.width/2,
-            y: self.gameViewController!.view.frame.height,
+            x: StaticContext.MainGameViewController!.view.center.x - messageFrame.width/2,
+            y: StaticContext.MainGameViewController!.view.frame.height,
             width: messageFrame.width,
             height: messageFrame.height)
     }
@@ -71,14 +75,14 @@ class MessageViewController: SubGameViewController {
     }
     
     func gotoNextLevelAndDismiss() {
-        if let nextLevel = gameViewController!.level?.nextLevel {
-            gameViewController!.level = nextLevel
+        if let nextLevel = StaticContext.MainGameViewController!.level?.nextLevel {
+            StaticContext.MainGameViewController!.level = nextLevel
         }
         closeMenu()
     }
     
     func playAgainAndDismiss() {
-        self.gameViewController!.level = self.gameViewController!.level
+        StaticContext.MainGameViewController!.level = StaticContext.MainGameViewController!.level
         closeMenu()
     }
 

@@ -10,14 +10,22 @@ class Level {
     var name: String
     var title: String
     var url: String
+    var description: String?
+    var hint: String?
+    var origin: Origin?
+    var path = [Node]()
+    var destinations = [Node]()
+    var blocklyEnabled: Bool?
+    var pythonEnabled: Bool?
+    var pythonViewEnabled: Bool?
     var nextLevel: Level?
     var webViewUrl: String
 
-    init(name: String, title: String, url: String){
-        self.title = title
+    init(url: String, name: String, title: String) {
         self.url = url
+        self.title = title
         self.name = name
-        self.webViewUrl = kCFLDomain + kCFLRapidRouter + self.name
+        self.webViewUrl = kCFLDomain + kCFLRapidRouter + name + "/?mode=ios"
     }
 
 }

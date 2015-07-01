@@ -16,7 +16,7 @@ class FetchLevelsAction : Action, ActionProtocol
     var viewController: UIViewController
     var url: String
 
-    init(viewController: UIViewController, url: String) {
+    init( _ viewController: UIViewController, _ url: String) {
         self.viewController = viewController
         self.url = url
         super.init(delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET))
@@ -29,14 +29,12 @@ class FetchLevelsAction : Action, ActionProtocol
         let json = JSON(data: data)
         if let levelArray = json["level_set"].array {
             for level in levelArray {
-                if let name = level["name"].string {
-                    if let url = level["url"].string {
-                        if let title = level["title"].string {
-                            var newLevel = Level(name: name, title: title, url: url)
-                            levels.last?.nextLevel = newLevel
-                            levels.append(newLevel)
-                        }
-                    }
+                if let name = level["name"].string,
+                    url = level["url"].string,
+                    title = level["title"].string {
+                    var newLevel = Level(url: url, name: name, title: title)
+                    levels.last?.nextLevel = newLevel
+                    levels.append(newLevel)
                 }
             }
         }
@@ -47,10 +45,12 @@ class FetchLevelsAction : Action, ActionProtocol
     }
     
     override func switchToDev() -> Action {
+        self.mode = DevMode
         return self
     }
     
     override func switchToMock() -> Action {
+        self.mode = MockMode
         self.delegate = FetchLevelsActionMockDelegate()
         return self
     }
