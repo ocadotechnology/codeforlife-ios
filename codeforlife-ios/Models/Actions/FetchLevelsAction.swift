@@ -29,9 +29,13 @@ class FetchLevelsAction : Action, ActionProtocol
         let json = JSON(data: data)
         if let levelArray = json["level_set"].array {
             for level in levelArray {
-                if let title = level["name"].string {
+                if let name = level["name"].string {
                     if let url = level["url"].string {
-                        levels.append(Level(name: title, title: "TODO", url: url))
+                        if let title = level["title"].string {
+                            levels.append(Level(name: name, title: title, url: url))
+                        } else {
+                            levels.append(Level(name: name, title: "TODO", url: url))
+                        }
                     }
                 }
             }

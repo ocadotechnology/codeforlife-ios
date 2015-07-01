@@ -29,7 +29,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         "ocargo.blocklyControl.reset();" +
         "ocargo.game.reset();"
 
-    
     // Controllers
     var gameMenuViewController: GameMenuViewController?
     var directDriveViewController: DirectDriveViewController?
@@ -70,7 +69,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     func setupGameViewController() {
         GameViewCommandFactory.gameViewController = self
         handler.gameViewController = self
-        StoryboardFactory.activeStoryboard = self.storyboard
+        ViewControllerFactory.activeStoryboard = self.storyboard
     }
     
     func setupWebView() {
@@ -91,37 +90,37 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupGameMapViewController() {
-        gameMapViewController = StoryboardFactory.GameMapViewControllerInstance()
+        gameMapViewController = ViewControllerFactory.GameMapViewControllerInstance()
         setupController(gameMapViewController!)
     }
     
     func setupBlocklyTableViewController() {
-        blockTableViewController = StoryboardFactory.BlocklyViewControllerInstance()
+        blockTableViewController = ViewControllerFactory.BlocklyViewControllerInstance()
         setupController(blockTableViewController!)
     }
     
     func setupGameMenuViewController() {
-        gameMenuViewController = StoryboardFactory.GameMenuViewControllerInstance()
+        gameMenuViewController = ViewControllerFactory.GameMenuViewControllerInstance()
         setupController(gameMenuViewController!)
     }
     
     func setupDirectDriveViewController() {
-        directDriveViewController = StoryboardFactory.DirectDriveViewControllerInstance()
+        directDriveViewController = ViewControllerFactory.DirectDriveViewControllerInstance()
         setupController(directDriveViewController!)
     }
     
     func setupHelpMessageViewController() {
-        helpViewController = StoryboardFactory.MessageViewControllerInstance()
+        helpViewController = ViewControllerFactory.MessageViewControllerInstance()
         setupController(helpViewController!)
     }
     
     func setupGameMessageViewController() {
-        gameMessageViewController = StoryboardFactory.MessageViewControllerInstance()
+        gameMessageViewController = ViewControllerFactory.MessageViewControllerInstance()
         setupController(gameMessageViewController!)
     }
     
     func setupPostGameMessageViewController() {
-        postGameMessageViewController = StoryboardFactory.MessageViewControllerInstance()
+        postGameMessageViewController = ViewControllerFactory.MessageViewControllerInstance()
         setupController(postGameMessageViewController!)
     }
     

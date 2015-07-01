@@ -30,8 +30,10 @@ class Action : ActionProtocol {
     
     func execute(callback: () -> Void = {})
     {
-        if Mode == devMode {
+        if Mode == DevMode {
             self.switchToDev().delegate.execute(processData, callback: callback)
+        } else if Mode == MockMode {
+            self.switchToMock().delegate.execute(processData, callback: callback)
         } else {
             delegate.execute(processData, callback: callback)
         }
