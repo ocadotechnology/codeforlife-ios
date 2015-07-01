@@ -16,8 +16,6 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    
     @IBOutlet weak var prevEpisodeButton: UIButton!
     @IBOutlet weak var nextEpisodeButton: UIButton!
     
@@ -85,6 +83,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
+    
     @IBAction func gotoPreviousEpisode() {
         if let previousEpisode = episode?.prevEpisode {
             episode = previousEpisode
