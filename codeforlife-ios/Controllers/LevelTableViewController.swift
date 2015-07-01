@@ -13,16 +13,25 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     let kCFLLoadLevelSegueIdentifier = "LoadLevel"
     let CellReuseIdentifier = "Level"
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
+    @IBOutlet weak var prevEpisodeButton: UIButton!
+    @IBOutlet weak var nextEpisodeButton: UIButton!
     
     var requestedEpisode: Episode?
     
     var episode : Episode? {
         didSet {
             if isViewLoaded() {
+                prevEpisodeButton.hidden = episode?.prevEpisode == nil ? true : false
+                nextEpisodeButton.hidden = episode?.nextEpisode == nil ? true : false
+                activityIndicator.startAnimating()
                 FetchLevelsAction(viewController: self, url: episode!.url).switchToDev().execute {
-                    activityIndicator?.stopAnimating()
+                    self.activityIndicator?.stopAnimating()
+                    self.titleLabel.text = self.episode?.name
                 }
             }
         }
@@ -59,7 +68,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
         var level = levels[indexPath.row]
-        cell.numberLabel.text =  "Level \(indexPath.row+1)"
+        cell.numberLabel.text =  "Level " + level.name
         cell.descriptionLabel.text = level.title
         return cell
     }
@@ -76,6 +85,18 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
+    @IBAction func gotoPreviousEpisode() {
+        if let previousEpisode = episode?.prevEpisode {
+            episode = previousEpisode
+        }
+    }
+    
+    @IBAction func gotoNextEpisode() {
+        if let nextEpisode = episode?.nextEpisode {
+            episode = nextEpisode
+        }
+    }
+    
     
     @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {}
 

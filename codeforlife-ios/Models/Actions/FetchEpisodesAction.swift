@@ -34,6 +34,7 @@ class FetchEpisodesAction : Action, ActionProtocol {
                     if let episodeUrl = episode["url"].string {
                         var newEpisode = Episode(name: episodeName, url: episodeUrl)
                         episodes.last?.nextEpisode = newEpisode
+                        newEpisode.prevEpisode = episodes.last
                         episodes.append(newEpisode)
                     }
                 }
