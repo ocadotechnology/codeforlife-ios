@@ -12,7 +12,7 @@ import XCTest
 class GameViewControllerTests: XCTestCase {
     
     let expectedButtonCount = 3
-    let testLevel = Level(number: 1, description: "Testing")
+//    let testLevel = Level(number: 1, description: "Testing")
     let timeout: NSTimeInterval = 30
     
     

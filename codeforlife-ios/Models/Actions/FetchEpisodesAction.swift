@@ -13,12 +13,14 @@ import Alamofire
 
 class FetchEpisodesAction : Action, ActionProtocol {
     
+    let url = ""
+    let devUrl = "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/"
+    
     var viewController: UIViewController
     
     init(viewController: UIViewController) {
         self.viewController = viewController
-        super.init()
-        self.delegate = FetchEpisodesActionDelegate()
+        super.init(delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET))
     }
     
     override func processData(data: NSData) {
@@ -26,15 +28,11 @@ class FetchEpisodesAction : Action, ActionProtocol {
         var episodes = [Episode]()
         
         let json = JSON(data: data)
-        println(json)
         if let episodeArray = json.array {
             for episode in episodeArray {
                 if let episodeName = episode["name"].string {
-                    if let episodeNumber = episode["number"].int {
-                        if let episodeUrl = episode["url"].string {
-                            println("HI")
-                            episodes.append(Episode(episode: episodeNumber, name: episodeName, url: episodeUrl))
-                        }
+                    if let episodeUrl = episode["url"].string {
+                        episodes.append(Episode(name: episodeName, url: episodeUrl))
                     }
                 }
             }
@@ -47,7 +45,7 @@ class FetchEpisodesAction : Action, ActionProtocol {
     }
     
     override func switchToDev() -> Action {
-        self.delegate = FetchEpisodesActionDevDelegate()
+        self.delegate = APIActionDelegate(url: devUrl, method: Alamofire.Method.GET)
         return self
     }
     

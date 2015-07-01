@@ -9,15 +9,17 @@
 import UIKit
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
     var viewController: UIViewController
+    var url: String
 
-    init(viewController: UIViewController, episode: Int) {
+    init(viewController: UIViewController, url: String) {
         self.viewController = viewController
-        super.init()
-        self.delegate = FetchLevelsActionDelegate(episode: episode)
+        self.url = url
+        super.init(delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET))
     }
     
     override func processData(data: NSData) {
@@ -25,12 +27,15 @@ class FetchLevelsAction : Action, ActionProtocol
         var levels = [Level]()
         
         let json = JSON(data: data)
-        println(json)
-        if let levelArray = json.array {
+        if let levelArray = json["level_set"].array {
             for level in levelArray {
-                if let number = level["level"].int {
-                    if let description = level["description"].string {
-                        levels.append(Level(number: number, description: description))
+                if let name = level["name"].string {
+                    if let url = level["url"].string {
+                        if let title = level["title"].string {
+                            levels.append(Level(name: name, title: title, url: url))
+                        } else {
+                            levels.append(Level(name: name, title: "TODO", url: url))
+                        }
                     }
                 }
             }
@@ -42,7 +47,6 @@ class FetchLevelsAction : Action, ActionProtocol
     }
     
     override func switchToDev() -> Action {
-        self.delegate = FetchLevelsActionDevDeletage()
         return self
     }
     

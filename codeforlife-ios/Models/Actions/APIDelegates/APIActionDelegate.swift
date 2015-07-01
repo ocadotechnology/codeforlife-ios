@@ -12,12 +12,19 @@ import SwiftyJSON
 
 class APIActionDelegate : ActionDelegate {
     
-    var url = ""
-    var method = Alamofire.Method.GET
+    var url: String
+    var method: Alamofire.Method
+    
+    init(url: String,method: Alamofire.Method) {
+        self.url = url
+        self.method = method
+    }
     
     func execute(processData: (NSData -> Void), callback: () -> Void) {
+        println(url)
         Alamofire
             .request(method, url)
+            .authenticate(user: "trial", password: "cabbage")
             .responseJSON { (req, res, json, error) in
                 if(error != nil) {
                     NSLog("Error: \(error)")

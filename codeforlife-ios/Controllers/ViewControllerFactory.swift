@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class StoryboardFactory {
+class ViewControllerFactory {
     
     static var activeStoryboard: UIStoryboard?
     

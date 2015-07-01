@@ -19,7 +19,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     var episode : Episode? {
         didSet {
             if isViewLoaded() {
-                FetchLevelsAction(viewController: self, episode: episode!.number).switchToMock().execute()
+                FetchLevelsAction(viewController: self, url: episode!.url).switchToDev().execute()
             }
         }
     }
@@ -55,8 +55,8 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
         var level = levels[indexPath.row]
-        cell.numberLabel.text =  "Level \(level.number)"
-        cell.descriptionLabel.text = level.description
+        cell.numberLabel.text =  "Level \(indexPath.row+1)"
+        cell.descriptionLabel.text = level.title
         return cell
     }
 
