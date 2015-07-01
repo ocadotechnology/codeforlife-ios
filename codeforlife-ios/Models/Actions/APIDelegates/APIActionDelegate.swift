@@ -21,7 +21,6 @@ class APIActionDelegate : ActionDelegate {
     }
     
     func execute(processData: (NSData -> Void), callback: () -> Void) {
-        println(url)
         Alamofire
             .request(method, url)
             .authenticate(user: "trial", password: "cabbage")
