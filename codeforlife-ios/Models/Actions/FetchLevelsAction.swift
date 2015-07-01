@@ -32,9 +32,9 @@ class FetchLevelsAction : Action, ActionProtocol
                 if let name = level["name"].string {
                     if let url = level["url"].string {
                         if let title = level["title"].string {
-                            levels.append(Level(name: name, title: title, url: url))
-                        } else {
-                            levels.append(Level(name: name, title: "TODO", url: url))
+                            var newLevel = Level(name: name, title: title, url: url)
+                            levels.last?.nextLevel = newLevel
+                            levels.append(newLevel)
                         }
                     }
                 }

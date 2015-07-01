@@ -32,7 +32,9 @@ class FetchEpisodesAction : Action, ActionProtocol {
             for episode in episodeArray {
                 if let episodeName = episode["name"].string {
                     if let episodeUrl = episode["url"].string {
-                        episodes.append(Episode(name: episodeName, url: episodeUrl))
+                        var newEpisode = Episode(name: episodeName, url: episodeUrl)
+                        episodes.last?.nextEpisode = newEpisode
+                        episodes.append(newEpisode)
                     }
                 }
             }
