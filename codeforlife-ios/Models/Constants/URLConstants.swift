@@ -8,12 +8,6 @@
 
 import Foundation
 
-let Mode = MockMode
-let DevMode = "d"
-let MockMode = "m"
-let NonDevMode = "n"
-
-
 let kCFLWebsiteURL = NSURL(string:"https://www.codeforlife.education/")
 
 //let kCFLDomain = "https://www.codeforlife.education"

@@ -39,7 +39,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if let result = message.body as? NSString {
-            //println(result)
+            println(result)
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let tag = json[JSONIdentifier.Tag].string {
@@ -59,12 +59,14 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                             gameViewController!.gameMenuViewController!.mute = !gameViewController!.gameMenuViewController!.mute
                         case JSONTag.OnPlay:
                             gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPlayControls
+                            gameViewController!.directDriveViewController!.disableDirectDrive()
                         case JSONTag.OnPause:
                             gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPauseControls
                         case JSONTag.OnStep:
                             gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStepControls
                         case JSONTag.OnStop:
                             gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStopControls
+                            gameViewController!.directDriveViewController!.enableDirectDrive()
                         case JSONTag.OnResume:
                             gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
                         case JSONTag.PreGameMsg:

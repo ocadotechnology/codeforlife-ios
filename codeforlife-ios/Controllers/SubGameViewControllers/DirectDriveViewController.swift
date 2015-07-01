@@ -22,7 +22,6 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     
     override var gameViewController: GameViewController? {
         didSet {
-            //controller = NativeCarController(gameViewController: gameViewController!)
             controller = CargoController(gameViewController: gameViewController!)
         }
     }
@@ -49,5 +48,19 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     
     @IBAction func turnRight() {
         controller!.turnRight()
+    }
+    
+    func disableDirectDrive() {
+        forwardButton.enabled = false
+        goButton.enabled = false
+        leftButton.enabled = false
+        rightButton.enabled = false
+    }
+    
+    func enableDirectDrive() {
+        forwardButton.enabled = true
+        goButton.enabled = true
+        leftButton.enabled = true
+        rightButton.enabled = true
     }
 }

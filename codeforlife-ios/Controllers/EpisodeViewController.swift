@@ -16,6 +16,8 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var episodes = [Episode]() {
         didSet {
             tableView.reloadData()
@@ -26,7 +28,9 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        FetchEpisodesAction(viewController: self).execute()
+        FetchEpisodesAction(viewController: self).execute {
+            activityIndicator?.stopAnimating()
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -61,6 +65,8 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
+    
+    @IBAction func unwindToEpisodeViewController(segue: UIStoryboardSegue) {}
     
 
 }

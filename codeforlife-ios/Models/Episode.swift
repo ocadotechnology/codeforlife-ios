@@ -12,6 +12,8 @@ class Episode {
     
     var name: String
     var url: String
+    var prevEpisode: Episode?
+    var nextEpisode: Episode?
 
     init(name: String, url: String) {
         self.name = name
