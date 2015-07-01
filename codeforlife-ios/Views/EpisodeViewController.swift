@@ -26,7 +26,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        FetchEpisodesAction(viewController: self).switchToDev().execute()
+        FetchEpisodesAction(viewController: self).execute()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

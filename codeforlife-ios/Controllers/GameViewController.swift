@@ -25,7 +25,9 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         "document.getElementById('tab_panes').style.display = 'none';" +
         "document.getElementById('consoleSlider').style.display = 'none';" +
         "document.getElementById('paper').style.width = '100%';" +
-        "document.getElementById('direct_drive').style.display = 'none';"
+        "document.getElementById('direct_drive').style.display = 'none';" +
+        "ocargo.blocklyControl.reset();" +
+        "ocargo.game.reset();"
 
     
     // Controllers
@@ -55,7 +57,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         super.viewDidLoad()
         setupGameViewController()
         setupWebView()
-        setupGameMapViewController()
+        //setupGameMapViewController()
         setupBlocklyTableViewController()
         setupGameMenuViewController()
         setupDirectDriveViewController()

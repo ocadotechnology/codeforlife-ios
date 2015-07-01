@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
@@ -18,8 +19,7 @@ class FetchLevelsAction : Action, ActionProtocol
     init(viewController: UIViewController, url: String) {
         self.viewController = viewController
         self.url = url
-        super.init()
-        self.delegate = FetchLevelsActionDelegate(url: self.url)
+        super.init(delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET))
     }
     
     override func processData(data: NSData) {
@@ -43,7 +43,6 @@ class FetchLevelsAction : Action, ActionProtocol
     }
     
     override func switchToDev() -> Action {
-        self.delegate = FetchLevelsActionDevDeletage(url: self.url)
         return self
     }
     

@@ -22,16 +22,18 @@ protocol ActionProtocol {
 class Action : ActionProtocol {
     
     var params = [String: String]()
-    var delegate : ActionDelegate?
+    var delegate : ActionDelegate
     
-    init() {}
+    init(delegate: ActionDelegate) {
+        self.delegate = delegate
+    }
     
     func execute(callback: () -> Void = {})
     {
-        if let delegate = self.delegate {
-            delegate.execute(processData, callback: callback)
+        if Mode == devMode {
+            self.switchToDev().delegate.execute(processData, callback: callback)
         } else {
-            fatalError("Action delegate is probably nil")
+            delegate.execute(processData, callback: callback)
         }
     }
     

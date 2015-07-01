@@ -8,6 +8,11 @@
 
 import Foundation
 
+let Mode = devMode
+let devMode = "d"
+let nonDevMode = "p"
+
+
 let kCFLWebsiteURL = NSURL(string:"https://www.codeforlife.education/")
 
 //let kCFLDomain = "https://www.codeforlife.education"
