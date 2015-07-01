@@ -9,36 +9,28 @@
 import UIKit
 import Foundation
 import SwiftyJSON
-import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
     var viewController: UIViewController
 
-    init(viewController: UIViewController) {
+    init(viewController: UIViewController, episode: Int) {
         self.viewController = viewController
         super.init()
-        self.delegate = FetchLevelsActionDeletage()
+        self.delegate = FetchLevelsActionDelegate(episode: episode)
     }
     
     override func processData(data: NSData) {
         
-        var levels = Levels()
+        var levels = [Level]()
         
         let json = JSON(data: data)
         println(json)
-        if let sectionArray = json.array {
-            for section in sectionArray {
-                if let sectionName = section["section"].string {
-                    var newSection = levels.addSection(sectionName)!
-                    if let levelArray = section["levels"].array {
-                        for level in levelArray {
-                            if let number = level["level"].int {
-                                if let description = level["description"].string {
-                                    newSection.addLevel(Level(number: number, description: description))
-                                }
-                            }
-                        }
+        if let levelArray = json.array {
+            for level in levelArray {
+                if let number = level["level"].int {
+                    if let description = level["description"].string {
+                        levels.append(Level(number: number, description: description))
                     }
                 }
             }

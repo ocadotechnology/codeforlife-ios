@@ -12,30 +12,15 @@ import Alamofire
 
 class FetchLevelsActionMockDelegate: ActionDelegate
 {
+    
     func execute(processData: (NSData -> Void), callback: () -> Void) {
         var json = JSON(
             [
-                [
-                    "section": "Getting Started",
-                    "levels" :
-                        [
-                            ["level": 1, "description": "Can you help the van get to the house?"],
-                            ["level": 2, "description": "This time the house is further away."],
-                            ["level": 3, "description": "Can you make the van turn right?"],
-                            ["level": 4, "description": "You are getting good at this! Let's try turning left."]
-                        ]
-                ],
-                [
-                    "section": "Shortest Route",
-                    "levels":
-                        [
-                            ["level": 13, "description": "Multiple routes"],
-                            ["level": 14, "description": "Can you spot the shortest route?"],
-                            ["level": 15, "description": "What if there is more than one delivery?"]
-                        ]
-                ]
+                ["level": 1, "description": "Can you help the van get to the house?"],
+                ["level": 2, "description": "This time the house is further away."],
+                ["level": 3, "description": "Can you make the van turn right?"],
+                ["level": 4, "description": "You are getting good at this! Let's try turning left."]
             ])
-        
         
         var data = json.rawData()
         processData(data!)
