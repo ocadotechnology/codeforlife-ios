@@ -11,7 +11,7 @@ import Foundation
 
 class ViewControllerFactory {
     
-    static var activeStoryboard: UIStoryboard?
+    static var storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
     
     private struct StoryBoardIdentifier {
         static let GameMenu = "GameMenuViewController"
@@ -22,24 +22,24 @@ class ViewControllerFactory {
     }
     
     static func BlocklyViewControllerInstance() -> BlockTableViewController {
-        return activeStoryboard!.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.Blockly) as! BlockTableViewController
+        return storyboard.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.Blockly) as! BlockTableViewController
     }
     
     
     static func GameMenuViewControllerInstance() -> GameMenuViewController {
-        return activeStoryboard!.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.GameMenu) as! GameMenuViewController
+        return storyboard.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.GameMenu) as! GameMenuViewController
     }
     
     static func DirectDriveViewControllerInstance() -> DirectDriveViewController {
-        return activeStoryboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.DirecDrive) as! DirectDriveViewController
+        return storyboard.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.DirecDrive) as! DirectDriveViewController
     }
     
     static func MessageViewControllerInstance() -> MessageViewController {
-        return activeStoryboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.Message) as! MessageViewController
+        return storyboard.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.Message) as! MessageViewController
     }
     
     static func GameMapViewControllerInstance() -> GameMapViewController {
-        return activeStoryboard?.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.GameMap) as! GameMapViewController
+        return storyboard.instantiateViewControllerWithIdentifier(StoryBoardIdentifier.GameMap) as! GameMapViewController
     }
     
 }

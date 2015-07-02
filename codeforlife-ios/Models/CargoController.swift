@@ -10,10 +10,6 @@ import Foundation
 
 class CargoController: VehicleController {
     
-    let moveForwardJavaScript = "$('#moveForward').trigger('click');"
-    let turnLeftJavaScript = "$('#turnLeft').trigger('click');"
-    let turnRightJavaScript = "$('#turnRight').trigger('click');"
-    let goJavaScript = "$('#play_radio').trigger('click');"
     
     var gameViewController: GameViewController
     
@@ -22,19 +18,19 @@ class CargoController: VehicleController {
     }
     
     func moveForward() {
-        gameViewController.runJavaScript(moveForwardJavaScript)
+        GameViewCommandFactory.MoveForwardCommand().execute()
     }
     
     func turnLeft() {
-        gameViewController.runJavaScript(turnLeftJavaScript)
+        GameViewCommandFactory.TurnLeftCommand().execute()
     }
     
     func turnRight() {
-        gameViewController.runJavaScript(turnRightJavaScript)
+        GameViewCommandFactory.TurnRightCommand().execute()
     }
     
     func go() {
-        gameViewController.runJavaScript(goJavaScript)
+        GameViewCommandFactory.PlayCommand().execute()
     }
     
 }

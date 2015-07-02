@@ -19,50 +19,72 @@ let kC4LGameViewStepCommandJavaScript    = "$('#step_radio').trigger('click');"
 let kC4LGameViewStopCommandJavaScript    = "$('#stop_radio').trigger('click');"
 let kC4LGameViewBlocklyCommandJavaScript = "$('#blockly_radio').trigger('click');"
 
+let moveForwardJavaScript = "$('#moveForward').trigger('click');"
+let turnLeftJavaScript = "$('#turnLeft').trigger('click');"
+let turnRightJavaScript = "$('#turnRight').trigger('click');"
+let goJavaScript = "$('#play_radio').trigger('click');"
+
 
 class GameViewCommandFactory {
     
     static var gameViewController: GameViewController?
     
-    static func BlocklyCommand() -> GVJavaScriptCommand {
+    class func BlocklyCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewBlocklyCommandJavaScript)
     }
     
-    static func ClearCommand() -> GVJavaScriptCommand {
+    class func ClearCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewClearCommandJavaScript)
     }
     
-    static func PlayCommand() -> GVJavaScriptCommand {
+    class func PlayCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewPlayCommandJavaScript)
     }
     
-    static func StopCommand() -> GVJavaScriptCommand {
+    class func StopCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewStopCommandJavaScript)
     }
     
-    static func StepCommand() -> GVJavaScriptCommand {
+    class func StepCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewStepCommandJavaScript)
     }
     
-    static func LoadCommand() -> GVJavaScriptCommand {
+    class func LoadCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewLoadCommandJavaScript)
     }
     
-    static func SaveCommand() -> GVJavaScriptCommand {
+    class func SaveCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewSaveCommandJavaScript)
     }
     
-    static func HelpCommand() -> GVJavaScriptCommand {
+    class func HelpCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewHelpCommandJavaScript)
     }
     
-    static func MuteCommand() -> GVJavaScriptCommand {
+    class func MuteCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewMuteCommandJavaScript)
     }
     
-    static func LoadLevelCommand(level: Level, gameViewController: GameViewController = gameViewController!) -> GVLoadLevelCommand {
+    class func LoadLevelCommand(level: Level, gameViewController: GameViewController = gameViewController!) -> GVLoadLevelCommand {
         return GVLoadLevelCommand(level: level, gameViewController: gameViewController)
         
     }
+    
+    class func MoveForwardCommand() -> GVJavaScriptCommand {
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: moveForwardJavaScript)
+    }
+    
+    class func TurnLeftCommand() -> GVJavaScriptCommand {
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: turnLeftJavaScript)
+    }
+    
+    class func TurnRightCommand() -> GVJavaScriptCommand {
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: turnRightJavaScript)
+    }
+    
+    
+    
+    
+    
     
 }

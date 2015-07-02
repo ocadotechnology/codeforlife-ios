@@ -69,7 +69,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     func setupGameViewController() {
         GameViewCommandFactory.gameViewController = self
         handler.gameViewController = self
-        ViewControllerFactory.activeStoryboard = self.storyboard
     }
     
     func setupWebView() {
