@@ -8,7 +8,7 @@
         <!--Episode View Controller-->
         <scene sceneID="kIc-Kq-7Lq">
             <objects>
-                <viewController id="Wct-S4-3Ba" customClass="EpisodeViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EpisodeViewController" id="Wct-S4-3Ba" customClass="EpisodeViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b1S-qc-tEd"/>
                         <viewControllerLayoutGuide type="bottom" id="9o0-bz-dZh"/>

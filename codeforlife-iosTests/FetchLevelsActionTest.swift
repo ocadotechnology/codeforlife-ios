@@ -23,7 +23,7 @@ class FetchLevelsActionTest: XCTestCase {
     func testDevDelegate() {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("LevelTableViewController") as! LevelTableViewController
         
-        for episode in 1 ... 11 {
+        for episode in 1 ... 100 {
             let expectation = expectationWithDescription("Dev API Episode 1")
             FetchLevelsAction(controller, "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/\(episode)").switchToDev().execute {
                 expectation.fulfill()

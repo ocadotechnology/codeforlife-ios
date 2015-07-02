@@ -20,7 +20,9 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var episodes = [Episode]() {
         didSet {
-            tableView.reloadData()
+            if isViewLoaded() {
+                tableView.reloadData()
+            }
         }
     }
 
@@ -28,7 +30,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        FetchEpisodesAction(viewController: self).execute {
+        FetchEpisodesAction(self).execute {
             activityIndicator?.stopAnimating()
         }
     }

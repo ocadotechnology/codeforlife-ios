@@ -62,6 +62,7 @@
 		ED6F79971B3D9DF000DD2AFE /* HelpMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79961B3D9DF000DD2AFE /* HelpMessage.swift */; };
 		ED6F799A1B3DA10700DD2AFE /* HelpMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79961B3D9DF000DD2AFE /* HelpMessage.swift */; };
 		ED6F799C1B3DB34900DD2AFE /* GameMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79871B3D46CF00DD2AFE /* GameMenuView.swift */; };
+		ED7799B21B45716700A854A3 /* FetchEpisodesActionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799B11B45716700A854A3 /* FetchEpisodesActionTest.swift */; };
 		EDA47C3B1B441E35003356AB /* EpisodeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */; };
 		EDA47C3C1B441E35003356AB /* EpisodeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */; };
 		EDA47C3F1B442411003356AB /* LevelBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3E1B442411003356AB /* LevelBackButton.swift */; };
@@ -199,6 +200,7 @@
 		ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectDriveButton.swift; sourceTree = "<group>"; };
 		ED6F79931B3D866F00DD2AFE /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ED6F79961B3D9DF000DD2AFE /* HelpMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMessage.swift; sourceTree = "<group>"; };
+		ED7799B11B45716700A854A3 /* FetchEpisodesActionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchEpisodesActionTest.swift; sourceTree = "<group>"; };
 		EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTableView.swift; sourceTree = "<group>"; };
 		EDA47C3E1B442411003356AB /* LevelBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelBackButton.swift; sourceTree = "<group>"; };
 		EDA47C411B442798003356AB /* LevelTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableView.swift; sourceTree = "<group>"; };
@@ -506,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				EDA47C641B4557A8003356AB /* FetchLevelsActionTest.swift */,
+				ED7799B11B45716700A854A3 /* FetchEpisodesActionTest.swift */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				EDBB666C1B3AA06A009020A5 /* URLConstants.swift in Sources */,
 				ED6F79921B3D7DD400DD2AFE /* DirectDriveButton.swift in Sources */,
 				ED1A934C1B43D215004E6AD4 /* EpisodeTableViewCell.swift in Sources */,
+				ED7799B21B45716700A854A3 /* FetchEpisodesActionTest.swift in Sources */,
 				EDA47C561B45537F003356AB /* LevelTest.swift in Sources */,
 				ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */,
 				EDFE93411B41820A00E01322 /* HelpMessageView.swift in Sources */,

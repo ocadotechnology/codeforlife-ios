@@ -30,7 +30,7 @@ class APIActionDelegate : ActionDelegate {
                     println(req)
                     println(res)
                 }
-                else {
+                else if json != nil {
                     processData(JSON(json!).rawData()!)
                 }
                 callback()

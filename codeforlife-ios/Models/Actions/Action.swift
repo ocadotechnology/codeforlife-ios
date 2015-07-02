@@ -23,6 +23,7 @@ class Action : ActionProtocol {
     
     var params = [String: String]()
     var delegate : ActionDelegate
+    var mode = Mode
     
     init(delegate: ActionDelegate) {
         self.delegate = delegate
@@ -30,9 +31,9 @@ class Action : ActionProtocol {
     
     func execute(callback: () -> Void = {})
     {
-        if Mode == DevMode {
+        if mode == DevMode {
             self.switchToDev().delegate.execute(processData, callback: callback)
-        } else if Mode == MockMode {
+        } else if mode == MockMode {
             self.switchToMock().delegate.execute(processData, callback: callback)
         } else {
             delegate.execute(processData, callback: callback)
@@ -48,7 +49,7 @@ class Action : ActionProtocol {
     }
     
     func switchToDev() -> Action {
-        fatalError("Implemente switchToDev()")
+        fatalError("Implement switchToDev()")
     }
     
 }
