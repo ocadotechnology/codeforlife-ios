@@ -33,13 +33,14 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         static let WinWithNextLevel = "winWithNextLevel"
         static let Fail = "fail"
         static let Help = "help"
+        static let getTryAgainButtonHtml = "getTryAgainButtonHtml"
     }
 
     var gameViewController: GameViewController?
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if let result = message.body as? NSString {
-            println(result)
+//            println(result)
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let tag = json[JSONIdentifier.Tag].string {
@@ -112,6 +113,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                                     controller.toggleMenu()
                                 }
                             }
+                        
                         default: break
                     }
                 }

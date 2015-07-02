@@ -72,6 +72,18 @@
 		EDA47C461B442A1E003356AB /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C441B442A1E003356AB /* GlobalConfig.swift */; };
 		EDA47C481B443225003356AB /* LevelTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C471B443225003356AB /* LevelTitleLabel.swift */; };
 		EDA47C491B443225003356AB /* LevelTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C471B443225003356AB /* LevelTitleLabel.swift */; };
+		EDA47C4B1B453C1E003356AB /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C4A1B453C1E003356AB /* Map.swift */; };
+		EDA47C4E1B454670003356AB /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C4D1B454670003356AB /* Coordinates.swift */; };
+		EDA47C501B454715003356AB /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C4F1B454715003356AB /* Node.swift */; };
+		EDA47C521B454798003356AB /* TrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C511B454798003356AB /* TrafficLight.swift */; };
+		EDA47C561B45537F003356AB /* LevelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C551B45537F003356AB /* LevelTest.swift */; };
+		EDA47C581B45558A003356AB /* BlockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C571B45558A003356AB /* BlockTest.swift */; };
+		EDA47C5A1B455601003356AB /* EpisodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C591B455601003356AB /* EpisodeTest.swift */; };
+		EDA47C5F1B4556B5003356AB /* CargoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C5E1B4556B5003356AB /* CargoController.swift */; };
+		EDA47C611B4556FB003356AB /* NativeCarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C601B4556FB003356AB /* NativeCarController.swift */; };
+		EDA47C651B4557A8003356AB /* FetchLevelsActionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C641B4557A8003356AB /* FetchLevelsActionTest.swift */; };
+		EDA47C661B455B72003356AB /* CargoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C5E1B4556B5003356AB /* CargoController.swift */; };
+		EDA47C671B455B74003356AB /* NativeCarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C601B4556FB003356AB /* NativeCarController.swift */; };
 		EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */; };
 		EDAEFBAD1B39934F003398EE /* VehicleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAC1B39934F003398EE /* VehicleController.swift */; };
 		EDBB666A1B3AA018009020A5 /* LabelViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66691B3AA018009020A5 /* LabelViewControllerTests.swift */; };
@@ -192,6 +204,16 @@
 		EDA47C411B442798003356AB /* LevelTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableView.swift; sourceTree = "<group>"; };
 		EDA47C441B442A1E003356AB /* GlobalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		EDA47C471B443225003356AB /* LevelTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTitleLabel.swift; sourceTree = "<group>"; };
+		EDA47C4A1B453C1E003356AB /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		EDA47C4D1B454670003356AB /* Coordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		EDA47C4F1B454715003356AB /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		EDA47C511B454798003356AB /* TrafficLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficLight.swift; sourceTree = "<group>"; };
+		EDA47C551B45537F003356AB /* LevelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTest.swift; sourceTree = "<group>"; };
+		EDA47C571B45558A003356AB /* BlockTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTest.swift; sourceTree = "<group>"; };
+		EDA47C591B455601003356AB /* EpisodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTest.swift; sourceTree = "<group>"; };
+		EDA47C5E1B4556B5003356AB /* CargoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CargoController.swift; sourceTree = "<group>"; };
+		EDA47C601B4556FB003356AB /* NativeCarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NativeCarController.swift; path = VehicleControllers/NativeCarController.swift; sourceTree = "<group>"; };
+		EDA47C641B4557A8003356AB /* FetchLevelsActionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelsActionTest.swift; sourceTree = "<group>"; };
 		EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewInteractionHandler.swift; sourceTree = "<group>"; };
 		EDAEFBAC1B39934F003398EE /* VehicleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleController.swift; path = "codeforlife-ios/Models/VehicleController.swift"; sourceTree = SOURCE_ROOT; };
 		EDBB66691B3AA018009020A5 /* LabelViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelViewControllerTests.swift; sourceTree = "<group>"; };
@@ -271,7 +293,6 @@
 		ED0A77051B34553000267191 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ED1A93311B42A96B004E6AD4 /* GameScenes */,
 				EDA47C3D1B4423EE003356AB /* Buttons */,
 				ED1A93611B43FEF9004E6AD4 /* MessageViews */,
 				ED1A93601B43FEE1004E6AD4 /* TableViews */,
@@ -313,6 +334,7 @@
 				EDA47C441B442A1E003356AB /* GlobalConfig.swift */,
 				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
 				ED0BC58F1B305D720060FC84 /* Info.plist */,
+				ED1A93311B42A96B004E6AD4 /* GameScenes */,
 				EDFF14DE1B316EA900962C68 /* Controllers */,
 				EF41E60503222496376BD198 /* Models */,
 				ED0A77051B34553000267191 /* Views */,
@@ -323,6 +345,7 @@
 		ED0BC5A31B305D720060FC84 /* codeforlife-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				EDA47C531B4552E8003356AB /* Models */,
 				ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */,
 				EDBB66811B3AB36C009020A5 /* GameViewControllerTests.swift */,
 				EDBB66691B3AA018009020A5 /* LabelViewControllerTests.swift */,
@@ -342,17 +365,21 @@
 		ED1A93311B42A96B004E6AD4 /* GameScenes */ = {
 			isa = PBXGroup;
 			children = (
-				ED1A93351B42AA50004E6AD4 /* Objects */,
+				ED1A93351B42AA50004E6AD4 /* GameObjects */,
 				ED1A93321B42A9F0004E6AD4 /* GameScene.swift */,
 			);
-			path = GameScenes;
+			name = GameScenes;
+			path = Views/GameScenes;
 			sourceTree = "<group>";
 		};
-		ED1A93351B42AA50004E6AD4 /* Objects */ = {
+		ED1A93351B42AA50004E6AD4 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
-				ED1A93361B42AE81004E6AD4 /* Player.swift */,
+				EDA47C4C1B45462D003356AB /* GridObject */,
+				EDA47C4A1B453C1E003356AB /* Map.swift */,
+				EDA47C4D1B454670003356AB /* Coordinates.swift */,
 			);
+			name = GameObjects;
 			path = Objects;
 			sourceTree = "<group>";
 		};
@@ -454,6 +481,45 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		EDA47C4C1B45462D003356AB /* GridObject */ = {
+			isa = PBXGroup;
+			children = (
+				ED1A93361B42AE81004E6AD4 /* Player.swift */,
+				EDA47C4F1B454715003356AB /* Node.swift */,
+				EDA47C511B454798003356AB /* TrafficLight.swift */,
+			);
+			name = GridObject;
+			sourceTree = "<group>";
+		};
+		EDA47C531B4552E8003356AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EDA47C541B45535C003356AB /* Actions */,
+				EDA47C551B45537F003356AB /* LevelTest.swift */,
+				EDA47C571B45558A003356AB /* BlockTest.swift */,
+				EDA47C591B455601003356AB /* EpisodeTest.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		EDA47C541B45535C003356AB /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				EDA47C641B4557A8003356AB /* FetchLevelsActionTest.swift */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		EDA47C5D1B4556A0003356AB /* VehicleControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDAEFBAC1B39934F003398EE /* VehicleController.swift */,
+				EDA47C5E1B4556B5003356AB /* CargoController.swift */,
+				EDA47C601B4556FB003356AB /* NativeCarController.swift */,
+			);
+			name = VehicleControllers;
+			sourceTree = "<group>";
+		};
 		EDC8C1ED1B362276004B1358 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +556,7 @@
 		EF41E60503222496376BD198 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EDA47C5D1B4556A0003356AB /* VehicleControllers */,
 				EDC8C1ED1B362276004B1358 /* Constants */,
 				ED1EB0621B32C09800A595EF /* Actions */,
 				ED1A935E1B43F8A4004E6AD4 /* ActionDelegates */,
@@ -498,7 +565,6 @@
 				EDBB66941B3C0977009020A5 /* Block.swift */,
 				EF41E7F0402D1DF38E4BA7F2 /* Level.swift */,
 				ED1A93471B43D0DD004E6AD4 /* Episode.swift */,
-				EDAEFBAC1B39934F003398EE /* VehicleController.swift */,
 				EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */,
 			);
 			path = Models;
@@ -714,6 +780,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDA47C521B454798003356AB /* TrafficLight.swift in Sources */,
 				ED1A93451B43D046004E6AD4 /* EpisodeViewController.swift in Sources */,
 				ED1A93591B43D88E004E6AD4 /* APIActionDelegate.swift in Sources */,
 				EDA47C451B442A1E003356AB /* GlobalConfig.swift in Sources */,
@@ -724,6 +791,7 @@
 				EDFE933A1B41804900E01322 /* ErrorMessage.swift in Sources */,
 				ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */,
 				ED1A933D1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
+				EDA47C4B1B453C1E003356AB /* Map.swift in Sources */,
 				ED6F79941B3D866F00DD2AFE /* Message.swift in Sources */,
 				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
 				EDC8C1F51B381213004B1358 /* GameViewCommandFactory.swift in Sources */,
@@ -736,6 +804,7 @@
 				ED1EB0711B331A2800A595EF /* FetchLevelsAction.swift in Sources */,
 				ED6F79881B3D46CF00DD2AFE /* GameMenuView.swift in Sources */,
 				ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */,
+				EDA47C5F1B4556B5003356AB /* CargoController.swift in Sources */,
 				ED1A93231B42836B004E6AD4 /* ViewControllerFactory.swift in Sources */,
 				ED1A93561B43D769004E6AD4 /* FetchEpisodesActionMockDelegate.swift in Sources */,
 				ED1EB0671B32C09800A595EF /* Action.swift in Sources */,
@@ -746,10 +815,12 @@
 				ED1A934B1B43D215004E6AD4 /* EpisodeTableViewCell.swift in Sources */,
 				EDBB66901B3B009C009020A5 /* GameMenuViewController.swift in Sources */,
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
+				EDA47C611B4556FB003356AB /* NativeCarController.swift in Sources */,
 				EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */,
 				ED1EB0731B331B7100A595EF /* FetchLevelsActionMockDelegate.swift in Sources */,
 				EDA47C481B443225003356AB /* LevelTitleLabel.swift in Sources */,
 				EDFE934F1B419FF900E01322 /* SubGameViewController.swift in Sources */,
+				EDA47C501B454715003356AB /* Node.swift in Sources */,
 				ED1A932C1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
 				EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */,
 				ED0A770A1B34560600267191 /* LevelTableViewCell.swift in Sources */,
@@ -764,6 +835,7 @@
 				EDBB668D1B3AEEFC009020A5 /* DirectDriveViewController.swift in Sources */,
 				ED6F79971B3D9DF000DD2AFE /* HelpMessage.swift in Sources */,
 				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
+				EDA47C4E1B454670003356AB /* Coordinates.swift in Sources */,
 				D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */,
 				EF41EA99727ABC5A5820353A /* GVLoadLevelCommand.swift in Sources */,
 				ED6F798A1B3D565B00DD2AFE /* MessageViewController.swift in Sources */,
@@ -777,6 +849,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED6F799A1B3DA10700DD2AFE /* HelpMessage.swift in Sources */,
+				EDA47C5A1B455601003356AB /* EpisodeTest.swift in Sources */,
 				EDBB667F1B3AA18F009020A5 /* GameViewButton.swift in Sources */,
 				EDBB667D1B3AA16D009020A5 /* GameViewController.swift in Sources */,
 				EDFE934D1B4182E200E01322 /* MessageView.swift in Sources */,
@@ -785,6 +858,7 @@
 				ED1A93381B42AE81004E6AD4 /* Player.swift in Sources */,
 				EDBB666B1B3AA029009020A5 /* LevelTableViewController.swift in Sources */,
 				EDFE934A1B41826A00E01322 /* PostGameMessage.swift in Sources */,
+				EDA47C661B455B72003356AB /* CargoController.swift in Sources */,
 				ED6F799C1B3DB34900DD2AFE /* GameMenuView.swift in Sources */,
 				ED1A93571B43D769004E6AD4 /* FetchEpisodesActionMockDelegate.swift in Sources */,
 				ED1A932D1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
@@ -802,6 +876,7 @@
 				EDBB666C1B3AA06A009020A5 /* URLConstants.swift in Sources */,
 				ED6F79921B3D7DD400DD2AFE /* DirectDriveButton.swift in Sources */,
 				ED1A934C1B43D215004E6AD4 /* EpisodeTableViewCell.swift in Sources */,
+				EDA47C561B45537F003356AB /* LevelTest.swift in Sources */,
 				ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */,
 				EDFE93411B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				EDBB66751B3AA07A009020A5 /* GVJavaScriptCommand.swift in Sources */,
@@ -814,6 +889,7 @@
 				ED1A93271B428A36004E6AD4 /* BlockTableView.swift in Sources */,
 				EDBB668E1B3AF135009020A5 /* DirectDriveViewController.swift in Sources */,
 				EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */,
+				EDA47C581B45558A003356AB /* BlockTest.swift in Sources */,
 				EDFE93501B419FF900E01322 /* SubGameViewController.swift in Sources */,
 				ED1A93491B43D0DD004E6AD4 /* Episode.swift in Sources */,
 				EDA47C3C1B441E35003356AB /* EpisodeTableView.swift in Sources */,
@@ -824,6 +900,7 @@
 				EDBB66701B3AA06E009020A5 /* FetchLevelsAction.swift in Sources */,
 				ED1A933E1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
 				EDBB667B1B3AA07E009020A5 /* VehicleController.swift in Sources */,
+				EDA47C651B4557A8003356AB /* FetchLevelsActionTest.swift in Sources */,
 				ED1A93341B42A9F0004E6AD4 /* GameScene.swift in Sources */,
 				EDBB666D1B3AA06A009020A5 /* ColorConstants.swift in Sources */,
 				ED1A93241B4284B7004E6AD4 /* ViewControllerFactory.swift in Sources */,
@@ -833,6 +910,7 @@
 				EDFE933B1B41808700E01322 /* ErrorMessage.swift in Sources */,
 				EDA47C431B442798003356AB /* LevelTableView.swift in Sources */,
 				EDBB66731B3AA07A009020A5 /* GameViewCommandFactory.swift in Sources */,
+				EDA47C671B455B74003356AB /* NativeCarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

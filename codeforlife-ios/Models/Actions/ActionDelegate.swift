@@ -14,3 +14,11 @@ protocol ActionDelegate {
     func execute(processData: (NSData -> Void), callback: () -> Void)
     
 }
+
+class ErrorActionDelegate : ActionDelegate {
+    
+    func execute(processData: (NSData -> Void), callback: () -> Void) {
+        fatalError("Error")
+    }
+    
+}

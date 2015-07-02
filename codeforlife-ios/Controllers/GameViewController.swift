@@ -56,7 +56,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         super.viewDidLoad()
         setupGameViewController()
         setupWebView()
-//        setupGameMapViewController()
+        setupGameMapViewController()
         setupBlocklyTableViewController()
         setupGameMenuViewController()
         setupDirectDriveViewController()

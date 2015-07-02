@@ -96,7 +96,7 @@
         <!--Level Table View Controller-->
         <scene sceneID="7O8-OV-w0X">
             <objects>
-                <viewController id="WFQ-We-wxG" customClass="LevelTableViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LevelTableViewController" id="WFQ-We-wxG" customClass="LevelTableViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O9T-hj-bNY"/>
                         <viewControllerLayoutGuide type="bottom" id="vBJ-Yh-iXP"/>
