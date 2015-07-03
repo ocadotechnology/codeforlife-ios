@@ -56,11 +56,12 @@ class Map: SKScene {
     func draw() {
         
         for node in nodes {
-            var roadTile = node.toRoadTile()
-            roadTile.position = CGPoint(
-                x: CGFloat(node.coordinates.x)*GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
-                y: CGFloat(node.coordinates.y)*GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
-            addChild(roadTile)
+            var roadTile = RoadTile.Builder(node: node).build()
+            roadTile?.position = node.position!
+            if roadTile != nil {
+                addChild(roadTile!)
+            }
+            println((node.position, node.height, node.width))
         }
         
         player.position = CGPoint(x: frame.size.width*0.5, y: frame.size.height*0.5)

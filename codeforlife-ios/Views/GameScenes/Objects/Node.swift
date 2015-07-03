@@ -14,13 +14,48 @@ class Node: Equatable {
     var coordinates: Coordinates
     
     var previousNode: Node?
+    var width : CGFloat?
+    var height : CGFloat?
+    var position : CGPoint?
+    var rad: CGFloat?
+    var imageNamed: String?
+    
+//    var position: CGPoint {
+//        if let previousNode = self.previousNode {
+//            if previousNode.isAboveOf(self) {
+//                return CGPoint(
+//                    x: previousNode.position.x,
+//                    y: previousNode.position.y - previousNode.height!/2 - height!/2)
+//            } else if previousNode.isRightOf(self) {
+//                return CGPoint(
+//                    x: previousNode.position.x - previousNode.width!/2 - width!/2,
+//                    y: previousNode.position.y)
+//            } else if previousNode.isBelowOf(self) {
+//                return CGPoint(
+//                    x: previousNode.position.x,
+//                    y: previousNode.position.y + previousNode.height!/2 + height!/2)
+//            } else if previousNode.isLeftOf(self) {
+//                return CGPoint(
+//                    x: previousNode.position.x + previousNode.width!/2 + width!/2,
+//                    y: previousNode.position.y)
+//            }
+//        }
+//        return CGPoint(
+//            x: CGFloat(coordinates.x)*GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
+//            y: CGFloat(coordinates.y)*GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
+//    }
     
     var direction : Direction {
         return determineDirection()
     }
     
-    lazy var connectedNodes = [Node]()
-    lazy var trafficLights = [TrafficLight]()
+    var connectedNodes = [Node]() {
+        didSet {
+            evaluateRoadTile()
+        }
+    }
+    
+    var trafficLights = [TrafficLight]()
     
     init( _ coordinates: Coordinates) {
         self.coordinates = coordinates
@@ -47,11 +82,14 @@ class Node: Equatable {
         return nil
     }
     
-    func toRoadTile() -> RoadTile {
-        var imageNamed : String = "ocadoVan_big"
+    func evaluateRoadTile() {
+        var imageNamed : String?
         var rad: CGFloat = 0
         var width = GameMapConfig.Grid.width
         var height = GameMapConfig.Grid.height
+        var position = CGPointMake(
+            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
+            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
         let PI = CGFloat(M_PI)
         
         switch connectedNodes.count {
@@ -71,6 +109,19 @@ class Node: Equatable {
                 imageNamed = "turn"
                 width *= GameMapConfig.straightToTurnRatio
                 height *= GameMapConfig.straightToTurnRatio
+                if let previousNode = self.previousNode {
+                    if previousNode.imageNamed! != "turn" {
+                        if previousNode.isAboveOf(self) {
+                            position = CGPointMake(
+                                previousNode.position!.x - previousNode.width!/2 + width/2,
+                                previousNode.position!.y - previousNode.height!/2 - height/2)
+                        } else {
+                            position = CGPointMake(
+                                previousNode.position!.x - previousNode.width!/2 - width/2,
+                                previousNode.position!.y - previousNode.height!/2 + height/2)
+                        }
+                    }
+                }
                 rad = PI
             } else if direction.up && direction.down {
                 imageNamed = "straight"
@@ -79,11 +130,37 @@ class Node: Equatable {
                 imageNamed = "turn"
                 width *= GameMapConfig.straightToTurnRatio
                 height *= GameMapConfig.straightToTurnRatio
+                if let previousNode = self.previousNode {
+                    if previousNode.imageNamed! != "turn" {
+                        if previousNode.isAboveOf(self) {
+                            position = CGPointMake(
+                                previousNode.position!.x + previousNode.width!/2 - width/2,
+                                previousNode.position!.y - previousNode.height!/2 - height/2)
+                        } else {
+                            position = CGPointMake(
+                                previousNode.position!.x + previousNode.width!/2 + width/2,
+                                previousNode.position!.y - previousNode.height!/2 + height/2)
+                        }
+                    }
+                }
                 rad = PI*3/2
             } else if direction.right && direction.down {
                 imageNamed = "turn"
                 width *= GameMapConfig.straightToTurnRatio
                 height *= GameMapConfig.straightToTurnRatio
+                if let previousNode = self.previousNode {
+                    if previousNode.imageNamed! != "turn" {
+                        if previousNode.isRightOf(self) {
+                            position = CGPointMake(
+                                previousNode.position!.x - previousNode.width!/2 - width/2,
+                                previousNode.position!.y + previousNode.height!/2 - height/2)
+                        } else {
+                            position = CGPointMake(
+                                previousNode.position!.x - previousNode.width!/2 + width/2,
+                                previousNode.position!.y + previousNode.height!/2 + height/2)
+                        }
+                    }
+                }
                 rad = PI/2
             } else if direction.right && direction.left {
                 imageNamed = "straight"
@@ -92,6 +169,19 @@ class Node: Equatable {
                 imageNamed = "turn"
                 width *= GameMapConfig.straightToTurnRatio
                 height *= GameMapConfig.straightToTurnRatio
+                if let previousNode = self.previousNode {
+                    if previousNode.imageNamed! != "turn" {
+                        if previousNode.isBelowOf(self) {
+                            position = CGPointMake(
+                                previousNode.position!.x + previousNode.width!/2 - width/2,
+                                previousNode.position!.y + previousNode.height!/2 + height/2)
+                        } else {
+                            position = CGPointMake(
+                                previousNode.position!.x + previousNode.width!/2 + width/2,
+                                previousNode.position!.y + previousNode.height!/2 - height/2)
+                        }
+                    }
+                }
                 rad = 0
             }
         case 3:
@@ -111,7 +201,11 @@ class Node: Equatable {
         default: break
         }
         
-        return RoadTile.Builder(imageNamed: imageNamed, rad: rad).build()!
+        self.imageNamed = imageNamed
+        self.width = width
+        self.height = height
+        self.rad = rad
+        self.position = position
     }
     
     func determineDirection() -> Direction{

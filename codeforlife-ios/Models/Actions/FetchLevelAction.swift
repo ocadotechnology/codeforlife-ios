@@ -26,7 +26,6 @@ class FetchLevelAction : Action, ActionProtocol
     override func processData(data: NSData) {
             
         let json = JSON(data: data)
-        println(json)
         if let description = json["description"].string,
             hint = json["hint"].string,
             blocklyEnabled = json["blocklyEnabled"].bool,

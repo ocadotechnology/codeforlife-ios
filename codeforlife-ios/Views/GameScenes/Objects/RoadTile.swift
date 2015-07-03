@@ -17,9 +17,9 @@ class RoadTile: GameObject {
         private var imageNamed: String
         private var rad: CGFloat
         
-        init(imageNamed: String, rad: CGFloat) {
-            self.imageNamed = imageNamed
-            self.rad = rad
+        init(node: Node) {
+            self.imageNamed = node.imageNamed!
+            self.rad = node.rad!
         }
         
         func build() -> RoadTile? {
@@ -98,6 +98,19 @@ class DeadEnd: RoadTile {
     init() {
         super.init(
             imageNamed: "dead_end",
+            width: GameMapConfig.Grid.width,
+            height: GameMapConfig.Grid.height)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class Error: RoadTile {
+    init() {
+        super.init(
+            imageNamed: "Error",
             width: GameMapConfig.Grid.width,
             height: GameMapConfig.Grid.height)
     }
