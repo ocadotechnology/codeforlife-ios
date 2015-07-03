@@ -16,6 +16,6 @@ struct GameMapConfig {
         static let width: CGFloat = 60
     }
     
-    static let straightToTurnRatio: CGFloat = 1.22
+    static let straightToTurnRatio: CGFloat = 1.24
     
 }

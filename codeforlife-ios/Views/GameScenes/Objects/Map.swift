@@ -34,30 +34,51 @@ class Map: SKScene {
     override func didMoveToView(view: SKView) {
         backgroundColor = kC4LGameMapGrassColor
         
-        //test
+        test1()
+    }
+    
+    func test1() {
         nodes.append(Node(Coordinates(0,5)))
         nodes.append(Node(Coordinates(1,5)))
         nodes.append(Node(Coordinates(2,5)))
         nodes.append(Node(Coordinates(2,4)))
         nodes.append(Node(Coordinates(2,3)))
         nodes.append(Node(Coordinates(2,2)))
-        nodes.append(Node(Coordinates(1,2)))
         nodes.append(Node(Coordinates(3,2)))
+        nodes.append(Node(Coordinates(4,2)))
+        nodes.append(Node(Coordinates(4,3)))
+        nodes.append(Node(Coordinates(4,4)))
+        nodes.append(Node(Coordinates(5,4)))
+        nodes.append(Node(Coordinates(6,4)))
+        nodes.append(Node(Coordinates(6,5)))
         
-        nodes[0].addConnectedNodeWithBackLink(nodes[1])
-        nodes[1].addConnectedNodeWithBackLink(nodes[2])
-        nodes[2].addConnectedNodeWithBackLink(nodes[3])
-        nodes[3].addConnectedNodeWithBackLink(nodes[4])
-        nodes[4].addConnectedNodeWithBackLink(nodes[5])
-        nodes[5].addConnectedNodeWithBackLink(nodes[6])
-        nodes[5].addConnectedNodeWithBackLink(nodes[7])
+        for index in 1 ..< nodes.count {
+            nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
+        }
+    }
+    
+    func test2() {
+        nodes.append(Node(Coordinates(8,5)))
+        nodes.append(Node(Coordinates(7,5)))
+        nodes.append(Node(Coordinates(7,4)))
+//        nodes.append(Node(Coordinates(7,3)))
+//        nodes.append(Node(Coordinates(6,3)))
+//        nodes.append(Node(Coordinates(5,3)))
+//        nodes.append(Node(Coordinates(5,4)))
+//        nodes.append(Node(Coordinates(5,5)))
+//        nodes.append(Node(Coordinates(4,5)))
+//        nodes.append(Node(Coordinates(3,5)))
+        
+        for index in 1 ..< nodes.count {
+            nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
+        }
     }
     
     func draw() {
         
         for node in nodes {
             var roadTile = RoadTile.Builder(node: node).build()
-            roadTile?.position = node.position!
+            roadTile?.position = node.position
             if roadTile != nil {
                 addChild(roadTile!)
             }
