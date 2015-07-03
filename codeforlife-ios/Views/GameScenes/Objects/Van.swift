@@ -9,7 +9,7 @@
 import SpriteKit
 import Foundation
 
-class Player: SKSpriteNode {
+class Van: SKSpriteNode {
     
     let PI = CGFloat(M_PI)
     
@@ -23,19 +23,25 @@ class Player: SKSpriteNode {
     var direction = Direction.Right
     
     init() {
-        let texture = SKTexture(image: UIImage(named: "van")!)
-        super.init(texture: texture, color: nil, size: CGSize(width: 80, height: 40))
+        var image = UIImage(named: "ocadoVan_big")
+        image = UIImage(CGImage: image!.CGImage, scale: 1, orientation: UIImageOrientation.Right)
+        let texture = SKTexture(image: image!)
+        super.init(texture: texture, color: nil, size: CGSize(width: 40, height: 80))
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func rotate(rad: CGFloat) {
+        let action = SKAction.rotateByAngle(-rad, duration: 0)
+        self.runAction(action)
+    }
+    
     func moveForward(movement: CGFloat, duration: NSTimeInterval) {
         var actionMove: SKAction
         switch direction {
             case .Left :
-                
                 actionMove = SKAction.moveBy(CGVector(dx: -movement, dy: 0), duration: duration)
             case .Right:
                 actionMove = SKAction.moveBy(CGVector(dx:  movement, dy: 0), duration: duration)

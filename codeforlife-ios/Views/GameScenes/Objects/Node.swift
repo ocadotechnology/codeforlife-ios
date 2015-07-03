@@ -6,9 +6,24 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class Node: Equatable {
+    
+    enum Type {
+        case Road
+    }
+    
+    var type: Type {
+        // This variable should return which kind of road_tile the map should generate
+        return Type.Road
+    }
+    
+    var rotation: CGFloat {
+        // This function should return the angle the road_tile image should rotate
+        return CGFloat(M_PI)
+    }
     
     var coordinates: Coordinates
     lazy var connectedNodes = [Node]()
@@ -35,26 +50,6 @@ class Node: Equatable {
         }
         return nil
     }
-    
-    func removeDoublyConnectedNode(node: Node) {
-        if let index = indexInConnectedNodes(node) {
-            connectedNodes.removeAtIndex(index)
-        }
-        if let index2 = node.indexInConnectedNodes(self) {
-            node.connectedNodes.removeAtIndex(index2)
-        }
-    }
-    
-    func parseData(nodeData: [AnyObject]) -> [Node] {
-        var nodes = [Node]()
-        
-        for index in 0 ..< nodes.count {
-            //TODO
-        }
-        
-        return nodes
-    }
-
     
 }
 

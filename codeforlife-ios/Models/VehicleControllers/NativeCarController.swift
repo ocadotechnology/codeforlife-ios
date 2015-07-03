@@ -10,10 +10,10 @@ import Foundation
 
 class NativeCarController: VehicleController {
     
-    var car : Player
+    var car : Van
     
     init(gameViewController: GameViewController) {
-        car = gameViewController.gameMapViewController!.skView!.gameScene!.player
+        car = gameViewController.gameMapViewController!.skView!.map!.player
     }
     
     func moveForward() {

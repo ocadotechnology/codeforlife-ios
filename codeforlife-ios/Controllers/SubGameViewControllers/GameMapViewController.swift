@@ -30,9 +30,12 @@ class GameMapViewController: SubGameViewController {
         skView?.showsFPS = true
         skView?.showsNodeCount = true
         skView?.ignoresSiblingOrder = true
-        skView?.gameScene = GameScene(size: frame.size)
-        skView?.gameScene!.scaleMode = .ResizeFill
-        skView?.presentScene(skView?.gameScene)
+        skView?.map = Map(width: 5, height: 5, size: frame.size)
+        skView?.map?.size = frame.size
+        skView?.map!.scaleMode = .ResizeFill
+        skView?.presentScene(skView?.map)
+        skView?.map?.draw()
+        
     }
 
 }
