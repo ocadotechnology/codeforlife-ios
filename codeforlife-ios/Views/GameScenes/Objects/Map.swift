@@ -11,13 +11,13 @@ import SpriteKit
 
 class Map: SKScene {
     
-    let GRID_SPACE_SIZE: CGFloat = 50
+    let GRID_SPACE_SIZE: CGFloat = 60
     
     var width: Int
     var height: Int
     var nodes = [Node]()
     var destinations = [Node]()
-    var player = Van.Builder(width: 40, height: 80, rad: 0).build()
+    var player = Van.Builder(width: 20, height: 40, rad: 0).build()
     
     init(width: Int, height: Int, size: CGSize) {
         self.width = width
@@ -32,18 +32,35 @@ class Map: SKScene {
     }
     
     override func didMoveToView(view: SKView) {
-        backgroundColor = SKColor.blueColor()
+        backgroundColor = kC4LGameMapGrassColor
         
+        //test
+        nodes.append(Node(Coordinates(0,5)))
+        nodes.append(Node(Coordinates(1,5)))
+        nodes.append(Node(Coordinates(2,5)))
+        nodes.append(Node(Coordinates(2,4)))
+        nodes.append(Node(Coordinates(2,3)))
+        nodes.append(Node(Coordinates(2,2)))
+        nodes.append(Node(Coordinates(1,2)))
+        nodes.append(Node(Coordinates(3,2)))
+        
+        nodes[0].addConnectedNodeWithBackLink(nodes[1])
+        nodes[1].addConnectedNodeWithBackLink(nodes[2])
+        nodes[2].addConnectedNodeWithBackLink(nodes[3])
+        nodes[3].addConnectedNodeWithBackLink(nodes[4])
+        nodes[4].addConnectedNodeWithBackLink(nodes[5])
+        nodes[5].addConnectedNodeWithBackLink(nodes[6])
+        nodes[5].addConnectedNodeWithBackLink(nodes[7])
     }
     
     func draw() {
         
         for node in nodes {
-            var ground = GridObject("ocadoVan_big")
-            ground.position = CGPoint(
-                x: CGFloat(node.coordinates.x)*50 + 25,
-                y: CGFloat(node.coordinates.y)*50 + 25)
-            addChild(ground)
+            var roadTile = node.toRoadTile()
+            roadTile.position = CGPoint(
+                x: CGFloat(node.coordinates.x)*GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
+                y: CGFloat(node.coordinates.y)*GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
+            addChild(roadTile)
         }
         
         player.position = CGPoint(x: frame.size.width*0.5, y: frame.size.height*0.5)

@@ -11,12 +11,22 @@ import Foundation
 
 class GameObject: SKSpriteNode {
     
+    var width: CGFloat
+    var height: CGFloat
+    
     init(imageNamed: String, width: CGFloat, height: CGFloat) {
+        self.width = width
+        self.height = height
         let texture = SKTexture(imageNamed: imageNamed)
         super.init(
             texture: texture,
             color:UIColor.clearColor(),
-            size: CGSize(width: width, height: height))
+            size: CGSize(width: self.width, height: self.height))
+    }
+    
+    func createWithRotation(rad: CGFloat) -> GameObject{
+        rotate(rad)
+        return self
     }
     
     required init(coder aDecoder: NSCoder) {

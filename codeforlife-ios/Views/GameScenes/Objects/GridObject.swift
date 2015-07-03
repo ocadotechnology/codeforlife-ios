@@ -10,14 +10,6 @@ import SpriteKit
 import Foundation
 
 
-class GridObject: SKSpriteNode  {
+class GridObject: GameObject  {
 
-    init( _ imageName: String) {
-        let texture = SKTexture(image: UIImage(named: imageName)!)
-        super.init(texture: texture, color: nil, size: CGSize(width: 50, height: 50))
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

@@ -105,7 +105,11 @@ class GameMenuViewController: SubGameViewController {
     }
     
     @IBAction func help() {
-        GameViewCommandFactory.HelpCommand().execute()
+        //GameViewCommandFactory.HelpCommand().execute()
+        gameViewController!.helpViewController!.message = HelpMessage(
+            context: gameViewController!.level!.hint!,
+            action: gameViewController!.helpViewController!.closeMenu)
+        gameViewController!.helpViewController!.toggleMenu()
     }
     
     @IBAction func muteSound() {
