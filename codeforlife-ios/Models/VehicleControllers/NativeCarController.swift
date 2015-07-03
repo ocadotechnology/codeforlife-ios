@@ -17,7 +17,7 @@ class NativeCarController: VehicleController {
     }
     
     func moveForward() {
-        car.moveForward(50, duration: 1)
+        car.moveForward(50, duration: 0.5)
     }
     
     func turnLeft() {

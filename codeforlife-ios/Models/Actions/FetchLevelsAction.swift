@@ -29,14 +29,12 @@ class FetchLevelsAction : Action, ActionProtocol
         let json = JSON(data: data)
         if let levelArray = json["level_set"].array {
             for level in levelArray {
-                if let name = level["name"].string {
-                    if let url = level["url"].string {
-                        if let title = level["title"].string {
-                            var newLevel = Level(name, title, url)
-                            levels.last?.nextLevel = newLevel
-                            levels.append(newLevel)
-                        }
-                    }
+                if let name = level["name"].string,
+                    url = level["url"].string,
+                    title = level["title"].string {
+                    var newLevel = Level(url: url, name: name, title: title)
+                    levels.last?.nextLevel = newLevel
+                    levels.append(newLevel)
                 }
             }
         }

@@ -124,6 +124,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func loadLevel(level: Level) {
+        FetchLevelAction(self).execute()
         GameViewCommandFactory.LoadLevelCommand(level).execute()
     }
     

@@ -12,7 +12,8 @@ import XCTest
 class LevelTest: XCTestCase {
 
     func test1Init() {
-        var level = Level("name", "title", "url")
+        var level =
+        Level(url: "url", name: "name", title: "title")
         XCTAssertEqual(level.name, "name", "Name not match")
         XCTAssertEqual(level.title, "title", "Title not match")
         XCTAssertEqual(level.url, "url", "Url not match")

@@ -14,7 +14,7 @@ class DirectDriveViewControllerTest: XCTestCase {
     var storyboard: UIStoryboard?
     var gameViewController : GameViewController?
     
-    let level = Level("1", "Title", "url")
+//    let level = Level("1", "Title", "url")
     
     override func setUp() {
         super.setUp()

@@ -16,9 +16,8 @@ class Map: SKScene {
     var width: Int
     var height: Int
     var nodes = [Node]()
-    var origin = Node
     var destinations = [Node]()
-    var player = Van()
+    var player = Van.Builder(width: 40, height: 80, rad: 0).build()
     
     init(width: Int, height: Int, size: CGSize) {
         self.width = width

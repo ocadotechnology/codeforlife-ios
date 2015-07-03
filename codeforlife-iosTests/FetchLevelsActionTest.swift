@@ -23,8 +23,8 @@ class FetchLevelsActionTest: XCTestCase {
     func testDevDelegate() {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("LevelTableViewController") as! LevelTableViewController
         
-        for episode in 1 ... 100 {
-            let expectation = expectationWithDescription("Dev API Episode 1")
+        for episode in 1 ... 11 {
+            let expectation = expectationWithDescription("FetchLevelsActionTest")
             FetchLevelsAction(controller, "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/\(episode)").switchToDev().execute {
                 expectation.fulfill()
             }
@@ -33,7 +33,7 @@ class FetchLevelsActionTest: XCTestCase {
                     println(error)
                 }
             }
-            XCTAssertGreaterThan(controller.levels.count, 0, "Level count == 0")
+            XCTAssertGreaterThan(controller.levels.count, 0, "Level count == 0 in episode \(episode)")
         }
 
     }

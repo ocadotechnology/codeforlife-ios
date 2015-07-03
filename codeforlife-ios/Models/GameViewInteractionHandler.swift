@@ -49,13 +49,10 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                             gameViewController!.blockTableViewController!.clearBlocks()
                         case JSONTag.MoveForward:
                             gameViewController!.blockTableViewController!.addBlock(Forward())
-                            gameViewController!.gameMapViewController?.skView!.map!.player.moveForward(50, duration: 1)
                         case JSONTag.TurnLeft:
                             gameViewController!.blockTableViewController!.addBlock(Left())
-                            gameViewController!.gameMapViewController?.skView!.map!.player.turnLeft(50, duration: 1)
                         case JSONTag.TurnRight:
                             gameViewController!.blockTableViewController!.addBlock(Right())
-                            gameViewController!.gameMapViewController?.skView!.map!.player.turnRight(50, duration: 1)
                         case JSONTag.Mute:
                             gameViewController!.gameMenuViewController!.mute = !gameViewController!.gameMenuViewController!.mute
                         case JSONTag.OnPlay:
