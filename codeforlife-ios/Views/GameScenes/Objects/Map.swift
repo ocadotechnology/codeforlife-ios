@@ -59,8 +59,8 @@ class Map: SKScene {
     
     func test2() {
         nodes.append(Node(Coordinates(8,5)))
-        nodes.append(Node(Coordinates(7,5)))
-        nodes.append(Node(Coordinates(7,4)))
+//        nodes.append(Node(Coordinates(7,5)))
+//        nodes.append(Node(Coordinates(7,4)))
 //        nodes.append(Node(Coordinates(7,3)))
 //        nodes.append(Node(Coordinates(6,3)))
 //        nodes.append(Node(Coordinates(5,3)))

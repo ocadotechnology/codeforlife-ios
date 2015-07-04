@@ -18,8 +18,8 @@ class RoadTile: GameObject {
         private var rad: CGFloat
         
         init(node: Node) {
-            self.imageNamed = node.imageNamed!
-            self.rad = node.rad!
+            self.imageNamed = node.imageNamed
+            self.rad = node.rad
         }
         
         func build() -> RoadTile? {
@@ -46,7 +46,7 @@ class Straight: RoadTile {
     init() {
         super.init(
             imageNamed: "straight",
-            width: GameMapConfig.Grid.width,
+            width: GameMapConfig.Grid.height*138/202,
             height: GameMapConfig.Grid.height)
     }
 
@@ -59,8 +59,8 @@ class Turn: RoadTile {
     init() {
         super.init(
             imageNamed: "turn",
-            width: GameMapConfig.Grid.width * GameMapConfig.straightToTurnRatio,
-            height: GameMapConfig.Grid.height * GameMapConfig.straightToTurnRatio)
+            width: GameMapConfig.Grid.height * 169/202,
+            height: GameMapConfig.Grid.height * 169/202)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -72,7 +72,7 @@ class Crossroads: RoadTile {
     init() {
         super.init(
             imageNamed: "crossroads",
-            width: GameMapConfig.Grid.width,
+            width: GameMapConfig.Grid.height*203/202,
             height: GameMapConfig.Grid.height)
     }
     
@@ -85,8 +85,8 @@ class TJunction: RoadTile {
     init() {
         super.init(
             imageNamed: "t_junction",
-            width: GameMapConfig.Grid.width,
-            height: GameMapConfig.Grid.height)
+            width: GameMapConfig.Grid.width*170/202,
+            height: GameMapConfig.Grid.height*203/202)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -98,8 +98,8 @@ class DeadEnd: RoadTile {
     init() {
         super.init(
             imageNamed: "dead_end",
-            width: GameMapConfig.Grid.width,
-            height: GameMapConfig.Grid.height)
+            width: GameMapConfig.Grid.width*138/202,
+            height: GameMapConfig.Grid.height*170/202)
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -14,20 +14,113 @@ class Node: Equatable {
     var coordinates: Coordinates
     
     var previousNode: Node?
-    var width : CGFloat?
-    var height : CGFloat?
-    var position : CGPoint
-    var rad: CGFloat?
-    var imageNamed: String?
-    var isOrigin = false
     
-    var direction : Direction {
-        return determineDirection()
+    var width : CGFloat {
+        switch imageNamed {
+        case RoadType.Turn:
+            return GameMapConfig.Grid.width// * GameMapConfig.straightToTurnRatio
+        default:
+            return GameMapConfig.Grid.width
+        }
+    }
+    
+    var height : CGFloat {
+        switch imageNamed {
+        case RoadType.Turn:
+            return GameMapConfig.Grid.height// * GameMapConfig.straightToTurnRatio
+        default:
+            return GameMapConfig.Grid.height
+        }
+    }
+    
+    var position : CGPoint {
+        return CGPointMake(
+            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
+            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
+    }
+    var rad: CGFloat {
+        switch connectedNodes.count {
+        case 1:
+            if direction.up {
+                return Rotation.U
+            } else if direction.right {
+                return Rotation.R
+            } else if direction.down {
+                return Rotation.D
+            } else { // direction.left
+                return Rotation.L
+            }
+            
+        case 2:
+            if direction.up && direction.right {
+                return Rotation.UR
+            } else if direction.up && direction.down {
+                return Rotation.V
+            } else if direction.up && direction.left {
+                return Rotation.UL
+            } else if direction.right && direction.down {
+                return Rotation.DR
+            } else if direction.right && direction.left {
+                return Rotation.H
+            } else { // direction.down && direction.left
+                return Rotation.DL
+            }
+        case 3:
+            if direction.up && direction.right && direction.down {
+                return Rotation.UDR
+            } else if direction.up && direction.right && direction.left {
+                return Rotation.ULR
+            } else if direction.up && direction.down && direction.left {
+                return Rotation.UDL
+            } else { // direction.right && direction.down && direction.left
+                return Rotation.DLR
+            }
+        case 4:
+            return 0
+        default:
+            return 0
+        }
+    }
+    
+    var isOrigin : Bool {
+        return previousNode == nil
+    }
+    
+    var direction = Direction()
+    
+    var imageNamed: String {
+        switch connectedNodes.count {
+        case 1:
+            return RoadType.DeadEnd
+        case 2:
+            if (direction.up && direction.down) ||
+                (direction.left && direction.right) {
+                return RoadType.Straight
+            }
+            return RoadType.Turn
+        case 3:
+            return RoadType.TJunction
+        case 4:
+            return RoadType.Crossroads
+        default:
+            return RoadType.Error
+        }
     }
     
     var connectedNodes = [Node]() {
         didSet {
-            evaluateRoadTile()
+            direction = Direction()
+            for node in connectedNodes {
+                if node.isAboveOf(self) {
+                    direction.up = true
+                } else if node.isRightOf(self) {
+                    direction.right = true
+                } else if node.isBelowOf(self) {
+                    direction.down = true
+                } else if node.isLeftOf(self) {
+                    direction.left = true
+                }
+            }
         }
     }
     
@@ -35,9 +128,9 @@ class Node: Equatable {
     
     init( _ coordinates: Coordinates) {
         self.coordinates = coordinates
-        self.position = CGPointMake(
-            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
-            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
+//        self.position = CGPointMake(
+//            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
+//            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
     }
     
     func addConnectedNode(node: Node) {
@@ -61,28 +154,28 @@ class Node: Equatable {
         return nil
     }
     
-    func setNormalPosition(width: CGFloat, _ height: CGFloat) {
-        if let previousNode = self.previousNode {
-            if previousNode.isAboveOf(self) {
-                position = CGPointMake(
-                    previousNode.position.x,
-                    previousNode.position.y - previousNode.height!/2 - height/2)
-            } else if previousNode.isRightOf(self) {
-                position = CGPointMake(
-                    previousNode.position.x - previousNode.width!/2 - width/2,
-                    previousNode.position.y)
-                
-            } else if previousNode.isBelowOf(self) {
-                position = CGPointMake(
-                    previousNode.position.x,
-                    previousNode.position.y + previousNode.height!/2 + height/2)
-            } else if previousNode.isLeftOf(self) {
-                position = CGPointMake(
-                    previousNode.position.x + previousNode.width!/2 + width/2,
-                    previousNode.position.y)
-            }
-        }
-    }
+//    func setNormalPosition() {
+//        if let previousNode = self.previousNode {
+//            if previousNode.isAboveOf(self) {
+//                position = CGPointMake(
+//                    previousNode.position.x,
+//                    previousNode.position.y - previousNode.height/2 - height/2)
+//            } else if previousNode.isRightOf(self) {
+//                position = CGPointMake(
+//                    previousNode.position.x - previousNode.width/2 - width/2,
+//                    previousNode.position.y)
+//                
+//            } else if previousNode.isBelowOf(self) {
+//                position = CGPointMake(
+//                    previousNode.position.x,
+//                    previousNode.position.y + previousNode.height/2 + height/2)
+//            } else if previousNode.isLeftOf(self) {
+//                position = CGPointMake(
+//                    previousNode.position.x + previousNode.width/2 + width/2,
+//                    previousNode.position.y)
+//            }
+//        }
+//    }
     
     struct Rotation {
         // Dead End
@@ -114,274 +207,224 @@ class Node: Equatable {
         static let DeadEnd = "dead_end"
         static let TJunction = "t_junction"
         static let Crossroads = "crossroads"
+        static let Error = "Error"
     }
     
-    func evaluateRoadTile() {
-        var imageNamed : String?
-        var rad: CGFloat = 0
-        var width = GameMapConfig.Grid.width
-        var height = GameMapConfig.Grid.height
-        let PI = CGFloat(M_PI)
-        
-        switch connectedNodes.count {
-        case 1:
-            imageNamed = RoadType.DeadEnd
-            if direction.up {
-                rad = Rotation.U
-                if let previousNode = self.previousNode {
-                    if previousNode.imageNamed! == RoadType.Turn {
-                        switch previousNode.rad! {
-                        case Rotation.DR: // right & down
-                            position = CGPointMake(
-                                previousNode.position.x - previousNode.width!/2 + width/2,
-                                previousNode.position.y - previousNode.height!/2 - height/2)
-                        case Rotation.DL: // left & down
-                            position = CGPointMake(
-                                previousNode.position.x + previousNode.width!/2 - width/2,
-                                previousNode.position.y - previousNode.height!/2 - height/2)
-                        default: break
-                        }
-                    } else {
-                        setNormalPosition(width, height)
-                    }
-                }
-            } else if direction.right {
-                rad = Rotation.R
-                if let previousNode = self.previousNode {
-                    if previousNode.imageNamed! == RoadType.Turn {
-                        switch previousNode.rad! {
-                        case Rotation.DL:
-                            position = CGPointMake(
-                                previousNode.position.x - previousNode.width!/2 - width/2,
-                                previousNode.position.y + previousNode.height!/2 - height/2)
-                        case Rotation.UL:
-                            position = CGPointMake(
-                                previousNode.position.x - previousNode.width!/2 - width/2,
-                                previousNode.position.y - previousNode.height!/2 + height/2)
-                        default: break
-                        }
-                    } else {
-                        setNormalPosition(width, height)
-                    }
-                }
-            } else if direction.down {
-                rad = Rotation.D
-                if let previousNode = self.previousNode {
-                    if previousNode.imageNamed! == RoadType.Turn {
-                        switch previousNode.rad! {
-                        case Rotation.UR:
-                            position = CGPointMake(
-                                previousNode.position.x - previousNode.width!/2 + width/2,
-                                previousNode.position.y + previousNode.height!/2 + height/2)
-                        case Rotation.UL:
-                            position = CGPointMake(
-                                previousNode.position.x + previousNode.width!/2 - width/2,
-                                previousNode.position.y + previousNode.height!/2 + height/2)
-                        default: break
-                        }
-                    } else {
-                        setNormalPosition(width, height)
-                    }
-                }
-            } else if direction.left {
-                rad = Rotation.L
-                if let previousNode = self.previousNode {
-                    if previousNode.imageNamed! == RoadType.Turn {
-                        switch previousNode.rad! {
-                        case Rotation.UR:  // right & up
-                            position = CGPointMake(
-                                previousNode.position.x + previousNode.width!/2 + width/2,
-                                previousNode.position.y - previousNode.height!/2 + height/2)
-                        case Rotation.DR: // right & down
-                            position = CGPointMake(
-                                previousNode.position.x + previousNode.width!/2 + width/2,
-                                previousNode.position.y + previousNode.height!/2 - height/2)
-                        default: break
-                        }
-                    } else {
-                        setNormalPosition(width, height)
-                    }
-                }
-            }
-            
-        case 2:
-            if direction.up && direction.right {
-                rad = Rotation.UR
-                imageNamed = RoadType.Turn
-                width *= GameMapConfig.straightToTurnRatio
-                height *= GameMapConfig.straightToTurnRatio
-                if let previousNode = self.previousNode {
-                    if previousNode.isAboveOf(self) {
-                        position = CGPointMake(
-                            previousNode.position.x - previousNode.width!/2 + width/2,
-                            previousNode.position.y - previousNode.height!/2 - height/2)
-                    } else {
-                        position = CGPointMake(
-                            previousNode.position.x - previousNode.width!/2 - width/2,
-                            previousNode.position.y - previousNode.height!/2 + height/2)
-                    }
-                }
-            } else if direction.up && direction.down {
-                rad = Rotation.V
-                imageNamed = RoadType.Straight
-                if let previousNode = self.previousNode {
-                    if previousNode.imageNamed! == RoadType.Turn {
-                        if previousNode.isAboveOf(self) {
-                            switch previousNode.rad! {
-                            case 0:
-                                position = CGPointMake(
-                                    previousNode.position.x + previousNode.width!/2 - width/2,
-                                    previousNode.position.y - previousNode.height!/2 - height/2)
-                            case PI*3/2:
-                                position = CGPointMake(
-                                    previousNode.position.x - previousNode.width!/2 + width/2,
-                                    previousNode.position.y - previousNode.height!/2 - height/2)
-                            default: break
-                            }
-                        } else {
-                            switch previousNode.rad! {
-                            case PI:
-                                position = CGPointMake(
-                                    previousNode.position.x - previousNode.width!/2 + width/2,
-                                    previousNode.position.y + previousNode.height!/2 + height/2)
-                            case PI/2:
-                                position = CGPointMake(
-                                    previousNode.position.x + previousNode.width!/2 - width/2,
-                                    previousNode.position.y + previousNode.height!/2 + height/2)
-                            default: break
-                            }
-                        }
-                    } else {
-                        setNormalPosition(width, height)
-                    }
-                }
-            } else if direction.up && direction.left {
-                rad = Rotation.UL
-                imageNamed = RoadType.Turn
-                width *= GameMapConfig.straightToTurnRatio
-                height *= GameMapConfig.straightToTurnRatio
-                if let previousNode = self.previousNode {
-                    
-                    if previousNode.isAboveOf(self) {
-                        position = CGPointMake(
-                            previousNode.position.x + previousNode.width!/2 - width/2,
-                            previousNode.position.y - previousNode.height!/2 - height/2)
-                    } else {
-                        position = CGPointMake(
-                            previousNode.position.x + previousNode.width!/2 + width/2,
-                            previousNode.position.y - previousNode.height!/2 + height/2)
-                    }
-                    
-                }
-            } else if direction.right && direction.down {
-                rad = Rotation.DR
-                imageNamed = RoadType.Turn
-                width *= GameMapConfig.straightToTurnRatio
-                height *= GameMapConfig.straightToTurnRatio
-                if let previousNode = self.previousNode {
-                    if previousNode.imageNamed! != RoadType.Turn {
-                        if previousNode.isRightOf(self) {
-                            position = CGPointMake(
-                                previousNode.position.x - previousNode.width!/2 - width/2,
-                                previousNode.position.y + previousNode.height!/2 - height/2)
-                        } else {
-                            position = CGPointMake(
-                                previousNode.position.x - previousNode.width!/2 + width/2,
-                                previousNode.position.y + previousNode.height!/2 + height/2)
-                        }
-                    } else {
-                        setNormalPosition(width, height)
-                    }
-                }
-            } else if direction.right && direction.left {
-                rad = Rotation.H
-                imageNamed = RoadType.Straight
-                if let previousNode = self.previousNode {
-                    
-                        if previousNode.isRightOf(self) {
-                            switch previousNode.rad! {
-                            case 0:
-                                position = CGPointMake(
-                                    previousNode.position.x - previousNode.width!/2 - width/2,
-                                    previousNode.position.y + previousNode.height!/2 - height/2)
-                            case PI/2:
-                                position = CGPointMake(
-                                    previousNode.position.x - previousNode.width!/2 - width/2,
-                                    previousNode.position.y - previousNode.height!/2 + height/2)
-                            default: break
-                            }
-                        } else {
-                            switch previousNode.rad! {
-                            case PI*3/2:
-                                position = CGPointMake(
-                                    previousNode.position.x + previousNode.width!/2 + width/2,
-                                    previousNode.position.y + previousNode.height!/2 - height/2)
-                            case PI:
-                                position = CGPointMake(
-                                    previousNode.position.x + previousNode.width!/2 + width/2,
-                                    previousNode.position.y - previousNode.height!/2 + height/2)
-                            default: break
-                            }
-                        }
-                    
-                }
-            } else if direction.down && direction.left {
-                rad = Rotation.DL
-                imageNamed = RoadType.Turn
-                width *= GameMapConfig.straightToTurnRatio
-                height *= GameMapConfig.straightToTurnRatio
-                if let previousNode = self.previousNode {
-                    
-                        if previousNode.isBelowOf(self) {
-                            position = CGPointMake(
-                                previousNode.position.x + previousNode.width!/2 - width/2,
-                                previousNode.position.y + previousNode.height!/2 + height/2)
-                        } else {
-                            position = CGPointMake(
-                                previousNode.position.x + previousNode.width!/2 + width/2,
-                                previousNode.position.y + previousNode.height!/2 - height/2)
-                        }
-                    
-                }
-            }
-        case 3:
-            imageNamed = RoadType.TJunction
-            if direction.up && direction.right && direction.down {
-                rad = PI
-            } else if direction.up && direction.right && direction.left {
-                rad = PI/2
-            } else if direction.up && direction.down && direction.left {
-                rad = 0
-            } else if direction.right && direction.down && direction.left {
-                rad = PI*3/2
-            }
-        case 4:
-            imageNamed = RoadType.Crossroads
-            rad  = 0
-        default: break
-        }
-        
-        self.imageNamed = imageNamed
-        self.width = width
-        self.height = height
-        self.rad = rad
-    }
-    
-    func determineDirection() -> Direction{
-        var direction = Direction()
-        for node in connectedNodes {
-            if node.isAboveOf(self) {
-                direction.up = true
-            } else if node.isRightOf(self) {
-                direction.right = true
-            } else if node.isBelowOf(self) {
-                direction.down = true
-            } else if node.isLeftOf(self) {
-                direction.left = true
-            }
-        }
-        return direction
-    }
+//    func evaluateRoadTile() {
+//        var rad: CGFloat = 0
+//        let PI = CGFloat(M_PI)
+//        
+//        switch connectedNodes.count {
+//        case 1:
+//            if direction.up {
+//                if let previousNode = self.previousNode {
+//                    if previousNode.imageNamed == RoadType.Turn {
+//                        switch previousNode.rad {
+//                        case Rotation.DR: // right & down
+//                            position = CGPointMake(
+//                                previousNode.position.x - previousNode.width/2 + width/2,
+//                                previousNode.position.y - previousNode.height/2 - height/2)
+//                        case Rotation.DL: // left & down
+//                            position = CGPointMake(
+//                                previousNode.position.x + previousNode.width/2 - width/2,
+//                                previousNode.position.y - previousNode.height/2 - height/2)
+//                        default: break
+//                        }
+//                    } else {
+//                        setNormalPosition()
+//                    }
+//                }
+//            } else if direction.right {
+//                if let previousNode = self.previousNode {
+//                    if previousNode.imageNamed == RoadType.Turn {
+//                        switch previousNode.rad {
+//                        case Rotation.DL:
+//                            position = CGPointMake(
+//                                previousNode.position.x - previousNode.width/2 - width/2,
+//                                previousNode.position.y + previousNode.height/2 - height/2)
+//                        case Rotation.UL:
+//                            position = CGPointMake(
+//                                previousNode.position.x - previousNode.width/2 - width/2,
+//                                previousNode.position.y - previousNode.height/2 + height/2)
+//                        default: break
+//                        }
+//                    } else {
+//                        setNormalPosition()
+//                    }
+//                }
+//            } else if direction.down {
+//                if let previousNode = self.previousNode {
+//                    if previousNode.imageNamed == RoadType.Turn {
+//                        switch previousNode.rad {
+//                        case Rotation.UR:
+//                            position = CGPointMake(
+//                                previousNode.position.x - previousNode.width/2 + width/2,
+//                                previousNode.position.y + previousNode.height/2 + height/2)
+//                        case Rotation.UL:
+//                            position = CGPointMake(
+//                                previousNode.position.x + previousNode.width/2 - width/2,
+//                                previousNode.position.y + previousNode.height/2 + height/2)
+//                        default: break
+//                        }
+//                    } else {
+//                        setNormalPosition()
+//                    }
+//                }
+//            } else if direction.left {
+//                if let previousNode = self.previousNode {
+//                    if previousNode.imageNamed == RoadType.Turn {
+//                        switch previousNode.rad {
+//                        case Rotation.UR:  // right & up
+//                            position = CGPointMake(
+//                                previousNode.position.x + previousNode.width/2 + width/2,
+//                                previousNode.position.y - previousNode.height/2 + height/2)
+//                        case Rotation.DR: // right & down
+//                            position = CGPointMake(
+//                                previousNode.position.x + previousNode.width/2 + width/2,
+//                                previousNode.position.y + previousNode.height/2 - height/2)
+//                        default: break
+//                        }
+//                    } else {
+//                        setNormalPosition()
+//                    }
+//                }
+//            }
+//            
+//        case 2:
+//            if direction.up && direction.right {
+//                if let previousNode = self.previousNode {
+//                    if previousNode.isAboveOf(self) {
+//                        position = CGPointMake(
+//                            previousNode.position.x - previousNode.width/2 + width/2,
+//                            previousNode.position.y - previousNode.height/2 - height/2)
+//                    } else {
+//                        position = CGPointMake(
+//                            previousNode.position.x - previousNode.width/2 - width/2,
+//                            previousNode.position.y - previousNode.height/2 + height/2)
+//                    }
+//                }
+//            } else if direction.up && direction.down {
+//                if let previousNode = self.previousNode {
+//                    if previousNode.imageNamed == RoadType.Turn {
+//                        if previousNode.isAboveOf(self) {
+//                            switch previousNode.rad {
+//                            case 0:
+//                                position = CGPointMake(
+//                                    previousNode.position.x + previousNode.width/2 - width/2,
+//                                    previousNode.position.y - previousNode.height/2 - height/2)
+//                            case PI*3/2:
+//                                position = CGPointMake(
+//                                    previousNode.position.x - previousNode.width/2 + width/2,
+//                                    previousNode.position.y - previousNode.height/2 - height/2)
+//                            default: break
+//                            }
+//                        } else {
+//                            switch previousNode.rad {
+//                            case PI:
+//                                position = CGPointMake(
+//                                    previousNode.position.x - previousNode.width/2 + width/2,
+//                                    previousNode.position.y + previousNode.height/2 + height/2)
+//                            case PI/2:
+//                                position = CGPointMake(
+//                                    previousNode.position.x + previousNode.width/2 - width/2,
+//                                    previousNode.position.y + previousNode.height/2 + height/2)
+//                            default: break
+//                            }
+//                        }
+//                    } else {
+//                        setNormalPosition()
+//                    }
+//                }
+//            } else if direction.up && direction.left {
+//                if let previousNode = self.previousNode {
+//                    
+//                    if previousNode.isAboveOf(self) {
+//                        position = CGPointMake(
+//                            previousNode.position.x + previousNode.width/2 - width/2,
+//                            previousNode.position.y - previousNode.height/2 - height/2)
+//                    } else {
+//                        position = CGPointMake(
+//                            previousNode.position.x + previousNode.width/2 + width/2,
+//                            previousNode.position.y - previousNode.height/2 + height/2)
+//                    }
+//                    
+//                }
+//            } else if direction.right && direction.down {
+//                if let previousNode = self.previousNode {
+//                    if previousNode.imageNamed != RoadType.Turn {
+//                        if previousNode.isRightOf(self) {
+//                            position = CGPointMake(
+//                                previousNode.position.x - previousNode.width/2 - width/2,
+//                                previousNode.position.y + previousNode.height/2 - height/2)
+//                        } else {
+//                            position = CGPointMake(
+//                                previousNode.position.x - previousNode.width/2 + width/2,
+//                                previousNode.position.y + previousNode.height/2 + height/2)
+//                        }
+//                    } else {
+//                        setNormalPosition()
+//                    }
+//                }
+//            } else if direction.right && direction.left {
+//                if let previousNode = self.previousNode {
+//                    
+//                        if previousNode.isRightOf(self) {
+//                            switch previousNode.rad {
+//                            case 0:
+//                                position = CGPointMake(
+//                                    previousNode.position.x - previousNode.width/2 - width/2,
+//                                    previousNode.position.y + previousNode.height/2 - height/2)
+//                            case PI/2:
+//                                position = CGPointMake(
+//                                    previousNode.position.x - previousNode.width/2 - width/2,
+//                                    previousNode.position.y - previousNode.height/2 + height/2)
+//                            default: break
+//                            }
+//                        } else {
+//                            switch previousNode.rad {
+//                            case PI*3/2:
+//                                position = CGPointMake(
+//                                    previousNode.position.x + previousNode.width/2 + width/2,
+//                                    previousNode.position.y + previousNode.height/2 - height/2)
+//                            case PI:
+//                                position = CGPointMake(
+//                                    previousNode.position.x + previousNode.width/2 + width/2,
+//                                    previousNode.position.y - previousNode.height/2 + height/2)
+//                            default: break
+//                            }
+//                        }
+//                    
+//                }
+//            } else if direction.down && direction.left {
+//                if let previousNode = self.previousNode {
+//                    
+//                        if previousNode.isBelowOf(self) {
+//                            position = CGPointMake(
+//                                previousNode.position.x + previousNode.width/2 - width/2,
+//                                previousNode.position.y + previousNode.height/2 + height/2)
+//                        } else {
+//                            position = CGPointMake(
+//                                previousNode.position.x + previousNode.width/2 + width/2,
+//                                previousNode.position.y + previousNode.height/2 - height/2)
+//                        }
+//                    
+//                }
+//            }
+//        case 3:
+//            if direction.up && direction.right && direction.down {
+//                rad = PI
+//            } else if direction.up && direction.right && direction.left {
+//                rad = PI/2
+//            } else if direction.up && direction.down && direction.left {
+//                rad = 0
+//            } else if direction.right && direction.down && direction.left {
+//                rad = PI*3/2
+//            }
+//        case 4:
+//            rad  = 0
+//        default: break
+//        }
+//    }
     
     func isAboveOf(node: Node) -> Bool {
         return self.coordinates.y > node.coordinates.y
