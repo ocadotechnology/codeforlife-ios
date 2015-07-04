@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 enum RoadType: String, Printable {
+    
     case Straight = "straight"
     case Turn = "turn"
     case DeadEnd = "dead_end"
@@ -19,6 +20,19 @@ enum RoadType: String, Printable {
     
     var description : String {
         return self.rawValue
+    }
+    
+    var offset : CGFloat {
+        switch self {
+        case .DeadEnd:
+            return GameMapConfig.Grid.height*(1-170/202)/2
+        case .Turn:
+            return GameMapConfig.Grid.height*(1-169/202)/2
+        case .TJunction:
+            return GameMapConfig.Grid.height*(1-170/202)/2
+        default: break
+        }
+        return 0
     }
     
 }
@@ -68,24 +82,6 @@ class Node: Equatable {
         }
     }
     
-    var width : CGFloat {
-        switch imageNamed {
-        case RoadType.Turn:
-            return GameMapConfig.Grid.width// * GameMapConfig.straightToTurnRatio
-        default:
-            return GameMapConfig.Grid.width
-        }
-    }
-    
-    var height : CGFloat {
-        switch imageNamed {
-        case RoadType.Turn:
-            return GameMapConfig.Grid.height// * GameMapConfig.straightToTurnRatio
-        default:
-            return GameMapConfig.Grid.height
-        }
-    }
-    
     struct Rotation {
         // Dead End
         static let U = CGFloat(M_PI)
@@ -122,7 +118,6 @@ class Node: Equatable {
             } else { // direction.left
                 return Rotation.L
             }
-            
         case 2:
             if direction.up && direction.right {
                 return Rotation.UR
@@ -147,8 +142,6 @@ class Node: Equatable {
             } else { // direction.right && direction.down && direction.left
                 return Rotation.DLR
             }
-        case 4:
-            return 0
         default:
             return 0
         }
@@ -161,39 +154,26 @@ class Node: Equatable {
     var direction = Direction()
     
     var position : CGPoint {
-        switch imageNamed {
-        case .DeadEnd:
-            if direction.up {
-                return  CGPointMake(
-                    CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
-                    CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.Grid.height*(1-170/202)/2)
-            } else if direction.right {
-                return CGPointMake(
-                    CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.Grid.height*(1-170/202)/2,
-                    CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
-                
-            } else if direction.down {
-                return CGPointMake(
-                    CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
-                    CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 - GameMapConfig.Grid.height*(1-170/202)/2)
-                
-            } else { // direction.left
-                return CGPointMake(
-                    CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 - GameMapConfig.Grid.height*(1-170/202)/2,
-                    CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
-            }
-        default: break
-        }
-        return CGPointMake(
+        var result = CGPointMake(
             CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
             CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
+        if direction.up {
+            result.y += imageNamed.offset
+        }
+        if direction.right {
+            result.x += imageNamed.offset
+        }
+        if direction.down {
+            result.y -= imageNamed.offset
+        }
+        if direction.left {
+            result.x -= imageNamed.offset
+        }
+        return result
     }
     
     init( _ coordinates: Coordinates) {
         self.coordinates = coordinates
-//        self.position = CGPointMake(
-//            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
-//            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
     }
     
     func addConnectedNode(node: Node) {
@@ -216,8 +196,6 @@ class Node: Equatable {
         }
         return nil
     }
-    
-
     
     func isAboveOf(node: Node) -> Bool {
         return self.coordinates.y > node.coordinates.y

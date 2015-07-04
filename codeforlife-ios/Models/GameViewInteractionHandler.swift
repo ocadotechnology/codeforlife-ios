@@ -67,17 +67,17 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                             gameViewController!.directDriveViewController!.enableDirectDrive()
                         case JSONTag.OnResume:
                             gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
-                        case JSONTag.PreGameMsg:
-                            gameViewController!.directDriveViewController!.enableDirectDrive()
-                            if let title = json[JSONIdentifier.Title].string {
-                                if let context = json[JSONIdentifier.Context].string {
-                                    if let controller = self.gameViewController!.gameMessageViewController {
-                                        controller.message = PreGameMessage(title: title, context: context,
-                                            action: controller.closeMenu)
-                                        controller.toggleMenu()
-                                    }
-                                }
-                            }
+//                        case JSONTag.PreGameMsg:
+//                            gameViewController!.directDriveViewController!.enableDirectDrive()
+//                            if let title = json[JSONIdentifier.Title].string {
+//                                if let context = json[JSONIdentifier.Context].string {
+//                                    if let controller = self.gameViewController!.gameMessageViewController {
+//                                        controller.message = PreGameMessage(title: title, context: context,
+//                                            action: controller.closeMenu)
+//                                        controller.toggleMenu()
+//                                    }
+//                                }
+//                            }
                         case JSONTag.WinWithNextLevel:
                             gameViewController!.directDriveViewController!.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {

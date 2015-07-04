@@ -59,8 +59,8 @@ class Turn: RoadTile {
     init() {
         super.init(
             imageNamed: "turn",
-            width: GameMapConfig.Grid.height * 169/202,
-            height: GameMapConfig.Grid.height * 169/202)
+            width: GameMapConfig.Grid.height * 170/202,
+            height: GameMapConfig.Grid.height * 170/202)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -72,7 +72,7 @@ class Crossroads: RoadTile {
     init() {
         super.init(
             imageNamed: "crossroads",
-            width: GameMapConfig.Grid.height*203/202,
+            width: GameMapConfig.Grid.height * 203/202,
             height: GameMapConfig.Grid.height)
     }
     

@@ -52,7 +52,7 @@ class Van: GameObject {
     
 
     
-    func moveForward(movement: CGFloat, duration: NSTimeInterval) {
+    func moveForward(movement: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
         var actionMove: SKAction
         switch direction {
             case .Left :
@@ -64,10 +64,10 @@ class Van: GameObject {
             case .Down:
                 actionMove = SKAction.moveBy(CGVector(dx: 0, dy: -movement), duration: duration)
         }
-        self.runAction(actionMove)
+        self.runAction(actionMove, completion: completion)
     }
     
-    func turnLeft(radius: CGFloat, duration: NSTimeInterval) {
+    func turnLeft(radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
         let actionRotate = SKAction.rotateByAngle(PI/2, duration: duration)
         var path: UIBezierPath
 
@@ -110,10 +110,10 @@ class Van: GameObject {
                                                 asOffset: true,
                                                 orientToPath: false,
                                                 duration: duration)
-        self.runAction(SKAction.group([actionRotate, actionMove]))
+        self.runAction(SKAction.group([actionRotate, actionMove]), completion: completion)
     }
     
-    func turnRight (radius: CGFloat, duration: NSTimeInterval) {
+    func turnRight (radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
         let actionRotate = SKAction.rotateByAngle(-PI/2, duration: duration)
         var path: UIBezierPath
         
@@ -156,7 +156,7 @@ class Van: GameObject {
             asOffset: true,
             orientToPath: false,
             duration: duration)
-        self.runAction(SKAction.group([actionRotate, actionMove]))
+        self.runAction(SKAction.group([actionRotate, actionMove]), completion: completion)
     }
     
 }

@@ -11,20 +11,18 @@ import SpriteKit
 
 class Map: SKScene {
     
-    let GRID_SPACE_SIZE: CGFloat = 60
-    
     var width: Int
     var height: Int
     var nodes = [Node]()
     var destinations = [Node]()
-    var player = Van.Builder(width: 20, height: 40, rad: 0).build()
+    var player = Van.Builder(width: GameMapConfig.Grid.width*38/202, height: GameMapConfig.Grid.width*38/202*510/264, rad: 0).build()
     
     init(width: Int, height: Int, size: CGSize) {
         self.width = width
         self.height = height
         super.init(size: CGSize(
-            width: GRID_SPACE_SIZE*CGFloat(width),
-            height: GRID_SPACE_SIZE*CGFloat(height)))
+            width: GameMapConfig.Grid.width*CGFloat(width),
+            height: GameMapConfig.Grid.height*CGFloat(height)))
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -38,19 +36,19 @@ class Map: SKScene {
     }
     
     func test1() {
-        nodes.append(Node(Coordinates(5,0)))
-        nodes.append(Node(Coordinates(5,1)))
-        nodes.append(Node(Coordinates(5,2)))
-//        nodes.append(Node(Coordinates(2,4)))
-//        nodes.append(Node(Coordinates(2,3)))
-//        nodes.append(Node(Coordinates(2,2)))
-//        nodes.append(Node(Coordinates(3,2)))
-//        nodes.append(Node(Coordinates(4,2)))
-//        nodes.append(Node(Coordinates(4,3)))
-//        nodes.append(Node(Coordinates(4,4)))
-//        nodes.append(Node(Coordinates(5,4)))
-//        nodes.append(Node(Coordinates(6,4)))
-//        nodes.append(Node(Coordinates(6,5)))
+        nodes.append(Node(Coordinates(0,5)))
+        nodes.append(Node(Coordinates(1,5)))
+        nodes.append(Node(Coordinates(2,5)))
+        nodes.append(Node(Coordinates(2,4)))
+        nodes.append(Node(Coordinates(2,3)))
+        nodes.append(Node(Coordinates(2,2)))
+        nodes.append(Node(Coordinates(3,2)))
+        nodes.append(Node(Coordinates(4,2)))
+        nodes.append(Node(Coordinates(4,3)))
+        nodes.append(Node(Coordinates(4,4)))
+        nodes.append(Node(Coordinates(5,4)))
+        nodes.append(Node(Coordinates(6,4)))
+        nodes.append(Node(Coordinates(6,5)))
         
         for index in 1 ..< nodes.count {
             nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
@@ -59,19 +57,31 @@ class Map: SKScene {
     
     func test2() {
         nodes.append(Node(Coordinates(8,5)))
-//        nodes.append(Node(Coordinates(7,5)))
-//        nodes.append(Node(Coordinates(7,4)))
-//        nodes.append(Node(Coordinates(7,3)))
-//        nodes.append(Node(Coordinates(6,3)))
-//        nodes.append(Node(Coordinates(5,3)))
-//        nodes.append(Node(Coordinates(5,4)))
-//        nodes.append(Node(Coordinates(5,5)))
-//        nodes.append(Node(Coordinates(4,5)))
-//        nodes.append(Node(Coordinates(3,5)))
+        nodes.append(Node(Coordinates(7,5)))
+        nodes.append(Node(Coordinates(7,4)))
+        nodes.append(Node(Coordinates(7,3)))
+        nodes.append(Node(Coordinates(6,3)))
+        nodes.append(Node(Coordinates(5,3)))
+        nodes.append(Node(Coordinates(5,4)))
+        nodes.append(Node(Coordinates(5,5)))
+        nodes.append(Node(Coordinates(4,5)))
+        nodes.append(Node(Coordinates(3,5)))
         
         for index in 1 ..< nodes.count {
             nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
         }
+    }
+    
+    func test3() {
+        
+        nodes.append(Node(Coordinates(5,5)))
+        nodes.append(Node(Coordinates(5,6)))
+        nodes.append(Node(Coordinates(5,7)))
+        nodes.append(Node(Coordinates(4,6)))
+        
+        nodes[0].addConnectedNodeWithBackLink(nodes[1])
+        nodes[1].addConnectedNodeWithBackLink(nodes[2])
+        nodes[1].addConnectedNodeWithBackLink(nodes[3])
     }
     
     func draw() {
@@ -80,10 +90,12 @@ class Map: SKScene {
             var roadTile = RoadTile.Builder(node: node).build()
             roadTile.position = node.position
             addChild(roadTile)
-            println((node.position, node.height, node.width))
+            println(node.position)
         }
         
-        player.position = CGPoint(x: frame.size.width*0.5, y: frame.size.height*0.5)
+        player.position = CGPointMake(
+        CGFloat(nodes[0].coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.Grid.height/2,
+        CGFloat(nodes[0].coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + player.width/2 + 1.5)
         addChild(player)
         player.rotate(CGFloat(M_PI/2))
 

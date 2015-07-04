@@ -124,7 +124,14 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func loadLevel(level: Level) {
-        FetchLevelAction(self).execute()
+        FetchLevelAction(self).execute {
+            if let controller = self.gameMessageViewController,
+                level = self.level {
+                controller.message = PreGameMessage(title: "Level \(level.name)", context: level.description!,
+                    action: controller.closeMenu)
+                controller.toggleMenu()
+            }
+        }
         GameViewCommandFactory.LoadLevelCommand(level).execute()
     }
     
