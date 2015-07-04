@@ -20,7 +20,7 @@ class GVLoadLevelCommand : GameViewCommand {
         var url = NSURL(string: urlStr);
         
         var request = NSURLRequest(URL: url!);
-        gameViewController.webView!.loadRequest(request)
+        gameViewController.webView?.loadRequest(request)
         gameViewController.callBack = response
     }
     

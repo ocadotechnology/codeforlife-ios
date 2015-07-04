@@ -30,12 +30,41 @@ class GameMapViewController: SubGameViewController {
         skView?.showsFPS = true
         skView?.showsNodeCount = true
         skView?.ignoresSiblingOrder = true
-        skView?.map = Map(width: 5, height: 5, size: frame.size)
+        let (origin, nodes, destinations) = test1()
+        skView?.map = Map(width: 5, height: 5, origin: origin, nodes: nodes, destination: destinations)
         skView?.map?.size = frame.size
         skView?.map!.scaleMode = .ResizeFill
         skView?.presentScene(skView?.map)
         skView?.map?.draw()
         
+    }
+    
+    func test1() -> (Origin, [Node], [Node]) {
+        var nodes = [Node]()
+        var origin = Origin(0, 5, Direction.E)
+        var destinations = [Node]()
+        
+        nodes.append(Node(Coordinates(0,5)))
+        nodes.append(Node(Coordinates(1,5)))
+        nodes.append(Node(Coordinates(2,5)))
+        nodes.append(Node(Coordinates(2,4)))
+        nodes.append(Node(Coordinates(2,3)))
+        nodes.append(Node(Coordinates(2,2)))
+        nodes.append(Node(Coordinates(3,2)))
+        nodes.append(Node(Coordinates(4,2)))
+        nodes.append(Node(Coordinates(4,3)))
+        nodes.append(Node(Coordinates(4,4)))
+        nodes.append(Node(Coordinates(5,4)))
+        nodes.append(Node(Coordinates(6,4)))
+        
+        var destination = Node(Coordinates(6,5))
+        destinations.append(destination)
+        nodes.append(destination)
+        
+        for index in 1 ..< nodes.count {
+            nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
+        }
+        return (origin, nodes, destinations)
     }
 
 }

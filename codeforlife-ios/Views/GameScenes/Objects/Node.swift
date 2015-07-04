@@ -9,40 +9,20 @@
 import UIKit
 import Foundation
 
-enum RoadType: String, Printable {
-    
-    case Straight = "straight"
-    case Turn = "turn"
-    case DeadEnd = "dead_end"
-    case TJunction = "t_junction"
-    case Crossroads = "crossroads"
-    case Error = "Error"
-    
-    var description : String {
-        return self.rawValue
-    }
-    
-    var offset : CGFloat {
-        switch self {
-        case .DeadEnd:
-            return GameMapConfig.Grid.height*(1-170/202)/2
-        case .Turn:
-            return GameMapConfig.Grid.height*(1-169/202)/2
-        case .TJunction:
-            return GameMapConfig.Grid.height*(1-170/202)/2
-        default: break
-        }
-        return 0
-    }
-    
-}
-
 class Node: Equatable {
+    
+    struct Direction {
+        
+        var up: Bool = false
+        var right: Bool = false
+        var down: Bool = false
+        var left: Bool = false
+        
+    }
     
     var coordinates: Coordinates
     
     var previousNode: Node?
-    
     
     var trafficLights = [TrafficLight]()
     

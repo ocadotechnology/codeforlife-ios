@@ -13,13 +13,17 @@ class Map: SKScene {
     
     var width: Int
     var height: Int
-    var nodes = [Node]()
-    var destinations = [Node]()
+    var nodes: [Node]
+    var origin: Origin
+    var destinations: [Node]
     var player = Van.Builder(width: GameMapConfig.Grid.width*38/202, height: GameMapConfig.Grid.width*38/202*510/264, rad: 0).build()
     
-    init(width: Int, height: Int, size: CGSize) {
+    init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Node]) {
         self.width = width
         self.height = height
+        self.nodes = nodes
+        self.origin = origin
+        self.destinations = destination
         super.init(size: CGSize(
             width: GameMapConfig.Grid.width*CGFloat(width),
             height: GameMapConfig.Grid.height*CGFloat(height)))
@@ -31,8 +35,6 @@ class Map: SKScene {
     
     override func didMoveToView(view: SKView) {
         backgroundColor = kC4LGameMapGrassColor
-        
-        test1()
     }
     
     func test1() {
@@ -90,12 +92,9 @@ class Map: SKScene {
             var roadTile = RoadTile.Builder(node: node).build()
             roadTile.position = node.position
             addChild(roadTile)
-            println(node.position)
         }
         
-        player.position = CGPointMake(
-        CGFloat(nodes[0].coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.Grid.height/2,
-        CGFloat(nodes[0].coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + player.width/2 + 1.5)
+        player.position = origin.initialPosition(player)
         addChild(player)
         player.rotate(CGFloat(M_PI/2))
 

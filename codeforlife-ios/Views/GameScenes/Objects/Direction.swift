@@ -8,11 +8,9 @@
 
 import Foundation
 
-struct Direction {
-    
-    var up: Bool = false
-    var right: Bool = false
-    var down: Bool = false
-    var left: Bool = false
-    
+enum Direction {
+    case N
+    case E
+    case S
+    case W
 }

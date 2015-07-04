@@ -18,19 +18,19 @@ class CargoController: VehicleController {
     }
     
     func moveForward() {
-        GameViewCommandFactory.MoveForwardCommand().execute()
+        CommandFactory.MoveForwardCommand().execute()
     }
     
     func turnLeft() {
-        GameViewCommandFactory.TurnLeftCommand().execute()
+        CommandFactory.TurnLeftCommand().execute()
     }
     
     func turnRight() {
-        GameViewCommandFactory.TurnRightCommand().execute()
+        CommandFactory.TurnRightCommand().execute()
     }
     
     func go() {
-        GameViewCommandFactory.PlayCommand().execute()
+        CommandFactory.PlayCommand().execute()
     }
     
 }

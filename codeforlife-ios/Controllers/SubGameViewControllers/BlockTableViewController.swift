@@ -52,7 +52,6 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.dataSource = self
         tableView.delegate = self
-        //tableView.setContentOffset(CGPointMake(0, tableView.contentSize.height - tableView.bounds.size.height), animated: true)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

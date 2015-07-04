@@ -40,10 +40,10 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if let result = message.body as? NSString {
-//            println(result)
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let tag = json[JSONIdentifier.Tag].string {
+                    println(tag)
                     switch tag {
                         case JSONTag.ResetBlocks:
                             gameViewController!.blockTableViewController!.clearBlocks()
@@ -67,17 +67,17 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                             gameViewController!.directDriveViewController!.enableDirectDrive()
                         case JSONTag.OnResume:
                             gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
-//                        case JSONTag.PreGameMsg:
-//                            gameViewController!.directDriveViewController!.enableDirectDrive()
-//                            if let title = json[JSONIdentifier.Title].string {
-//                                if let context = json[JSONIdentifier.Context].string {
-//                                    if let controller = self.gameViewController!.gameMessageViewController {
-//                                        controller.message = PreGameMessage(title: title, context: context,
-//                                            action: controller.closeMenu)
-//                                        controller.toggleMenu()
-//                                    }
-//                                }
-//                            }
+                        case JSONTag.PreGameMsg:
+                            gameViewController!.directDriveViewController!.enableDirectDrive()
+                            if let title = json[JSONIdentifier.Title].string {
+                                if let context = json[JSONIdentifier.Context].string {
+                                    if let controller = self.gameViewController!.gameMessageViewController {
+                                        controller.message = PreGameMessage(title: title, context: context,
+                                            action: controller.closeMenu)
+                                        controller.toggleMenu()
+                                    }
+                                }
+                            }
                         case JSONTag.WinWithNextLevel:
                             gameViewController!.directDriveViewController!.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {

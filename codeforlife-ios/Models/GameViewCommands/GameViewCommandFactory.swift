@@ -25,7 +25,7 @@ let turnRightJavaScript = "$('#turnRight').trigger('click');"
 let goJavaScript = "$('#play_radio').trigger('click');"
 
 
-class GameViewCommandFactory {
+class CommandFactory {
     
     static var gameViewController: GameViewController?
     

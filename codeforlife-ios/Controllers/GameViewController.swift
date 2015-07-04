@@ -55,7 +55,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGameViewController()
-        setupWebView()
+        //setupWebView()
         setupGameMapViewController()
         setupBlocklyTableViewController()
         setupGameMenuViewController()
@@ -67,7 +67,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupGameViewController() {
-        GameViewCommandFactory.gameViewController = self
+        CommandFactory.gameViewController = self
         handler.gameViewController = self
     }
     
@@ -132,11 +132,11 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
                 controller.toggleMenu()
             }
         }
-        GameViewCommandFactory.LoadLevelCommand(level).execute()
+        CommandFactory.LoadLevelCommand(level).execute()
     }
     
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {
-        webView!.evaluateJavaScript(javaScript) { ( _, _) in
+        webView?.evaluateJavaScript(javaScript) { ( _, _) in
             callback()
         }
     }

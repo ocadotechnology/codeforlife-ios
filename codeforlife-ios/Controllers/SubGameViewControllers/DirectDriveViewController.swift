@@ -23,7 +23,7 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     override var gameViewController: GameViewController? {
         didSet {
             controller = NativeCarController(gameViewController: gameViewController!)
-            //controller = CargoController(gameViewController: gameViewController!)
+//            controller = CargoController(gameViewController: gameViewController!)
         }
     }
     
@@ -36,12 +36,10 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     }
 
     @IBAction func moveForward() {
-        gameViewController?.blockTableViewController?.addBlock(Forward())
         controller!.moveForward()
     }
     
     @IBAction func turnLeft() {
-        gameViewController?.blockTableViewController?.addBlock(Left())
         controller!.turnLeft()
     }
     
@@ -50,7 +48,6 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     }
     
     @IBAction func turnRight() {
-        gameViewController?.blockTableViewController?.addBlock(Right())
         controller!.turnRight()
     }
     
