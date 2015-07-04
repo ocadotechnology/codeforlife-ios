@@ -12,6 +12,7 @@ import SpriteKit
 class GameMapViewController: SubGameViewController {
     
     var skView: GameMapView?
+    var map: Map?
     
     override var frame: CGRect {
         get {
@@ -30,13 +31,14 @@ class GameMapViewController: SubGameViewController {
         skView?.showsFPS = true
         skView?.showsNodeCount = true
         skView?.ignoresSiblingOrder = true
-        let (origin, nodes, destinations) = test1()
-        skView?.map = Map(width: 5, height: 5, origin: origin, nodes: nodes, destination: destinations)
-        skView?.map?.size = frame.size
-        skView?.map!.scaleMode = .ResizeFill
-        skView?.presentScene(skView?.map)
-        skView?.map?.draw()
         
+        let (origin, nodes, destinations) = test1()
+        map = Map(width: 5, height: 5, origin: origin, nodes: nodes, destination: destinations)
+        
+        map?.size = frame.size
+        map!.scaleMode = .ResizeFill
+        skView?.presentScene(map!)
+        map?.draw()
     }
     
     func test1() -> (Origin, [Node], [Node]) {

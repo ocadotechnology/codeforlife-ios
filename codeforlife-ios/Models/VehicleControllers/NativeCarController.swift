@@ -16,7 +16,7 @@ class NativeCarController: VehicleController {
     
     init(gameViewController: GameViewController) {
         self.gameViewController = gameViewController
-        car = gameViewController.gameMapViewController!.skView!.map!.player
+        car = gameViewController.gameMapViewController!.map!.player
     }
     
     func moveForward() {

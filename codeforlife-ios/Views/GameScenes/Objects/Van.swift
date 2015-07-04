@@ -50,8 +50,6 @@ class Van: GameObject {
         fatalError("init(coder:) has not been implemented")
     }
     
-
-    
     func moveForward(movement: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
         var actionMove: SKAction
         switch direction {

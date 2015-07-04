@@ -20,7 +20,6 @@ protocol GameMenuViewControllerDelegate {
 class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
     
     func clear() {
-        println("HI")
         CommandFactory.ClearCommand().execute()
     }
     
@@ -41,17 +40,14 @@ class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
 class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
  
     func clear() {
-        
+        CommandFactory.NativeClearCommand().execute {}
     }
     
     func play() {
     }
     
     func help() {
-//        gameViewController!.helpViewController!.message = HelpMessage(
-//            context: gameViewController!.level!.hint!,
-//            action: gameViewController!.helpViewController!.closeMenu)
-//        gameViewController!.helpViewController!.toggleMenu()
+        CommandFactory.NativeHelpCommand().execute {}
     }
     
     func muteSound() {

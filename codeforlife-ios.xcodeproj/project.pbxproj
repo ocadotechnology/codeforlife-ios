@@ -112,7 +112,7 @@
 		EDBB666F1B3AA06E009020A5 /* ActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06E1B3314C900A595EF /* ActionDelegate.swift */; };
 		EDBB66701B3AA06E009020A5 /* FetchLevelsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0701B331A2800A595EF /* FetchLevelsAction.swift */; };
 		EDBB66711B3AA072009020A5 /* FetchLevelsActionMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */; };
-		EDBB66731B3AA07A009020A5 /* GameViewCommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* GameViewCommandFactory.swift */; };
+		EDBB66731B3AA07A009020A5 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* CommandFactory.swift */; };
 		EDBB66741B3AA07A009020A5 /* GameViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EA31B341E9F00B63380 /* GameViewCommand.swift */; };
 		EDBB66751B3AA07A009020A5 /* GVJavaScriptCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */; };
 		EDBB66761B3AA07A009020A5 /* GVLoadLevelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */; };
@@ -135,7 +135,7 @@
 		EDBB669C1B3C1181009020A5 /* BlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66981B3C0B34009020A5 /* BlockTableViewCell.swift */; };
 		EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */; };
 		EDC8C1F31B36A25F004B1358 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */; };
-		EDC8C1F51B381213004B1358 /* GameViewCommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* GameViewCommandFactory.swift */; };
+		EDC8C1F51B381213004B1358 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* CommandFactory.swift */; };
 		EDDF0F0D1B416C4E00F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
 		EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */; };
 		EDDF0F121B416E4700F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
@@ -251,7 +251,7 @@
 		EDBB66981B3C0B34009020A5 /* BlockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableViewCell.swift; sourceTree = "<group>"; };
 		EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewButton.swift; sourceTree = "<group>"; };
 		EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
-		EDC8C1F41B381213004B1358 /* GameViewCommandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCommandFactory.swift; sourceTree = "<group>"; };
+		EDC8C1F41B381213004B1358 /* CommandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandFactory.swift; sourceTree = "<group>"; };
 		EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreGameMessageView.xib; sourceTree = "<group>"; };
 		EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessageView.swift; sourceTree = "<group>"; };
 		EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessage.swift; sourceTree = "<group>"; };
@@ -491,7 +491,7 @@
 		ED236EA11B341CF800B63380 /* GameViewCommands */ = {
 			isa = PBXGroup;
 			children = (
-				EDC8C1F41B381213004B1358 /* GameViewCommandFactory.swift */,
+				EDC8C1F41B381213004B1358 /* CommandFactory.swift */,
 				ED236EA31B341E9F00B63380 /* GameViewCommand.swift */,
 				ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */,
 				EF41E082E4588ED15570D506 /* GVLoadLevelCommand.swift */,
@@ -846,7 +846,7 @@
 				EDA47C4B1B453C1E003356AB /* Map.swift in Sources */,
 				ED6F79941B3D866F00DD2AFE /* Message.swift in Sources */,
 				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
-				EDC8C1F51B381213004B1358 /* GameViewCommandFactory.swift in Sources */,
+				EDC8C1F51B381213004B1358 /* CommandFactory.swift in Sources */,
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
 				ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */,
 				EDAEFBAD1B39934F003398EE /* VehicleController.swift in Sources */,
@@ -976,7 +976,7 @@
 				EDA47C461B442A1E003356AB /* GlobalConfig.swift in Sources */,
 				EDFE933B1B41808700E01322 /* ErrorMessage.swift in Sources */,
 				EDA47C431B442798003356AB /* LevelTableView.swift in Sources */,
-				EDBB66731B3AA07A009020A5 /* GameViewCommandFactory.swift in Sources */,
+				EDBB66731B3AA07A009020A5 /* CommandFactory.swift in Sources */,
 				EDA47C671B455B74003356AB /* NativeCarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

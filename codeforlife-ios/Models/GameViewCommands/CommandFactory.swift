@@ -82,9 +82,12 @@ class CommandFactory {
         return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: turnRightJavaScript)
     }
     
+    class func NativeHelpCommand() -> GameViewCommand {
+        return NGVHelpCommand(gameViewController: gameViewController!)
+    }
     
-    
-    
-    
+    class func NativeClearCommand() -> GameViewCommand {
+        return NGVClearCommand(gameViewController: gameViewController!)
+    }
     
 }

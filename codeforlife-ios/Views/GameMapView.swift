@@ -11,6 +11,4 @@ import Foundation
 
 class GameMapView: SKView {
     
-    var map: Map?
-    
 }

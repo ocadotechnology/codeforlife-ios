@@ -16,7 +16,7 @@ class Map: SKScene {
     var nodes: [Node]
     var origin: Origin
     var destinations: [Node]
-    var player = Van.Builder(width: GameMapConfig.Grid.width*38/202, height: GameMapConfig.Grid.width*38/202*510/264, rad: 0).build()
+    var player = Van.Builder(width: GameMapConfig.Grid.width*38/202, height: GameMapConfig.Grid.width*38/202*510/264, rad: CGFloat(M_PI/2)).build()
     
     init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Node]) {
         self.width = width
@@ -86,18 +86,17 @@ class Map: SKScene {
         nodes[1].addConnectedNodeWithBackLink(nodes[3])
     }
     
+    func resetVanPosition() {
+    }
+    
     func draw() {
-        
         for node in nodes {
             var roadTile = RoadTile.Builder(node: node).build()
             roadTile.position = node.position
             addChild(roadTile)
         }
-        
         player.position = origin.initialPosition(player)
         addChild(player)
-        player.rotate(CGFloat(M_PI/2))
-
     }
     
 }
