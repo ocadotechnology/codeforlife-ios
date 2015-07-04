@@ -38,19 +38,19 @@ class Map: SKScene {
     }
     
     func test1() {
-        nodes.append(Node(Coordinates(0,5)))
-        nodes.append(Node(Coordinates(1,5)))
-        nodes.append(Node(Coordinates(2,5)))
-        nodes.append(Node(Coordinates(2,4)))
-        nodes.append(Node(Coordinates(2,3)))
-        nodes.append(Node(Coordinates(2,2)))
-        nodes.append(Node(Coordinates(3,2)))
-        nodes.append(Node(Coordinates(4,2)))
-        nodes.append(Node(Coordinates(4,3)))
-        nodes.append(Node(Coordinates(4,4)))
-        nodes.append(Node(Coordinates(5,4)))
-        nodes.append(Node(Coordinates(6,4)))
-        nodes.append(Node(Coordinates(6,5)))
+        nodes.append(Node(Coordinates(5,0)))
+        nodes.append(Node(Coordinates(5,1)))
+        nodes.append(Node(Coordinates(5,2)))
+//        nodes.append(Node(Coordinates(2,4)))
+//        nodes.append(Node(Coordinates(2,3)))
+//        nodes.append(Node(Coordinates(2,2)))
+//        nodes.append(Node(Coordinates(3,2)))
+//        nodes.append(Node(Coordinates(4,2)))
+//        nodes.append(Node(Coordinates(4,3)))
+//        nodes.append(Node(Coordinates(4,4)))
+//        nodes.append(Node(Coordinates(5,4)))
+//        nodes.append(Node(Coordinates(6,4)))
+//        nodes.append(Node(Coordinates(6,5)))
         
         for index in 1 ..< nodes.count {
             nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
@@ -78,10 +78,8 @@ class Map: SKScene {
         
         for node in nodes {
             var roadTile = RoadTile.Builder(node: node).build()
-            roadTile?.position = node.position
-            if roadTile != nil {
-                addChild(roadTile!)
-            }
+            roadTile.position = node.position
+            addChild(roadTile)
             println((node.position, node.height, node.width))
         }
         

@@ -14,7 +14,7 @@ class RoadTile: GameObject {
     
     class Builder {
         
-        private var imageNamed: String
+        private var imageNamed: RoadType
         private var rad: CGFloat
         
         init(node: Node) {
@@ -22,21 +22,21 @@ class RoadTile: GameObject {
             self.rad = node.rad
         }
         
-        func build() -> RoadTile? {
+        func build() -> RoadTile {
             switch imageNamed {
-                case "straight":
-                    return Straight().createWithRotation(rad) as? RoadTile
-            case "turn":
-                return Turn().createWithRotation(rad) as? RoadTile
-            case "crossroads":
-                return Crossroads().createWithRotation(rad) as? RoadTile
-            case "dead_end":
-                return DeadEnd().createWithRotation(rad) as? RoadTile
-            case "t_junction":
-                return TJunction().createWithRotation(rad) as? RoadTile
-            default: break;
+            case RoadType.Straight:
+                return Straight().createWithRotation(rad) as! RoadTile
+            case RoadType.Turn:
+                return Turn().createWithRotation(rad) as! RoadTile
+            case RoadType.Crossroads:
+                return Crossroads().createWithRotation(rad) as! RoadTile
+            case RoadType.DeadEnd:
+                return DeadEnd().createWithRotation(rad) as! RoadTile
+            case RoadType.TJunction:
+                return TJunction().createWithRotation(rad) as! RoadTile
+            default:
+                return Error().createWithRotation(rad) as! RoadTile
             }
-            return nil
         }
         
     }
