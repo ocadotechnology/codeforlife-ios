@@ -10,13 +10,6 @@ import Foundation
 
 class CargoController: VehicleController {
     
-    
-    var gameViewController: GameViewController
-    
-    init(gameViewController: GameViewController) {
-        self.gameViewController = gameViewController
-    }
-    
     func moveForward() {
         CommandFactory.MoveForwardCommand().execute()
     }

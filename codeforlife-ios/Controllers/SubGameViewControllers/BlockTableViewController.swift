@@ -21,8 +21,8 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         return CGRect(
             x: frameOffset,
             y: frameOffset,
-            width: self.gameViewController!.view.frame.width*(1-self.gameViewController!.webViewPortion) - 2*frameOffset,
-            height: self.gameViewController!.view.frame.height - 2*frameOffset - bottomOffset)
+            width: StaticContext.MainGameViewController!.view.frame.width*(1-StaticContext.MainGameViewController!.webViewPortion) - 2*frameOffset,
+            height: StaticContext.MainGameViewController!.view.frame.height - 2*frameOffset - bottomOffset)
     }
     
     var blocks: [Block] = [Start()] {

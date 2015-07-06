@@ -41,7 +41,7 @@ class GameMenuViewController: SubGameViewController {
     
     var gameMenuFrame: CGSize {
         return CGSize(
-            width: self.gameViewController!.view.frame.width*(1-self.gameViewController!.webViewPortion) - 2*frameOffset,
+            width: StaticContext.MainGameViewController!.view.frame.width*(1-StaticContext.MainGameViewController!.webViewPortion) - 2*frameOffset,
             height: frameHeight)
     }
     
@@ -54,7 +54,7 @@ class GameMenuViewController: SubGameViewController {
     var hidePosition : CGPoint {
         return CGPointMake(
             self.gameMenuFrame.width/2 + frameOffset,
-            self.gameViewController!.view.frame.height + gameMenuFrame.height/2 - menuOffset)
+            StaticContext.MainGameViewController!.view.frame.height + gameMenuFrame.height/2 - menuOffset)
     }
     
     override var frame: CGRect {

@@ -67,7 +67,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupGameViewController() {
-        CommandFactory.gameViewController = self
+        StaticContext.MainGameViewController = self
         handler.gameViewController = self
     }
     
@@ -143,7 +143,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
 
     private func setupController(controller: SubGameViewController) {
-        controller.gameViewController = self
         addChildViewController(controller)
         view.addSubview(controller.view)
         controller.didMoveToParentViewController(self)

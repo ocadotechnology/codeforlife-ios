@@ -10,8 +10,6 @@ import UIKit
 
 class SubGameViewController: UIViewController {
     
-    var gameViewController: GameViewController?
-    
     var frame: CGRect {
         get {
             return CGRect(x: 0, y: 0, width: 0, height: 0)

@@ -11,12 +11,6 @@ import Foundation
 
 class NativeCarController: VehicleController {
     
-    var gameViewController: GameViewController
-    
-    init(gameViewController: GameViewController) {
-        self.gameViewController = gameViewController
-    }
-    
     func moveForward() {
         CommandFactory.NativeAddBlockCommand(Forward()).execute()
         CommandFactory.NativeMoveForwardCommand().execute()

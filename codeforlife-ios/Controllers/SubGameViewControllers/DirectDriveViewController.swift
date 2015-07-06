@@ -18,37 +18,30 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     @IBOutlet weak var leftButton: DirectDriveButton!
     @IBOutlet weak var rightButton: DirectDriveButton!
     
-    var controller: VehicleController?
-    
-    override var gameViewController: GameViewController? {
-        didSet {
-            controller = NativeCarController(gameViewController: gameViewController!)
-//            controller = CargoController(gameViewController: gameViewController!)
-        }
-    }
+    var controller: VehicleController = NativeCarController()
     
     override var frame: CGRect {
         return CGRect(
-            x: self.gameViewController!.view.frame.width - directDriveFrame.width - frameOffset,
-            y: self.gameViewController!.view.frame.height - directDriveFrame.height - frameOffset,
+            x: StaticContext.MainGameViewController!.view.frame.width - directDriveFrame.width - frameOffset,
+            y: StaticContext.MainGameViewController!.view.frame.height - directDriveFrame.height - frameOffset,
             width: directDriveFrame.width,
             height: directDriveFrame.height)
     }
 
     @IBAction func moveForward() {
-        controller!.moveForward()
+        controller.moveForward()
     }
     
     @IBAction func turnLeft() {
-        controller!.turnLeft()
+        controller.turnLeft()
     }
     
     @IBAction func go() {
-        controller!.go()
+        controller.go()
     }
     
     @IBAction func turnRight() {
-        controller!.turnRight()
+        controller.turnRight()
     }
     
     func disableDirectDrive() {
