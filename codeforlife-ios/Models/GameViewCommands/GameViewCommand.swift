@@ -10,7 +10,8 @@ import Foundation
 import WebKit
 
 protocol Command {
-    func execute(completion: () -> Void)
+    func execute()
+    func executeWithCompletionHandler(completion: () -> Void)
 }
 
 class GameViewCommand : Command {
@@ -21,24 +22,35 @@ class GameViewCommand : Command {
         self.gameViewController = gameViewController
     }
     
-    func execute(response: () -> Void) {
-        fatalError("Absract GameViewCommand method called")
+    func execute() {
+        executeWithCompletionHandler{}
+    }
+    
+    func executeWithCompletionHandler(completion: () -> Void) {
+        completion()
+        fatalError("Abstract GameViewCommand method called")
+    }
+
+}
+
+class GVLoadLevelCommand : GameViewCommand {
+    
+    var level: Level?
+    
+    init(level: Level, gameViewController: GameViewController) {
+        super.init(gameViewController: gameViewController)
+        self.level = level
+    }
+    
+    override func executeWithCompletionHandler(response:() -> Void) {
+        var urlStr = level!.webViewUrl;
+        var url = NSURL(string: urlStr);
+        
+        var request = NSURLRequest(URL: url!);
+        gameViewController.webView?.loadRequest(request)
+        gameViewController.callBack = response
     }
     
 }
 
-class NGVHelpCommand : GameViewCommand {
-    override func execute(completion: () -> Void) {
-        gameViewController.helpViewController!.message = HelpMessage(
-            context: gameViewController.level!.hint!,
-            action: gameViewController.helpViewController!.closeMenu)
-        gameViewController.helpViewController!.toggleMenu()
-    }
-}
 
-class NGVClearCommand: GameViewCommand {
-    override func execute(completion: () -> Void) {
-        gameViewController.blockTableViewController?.clearBlocks()
-        gameViewController.gameMapViewController?.map?.resetVanPosition()
-    }
-}

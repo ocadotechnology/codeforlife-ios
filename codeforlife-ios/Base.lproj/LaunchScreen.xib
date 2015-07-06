@@ -9,10 +9,24 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RapidRouter_logo_w_BG" translatesAutoresizingMaskIntoConstraints="NO" id="JmS-dR-PXA">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="JmS-dR-PXA" secondAttribute="bottom" id="0DA-cg-V4N"/>
+                <constraint firstItem="JmS-dR-PXA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gpN-0d-F3b"/>
+                <constraint firstAttribute="trailing" secondItem="JmS-dR-PXA" secondAttribute="trailing" id="ktY-7G-D0s"/>
+                <constraint firstItem="JmS-dR-PXA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wXX-3Y-a1c"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="RapidRouter_logo_w_BG" width="841" height="596"/>
+    </resources>
 </document>

@@ -43,7 +43,7 @@ class GameMapViewController: SubGameViewController {
     
     func test1() -> (Origin, [Node], [Node]) {
         var nodes = [Node]()
-        var origin = Origin(0, 5, Direction.E)
+        var origin = Origin(0, 5, CompassDirection.E)
         var destinations = [Node]()
         
         nodes.append(Node(Coordinates(0,5)))

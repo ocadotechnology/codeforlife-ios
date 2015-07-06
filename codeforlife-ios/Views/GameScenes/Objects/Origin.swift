@@ -12,11 +12,11 @@ import Foundation
 struct Origin {
     
     var coordinates: Coordinates
-    var direction: Direction
+    var compassDirection: CompassDirection
     
-    init(_ x: Int, _ y: Int, _ direction: Direction) {
+    init(_ x: Int, _ y: Int, _ compassDirection: CompassDirection) {
         self.coordinates = Coordinates(x, y)
-        self.direction = direction
+        self.compassDirection = compassDirection
     }
     
     func initialPosition(object: GameObject) -> CGPoint {

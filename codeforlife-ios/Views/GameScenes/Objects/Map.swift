@@ -16,7 +16,7 @@ class Map: SKScene {
     var nodes: [Node]
     var origin: Origin
     var destinations: [Node]
-    var player = Van.Builder(width: GameMapConfig.Grid.width*38/202, height: GameMapConfig.Grid.width*38/202*510/264, rad: CGFloat(M_PI/2)).build()
+    var player: Van
     
     init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Node]) {
         self.width = width
@@ -24,6 +24,7 @@ class Map: SKScene {
         self.nodes = nodes
         self.origin = origin
         self.destinations = destination
+        self.player = Van.createWithOrigin(origin)
         super.init(size: CGSize(
             width: GameMapConfig.Grid.width*CGFloat(width),
             height: GameMapConfig.Grid.height*CGFloat(height)))
@@ -95,7 +96,6 @@ class Map: SKScene {
             roadTile.position = node.position
             addChild(roadTile)
         }
-        player.position = origin.initialPosition(player)
         addChild(player)
     }
     

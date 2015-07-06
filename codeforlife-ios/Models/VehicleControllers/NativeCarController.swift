@@ -20,24 +20,24 @@ class NativeCarController: VehicleController {
     }
     
     func moveForward() {
-        gameViewController.blockTableViewController?.addBlock(Forward())
-        gameViewController.directDriveViewController?.disableDirectDrive()
+        CommandFactory.NativeAddBlockCommand(Forward()).execute()
+        CommandFactory.NativeDisableDirectDriveCommand().execute()
         car.moveForward(GameMapConfig.Grid.height, duration: 0.5) {
-            gameViewController.directDriveViewController?.enableDirectDrive()
+            CommandFactory.NativeEnableDirectDriveCommand().execute()
         }
     }
     
     func turnLeft() {
-        gameViewController.blockTableViewController?.addBlock(Left())
-        gameViewController.directDriveViewController?.disableDirectDrive()
+        CommandFactory.NativeAddBlockCommand(Left()).execute()
+        CommandFactory.NativeDisableDirectDriveCommand().execute()
         car.turnLeft(GameMapConfig.Grid.height*(33+24+22)/202, duration: 0.7) {
             gameViewController.directDriveViewController?.enableDirectDrive()
         }
     }
     
     func turnRight() {
-        gameViewController.blockTableViewController?.addBlock(Right())
-        gameViewController.directDriveViewController?.disableDirectDrive()
+        CommandFactory.NativeAddBlockCommand(Right()).execute()
+        CommandFactory.NativeDisableDirectDriveCommand().execute()
         car.turnRight(GameMapConfig.Grid.height*(33+24+44+22)/202, duration: 0.7) {
             gameViewController.directDriveViewController?.enableDirectDrive()
         }

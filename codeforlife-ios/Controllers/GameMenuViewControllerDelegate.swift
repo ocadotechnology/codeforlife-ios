@@ -40,14 +40,16 @@ class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
 class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
  
     func clear() {
-        CommandFactory.NativeClearCommand().execute {}
+        CommandFactory.NativeClearCommand().execute()
     }
     
     func play() {
+        clear()
+        
     }
     
     func help() {
-        CommandFactory.NativeHelpCommand().execute {}
+        CommandFactory.NativeHelpCommand().execute()
     }
     
     func muteSound() {

@@ -67,7 +67,6 @@ class CommandFactory {
     
     class func LoadLevelCommand(level: Level, gameViewController: GameViewController = gameViewController!) -> GVLoadLevelCommand {
         return GVLoadLevelCommand(level: level, gameViewController: gameViewController)
-        
     }
     
     class func MoveForwardCommand() -> GVJavaScriptCommand {
@@ -88,6 +87,18 @@ class CommandFactory {
     
     class func NativeClearCommand() -> GameViewCommand {
         return NGVClearCommand(gameViewController: gameViewController!)
+    }
+    
+    class func NativeDisableDirectDriveCommand() -> GameViewCommand {
+        return NGVDisableDirectDriveCommand(gameViewController: gameViewController!)
+    }
+    
+    class func NativeEnableDirectDriveCommand() -> GameViewCommand {
+        return NGVEnableDirectDriveCommand(gameViewController: gameViewController!)
+    }
+    
+    class func NativeAddBlockCommand(block: Block) -> GameViewCommand {
+        return NGVAddBlockCommand(gameViewController: gameViewController!, block: block)
     }
     
 }

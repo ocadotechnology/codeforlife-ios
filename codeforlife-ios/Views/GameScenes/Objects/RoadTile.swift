@@ -43,10 +43,11 @@ class RoadTile: GameObject {
 }
 
 class Straight: RoadTile {
+    
     init() {
         super.init(
             imageNamed: "straight",
-            width: GameMapConfig.Grid.height*138/202,
+            width: GameMapConfig.Grid.height * 138/202,
             height: GameMapConfig.Grid.height)
     }
 
@@ -56,6 +57,7 @@ class Straight: RoadTile {
 }
 
 class Turn: RoadTile {
+    
     init() {
         super.init(
             imageNamed: "turn",
@@ -85,8 +87,8 @@ class TJunction: RoadTile {
     init() {
         super.init(
             imageNamed: "t_junction",
-            width: GameMapConfig.Grid.width*170/202,
-            height: GameMapConfig.Grid.height*203/202)
+            width: GameMapConfig.Grid.width * 170/202,
+            height: GameMapConfig.Grid.height * 203/202)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -98,8 +100,8 @@ class DeadEnd: RoadTile {
     init() {
         super.init(
             imageNamed: "dead_end",
-            width: GameMapConfig.Grid.width*138/202,
-            height: GameMapConfig.Grid.height*170/202)
+            width: GameMapConfig.Grid.width * 138/202,
+            height: GameMapConfig.Grid.height * 170/202)
     }
     
     required init(coder aDecoder: NSCoder) {
