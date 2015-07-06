@@ -101,4 +101,20 @@ class CommandFactory {
         return NGVAddBlockCommand(gameViewController: gameViewController!, block: block)
     }
     
+    class func NativePlayCommand() -> GameViewCommand {
+        return NGVPlayCommand(gameViewController: gameViewController!)
+    }
+    
+    class func NativeMoveForwardCommand() -> GameMapCommand {
+        return NGVMoveForwardCommand(gameViewController: gameViewController!)
+    }
+    
+    class func NativeTurnLeftCommand() -> GameMapCommand {
+        return NGVTurnLeftCommand(gameViewController: gameViewController!)
+    }
+    
+    class func NativeTurnRightCommand() -> GameMapCommand {
+        return NGVTurnRightCommand(gameViewController: gameViewController!)
+    }
+    
 }

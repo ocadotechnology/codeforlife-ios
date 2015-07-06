@@ -38,6 +38,7 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     }
     
     func addBlock(newBlock: Block) {
+        blocks.last?.nextBlock = newBlock
         blocks.append(newBlock)
     }
     

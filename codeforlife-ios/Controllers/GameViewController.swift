@@ -129,6 +129,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
                 level = self.level {
                 controller.message = PreGameMessage(title: "Level \(level.name)", context: level.description!,
                     action: controller.closeMenu)
+                self.gameMapViewController?.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: [Node]())
                 controller.toggleMenu()
             }
         }

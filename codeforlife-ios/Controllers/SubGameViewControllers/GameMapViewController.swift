@@ -12,7 +12,15 @@ import SpriteKit
 class GameMapViewController: SubGameViewController {
     
     var skView: GameMapView?
-    var map: Map?
+    var map: Map? {
+        didSet {
+            map?.removeAllChildren()
+            map?.size = frame.size
+            map!.scaleMode = .ResizeFill
+            skView?.presentScene(map!)
+            map?.draw()
+        }
+    }
     
     override var frame: CGRect {
         get {
@@ -32,13 +40,10 @@ class GameMapViewController: SubGameViewController {
         skView?.showsNodeCount = true
         skView?.ignoresSiblingOrder = true
         
-        let (origin, nodes, destinations) = test1()
-        map = Map(width: 5, height: 5, origin: origin, nodes: nodes, destination: destinations)
+//        let (origin, nodes, destinations) = test3()
+//        map = Map(width: 5, height: 5, origin: origin, nodes: nodes, destination: destinations)
         
-        map?.size = frame.size
-        map!.scaleMode = .ResizeFill
-        skView?.presentScene(map!)
-        map?.draw()
+
     }
     
     func test1() -> (Origin, [Node], [Node]) {
@@ -60,6 +65,52 @@ class GameMapViewController: SubGameViewController {
         nodes.append(Node(Coordinates(6,4)))
         
         var destination = Node(Coordinates(6,5))
+        destinations.append(destination)
+        nodes.append(destination)
+        
+        for index in 1 ..< nodes.count {
+            nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
+        }
+        return (origin, nodes, destinations)
+    }
+    
+    func test2() -> (Origin, [Node], [Node]) {
+        var nodes = [Node]()
+        var origin = Origin(0, 4, CompassDirection.N)
+        var destinations = [Node]()
+        
+        nodes.append(Node(Coordinates(0,4)))
+        nodes.append(Node(Coordinates(0,5)))
+        nodes.append(Node(Coordinates(0,6)))
+        nodes.append(Node(Coordinates(1,6)))
+        nodes.append(Node(Coordinates(2,6)))
+        nodes.append(Node(Coordinates(3,6)))
+        nodes.append(Node(Coordinates(3,5)))
+        
+        var destination = Node(Coordinates(3,4))
+        destinations.append(destination)
+        nodes.append(destination)
+        
+        for index in 1 ..< nodes.count {
+            nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
+        }
+        return (origin, nodes, destinations)
+    }
+    
+    func test3() -> (Origin, [Node], [Node]) {
+        var nodes = [Node]()
+        var origin = Origin(0, 4, CompassDirection.S)
+        var destinations = [Node]()
+        
+        nodes.append(Node(Coordinates(0,4)))
+        nodes.append(Node(Coordinates(0,3)))
+        nodes.append(Node(Coordinates(0,2)))
+        nodes.append(Node(Coordinates(1,2)))
+        nodes.append(Node(Coordinates(2,2)))
+        nodes.append(Node(Coordinates(3,2)))
+        nodes.append(Node(Coordinates(3,3)))
+        
+        var destination = Node(Coordinates(3,4))
         destinations.append(destination)
         nodes.append(destination)
         

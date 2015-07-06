@@ -24,7 +24,7 @@ class Map: SKScene {
         self.nodes = nodes
         self.origin = origin
         self.destinations = destination
-        self.player = Van.createWithOrigin(origin)
+        self.player = Van(origin: origin)
         super.init(size: CGSize(
             width: GameMapConfig.Grid.width*CGFloat(width),
             height: GameMapConfig.Grid.height*CGFloat(height)))
@@ -87,15 +87,19 @@ class Map: SKScene {
         nodes[1].addConnectedNodeWithBackLink(nodes[3])
     }
     
-    func resetVanPosition() {
-    }
-    
     func draw() {
+        self.removeAllChildren()
         for node in nodes {
             var roadTile = RoadTile.Builder(node: node).build()
             roadTile.position = node.position
             addChild(roadTile)
+            if node.isDestination {
+                //TODO
+            }
         }
+        
+        var cfc = CFC(origin: origin)
+        addChild(cfc)
         addChild(player)
     }
     

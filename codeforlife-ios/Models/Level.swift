@@ -12,7 +12,7 @@ class Level {
     var url: String
     var description: String?
     var hint: String?
-    var origin: Node?
+    var origin: Origin?
     var path = [Node]()
     var destinations = [Node]()
     var blocklyEnabled: Bool?

@@ -48,7 +48,7 @@ class Straight: RoadTile {
         super.init(
             imageNamed: "straight",
             width: GameMapConfig.Grid.height * 138/202,
-            height: GameMapConfig.Grid.height)
+            height: GameMapConfig.Grid.height * 207/202)
     }
 
     required init(coder aDecoder: NSCoder) {

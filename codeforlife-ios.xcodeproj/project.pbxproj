@@ -56,6 +56,10 @@
 		ED222FC11B4A77EA006E525A /* MovableGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */; };
 		ED222FC31B4A8D99006E525A /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC21B4A8D99006E525A /* CompassDirection.swift */; };
 		ED222FC41B4A8D99006E525A /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC21B4A8D99006E525A /* CompassDirection.swift */; };
+		ED222FC61B4A8FD1006E525A /* GameMapCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC51B4A8FD1006E525A /* GameMapCommand.swift */; };
+		ED222FC71B4A8FD1006E525A /* GameMapCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC51B4A8FD1006E525A /* GameMapCommand.swift */; };
+		ED222FCA1B4AABCB006E525A /* CFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC91B4AABCB006E525A /* CFC.swift */; };
+		ED222FCB1B4AABCB006E525A /* CFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC91B4AABCB006E525A /* CFC.swift */; };
 		ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */; };
 		ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EA31B341E9F00B63380 /* GameViewCommand.swift */; };
 		ED5721B81B47E7680011F465 /* RoadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5721B71B47E7680011F465 /* RoadType.swift */; };
@@ -223,6 +227,8 @@
 		ED222FBC1B4A7133006E525A /* BlocklyCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyCommand.swift; sourceTree = "<group>"; };
 		ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovableGameObject.swift; sourceTree = "<group>"; };
 		ED222FC21B4A8D99006E525A /* CompassDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompassDirection.swift; path = Objects/CompassDirection.swift; sourceTree = "<group>"; };
+		ED222FC51B4A8FD1006E525A /* GameMapCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapCommand.swift; sourceTree = "<group>"; };
+		ED222FC91B4AABCB006E525A /* CFC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFC.swift; sourceTree = "<group>"; };
 		ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GVJavaScriptCommand.swift; path = "codeforlife-ios/Models/GameViewCommands/GVJavaScriptCommand.swift"; sourceTree = SOURCE_ROOT; };
 		ED236EA31B341E9F00B63380 /* GameViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCommand.swift; sourceTree = "<group>"; };
 		ED5721B71B47E7680011F465 /* RoadType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadType.swift; sourceTree = "<group>"; };
@@ -423,6 +429,7 @@
 				ED5721B71B47E7680011F465 /* RoadType.swift */,
 				ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */,
 				ED1A93361B42AE81004E6AD4 /* Van.swift */,
+				ED222FC91B4AABCB006E525A /* CFC.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -514,6 +521,7 @@
 				ED222FB31B4A6C13006E525A /* DirectDriveCommand.swift */,
 				ED222FB61B4A70BF006E525A /* GameMenuCommand.swift */,
 				ED222FBC1B4A7133006E525A /* BlocklyCommand.swift */,
+				ED222FC51B4A8FD1006E525A /* GameMapCommand.swift */,
 			);
 			name = Commands;
 			path = GameViewCommands;
@@ -891,6 +899,7 @@
 				EDBB66901B3B009C009020A5 /* GameMenuViewController.swift in Sources */,
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				ED222FC31B4A8D99006E525A /* CompassDirection.swift in Sources */,
+				ED222FC61B4A8FD1006E525A /* GameMapCommand.swift in Sources */,
 				EDA47C611B4556FB003356AB /* NativeCarController.swift in Sources */,
 				ED222FB41B4A6C13006E525A /* DirectDriveCommand.swift in Sources */,
 				ED7799D11B469E6500A854A3 /* Direction.swift in Sources */,
@@ -911,6 +920,7 @@
 				EDBB66951B3C0977009020A5 /* Block.swift in Sources */,
 				EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */,
 				EDFE93491B41826A00E01322 /* PostGameMessage.swift in Sources */,
+				ED222FCA1B4AABCB006E525A /* CFC.swift in Sources */,
 				ED5721B81B47E7680011F465 /* RoadType.swift in Sources */,
 				ED222FC01B4A77EA006E525A /* MovableGameObject.swift in Sources */,
 				EDBB668D1B3AEEFC009020A5 /* DirectDriveViewController.swift in Sources */,
@@ -950,6 +960,7 @@
 				ED1A932D1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
 				ED5721C51B4854870011F465 /* FetchLevelActionMockDelegate.swift in Sources */,
 				EDA47C491B443225003356AB /* LevelTitleLabel.swift in Sources */,
+				ED222FC71B4A8FD1006E525A /* GameMapCommand.swift in Sources */,
 				EDBB66821B3AB36C009020A5 /* GameViewControllerTests.swift in Sources */,
 				EDBB66711B3AA072009020A5 /* FetchLevelsActionMockDelegate.swift in Sources */,
 				EDBB667A1B3AA07E009020A5 /* GameViewInteractionHandler.swift in Sources */,
@@ -982,6 +993,7 @@
 				EDA47C401B442411003356AB /* LevelBackButton.swift in Sources */,
 				ED222FC11B4A77EA006E525A /* MovableGameObject.swift in Sources */,
 				ED7799C91B468ADC00A854A3 /* GameObject.swift in Sources */,
+				ED222FCB1B4AABCB006E525A /* CFC.swift in Sources */,
 				ED1A93271B428A36004E6AD4 /* BlockTableView.swift in Sources */,
 				EDBB668E1B3AF135009020A5 /* DirectDriveViewController.swift in Sources */,
 				EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */,

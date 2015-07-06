@@ -20,6 +20,8 @@ class Node: Equatable {
         
     }
     
+    var isDestination = false
+    
     var coordinates: Coordinates
     
     var previousNode: Node?
@@ -135,8 +137,8 @@ class Node: Equatable {
     
     var position : CGPoint {
         var result = CGPointMake(
-            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
-            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
+            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
+            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
         if direction.up {
             result.y += imageNamed.offset
         }
@@ -157,13 +159,13 @@ class Node: Equatable {
     }
     
     func addConnectedNode(node: Node) {
+        if node.previousNode == nil {
+            node.previousNode = self
+        }
         connectedNodes.append(node)
     }
     
     func addConnectedNodeWithBackLink(node: Node) {
-        if node.previousNode == nil {
-            node.previousNode = self
-        }
         self.addConnectedNode(node)
         node.addConnectedNode(self)
     }

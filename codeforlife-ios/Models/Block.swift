@@ -10,11 +10,22 @@ import UIKit
 import Foundation
 
 class Block {
+    var nextBlock: Block?
     var description: String
     var color: UIColor
     init(description: String, color: UIColor) {
         self.description = description
         self.color = color
+    }
+    
+    func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
+        completion?()
+    }
+    
+    func executeBlockChainAction(player: MovableGameObject) {
+        self.executeBlockAction(player) {
+            self.nextBlock?.executeBlockChainAction(player)
+        }
     }
 }
 
@@ -32,6 +43,10 @@ class Forward: Block {
             description: "Move Forward",
             color: UIColor.whiteColor())
     }
+    
+    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
+        player.moveForward(completion)
+    }
 }
 
 class Left: Block {
@@ -40,6 +55,10 @@ class Left: Block {
             description: "Turn Left",
             color: UIColor.whiteColor())
     }
+    
+    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
+        player.turnLeft(completion)
+    }
 }
 
 class Right: Block {
@@ -47,6 +66,10 @@ class Right: Block {
         super.init(
             description: "Right",
             color: UIColor.whiteColor())
+    }
+    
+    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
+        player.turnRight(completion)
     }
 }
 

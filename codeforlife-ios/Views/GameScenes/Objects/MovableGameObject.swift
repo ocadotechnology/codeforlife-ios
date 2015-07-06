@@ -10,11 +10,10 @@ import UIKit
 import Foundation
 import SpriteKit
 
+
 class MovableGameObject: GameObject {
     
     let PI = CGFloat(M_PI)
-    
-
     
     var direction : Direction
     var origin: Origin
@@ -30,24 +29,7 @@ class MovableGameObject: GameObject {
     }
     
     func resetPosition() {
-        var rad: CGFloat
-        self.position = CGPointMake(
-            CGFloat(origin.coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2,
-            CGFloat(origin.coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2)
-        
-        switch origin.compassDirection {
-        case .N: break
-        case .E:
-            self.position.x += GameMapConfig.Grid.height/2
-            self.position.y += self.width/2 + 1.5
-        case .S: break
-        case .W: break
-        }
-        
-        rad = origin.compassDirection.angle
-        self.direction = origin.compassDirection.direction
-        let actionRotate = SKAction.rotateToAngle(rad, duration: 0)
-        self.runAction(actionRotate)
+        fatalError("Implement resetPosition()")
     }
     
     func moveForward(movement: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
@@ -117,6 +99,18 @@ class MovableGameObject: GameObject {
             orientToPath: false,
             duration: duration)
         self.runAction(SKAction.group([actionRotate, actionMove]), completion: completion)
+    }
+    
+    func moveForward(_ completion : (() -> Void)? = nil) {
+        fatalError("Implement moveForward()")
+    }
+    
+    func turnLeft(_ completion : (() -> Void)? = nil) {
+        fatalError("Implement turnLeft()")
+    }
+    
+    func turnRight(_ completion : (() -> Void)? = nil) {
+        fatalError("Implement turnRight()")
     }
     
 }

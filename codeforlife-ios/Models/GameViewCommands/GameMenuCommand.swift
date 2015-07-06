@@ -12,7 +12,7 @@ class GameMenuCommand: GameViewCommand {
     
 }
 
-class NGVHelpCommand : GameViewCommand {
+class NGVHelpCommand : GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
         gameViewController.helpViewController!.message = HelpMessage(
             context: gameViewController.level!.hint!,
@@ -22,9 +22,18 @@ class NGVHelpCommand : GameViewCommand {
     }
 }
 
-class NGVClearCommand: GameViewCommand {
+class NGVClearCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
         gameViewController.blockTableViewController?.clearBlocks()
-        gameViewController.gameMapViewController?.map?.resetVanPosition()
+        gameViewController.gameMapViewController?.map?.player.resetPosition()
+        completion()
+    }
+}
+
+class NGVPlayCommand: GameMenuCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMapViewController?.map?.player.resetPosition()
+        gameViewController.blockTableViewController?.blocks.first?.executeBlockChainAction(gameViewController.gameMapViewController!.map!.player)
+        completion()
     }
 }

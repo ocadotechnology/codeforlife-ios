@@ -19,11 +19,4 @@ struct Origin {
         self.compassDirection = compassDirection
     }
     
-    func initialPosition(object: GameObject) -> CGPoint {
-        var position = CGPointMake(
-            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.Grid.height/2,
-            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + object.width/2 + 1.5)
-        return position
-    }
-    
 }
