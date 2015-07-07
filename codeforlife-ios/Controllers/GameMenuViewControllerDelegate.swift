@@ -38,6 +38,8 @@ class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
 }
 
 class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
+    
+    var controller: MessageViewController?
  
     func clear() {
         CommandFactory.NativeClearCommand().execute()
@@ -45,11 +47,15 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     
     func play() {
         CommandFactory.NativePlayCommand().execute()
-        
     }
     
     func help() {
-        CommandFactory.NativeHelpCommand().execute()
+        if controller != nil {
+            controller?.closeMenu()
+            controller = nil
+        } else {
+            CommandFactory.NativeHelpCommand().execute()
+        }
     }
     
     func muteSound() {

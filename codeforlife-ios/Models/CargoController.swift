@@ -26,4 +26,8 @@ class CargoController: VehicleController {
         CommandFactory.PlayCommand().execute()
     }
     
+    func deliver() {
+        
+    }
+    
 }

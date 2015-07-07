@@ -10,15 +10,15 @@ import UIKit
 
 class SubGameViewController: UIViewController {
     
-    var frame: CGRect {
-        get {
-            return CGRect(x: 0, y: 0, width: 0, height: 0)
-        }
-    }
+//    var frame: CGRect {
+//        get {
+//            return CGRect(x: 0, y: 0, width: 0, height: 0)
+//        }
+//    }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        view.frame = frame
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        view.frame = frame
+//    }
 
 }

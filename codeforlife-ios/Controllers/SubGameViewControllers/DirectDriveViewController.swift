@@ -10,8 +10,6 @@ import UIKit
 
 class DirectDriveViewController: SubGameViewController, VehicleController {
     
-    static let sharedInstance = StaticContext.storyboard.instantiateViewControllerWithIdentifier("DirectDriveViewController") as! DirectDriveViewController
-    
     let directDriveFrame = CGSize(width: 245, height: 165)
     let frameOffset: CGFloat = 10
 
@@ -21,14 +19,6 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     @IBOutlet weak var rightButton: DirectDriveButton!
     
     var controller: VehicleController = NativeCarController()
-    
-    override var frame: CGRect {
-        return CGRect(
-            x: StaticContext.MainGameViewController!.view.frame.width - directDriveFrame.width - frameOffset,
-            y: StaticContext.MainGameViewController!.view.frame.height - directDriveFrame.height - frameOffset,
-            width: directDriveFrame.width,
-            height: directDriveFrame.height)
-    }
 
     @IBAction func moveForward() {
         controller.moveForward()
@@ -44,6 +34,10 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     
     @IBAction func turnRight() {
         controller.turnRight()
+    }
+    
+    @IBAction func deliver() {
+        controller.deliver()
     }
     
     func disableDirectDrive() {

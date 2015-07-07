@@ -11,5 +11,5 @@ import Foundation
 
 class StaticContext {
     static var MainGameViewController: GameViewController?
-    static var storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+//    static var storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
 }

@@ -16,8 +16,6 @@
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
 		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
 		ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* GameViewController.swift */; };
-		ED1A93231B42836B004E6AD4 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93221B42836B004E6AD4 /* ViewControllerFactory.swift */; };
-		ED1A93241B4284B7004E6AD4 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93221B42836B004E6AD4 /* ViewControllerFactory.swift */; };
 		ED1A93261B428A36004E6AD4 /* BlockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93251B428A36004E6AD4 /* BlockTableView.swift */; };
 		ED1A93271B428A36004E6AD4 /* BlockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93251B428A36004E6AD4 /* BlockTableView.swift */; };
 		ED1A932C1B429567004E6AD4 /* GameMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A932B1B429567004E6AD4 /* GameMapViewController.swift */; };
@@ -62,6 +60,11 @@
 		ED222FCB1B4AABCB006E525A /* CFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC91B4AABCB006E525A /* CFC.swift */; };
 		ED222FCD1B4AD4A5006E525A /* StaticContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FCC1B4AD4A5006E525A /* StaticContext.swift */; };
 		ED222FCE1B4AD4A5006E525A /* StaticContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FCC1B4AD4A5006E525A /* StaticContext.swift */; };
+		ED222FD31B4C00AC006E525A /* MapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD21B4C00AC006E525A /* MapTest.swift */; };
+		ED222FD51B4C21D1006E525A /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD41B4C21D1006E525A /* House.swift */; };
+		ED222FD61B4C21D1006E525A /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD41B4C21D1006E525A /* House.swift */; };
+		ED222FD81B4C265D006E525A /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD71B4C265D006E525A /* Tile.swift */; };
+		ED222FD91B4C265D006E525A /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD71B4C265D006E525A /* Tile.swift */; };
 		ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */; };
 		ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EA31B341E9F00B63380 /* GameViewCommand.swift */; };
 		ED5721B81B47E7680011F465 /* RoadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5721B71B47E7680011F465 /* RoadType.swift */; };
@@ -207,7 +210,6 @@
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
 		ED0BC5B21B3062E60060FC84 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		ED1A93221B42836B004E6AD4 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		ED1A93251B428A36004E6AD4 /* BlockTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableView.swift; sourceTree = "<group>"; };
 		ED1A932B1B429567004E6AD4 /* GameMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapViewController.swift; sourceTree = "<group>"; };
 		ED1A93361B42AE81004E6AD4 /* Van.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Van.swift; sourceTree = "<group>"; };
@@ -232,6 +234,9 @@
 		ED222FC51B4A8FD1006E525A /* GameMapCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapCommand.swift; sourceTree = "<group>"; };
 		ED222FC91B4AABCB006E525A /* CFC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFC.swift; sourceTree = "<group>"; };
 		ED222FCC1B4AD4A5006E525A /* StaticContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticContext.swift; sourceTree = "<group>"; };
+		ED222FD21B4C00AC006E525A /* MapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTest.swift; sourceTree = "<group>"; };
+		ED222FD41B4C21D1006E525A /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		ED222FD71B4C265D006E525A /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GVJavaScriptCommand.swift; path = "codeforlife-ios/Models/GameViewCommands/GVJavaScriptCommand.swift"; sourceTree = SOURCE_ROOT; };
 		ED236EA31B341E9F00B63380 /* GameViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCommand.swift; sourceTree = "<group>"; };
 		ED5721B71B47E7680011F465 /* RoadType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadType.swift; sourceTree = "<group>"; };
@@ -434,6 +439,8 @@
 				ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */,
 				ED1A93361B42AE81004E6AD4 /* Van.swift */,
 				ED222FC91B4AABCB006E525A /* CFC.swift */,
+				ED222FD41B4C21D1006E525A /* House.swift */,
+				ED222FD71B4C265D006E525A /* Tile.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -577,6 +584,7 @@
 			children = (
 				EDA47C541B45535C003356AB /* Actions */,
 				EDA47C551B45537F003356AB /* LevelTest.swift */,
+				ED222FD21B4C00AC006E525A /* MapTest.swift */,
 				EDA47C571B45558A003356AB /* BlockTest.swift */,
 				EDA47C591B455601003356AB /* EpisodeTest.swift */,
 			);
@@ -628,7 +636,6 @@
 				ED5721BE1B47EEC40011F465 /* Delegates */,
 				ED1A93621B43FF1F004E6AD4 /* SubGameViewControllers */,
 				ED1A93441B43D046004E6AD4 /* EpisodeViewController.swift */,
-				ED1A93221B42836B004E6AD4 /* ViewControllerFactory.swift */,
 				ED0BC5B21B3062E60060FC84 /* GameViewController.swift */,
 				ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */,
 			);
@@ -875,6 +882,7 @@
 				ED222FB71B4A70BF006E525A /* GameMenuCommand.swift in Sources */,
 				ED1A93371B42AE81004E6AD4 /* Van.swift in Sources */,
 				EDFE933A1B41804900E01322 /* ErrorMessage.swift in Sources */,
+				ED222FD51B4C21D1006E525A /* House.swift in Sources */,
 				ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */,
 				ED1A933D1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
 				EDA47C4B1B453C1E003356AB /* Map.swift in Sources */,
@@ -892,7 +900,6 @@
 				ED6F79881B3D46CF00DD2AFE /* GameMenuView.swift in Sources */,
 				ED1EB06F1B3314C900A595EF /* ActionDelegate.swift in Sources */,
 				EDA47C5F1B4556B5003356AB /* CargoController.swift in Sources */,
-				ED1A93231B42836B004E6AD4 /* ViewControllerFactory.swift in Sources */,
 				ED1A93561B43D769004E6AD4 /* FetchEpisodesActionMockDelegate.swift in Sources */,
 				ED1EB0671B32C09800A595EF /* Action.swift in Sources */,
 				ED1A93481B43D0DD004E6AD4 /* Episode.swift in Sources */,
@@ -901,6 +908,7 @@
 				EDA47C421B442798003356AB /* LevelTableView.swift in Sources */,
 				ED1A934B1B43D215004E6AD4 /* EpisodeTableViewCell.swift in Sources */,
 				EDBB66901B3B009C009020A5 /* GameMenuViewController.swift in Sources */,
+				ED222FD81B4C265D006E525A /* Tile.swift in Sources */,
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				ED222FC31B4A8D99006E525A /* CompassDirection.swift in Sources */,
 				ED222FC61B4A8FD1006E525A /* GameMapCommand.swift in Sources */,
@@ -961,6 +969,7 @@
 				ED6F799C1B3DB34900DD2AFE /* GameMenuView.swift in Sources */,
 				ED1A93571B43D769004E6AD4 /* FetchEpisodesActionMockDelegate.swift in Sources */,
 				ED7799C31B4593BC00A854A3 /* TrafficLight.swift in Sources */,
+				ED222FD91B4C265D006E525A /* Tile.swift in Sources */,
 				ED222FBE1B4A7133006E525A /* BlocklyCommand.swift in Sources */,
 				ED1A932D1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
 				ED5721C51B4854870011F465 /* FetchLevelActionMockDelegate.swift in Sources */,
@@ -984,6 +993,7 @@
 				ED5721B91B47E7680011F465 /* RoadType.swift in Sources */,
 				ED7799B21B45716700A854A3 /* FetchEpisodesActionTest.swift in Sources */,
 				EDA47C561B45537F003356AB /* LevelTest.swift in Sources */,
+				ED222FD31B4C00AC006E525A /* MapTest.swift in Sources */,
 				ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */,
 				ED7799C21B4593BA00A854A3 /* Coordinates.swift in Sources */,
 				ED7799D21B469E6500A854A3 /* Direction.swift in Sources */,
@@ -1013,13 +1023,13 @@
 				EDBB66911B3B0103009020A5 /* GameMenuViewController.swift in Sources */,
 				ED222FB51B4A6C13006E525A /* DirectDriveCommand.swift in Sources */,
 				EDFE933E1B4181FF00E01322 /* PostGameMessageView.swift in Sources */,
+				ED222FD61B4C21D1006E525A /* House.swift in Sources */,
 				EDBB66701B3AA06E009020A5 /* FetchLevelsAction.swift in Sources */,
 				ED1A933E1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
 				EDBB667B1B3AA07E009020A5 /* VehicleController.swift in Sources */,
 				ED5721C11B47EED20011F465 /* GameMenuViewControllerDelegate.swift in Sources */,
 				EDA47C651B4557A8003356AB /* FetchLevelsActionTest.swift in Sources */,
 				EDBB666D1B3AA06A009020A5 /* ColorConstants.swift in Sources */,
-				ED1A93241B4284B7004E6AD4 /* ViewControllerFactory.swift in Sources */,
 				ED7799CF1B46944200A854A3 /* FetchLevelAction.swift in Sources */,
 				EDBB666A1B3AA018009020A5 /* LabelViewControllerTests.swift in Sources */,
 				EDA47C461B442A1E003356AB /* GlobalConfig.swift in Sources */,

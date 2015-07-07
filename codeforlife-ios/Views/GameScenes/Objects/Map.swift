@@ -17,6 +17,7 @@ class Map: SKScene {
     var origin: Origin
     var destinations: [Node]
     var player: Van
+    var mapArray = [[Bool]]()
     
     init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Node]) {
         self.width = width
@@ -25,6 +26,7 @@ class Map: SKScene {
         self.origin = origin
         self.destinations = destination
         self.player = Van(origin: origin)
+        self.player.zPosition = 1
         super.init(size: CGSize(
             width: GameMapConfig.Grid.width*CGFloat(width),
             height: GameMapConfig.Grid.height*CGFloat(height)))
@@ -38,69 +40,59 @@ class Map: SKScene {
         backgroundColor = kC4LGameMapGrassColor
     }
     
-    func test1() {
-        nodes.append(Node(Coordinates(0,5)))
-        nodes.append(Node(Coordinates(1,5)))
-        nodes.append(Node(Coordinates(2,5)))
-        nodes.append(Node(Coordinates(2,4)))
-        nodes.append(Node(Coordinates(2,3)))
-        nodes.append(Node(Coordinates(2,2)))
-        nodes.append(Node(Coordinates(3,2)))
-        nodes.append(Node(Coordinates(4,2)))
-        nodes.append(Node(Coordinates(4,3)))
-        nodes.append(Node(Coordinates(4,4)))
-        nodes.append(Node(Coordinates(5,4)))
-        nodes.append(Node(Coordinates(6,4)))
-        nodes.append(Node(Coordinates(6,5)))
-        
-        for index in 1 ..< nodes.count {
-            nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
+    func resetMap() {
+        self.removeAllChildren()
+        self.mapArray = [[Bool]]()
+        for x in 0 ..< width {
+            mapArray.append([Bool]())
+            for y in 0  ..< height {
+                mapArray[x].append(false)
+            }
         }
-    }
-    
-    func test2() {
-        nodes.append(Node(Coordinates(8,5)))
-        nodes.append(Node(Coordinates(7,5)))
-        nodes.append(Node(Coordinates(7,4)))
-        nodes.append(Node(Coordinates(7,3)))
-        nodes.append(Node(Coordinates(6,3)))
-        nodes.append(Node(Coordinates(5,3)))
-        nodes.append(Node(Coordinates(5,4)))
-        nodes.append(Node(Coordinates(5,5)))
-        nodes.append(Node(Coordinates(4,5)))
-        nodes.append(Node(Coordinates(3,5)))
-        
-        for index in 1 ..< nodes.count {
-            nodes[index-1].addConnectedNodeWithBackLink(nodes[index])
-        }
-    }
-    
-    func test3() {
-        
-        nodes.append(Node(Coordinates(5,5)))
-        nodes.append(Node(Coordinates(5,6)))
-        nodes.append(Node(Coordinates(5,7)))
-        nodes.append(Node(Coordinates(4,6)))
-        
-        nodes[0].addConnectedNodeWithBackLink(nodes[1])
-        nodes[1].addConnectedNodeWithBackLink(nodes[2])
-        nodes[1].addConnectedNodeWithBackLink(nodes[3])
     }
     
     func draw() {
-        self.removeAllChildren()
+        resetMap()
+        
+        // Draw Grass
+        for x in 0 ..< width {
+            for y in 0  ..< height {
+                if !mapArray[x][y] {
+                    //addChild(Tile(Coordinates(x,y)))
+                }
+            }
+        }
+        
+        // Interpret nodes in a 2D map
         for node in nodes {
-            var roadTile = RoadTile.Builder(node: node).build()
+            mapArray[node.coordinates.x][node.coordinates.y] = true
+        }
+        
+        // Draw roads
+        for node in nodes {
+            var roadTile = Road.Builder(node: node).build()
             roadTile.position = node.position
+            roadTile.zPosition = 0
             addChild(roadTile)
             if node.isDestination {
-                //TODO
+                var house: House
+                if !node.direction.up && !mapArray[node.coordinates.x][node.coordinates.y+1] {
+                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.N))
+                } else if !node.direction.right && !mapArray[node.coordinates.x+1][node.coordinates.y+1] {
+                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.E))
+                } else if !node.direction.down && !mapArray[node.coordinates.x][node.coordinates.y-1] {
+                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.S))
+                } else { //!node.direction.left && !mapArray[node.coordinates.x-1][node.coordinates.y]
+                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.W))
+                }
+                addChild(house)
             }
         }
         
         var cfc = CFC(origin: origin)
         addChild(cfc)
         addChild(player)
+        
     }
     
 }

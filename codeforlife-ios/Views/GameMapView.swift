@@ -9,6 +9,11 @@
 import SpriteKit
 import Foundation
 
-class GameMapView: SKView {
+class GameMapView: UIView {
+    
+    override func drawRect(rect: CGRect) {
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
+    }
     
 }

@@ -21,7 +21,7 @@ class BlockTableViewCell: UITableViewCell {
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
-        //        super.setSelected(selected, animated: animated)
+        super.setSelected(selected, animated: animated)
     }
     
     override func setHighlighted(highlighted: Bool, animated: Bool) {

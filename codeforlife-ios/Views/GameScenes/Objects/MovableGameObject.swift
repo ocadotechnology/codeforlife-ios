@@ -58,24 +58,29 @@ class MovableGameObject: GameObject {
     private func turn(radius: CGFloat, duration: NSTimeInterval, left: Bool, completion: () -> Void) {
         let actionRotate = SKAction.rotateByAngle(left ? PI/2 : -PI/2, duration: duration)
         var path: UIBezierPath
+        var correctedPosition = self.position
         
         switch direction {
         case .Left :
             path = UIBezierPath(
                 arcCenter: CGPointMake(0, left ? -radius : radius) ,
                 radius: radius,
-                startAngle: left ? PI/2 : PI*3/2,
+                startAngle: left ? CGFloat(M_PI/2) : PI*3/2,
                 endAngle: PI,
                 clockwise: left)
             direction = left ? .Down : .Up
+            correctedPosition.x += -radius
+            correctedPosition.y += left ? -radius : radius
         case .Right:
             path = UIBezierPath(
                 arcCenter: CGPointMake(0, left ? radius : -radius) ,
                 radius: radius,
-                startAngle: left ? PI*3/2 : PI/2,
+                startAngle: left ? CGFloat(M_PI*3/2) : PI/2,
                 endAngle: 0,
                 clockwise: left)
             direction = left ? .Up : .Down
+            correctedPosition.x += radius
+            correctedPosition.y += left ? radius : -radius
         case .Up:
             path = UIBezierPath(
                 arcCenter: CGPointMake(left ? -radius : radius, 0) ,
@@ -84,21 +89,28 @@ class MovableGameObject: GameObject {
                 endAngle: PI/2,
                 clockwise: left)
             direction = left ? .Left : .Right
+            correctedPosition.x += left ? -radius : radius
+            correctedPosition.y += radius
         case .Down:
             path = UIBezierPath(
                 arcCenter: CGPointMake(left ? radius : -radius, 0) ,
                 radius: radius,
-                startAngle: left ? PI : 0,
+                startAngle: left ? CGFloat(M_PI) : 0,
                 endAngle: PI*3/2,
                 clockwise: left)
             direction = left ? .Right : .Left
+            correctedPosition.x += left ? radius : -radius
+            correctedPosition.y += -radius
         }
         let actionMove: SKAction = SKAction.followPath(
             path.CGPath,
             asOffset: true,
             orientToPath: false,
             duration: duration)
-        self.runAction(SKAction.group([actionRotate, actionMove]), completion: completion)
+        self.runAction(SKAction.group([actionRotate, actionMove]), completion: {
+                self.position = correctedPosition
+                completion()
+            })
     }
     
     func moveForward(_ completion : (() -> Void)? = nil) {
