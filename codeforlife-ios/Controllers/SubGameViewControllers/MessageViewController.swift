@@ -10,6 +10,10 @@ import UIKit
 
 class MessageViewController: SubGameViewController {
     
+    static func MessageViewControllerInstance() -> MessageViewController {
+        return StaticContext.storyboard.instantiateViewControllerWithIdentifier("MessageViewController") as! MessageViewController
+    }
+    
     let messageFrame = CGSize(width: 500, height: 500)
     
     let containerViewCornerRadius: CGFloat = 50

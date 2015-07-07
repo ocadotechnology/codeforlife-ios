@@ -10,6 +10,8 @@ import UIKit
 
 class GameMenuViewController: SubGameViewController {
     
+    static let sharedInstance = StaticContext.storyboard.instantiateViewControllerWithIdentifier("GameMenuViewController") as! GameMenuViewController
+    
     let blocklyButtonText = "Blockly"
     let pythonButtonText = "Python"
     let muteToUnmuteButtonText = "Unmute"

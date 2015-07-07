@@ -11,6 +11,8 @@ import SpriteKit
 
 class GameMapViewController: SubGameViewController {
     
+    static let sharedInstance = StaticContext.storyboard.instantiateViewControllerWithIdentifier("GameMapViewController") as! GameMapViewController
+    
     var skView: GameMapView?
     var map: Map? {
         didSet {

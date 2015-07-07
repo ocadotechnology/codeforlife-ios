@@ -9,24 +9,22 @@
 import UIKit
 import Foundation
 
-class GameMapCommand: GameViewCommand {
-    
-}
+class GameMapCommand: GameViewCommand {}
 
 class NGVMoveForwardCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController?.map?.player.moveForward()
+        GameMapViewController.sharedInstance.map?.player.moveForward()
     }
 }
 
 class NGVTurnLeftCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController?.map?.player.turnLeft()
+        GameMapViewController.sharedInstance.map?.player.turnLeft()
     }
 }
 
 class NGVTurnRightCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController?.map?.player.turnRight()
+        GameMapViewController.sharedInstance.map?.player.turnRight()
     }
 }

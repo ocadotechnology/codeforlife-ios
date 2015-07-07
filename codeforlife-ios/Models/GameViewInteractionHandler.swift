@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 import WebKit
 
+// Deprecated
 class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     struct JSONIdentifier {

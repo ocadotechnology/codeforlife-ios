@@ -89,37 +89,37 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     func setupGameMapViewController() {
-        gameMapViewController = ViewControllerFactory.GameMapViewControllerInstance()
+        gameMapViewController = GameMapViewController.sharedInstance
         setupController(gameMapViewController!)
     }
     
     func setupBlocklyTableViewController() {
-        blockTableViewController = ViewControllerFactory.BlocklyViewControllerInstance()
+        blockTableViewController = BlockTableViewController.sharedInstance
         setupController(blockTableViewController!)
     }
     
     func setupGameMenuViewController() {
-        gameMenuViewController = ViewControllerFactory.GameMenuViewControllerInstance()
+        gameMenuViewController = GameMenuViewController.sharedInstance
         setupController(gameMenuViewController!)
     }
     
     func setupDirectDriveViewController() {
-        directDriveViewController = ViewControllerFactory.DirectDriveViewControllerInstance()
+        directDriveViewController = DirectDriveViewController.sharedInstance
         setupController(directDriveViewController!)
     }
     
     func setupHelpMessageViewController() {
-        helpViewController = ViewControllerFactory.MessageViewControllerInstance()
+        helpViewController = MessageViewController.MessageViewControllerInstance()
         setupController(helpViewController!)
     }
     
     func setupGameMessageViewController() {
-        gameMessageViewController = ViewControllerFactory.MessageViewControllerInstance()
+        gameMessageViewController = MessageViewController.MessageViewControllerInstance()
         setupController(gameMessageViewController!)
     }
     
     func setupPostGameMessageViewController() {
-        postGameMessageViewController = ViewControllerFactory.MessageViewControllerInstance()
+        postGameMessageViewController = MessageViewController.MessageViewControllerInstance()
         setupController(postGameMessageViewController!)
     }
     

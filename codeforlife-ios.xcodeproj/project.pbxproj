@@ -383,6 +383,7 @@
 				ED0BC5941B305D720060FC84 /* Main.storyboard */,
 				EDA47C441B442A1E003356AB /* GlobalConfig.swift */,
 				ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */,
+				ED222FCC1B4AD4A5006E525A /* StaticContext.swift */,
 				EF41E60503222496376BD198 /* Models */,
 				ED1A93311B42A96B004E6AD4 /* GameScenes */,
 				EDFF14DE1B316EA900962C68 /* Controllers */,
@@ -390,7 +391,6 @@
 				ED0BC5991B305D720060FC84 /* LaunchScreen.xib */,
 				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
 				ED0BC58F1B305D720060FC84 /* Info.plist */,
-				ED222FCC1B4AD4A5006E525A /* StaticContext.swift */,
 			);
 			path = "codeforlife-ios";
 			sourceTree = "<group>";

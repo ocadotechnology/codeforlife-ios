@@ -8,9 +8,7 @@
 
 import Foundation
 
-class GameMenuCommand: GameViewCommand {
-    
-}
+class GameMenuCommand: GameViewCommand {}
 
 class NGVHelpCommand : GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
@@ -35,5 +33,13 @@ class NGVPlayCommand: GameMenuCommand {
         gameViewController.gameMapViewController?.map?.player.resetPosition()
         gameViewController.blockTableViewController?.blocks.first?.executeBlockChainAction(gameViewController.gameMapViewController!.map!.player)
         completion()
+    }
+}
+
+class NGVMuteCommand: GameMenuCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        if let controller = gameViewController.gameMenuViewController {
+            controller.mute = !controller.mute
+        }
     }
 }

@@ -8,9 +8,7 @@
 
 import Foundation
 
-class BlocklyCommand {
-    
-}
+class BlocklyCommand {}
 
 class NGVAddBlockCommand: GameViewCommand {
     
@@ -22,7 +20,7 @@ class NGVAddBlockCommand: GameViewCommand {
     }
     
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.blockTableViewController?.addBlock(self.block)
+        BlockTableViewController.sharedInstance.addBlock(self.block)
     }
 }
 

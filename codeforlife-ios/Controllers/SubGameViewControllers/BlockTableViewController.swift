@@ -10,6 +10,8 @@ import UIKit
 
 class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITableViewDataSource {
     
+    static let sharedInstance = StaticContext.storyboard.instantiateViewControllerWithIdentifier("BlockTableViewController") as! BlockTableViewController
+    
     let CellReuseIdentifier = "Block"
     let frameOffset: CGFloat = 10
     let bottomOffset: CGFloat = 40

@@ -10,6 +10,8 @@ import UIKit
 
 class DirectDriveViewController: SubGameViewController, VehicleController {
     
+    static let sharedInstance = StaticContext.storyboard.instantiateViewControllerWithIdentifier("DirectDriveViewController") as! DirectDriveViewController
+    
     let directDriveFrame = CGSize(width: 245, height: 165)
     let frameOffset: CGFloat = 10
 
