@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import Foundation
 
-class RoadTile: GameObject {
+class Road: GameObject {
     
     class Builder {
         
@@ -22,27 +22,27 @@ class RoadTile: GameObject {
             self.rad = node.rad
         }
         
-        func build() -> RoadTile {
+        func build() -> Road {
             switch imageNamed {
             case RoadType.Straight:
-                return Straight().createWithRotation(rad) as! RoadTile
+                return Straight().createWithRotation(rad) as! Road
             case RoadType.Turn:
-                return Turn().createWithRotation(rad) as! RoadTile
+                return Turn().createWithRotation(rad) as! Road
             case RoadType.Crossroads:
-                return Crossroads().createWithRotation(rad) as! RoadTile
+                return Crossroads().createWithRotation(rad) as! Road
             case RoadType.DeadEnd:
-                return DeadEnd().createWithRotation(rad) as! RoadTile
+                return DeadEnd().createWithRotation(rad) as! Road
             case RoadType.TJunction:
-                return TJunction().createWithRotation(rad) as! RoadTile
+                return TJunction().createWithRotation(rad) as! Road
             default:
-                return Error().createWithRotation(rad) as! RoadTile
+                return Error().createWithRotation(rad) as! Road
             }
         }
         
     }
 }
 
-class Straight: RoadTile {
+class Straight: Road {
     
     init() {
         super.init(
@@ -56,7 +56,7 @@ class Straight: RoadTile {
     }
 }
 
-class Turn: RoadTile {
+class Turn: Road {
     
     init() {
         super.init(
@@ -70,7 +70,7 @@ class Turn: RoadTile {
     }
 }
 
-class Crossroads: RoadTile {
+class Crossroads: Road {
     init() {
         super.init(
             imageNamed: "crossroads",
@@ -83,7 +83,7 @@ class Crossroads: RoadTile {
     }
 }
 
-class TJunction: RoadTile {
+class TJunction: Road {
     init() {
         super.init(
             imageNamed: "t_junction",
@@ -96,7 +96,7 @@ class TJunction: RoadTile {
     }
 }
 
-class DeadEnd: RoadTile {
+class DeadEnd: Road {
     init() {
         super.init(
             imageNamed: "dead_end",
@@ -109,7 +109,7 @@ class DeadEnd: RoadTile {
     }
 }
 
-class Error: RoadTile {
+class Error: Road {
     init() {
         super.init(
             imageNamed: "Error",

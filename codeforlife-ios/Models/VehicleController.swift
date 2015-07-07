@@ -13,6 +13,7 @@ protocol VehicleController {
     func turnLeft()
     func turnRight()
     func go()
+    func deliver()
 }
 
 

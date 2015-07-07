@@ -40,18 +40,6 @@ class Map: SKScene {
         backgroundColor = kC4LGameMapGrassColor
     }
     
-    func test3() {
-        
-        nodes.append(Node(Coordinates(5,5)))
-        nodes.append(Node(Coordinates(5,6)))
-        nodes.append(Node(Coordinates(5,7)))
-        nodes.append(Node(Coordinates(4,6)))
-        
-        nodes[0].addConnectedNodeWithBackLink(nodes[1])
-        nodes[1].addConnectedNodeWithBackLink(nodes[2])
-        nodes[1].addConnectedNodeWithBackLink(nodes[3])
-    }
-    
     func resetMap() {
         self.removeAllChildren()
         self.mapArray = [[Bool]]()
@@ -66,12 +54,23 @@ class Map: SKScene {
     func draw() {
         resetMap()
         
+        // Draw Grass
+        for x in 0 ..< width {
+            for y in 0  ..< height {
+                if !mapArray[x][y] {
+                    //addChild(Tile(Coordinates(x,y)))
+                }
+            }
+        }
+        
+        // Interpret nodes in a 2D map
         for node in nodes {
             mapArray[node.coordinates.x][node.coordinates.y] = true
         }
         
+        // Draw roads
         for node in nodes {
-            var roadTile = RoadTile.Builder(node: node).build()
+            var roadTile = Road.Builder(node: node).build()
             roadTile.position = node.position
             roadTile.zPosition = 0
             addChild(roadTile)
@@ -79,16 +78,12 @@ class Map: SKScene {
                 var house: House
                 if !node.direction.up && !mapArray[node.coordinates.x][node.coordinates.y+1] {
                     house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.N))
-                    println("N")
                 } else if !node.direction.right && !mapArray[node.coordinates.x+1][node.coordinates.y+1] {
                     house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.E))
-                    println("e")
                 } else if !node.direction.down && !mapArray[node.coordinates.x][node.coordinates.y-1] {
                     house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.S))
-                    println("s")
                 } else { //!node.direction.left && !mapArray[node.coordinates.x-1][node.coordinates.y]
                     house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.W))
-                    println("w")
                 }
                 addChild(house)
             }

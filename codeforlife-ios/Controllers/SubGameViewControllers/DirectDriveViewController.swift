@@ -36,6 +36,10 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
         controller.turnRight()
     }
     
+    @IBAction func deliver() {
+        controller.deliver()
+    }
+    
     func disableDirectDrive() {
         forwardButton.enabled = false
         goButton.enabled = false

@@ -47,7 +47,6 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     
     func play() {
         CommandFactory.NativePlayCommand().execute()
-        
     }
     
     func help() {

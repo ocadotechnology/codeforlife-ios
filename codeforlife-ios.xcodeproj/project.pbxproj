@@ -63,6 +63,8 @@
 		ED222FD31B4C00AC006E525A /* MapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD21B4C00AC006E525A /* MapTest.swift */; };
 		ED222FD51B4C21D1006E525A /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD41B4C21D1006E525A /* House.swift */; };
 		ED222FD61B4C21D1006E525A /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD41B4C21D1006E525A /* House.swift */; };
+		ED222FD81B4C265D006E525A /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD71B4C265D006E525A /* Tile.swift */; };
+		ED222FD91B4C265D006E525A /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD71B4C265D006E525A /* Tile.swift */; };
 		ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */; };
 		ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EA31B341E9F00B63380 /* GameViewCommand.swift */; };
 		ED5721B81B47E7680011F465 /* RoadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5721B71B47E7680011F465 /* RoadType.swift */; };
@@ -234,6 +236,7 @@
 		ED222FCC1B4AD4A5006E525A /* StaticContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticContext.swift; sourceTree = "<group>"; };
 		ED222FD21B4C00AC006E525A /* MapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTest.swift; sourceTree = "<group>"; };
 		ED222FD41B4C21D1006E525A /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		ED222FD71B4C265D006E525A /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GVJavaScriptCommand.swift; path = "codeforlife-ios/Models/GameViewCommands/GVJavaScriptCommand.swift"; sourceTree = SOURCE_ROOT; };
 		ED236EA31B341E9F00B63380 /* GameViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCommand.swift; sourceTree = "<group>"; };
 		ED5721B71B47E7680011F465 /* RoadType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadType.swift; sourceTree = "<group>"; };
@@ -437,6 +440,7 @@
 				ED1A93361B42AE81004E6AD4 /* Van.swift */,
 				ED222FC91B4AABCB006E525A /* CFC.swift */,
 				ED222FD41B4C21D1006E525A /* House.swift */,
+				ED222FD71B4C265D006E525A /* Tile.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -904,6 +908,7 @@
 				EDA47C421B442798003356AB /* LevelTableView.swift in Sources */,
 				ED1A934B1B43D215004E6AD4 /* EpisodeTableViewCell.swift in Sources */,
 				EDBB66901B3B009C009020A5 /* GameMenuViewController.swift in Sources */,
+				ED222FD81B4C265D006E525A /* Tile.swift in Sources */,
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				ED222FC31B4A8D99006E525A /* CompassDirection.swift in Sources */,
 				ED222FC61B4A8FD1006E525A /* GameMapCommand.swift in Sources */,
@@ -964,6 +969,7 @@
 				ED6F799C1B3DB34900DD2AFE /* GameMenuView.swift in Sources */,
 				ED1A93571B43D769004E6AD4 /* FetchEpisodesActionMockDelegate.swift in Sources */,
 				ED7799C31B4593BC00A854A3 /* TrafficLight.swift in Sources */,
+				ED222FD91B4C265D006E525A /* Tile.swift in Sources */,
 				ED222FBE1B4A7133006E525A /* BlocklyCommand.swift in Sources */,
 				ED1A932D1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
 				ED5721C51B4854870011F465 /* FetchLevelActionMockDelegate.swift in Sources */,

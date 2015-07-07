@@ -19,9 +19,7 @@ class NGVMoveForwardCommand: GameMapCommand {
 
 class NGVTurnLeftCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.map?.player.turnLeft {
-            println(self.gameViewController.gameMapViewController.map?.player.position)
-        }
+        gameViewController.gameMapViewController.map?.player.turnLeft()
     }
 }
 

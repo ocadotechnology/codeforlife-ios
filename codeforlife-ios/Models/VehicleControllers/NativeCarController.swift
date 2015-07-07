@@ -27,6 +27,11 @@ class NativeCarController: VehicleController {
     }
     
     func go() {
+        CommandFactory.NativePlayCommand().execute()
+    }
+    
+    func deliver() {
+        CommandFactory.NativeAddBlockCommand(Deliver()).execute()
     }
     
 }
