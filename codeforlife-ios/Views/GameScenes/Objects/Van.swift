@@ -28,17 +28,17 @@ class Van: MovableGameObject {
         
         switch origin.compassDirection {
         case .N:
-            self.position.x -= self.width/2 + 1.5
+            self.position.x -= self.width/2 + GameMapConfig.Grid.width/40
             self.position.y += GameMapConfig.Grid.height/2
         case .E:
             self.position.x += GameMapConfig.Grid.width/2
-            self.position.y += self.width/2 + 1.5
+            self.position.y += self.width/2 + GameMapConfig.Grid.height/40
         case .S:
-            self.position.x += self.width/2 + 1.5
+            self.position.x += self.width/2 + GameMapConfig.Grid.width/40
             self.position.y -= GameMapConfig.Grid.height/2
         case .W:
             self.position.x -= GameMapConfig.Grid.width/2
-            self.position.y -= self.width/2 + 1.5
+            self.position.y -= self.width/2 + GameMapConfig.Grid.height/40
         }
         
         rad = origin.compassDirection.angle

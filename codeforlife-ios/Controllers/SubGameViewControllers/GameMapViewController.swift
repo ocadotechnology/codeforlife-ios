@@ -11,7 +11,7 @@ import SpriteKit
 
 class GameMapViewController: SubGameViewController {
     
-    var skView = GameMapView()
+    var skView = SKView()
     var map: Map? {
         didSet {
             map?.removeAllChildren()

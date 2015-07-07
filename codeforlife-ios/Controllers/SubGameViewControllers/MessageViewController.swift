@@ -11,7 +11,7 @@ import UIKit
 class MessageViewController: SubGameViewController {
     
     static func MessageViewControllerInstance() -> MessageViewController {
-        return StaticContext.storyboard.instantiateViewControllerWithIdentifier("MessageViewController") as! MessageViewController
+        return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MessageViewController") as! MessageViewController
     }
     
     let messageFrame = CGSize(width: 500, height: 500)
@@ -23,7 +23,7 @@ class MessageViewController: SubGameViewController {
     
     var hidePosition: CGPoint {
         return CGPointMake(
-            self.view.center.x,
+            StaticContext.MainGameViewController!.view.center.x,
             StaticContext.MainGameViewController!.view.frame.height + messageFrame.height/2)
     }
     
@@ -37,13 +37,19 @@ class MessageViewController: SubGameViewController {
         }
     }
     
-    
     var open = false {
         didSet {
             UIView.animateWithDuration(0.5) {
+                println(self.open)
                 self.view.center = self.open ? self.showPosition: self.hidePosition
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.frame.size = CGSize(width: 500, height: 500)
+        view.center = hidePosition
     }
     
     func executeButtonAction() {

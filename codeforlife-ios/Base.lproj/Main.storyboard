@@ -566,8 +566,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-sG-Sq5" userLabel="Game Map View">
-                                <rect key="frame" x="286" y="40" width="288" height="540"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-sG-Sq5" userLabel="Game Map View" customClass="GameMapView" customModule="codeforlife_ios" customModuleProvider="target">
+                                <rect key="frame" x="286" y="40" width="293" height="540"/>
                                 <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="seJ-0X-RCm" kind="embed" id="sei-H4-Ube"/>
@@ -619,7 +619,7 @@
                             <constraint firstAttribute="centerY" secondItem="DAA-NT-in3" secondAttribute="centerY" id="RF9-hB-3qC"/>
                             <constraint firstItem="DAA-NT-in3" firstAttribute="leading" secondItem="cYj-sG-Sq5" secondAttribute="leading" id="RdT-wQ-4v6"/>
                             <constraint firstItem="YyK-32-Fjp" firstAttribute="width" secondItem="hDI-xX-x7y" secondAttribute="width" id="ScE-Uu-vck"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cYj-sG-Sq5" secondAttribute="trailing" constant="10" id="Xcc-59-RRl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cYj-sG-Sq5" secondAttribute="trailing" constant="5" id="Xcc-59-RRl"/>
                             <constraint firstItem="cYj-sG-Sq5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="YU3-io-21M"/>
                             <constraint firstItem="cYj-sG-Sq5" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-10" id="YW2-SJ-ik6"/>
                             <constraint firstItem="cYj-sG-Sq5" firstAttribute="centerY" secondItem="DAA-NT-in3" secondAttribute="centerY" id="c6x-yw-tdq"/>
@@ -660,7 +660,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SUH-Ue-Jdn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CZy-ZG-bZM">
-                        <rect key="frame" x="0.0" y="0.0" width="288" height="540"/>
+                        <rect key="frame" x="0.0" y="0.0" width="293" height="540"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
