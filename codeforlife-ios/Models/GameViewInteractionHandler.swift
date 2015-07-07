@@ -47,69 +47,69 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                     println(tag)
                     switch tag {
                         case JSONTag.ResetBlocks:
-                            gameViewController!.blockTableViewController!.clearBlocks()
+                            gameViewController!.blockTableViewController.clearBlocks()
                         case JSONTag.MoveForward:
-                            gameViewController!.blockTableViewController!.addBlock(Forward())
+                            gameViewController!.blockTableViewController.addBlock(Forward())
                         case JSONTag.TurnLeft:
-                            gameViewController!.blockTableViewController!.addBlock(Left())
+                            gameViewController!.blockTableViewController.addBlock(Left())
                         case JSONTag.TurnRight:
-                            gameViewController!.blockTableViewController!.addBlock(Right())
+                            gameViewController!.blockTableViewController.addBlock(Right())
                         case JSONTag.Mute:
-                            gameViewController!.gameMenuViewController!.mute = !gameViewController!.gameMenuViewController!.mute
+                            gameViewController!.gameMenuViewController.mute = !gameViewController!.gameMenuViewController.mute
                         case JSONTag.OnPlay:
-                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPlayControls
-                            gameViewController!.directDriveViewController!.disableDirectDrive()
+                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onPlayControls
+                            gameViewController!.directDriveViewController.disableDirectDrive()
                         case JSONTag.OnPause:
-                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onPauseControls
+                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onPauseControls
                         case JSONTag.OnStep:
-                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStepControls
+                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onStepControls
                         case JSONTag.OnStop:
-                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onStopControls
-                            gameViewController!.directDriveViewController!.enableDirectDrive()
+                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onStopControls
+                            gameViewController!.directDriveViewController.enableDirectDrive()
                         case JSONTag.OnResume:
-                            gameViewController!.gameMenuViewController!.controlMode = GameMenuViewController.ControlMode.onResumeControls
+                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onResumeControls
                         case JSONTag.PreGameMsg:
-                            gameViewController!.directDriveViewController!.enableDirectDrive()
+                            gameViewController!.directDriveViewController.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {
                                 if let context = json[JSONIdentifier.Context].string {
-                                    if let controller = self.gameViewController!.gameMessageViewController {
-                                        controller.message = PreGameMessage(title: title, context: context,
-                                            action: controller.closeMenu)
-                                        controller.toggleMenu()
-                                    }
+//                                    if let controller = self.gameViewController!.gameMessageViewController {
+//                                        controller.message = PreGameMessage(title: title, context: context,
+//                                            action: controller.closeMenu)
+//                                        controller.toggleMenu()
+//                                    }
                                 }
                             }
                         case JSONTag.WinWithNextLevel:
-                            gameViewController!.directDriveViewController!.enableDirectDrive()
+                            gameViewController!.directDriveViewController.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {
                                 if let leadMsg = json["leadMsg"].string {
-                                    if let controller = gameViewController!.postGameMessageViewController {
-                                        controller.message = PostGameMessage(title: title, context: leadMsg,
-                                            nextLevelAction: controller.gotoNextLevelAndDismiss,
-                                            playAgainAction: controller.playAgainAndDismiss)
-                                        controller.openMenu()
-                                    }
+//                                    if let controller = gameViewController.postGameMessageViewController {
+//                                        controller.message = PostGameMessage(title: title, context: leadMsg,
+//                                            nextLevelAction: controller.gotoNextLevelAndDismiss,
+//                                            playAgainAction: controller.playAgainAndDismiss)
+//                                        controller.openMenu()
+//                                    }
                                 }
                             }
                         case JSONTag.Fail:
-                            gameViewController!.directDriveViewController!.enableDirectDrive()
+                            gameViewController!.directDriveViewController.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {
                                 if let leadMsg = json["leadMsg"].string {
-                                    if let controller = gameViewController!.gameMessageViewController {
-                                        controller.message = ErrorMessage(title: title, context: leadMsg,
-                                            action: controller.closeMenu)
-                                        controller.openMenu()
-                                        
-                                    }
+//                                    if let controller = gameViewController!.gameMessageViewController {
+//                                        controller.message = ErrorMessage(title: title, context: leadMsg,
+//                                            action: controller.closeMenu)
+//                                        controller.openMenu()
+//                                        
+//                                    }
                                 }
                         }
                         case JSONTag.Help:
                             if let message = json["message"].string {
-                                if let controller = gameViewController!.helpViewController {
-                                    controller.message = HelpMessage(context: message,
-                                        action: controller.closeMenu)
-                                    controller.toggleMenu()
-                                }
+//                                if let controller = gameViewController!.helpViewController {
+//                                    controller.message = HelpMessage(context: message,
+//                                        action: controller.closeMenu)
+//                                    controller.toggleMenu()
+//                                }
                             }
                         
                         default: break

@@ -31,14 +31,6 @@ class MessageViewController: SubGameViewController {
         return StaticContext.MainGameViewController!.view.center
     }
     
-    override var frame: CGRect {
-        return CGRect(
-            x: StaticContext.MainGameViewController!.view.center.x - messageFrame.width/2,
-            y: StaticContext.MainGameViewController!.view.frame.height,
-            width: messageFrame.width,
-            height: messageFrame.height)
-    }
-    
     var message: Message? {
         didSet {
             self.view = message?.view
@@ -46,16 +38,12 @@ class MessageViewController: SubGameViewController {
     }
     
     
-    private var open = false {
+    var open = false {
         didSet {
             UIView.animateWithDuration(0.5) {
                 self.view.center = self.open ? self.showPosition: self.hidePosition
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     func executeButtonAction() {

@@ -14,12 +14,12 @@ class DirectDriveCommand: GameViewCommand {
 
 class NGVDisableDirectDriveCommand: DirectDriveCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        DirectDriveViewController.sharedInstance.disableDirectDrive()
+        gameViewController.directDriveViewController.disableDirectDrive()
     }
 }
 
 class NGVEnableDirectDriveCommand: DirectDriveCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        DirectDriveViewController.sharedInstance.enableDirectDrive()
+        gameViewController.directDriveViewController.enableDirectDrive()
     }
 }

@@ -10,22 +10,12 @@ import UIKit
 
 class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITableViewDataSource {
     
-    static let sharedInstance = StaticContext.storyboard.instantiateViewControllerWithIdentifier("BlockTableViewController") as! BlockTableViewController
-    
     let CellReuseIdentifier = "Block"
     let frameOffset: CGFloat = 10
     let bottomOffset: CGFloat = 40
     
     @IBOutlet var tableView: BlockTableView!
     @IBOutlet var containerView: UIView!
-    
-    override var frame: CGRect {
-        return CGRect(
-            x: frameOffset,
-            y: frameOffset,
-            width: StaticContext.MainGameViewController!.view.frame.width*(1-StaticContext.MainGameViewController!.webViewPortion) - 2*frameOffset,
-            height: StaticContext.MainGameViewController!.view.frame.height - 2*frameOffset - bottomOffset)
-    }
     
     var blocks: [Block] = [Start()] {
         didSet {

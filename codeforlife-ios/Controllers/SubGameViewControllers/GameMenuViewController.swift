@@ -10,8 +10,6 @@ import UIKit
 
 class GameMenuViewController: SubGameViewController {
     
-    static let sharedInstance = StaticContext.storyboard.instantiateViewControllerWithIdentifier("GameMenuViewController") as! GameMenuViewController
-    
     let blocklyButtonText = "Blockly"
     let pythonButtonText = "Python"
     let muteToUnmuteButtonText = "Unmute"
@@ -39,7 +37,7 @@ class GameMenuViewController: SubGameViewController {
         }
     }
     
-    var delegate: GameMenuViewControllerDelegate = GameMenuViewControllerNativeDelegate()
+    var delegate = GameMenuViewControllerNativeDelegate()
     
     var gameMenuFrame: CGSize {
         return CGSize(
@@ -49,18 +47,14 @@ class GameMenuViewController: SubGameViewController {
     
     var showPosition : CGPoint {
         return CGPointMake(
-            self.hidePosition.x,
-            self.hidePosition.y - gameMenuFrame.height + menuOffset + frameOffset)
+            self.view.center.x,
+            self.view.center.y - frameHeight + menuOffset)
     }
     
     var hidePosition : CGPoint {
         return CGPointMake(
-            self.gameMenuFrame.width/2 + frameOffset,
-            StaticContext.MainGameViewController!.view.frame.height + gameMenuFrame.height/2 - menuOffset)
-    }
-    
-    override var frame: CGRect {
-        return  CGRect(origin: CGPointMake(0, 0), size: gameMenuFrame)
+            self.view.center.x,
+            self.view.center.y + frameHeight - menuOffset)
     }
     
     var mute = false {

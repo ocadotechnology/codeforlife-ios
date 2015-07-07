@@ -20,7 +20,7 @@ class NGVAddBlockCommand: GameViewCommand {
     }
     
     override func executeWithCompletionHandler(completion: () -> Void) {
-        BlockTableViewController.sharedInstance.addBlock(self.block)
+        gameViewController.blockTableViewController.addBlock(self.block)
     }
 }
 

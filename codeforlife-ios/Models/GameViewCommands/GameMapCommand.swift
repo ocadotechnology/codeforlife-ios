@@ -13,18 +13,18 @@ class GameMapCommand: GameViewCommand {}
 
 class NGVMoveForwardCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        GameMapViewController.sharedInstance.map?.player.moveForward()
+        gameViewController.gameMapViewController.map?.player.moveForward()
     }
 }
 
 class NGVTurnLeftCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        GameMapViewController.sharedInstance.map?.player.turnLeft()
+        gameViewController.gameMapViewController.map?.player.turnLeft()
     }
 }
 
 class NGVTurnRightCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        GameMapViewController.sharedInstance.map?.player.turnRight()
+        gameViewController.gameMapViewController.map?.player.turnRight()
     }
 }

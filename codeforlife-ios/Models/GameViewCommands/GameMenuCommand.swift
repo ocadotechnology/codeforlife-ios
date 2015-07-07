@@ -12,34 +12,46 @@ class GameMenuCommand: GameViewCommand {}
 
 class NGVHelpCommand : GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.helpViewController!.message = HelpMessage(
-            context: gameViewController.level!.hint!,
-            action: gameViewController.helpViewController!.closeMenu)
-        gameViewController.helpViewController!.toggleMenu()
+        if let controller = gameViewController.gameMenuViewController.delegate.controller {
+            controller.closeMenu()
+            gameViewController.gameMenuViewController.delegate.controller = nil
+        } else {
+            let controller = MessageViewController.MessageViewControllerInstance()
+            gameViewController.addChildViewController(controller)
+            gameViewController.view.addSubview(controller.view)
+            controller.didMoveToParentViewController(gameViewController)
+            controller.message = HelpMessage(
+                context: gameViewController.level!.hint!,
+                action: {
+                    controller.closeMenu()
+                    self.gameViewController.gameMenuViewController.delegate.controller = nil
+                    controller.willMoveToParentViewController(nil)
+            })
+            gameViewController.gameMenuViewController.delegate.controller = controller
+            controller.toggleMenu()
+        }
         completion()
     }
 }
 
 class NGVClearCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.blockTableViewController?.clearBlocks()
-        gameViewController.gameMapViewController?.map?.player.resetPosition()
+        gameViewController.blockTableViewController.clearBlocks()
+        gameViewController.gameMapViewController.map?.player.resetPosition()
         completion()
     }
 }
 
 class NGVPlayCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController?.map?.player.resetPosition()
-        gameViewController.blockTableViewController?.blocks.first?.executeBlockChainAction(gameViewController.gameMapViewController!.map!.player)
+        gameViewController.gameMapViewController.map?.player.resetPosition()
+        gameViewController.blockTableViewController.blocks.first?.executeBlockChainAction(gameViewController.gameMapViewController.map!.player)
         completion()
     }
 }
 
 class NGVMuteCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        if let controller = gameViewController.gameMenuViewController {
-            controller.mute = !controller.mute
-        }
+        gameViewController.gameMenuViewController.mute = !gameViewController.gameMenuViewController.mute
     }
 }

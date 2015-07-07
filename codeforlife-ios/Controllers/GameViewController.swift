@@ -30,13 +30,18 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         "ocargo.game.reset();"
 
     // Controllers
-    var gameMenuViewController: GameMenuViewController?
-    var directDriveViewController: DirectDriveViewController?
-    var blockTableViewController: BlockTableViewController?
-    var helpViewController: MessageViewController?
-    var gameMessageViewController: MessageViewController?
-    var postGameMessageViewController: MessageViewController?
-    var gameMapViewController: GameMapViewController?
+    var gameMapViewController: GameMapViewController {
+        return self.childViewControllers[0] as! GameMapViewController
+    }
+    var blockTableViewController: BlockTableViewController {
+        return self.childViewControllers[1] as! BlockTableViewController
+    }
+    var directDriveViewController: DirectDriveViewController {
+        return self.childViewControllers[2] as! DirectDriveViewController
+    }
+    var gameMenuViewController: GameMenuViewController {
+        return self.childViewControllers[3] as! GameMenuViewController
+    }
     
     var webView: WKWebView?
     var callBack: (() -> Void)?
@@ -49,26 +54,17 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
             }
         }
     }
+    @IBOutlet weak var gameMapView: UIView!
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupGameViewController()
-        //setupWebView()
-        setupGameMapViewController()
-        setupBlocklyTableViewController()
-        setupGameMenuViewController()
-        setupDirectDriveViewController()
-        setupHelpMessageViewController()
-        setupGameMessageViewController()
-        setupPostGameMessageViewController()
-        loadLevel(self.level!)
-    }
-    
-    func setupGameViewController() {
+        gameMapViewController.view.frame.size = gameMapView.frame.size
         StaticContext.MainGameViewController = self
         handler.gameViewController = self
+        //setupWebView()
+        loadLevel(self.level!)
     }
     
     func setupWebView() {
@@ -88,64 +84,28 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         activityIndicator?.startAnimating()
     }
     
-    func setupGameMapViewController() {
-        gameMapViewController = GameMapViewController.sharedInstance
-        setupController(gameMapViewController!)
-    }
-    
-    func setupBlocklyTableViewController() {
-        blockTableViewController = BlockTableViewController.sharedInstance
-        setupController(blockTableViewController!)
-    }
-    
-    func setupGameMenuViewController() {
-        gameMenuViewController = GameMenuViewController.sharedInstance
-        setupController(gameMenuViewController!)
-    }
-    
-    func setupDirectDriveViewController() {
-        directDriveViewController = DirectDriveViewController.sharedInstance
-        setupController(directDriveViewController!)
-    }
-    
-    func setupHelpMessageViewController() {
-        helpViewController = MessageViewController.MessageViewControllerInstance()
-        setupController(helpViewController!)
-    }
-    
-    func setupGameMessageViewController() {
-        gameMessageViewController = MessageViewController.MessageViewControllerInstance()
-        setupController(gameMessageViewController!)
-    }
-    
-    func setupPostGameMessageViewController() {
-        postGameMessageViewController = MessageViewController.MessageViewControllerInstance()
-        setupController(postGameMessageViewController!)
-    }
-    
     func loadLevel(level: Level) {
         FetchLevelAction(self).execute {
-            if let controller = self.gameMessageViewController,
-                level = self.level {
+            
+            let controller = MessageViewController.MessageViewControllerInstance()
+            self.addChildViewController(controller)
+            self.view.addSubview(controller.view)
+            controller.view.frame.size = controller.messageFrame
+            controller.didMoveToParentViewController(self)
+            if let level = self.level {
                 controller.message = PreGameMessage(title: "Level \(level.name)", context: level.description!,
-                    action: controller.closeMenu)
-                self.gameMapViewController?.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: [Node]())
+                                                    action: controller.closeMenu)
+                self.gameMapViewController.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: [Node]())
                 controller.toggleMenu()
             }
+            self.activityIndicator?.stopAnimating()
         }
-        CommandFactory.LoadLevelCommand(level).execute()
     }
     
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {
         webView?.evaluateJavaScript(javaScript) { ( _, _) in
             callback()
         }
-    }
-
-    private func setupController(controller: SubGameViewController) {
-        addChildViewController(controller)
-        view.addSubview(controller.view)
-        controller.didMoveToParentViewController(self)
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
