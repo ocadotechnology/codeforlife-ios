@@ -32,7 +32,7 @@ class FetchLevelAction : Action, ActionProtocol
             pythonEnabled = json["pythonEnabled"].bool,
             pythonViewEnabled = json["pythonViewEnabled"].bool,
             originString = json["origin"].string,
-            destinations = json["destinations"].string,
+            destinationsString = json["destinations"].string,
             pathString = json["path"].string,
             level = gameViewController.level {
                 level.description = description
@@ -81,6 +81,19 @@ class FetchLevelAction : Action, ActionProtocol
                         i++
                     }
                     level.path = nodes
+                }
+                
+                if let destinationsDataFromString = destinationsString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                    let destinationsJson = JSON(data: destinationsDataFromString)
+                    if let destinations = destinationsJson.array {
+                        for destination in destinations {
+                            for node in level.path {
+                                if node.coordinates == Coordinates(destination[0].int!, destination[1].int!) {
+                                    node.isDestination = true
+                                }
+                            }
+                        }
+                    }
                 }
     
             }

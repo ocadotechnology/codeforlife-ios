@@ -17,6 +17,7 @@ class Map: SKScene {
     var origin: Origin
     var destinations: [Node]
     var player: Van
+    var mapArray = [[Bool]]()
     
     init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Node]) {
         self.width = width
@@ -51,15 +52,45 @@ class Map: SKScene {
         nodes[1].addConnectedNodeWithBackLink(nodes[3])
     }
     
-    func draw() {
+    func resetMap() {
         self.removeAllChildren()
+        self.mapArray = [[Bool]]()
+        for x in 0 ..< width {
+            mapArray.append([Bool]())
+            for y in 0  ..< height {
+                mapArray[x].append(false)
+            }
+        }
+    }
+    
+    func draw() {
+        resetMap()
+        
+        for node in nodes {
+            mapArray[node.coordinates.x][node.coordinates.y] = true
+        }
+        
         for node in nodes {
             var roadTile = RoadTile.Builder(node: node).build()
             roadTile.position = node.position
-            roadTile.zPosition = 0 
+            roadTile.zPosition = 0
             addChild(roadTile)
             if node.isDestination {
-                //TODO
+                var house: House
+                if !node.direction.up && !mapArray[node.coordinates.x][node.coordinates.y+1] {
+                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.N))
+                    println("N")
+                } else if !node.direction.right && !mapArray[node.coordinates.x+1][node.coordinates.y+1] {
+                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.E))
+                    println("e")
+                } else if !node.direction.down && !mapArray[node.coordinates.x][node.coordinates.y-1] {
+                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.S))
+                    println("s")
+                } else { //!node.direction.left && !mapArray[node.coordinates.x-1][node.coordinates.y]
+                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.W))
+                    println("w")
+                }
+                addChild(house)
             }
         }
         
