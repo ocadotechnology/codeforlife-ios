@@ -815,11 +815,11 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="edM-Ay-qx7" id="1oZ-Ur-2bj">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ypA-j1-hCS">
-                                                    <rect key="frame" x="8" y="8" width="184" height="64"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypA-j1-hCS">
+                                                    <rect key="frame" x="8" y="8" width="234" height="64"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="stepNumber" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-8O-Tjv">
-                                                            <rect key="frame" x="5" y="5" width="179" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stepNumber" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhp-8O-Tjv">
+                                                            <rect key="frame" x="5" y="5" width="229" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="EZD-Tq-JuX"/>
                                                                 <constraint firstAttribute="height" constant="20" id="rRn-uU-IBK"/>
@@ -834,8 +834,8 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="blockDescription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49i-Fh-Xdi">
-                                                            <rect key="frame" x="0.0" y="25" width="174" height="39"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="blockDescription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49i-Fh-Xdi">
+                                                            <rect key="frame" x="0.0" y="22" width="224" height="42"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                             <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>

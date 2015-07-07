@@ -40,7 +40,6 @@ class MessageViewController: SubGameViewController {
     var open = false {
         didSet {
             UIView.animateWithDuration(0.5) {
-                println(self.open)
                 self.view.center = self.open ? self.showPosition: self.hidePosition
             }
         }
