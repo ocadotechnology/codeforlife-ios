@@ -19,6 +19,7 @@ class Block {
     }
     
     func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
+        StaticContext.MainGameViewController?.blockTableViewController.selectedBlock++
         completion?()
     }
     
@@ -45,7 +46,10 @@ class Forward: Block {
     }
     
     override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.moveForward(completion)
+        player.moveForward {
+            StaticContext.MainGameViewController?.blockTableViewController.selectedBlock++
+            completion?()
+        }
     }
 }
 
@@ -57,7 +61,10 @@ class Left: Block {
     }
     
     override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.turnLeft(completion)
+        player.turnLeft{
+            StaticContext.MainGameViewController?.blockTableViewController.selectedBlock++
+            completion?()
+        }
     }
 }
 
@@ -69,7 +76,10 @@ class Right: Block {
     }
     
     override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.turnRight(completion)
+        player.turnRight {
+            StaticContext.MainGameViewController?.blockTableViewController.selectedBlock++
+            completion?()
+        }
     }
 }
 

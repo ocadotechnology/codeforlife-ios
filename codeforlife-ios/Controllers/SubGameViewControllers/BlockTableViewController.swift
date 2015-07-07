@@ -17,6 +17,19 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     @IBOutlet var tableView: BlockTableView!
     @IBOutlet var containerView: UIView!
     
+    var selectedBlock = 0 {
+        didSet {
+            if selectedBlock < blocks.count {
+                if selectedBlock != 0 {
+                    tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedBlock, inSection: 0), animated: false, scrollPosition: UITableViewScrollPosition.Top)
+                    println(selectedBlock)
+                }
+            } else {
+                selectedBlock = 0
+            }
+        }
+    }
+    
     var blocks: [Block] = [Start()] {
         didSet {
             self.tableView.reloadData()
