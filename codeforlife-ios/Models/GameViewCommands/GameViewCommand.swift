@@ -42,15 +42,59 @@ class GVLoadLevelCommand : GameViewCommand {
         self.level = level
     }
     
-    override func executeWithCompletionHandler(response:() -> Void) {
+    override func executeWithCompletionHandler(completion:() -> Void) {
         var urlStr = level!.webViewUrl;
         var url = NSURL(string: urlStr);
         
         var request = NSURLRequest(URL: url!);
         gameViewController.webView?.loadRequest(request)
-        gameViewController.callBack = response
+        gameViewController.callBack = completion
     }
     
+}
+
+class NGVShowPreGameMessageCommand: GameViewCommand {
+    override func executeWithCompletionHandler(completion:() -> Void) {
+        let controller = MessageViewController.MessageViewControllerInstance()
+        gameViewController.addChildViewController(controller)
+        gameViewController.view.addSubview(controller.view)
+        controller.didMoveToParentViewController(gameViewController)
+        if let level = gameViewController.level {
+            controller.message = PreGameMessage(title: "Level \(level.name)", context: level.description!,
+                action: {
+                    controller.closeMenu()
+                    controller.willMoveToParentViewController(nil)
+            })
+            gameViewController.gameMapViewController.map = Map(width: 8, height: 8, origin: gameViewController.level!.origin!, nodes: gameViewController.level!.path, destination: [Node]())
+            controller.toggleMenu()
+        }
+        gameViewController.activityIndicator?.stopAnimating()
+        completion()
+    }
+}
+
+class NGVShowPostGameMessageCommand: GameViewCommand {
+    override func executeWithCompletionHandler(completion:() -> Void) {
+        let controller = MessageViewController.MessageViewControllerInstance()
+        gameViewController.addChildViewController(controller)
+        gameViewController.view.addSubview(controller.view)
+        controller.didMoveToParentViewController(gameViewController)
+        if let level = gameViewController.level {
+            controller.message = PostGameMessage(
+                title: "TODO",
+                context: "TODO",
+                nextLevelAction: {
+                    controller.gotoNextLevelAndDismiss()
+                    controller.willMoveToParentViewController(nil)
+                },
+                playAgainAction: {
+                    controller.playAgainAndDismiss()
+                    controller.willMoveToParentViewController(nil)
+                })
+            controller.toggleMenu()
+        }
+        completion()
+    }
 }
 
 

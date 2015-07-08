@@ -22,10 +22,10 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
             if selectedBlock < blocks.count {
                 if selectedBlock != 0 {
                     tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedBlock, inSection: 0), animated: false, scrollPosition: UITableViewScrollPosition.Top)
-                    println(selectedBlock)
                 }
             } else {
                 selectedBlock = 0
+                CommandFactory.NativeShowPostGameMessageCommand().execute()
             }
         }
     }
@@ -73,14 +73,15 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         var block = blocks[indexPath.row]
         cell.stepNumber.text = indexPath.row == 0 ? "" : "Step \(indexPath.row)"
         cell.blockDescription.text = block.description
+        cell.containerView.backgroundColor = block.color
         
-        if indexPath.row == 0 {
-            cell.containerView.backgroundColor = kC4LBlocklyStartBlockColour
-        } else if indexPath.row % 2 == 0 {
-            cell.containerView.backgroundColor = kC4lBlocklyEvenBlockColour
-        } else {
-            cell.containerView.backgroundColor = kC4lBlocklyOddBlockColour
-        }
+//        if indexPath.row == 0 {
+//            cell.containerView.backgroundColor = kC4LBlocklyStartBlockColour
+//        } else if indexPath.row % 2 == 0 {
+//            cell.containerView.backgroundColor = kC4lBlocklyEvenBlockColour
+//        } else {
+//            cell.containerView.backgroundColor = kC4lBlocklyOddBlockColour
+//        }
         
         return cell
     }

@@ -115,4 +115,12 @@ class CommandFactory {
         return NGVTurnRightCommand(gameViewController: StaticContext.MainGameViewController!)
     }
     
+    class func NativeShowPreGameMessageCommand() -> GameViewCommand {
+        return NGVShowPreGameMessageCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
+    class func NativeShowPostGameMessageCommand() -> GameViewCommand {
+        return NGVShowPostGameMessageCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
 }

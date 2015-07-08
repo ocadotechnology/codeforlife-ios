@@ -75,7 +75,7 @@ class MessageViewController: SubGameViewController {
     }
     
     func playAgainAndDismiss() {
-        StaticContext.MainGameViewController!.level = StaticContext.MainGameViewController!.level
+        CommandFactory.NativeClearCommand().execute()
         closeMenu()
     }
 

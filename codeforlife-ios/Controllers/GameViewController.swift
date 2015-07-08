@@ -86,21 +86,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     
     func loadLevel(level: Level) {
         FetchLevelAction(self).execute {
-            
-            let controller = MessageViewController.MessageViewControllerInstance()
-            self.addChildViewController(controller)
-            self.view.addSubview(controller.view)
-            controller.didMoveToParentViewController(self)
-            if let level = self.level {
-                controller.message = PreGameMessage(title: "Level \(level.name)", context: level.description!,
-                    action: {
-                        controller.closeMenu()
-                        controller.willMoveToParentViewController(nil)
-                    })
-                self.gameMapViewController.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: [Node]())
-                controller.toggleMenu()
-            }
-            self.activityIndicator?.stopAnimating()
+            CommandFactory.NativeShowPreGameMessageCommand().execute()
+            CommandFactory.NativeClearCommand().execute()
         }
     }
     

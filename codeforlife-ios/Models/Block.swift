@@ -25,7 +25,7 @@ class Block {
     
     func executeBlockChainAction(player: MovableGameObject) {
         self.executeBlockAction(player) {
-            self.nextBlock?.executeBlockChainAction(player)
+                self.nextBlock?.executeBlockChainAction(player)
         }
     }
 }
@@ -34,7 +34,7 @@ class Start: Block {
     init() {
         super.init(
             description: "Start",
-            color: UIColor.whiteColor())
+            color: kC4LBlocklyStartBlockColour)
     }
 }
 
@@ -42,7 +42,7 @@ class Forward: Block {
     init() {
         super.init(
             description: "Move Forward",
-            color: UIColor.whiteColor())
+            color: kC4LBlocklyForwardBlockColour)
     }
     
     override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
@@ -57,7 +57,7 @@ class Left: Block {
     init() {
         super.init(
             description: "Turn Left",
-            color: UIColor.whiteColor())
+            color: kC4LBlocklyLeftBlockColour)
     }
     
     override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
@@ -72,7 +72,7 @@ class Right: Block {
     init() {
         super.init(
             description: "Right",
-            color: UIColor.whiteColor())
+            color: kC4LBlocklyRightBlockColour)
     }
     
     override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
@@ -87,6 +87,6 @@ class Deliver: Block {
     init() {
         super.init(
             description: "Deliver",
-            color: UIColor.whiteColor())
+            color: kC4LBlocklyDeliverBlockColour)
     }
 }

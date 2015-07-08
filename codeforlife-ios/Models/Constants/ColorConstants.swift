@@ -18,8 +18,10 @@ let kC4lMessageButtonBackgroundColour = UIColor(red: 240/255.0, green: 224/255.0
 
 
 let kC4LBlocklyStartBlockColour = UIColor(red: 208/255.0, green: 112/255.0, blue: 112/255.0, alpha: 1)      // #D07070
-let kC4lBlocklyOddBlockColour = UIColor(red: 7*16/255.0, green: 12*16/255.0, blue: 15*16/255.0, alpha: 1)   // #70C0F0
-let kC4lBlocklyEvenBlockColour = UIColor(red: 0/255.0, green: 176/255.0, blue: 208/255.0, alpha: 1)         // #00B0D0
+let kC4LBlocklyLeftBlockColour = UIColor(red: 7*16/255.0, green: 12*16/255.0, blue: 15*16/255.0, alpha: 1)   // #70C0F0
+let kC4LBlocklyForwardBlockColour = UIColor(red: 0/255.0, green: 176/255.0, blue: 208/255.0, alpha: 1)         // #00B0D0
+let kC4LBlocklyRightBlockColour = UIColor(red: 90/255.0, green: 176/255.0, blue: 208/255.0, alpha: 1)         // #50B0D0
+let kC4LBlocklyDeliverBlockColour = UIColor(red: 180/255.0, green: 176/255.0, blue: 208/255.0, alpha: 1)         // #A0B0D0
 let kC4LEpisodeBackgroundColor = UIColor(red: 240/255.0, green: 192/255.0, blue: 128/255.0, alpha: 1)       // #F0C080
 let kC4LEpisodeBorderColor = UIColor(red: 240/255.0, green: 144/255, blue: 96/255, alpha: 1)                // #F09060
 
