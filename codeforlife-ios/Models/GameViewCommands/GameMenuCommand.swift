@@ -8,50 +8,86 @@
 
 import Foundation
 
-class GameMenuCommand: GameViewCommand {}
+class GameMenuCommand: GameViewCommand {
+    weak var viewController: GameMenuViewController? {
+        return gameViewController.gameMenuViewController
+    }
+}
 
-class NGVHelpCommand : GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
-        if let controller = gameViewController.gameMenuViewController.delegate.controller {
-            controller.closeMenu()
-            gameViewController.gameMenuViewController.delegate.controller = nil
-        } else {
-            let controller = MessageViewController.MessageViewControllerInstance()
-            gameViewController.addChildViewController(controller)
-            gameViewController.view.addSubview(controller.view)
-            controller.didMoveToParentViewController(gameViewController)
-            controller.message = HelpMessage(
-                context: gameViewController.level!.hint!,
-                action: {
-                    controller.closeMenu()
-                    self.gameViewController.gameMenuViewController.delegate.controller = nil
-                    controller.willMoveToParentViewController(nil)
-            })
-            gameViewController.gameMenuViewController.delegate.controller = controller
-            controller.toggleMenu()
-        }
-        completion()
+class NGVShowHelpCommand : GameMenuCommand {
+    override func execute(completion: (() -> Void)? = nil) {
+        let controller = MessageViewController.MessageViewControllerInstance()
+        gameViewController.addChildViewController(controller)
+        gameViewController.view.addSubview(controller.view)
+        controller.didMoveToParentViewController(gameViewController)
+        controller.message = HelpMessage(
+            context: gameViewController.level!.hint!,
+            action: {
+                controller.closeMenu()
+                self.viewController?.delegate.controller = nil
+        })
+        viewController?.delegate.controller = controller
+        controller.toggleMenu()
+        completion?()
     }
 }
 
 class NGVClearCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.blockTableViewController.clearBlocks()
-        gameViewController.gameMapViewController.map?.player.resetPosition()
-        completion()
+    override func execute(completion: (() -> Void)? = nil) {
+        gameViewController.blockTableViewController?.clearBlocks()
+        gameViewController.gameMapViewController?.map?.player.resetPosition()
+        completion?()
     }
 }
 
-class NGVPlayCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.map?.player.resetPosition()
-        gameViewController.blockTableViewController.blocks.first?.executeBlockChainAction(gameViewController.gameMapViewController.map!.player)
-        completion()
-    }
-}
 
 class NGVMuteCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMenuViewController.mute = !gameViewController.gameMenuViewController.mute
+    override func execute(completion: (() -> Void)? = nil) {
+        viewController?.mute = !viewController!.mute
+        completion?()
     }
 }
+
+/// Called after control mode changes to onPlayControls
+class NGVPlayCommand: GameMenuCommand {
+    override func execute(completion: (() -> Void)? = nil) {
+        
+        // Web UI Update
+        CommandFactory.WebViewClearCommand().execute()
+        
+        // Native UI Update
+        gameViewController.blockTableViewController?.selectedBlock = 0
+        gameViewController.gameMapViewController?.map?.resetMap()
+        CommandFactory.NativeResetAnimationCommand().execute()
+        viewController?.clearButton.enabled = false
+        
+        // Submit Blocks and retrieve Animations
+        gameViewController.gameMapViewController?.map?.player.resetPosition()
+        gameViewController.blockTableViewController?.submitBlocks()
+        
+        // Execute Web Animation
+        CommandFactory.WebViewPlayCommand().execute()
+        
+        // Execute Animation
+//        gameViewController.gameMapViewController?.animationQueue.first?.executeChainAnimation {
+//            completion?()
+//        }
+        gameViewController.gameMapViewController?.currentAnimationIndex = 0
+        gameViewController.gameMapViewController?.shouldRunAnimation = true
+    }
+}
+
+class NGVSwitchControlMode: GameMenuCommand {
+    
+    var controlMode: GameMenuViewController.ControlMode
+    
+    init(gameViewController: GameViewController, controlMode: GameMenuViewController.ControlMode) {
+        self.controlMode = controlMode
+        super.init(gameViewController: gameViewController)
+    }
+    
+    override func execute(completion: (() -> Void)? = nil) {
+        viewController?.controlMode = self.controlMode
+    }
+}
+

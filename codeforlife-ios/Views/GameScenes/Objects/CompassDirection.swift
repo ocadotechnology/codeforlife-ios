@@ -14,6 +14,10 @@ enum CompassDirection {
     case E
     case S
     case W
+    case NE
+    case NW
+    case SE
+    case SW
     
     var direction : Direction {
         switch self {
@@ -25,6 +29,8 @@ enum CompassDirection {
             return Direction.Down
         case .W :
             return Direction.Left
+        default:
+            return Direction.Up
         }
     }
     
@@ -38,6 +44,14 @@ enum CompassDirection {
             return CGFloat(M_PI)
         case .W:
             return CGFloat(M_PI/2)
+        case .NE:
+            return CGFloat(-M_PI/4)
+        case .NW:
+            return CGFloat(M_PI/4)
+        case .SE:
+            return CGFloat(-M_PI*3/4)
+        case .SW:
+            return CGFloat(-M_PI*3/4)
         }
     }
 }

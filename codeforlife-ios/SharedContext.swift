@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class StaticContext {
+class SharedContext {
     static var MainGameViewController: GameViewController?
-//    static var storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+    static var BlockMap = [Int, Block]()
 }

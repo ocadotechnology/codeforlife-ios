@@ -12,6 +12,9 @@ import SpriteKit
 
 class House: GameObject {
     
+    let ratio1: CGFloat = 4/7
+    let ratio2: CGFloat = 1/4
+    
     init(origin: Origin) {
         super.init(
             imageNamed: "house",
@@ -24,13 +27,26 @@ class House: GameObject {
         
         switch origin.compassDirection {
         case .N:
-            self.position.y += GameMapConfig.Grid.height*4/7
+            self.position.y += GameMapConfig.Grid.height * ratio1
         case .E:
-            self.position.x += GameMapConfig.Grid.width*4/7
+            self.position.x += GameMapConfig.Grid.width * ratio1
         case .S:
-            self.position.y -= GameMapConfig.Grid.height*4/7
+            self.position.y -= GameMapConfig.Grid.height * ratio1
         case .W:
-            self.position.x -= GameMapConfig.Grid.width*4/7
+            self.position.x -= GameMapConfig.Grid.width * ratio1
+        case .NE:
+            self.position.y += GameMapConfig.Grid.height * ratio2
+            self.position.x += GameMapConfig.Grid.width * ratio2
+        case .SE:
+            self.position.y -= GameMapConfig.Grid.height * ratio2
+            self.position.x += GameMapConfig.Grid.width * ratio2
+        case .SW:
+            self.position.y -= GameMapConfig.Grid.height * ratio2
+            self.position.x -= GameMapConfig.Grid.width * ratio2
+        case .NW:
+            self.position.y += GameMapConfig.Grid.height * ratio2
+            self.position.x -= GameMapConfig.Grid.width * ratio2
+        default: break
         }
         
         let rad = origin.compassDirection.angle + CGFloat(M_PI/2)

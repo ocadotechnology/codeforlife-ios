@@ -14,13 +14,20 @@ import SpriteKit
 class MovableGameObject: GameObject {
     
     let PI = CGFloat(M_PI)
-    
+
+    var currentCoordinates: Coordinates
     var direction : Direction
     var origin: Origin
+    
+    var crashed: Bool {
+        let mapArray = SharedContext.MainGameViewController!.gameMapViewController!.map!.mapArray
+        return !mapArray[currentCoordinates.x][currentCoordinates.y]
+    }
     
     init(imageNamed: String, width: CGFloat, height: CGFloat, origin : Origin) {
         self.direction = origin.compassDirection.direction
         self.origin = origin
+        self.currentCoordinates = origin.coordinates
         super.init(imageNamed: imageNamed, width: width, height: height)
     }
 
@@ -37,12 +44,16 @@ class MovableGameObject: GameObject {
         switch direction {
         case .Left :
             actionMove = SKAction.moveBy(CGVector(dx: -movement, dy: 0), duration: duration)
+            currentCoordinates.x--
         case .Right:
             actionMove = SKAction.moveBy(CGVector(dx:  movement, dy: 0), duration: duration)
+            currentCoordinates.x++
         case .Up:
             actionMove = SKAction.moveBy(CGVector(dx: 0, dy:  movement), duration: duration)
+            currentCoordinates.y++
         case .Down:
             actionMove = SKAction.moveBy(CGVector(dx: 0, dy: -movement), duration: duration)
+            currentCoordinates.y--
         }
         self.runAction(actionMove, completion: completion)
     }
@@ -71,6 +82,7 @@ class MovableGameObject: GameObject {
             direction = left ? .Down : .Up
             correctedPosition.x += -radius
             correctedPosition.y += left ? -radius : radius
+            currentCoordinates.y += left ? -1 : 1
         case .Right:
             path = UIBezierPath(
                 arcCenter: CGPointMake(0, left ? radius : -radius) ,
@@ -81,6 +93,7 @@ class MovableGameObject: GameObject {
             direction = left ? .Up : .Down
             correctedPosition.x += radius
             correctedPosition.y += left ? radius : -radius
+            currentCoordinates.y += left ? 1 : -1
         case .Up:
             path = UIBezierPath(
                 arcCenter: CGPointMake(left ? -radius : radius, 0) ,
@@ -91,6 +104,7 @@ class MovableGameObject: GameObject {
             direction = left ? .Left : .Right
             correctedPosition.x += left ? -radius : radius
             correctedPosition.y += radius
+            currentCoordinates.x += left ? -1 : 1
         case .Down:
             path = UIBezierPath(
                 arcCenter: CGPointMake(left ? radius : -radius, 0) ,
@@ -101,6 +115,7 @@ class MovableGameObject: GameObject {
             direction = left ? .Right : .Left
             correctedPosition.x += left ? radius : -radius
             correctedPosition.y += -radius
+            currentCoordinates.x += left ? 1 : -1
         }
         let actionMove: SKAction = SKAction.followPath(
             path.CGPath,
@@ -111,6 +126,10 @@ class MovableGameObject: GameObject {
                 self.position = correctedPosition
                 completion()
             })
+    }
+    
+    func deliver(_ completion : (() -> Void)? = nil) {
+        fatalError("Implement deliver()")
     }
     
     func moveForward(_ completion : (() -> Void)? = nil) {

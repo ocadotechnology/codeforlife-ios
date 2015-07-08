@@ -9,8 +9,13 @@
 import Foundation
 
 struct Coordinates {
+    
     var x: Int
     var y: Int
+    
+    var toString: String {
+        return ("(\(x), \(y))")
+    }
     
     init(_ x: Int, _ y: Int) {
         self.x = x

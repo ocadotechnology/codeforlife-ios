@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ErrorMessage: Message {
+class FailMessage: Message {
     
     override init(title: String, context: String, action: () -> Void) {
         super.init(title: title, context: context, action: action)

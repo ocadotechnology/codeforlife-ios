@@ -14,15 +14,13 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     let SegueIdentifier = "FetchLevelsAction"
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var episodes = [Episode]() {
         didSet {
-            if isViewLoaded() {
-                tableView.reloadData()
-            }
+            tableView.reloadData()
         }
     }
 
@@ -47,7 +45,6 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! EpisodeTableViewCell
         var episode = episodes[indexPath.row]
         cell.titleLabel.text = "Episode \(indexPath.row+1) : \(episode.name)"
-        
         return cell
     }
     

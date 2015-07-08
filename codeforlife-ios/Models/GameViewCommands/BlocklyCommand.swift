@@ -8,9 +8,13 @@
 
 import Foundation
 
-class BlocklyCommand {}
+class BlocklyCommand : GameViewCommand {
+    weak var viewController : BlockTableViewController? {
+        return gameViewController.blockTableViewController
+    }
+}
 
-class NGVAddBlockCommand: GameViewCommand {
+class NGVAddBlockCommand: BlocklyCommand {
     
     var block: Block
     
@@ -19,8 +23,22 @@ class NGVAddBlockCommand: GameViewCommand {
         super.init(gameViewController: gameViewController)
     }
     
-    override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.blockTableViewController.addBlock(self.block)
+    override func execute(completion: (() -> Void)? = nil) {
+        viewController?.addBlock(self.block)
+        completion?()
     }
 }
 
+class NGVIncrementSelectedBlock: BlocklyCommand {
+    override func execute(completion: (() -> Void)? = nil) {
+        viewController?.selectedBlock++
+        completion?()
+    }
+}
+
+class NGVResetSelectedBlock : BlocklyCommand {
+    override func execute(completion: (() -> Void)? = nil) {
+        viewController?.selectedBlock = 0
+        completion?()
+    }
+}

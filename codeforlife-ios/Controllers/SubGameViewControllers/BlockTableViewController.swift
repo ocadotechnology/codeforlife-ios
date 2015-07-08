@@ -14,15 +14,23 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     let frameOffset: CGFloat = 10
     let bottomOffset: CGFloat = 40
     
-    @IBOutlet var tableView: BlockTableView!
-    @IBOutlet var containerView: UIView!
+    @IBOutlet weak var tableView: BlockTableView!
+    @IBOutlet weak var containerView: UIView!
+    
+    var startPosition: CGPoint?
+    var selectedRow: Int?
+    weak var selectedCell: UITableViewCell?
+    var originalPosition: CGPoint?
+    var verticalMode = false
+    var horizontalMode = false
+    var editable = true
+    let cellHeight: CGFloat = 90
     
     var selectedBlock = 0 {
         didSet {
             if selectedBlock < blocks.count {
-                if selectedBlock != 0 {
+                if selectedBlock > 0 {
                     tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedBlock, inSection: 0), animated: false, scrollPosition: UITableViewScrollPosition.Top)
-                    println(selectedBlock)
                 }
             } else {
                 selectedBlock = 0
@@ -39,12 +47,25 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     }
     
     func clearBlocks() {
-        blocks = [Start()]
+        blocks.removeAll(keepCapacity: false)
+        blocks.append(Start())
     }
     
     func addBlock(newBlock: Block) {
-        blocks.last?.nextBlock = newBlock
+//        blocks.last?.nextBlock = newBlock
         blocks.append(newBlock)
+    }
+    
+    func submitBlocks() {
+        for block in blocks {
+//            block.submit()
+            block.submitMock()
+        }
+    }
+    
+    func repositionBlock(from: Int, to: Int) {
+        var block = blocks.removeAtIndex(from)
+        blocks.splice([block], atIndex: to)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -55,9 +76,82 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.panGestureRecognizer.minimumNumberOfTouches = 2
+        self.tableView.panGestureRecognizer.maximumNumberOfTouches = 2
+        
+        var recognizer = UIPanGestureRecognizer(target: self, action: Selector("panGesture:"))
+        recognizer.minimumNumberOfTouches = 1
+        recognizer.maximumNumberOfTouches = 1
+        tableView.addGestureRecognizer(recognizer)
+        
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.dataSource = self
         tableView.delegate = self
+        
+    }
+    
+    private func resetPanGestureVariables() {
+        selectedCell?.layer.zPosition = 0
+        startPosition = nil
+        selectedRow = nil
+        selectedCell = nil
+        originalPosition = nil
+        verticalMode = false
+        horizontalMode = false
+    }
+    
+    func panGesture (sender:UIPanGestureRecognizer) {
+        if editable {
+            if (sender.state == UIGestureRecognizerState.Began) {
+                recordStartPosition(sender.locationInView(self.tableView))
+                
+            } else if (sender.state == UIGestureRecognizerState.Ended) {
+                let stopPosition = sender.locationInView(self.tableView)
+                let indexPath = tableView.indexPathForRowAtPoint(stopPosition)
+                let dx = startPosition!.x - stopPosition.x
+                if selectedCell != nil && selectedRow != nil {
+                    if horizontalMode && dx > 150 {
+                        blocks.removeAtIndex(selectedRow!)
+                    } else if verticalMode {
+                        let destinationRow = Int(round(((stopPosition.y - cellHeight/2) / cellHeight) - 0.5))
+                        repositionBlock(selectedRow!, to: max(1, min(destinationRow, blocks.count-1)))
+                    } else if originalPosition != nil {
+                        selectedCell?.center = originalPosition!
+                    }
+                }
+                resetPanGestureVariables()
+            } else if (sender.state == UIGestureRecognizerState.Changed) && selectedCell != nil {
+                let translation = sender.translationInView(self.tableView)
+                
+                if horizontalMode {
+                    selectedCell?.center.x = originalPosition!.x + translation.x
+                } else if verticalMode {
+                    selectedCell?.center.y = originalPosition!.y + translation.y
+                }
+                
+                let leftSwipeDetected = originalPosition!.x + translation.x + 10 < originalPosition!.x
+                let verticalSwipeDetected = originalPosition!.y + translation.y - 10 > originalPosition!.y
+                    || originalPosition!.y + translation.y + 10 < originalPosition!.y
+                if leftSwipeDetected && !verticalMode {
+                    horizontalMode = true
+                } else if verticalSwipeDetected && !horizontalMode {
+                    verticalMode = true
+                }
+            }
+        }
+    }
+    
+    // Record StartPosition and Selected Cell
+    private func recordStartPosition(position: CGPoint) {
+        startPosition = position
+        if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
+            if indexPath.row != 0 {
+                selectedRow = indexPath.row
+                selectedCell = tableView.cellForRowAtIndexPath(indexPath)
+                selectedCell?.layer.zPosition = 1
+                originalPosition = selectedCell?.center
+            }
+        }
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -70,19 +164,17 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! BlockTableViewCell
-        var block = blocks[indexPath.row]
+        unowned var block = blocks[indexPath.row]
+        cell.selectionStyle = .None
         cell.stepNumber.text = indexPath.row == 0 ? "" : "Step \(indexPath.row)"
         cell.blockDescription.text = block.description
-        
-        if indexPath.row == 0 {
-            cell.containerView.backgroundColor = kC4LBlocklyStartBlockColour
-        } else if indexPath.row % 2 == 0 {
-            cell.containerView.backgroundColor = kC4lBlocklyEvenBlockColour
-        } else {
-            cell.containerView.backgroundColor = kC4lBlocklyOddBlockColour
-        }
-        
+        cell.containerView.backgroundColor = block.color
         return cell
     }
-
+    
+    deinit {
+        blocks.removeAll(keepCapacity: false)
+        println("BlockTableViewController is being deallocated")
+    }
+    
 }

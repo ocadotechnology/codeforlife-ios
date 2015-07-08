@@ -27,7 +27,7 @@ class NativeCarController: VehicleController {
     }
     
     func go() {
-        CommandFactory.NativePlayCommand().execute()
+        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onPlayControls)
     }
     
     func deliver() {

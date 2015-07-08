@@ -19,7 +19,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var prevEpisodeButton: UIButton!
     @IBOutlet weak var nextEpisodeButton: UIButton!
     
-    var requestedEpisode: Episode?
+    weak var requestedEpisode: Episode?
     
     var episode : Episode? {
         didSet {
@@ -37,9 +37,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var levels = [Level]() {
         didSet {
-            if isViewLoaded() {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
         }
     }
 
@@ -79,7 +77,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
                 switch identifier {
                     case kCFLLoadLevelSegueIdentifier:
                         var indexPath = tableView.indexPathForSelectedRow()!
-                        gameViewController.level = levels[indexPath.row]
+                        gameViewController.requestedLevel = levels[indexPath.row]
                     default: break
                 }
             }
@@ -99,6 +97,8 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {
+        SharedContext.MainGameViewController = nil
+    }
 
 }

@@ -23,15 +23,15 @@ class MessageViewController: SubGameViewController {
     
     var hidePosition: CGPoint {
         return CGPointMake(
-            StaticContext.MainGameViewController!.view.center.x,
-            StaticContext.MainGameViewController!.view.frame.height + messageFrame.height/2)
+            gameViewController.view.center.x,
+            gameViewController.view.frame.height + messageFrame.height/2)
     }
     
     var showPosition: CGPoint {
-        return StaticContext.MainGameViewController!.view.center
+        return gameViewController.view.center
     }
     
-    var message: Message? {
+    weak var message: Message? {
         didSet {
             self.view = message?.view
         }
@@ -39,8 +39,13 @@ class MessageViewController: SubGameViewController {
     
     var open = false {
         didSet {
-            UIView.animateWithDuration(0.5) {
-                self.view.center = self.open ? self.showPosition: self.hidePosition
+            UIView.animateWithDuration(0.5, animations: {
+                self.view.center = self.open ? self.showPosition: self.hidePosition}) { [unowned self] (animated) -> Void in
+                    if !self.open {
+                        self.willMoveToParentViewController(nil)
+                        self.view.removeFromSuperview()
+                        self.removeFromParentViewController()
+                }
             }
         }
     }
@@ -68,15 +73,19 @@ class MessageViewController: SubGameViewController {
     }
     
     func gotoNextLevelAndDismiss() {
-        if let nextLevel = StaticContext.MainGameViewController!.level?.nextLevel {
-            StaticContext.MainGameViewController!.level = nextLevel
+        if let nextLevel = gameViewController.level?.nextLevel {
+            gameViewController.level = nextLevel
         }
         closeMenu()
     }
     
     func playAgainAndDismiss() {
-        StaticContext.MainGameViewController!.level = StaticContext.MainGameViewController!.level
+        CommandFactory.NativeClearCommand().execute()
         closeMenu()
+    }
+    
+    deinit {
+        println("MessageViewController is being deallocated")
     }
 
 }

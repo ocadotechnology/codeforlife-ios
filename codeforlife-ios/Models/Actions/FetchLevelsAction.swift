@@ -13,19 +13,18 @@ import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
-    var viewController: UIViewController
-    var url: String
+    unowned var viewController: LevelTableViewController
 
-    init( _ viewController: UIViewController, _ url: String) {
+    init( _ viewController: LevelTableViewController, _ url: String) {
         self.viewController = viewController
-        self.url = url
-        super.init(delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET))
+        super.init(
+            devUrl: url,
+            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
+            mockDelegate: FetchLevelsActionMockDelegate())
     }
     
     override func processData(data: NSData) {
-        
         var levels = [Level]()
-        
         let json = JSON(data: data)
         if let levelArray = json["level_set"].array {
             for level in levelArray {
@@ -38,21 +37,9 @@ class FetchLevelsAction : Action, ActionProtocol
                 }
             }
         }
-        
-        if let viewController = self.viewController as? LevelTableViewController {
-            viewController.levels = levels
-        }
+        viewController.levels = levels
     }
     
-    override func switchToDev() -> Action {
-        self.mode = DevMode
-        return self
-    }
-    
-    override func switchToMock() -> Action {
-        self.mode = MockMode
-        self.delegate = FetchLevelsActionMockDelegate()
-        return self
-    }
+    deinit { println("FetchLevelsAction is being deallocated") }
     
 }

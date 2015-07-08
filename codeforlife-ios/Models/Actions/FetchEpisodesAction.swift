@@ -13,20 +13,20 @@ import Alamofire
 
 class FetchEpisodesAction : Action, ActionProtocol {
     
-    let url = ""
-    let devUrl = "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/"
+    let url = "Insert Actual API URL"
     
-    var viewController: UIViewController
+    unowned var viewController: EpisodeViewController
     
-    init(_ viewController: UIViewController) {
+    init(_ viewController: EpisodeViewController) {
         self.viewController = viewController
-        super.init(delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET))
+        super.init(
+            devUrl: "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/",
+            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
+            mockDelegate: FetchEpisodesActionMockDelegate())
     }
     
     override func processData(data: NSData) {
-        
         var episodes = [Episode]()
-        
         let json = JSON(data: data)
         if let episodeArray = json.array {
             for episode in episodeArray {
@@ -40,25 +40,11 @@ class FetchEpisodesAction : Action, ActionProtocol {
                 }
             }
         }
-        
-        if let controller = self.viewController as? EpisodeViewController {
-            controller.episodes = episodes
-        }
-        
+        viewController.episodes = episodes
     }
     
-    override func switchToDev() -> Action {
-        self.mode = DevMode
-        self.delegate = APIActionDelegate(url: devUrl, method: Alamofire.Method.GET)
-        return self
-    }
-    
-    override func switchToMock() -> Action {
-        self.mode = MockMode
-        self.delegate = FetchEpisodesActionMockDelegate()
-        return self
-    }
-    
-    
+//    deinit {
+//        println("FetchEpisodesAction is being deallocated")
+//    }
     
 }

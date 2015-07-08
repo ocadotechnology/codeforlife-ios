@@ -6,30 +6,28 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
-/*  This is the base class for all the actions associated
- *  with the API
- */
-
 import Foundation
 import Alamofire
 
 protocol ActionProtocol {
     func processData(data: NSData)
-    func switchToMock() -> Action
-    func switchToDev() -> Action
 }
 
 class Action : ActionProtocol {
     
+    var mode = Mode
     var params = [String: String]()
     var delegate : ActionDelegate
-    var mode = Mode
+    var mockDelegate: ActionDelegate
+    var devUrl: String?
     
-    init(delegate: ActionDelegate) {
+    init(devUrl: String?, delegate: ActionDelegate, mockDelegate: ActionDelegate) {
+        self.devUrl = devUrl
         self.delegate = delegate
+        self.mockDelegate = mockDelegate
     }
     
-    func execute(callback: () -> Void = {})
+    final func execute(callback: () -> Void = {})
     {
         if mode == DevMode {
             self.switchToDev().delegate.execute(processData, callback: callback)
@@ -40,16 +38,21 @@ class Action : ActionProtocol {
         }
     }
     
+    final func switchToMock() -> Action {
+        self.mode = MockMode
+        self.delegate = mockDelegate
+        return self
+    }
+    
+    final func switchToDev() -> Action {
+        self.mode = DevMode
+        self.delegate = APIActionDelegate(url: devUrl, method: Alamofire.Method.GET)
+        return self
+    }
+    
+    // Every ACTION must implement this to handle JSON processing
     func processData(data: NSData) {
         fatalError("Implement processData() for \(self)")
-    }
-    
-    func switchToMock() -> Action {
-        fatalError("Implement switchToMock()")
-    }
-    
-    func switchToDev() -> Action {
-        fatalError("Implement switchToDev()")
     }
     
 }

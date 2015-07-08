@@ -9,17 +9,23 @@
 import Foundation
 
 class DirectDriveCommand: GameViewCommand {
-    
+
+    weak var viewController : DirectDriveViewController? {
+        return gameViewController.directDriveViewController
+    }
+
 }
 
 class NGVDisableDirectDriveCommand: DirectDriveCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.directDriveViewController.disableDirectDrive()
+    override func execute(completion: (() -> Void)? = nil) {
+        viewController?.disableDirectDrive()
+        completion?()
     }
 }
 
 class NGVEnableDirectDriveCommand: DirectDriveCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.directDriveViewController.enableDirectDrive()
+    override func execute(completion: (() -> Void)? = nil) {
+        viewController?.enableDirectDrive()
+        completion?()
     }
 }

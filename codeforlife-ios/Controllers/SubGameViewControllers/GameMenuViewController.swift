@@ -14,17 +14,17 @@ class GameMenuViewController: SubGameViewController {
     let pythonButtonText = "Python"
     let muteToUnmuteButtonText = "Unmute"
     let unmuteToMuteButtonText = "Mute"
-    let menuOffset: CGFloat = 40            // Offset to always show the head of the menu
-    let frameOffset: CGFloat = 10
-    let frameHeight: CGFloat = 300
+    let buttonHeight: CGFloat = 35
+    let buttonSpace:CGFloat = 10
+    let buttonCount: CGFloat = 8
     let animationDuration: NSTimeInterval = 0.5
     
-    enum ControlMode {
-        case onPlayControls
-        case onPauseControls
-        case onStepControls
-        case onStopControls
-        case onResumeControls
+    enum ControlMode: String {
+        case onPlayControls = "Play"
+        case onPauseControls = "Pause"
+        case onStepControls = "Step"
+        case onStopControls = "Stop"
+        case onResumeControls = "Resume"
         
         var text : String {
             switch self {
@@ -35,27 +35,35 @@ class GameMenuViewController: SubGameViewController {
             case .onResumeControls: return "Pause"
             }
         }
+        
+        var description : String {
+            return self.rawValue
+        }
+    }
+    
+    /// ControlMode only decides the UI update of the buttons,
+    /// and has no direct connection to any actual action to perform
+    var controlMode = ControlMode.onStopControls {
+        didSet {
+            println("switched to \(controlMode.description)")
+            playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
+            switch controlMode {
+            case .onPlayControls:
+                clearButton.enabled = false
+                gameViewController.blockTableViewController?.editable = false
+                gameViewController.directDriveViewController?.disableDirectDrive()
+            case .onStopControls:
+                clearButton.enabled = true
+                gameViewController.blockTableViewController?.editable = true
+                gameViewController.directDriveViewController?.enableDirectDrive()
+            case .onPauseControls: break
+            case .onResumeControls: break
+            case .onStepControls: break
+            }
+        }
     }
     
     var delegate = GameMenuViewControllerNativeDelegate()
-    
-    var gameMenuFrame: CGSize {
-        return CGSize(
-            width: StaticContext.MainGameViewController!.view.frame.width*(1-StaticContext.MainGameViewController!.webViewPortion) - 2*frameOffset,
-            height: frameHeight)
-    }
-    
-    var showPosition : CGPoint {
-        return CGPointMake(
-            self.view.center.x,
-            self.view.center.y - frameHeight + menuOffset)
-    }
-    
-    var hidePosition : CGPoint {
-        return CGPointMake(
-            self.view.center.x,
-            self.view.center.y + frameHeight - menuOffset)
-    }
     
     var mute = false {
         didSet {
@@ -63,30 +71,21 @@ class GameMenuViewController: SubGameViewController {
         }
     }
     
-    var controlMode = ControlMode.onStopControls {
-        didSet {
-            playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
-        }
-    }
-    
-    var menuOpen = false {
-        didSet {
-            UIView.animateWithDuration(animationDuration) {
-                self.view.center = self.menuOpen ? self.showPosition : self.hidePosition
-            }
-        }
-    }
-    
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
+    @IBOutlet weak var clearButton: GameViewButton!
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        view.center = hidePosition
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate.gameMenuViewController = self
     }
     
     @IBAction func toggleMenu() {
-        menuOpen = !menuOpen
+        UIView.animateWithDuration(animationDuration) {
+            [unowned self] in
+            let menuMovement = (self.buttonHeight + self.buttonSpace) * (self.buttonCount - 1)
+            self.gameViewController.gameMenuView.center.y += self.gameViewController.gameMenuView.center.y > self.gameViewController.view.frame.height ? -menuMovement : menuMovement
+        }
     }
 
     @IBAction func clear() {
@@ -97,6 +96,14 @@ class GameMenuViewController: SubGameViewController {
         delegate.play()
     }
     
+    @IBAction func stop() {
+        delegate.stop()
+    }
+    
+    @IBAction func step() {
+        delegate.step()
+    }
+    
     @IBAction func help() {
         delegate.help()
     }
@@ -104,5 +111,7 @@ class GameMenuViewController: SubGameViewController {
     @IBAction func muteSound() {
         delegate.muteSound()
     }
+    
+    deinit { println("GameMenuViewController is being deallocated") }
     
 }
