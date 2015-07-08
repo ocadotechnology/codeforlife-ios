@@ -128,6 +128,10 @@ class MovableGameObject: GameObject {
             })
     }
     
+    func deliver(_ completion : (() -> Void)? = nil) {
+        fatalError("Implement deliver()")
+    }
+    
     func moveForward(_ completion : (() -> Void)? = nil) {
         fatalError("Implement moveForward()")
     }

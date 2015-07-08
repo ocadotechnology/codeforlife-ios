@@ -15,11 +15,11 @@ class Map: SKScene {
     var height: Int
     var nodes: [Node]
     var origin: Origin
-    var destinations: [Node]
+    var destinations: [Destination]
     var player: Van
     var mapArray = [[Bool]]()
     
-    init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Node]) {
+    init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Destination]) {
         self.width = width
         self.height = height
         self.nodes = nodes
@@ -49,6 +49,18 @@ class Map: SKScene {
                 mapArray[x].append(false)
             }
         }
+        for destination in destinations {
+            destination.visited = false
+        }
+    }
+    
+    func visitedAllDestinations() -> Bool {
+        for destination in destinations {
+            if !destination.visited {
+                return false
+            }
+        }
+        return true
     }
     
     func draw() {

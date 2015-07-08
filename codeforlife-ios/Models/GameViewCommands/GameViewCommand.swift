@@ -65,7 +65,6 @@ class NGVShowPreGameMessageCommand: GameViewCommand {
                     controller.closeMenu()
                     controller.willMoveToParentViewController(nil)
             })
-            gameViewController.gameMapViewController.map = Map(width: 8, height: 8, origin: gameViewController.level!.origin!, nodes: gameViewController.level!.path, destination: gameViewController.level!.destinations)
             controller.toggleMenu()
         }
         gameViewController.activityIndicator?.stopAnimating()

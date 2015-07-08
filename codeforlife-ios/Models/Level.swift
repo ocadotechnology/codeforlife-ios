@@ -14,7 +14,7 @@ class Level {
     var hint: String?
     var origin: Origin?
     var path = [Node]()
-    var destinations = [Node]()
+    var destinations = [Destination]()
     var blocklyEnabled: Bool?
     var pythonEnabled: Bool?
     var pythonViewEnabled: Bool?

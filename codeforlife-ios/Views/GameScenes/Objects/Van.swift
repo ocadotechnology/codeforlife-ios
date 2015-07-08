@@ -87,4 +87,15 @@ class Van: MovableGameObject {
         }
     }
     
+    override func deliver(_ completion: (() -> Void)? = nil) {
+        if let map = StaticContext.MainGameViewController?.gameMapViewController.map {
+            for destination in map.destinations {
+                if destination.coordinates == currentCoordinates {
+                    destination.visited = true
+                }
+            }
+            completion?()
+        }
+    }
+    
 }

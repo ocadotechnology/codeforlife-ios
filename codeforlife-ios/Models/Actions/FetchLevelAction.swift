@@ -86,19 +86,16 @@ class FetchLevelAction : Action, ActionProtocol
                 if let destinationsDataFromString = destinationsString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                     let destinationsJson = JSON(data: destinationsDataFromString)
                     if let destinations = destinationsJson.array {
-                        var destinationList = [Node]()
+                        var destinationList = [Destination]()
                         for destination in destinations {
                             for node in level.path {
                                 if node.coordinates == Coordinates(destination[0].int!, destination[1].int!) {
                                     node.isDestination = true
-                                    destinationList.append(node)
+                                    destinationList.append(Destination(node.coordinates))
                                 }
                             }
                         }
                         level.destinations = destinationList
-                        for destination in level.destinations {
-                            println("YO")
-                        }
                     }
                 }
             }

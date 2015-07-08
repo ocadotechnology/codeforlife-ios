@@ -32,11 +32,16 @@ class Block {
             if self.nextBlock != nil {
                 self.nextBlock?.executeBlockChainAction(player, completion: completion)
             } else {
-                println("I should check result here")
-                if player.currentCoordinates == StaticContext.MainGameViewController!.gameMapViewController.map!.destinations[0].coordinates {
-                    CommandFactory.NativeShowPostGameMessageCommand().execute()
-                } else {
-                    CommandFactory.NativeShowFailMessageCommand().execute()
+                player.deliver {
+                    if let map = StaticContext.MainGameViewController?.gameMapViewController.map {
+                        if map.visitedAllDestinations() {
+                            CommandFactory.NativeShowPostGameMessageCommand().execute()
+                        } else {
+                            CommandFactory.NativeShowFailMessageCommand().execute()
+                        }
+                    } else {
+                        fatalError("Destinations is nil")
+                    }
                 }
             }
         }

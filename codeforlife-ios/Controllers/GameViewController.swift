@@ -67,6 +67,18 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         loadLevel(self.level!)
     }
     
+    func loadLevel(level: Level) {
+        FetchLevelAction(self).execute {
+            self.gameMapViewController.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: self.level!.destinations)
+            CommandFactory.NativeShowPreGameMessageCommand().execute()
+            CommandFactory.NativeClearCommand().execute()
+        }
+    }
+    
+    
+    
+    
+    // Deprecated
     func setupWebView() {
         var config = WKWebViewConfiguration()
         config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
@@ -84,19 +96,14 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         activityIndicator?.startAnimating()
     }
     
-    func loadLevel(level: Level) {
-        FetchLevelAction(self).execute {
-            CommandFactory.NativeShowPreGameMessageCommand().execute()
-            CommandFactory.NativeClearCommand().execute()
-        }
-    }
-    
+    // Deprecated
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {
         webView?.evaluateJavaScript(javaScript) { ( _, _) in
             callback()
         }
     }
     
+    // Deprecated
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         webView.evaluateJavaScript(webViewPreloadScript, completionHandler: nil)
             self.activityIndicator?.stopAnimating()

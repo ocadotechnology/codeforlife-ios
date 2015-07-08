@@ -14,7 +14,6 @@ class GameMapViewController: SubGameViewController {
     var skView = SKView()
     var map: Map? {
         didSet {
-            println("YOLO")
             map?.removeAllChildren()
             map!.scaleMode = .ResizeFill
             skView.frame = view.frame

@@ -14,4 +14,10 @@ class Deliver: Block {
             description: "Deliver",
             color: kC4LBlocklyDeliverBlockColour)
     }
+    
+    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
+        player.deliver {
+            super.executeBlockAction(player, completion: completion)
+        }
+    }
 }

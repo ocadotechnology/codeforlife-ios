@@ -73,15 +73,6 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         cell.stepNumber.text = indexPath.row == 0 ? "" : "Step \(indexPath.row)"
         cell.blockDescription.text = block.description
         cell.containerView.backgroundColor = block.color
-        
-//        if indexPath.row == 0 {
-//            cell.containerView.backgroundColor = kC4LBlocklyStartBlockColour
-//        } else if indexPath.row % 2 == 0 {
-//            cell.containerView.backgroundColor = kC4lBlocklyEvenBlockColour
-//        } else {
-//            cell.containerView.backgroundColor = kC4lBlocklyOddBlockColour
-//        }
-        
         return cell
     }
 

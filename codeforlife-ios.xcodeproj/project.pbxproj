@@ -166,6 +166,8 @@
 		EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */; };
 		EDC8C1F31B36A25F004B1358 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */; };
 		EDC8C1F51B381213004B1358 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* CommandFactory.swift */; };
+		EDD1A2B81B4D5497001A82A2 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2B71B4D5497001A82A2 /* Rotation.swift */; };
+		EDD1A2B91B4D54D9001A82A2 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2B71B4D5497001A82A2 /* Rotation.swift */; };
 		EDDF0F0D1B416C4E00F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
 		EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */; };
 		EDDF0F121B416E4700F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
@@ -297,6 +299,7 @@
 		EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewButton.swift; sourceTree = "<group>"; };
 		EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		EDC8C1F41B381213004B1358 /* CommandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandFactory.swift; sourceTree = "<group>"; };
+		EDD1A2B71B4D5497001A82A2 /* Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
 		EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreGameMessageView.xib; sourceTree = "<group>"; };
 		EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessageView.swift; sourceTree = "<group>"; };
 		EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessage.swift; sourceTree = "<group>"; };
@@ -575,6 +578,7 @@
 				ED7799D01B469E6500A854A3 /* Direction.swift */,
 				EDA47C4F1B454715003356AB /* Node.swift */,
 				ED222FC21B4A8D99006E525A /* CompassDirection.swift */,
+				EDD1A2B71B4D5497001A82A2 /* Rotation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -673,6 +677,9 @@
 		EF41E60503222496376BD198 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EF41E7F0402D1DF38E4BA7F2 /* Level.swift */,
+				ED1A93471B43D0DD004E6AD4 /* Episode.swift */,
+				EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */,
 				ED222FDA1B4D1403006E525A /* Blocks */,
 				EDA47C5D1B4556A0003356AB /* VehicleControllers */,
 				EDC8C1ED1B362276004B1358 /* Constants */,
@@ -680,9 +687,6 @@
 				ED1A935E1B43F8A4004E6AD4 /* ActionDelegates */,
 				ED1A934D1B43D32C004E6AD4 /* Messages */,
 				ED236EA11B341CF800B63380 /* Commands */,
-				EF41E7F0402D1DF38E4BA7F2 /* Level.swift */,
-				ED1A93471B43D0DD004E6AD4 /* Episode.swift */,
-				EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -954,6 +958,7 @@
 				EDFE934F1B419FF900E01322 /* SubGameViewController.swift in Sources */,
 				ED222FCD1B4AD4A5006E525A /* StaticContext.swift in Sources */,
 				EDA47C501B454715003356AB /* Node.swift in Sources */,
+				EDD1A2B81B4D5497001A82A2 /* Rotation.swift in Sources */,
 				ED7799D71B46AB3E00A854A3 /* GameMapConfig.swift in Sources */,
 				ED1A932C1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
 				EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */,
@@ -1006,6 +1011,7 @@
 				ED222FD91B4C265D006E525A /* Tile.swift in Sources */,
 				ED222FBE1B4A7133006E525A /* BlocklyCommand.swift in Sources */,
 				ED1A932D1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
+				EDD1A2B91B4D54D9001A82A2 /* Rotation.swift in Sources */,
 				ED5721C51B4854870011F465 /* FetchLevelActionMockDelegate.swift in Sources */,
 				EDA47C491B443225003356AB /* LevelTitleLabel.swift in Sources */,
 				ED222FC71B4A8FD1006E525A /* GameMapCommand.swift in Sources */,
