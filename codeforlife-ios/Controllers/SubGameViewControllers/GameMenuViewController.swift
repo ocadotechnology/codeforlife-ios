@@ -66,6 +66,18 @@ class GameMenuViewController: SubGameViewController {
     var controlMode = ControlMode.onStopControls {
         didSet {
             playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
+            switch controlMode {
+            case .onPlayControls:
+                CommandFactory.NativePlayCommand().execute()
+            case .onStopControls:
+                CommandFactory.NativeStopCommand().execute()
+            case .onPauseControls:
+                CommandFactory.NativePauseCommand().execute()
+            case .onResumeControls:
+                CommandFactory.NativeResumeCommand().execute()
+                
+            case .onStepControls: break
+            }
         }
     }
     
@@ -79,10 +91,16 @@ class GameMenuViewController: SubGameViewController {
     
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
+    @IBOutlet weak var clearButton: GameViewButton!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         view.center = hidePosition
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        delegate.gameMenuViewController = self
     }
     
     @IBAction func toggleMenu() {

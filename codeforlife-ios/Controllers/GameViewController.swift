@@ -75,9 +75,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         }
     }
     
-    
-    
-    
     // Deprecated
     func setupWebView() {
         var config = WKWebViewConfiguration()

@@ -30,5 +30,17 @@ class GameMapViewController: SubGameViewController {
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
     }
+    
+    func pause() {
+        println("pause() is called")
+        skView.paused = true
+        map?.paused = true
+    }
+    
+    func unpause() {
+        println("unpause() is called")
+        skView.paused = false
+        map?.paused = false
+    }
 
 }

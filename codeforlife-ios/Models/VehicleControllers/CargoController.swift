@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Deprecated
 class CargoController: VehicleController {
     
     func moveForward() {

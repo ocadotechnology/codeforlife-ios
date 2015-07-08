@@ -57,17 +57,17 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                         case JSONTag.Mute:
                             gameViewController!.gameMenuViewController.mute = !gameViewController!.gameMenuViewController.mute
                         case JSONTag.OnPlay:
-                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onPlayControls
+                            gameViewController!.gameMenuViewController.controlMode = .onPlayControls
                             gameViewController!.directDriveViewController.disableDirectDrive()
                         case JSONTag.OnPause:
-                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onPauseControls
+                            gameViewController!.gameMenuViewController.controlMode = .onPauseControls
                         case JSONTag.OnStep:
-                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onStepControls
+                            gameViewController!.gameMenuViewController.controlMode = .onStepControls
                         case JSONTag.OnStop:
-                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onStopControls
+                            gameViewController!.gameMenuViewController.controlMode = .onStopControls
                             gameViewController!.directDriveViewController.enableDirectDrive()
                         case JSONTag.OnResume:
-                            gameViewController!.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onResumeControls
+                            gameViewController!.gameMenuViewController.controlMode = .onResumeControls
                         case JSONTag.PreGameMsg:
                             gameViewController!.directDriveViewController.enableDirectDrive()
                             if let title = json[JSONIdentifier.Title].string {

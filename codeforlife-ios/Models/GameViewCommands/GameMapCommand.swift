@@ -9,22 +9,58 @@
 import UIKit
 import Foundation
 
-class GameMapCommand: GameViewCommand {}
+class GameMapCommand: GameViewCommand {
+    var map : Map? {
+        return gameViewController.gameMapViewController.map
+    }
+}
 
 class NGVMoveForwardCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.map?.player.moveForward()
+        self.gameViewController.gameMenuViewController.controlMode = .onStepControls
+        map?.player.moveForward {
+            self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+        }
     }
 }
 
 class NGVTurnLeftCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.map?.player.turnLeft()
+        self.gameViewController.gameMenuViewController.controlMode = .onStepControls
+        map?.player.turnLeft {
+            self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+        }
     }
 }
 
 class NGVTurnRightCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.map?.player.turnRight()
+        self.gameViewController.gameMenuViewController.controlMode = .onStepControls
+        map?.player.turnRight {
+            self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+        }
+    }
+}
+
+class NGVShowResultCommand: GameMapCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        if map!.visitedAllDestinations() {
+            CommandFactory.NativeShowPostGameMessageCommand().execute()
+        } else {
+            CommandFactory.NativeShowFailMessageCommand().execute()
+        }
+        self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+    }
+}
+
+class NGVPauseAnimationCommand: GameMapCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMapViewController.pause()
+    }
+}
+
+class NGVUnpauseAnimationCommand: GameMapCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMapViewController.unpause()
     }
 }

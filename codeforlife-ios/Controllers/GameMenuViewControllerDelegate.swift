@@ -40,13 +40,24 @@ class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
 class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     
     var controller: MessageViewController?
+    var gameMenuViewController: GameMenuViewController?
  
     func clear() {
         CommandFactory.NativeClearCommand().execute()
     }
     
     func play() {
-        CommandFactory.NativePlayCommand().execute()
+        switch gameMenuViewController!.controlMode {
+        case .onPlayControls:
+            gameMenuViewController?.controlMode = .onStopControls
+        case .onStopControls:
+            gameMenuViewController?.controlMode = .onPlayControls
+        case .onPauseControls:
+            gameMenuViewController?.controlMode = .onResumeControls
+        case .onResumeControls:
+            gameMenuViewController?.controlMode = .onPauseControls
+        case .onStepControls: break
+        }
     }
     
     func help() {
@@ -59,7 +70,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func muteSound() {
-        
+        CommandFactory.NativeMuteCommand().execute()
     }
     
 }

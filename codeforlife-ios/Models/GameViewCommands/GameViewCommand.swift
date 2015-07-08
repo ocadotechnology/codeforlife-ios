@@ -111,6 +111,7 @@ class NGVShowFailMessageCommand: GameViewCommand {
                     controller.willMoveToParentViewController(nil)
             })
             controller.toggleMenu()
+            self.gameViewController.gameMenuViewController.controlMode = .onStopControls
         }
         completion()
     }

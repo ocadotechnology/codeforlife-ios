@@ -99,8 +99,20 @@ class CommandFactory {
         return NGVAddBlockCommand(gameViewController: StaticContext.MainGameViewController!, block: block)
     }
     
-    class func NativePlayCommand() -> GameViewCommand {
+    class func NativePlayCommand() -> GameMenuCommand {
         return NGVPlayCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
+    class func NativeStopCommand() -> GameMenuCommand {
+        return NGVStopCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
+    class func NativePauseCommand() -> GameMenuCommand {
+        return NGVPauseCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
+    class func NativeResumeCommand() -> GameMenuCommand {
+        return NGVResumeCommand(gameViewController: StaticContext.MainGameViewController!)
     }
     
     class func NativeMoveForwardCommand() -> GameMapCommand {
@@ -125,6 +137,22 @@ class CommandFactory {
     
     class func NativeShowFailMessageCommand() -> GameViewCommand {
         return NGVShowFailMessageCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
+    class func NativeShowResultCommand() -> GameMapCommand {
+        return NGVShowResultCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
+    class func NativeMuteCommand() -> GameMenuCommand {
+        return NGVMuteCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
+    class func NativePauseAnimationCommand() -> GameMapCommand {
+        return NGVPauseAnimationCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
+    class func NativeUnpauseAnimationCommand() -> GameMapCommand {
+        return NGVUnpauseAnimationCommand(gameViewController: StaticContext.MainGameViewController!)
     }
     
 }

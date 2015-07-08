@@ -42,17 +42,39 @@ class NGVClearCommand: GameMenuCommand {
     }
 }
 
-class NGVPlayCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.map?.player.resetPosition()
-        gameViewController.blockTableViewController.selectedBlock = 0
-        gameViewController.blockTableViewController.blocks.first?.executeBlockChainAction(gameViewController.gameMapViewController.map!.player)
-        completion()
-    }
-}
 
 class NGVMuteCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
         gameViewController.gameMenuViewController.mute = !gameViewController.gameMenuViewController.mute
+    }
+}
+
+class NGVPlayCommand: GameMenuCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMenuViewController.clearButton.enabled = false
+        gameViewController.gameMapViewController.map?.player.resetPosition()
+        gameViewController.blockTableViewController.selectedBlock = 0
+        gameViewController.blockTableViewController.blocks.first?
+            .executeBlockChainAction(gameViewController.gameMapViewController.map!.player)
+        completion()
+    }
+}
+
+class NGVPauseCommand: GameMenuCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMapViewController.pause()
+        completion()
+    }
+}
+
+class NGVResumeCommand: GameMenuCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMapViewController.unpause()
+    }
+}
+
+class NGVStopCommand: GameMenuCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMenuViewController.clearButton.enabled = true
     }
 }

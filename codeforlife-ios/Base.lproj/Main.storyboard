@@ -116,10 +116,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ew-OV-gAo" userLabel="ContainerView">
-                                                    <rect key="frame" x="18" y="18" width="412" height="64"/>
+                                                    <rect key="frame" x="18" y="18" width="412" height="63.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xj0-2d-hwe" userLabel="DescriptionLabel">
-                                                            <rect key="frame" x="25" y="31" width="372" height="30"/>
+                                                            <rect key="frame" x="25" y="31" width="372" height="29.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -545,6 +545,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="clearButton" destination="7zm-h8-Jda" id="Dqi-lh-tuc"/>
                         <outlet property="muteButton" destination="Mfj-nm-gDD" id="9ut-Mi-36D"/>
                         <outlet property="playButton" destination="nfy-1c-ose" id="yLR-Lz-8i0"/>
                     </connections>
