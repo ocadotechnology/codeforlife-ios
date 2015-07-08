@@ -45,6 +45,7 @@ class NGVClearCommand: GameMenuCommand {
 class NGVPlayCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
         gameViewController.gameMapViewController.map?.player.resetPosition()
+        gameViewController.blockTableViewController.selectedBlock = 0
         gameViewController.blockTableViewController.blocks.first?.executeBlockChainAction(gameViewController.gameMapViewController.map!.player)
         completion()
     }

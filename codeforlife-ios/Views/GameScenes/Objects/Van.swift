@@ -45,10 +45,22 @@ class Van: MovableGameObject {
         self.direction = origin.compassDirection.direction
         let actionRotate = SKAction.rotateToAngle(rad, duration: 0)
         self.runAction(actionRotate)
+        resetCurrentCoordinates()
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // Origin of the Van is always one step further from the actual origin
+    func resetCurrentCoordinates() {
+        self.currentCoordinates = self.origin.coordinates
+        switch origin.compassDirection {
+        case .N: currentCoordinates.y++
+        case .E: currentCoordinates.x++
+        case .S: currentCoordinates.y--
+        case .W: currentCoordinates.x--
+        }
     }
     
     override func moveForward(_ completion : (() -> Void)? = nil) {

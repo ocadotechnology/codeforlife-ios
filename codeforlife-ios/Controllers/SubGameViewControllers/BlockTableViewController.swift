@@ -20,12 +20,11 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     var selectedBlock = 0 {
         didSet {
             if selectedBlock < blocks.count {
-                if selectedBlock != 0 {
+                if selectedBlock > 0 {
                     tableView.selectRowAtIndexPath(NSIndexPath(forRow: selectedBlock, inSection: 0), animated: false, scrollPosition: UITableViewScrollPosition.Top)
                 }
             } else {
                 selectedBlock = 0
-                CommandFactory.NativeShowPostGameMessageCommand().execute()
             }
         }
     }

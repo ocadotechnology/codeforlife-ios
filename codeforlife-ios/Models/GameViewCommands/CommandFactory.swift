@@ -123,4 +123,8 @@ class CommandFactory {
         return NGVShowPostGameMessageCommand(gameViewController: StaticContext.MainGameViewController!)
     }
     
+    class func NativeShowFailMessageCommand() -> GameViewCommand {
+        return NGVShowFailMessageCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
 }

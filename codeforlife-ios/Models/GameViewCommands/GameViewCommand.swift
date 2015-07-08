@@ -65,7 +65,7 @@ class NGVShowPreGameMessageCommand: GameViewCommand {
                     controller.closeMenu()
                     controller.willMoveToParentViewController(nil)
             })
-            gameViewController.gameMapViewController.map = Map(width: 8, height: 8, origin: gameViewController.level!.origin!, nodes: gameViewController.level!.path, destination: [Node]())
+            gameViewController.gameMapViewController.map = Map(width: 8, height: 8, origin: gameViewController.level!.origin!, nodes: gameViewController.level!.path, destination: gameViewController.level!.destinations)
             controller.toggleMenu()
         }
         gameViewController.activityIndicator?.stopAnimating()
@@ -91,6 +91,26 @@ class NGVShowPostGameMessageCommand: GameViewCommand {
                     controller.playAgainAndDismiss()
                     controller.willMoveToParentViewController(nil)
                 })
+            controller.toggleMenu()
+        }
+        completion()
+    }
+}
+
+class NGVShowFailMessageCommand: GameViewCommand {
+    override func executeWithCompletionHandler(completion:() -> Void) {
+        let controller = MessageViewController.MessageViewControllerInstance()
+        gameViewController.addChildViewController(controller)
+        gameViewController.view.addSubview(controller.view)
+        controller.didMoveToParentViewController(gameViewController)
+        if let level = gameViewController.level {
+            controller.message = FailMessage(
+                title: "FAIL",
+                context: "Errrrr... I haven't connected this to the API",
+                action: {
+                    controller.closeMenu()
+                    controller.willMoveToParentViewController(nil)
+            })
             controller.toggleMenu()
         }
         completion()
