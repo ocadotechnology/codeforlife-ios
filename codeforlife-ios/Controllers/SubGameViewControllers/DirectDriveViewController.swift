@@ -18,7 +18,7 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     @IBOutlet weak var leftButton: DirectDriveButton!
     @IBOutlet weak var rightButton: DirectDriveButton!
     
-    var controller: VehicleController = NativeCarController()
+    var controller: VehicleController = WebViewEnabled ? WebViewVehicleController() : NativeCarController()
 
     @IBAction func moveForward() {
         controller.moveForward()

@@ -17,6 +17,10 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     @IBOutlet var tableView: BlockTableView!
     @IBOutlet var containerView: UIView!
     
+    var startPosition: CGPoint?
+    var selectedRow: Int?
+    var originalX: CGFloat?
+    
     var selectedBlock = 0 {
         didSet {
             if selectedBlock < blocks.count {
@@ -42,8 +46,14 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     }
     
     func addBlock(newBlock: Block) {
-        blocks.last?.nextBlock = newBlock
+//        blocks.last?.nextBlock = newBlock
         blocks.append(newBlock)
+    }
+    
+    func submitBlocks() {
+        for block in blocks {
+            block.submit()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -57,6 +67,39 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.dataSource = self
         tableView.delegate = self
+        
+        var recognizer = UIPanGestureRecognizer(target: self, action: Selector("panGesture:"))
+        tableView.addGestureRecognizer(recognizer)
+    }
+    
+    func panGesture (sender:UIPanGestureRecognizer) {
+        if (sender.state == UIGestureRecognizerState.Began) {
+            startPosition = sender.locationInView(self.tableView)
+            if let indexPath = tableView.indexPathForRowAtPoint(startPosition!),
+                cell = tableView.cellForRowAtIndexPath(indexPath) {
+                originalX = cell.center.x
+                selectedRow = indexPath.row
+            }
+        } else if (sender.state == UIGestureRecognizerState.Ended) {
+            let stopPosition = sender.locationInView(self.tableView)
+            let dx = startPosition!.x - stopPosition.x
+            if dx > 200 && selectedRow != nil{
+                blocks.removeAtIndex(selectedRow!)
+            } else {
+                let indexPath = tableView.indexPathForRowAtPoint(startPosition!)
+                let cell = tableView.cellForRowAtIndexPath(indexPath!)
+                cell!.center.x = originalX!
+            }
+        } else if (sender.state == UIGestureRecognizerState.Changed) {
+            if let indexPath = tableView.indexPathForRowAtPoint(startPosition!),
+                    cell = tableView.cellForRowAtIndexPath(indexPath) {
+                let translation = sender.translationInView(self.tableView)
+                println((translation.x, originalX! + translation.x - originalX!, originalX! + translation.x > originalX!))
+                if originalX! + translation.x < originalX! {
+                    cell.center.x = originalX! + translation.x
+                }
+            }
+        }
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -70,10 +113,11 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! BlockTableViewCell
         var block = blocks[indexPath.row]
+        cell.selectionStyle = .None
         cell.stepNumber.text = indexPath.row == 0 ? "" : "Step \(indexPath.row)"
         cell.blockDescription.text = block.description
         cell.containerView.backgroundColor = block.color
         return cell
     }
-
+    
 }

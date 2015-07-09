@@ -20,4 +20,8 @@ class Right: Block {
             super.executeBlockAction(player, completion: completion)
         }
     }
+    
+    override func submit() {
+        CommandFactory.TurnRightCommand().execute()
+    }
 }

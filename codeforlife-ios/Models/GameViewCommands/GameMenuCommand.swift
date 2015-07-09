@@ -54,8 +54,10 @@ class NGVPlayCommand: GameMenuCommand {
         gameViewController.gameMenuViewController.clearButton.enabled = false
         gameViewController.gameMapViewController.map?.player.resetPosition()
         gameViewController.blockTableViewController.selectedBlock = 0
-        gameViewController.blockTableViewController.blocks.first?
-            .executeBlockChainAction(gameViewController.gameMapViewController.map!.player)
+        gameViewController.blockTableViewController.submitBlocks()
+        CommandFactory.PlayCommand().execute()
+//        gameViewController.blockTableViewController.blocks.first?
+//            .executeBlockChainAction(gameViewController.gameMapViewController.map!.player)
         completion()
     }
 }

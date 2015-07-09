@@ -20,4 +20,8 @@ class Forward: Block {
             super.executeBlockAction(player, completion: completion)
         }
     }
+    
+    override func submit() {
+        CommandFactory.MoveForwardCommand().execute()
+    }
 }

@@ -21,6 +21,12 @@ class GameMapViewController: SubGameViewController {
             map?.draw()
         }
     }
+    
+    var animationQueue: [Animation] = [] {
+        didSet {
+            animationQueue.first?.executeChainAnimation()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +38,11 @@ class GameMapViewController: SubGameViewController {
     }
     
     func pause() {
-        println("pause() is called")
         skView.paused = true
         map?.paused = true
     }
     
     func unpause() {
-        println("unpause() is called")
         skView.paused = false
         map?.paused = false
     }

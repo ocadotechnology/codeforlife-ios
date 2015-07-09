@@ -63,44 +63,46 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
         gameMapViewController.view.frame.size = gameMapView.frame.size
         StaticContext.MainGameViewController = self
         handler.gameViewController = self
-        //setupWebView()
+        setupWebView()
         loadLevel(self.level!)
     }
     
     func loadLevel(level: Level) {
         FetchLevelAction(self).execute {
-            self.gameMapViewController.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: self.level!.destinations)
-            CommandFactory.NativeShowPreGameMessageCommand().execute()
-            CommandFactory.NativeClearCommand().execute()
+            self.WebViewFetchLevelPostAction()
         }
+        self.webView!.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
+    }
+    
+    private func WebViewFetchLevelPostAction() {
+        self.gameMapViewController.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: self.level!.destinations)
+        CommandFactory.NativeClearCommand().execute()
+    }
+    
+    private func NativeFetchLevelPostAction() {
+        self.gameMapViewController.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: self.level!.destinations)
+        CommandFactory.NativeShowPreGameMessageCommand().execute()
+        CommandFactory.NativeClearCommand().execute()
     }
     
     // Deprecated
     func setupWebView() {
         var config = WKWebViewConfiguration()
         config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
-        webView = WKWebView(frame: CGRect(
-            x: view.frame.width * (1 - webViewPortion) + webViewOffset,
-            y: webViewOffset,
-            width: view.frame.width * webViewPortion - 2 * webViewOffset,
-            height: view.frame.height - 2 * webViewOffset)
+        webView = WKWebView(frame: CGRect(origin: CGPointMake(view.frame.width - 250,50), size: CGSize(width: 200, height: 200))
             , configuration: config)
         webView!.navigationDelegate = self
-        webView!.layer.cornerRadius = webViewCornerRadius
-        webView!.layer.masksToBounds = true
+        webView!.UIDelegate = self
         view.addSubview(webView!)
-        view.sendSubviewToBack(webView!)
         activityIndicator?.startAnimating()
     }
     
-    // Deprecated
     func runJavaScript(javaScript: String, callback: () -> Void = {}) {
         webView?.evaluateJavaScript(javaScript) { ( _, _) in
             callback()
         }
     }
     
-    // Deprecated
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         webView.evaluateJavaScript(webViewPreloadScript, completionHandler: nil)
             self.activityIndicator?.stopAnimating()

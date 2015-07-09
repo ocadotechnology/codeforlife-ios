@@ -10,14 +10,17 @@ import UIKit
 import Foundation
 
 class Block {
+    
     var nextBlock: Block?
     var description: String
     var color: UIColor
+    
     init(description: String, color: UIColor) {
         self.description = description
         self.color = color
     }
     
+    // Not in use yet
     func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
         if player.crashed {
             CommandFactory.NativeShowFailMessageCommand().execute()
@@ -27,6 +30,7 @@ class Block {
         }
     }
     
+    // Not in use yet
     func executeBlockChainAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
         self.executeBlockAction(player) {
             if self.nextBlock != nil {
@@ -38,5 +42,9 @@ class Block {
                 completion?()
             }
         }
+    }
+    
+    func submit() {
+        
     }
 }

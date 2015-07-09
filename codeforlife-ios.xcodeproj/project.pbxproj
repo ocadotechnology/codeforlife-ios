@@ -168,6 +168,8 @@
 		EDC8C1F51B381213004B1358 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* CommandFactory.swift */; };
 		EDD1A2B81B4D5497001A82A2 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2B71B4D5497001A82A2 /* Rotation.swift */; };
 		EDD1A2B91B4D54D9001A82A2 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2B71B4D5497001A82A2 /* Rotation.swift */; };
+		EDD1A2BC1B4E7805001A82A2 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2BB1B4E7805001A82A2 /* Animation.swift */; };
+		EDD1A2BD1B4EAAE5001A82A2 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2BB1B4E7805001A82A2 /* Animation.swift */; };
 		EDDF0F0D1B416C4E00F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
 		EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */; };
 		EDDF0F121B416E4700F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
@@ -300,6 +302,7 @@
 		EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		EDC8C1F41B381213004B1358 /* CommandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandFactory.swift; sourceTree = "<group>"; };
 		EDD1A2B71B4D5497001A82A2 /* Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
+		EDD1A2BB1B4E7805001A82A2 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreGameMessageView.xib; sourceTree = "<group>"; };
 		EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessageView.swift; sourceTree = "<group>"; };
 		EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessage.swift; sourceTree = "<group>"; };
@@ -687,6 +690,7 @@
 				ED1A935E1B43F8A4004E6AD4 /* ActionDelegates */,
 				ED1A934D1B43D32C004E6AD4 /* Messages */,
 				ED236EA11B341CF800B63380 /* Commands */,
+				EDD1A2BB1B4E7805001A82A2 /* Animation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -968,6 +972,7 @@
 				EDA47C3B1B441E35003356AB /* EpisodeTableView.swift in Sources */,
 				ED7799CE1B46944200A854A3 /* FetchLevelAction.swift in Sources */,
 				EDBB66951B3C0977009020A5 /* Block.swift in Sources */,
+				EDD1A2BC1B4E7805001A82A2 /* Animation.swift in Sources */,
 				EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */,
 				EDFE93491B41826A00E01322 /* PostGameMessage.swift in Sources */,
 				ED222FCA1B4AABCB006E525A /* CFC.swift in Sources */,
@@ -1040,6 +1045,7 @@
 				ED222FE01B4D1434006E525A /* Left.swift in Sources */,
 				ED7799D21B469E6500A854A3 /* Direction.swift in Sources */,
 				EDFE93411B41820A00E01322 /* HelpMessageView.swift in Sources */,
+				EDD1A2BD1B4EAAE5001A82A2 /* Animation.swift in Sources */,
 				ED222FCE1B4AD4A5006E525A /* StaticContext.swift in Sources */,
 				EDBB66751B3AA07A009020A5 /* GVJavaScriptCommand.swift in Sources */,
 				ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */,

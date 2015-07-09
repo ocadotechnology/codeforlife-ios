@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlockTableViewCell: UITableViewCell {
+class BlockTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var stepNumber: UILabel!

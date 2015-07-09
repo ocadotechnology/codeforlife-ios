@@ -8,27 +8,30 @@
 
 import Foundation
 
-// Deprecated
-class CargoController: VehicleController {
+class WebViewVehicleController: VehicleController {
     
     func moveForward() {
-        CommandFactory.MoveForwardCommand().execute()
+        CommandFactory.NativeMoveForwardCommand().execute()
+        CommandFactory.NativeAddBlockCommand(Forward()).execute()
     }
     
     func turnLeft() {
-        CommandFactory.TurnLeftCommand().execute()
+        CommandFactory.NativeTurnLeftCommand().execute()
+        CommandFactory.NativeAddBlockCommand(Left()).execute()
     }
     
     func turnRight() {
-        CommandFactory.TurnRightCommand().execute()
+        CommandFactory.NativeTurnRightCommand().execute()
+        CommandFactory.NativeAddBlockCommand(Right()).execute()
     }
     
     func go() {
-        CommandFactory.PlayCommand().execute()
+        CommandFactory.NativePlayCommand().execute()
+        // Waiting for API to return me with something to execute all the animation in a row
     }
     
     func deliver() {
-        
+        CommandFactory.NativeAddBlockCommand(Deliver()).execute()
     }
     
 }

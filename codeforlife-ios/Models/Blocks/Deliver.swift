@@ -20,4 +20,8 @@ class Deliver: Block {
             super.executeBlockAction(player, completion: completion)
         }
     }
+    
+    override func submit() {
+        CommandFactory.DeliverCommand().execute()
+    }
 }

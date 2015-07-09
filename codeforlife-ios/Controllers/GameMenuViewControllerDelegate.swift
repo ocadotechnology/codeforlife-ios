@@ -43,13 +43,15 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     var gameMenuViewController: GameMenuViewController?
  
     func clear() {
+        CommandFactory.ClearCommand().execute()
         CommandFactory.NativeClearCommand().execute()
     }
     
     func play() {
+        CommandFactory.PlayCommand().execute()
         switch gameMenuViewController!.controlMode {
         case .onPlayControls:
-            gameMenuViewController?.controlMode = .onStopControls
+            gameMenuViewController?.controlMode = .onPauseControls
         case .onStopControls:
             gameMenuViewController?.controlMode = .onPlayControls
         case .onPauseControls:

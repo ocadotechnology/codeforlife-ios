@@ -20,4 +20,8 @@ class Left: Block {
             super.executeBlockAction(player, completion: completion)
         }
     }
+    
+    override func submit() {
+        CommandFactory.TurnLeftCommand().execute()
+    }
 }

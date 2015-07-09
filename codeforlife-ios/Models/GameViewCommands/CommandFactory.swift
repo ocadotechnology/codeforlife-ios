@@ -19,10 +19,11 @@ let kC4LGameViewStepCommandJavaScript    = "$('#step_radio').trigger('click');"
 let kC4LGameViewStopCommandJavaScript    = "$('#stop_radio').trigger('click');"
 let kC4LGameViewBlocklyCommandJavaScript = "$('#blockly_radio').trigger('click');"
 
-let moveForwardJavaScript = "$('#moveForward').trigger('click');"
-let turnLeftJavaScript = "$('#turnLeft').trigger('click');"
-let turnRightJavaScript = "$('#turnRight').trigger('click');"
+let moveForwardJavaScript = "ocargo.blocklyControl.addBlockToEndOfProgram('move_forwards');"
+let turnLeftJavaScript = "ocargo.blocklyControl.addBlockToEndOfProgram('turn_left');"
+let turnRightJavaScript = "ocargo.blocklyControl.addBlockToEndOfProgram('turn_right');"
 let goJavaScript = "$('#play_radio').trigger('click');"
+let deliverJavaScript = "ocargo.blocklyControl.addBlockToEndOfProgram('deliver');"
 
 
 class CommandFactory {
@@ -77,6 +78,10 @@ class CommandFactory {
     
     class func TurnRightCommand() -> GVJavaScriptCommand {
         return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: turnRightJavaScript)
+    }
+    
+    class func DeliverCommand() -> GVJavaScriptCommand {
+        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: deliverJavaScript)
     }
     
     class func NativeHelpCommand() -> GameViewCommand {
