@@ -14,12 +14,13 @@ import Alamofire
 class FetchLevelsAction : Action, ActionProtocol
 {
     var viewController: UIViewController
-    var url: String
 
     init( _ viewController: UIViewController, _ url: String) {
         self.viewController = viewController
-        self.url = url
-        super.init(delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET))
+        super.init(
+            devUrl: url,
+            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
+            mockDelegate: FetchLevelsActionMockDelegate())
     }
     
     override func processData(data: NSData) {
@@ -42,10 +43,6 @@ class FetchLevelsAction : Action, ActionProtocol
         if let viewController = self.viewController as? LevelTableViewController {
             viewController.levels = levels
         }
-    }
-    
-    override func toMock() {
-        self.delegate = FetchLevelsActionMockDelegate()
     }
     
 }

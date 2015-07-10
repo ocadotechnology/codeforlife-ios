@@ -15,12 +15,13 @@ class FetchLevelAction : Action, ActionProtocol
 {
     
     var gameViewController: GameViewController
-    var url: String
     
     init( _ gameViewController: GameViewController, _ url: String? = nil) {
         self.gameViewController = gameViewController
-        self.url = url ?? gameViewController.level!.url
-        super.init(delegate: APIActionDelegate(url: self.url, method: Alamofire.Method.GET))
+        super.init(
+            devUrl: url ?? gameViewController.level!.url,
+            delegate: APIActionDelegate(url: gameViewController.level!.url, method: Alamofire.Method.GET),
+            mockDelegate: FetchLevelActionMockDelegate())
     }
     
     override func processData(data: NSData) {
@@ -99,11 +100,6 @@ class FetchLevelAction : Action, ActionProtocol
                     }
                 }
             }
-    }
-    
-    override func toMock() {
-        let devUrl = "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/levels/13/"
-        self.delegate = APIActionDelegate(url: devUrl, method: Alamofire.Method.GET)
     }
     
 }

@@ -11,31 +11,20 @@ import Alamofire
 
 protocol ActionProtocol {
     func processData(data: NSData)
-    func toMock()
-    func toDev()
 }
 
 class Action : ActionProtocol {
     
-    // Every ACTION must implement this to handle JSON processing
-    func processData(data: NSData) {
-        fatalError("Implement processData() for \(self)")
-    }
-    
-    // Override this function when extra updates need to be performed
-    func toDev() {}
-    
-    // Override this function when extra updates need to be performed
-    func toMock() {}
-    
-    /***************************************************************/
-    
+    var mode = Mode
     var params = [String: String]()
     var delegate : ActionDelegate
-    var mode = Mode
+    var mockDelegate: ActionDelegate
+    var devUrl: String
     
-    init(delegate: ActionDelegate) {
+    init(devUrl: String, delegate: ActionDelegate, mockDelegate: ActionDelegate) {
+        self.devUrl = devUrl
         self.delegate = delegate
+        self.mockDelegate = mockDelegate
     }
     
     final func execute(callback: () -> Void = {})
@@ -51,16 +40,19 @@ class Action : ActionProtocol {
     
     final func switchToMock() -> Action {
         self.mode = MockMode
-        toMock()
+        self.delegate = mockDelegate
         return self
     }
     
     final func switchToDev() -> Action {
         self.mode = DevMode
-        toDev()
+        self.delegate = APIActionDelegate(url: devUrl, method: Alamofire.Method.GET)
         return self
     }
     
-
+    // Every ACTION must implement this to handle JSON processing
+    func processData(data: NSData) {
+        fatalError("Implement processData() for \(self)")
+    }
     
 }

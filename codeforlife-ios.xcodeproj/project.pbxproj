@@ -178,8 +178,12 @@
 		EDD1A2CA1B4FCED5001A82A2 /* TurnRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */; };
 		EDD1A2CC1B4FD4B7001A82A2 /* FetchMapAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2CB1B4FD4B7001A82A2 /* FetchMapAction.swift */; };
 		EDD1A2CD1B4FD4B7001A82A2 /* FetchMapAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2CB1B4FD4B7001A82A2 /* FetchMapAction.swift */; };
-		EDD1A2CF1B4FDC48001A82A2 /* ActionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2CE1B4FDC48001A82A2 /* ActionFactory.swift */; };
-		EDD1A2D01B4FDC48001A82A2 /* ActionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2CE1B4FDC48001A82A2 /* ActionFactory.swift */; };
+		EDD1A2D21B4FDEA0001A82A2 /* FetchMapActionMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D11B4FDEA0001A82A2 /* FetchMapActionMockDelegate.swift */; };
+		EDD1A2D31B4FDEA0001A82A2 /* FetchMapActionMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D11B4FDEA0001A82A2 /* FetchMapActionMockDelegate.swift */; };
+		EDD1A2D51B4FDF6D001A82A2 /* FetchBlockSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D41B4FDF6D001A82A2 /* FetchBlockSet.swift */; };
+		EDD1A2D61B4FDF6D001A82A2 /* FetchBlockSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D41B4FDF6D001A82A2 /* FetchBlockSet.swift */; };
+		EDD1A2D81B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D71B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift */; };
+		EDD1A2D91B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D71B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift */; };
 		EDDF0F0D1B416C4E00F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
 		EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */; };
 		EDDF0F121B416E4700F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
@@ -317,7 +321,9 @@
 		EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnLeft.swift; sourceTree = "<group>"; };
 		EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnRight.swift; sourceTree = "<group>"; };
 		EDD1A2CB1B4FD4B7001A82A2 /* FetchMapAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchMapAction.swift; sourceTree = "<group>"; };
-		EDD1A2CE1B4FDC48001A82A2 /* ActionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionFactory.swift; sourceTree = "<group>"; };
+		EDD1A2D11B4FDEA0001A82A2 /* FetchMapActionMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchMapActionMockDelegate.swift; sourceTree = "<group>"; };
+		EDD1A2D41B4FDF6D001A82A2 /* FetchBlockSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchBlockSet.swift; sourceTree = "<group>"; };
+		EDD1A2D71B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchBlockSetMockDelegate.swift; sourceTree = "<group>"; };
 		EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreGameMessageView.xib; sourceTree = "<group>"; };
 		EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessageView.swift; sourceTree = "<group>"; };
 		EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessage.swift; sourceTree = "<group>"; };
@@ -377,6 +383,8 @@
 				ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */,
 				ED1A93551B43D769004E6AD4 /* FetchEpisodesActionMockDelegate.swift */,
 				ED5721C31B4854870011F465 /* FetchLevelActionMockDelegate.swift */,
+				EDD1A2D11B4FDEA0001A82A2 /* FetchMapActionMockDelegate.swift */,
+				EDD1A2D71B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift */,
 			);
 			name = MockDelegates;
 			path = ActionDelegates/MockDelegates;
@@ -550,12 +558,12 @@
 		ED1EB0621B32C09800A595EF /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				EDD1A2CE1B4FDC48001A82A2 /* ActionFactory.swift */,
 				ED1EB0631B32C09800A595EF /* Action.swift */,
 				ED1EB0701B331A2800A595EF /* FetchLevelsAction.swift */,
 				ED1A934F1B43D4A3004E6AD4 /* FetchEpisodesAction.swift */,
 				ED7799CD1B46944200A854A3 /* FetchLevelAction.swift */,
 				EDD1A2CB1B4FD4B7001A82A2 /* FetchMapAction.swift */,
+				EDD1A2D41B4FDF6D001A82A2 /* FetchBlockSet.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -962,7 +970,6 @@
 				ED7799C81B468ADC00A854A3 /* GameObject.swift in Sources */,
 				ED222FDC1B4D141D006E525A /* Forward.swift in Sources */,
 				ED1A93451B43D046004E6AD4 /* EpisodeViewController.swift in Sources */,
-				EDD1A2CF1B4FDC48001A82A2 /* ActionFactory.swift in Sources */,
 				ED1A93591B43D88E004E6AD4 /* APIActionDelegate.swift in Sources */,
 				ED5721C01B47EED20011F465 /* GameMenuViewControllerDelegate.swift in Sources */,
 				EDA47C451B442A1E003356AB /* GlobalConfig.swift in Sources */,
@@ -1031,11 +1038,13 @@
 				EDBB66951B3C0977009020A5 /* Block.swift in Sources */,
 				EDD1A2BC1B4E7805001A82A2 /* Animation.swift in Sources */,
 				EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */,
+				EDD1A2D51B4FDF6D001A82A2 /* FetchBlockSet.swift in Sources */,
 				EDFE93491B41826A00E01322 /* PostGameMessage.swift in Sources */,
 				ED222FCA1B4AABCB006E525A /* CFC.swift in Sources */,
 				ED5721B81B47E7680011F465 /* RoadType.swift in Sources */,
 				ED222FE81B4D1580006E525A /* Start.swift in Sources */,
 				ED222FC01B4A77EA006E525A /* MovableGameObject.swift in Sources */,
+				EDD1A2D81B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */,
 				EDBB668D1B3AEEFC009020A5 /* DirectDriveViewController.swift in Sources */,
 				ED6F79971B3D9DF000DD2AFE /* HelpMessage.swift in Sources */,
 				EF41E0CAE26E34EA69805EB6 /* Level.swift in Sources */,
@@ -1043,6 +1052,7 @@
 				D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */,
 				ED6F798A1B3D565B00DD2AFE /* MessageViewController.swift in Sources */,
 				EDFE933D1B4181FF00E01322 /* PostGameMessageView.swift in Sources */,
+				EDD1A2D21B4FDEA0001A82A2 /* FetchMapActionMockDelegate.swift in Sources */,
 				EDD1A2C91B4FCED5001A82A2 /* TurnRight.swift in Sources */,
 				EDDF0F151B41783F00F2D779 /* PreGameMessage.swift in Sources */,
 				ED5721BB1B47E7CC0011F465 /* Origin.swift in Sources */,
@@ -1117,7 +1127,6 @@
 				EDBB669B1B3C1007009020A5 /* BlockTableViewController.swift in Sources */,
 				EDBB667E1B3AA18F009020A5 /* LevelTableViewCell.swift in Sources */,
 				EDA47C401B442411003356AB /* LevelBackButton.swift in Sources */,
-				EDD1A2D01B4FDC48001A82A2 /* ActionFactory.swift in Sources */,
 				ED222FC11B4A77EA006E525A /* MovableGameObject.swift in Sources */,
 				ED7799C91B468ADC00A854A3 /* GameObject.swift in Sources */,
 				ED222FCB1B4AABCB006E525A /* CFC.swift in Sources */,
@@ -1133,6 +1142,7 @@
 				ED7799D81B46AB3E00A854A3 /* GameMapConfig.swift in Sources */,
 				ED6F798F1B3D5A0E00DD2AFE /* MessageViewController.swift in Sources */,
 				EDDF0F161B4178B700F2D779 /* PreGameMessage.swift in Sources */,
+				EDD1A2D31B4FDEA0001A82A2 /* FetchMapActionMockDelegate.swift in Sources */,
 				EDBB66911B3B0103009020A5 /* GameMenuViewController.swift in Sources */,
 				ED222FB51B4A6C13006E525A /* DirectDriveCommand.swift in Sources */,
 				EDFE933E1B4181FF00E01322 /* PostGameMessageView.swift in Sources */,
@@ -1140,6 +1150,7 @@
 				EDBB66701B3AA06E009020A5 /* FetchLevelsAction.swift in Sources */,
 				ED1A933E1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
 				EDBB667B1B3AA07E009020A5 /* VehicleController.swift in Sources */,
+				EDD1A2D61B4FDF6D001A82A2 /* FetchBlockSet.swift in Sources */,
 				ED5721C11B47EED20011F465 /* GameMenuViewControllerDelegate.swift in Sources */,
 				EDA47C651B4557A8003356AB /* FetchLevelsActionTest.swift in Sources */,
 				EDBB666D1B3AA06A009020A5 /* ColorConstants.swift in Sources */,
@@ -1148,6 +1159,7 @@
 				EDA47C461B442A1E003356AB /* GlobalConfig.swift in Sources */,
 				EDFE933B1B41808700E01322 /* FailMessage.swift in Sources */,
 				EDA47C431B442798003356AB /* LevelTableView.swift in Sources */,
+				EDD1A2D91B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */,
 				EDBB66731B3AA07A009020A5 /* CommandFactory.swift in Sources */,
 				EDA47C671B455B74003356AB /* NativeCarController.swift in Sources */,
 			);

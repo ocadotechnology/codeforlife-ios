@@ -13,14 +13,16 @@ import Alamofire
 
 class FetchEpisodesAction : Action, ActionProtocol {
     
-    let url = ""
-    let devUrl = "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/"
+    let url = "Insert Actual API URL"
     
     var viewController: UIViewController
     
     init(_ viewController: UIViewController) {
         self.viewController = viewController
-        super.init(delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET))
+        super.init(
+            devUrl: "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/",
+            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
+            mockDelegate: FetchEpisodesActionMockDelegate())
     }
     
     override func processData(data: NSData) {
@@ -45,14 +47,6 @@ class FetchEpisodesAction : Action, ActionProtocol {
             controller.episodes = episodes
         }
         
-    }
-    
-    override func toDev() {
-        self.delegate = APIActionDelegate(url: devUrl, method: Alamofire.Method.GET)
-    }
-    
-    override func toMock() {
-        self.delegate = FetchEpisodesActionMockDelegate()
     }
     
 }

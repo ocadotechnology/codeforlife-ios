@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  FetchBlockSet.swift
 //  codeforlife-ios
 //
 //  Created by Joey Chan on 10/07/2015.
@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class FetchMapAction : Action {
+class FetchBlockSet : Action {
     
     var gameViewController: GameViewController
     
@@ -19,7 +19,7 @@ class FetchMapAction : Action {
         super.init(
             devUrl: url ?? gameViewController.level!.url,
             delegate: APIActionDelegate(url: url ?? gameViewController.level!.url, method: Alamofire.Method.GET),
-            mockDelegate: FetchMapActionMockDelegate())
+            mockDelegate: FetchBlockSetMockDelegate())
     }
     
     override func processData(data: NSData) {
@@ -28,6 +28,5 @@ class FetchMapAction : Action {
         //TODO
         
     }
-
     
 }
