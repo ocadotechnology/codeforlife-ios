@@ -8,9 +8,9 @@
 
 import Foundation
 
-class BlocklyCommand {}
+class BlocklyCommand : GameViewCommand {}
 
-class NGVAddBlockCommand: GameViewCommand {
+class NGVAddBlockCommand: BlocklyCommand {
     
     var block: Block
     

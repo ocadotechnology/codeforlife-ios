@@ -20,19 +20,19 @@ protocol GameMenuViewControllerDelegate {
 class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
     
     func clear() {
-        CommandFactory.ClearCommand().execute()
+        CommandFactory.WebViewClearCommand().execute()
     }
     
     func play() {
-        CommandFactory.PlayCommand().execute()
+        CommandFactory.WebViewPlayCommand().execute()
     }
     
     func help() {
-        CommandFactory.HelpCommand().execute()
+        CommandFactory.WebViewHelpCommand().execute()
     }
     
     func muteSound() {
-        CommandFactory.MuteCommand().execute()
+        CommandFactory.WebViewMuteCommand().execute()
     }
     
 }
@@ -43,12 +43,12 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     var gameMenuViewController: GameMenuViewController?
  
     func clear() {
-        CommandFactory.ClearCommand().execute()
+        CommandFactory.WebViewClearCommand().execute()
         CommandFactory.NativeClearCommand().execute()
     }
     
     func play() {
-        CommandFactory.PlayCommand().execute()
+        CommandFactory.WebViewPlayCommand().execute()
         switch gameMenuViewController!.controlMode {
         case .onPlayControls:
             gameMenuViewController?.controlMode = .onPauseControls

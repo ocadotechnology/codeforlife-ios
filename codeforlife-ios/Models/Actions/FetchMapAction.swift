@@ -1,18 +1,16 @@
 //
-//  FetchLevelAction.swift
+//  File.swift
 //  codeforlife-ios
 //
-//  Created by Joey Chan on 03/07/2015.
+//  Created by Joey Chan on 10/07/2015.
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
-import UIKit
 import Foundation
 import SwiftyJSON
 import Alamofire
 
-class FetchLevelAction : Action, ActionProtocol
-{
+class FetchMapAction : Action {
     
     var gameViewController: GameViewController
     var url: String
@@ -24,7 +22,7 @@ class FetchLevelAction : Action, ActionProtocol
     }
     
     override func processData(data: NSData) {
-            
+        
         let json = JSON(data: data)
         if let description = json["description"].string,
             hint = json["hint"].string,
@@ -63,24 +61,24 @@ class FetchLevelAction : Action, ActionProtocol
                 
                 if let pathDataFromString = pathString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false),
                     pathArray = JSON(data: pathDataFromString).array {
-                    var nodes = [Node]()
-                    for elem in pathArray {
-                        if let coordinates = elem["coordinate"].array {
-                            var node = Node(Coordinates(coordinates[0].int!, coordinates[1].int!))
-                            nodes.append(node)
-                        }
-                    }
-                    
-                    var i = 0
-                    for elem in pathArray {
-                        if let connectedNodes = elem["connectedNodes"].array {
-                            for index in connectedNodes {
-                                nodes[i].addConnectedNode(nodes[index.int!])
+                        var nodes = [Node]()
+                        for elem in pathArray {
+                            if let coordinates = elem["coordinate"].array {
+                                var node = Node(Coordinates(coordinates[0].int!, coordinates[1].int!))
+                                nodes.append(node)
                             }
                         }
-                        i++
-                    }
-                    level.path = nodes
+                        
+                        var i = 0
+                        for elem in pathArray {
+                            if let connectedNodes = elem["connectedNodes"].array {
+                                for index in connectedNodes {
+                                    nodes[i].addConnectedNode(nodes[index.int!])
+                                }
+                            }
+                            i++
+                        }
+                        level.path = nodes
                 }
                 
                 if let destinationsDataFromString = destinationsString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
@@ -98,7 +96,11 @@ class FetchLevelAction : Action, ActionProtocol
                         level.destinations = destinationList
                     }
                 }
-            }
+        }
+    }
+    
+    override func toDev() {
+        self.mode = DevMode
     }
     
     override func toMock() {

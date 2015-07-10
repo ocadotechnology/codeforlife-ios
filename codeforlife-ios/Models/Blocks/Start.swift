@@ -14,4 +14,8 @@ class Start: Block {
             description: "Start",
             color: kC4LBlocklyStartBlockColour)
     }
+    
+    override func submit() {
+        StaticContext.MainGameViewController?.gameMapViewController.animationQueue = [Animation]()
+    }
 }

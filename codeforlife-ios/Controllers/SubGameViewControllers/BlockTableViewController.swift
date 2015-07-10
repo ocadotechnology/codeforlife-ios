@@ -17,10 +17,6 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     @IBOutlet var tableView: BlockTableView!
     @IBOutlet var containerView: UIView!
     
-    var startPosition: CGPoint?
-    var selectedRow: Int?
-    var originalX: CGFloat?
-    
     var selectedBlock = 0 {
         didSet {
             if selectedBlock < blocks.count {
@@ -56,6 +52,11 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         }
     }
     
+    func repositionBlock(from: Int, to: Int) {
+        var block = blocks.removeAtIndex(from)
+        blocks.splice([block], atIndex: to)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         containerView.layer.cornerRadius = 10
@@ -64,39 +65,64 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var recognizer = UIPanGestureRecognizer(target: self, action: Selector("panGesture:"))
+        tableView.addGestureRecognizer(recognizer)
+        
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.dataSource = self
         tableView.delegate = self
         
-        var recognizer = UIPanGestureRecognizer(target: self, action: Selector("panGesture:"))
-        tableView.addGestureRecognizer(recognizer)
     }
     
+    var startPosition: CGPoint?
+    var selectedRow: Int?
+    var originalPosition: CGPoint?
+    var verticalMode = false
+    var horizontalMode = false
+    let cellHeight: CGFloat = 90
     func panGesture (sender:UIPanGestureRecognizer) {
         if (sender.state == UIGestureRecognizerState.Began) {
             startPosition = sender.locationInView(self.tableView)
             if let indexPath = tableView.indexPathForRowAtPoint(startPosition!),
                 cell = tableView.cellForRowAtIndexPath(indexPath) {
-                originalX = cell.center.x
+                originalPosition = cell.center
                 selectedRow = indexPath.row
             }
         } else if (sender.state == UIGestureRecognizerState.Ended) {
             let stopPosition = sender.locationInView(self.tableView)
+            let indexPath = tableView.indexPathForRowAtPoint(stopPosition)
             let dx = startPosition!.x - stopPosition.x
-            if dx > 200 && selectedRow != nil{
+            if horizontalMode && dx > 150 && selectedRow != nil && selectedRow != 0 {
                 blocks.removeAtIndex(selectedRow!)
+            } else if verticalMode {
+                let row = Int(round(((stopPosition.y - cellHeight/2) / cellHeight) - 0.5))
+//                println("Swaping \(selectedRow) and \(row), stopPosition.y = \(stopPosition.y)")
+                repositionBlock(selectedRow!, to: row)
+                if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
+                    let cell = tableView.cellForRowAtIndexPath(indexPath)
+                    cell!.center = originalPosition!
+                }
             } else {
-                let indexPath = tableView.indexPathForRowAtPoint(startPosition!)
-                let cell = tableView.cellForRowAtIndexPath(indexPath!)
-                cell!.center.x = originalX!
+                if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
+                    let cell = tableView.cellForRowAtIndexPath(indexPath)
+                    cell!.center = originalPosition!
+                }
             }
+            verticalMode = false
+            horizontalMode = false
         } else if (sender.state == UIGestureRecognizerState.Changed) {
             if let indexPath = tableView.indexPathForRowAtPoint(startPosition!),
                     cell = tableView.cellForRowAtIndexPath(indexPath) {
                 let translation = sender.translationInView(self.tableView)
-                println((translation.x, originalX! + translation.x - originalX!, originalX! + translation.x > originalX!))
-                if originalX! + translation.x < originalX! {
-                    cell.center.x = originalX! + translation.x
+                if originalPosition!.x + translation.x + 10 < originalPosition!.x && indexPath.row != 0  && !verticalMode {
+                    horizontalMode = true
+                    cell.center.x = originalPosition!.x + translation.x
+                } else if indexPath.row != 0 && !horizontalMode &&
+                        (originalPosition!.y + translation.y - 10 > originalPosition!.y ||
+                         originalPosition!.y + translation.y + 10 < originalPosition!.y){
+                    verticalMode = true
+                    cell.center.y = originalPosition!.y + translation.y
                 }
             }
         }

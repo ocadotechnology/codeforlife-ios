@@ -22,6 +22,7 @@ class Left: Block {
     }
     
     override func submit() {
-        CommandFactory.TurnLeftCommand().execute()
+        CommandFactory.WebViewTurnLeftCommand().execute()
+        StaticContext.MainGameViewController?.gameMapViewController.animationQueue.append(TurnLeft())
     }
 }

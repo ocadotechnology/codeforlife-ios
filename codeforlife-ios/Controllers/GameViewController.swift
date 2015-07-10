@@ -75,21 +75,21 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate{
     }
     
     private func WebViewFetchLevelPostAction() {
-        self.gameMapViewController.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: self.level!.destinations)
+//        self.gameMapViewController.map = Map(width: 10, height: 10, origin: self.level!.origin!, nodes: self.level!.path, destination: self.level!.destinations)
         CommandFactory.NativeClearCommand().execute()
     }
     
     private func NativeFetchLevelPostAction() {
-        self.gameMapViewController.map = Map(width: 8, height: 8, origin: self.level!.origin!, nodes: self.level!.path, destination: self.level!.destinations)
+        self.gameMapViewController.map = Map(width: 10, height: 10, origin: self.level!.origin!, nodes: self.level!.path, destination: self.level!.destinations)
         CommandFactory.NativeShowPreGameMessageCommand().execute()
         CommandFactory.NativeClearCommand().execute()
     }
     
-    // Deprecated
+    
     func setupWebView() {
         var config = WKWebViewConfiguration()
         config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
-        webView = WKWebView(frame: CGRect(origin: CGPointMake(view.frame.width - 250,50), size: CGSize(width: 200, height: 200))
+        webView = WKWebView(frame: CGRect(origin: CGPointMake(view.frame.width - 450,50), size: CGSize(width: 400, height: 400))
             , configuration: config)
         webView!.navigationDelegate = self
         webView!.UIDelegate = self

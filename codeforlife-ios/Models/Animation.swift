@@ -19,28 +19,14 @@ class Animation {
     
     func executeChainAnimation(completion: (() -> Void)? = nil) {
         executeAnimation {
-            self.nextAnimation?.executeChainAnimation(completion: completion)
+            if self.nextAnimation != nil {
+                self.nextAnimation?.executeChainAnimation(completion: completion)
+            } else {
+                CommandFactory.NativeDeliverCommand().executeWithCompletionHandler {
+                    CommandFactory.NativeShowResultCommand().execute()
+                }
+            }
         }
     }
 }
 
-class MoveFoward: Animation {
-    override func executeAnimation(completion: (() -> Void)? = nil) {
-        CommandFactory.NativeMoveForwardCommand()
-    }
-    
-}
-
-class TurnLeft: Animation {
-    override func executeAnimation(completion: (() -> Void)? = nil) {
-        CommandFactory.NativeTurnLeftCommand()
-    }
-    
-}
-
-class TurnRight: Animation {
-    override func executeAnimation(completion: (() -> Void)? = nil) {
-        CommandFactory.NativeTurnRightCommand()
-    }
-    
-}

@@ -20,6 +20,7 @@ class NGVMoveForwardCommand: GameMapCommand {
         self.gameViewController.gameMenuViewController.controlMode = .onStepControls
         map?.player.moveForward {
             self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+            completion()
         }
     }
 }
@@ -29,6 +30,7 @@ class NGVTurnLeftCommand: GameMapCommand {
         self.gameViewController.gameMenuViewController.controlMode = .onStepControls
         map?.player.turnLeft {
             self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+            completion()
         }
     }
 }
@@ -38,6 +40,15 @@ class NGVTurnRightCommand: GameMapCommand {
         self.gameViewController.gameMenuViewController.controlMode = .onStepControls
         map?.player.turnRight {
             self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+            completion()
+        }
+    }
+}
+
+class NGVDeliverCommand: GameMapCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        map?.player.deliver{
+            completion()
         }
     }
 }

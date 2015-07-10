@@ -44,15 +44,8 @@ class FetchLevelsAction : Action, ActionProtocol
         }
     }
     
-    override func switchToDev() -> Action {
-        self.mode = DevMode
-        return self
-    }
-    
-    override func switchToMock() -> Action {
-        self.mode = MockMode
+    override func toMock() {
         self.delegate = FetchLevelsActionMockDelegate()
-        return self
     }
     
 }

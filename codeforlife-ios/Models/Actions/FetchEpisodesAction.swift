@@ -47,18 +47,12 @@ class FetchEpisodesAction : Action, ActionProtocol {
         
     }
     
-    override func switchToDev() -> Action {
-        self.mode = DevMode
+    override func toDev() {
         self.delegate = APIActionDelegate(url: devUrl, method: Alamofire.Method.GET)
-        return self
     }
     
-    override func switchToMock() -> Action {
-        self.mode = MockMode
+    override func toMock() {
         self.delegate = FetchEpisodesActionMockDelegate()
-        return self
     }
-    
-    
     
 }
