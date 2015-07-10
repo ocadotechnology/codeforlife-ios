@@ -12,13 +12,13 @@ import Alamofire
 
 class FetchMapAction : Action {
     
-    var gameViewController: GameViewController
+    var viewController: GameMapViewController
     
-    init( _ gameViewController: GameViewController, _ url: String? = nil) {
-        self.gameViewController = gameViewController
+    init( _ viewController: GameMapViewController, _ url: String) {
+        self.viewController = viewController
         super.init(
-            devUrl: url ?? gameViewController.level!.url,
-            delegate: APIActionDelegate(url: url ?? gameViewController.level!.url, method: Alamofire.Method.GET),
+            devUrl: url,
+            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
             mockDelegate: FetchMapActionMockDelegate())
     }
     

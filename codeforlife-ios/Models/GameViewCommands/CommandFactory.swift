@@ -141,13 +141,24 @@ class CommandFactory {
         return NGVMuteCommand(gameViewController: StaticContext.MainGameViewController!)
     }
     
+    class func NativeSwitchControlModeCommand(controlMode: GameMenuViewController.ControlMode) -> GameMenuCommand {
+        return NGVSwitchControlMode(gameViewController: StaticContext.MainGameViewController!, controlMode: controlMode)
+    }
+    
     
     
     
     class func NativeAddBlockCommand(block: Block) -> BlocklyCommand {
         return NGVAddBlockCommand(gameViewController: StaticContext.MainGameViewController!, block: block)
     }
+    
+    class func NativeIncrementSelectBlockCommand() -> BlocklyCommand {
+        return NGVIncrementSelectedBlock(gameViewController: StaticContext.MainGameViewController!)
+    }
 
+    class func NativeResetSelectedBlockCommand() -> BlocklyCommand {
+        return NGVResetSelectedBlock(gameViewController: StaticContext.MainGameViewController!)
+    }
 
     
     
@@ -177,6 +188,14 @@ class CommandFactory {
     
     class func NativeUnpauseAnimationCommand() -> GameMapCommand {
         return NGVUnpauseAnimationCommand(gameViewController: StaticContext.MainGameViewController!)
+    }
+    
+    class func NativeAddAnimationCommand(animation: Animation) -> GameMapCommand {
+        return NGVAddAnimationCommand(StaticContext.MainGameViewController!, animation)
+    }
+    
+    class func NativeResetAnimationCommand() -> GameMapCommand {
+        return NGVResetAnimationCommand(gameViewController: StaticContext.MainGameViewController!)
     }
     
 }

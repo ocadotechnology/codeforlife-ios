@@ -16,6 +16,6 @@ class Start: Block {
     }
     
     override func submit() {
-        StaticContext.MainGameViewController?.gameMapViewController.animationQueue = [Animation]()
+        CommandFactory.NativeResetAnimationCommand().execute()
     }
 }

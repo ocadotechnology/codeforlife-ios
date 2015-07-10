@@ -19,11 +19,9 @@ class GVJavaScriptCommand : GameViewCommand {
     }
     
     override func executeWithCompletionHandler(completion:() -> Void) {
-        
         gameViewController.runJavaScript(javascript!) {
             completion()
         }
     }
-    
     
 }

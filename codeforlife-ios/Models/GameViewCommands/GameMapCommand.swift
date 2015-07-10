@@ -75,3 +75,25 @@ class NGVUnpauseAnimationCommand: GameMapCommand {
         gameViewController.gameMapViewController.unpause()
     }
 }
+
+class NGVAddAnimationCommand : GameMapCommand {
+    
+    var animation: Animation
+    
+    init(_ gameViewController: GameViewController, _ animation: Animation) {
+        self.animation = animation
+        super.init(gameViewController : gameViewController)
+    }
+    
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMapViewController.animationQueue.append(self.animation)
+    }
+}
+
+class NGVResetAnimationCommand: GameMapCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMapViewController.animationQueue = [Animation]()
+    }
+    
+}
+

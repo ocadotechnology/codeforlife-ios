@@ -25,7 +25,7 @@ class Block {
         if player.crashed {
             CommandFactory.NativeShowFailMessageCommand().execute()
         } else {
-            StaticContext.MainGameViewController?.blockTableViewController.selectedBlock++
+            CommandFactory.NativeResetSelectedBlockCommand().execute()
             completion?()
         }
     }

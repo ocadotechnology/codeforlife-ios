@@ -23,6 +23,6 @@ class Deliver: Block {
     
     override func submit() {
         CommandFactory.WebViewDeliverCommand().execute()
-        StaticContext.MainGameViewController?.gameMapViewController.map?.player.deliver()
+        CommandFactory.NativeDeliverCommand().execute()
     }
 }

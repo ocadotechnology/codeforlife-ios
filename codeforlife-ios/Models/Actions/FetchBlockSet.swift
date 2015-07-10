@@ -14,11 +14,11 @@ class FetchBlockSet : Action {
     
     var gameViewController: GameViewController
     
-    init( _ gameViewController: GameViewController, _ url: String? = nil) {
+    init( _ gameViewController: GameViewController, _ url: String) {
         self.gameViewController = gameViewController
         super.init(
-            devUrl: url ?? gameViewController.level!.url,
-            delegate: APIActionDelegate(url: url ?? gameViewController.level!.url, method: Alamofire.Method.GET),
+            devUrl: url,
+            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
             mockDelegate: FetchBlockSetMockDelegate())
     }
     

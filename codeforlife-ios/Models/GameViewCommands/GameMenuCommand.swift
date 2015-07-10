@@ -82,3 +82,18 @@ class NGVStopCommand: GameMenuCommand {
         gameViewController.gameMenuViewController.clearButton.enabled = true
     }
 }
+
+class NGVSwitchControlMode: GameMenuCommand {
+    
+    var controlMode: GameMenuViewController.ControlMode
+    
+    init(gameViewController: GameViewController, controlMode: GameMenuViewController.ControlMode) {
+        self.controlMode = controlMode
+        super.init(gameViewController: gameViewController)
+    }
+    
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMenuViewController.controlMode = GameMenuViewController.ControlMode.onPlayControls
+    }
+}
+

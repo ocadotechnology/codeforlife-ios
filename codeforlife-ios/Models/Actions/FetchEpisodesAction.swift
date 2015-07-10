@@ -15,9 +15,9 @@ class FetchEpisodesAction : Action, ActionProtocol {
     
     let url = "Insert Actual API URL"
     
-    var viewController: UIViewController
+    var viewController: EpisodeViewController
     
-    init(_ viewController: UIViewController) {
+    init(_ viewController: EpisodeViewController) {
         self.viewController = viewController
         super.init(
             devUrl: "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/",
@@ -26,9 +26,7 @@ class FetchEpisodesAction : Action, ActionProtocol {
     }
     
     override func processData(data: NSData) {
-        
         var episodes = [Episode]()
-        
         let json = JSON(data: data)
         if let episodeArray = json.array {
             for episode in episodeArray {
@@ -42,11 +40,7 @@ class FetchEpisodesAction : Action, ActionProtocol {
                 }
             }
         }
-        
-        if let controller = self.viewController as? EpisodeViewController {
-            controller.episodes = episodes
-        }
-        
+        viewController.episodes = episodes
     }
     
 }

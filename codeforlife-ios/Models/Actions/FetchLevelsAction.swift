@@ -13,9 +13,9 @@ import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
-    var viewController: UIViewController
+    var viewController: LevelTableViewController
 
-    init( _ viewController: UIViewController, _ url: String) {
+    init( _ viewController: LevelTableViewController, _ url: String) {
         self.viewController = viewController
         super.init(
             devUrl: url,
@@ -24,9 +24,7 @@ class FetchLevelsAction : Action, ActionProtocol
     }
     
     override func processData(data: NSData) {
-        
         var levels = [Level]()
-        
         let json = JSON(data: data)
         if let levelArray = json["level_set"].array {
             for level in levelArray {
@@ -39,10 +37,7 @@ class FetchLevelsAction : Action, ActionProtocol
                 }
             }
         }
-        
-        if let viewController = self.viewController as? LevelTableViewController {
-            viewController.levels = levels
-        }
+        viewController.levels = levels
     }
     
 }

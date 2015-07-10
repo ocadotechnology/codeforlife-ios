@@ -23,6 +23,6 @@ class Forward: Block {
     
     override func submit() {
         CommandFactory.WebViewMoveForwardCommand().execute()
-        StaticContext.MainGameViewController?.gameMapViewController.animationQueue.append(MoveForward())
+        CommandFactory.NativeAddAnimationCommand(MoveForward()).execute()
     }
 }

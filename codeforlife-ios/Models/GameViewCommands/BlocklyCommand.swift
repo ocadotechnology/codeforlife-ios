@@ -8,7 +8,13 @@
 
 import Foundation
 
-class BlocklyCommand : GameViewCommand {}
+class BlocklyCommand : GameViewCommand {
+
+    var viewController : BlockTableViewController {
+        return gameViewController.blockTableViewController
+    }
+
+}
 
 class NGVAddBlockCommand: BlocklyCommand {
     
@@ -24,3 +30,16 @@ class NGVAddBlockCommand: BlocklyCommand {
     }
 }
 
+class NGVIncrementSelectedBlock: BlocklyCommand {
+    
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        viewController.selectedBlock++
+    }
+    
+}
+
+class NGVResetSelectedBlock : BlocklyCommand {
+    override func executeWithCompletionHandler(completion: () -> Void) {
+        viewController.selectedBlock = 0
+    }
+}

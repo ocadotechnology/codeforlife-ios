@@ -18,7 +18,6 @@ class FetchMapActionMockDelegate : ActionDelegate {
                 //TODO
             ])
         
-        
         var data = json.rawData()
         processData(data!)
         callback()

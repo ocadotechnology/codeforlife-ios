@@ -14,13 +14,13 @@ import Alamofire
 class FetchLevelAction : Action, ActionProtocol
 {
     
-    var gameViewController: GameViewController
+    var viewController: GameViewController
     
-    init( _ gameViewController: GameViewController, _ url: String? = nil) {
-        self.gameViewController = gameViewController
+    init( _ viewController: GameViewController, _ url: String? = nil) {
+        self.viewController = viewController
         super.init(
-            devUrl: url ?? gameViewController.level!.url,
-            delegate: APIActionDelegate(url: gameViewController.level!.url, method: Alamofire.Method.GET),
+            devUrl: url ?? viewController.level!.url,
+            delegate: APIActionDelegate(url: viewController.level!.url, method: Alamofire.Method.GET),
             mockDelegate: FetchLevelActionMockDelegate())
     }
     
@@ -35,7 +35,7 @@ class FetchLevelAction : Action, ActionProtocol
             originString = json["origin"].string,
             destinationsString = json["destinations"].string,
             pathString = json["path"].string,
-            level = gameViewController.level {
+            level = viewController.level {
                 level.description = description
                 level.hint = hint
                 level.blocklyEnabled = blocklyEnabled
