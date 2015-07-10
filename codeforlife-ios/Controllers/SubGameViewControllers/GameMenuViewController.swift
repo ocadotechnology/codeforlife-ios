@@ -41,7 +41,7 @@ class GameMenuViewController: SubGameViewController {
     
     var gameMenuFrame: CGSize {
         return CGSize(
-            width: StaticContext.MainGameViewController!.view.frame.width*(1-StaticContext.MainGameViewController!.webViewPortion) - 2*frameOffset,
+            width: gameViewController.view.frame.width*(1-gameViewController.webViewPortion) - 2*frameOffset,
             height: frameHeight)
     }
     

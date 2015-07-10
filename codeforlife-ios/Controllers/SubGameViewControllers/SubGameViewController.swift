@@ -10,4 +10,8 @@ import UIKit
 
 class SubGameViewController: UIViewController {
 
+    var gameViewController: GameViewController {
+        return parentViewController! as! GameViewController
+    }
+    
 }

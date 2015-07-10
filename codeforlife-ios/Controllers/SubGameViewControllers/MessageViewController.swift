@@ -23,12 +23,12 @@ class MessageViewController: SubGameViewController {
     
     var hidePosition: CGPoint {
         return CGPointMake(
-            StaticContext.MainGameViewController!.view.center.x,
-            StaticContext.MainGameViewController!.view.frame.height + messageFrame.height/2)
+            gameViewController.view.center.x,
+            gameViewController.view.frame.height + messageFrame.height/2)
     }
     
     var showPosition: CGPoint {
-        return StaticContext.MainGameViewController!.view.center
+        return gameViewController.view.center
     }
     
     var message: Message? {
@@ -68,8 +68,8 @@ class MessageViewController: SubGameViewController {
     }
     
     func gotoNextLevelAndDismiss() {
-        if let nextLevel = StaticContext.MainGameViewController!.level?.nextLevel {
-            StaticContext.MainGameViewController!.level = nextLevel
+        if let nextLevel = gameViewController.level?.nextLevel {
+            gameViewController.level = nextLevel
         }
         closeMenu()
     }
