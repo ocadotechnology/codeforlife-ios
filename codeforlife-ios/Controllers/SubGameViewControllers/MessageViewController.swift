@@ -39,8 +39,13 @@ class MessageViewController: SubGameViewController {
     
     var open = false {
         didSet {
-            UIView.animateWithDuration(0.5) {
-                self.view.center = self.open ? self.showPosition: self.hidePosition
+            UIView.animateWithDuration(0.5, animations: {
+                self.view.center = self.open ? self.showPosition: self.hidePosition}) { [unowned self] (animated) -> Void in
+                    if !self.open {
+                        self.willMoveToParentViewController(nil)
+                        self.view.removeFromSuperview()
+                        self.removeFromParentViewController()
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ import Foundation
 
 class Animation {
     
-    var nextAnimation: Animation?
+    weak var nextAnimation: Animation?
     
     func executeAnimation(completion: (() -> Void)? = nil) {
         fatalError("Implement executeanimation()")

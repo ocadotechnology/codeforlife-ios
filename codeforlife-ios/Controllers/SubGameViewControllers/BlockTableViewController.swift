@@ -78,31 +78,22 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     
     var startPosition: CGPoint?
     var selectedRow: Int?
+    weak var selectedCell: UITableViewCell?
     var originalPosition: CGPoint?
     var verticalMode = false
     var horizontalMode = false
     let cellHeight: CGFloat = 90
     func panGesture (sender:UIPanGestureRecognizer) {
         if (sender.state == UIGestureRecognizerState.Began) {
-            startPosition = sender.locationInView(self.tableView)
-            if let indexPath = tableView.indexPathForRowAtPoint(startPosition!),
-                cell = tableView.cellForRowAtIndexPath(indexPath) {
-                originalPosition = cell.center
-                selectedRow = indexPath.row
-            }
+            recordStartPosition(sender.locationInView(self.tableView))
         } else if (sender.state == UIGestureRecognizerState.Ended) {
             let stopPosition = sender.locationInView(self.tableView)
             let indexPath = tableView.indexPathForRowAtPoint(stopPosition)
             let dx = startPosition!.x - stopPosition.x
-            if horizontalMode && dx > 150 && selectedRow != nil && selectedRow != 0 {
+            if horizontalMode && dx > 150 && selectedCell != nil && selectedRow != nil {
                 blocks.removeAtIndex(selectedRow!)
             } else if verticalMode {
-                let row = Int(round(((stopPosition.y - cellHeight/2) / cellHeight) - 0.5))
-                repositionBlock(selectedRow!, to: row)
-                if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
-                    let cell = tableView.cellForRowAtIndexPath(indexPath)
-                    cell!.center = originalPosition!
-                }
+                handleVerticalAction(stopPosition)
             } else {
                 if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
                     let cell = tableView.cellForRowAtIndexPath(indexPath)
@@ -126,6 +117,27 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
                 }
             }
         }
+    }
+    
+    // Record StartPosition and Selected Cell
+    private func recordStartPosition(position: CGPoint) {
+        startPosition = position
+        if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
+            if indexPath.row != 0 {
+                selectedRow = indexPath.row
+                selectedCell = tableView.cellForRowAtIndexPath(indexPath)
+                originalPosition = selectedCell?.center
+            }
+        }
+    }
+    
+    private func handleVerticalAction(stopPosition: CGPoint) {
+        let row = Int(round(((stopPosition.y - cellHeight/2) / cellHeight) - 0.5))
+        repositionBlock(selectedRow!, to: min(row, blocks.count))
+//        if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
+//            let cell = tableView.cellForRowAtIndexPath(indexPath)
+//            cell!.center = originalPosition!
+//        }
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

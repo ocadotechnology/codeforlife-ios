@@ -9,11 +9,9 @@
 import Foundation
 
 class BlocklyCommand : GameViewCommand {
-
     weak var viewController : BlockTableViewController? {
         return gameViewController.blockTableViewController
     }
-
 }
 
 class NGVAddBlockCommand: BlocklyCommand {

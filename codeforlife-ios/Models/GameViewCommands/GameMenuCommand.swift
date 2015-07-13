@@ -8,7 +8,11 @@
 
 import Foundation
 
-class GameMenuCommand: GameViewCommand {}
+class GameMenuCommand: GameViewCommand {
+    weak var viewController: GameMenuViewController? {
+        return gameViewController.gameMenuViewController
+    }
+}
 
 class NGVShowHelpCommand : GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
@@ -20,12 +24,9 @@ class NGVShowHelpCommand : GameMenuCommand {
             context: gameViewController.level!.hint!,
             action: {
                 controller.closeMenu()
-                self.gameViewController.gameMenuViewController?.delegate.controller = nil
-                controller.willMoveToParentViewController(nil)
-                controller.view.removeFromSuperview()
-                controller.removeFromParentViewController()
+                self.viewController?.delegate.controller = nil
         })
-        gameViewController.gameMenuViewController?.delegate.controller = controller
+        viewController?.delegate.controller = controller
         controller.toggleMenu()
         completion()
     }
@@ -42,7 +43,7 @@ class NGVClearCommand: GameMenuCommand {
 
 class NGVMuteCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMenuViewController?.mute = !gameViewController.gameMenuViewController!.mute
+        viewController?.mute = !viewController!.mute
         completion()
     }
 }
@@ -50,12 +51,12 @@ class NGVMuteCommand: GameMenuCommand {
 class NGVPlayCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
         CommandFactory.WebViewClearCommand().execute()
-        gameViewController.gameMenuViewController?.clearButton.enabled = false
+        viewController?.clearButton.enabled = false
         gameViewController.gameMapViewController?.map?.player.resetPosition()
         gameViewController.blockTableViewController?.selectedBlock = 0
         gameViewController.blockTableViewController?.submitBlocks()
         CommandFactory.WebViewPlayCommand().execute()
-        gameViewController.gameMenuViewController?.controlMode = .onStopControls
+        viewController?.controlMode = .onStopControls
 //        gameViewController.blockTableViewController.blocks.first?
 //            .executeBlockChainAction(gameViewController.gameMapViewController.map!.player)
         completion()
@@ -78,7 +79,7 @@ class NGVResumeCommand: GameMenuCommand {
 
 class NGVStopCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMenuViewController?.clearButton.enabled = true
+        viewController?.clearButton.enabled = true
         completion()
     }
 }
@@ -93,7 +94,7 @@ class NGVSwitchControlMode: GameMenuCommand {
     }
     
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMenuViewController?.controlMode = self.controlMode
+        viewController?.controlMode = self.controlMode
     }
 }
 

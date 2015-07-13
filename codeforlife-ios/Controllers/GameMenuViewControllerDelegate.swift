@@ -65,9 +65,6 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     func help() {
         if let controller = self.controller {
             controller.closeMenu()
-            controller.willMoveToParentViewController(nil)
-            controller.view.removeFromSuperview()
-            controller.removeFromParentViewController()
             self.controller = nil
         } else {
             CommandFactory.NativeShowHelpCommand().execute()

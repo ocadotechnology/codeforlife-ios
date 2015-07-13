@@ -20,7 +20,6 @@ class Block {
         self.color = color
     }
     
-    // Not in use yet
     func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
         if player.crashed {
             CommandFactory.NativeShowFailMessageCommand().execute()
@@ -30,7 +29,6 @@ class Block {
         }
     }
     
-    // Not in use yet
     func executeBlockChainAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
         self.executeBlockAction(player) {
             if self.nextBlock != nil {
@@ -44,7 +42,5 @@ class Block {
         }
     }
     
-    func submit() {
-        
-    }
+    func submit() {}
 }

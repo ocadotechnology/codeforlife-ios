@@ -29,7 +29,8 @@ enum CompassDirection {
             return Direction.Down
         case .W :
             return Direction.Left
-        default: return Direction.Up
+        default:
+            return Direction.Up
         }
     }
     

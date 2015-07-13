@@ -33,29 +33,23 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let tag = json[JSONIdentifier.Tag].string {
-                    println(tag)
                     switch tag {
-                    
                     case JSONTag.PreGameMsg:
                         CommandFactory.NativeShowPreGameMessageCommand().execute()
-                        
                     case JSONTag.PostGameMsg:
                         if let title = json[JSONIdentifier.Title].string {
                             if let context = json[JSONIdentifier.Context].string {
                                 CommandFactory.NativeShowPostGameMessageCommand().execute()
                             }
                         }
-                        
                     case JSONTag.FailMessage:
                         if let title = json[JSONIdentifier.Title].string {
                             if let context = json[JSONIdentifier.Context].string {
                                 CommandFactory.NativeShowFailMessageCommand().execute()
                             }
                         }
-                        
                     case JSONTag.HelpMessage:
                         CommandFactory.NativeShowHelpCommand().execute()
-
                     default: break
                     }
                 }

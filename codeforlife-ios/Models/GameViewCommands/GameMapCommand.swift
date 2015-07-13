@@ -13,13 +13,17 @@ class GameMapCommand: GameViewCommand {
     weak var map : Map? {
         return gameViewController.gameMapViewController?.map
     }
+    
+    weak var viewController : GameMapViewController? {
+        return gameViewController.gameMapViewController
+    }
 }
 
 class NGVMoveForwardCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        self.gameViewController.gameMenuViewController?.controlMode = .onStepControls
+        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStepControls).execute()
         map?.player.moveForward {
-            self.gameViewController.gameMenuViewController?.controlMode = .onStopControls
+            CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
             completion()
         }
     }
@@ -27,9 +31,9 @@ class NGVMoveForwardCommand: GameMapCommand {
 
 class NGVTurnLeftCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        self.gameViewController.gameMenuViewController?.controlMode = .onStepControls
+        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStepControls).execute()
         map?.player.turnLeft {
-            self.gameViewController.gameMenuViewController?.controlMode = .onStopControls
+            CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
             completion()
         }
     }
@@ -37,9 +41,9 @@ class NGVTurnLeftCommand: GameMapCommand {
 
 class NGVTurnRightCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        self.gameViewController.gameMenuViewController?.controlMode = .onStepControls
+        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStepControls).execute()
         map?.player.turnRight {
-            self.gameViewController.gameMenuViewController?.controlMode = .onStopControls
+            CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
             completion()
         }
     }
@@ -60,7 +64,7 @@ class NGVShowResultCommand: GameMapCommand {
         } else {
             CommandFactory.NativeShowFailMessageCommand().execute()
         }
-        self.gameViewController.gameMenuViewController?.controlMode = .onStopControls
+        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
     }
 }
 

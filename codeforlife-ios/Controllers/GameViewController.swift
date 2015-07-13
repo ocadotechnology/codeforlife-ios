@@ -82,6 +82,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     private func WebViewFetchLevelPostAction() {
         FetchMapAction(self, level?.mapUrl).execute()
+        CommandFactory.NativeShowPreGameMessageCommand().execute()
         CommandFactory.NativeClearCommand().execute()
     }
     

@@ -44,6 +44,11 @@ class Map: SKScene {
     
     func resetMap() {
         self.removeAllChildren()
+        resetMapArray()
+        resetDestination()
+    }
+    
+    private func resetMapArray() {
         self.mapArray = [[Bool]]()
         for x in 0 ..< width {
             mapArray.append([Bool]())
@@ -51,6 +56,9 @@ class Map: SKScene {
                 mapArray[x].append(false)
             }
         }
+    }
+    
+    private func resetDestination() {
         for destination in destinations {
             destination.visited = false
         }
@@ -67,8 +75,24 @@ class Map: SKScene {
     
     func draw() {
         resetMap()
+        drawGrass()
         
-        // Draw Grass
+        // Interpret nodes in a 2D map
+        for node in nodes {
+            mapArray[node.coordinates.x][node.coordinates.y] = true
+        }
+        
+        drawRoads()
+        drawDecorations()
+
+        var cfc = CFC(origin: origin)
+        addChild(cfc)
+        
+        addChild(player)
+        
+    }
+    
+    private func drawGrass() {
         for x in 0 ..< width {
             for y in 0  ..< height {
                 if !mapArray[x][y] {
@@ -76,61 +100,28 @@ class Map: SKScene {
                 }
             }
         }
-        
-        // Interpret nodes in a 2D map
-        for node in nodes {
-            mapArray[node.coordinates.x][node.coordinates.y] = true
-        }
-        
-        // Draw roads
+    }
+    
+    private func drawRoads() {
         for node in nodes {
             var roadTile = Road.Builder(node: node).build()
             roadTile.position = node.position
             roadTile.zPosition = 0
             addChild(roadTile)
             if node.isDestination {
-                var compassDirection = CompassDirection.N
-                if node.connectedNodes.count == 2 &&
-                    !(node.direction.up && node.direction.down) &&
-                    !(node.direction.left && node.direction.right) {
-                    if !node.direction.up && !node.direction.right {
-                        compassDirection = CompassDirection.NE
-                    } else if !node.direction.up && !node.direction.left {
-                        compassDirection = CompassDirection.NW
-                    } else if !node.direction.right && !node.direction.down {
-                        compassDirection = CompassDirection.SE
-                    } else { //!node.direction.down && !node.direction.left
-                        compassDirection = CompassDirection.SW
-                    }
-                } else {
-                    if !node.direction.up {
-                        compassDirection = CompassDirection.N
-                    } else if !node.direction.right {
-                        compassDirection = CompassDirection.E
-                    } else if !node.direction.down {
-                        compassDirection = CompassDirection.S
-                    } else { //!node.direction.left
-                        compassDirection = CompassDirection.W
-                    }
-                }
-                let origin = Origin(node.coordinates, compassDirection)
+                let origin = node.houseOrigin
                 let house = House(origin: origin)
                 addChild(house)
             }
         }
-        
+    }
+    
+    private func drawDecorations() {
         for decoration in decorations {
             addChild(decoration)
         }
-        
-        var cfc = CFC(origin: origin)
-        addChild(cfc)
-        addChild(player)
-        
     }
     
-    deinit {
-        println("Map is being deallocated")
-    }
+    deinit { println("Map is being deallocated") }
     
 }

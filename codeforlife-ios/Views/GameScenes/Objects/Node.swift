@@ -126,6 +126,36 @@ class Node: Equatable {
         return result
     }
     
+    var houseOrigin: Origin {
+        var compassDirection = CompassDirection.N
+        if connectedNodes.count == 2 &&
+            !(direction.up && direction.down) &&
+            !(direction.left && direction.right) {
+                if !direction.up && !direction.right {
+                    compassDirection = CompassDirection.NE
+                } else if !direction.up && !direction.left {
+                    compassDirection = CompassDirection.NW
+                } else if !direction.right && !direction.down {
+                    compassDirection = CompassDirection.SE
+                } else { //!direction.down && !direction.left
+                    compassDirection = CompassDirection.SW
+                }
+        } else {
+            if !direction.up {
+                compassDirection = CompassDirection.N
+            } else if !direction.right {
+                compassDirection = CompassDirection.E
+            } else if !direction.down {
+                compassDirection = CompassDirection.S
+            } else { //!direction.left
+                compassDirection = CompassDirection.W
+            }
+        }
+        return Origin(coordinates, compassDirection)
+    }
+    
+    
+    
     init( _ coordinates: Coordinates) {
         self.coordinates = coordinates
     }

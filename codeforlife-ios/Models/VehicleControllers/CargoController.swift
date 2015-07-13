@@ -27,15 +27,14 @@ class WebViewVehicleController: VehicleController {
     
     func go() {
         CommandFactory.NativePlayCommand().execute()
-        // Waiting for API to return me with something to execute all the animation in a row
     }
     
     func deliver() {
         CommandFactory.NativeAddBlockCommand(Deliver()).execute()
     }
     
-    deinit {
-        println("WebViewVehicleController is being deallocated")
-    }
+//    deinit {
+//        println("WebViewVehicleController is being deallocated")
+//    }
     
 }
