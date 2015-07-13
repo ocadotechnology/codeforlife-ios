@@ -58,8 +58,8 @@
 		ED222FC71B4A8FD1006E525A /* GameMapCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC51B4A8FD1006E525A /* GameMapCommand.swift */; };
 		ED222FCA1B4AABCB006E525A /* CFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC91B4AABCB006E525A /* CFC.swift */; };
 		ED222FCB1B4AABCB006E525A /* CFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FC91B4AABCB006E525A /* CFC.swift */; };
-		ED222FCD1B4AD4A5006E525A /* StaticContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FCC1B4AD4A5006E525A /* StaticContext.swift */; };
-		ED222FCE1B4AD4A5006E525A /* StaticContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FCC1B4AD4A5006E525A /* StaticContext.swift */; };
+		ED222FCD1B4AD4A5006E525A /* SharedContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FCC1B4AD4A5006E525A /* SharedContext.swift */; };
+		ED222FCE1B4AD4A5006E525A /* SharedContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FCC1B4AD4A5006E525A /* SharedContext.swift */; };
 		ED222FD31B4C00AC006E525A /* MapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD21B4C00AC006E525A /* MapTest.swift */; };
 		ED222FD51B4C21D1006E525A /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD41B4C21D1006E525A /* House.swift */; };
 		ED222FD61B4C21D1006E525A /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FD41B4C21D1006E525A /* House.swift */; };
@@ -107,8 +107,8 @@
 		ED7799CF1B46944200A854A3 /* FetchLevelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799CD1B46944200A854A3 /* FetchLevelAction.swift */; };
 		ED7799D11B469E6500A854A3 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D01B469E6500A854A3 /* Direction.swift */; };
 		ED7799D21B469E6500A854A3 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D01B469E6500A854A3 /* Direction.swift */; };
-		ED7799D41B46A09D00A854A3 /* RoadTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D31B46A09D00A854A3 /* RoadTile.swift */; };
-		ED7799D51B46A09D00A854A3 /* RoadTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D31B46A09D00A854A3 /* RoadTile.swift */; };
+		ED7799D41B46A09D00A854A3 /* Road.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D31B46A09D00A854A3 /* Road.swift */; };
+		ED7799D51B46A09D00A854A3 /* Road.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D31B46A09D00A854A3 /* Road.swift */; };
 		ED7799D71B46AB3E00A854A3 /* GameMapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */; };
 		ED7799D81B46AB3E00A854A3 /* GameMapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */; };
 		EDA47C3B1B441E35003356AB /* EpisodeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */; };
@@ -184,6 +184,8 @@
 		EDD1A2D61B4FDF6D001A82A2 /* FetchBlockSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D41B4FDF6D001A82A2 /* FetchBlockSet.swift */; };
 		EDD1A2D81B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D71B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift */; };
 		EDD1A2D91B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D71B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift */; };
+		EDD1A2DB1B53A4F7001A82A2 /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2DA1B53A4F7001A82A2 /* Decoration.swift */; };
+		EDD1A2DC1B53A4F7001A82A2 /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2DA1B53A4F7001A82A2 /* Decoration.swift */; };
 		EDDF0F0D1B416C4E00F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
 		EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */; };
 		EDDF0F121B416E4700F2D779 /* PreGameMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */; };
@@ -261,7 +263,7 @@
 		ED222FC21B4A8D99006E525A /* CompassDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompassDirection.swift; path = Objects/CompassDirection.swift; sourceTree = "<group>"; };
 		ED222FC51B4A8FD1006E525A /* GameMapCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapCommand.swift; sourceTree = "<group>"; };
 		ED222FC91B4AABCB006E525A /* CFC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFC.swift; sourceTree = "<group>"; };
-		ED222FCC1B4AD4A5006E525A /* StaticContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticContext.swift; sourceTree = "<group>"; };
+		ED222FCC1B4AD4A5006E525A /* SharedContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedContext.swift; sourceTree = "<group>"; };
 		ED222FD21B4C00AC006E525A /* MapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTest.swift; sourceTree = "<group>"; };
 		ED222FD41B4C21D1006E525A /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		ED222FD71B4C265D006E525A /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
@@ -286,7 +288,7 @@
 		ED7799C71B468ADC00A854A3 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		ED7799CD1B46944200A854A3 /* FetchLevelAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelAction.swift; sourceTree = "<group>"; };
 		ED7799D01B469E6500A854A3 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Direction.swift; path = Objects/Direction.swift; sourceTree = "<group>"; };
-		ED7799D31B46A09D00A854A3 /* RoadTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoadTile.swift; sourceTree = "<group>"; };
+		ED7799D31B46A09D00A854A3 /* Road.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Road.swift; sourceTree = "<group>"; };
 		ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapConfig.swift; sourceTree = "<group>"; };
 		EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTableView.swift; sourceTree = "<group>"; };
 		EDA47C3E1B442411003356AB /* LevelBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelBackButton.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		EDD1A2D11B4FDEA0001A82A2 /* FetchMapActionMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchMapActionMockDelegate.swift; sourceTree = "<group>"; };
 		EDD1A2D41B4FDF6D001A82A2 /* FetchBlockSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchBlockSet.swift; sourceTree = "<group>"; };
 		EDD1A2D71B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchBlockSetMockDelegate.swift; sourceTree = "<group>"; };
+		EDD1A2DA1B53A4F7001A82A2 /* Decoration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Decoration.swift; path = ../../../Models/Decoration.swift; sourceTree = "<group>"; };
 		EDDF0F0C1B416C4E00F2D779 /* PreGameMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreGameMessageView.xib; sourceTree = "<group>"; };
 		EDDF0F101B416DD300F2D779 /* PreGameMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessageView.swift; sourceTree = "<group>"; };
 		EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreGameMessage.swift; sourceTree = "<group>"; };
@@ -431,7 +434,7 @@
 				ED0BC5941B305D720060FC84 /* Main.storyboard */,
 				EDA47C441B442A1E003356AB /* GlobalConfig.swift */,
 				ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */,
-				ED222FCC1B4AD4A5006E525A /* StaticContext.swift */,
+				ED222FCC1B4AD4A5006E525A /* SharedContext.swift */,
 				EF41E60503222496376BD198 /* Models */,
 				ED1A93311B42A96B004E6AD4 /* GameScenes */,
 				EDFF14DE1B316EA900962C68 /* Controllers */,
@@ -477,8 +480,9 @@
 			children = (
 				ED7799C71B468ADC00A854A3 /* GameObject.swift */,
 				EDD1A2BE1B4FCD61001A82A2 /* MovableGameObjects */,
+				EDD1A2DA1B53A4F7001A82A2 /* Decoration.swift */,
 				EDA47C511B454798003356AB /* TrafficLight.swift */,
-				ED7799D31B46A09D00A854A3 /* RoadTile.swift */,
+				ED7799D31B46A09D00A854A3 /* Road.swift */,
 				ED5721B71B47E7680011F465 /* RoadType.swift */,
 				ED222FC91B4AABCB006E525A /* CFC.swift */,
 				ED222FD41B4C21D1006E525A /* House.swift */,
@@ -976,7 +980,7 @@
 				EDBB66971B3C0A61009020A5 /* BlockTableViewController.swift in Sources */,
 				ED6F79911B3D7D9200DD2AFE /* DirectDriveButton.swift in Sources */,
 				ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */,
-				ED7799D41B46A09D00A854A3 /* RoadTile.swift in Sources */,
+				ED7799D41B46A09D00A854A3 /* Road.swift in Sources */,
 				ED222FB71B4A70BF006E525A /* GameMenuCommand.swift in Sources */,
 				ED1A93371B42AE81004E6AD4 /* Van.swift in Sources */,
 				EDFE933A1B41804900E01322 /* FailMessage.swift in Sources */,
@@ -991,6 +995,7 @@
 				ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */,
 				EDAEFBAD1B39934F003398EE /* VehicleController.swift in Sources */,
 				EDDF0F1F1B417DBC00F2D779 /* ErrorMessageView.swift in Sources */,
+				EDD1A2DB1B53A4F7001A82A2 /* Decoration.swift in Sources */,
 				EDBB66991B3C0B34009020A5 /* BlockTableViewCell.swift in Sources */,
 				EDA47C3F1B442411003356AB /* LevelBackButton.swift in Sources */,
 				ED222FBD1B4A7133006E525A /* BlocklyCommand.swift in Sources */,
@@ -1023,7 +1028,7 @@
 				ED5721C41B4854870011F465 /* FetchLevelActionMockDelegate.swift in Sources */,
 				EDA47C481B443225003356AB /* LevelTitleLabel.swift in Sources */,
 				EDFE934F1B419FF900E01322 /* SubGameViewController.swift in Sources */,
-				ED222FCD1B4AD4A5006E525A /* StaticContext.swift in Sources */,
+				ED222FCD1B4AD4A5006E525A /* SharedContext.swift in Sources */,
 				EDA47C501B454715003356AB /* Node.swift in Sources */,
 				EDD1A2B81B4D5497001A82A2 /* Rotation.swift in Sources */,
 				ED7799D71B46AB3E00A854A3 /* GameMapConfig.swift in Sources */,
@@ -1074,7 +1079,7 @@
 				ED1A935A1B43D88E004E6AD4 /* APIActionDelegate.swift in Sources */,
 				ED1A93461B43D046004E6AD4 /* EpisodeViewController.swift in Sources */,
 				ED1A93381B42AE81004E6AD4 /* Van.swift in Sources */,
-				ED7799D51B46A09D00A854A3 /* RoadTile.swift in Sources */,
+				ED7799D51B46A09D00A854A3 /* Road.swift in Sources */,
 				EDBB666B1B3AA029009020A5 /* LevelTableViewController.swift in Sources */,
 				EDFE934A1B41826A00E01322 /* PostGameMessage.swift in Sources */,
 				EDA47C661B455B72003356AB /* CargoController.swift in Sources */,
@@ -1114,10 +1119,11 @@
 				ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */,
 				ED7799C21B4593BA00A854A3 /* Coordinates.swift in Sources */,
 				ED222FE01B4D1434006E525A /* Left.swift in Sources */,
+				EDD1A2DC1B53A4F7001A82A2 /* Decoration.swift in Sources */,
 				ED7799D21B469E6500A854A3 /* Direction.swift in Sources */,
 				EDFE93411B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				EDD1A2BD1B4EAAE5001A82A2 /* Animation.swift in Sources */,
-				ED222FCE1B4AD4A5006E525A /* StaticContext.swift in Sources */,
+				ED222FCE1B4AD4A5006E525A /* SharedContext.swift in Sources */,
 				EDBB66751B3AA07A009020A5 /* GVJavaScriptCommand.swift in Sources */,
 				ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */,
 				ED222FE91B4D1580006E525A /* Start.swift in Sources */,

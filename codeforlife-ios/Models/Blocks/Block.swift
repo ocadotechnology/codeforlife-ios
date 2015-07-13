@@ -11,7 +11,7 @@ import Foundation
 
 class Block {
     
-    var nextBlock: Block?
+    weak var nextBlock: Block?
     var description: String
     var color: UIColor
     

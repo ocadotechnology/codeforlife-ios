@@ -13,8 +13,8 @@ class Message {
     var title: String?
     var context: String?
     var action: (() -> Void)?
-    var controller: MessageViewController?
-    var view: MessageView
+    weak var controller: MessageViewController?
+    unowned var view: MessageView
     
     init(title: String, context: String, action: () -> Void) {
         self.title = title

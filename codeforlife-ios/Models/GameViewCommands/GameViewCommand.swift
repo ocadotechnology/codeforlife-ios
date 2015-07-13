@@ -16,7 +16,7 @@ protocol Command {
 
 class GameViewCommand : Command {
     
-    var gameViewController: GameViewController
+    unowned var gameViewController: GameViewController
     
     init(gameViewController: GameViewController ) {
         self.gameViewController = gameViewController
@@ -35,7 +35,7 @@ class GameViewCommand : Command {
 
 class GVLoadLevelCommand : GameViewCommand {
     
-    var level: Level?
+    weak var level: Level?
     
     init(level: Level, gameViewController: GameViewController) {
         super.init(gameViewController: gameViewController)
@@ -64,6 +64,8 @@ class NGVShowPreGameMessageCommand: GameViewCommand {
                 action: {
                     controller.closeMenu()
                     controller.willMoveToParentViewController(nil)
+                    controller.view.removeFromSuperview()
+                    controller.removeFromParentViewController()
             })
             controller.toggleMenu()
         }
@@ -85,10 +87,14 @@ class NGVShowPostGameMessageCommand: GameViewCommand {
                 nextLevelAction: {
                     controller.gotoNextLevelAndDismiss()
                     controller.willMoveToParentViewController(nil)
+                    controller.view.removeFromSuperview()
+                    controller.removeFromParentViewController()
                 },
                 playAgainAction: {
                     controller.playAgainAndDismiss()
                     controller.willMoveToParentViewController(nil)
+                    controller.view.removeFromSuperview()
+                    controller.removeFromParentViewController()
                 })
             controller.toggleMenu()
         }
@@ -109,9 +115,11 @@ class NGVShowFailMessageCommand: GameViewCommand {
                 action: {
                     controller.closeMenu()
                     controller.willMoveToParentViewController(nil)
+                    controller.view.removeFromSuperview()
+                    controller.removeFromParentViewController()
             })
             controller.toggleMenu()
-            self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+            gameViewController.gameMenuViewController?.controlMode = .onStopControls
         }
         completion()
     }

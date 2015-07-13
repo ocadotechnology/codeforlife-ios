@@ -567,20 +567,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-sG-Sq5" userLabel="Game Map View" customClass="GameMapView" customModule="codeforlife_ios" customModuleProvider="target">
+                            <containerView opaque="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-sG-Sq5" userLabel="Game Map View" customClass="GameMapView" customModule="codeforlife_ios" customModuleProvider="target">
                                 <rect key="frame" x="286" y="40" width="293" height="540"/>
                                 <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="seJ-0X-RCm" kind="embed" id="sei-H4-Ube"/>
+                                    <segue destination="seJ-0X-RCm" kind="embed" identifier="GameMapViewController" id="sei-H4-Ube"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YyK-32-Fjp" userLabel="Block Table View">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YyK-32-Fjp" userLabel="Block Table View">
                                 <rect key="frame" x="16" y="40" width="250" height="510"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.75294117650000003" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="v79-AP-GFs"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="4du-8I-ErY" kind="embed" id="xnW-ET-lKi"/>
+                                    <segue destination="4du-8I-ErY" kind="embed" identifier="BlockTableViewController" id="xnW-ET-lKi"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSW-Nj-hiM" userLabel="Direct Drive View">
@@ -590,7 +591,7 @@
                                     <constraint firstAttribute="width" constant="240" id="SmL-ie-ahC"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="j2m-kq-df1" kind="embed" id="Str-Nx-sIz"/>
+                                    <segue destination="j2m-kq-df1" kind="embed" identifier="DirectDriveViewController" id="Str-Nx-sIz"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDI-xX-x7y" userLabel="Game Menu View">
@@ -599,7 +600,7 @@
                                     <constraint firstAttribute="height" constant="300" id="wIp-Y9-IZZ"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="7Ne-xJ-S2H" kind="embed" id="dVk-P6-Vqo"/>
+                                    <segue destination="7Ne-xJ-S2H" kind="embed" identifier="GameMenuViewController" id="dVk-P6-Vqo"/>
                                 </connections>
                             </containerView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAA-NT-in3">
@@ -610,7 +611,6 @@
                         <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YyK-32-Fjp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="03m-4Z-aGb"/>
-                            <constraint firstItem="hDI-xX-x7y" firstAttribute="top" secondItem="YyK-32-Fjp" secondAttribute="bottom" constant="8" id="2Dj-xu-Oqo"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hDI-xX-x7y" secondAttribute="bottom" id="35N-Qh-FgW"/>
                             <constraint firstItem="YyK-32-Fjp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5LL-I2-Hsa"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PSW-Nj-hiM" secondAttribute="bottom" constant="8" symbolic="YES" id="8OC-iY-Cux"/>
@@ -618,33 +618,18 @@
                             <constraint firstItem="DAA-NT-in3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DzV-TB-PoM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YyK-32-Fjp" secondAttribute="bottom" constant="50" id="KW1-VH-pyn"/>
                             <constraint firstAttribute="centerY" secondItem="DAA-NT-in3" secondAttribute="centerY" id="RF9-hB-3qC"/>
-                            <constraint firstItem="DAA-NT-in3" firstAttribute="leading" secondItem="cYj-sG-Sq5" secondAttribute="leading" id="RdT-wQ-4v6"/>
                             <constraint firstItem="YyK-32-Fjp" firstAttribute="width" secondItem="hDI-xX-x7y" secondAttribute="width" id="ScE-Uu-vck"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cYj-sG-Sq5" secondAttribute="trailing" constant="5" id="Xcc-59-RRl"/>
                             <constraint firstItem="cYj-sG-Sq5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="YU3-io-21M"/>
-                            <constraint firstItem="cYj-sG-Sq5" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-10" id="YW2-SJ-ik6"/>
-                            <constraint firstItem="cYj-sG-Sq5" firstAttribute="centerY" secondItem="DAA-NT-in3" secondAttribute="centerY" id="c6x-yw-tdq"/>
                             <constraint firstItem="hDI-xX-x7y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fBn-px-Yzb"/>
                             <constraint firstItem="cYj-sG-Sq5" firstAttribute="leading" secondItem="YyK-32-Fjp" secondAttribute="trailing" constant="20" id="h1Y-64-mjU"/>
-                            <constraint firstAttribute="centerX" secondItem="DAA-NT-in3" secondAttribute="centerX" id="oNg-4C-Yfe"/>
                             <constraint firstItem="PSW-Nj-hiM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rpw-cR-OdF"/>
-                            <constraint firstAttribute="centerY" secondItem="DAA-NT-in3" secondAttribute="centerY" id="uGa-0N-4qo"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="YW2-SJ-ik6"/>
-                                <exclude reference="c6x-yw-tdq"/>
-                                <exclude reference="2Dj-xu-Oqo"/>
-                                <exclude reference="RdT-wQ-4v6"/>
-                                <exclude reference="oNg-4C-Yfe"/>
-                                <exclude reference="uGa-0N-4qo"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="bI6-P7-s5v"/>
                     <connections>
                         <outlet property="activityIndicator" destination="DAA-NT-in3" id="CZB-JE-9me"/>
-                        <outlet property="gameMapView" destination="cYj-sG-Sq5" id="Mpk-SD-kKq"/>
+                        <outlet property="gameMenuView" destination="YyK-32-Fjp" id="7AQ-PN-xfk"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="wmI-TC-Fom"/>
                     </connections>
                 </viewController>
@@ -896,6 +881,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="LEi-Za-5Nl" firstAttribute="top" secondItem="FcY-LZ-v8w" secondAttribute="top" id="SFj-uj-FhJ"/>
                             <constraint firstItem="LEi-Za-5Nl" firstAttribute="leading" secondItem="FcY-LZ-v8w" secondAttribute="leading" id="ZEN-Hu-tct"/>

@@ -31,7 +31,7 @@ class MessageViewController: SubGameViewController {
         return gameViewController.view.center
     }
     
-    var message: Message? {
+    weak var message: Message? {
         didSet {
             self.view = message?.view
         }
@@ -77,6 +77,10 @@ class MessageViewController: SubGameViewController {
     func playAgainAndDismiss() {
         CommandFactory.NativeClearCommand().execute()
         closeMenu()
+    }
+    
+    deinit {
+        println("MessageViewController is being deallocated")
     }
 
 }

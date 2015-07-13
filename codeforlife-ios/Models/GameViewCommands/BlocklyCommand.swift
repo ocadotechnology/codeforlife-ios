@@ -10,7 +10,7 @@ import Foundation
 
 class BlocklyCommand : GameViewCommand {
 
-    var viewController : BlockTableViewController {
+    weak var viewController : BlockTableViewController? {
         return gameViewController.blockTableViewController
     }
 
@@ -26,20 +26,18 @@ class NGVAddBlockCommand: BlocklyCommand {
     }
     
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.blockTableViewController.addBlock(self.block)
+        viewController?.addBlock(self.block)
     }
 }
 
 class NGVIncrementSelectedBlock: BlocklyCommand {
-    
     override func executeWithCompletionHandler(completion: () -> Void) {
-        viewController.selectedBlock++
+        viewController?.selectedBlock++
     }
-    
 }
 
 class NGVResetSelectedBlock : BlocklyCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        viewController.selectedBlock = 0
+        viewController?.selectedBlock = 0
     }
 }

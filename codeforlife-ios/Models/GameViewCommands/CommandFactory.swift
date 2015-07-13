@@ -28,61 +28,64 @@ let deliverJavaScript = "ocargo.blocklyControl.addBlockToEndOfProgram('deliver')
 
 class CommandFactory {
     
+    class weak var gameViewController : GameViewController? {
+        return SharedContext.MainGameViewController
+    }
+    
     class func WebViewBlocklyCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: kC4LGameViewBlocklyCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewBlocklyCommandJavaScript)
     }
     
     class func WebViewClearCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: kC4LGameViewClearCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewClearCommandJavaScript)
     }
     
     class func WebViewPlayCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: kC4LGameViewPlayCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewPlayCommandJavaScript)
     }
     
     class func WebViewStopCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: kC4LGameViewStopCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewStopCommandJavaScript)
     }
     
     class func WebViewStepCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: kC4LGameViewStepCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewStepCommandJavaScript)
     }
     
     class func WebViewLoadCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: kC4LGameViewLoadCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewLoadCommandJavaScript)
     }
     
     class func WebViewSaveCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: kC4LGameViewSaveCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewSaveCommandJavaScript)
     }
     
     class func WebViewHelpCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: kC4LGameViewHelpCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewHelpCommandJavaScript)
     }
     
     class func WebViewMuteCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: kC4LGameViewMuteCommandJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewMuteCommandJavaScript)
     }
     
     class func WebViewMoveForwardCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: moveForwardJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: moveForwardJavaScript)
     }
     
     class func WebViewTurnLeftCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: turnLeftJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: turnLeftJavaScript)
     }
     
     class func WebViewTurnRightCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: turnRightJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: turnRightJavaScript)
     }
     
     class func WebViewDeliverCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: StaticContext.MainGameViewController!, javascript: deliverJavaScript)
+        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: deliverJavaScript)
     }
     
-    //Deprecated
     class func WebViewLoadLevelCommand(level: Level) -> GVLoadLevelCommand {
-        return GVLoadLevelCommand(level: level, gameViewController: StaticContext.MainGameViewController!)
+        return GVLoadLevelCommand(level: level, gameViewController: gameViewController!)
     }
     
     
@@ -90,112 +93,112 @@ class CommandFactory {
     
     
     
-    class func NativeHelpCommand() -> GameViewCommand {
-        return NGVHelpCommand(gameViewController: StaticContext.MainGameViewController!)
+    class func NativeShowHelpCommand() -> GameViewCommand {
+        return NGVShowHelpCommand(gameViewController: gameViewController!)
     }
     
     class func NativeClearCommand() -> GameViewCommand {
-        return NGVClearCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVClearCommand(gameViewController: gameViewController!)
     }
     
     class func NativeDisableDirectDriveCommand() -> GameViewCommand {
-        return NGVDisableDirectDriveCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVDisableDirectDriveCommand(gameViewController: gameViewController!)
     }
     
     class func NativeEnableDirectDriveCommand() -> GameViewCommand {
-        return NGVEnableDirectDriveCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVEnableDirectDriveCommand(gameViewController: gameViewController!)
     }
     
     class func NativeShowPreGameMessageCommand() -> GameViewCommand {
-        return NGVShowPreGameMessageCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVShowPreGameMessageCommand(gameViewController: gameViewController!)
     }
     
     class func NativeShowPostGameMessageCommand() -> GameViewCommand {
-        return NGVShowPostGameMessageCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVShowPostGameMessageCommand(gameViewController: gameViewController!)
     }
     
     class func NativeShowFailMessageCommand() -> GameViewCommand {
-        return NGVShowFailMessageCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVShowFailMessageCommand(gameViewController: gameViewController!)
     }
     
     
     
     
     class func NativePlayCommand() -> GameMenuCommand {
-        return NGVPlayCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVPlayCommand(gameViewController: gameViewController!)
     }
     
     class func NativeStopCommand() -> GameMenuCommand {
-        return NGVStopCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVStopCommand(gameViewController: gameViewController!)
     }
     
     class func NativePauseCommand() -> GameMenuCommand {
-        return NGVPauseCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVPauseCommand(gameViewController: gameViewController!)
     }
     
     class func NativeResumeCommand() -> GameMenuCommand {
-        return NGVResumeCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVResumeCommand(gameViewController: gameViewController!)
     }
     
     class func NativeMuteCommand() -> GameMenuCommand {
-        return NGVMuteCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVMuteCommand(gameViewController: gameViewController!)
     }
     
     class func NativeSwitchControlModeCommand(controlMode: GameMenuViewController.ControlMode) -> GameMenuCommand {
-        return NGVSwitchControlMode(gameViewController: StaticContext.MainGameViewController!, controlMode: controlMode)
+        return NGVSwitchControlMode(gameViewController: gameViewController!, controlMode: controlMode)
     }
     
     
     
     
     class func NativeAddBlockCommand(block: Block) -> BlocklyCommand {
-        return NGVAddBlockCommand(gameViewController: StaticContext.MainGameViewController!, block: block)
+        return NGVAddBlockCommand(gameViewController: gameViewController!, block: block)
     }
     
     class func NativeIncrementSelectBlockCommand() -> BlocklyCommand {
-        return NGVIncrementSelectedBlock(gameViewController: StaticContext.MainGameViewController!)
+        return NGVIncrementSelectedBlock(gameViewController: gameViewController!)
     }
 
     class func NativeResetSelectedBlockCommand() -> BlocklyCommand {
-        return NGVResetSelectedBlock(gameViewController: StaticContext.MainGameViewController!)
+        return NGVResetSelectedBlock(gameViewController: gameViewController!)
     }
 
     
     
     class func NativeMoveForwardCommand() -> GameMapCommand {
-        return NGVMoveForwardCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVMoveForwardCommand(gameViewController: gameViewController!)
     }
     
     class func NativeTurnLeftCommand() -> GameMapCommand {
-        return NGVTurnLeftCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVTurnLeftCommand(gameViewController: gameViewController!)
     }
     
     class func NativeTurnRightCommand() -> GameMapCommand {
-        return NGVTurnRightCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVTurnRightCommand(gameViewController: gameViewController!)
     }
     
     class func NativeDeliverCommand() -> GameMapCommand {
-        return NGVDeliverCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVDeliverCommand(gameViewController: gameViewController!)
     }
     
     class func NativeShowResultCommand() -> GameMapCommand {
-        return NGVShowResultCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVShowResultCommand(gameViewController: gameViewController!)
     }
     
     class func NativePauseAnimationCommand() -> GameMapCommand {
-        return NGVPauseAnimationCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVPauseAnimationCommand(gameViewController: gameViewController!)
     }
     
     class func NativeUnpauseAnimationCommand() -> GameMapCommand {
-        return NGVUnpauseAnimationCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVUnpauseAnimationCommand(gameViewController: gameViewController!)
     }
     
     class func NativeAddAnimationCommand(animation: Animation) -> GameMapCommand {
-        return NGVAddAnimationCommand(StaticContext.MainGameViewController!, animation)
+        return NGVAddAnimationCommand(gameViewController!, animation)
     }
     
     class func NativeResetAnimationCommand() -> GameMapCommand {
-        return NGVResetAnimationCommand(gameViewController: StaticContext.MainGameViewController!)
+        return NGVResetAnimationCommand(gameViewController: gameViewController!)
     }
     
 }

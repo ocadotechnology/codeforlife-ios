@@ -10,16 +10,16 @@ import UIKit
 import Foundation
 
 class GameMapCommand: GameViewCommand {
-    var map : Map? {
-        return gameViewController.gameMapViewController.map
+    weak var map : Map? {
+        return gameViewController.gameMapViewController?.map
     }
 }
 
 class NGVMoveForwardCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        self.gameViewController.gameMenuViewController.controlMode = .onStepControls
+        self.gameViewController.gameMenuViewController?.controlMode = .onStepControls
         map?.player.moveForward {
-            self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+            self.gameViewController.gameMenuViewController?.controlMode = .onStopControls
             completion()
         }
     }
@@ -27,9 +27,9 @@ class NGVMoveForwardCommand: GameMapCommand {
 
 class NGVTurnLeftCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        self.gameViewController.gameMenuViewController.controlMode = .onStepControls
+        self.gameViewController.gameMenuViewController?.controlMode = .onStepControls
         map?.player.turnLeft {
-            self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+            self.gameViewController.gameMenuViewController?.controlMode = .onStopControls
             completion()
         }
     }
@@ -37,9 +37,9 @@ class NGVTurnLeftCommand: GameMapCommand {
 
 class NGVTurnRightCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        self.gameViewController.gameMenuViewController.controlMode = .onStepControls
+        self.gameViewController.gameMenuViewController?.controlMode = .onStepControls
         map?.player.turnRight {
-            self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+            self.gameViewController.gameMenuViewController?.controlMode = .onStopControls
             completion()
         }
     }
@@ -60,19 +60,19 @@ class NGVShowResultCommand: GameMapCommand {
         } else {
             CommandFactory.NativeShowFailMessageCommand().execute()
         }
-        self.gameViewController.gameMenuViewController.controlMode = .onStopControls
+        self.gameViewController.gameMenuViewController?.controlMode = .onStopControls
     }
 }
 
 class NGVPauseAnimationCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.pause()
+        gameViewController.gameMapViewController?.pause()
     }
 }
 
 class NGVUnpauseAnimationCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.unpause()
+        gameViewController.gameMapViewController?.unpause()
     }
 }
 
@@ -86,14 +86,13 @@ class NGVAddAnimationCommand : GameMapCommand {
     }
     
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.animationQueue.append(self.animation)
+        gameViewController.gameMapViewController?.animationQueue.append(self.animation)
     }
 }
 
 class NGVResetAnimationCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController.animationQueue = [Animation]()
+        gameViewController.gameMapViewController?.animationQueue = [Animation]()
     }
-    
 }
 

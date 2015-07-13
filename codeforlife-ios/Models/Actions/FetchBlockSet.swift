@@ -12,12 +12,12 @@ import Alamofire
 
 class FetchBlockSet : Action {
     
-    var gameViewController: GameViewController
+    weak var gameViewController: GameViewController?
     
-    init( _ gameViewController: GameViewController, _ url: String) {
+    init( _ gameViewController: GameViewController?, _ url: String) {
         self.gameViewController = gameViewController
         super.init(
-            devUrl: url,
+            devUrl: "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/blocks/",
             delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
             mockDelegate: FetchBlockSetMockDelegate())
     }
@@ -25,7 +25,10 @@ class FetchBlockSet : Action {
     override func processData(data: NSData) {
         
         let json = JSON(data: data)
-        //TODO
+        if let jsonArray = json.array {
+            for block in jsonArray {
+            }
+        }
         
     }
     

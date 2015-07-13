@@ -53,4 +53,8 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
         leftButton.enabled = true
         rightButton.enabled = true
     }
+    
+    deinit {
+        println("DirectDrive is being deallocated")
+    }
 }

@@ -34,4 +34,8 @@ class WebViewVehicleController: VehicleController {
         CommandFactory.NativeAddBlockCommand(Deliver()).execute()
     }
     
+    deinit {
+        println("WebViewVehicleController is being deallocated")
+    }
+    
 }

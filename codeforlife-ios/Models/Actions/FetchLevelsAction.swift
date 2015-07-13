@@ -13,7 +13,7 @@ import Alamofire
 
 class FetchLevelsAction : Action, ActionProtocol
 {
-    var viewController: LevelTableViewController
+    unowned var viewController: LevelTableViewController
 
     init( _ viewController: LevelTableViewController, _ url: String) {
         self.viewController = viewController
@@ -39,5 +39,9 @@ class FetchLevelsAction : Action, ActionProtocol
         }
         viewController.levels = levels
     }
+    
+//    deinit {
+//        println("FetchLevelsAction is being deallocated")
+//    }
     
 }

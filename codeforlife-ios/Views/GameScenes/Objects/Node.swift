@@ -26,7 +26,7 @@ class Node: Equatable {
     
     var previousNode: Node?
     
-    var trafficLights = [TrafficLight]()
+    lazy var trafficLights = [TrafficLight]()
     
     var connectedNodes = [Node]() {
         didSet {
@@ -105,7 +105,7 @@ class Node: Equatable {
         }
     }
     
-    var direction = Direction()
+    lazy var direction = Direction()
     
     var position : CGPoint {
         var result = CGPointMake(

@@ -15,7 +15,7 @@ class FetchEpisodesAction : Action, ActionProtocol {
     
     let url = "Insert Actual API URL"
     
-    var viewController: EpisodeViewController
+    unowned var viewController: EpisodeViewController
     
     init(_ viewController: EpisodeViewController) {
         self.viewController = viewController
@@ -42,5 +42,9 @@ class FetchEpisodesAction : Action, ActionProtocol {
         }
         viewController.episodes = episodes
     }
+    
+//    deinit {
+//        println("FetchEpisodesAction is being deallocated")
+//    }
     
 }

@@ -26,7 +26,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         static let HelpMessage = "help"
     }
 
-    var gameViewController: GameViewController?
+    weak var gameViewController: GameViewController?
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if let result = message.body as? NSString {
@@ -54,9 +54,9 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                         }
                         
                     case JSONTag.HelpMessage:
-                        CommandFactory.NativeHelpCommand().execute()
-                        
-                        default: break
+                        CommandFactory.NativeShowHelpCommand().execute()
+
+                    default: break
                     }
                 }
             }

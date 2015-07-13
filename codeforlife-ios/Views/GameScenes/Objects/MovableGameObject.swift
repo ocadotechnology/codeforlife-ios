@@ -20,7 +20,7 @@ class MovableGameObject: GameObject {
     var origin: Origin
     
     var crashed: Bool {
-        let mapArray = StaticContext.MainGameViewController!.gameMapViewController.map!.mapArray
+        let mapArray = SharedContext.MainGameViewController!.gameMapViewController!.map!.mapArray
         return !mapArray[currentCoordinates.x][currentCoordinates.y]
     }
     

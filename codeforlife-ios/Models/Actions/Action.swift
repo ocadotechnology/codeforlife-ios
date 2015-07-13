@@ -19,9 +19,9 @@ class Action : ActionProtocol {
     var params = [String: String]()
     var delegate : ActionDelegate
     var mockDelegate: ActionDelegate
-    var devUrl: String
+    var devUrl: String?
     
-    init(devUrl: String, delegate: ActionDelegate, mockDelegate: ActionDelegate) {
+    init(devUrl: String?, delegate: ActionDelegate, mockDelegate: ActionDelegate) {
         self.devUrl = devUrl
         self.delegate = delegate
         self.mockDelegate = mockDelegate

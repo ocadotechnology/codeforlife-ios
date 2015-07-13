@@ -16,15 +16,17 @@ class Map: SKScene {
     var nodes: [Node]
     var origin: Origin
     var destinations: [Destination]
+    var decorations: [Decoration]
     var player: Van
-    var mapArray = [[Bool]]()
+    lazy var mapArray = [[Bool]]()
     
-    init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Destination]) {
+    init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Destination], decorations: [Decoration]) {
         self.width = width
         self.height = height
         self.nodes = nodes
         self.origin = origin
         self.destinations = destination
+        self.decorations = decorations
         self.player = Van(origin: origin)
         self.player.zPosition = 1
         super.init(size: CGSize(
@@ -87,24 +89,48 @@ class Map: SKScene {
             roadTile.zPosition = 0
             addChild(roadTile)
             if node.isDestination {
-                var house: House
-                if !node.direction.up && !mapArray[node.coordinates.x][node.coordinates.y+1] {
-                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.N))
-                } else if !node.direction.right && !mapArray[node.coordinates.x+1][node.coordinates.y+1] {
-                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.E))
-                } else if !node.direction.down && !mapArray[node.coordinates.x][node.coordinates.y-1] {
-                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.S))
-                } else { //!node.direction.left && !mapArray[node.coordinates.x-1][node.coordinates.y]
-                    house = House(origin: Origin(node.coordinates.x, node.coordinates.y, CompassDirection.W))
+                var compassDirection = CompassDirection.N
+                if node.connectedNodes.count == 2 &&
+                    !(node.direction.up && node.direction.down) &&
+                    !(node.direction.left && node.direction.right) {
+                    if !node.direction.up && !node.direction.right {
+                        compassDirection = CompassDirection.NE
+                    } else if !node.direction.up && !node.direction.left {
+                        compassDirection = CompassDirection.NW
+                    } else if !node.direction.right && !node.direction.down {
+                        compassDirection = CompassDirection.SE
+                    } else { //!node.direction.down && !node.direction.left
+                        compassDirection = CompassDirection.SW
+                    }
+                } else {
+                    if !node.direction.up {
+                        compassDirection = CompassDirection.N
+                    } else if !node.direction.right {
+                        compassDirection = CompassDirection.E
+                    } else if !node.direction.down {
+                        compassDirection = CompassDirection.S
+                    } else { //!node.direction.left
+                        compassDirection = CompassDirection.W
+                    }
                 }
+                let origin = Origin(node.coordinates, compassDirection)
+                let house = House(origin: origin)
                 addChild(house)
             }
+        }
+        
+        for decoration in decorations {
+            addChild(decoration)
         }
         
         var cfc = CFC(origin: origin)
         addChild(cfc)
         addChild(player)
         
+    }
+    
+    deinit {
+        println("Map is being deallocated")
     }
     
 }

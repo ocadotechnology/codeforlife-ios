@@ -39,6 +39,7 @@ class Van: MovableGameObject {
         case .W:
             self.position.x -= GameMapConfig.Grid.width/2
             self.position.y -= self.width/2 + GameMapConfig.Grid.height/45
+        default : break
         }
         
         rad = origin.compassDirection.angle
@@ -60,6 +61,7 @@ class Van: MovableGameObject {
         case .E: currentCoordinates.x++
         case .S: currentCoordinates.y--
         case .W: currentCoordinates.x--
+        default: break
         }
     }
     
@@ -88,7 +90,7 @@ class Van: MovableGameObject {
     }
     
     override func deliver(_ completion: (() -> Void)? = nil) {
-        if let map = StaticContext.MainGameViewController?.gameMapViewController.map {
+        if let map = SharedContext.MainGameViewController?.gameMapViewController?.map {
             for destination in map.destinations {
                 if destination.coordinates == currentCoordinates {
                     destination.visited = true

@@ -75,7 +75,6 @@ class GameMenuViewController: SubGameViewController {
                 CommandFactory.NativePauseCommand().execute()
             case .onResumeControls:
                 CommandFactory.NativeResumeCommand().execute()
-                
             case .onStepControls: break
             }
         }
@@ -121,6 +120,10 @@ class GameMenuViewController: SubGameViewController {
     
     @IBAction func muteSound() {
         delegate.muteSound()
+    }
+    
+    deinit {
+        println("GameMenuViewController is being deallocated")
     }
     
 }

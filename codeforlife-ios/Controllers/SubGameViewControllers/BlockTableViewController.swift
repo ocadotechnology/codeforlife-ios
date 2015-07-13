@@ -14,8 +14,8 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     let frameOffset: CGFloat = 10
     let bottomOffset: CGFloat = 40
     
-    @IBOutlet var tableView: BlockTableView!
-    @IBOutlet var containerView: UIView!
+    @IBOutlet weak var tableView: BlockTableView!
+    @IBOutlet weak var containerView: UIView!
     
     var selectedBlock = 0 {
         didSet {
@@ -38,7 +38,8 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     }
     
     func clearBlocks() {
-        blocks = [Start()]
+        blocks.removeAll(keepCapacity: false)
+        blocks.append(Start())
     }
     
     func addBlock(newBlock: Block) {
@@ -97,7 +98,6 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
                 blocks.removeAtIndex(selectedRow!)
             } else if verticalMode {
                 let row = Int(round(((stopPosition.y - cellHeight/2) / cellHeight) - 0.5))
-//                println("Swaping \(selectedRow) and \(row), stopPosition.y = \(stopPosition.y)")
                 repositionBlock(selectedRow!, to: row)
                 if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
                     let cell = tableView.cellForRowAtIndexPath(indexPath)
@@ -138,12 +138,17 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! BlockTableViewCell
-        var block = blocks[indexPath.row]
+        unowned var block = blocks[indexPath.row]
         cell.selectionStyle = .None
         cell.stepNumber.text = indexPath.row == 0 ? "" : "Step \(indexPath.row)"
         cell.blockDescription.text = block.description
         cell.containerView.backgroundColor = block.color
         return cell
+    }
+    
+    deinit {
+        blocks.removeAll(keepCapacity: false)
+        println("BlockTableViewController is being deallocated")
     }
     
 }

@@ -39,8 +39,8 @@ class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
 
 class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     
-    var controller: MessageViewController?
-    var gameMenuViewController: GameMenuViewController?
+    weak var controller: MessageViewController?
+    weak var gameMenuViewController: GameMenuViewController?
  
     func clear() {
         CommandFactory.WebViewClearCommand().execute()
@@ -63,16 +63,23 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func help() {
-        if controller != nil {
-            controller?.closeMenu()
-            controller = nil
+        if let controller = self.controller {
+            controller.closeMenu()
+            controller.willMoveToParentViewController(nil)
+            controller.view.removeFromSuperview()
+            controller.removeFromParentViewController()
+            self.controller = nil
         } else {
-            CommandFactory.NativeHelpCommand().execute()
+            CommandFactory.NativeShowHelpCommand().execute()
         }
     }
     
     func muteSound() {
         CommandFactory.NativeMuteCommand().execute()
+    }
+    
+    deinit {
+        println("GameMenuViewControllerDelegate is being deallocated")
     }
     
 }

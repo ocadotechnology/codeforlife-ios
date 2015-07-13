@@ -34,6 +34,7 @@ class CFC: GameObject {
         case .W:
             self.position.x += GameMapConfig.Grid.width/4
             self.position.y -= GameMapConfig.Grid.height/25
+        default : break
         }
         
         let rad = origin.compassDirection.angle

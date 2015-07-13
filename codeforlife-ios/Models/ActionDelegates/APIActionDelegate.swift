@@ -15,8 +15,8 @@ class APIActionDelegate : ActionDelegate {
     var url: String
     var method: Alamofire.Method
     
-    init(url: String,method: Alamofire.Method) {
-        self.url = url
+    init(url: String? ,method: Alamofire.Method) {
+        self.url = url ?? "Cannot Fetch URL"
         self.method = method
     }
     

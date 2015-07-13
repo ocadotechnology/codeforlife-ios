@@ -9,8 +9,8 @@
 import Foundation
 
 
-let Mode = MockMode
-//let Mode = DevMode
+//let Mode = MockMode
+let Mode = DevMode
 
 let WebViewEnabled = true
 

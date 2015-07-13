@@ -16,7 +16,6 @@ class GameMapViewController: SubGameViewController {
         didSet {
             map?.removeAllChildren()
             map!.scaleMode = .ResizeFill
-            skView.frame = view.frame
             skView.presentScene(map!)
             map?.draw()
         }
@@ -30,8 +29,7 @@ class GameMapViewController: SubGameViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.blackColor()
-        view.addSubview(skView)
+        view = skView
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
@@ -45,6 +43,10 @@ class GameMapViewController: SubGameViewController {
     func unpause() {
         skView.paused = false
         map?.paused = false
+    }
+    
+    deinit {
+        println("GameMapViewController is being deallocated")
     }
 
 }

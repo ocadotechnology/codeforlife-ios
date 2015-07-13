@@ -19,7 +19,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var prevEpisodeButton: UIButton!
     @IBOutlet weak var nextEpisodeButton: UIButton!
     
-    var requestedEpisode: Episode?
+    weak var requestedEpisode: Episode?
     
     var episode : Episode? {
         didSet {
@@ -99,6 +99,8 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {
+        SharedContext.MainGameViewController = nil
+    }
 
 }

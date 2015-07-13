@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 
-class StaticContext {
+class SharedContext {
     static var MainGameViewController: GameViewController?
+    static var BlockMap = [Int, Block]()
 }

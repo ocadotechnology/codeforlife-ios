@@ -26,7 +26,6 @@ class FetchLevelActionMockDelegate: ActionDelegate {
 
             ])
         
-        
         var data = json.rawData()
         processData(data!)
         callback()
