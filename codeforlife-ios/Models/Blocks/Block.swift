@@ -43,4 +43,6 @@ class Block {
     }
     
     func submit() {}
+    
+    func submitMock() {}
 }

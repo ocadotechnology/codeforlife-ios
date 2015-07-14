@@ -77,10 +77,6 @@ class GameMenuViewController: SubGameViewController {
     @IBOutlet weak var playButton: GameViewButton!
     @IBOutlet weak var clearButton: GameViewButton!
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate.gameMenuViewController = self

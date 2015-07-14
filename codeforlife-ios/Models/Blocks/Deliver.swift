@@ -23,6 +23,10 @@ class Deliver: Block {
     
     override func submit() {
         CommandFactory.WebViewDeliverCommand().execute()
-        CommandFactory.NativeDeliverCommand().execute()
+    }
+    
+    override func submitMock() {
+        CommandFactory.WebViewDeliverCommand().execute()
+        CommandFactory.NativeAddAnimationCommand(DeliverAnimation()).execute()
     }
 }

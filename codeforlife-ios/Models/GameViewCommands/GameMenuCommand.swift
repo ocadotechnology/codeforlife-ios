@@ -51,14 +51,16 @@ class NGVMuteCommand: GameMenuCommand {
 class NGVPlayCommand: GameMenuCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
         CommandFactory.WebViewClearCommand().execute()
+        gameViewController.gameMapViewController?.map?.resetMap()
+        CommandFactory.NativeResetAnimationCommand().execute()
         viewController?.clearButton.enabled = false
         gameViewController.gameMapViewController?.map?.player.resetPosition()
         gameViewController.blockTableViewController?.selectedBlock = 0
         gameViewController.blockTableViewController?.submitBlocks()
         CommandFactory.WebViewPlayCommand().execute()
-        viewController?.controlMode = .onStopControls
-//        gameViewController.blockTableViewController.blocks.first?
-//            .executeBlockChainAction(gameViewController.gameMapViewController.map!.player)
+//        viewController?.controlMode = .onStopControls
+        println("animationQueue.count = \(gameViewController.gameMapViewController?.animationQueue.count)")
+        gameViewController.gameMapViewController?.animationQueue.first?.executeChainAnimation()
         completion()
     }
 }

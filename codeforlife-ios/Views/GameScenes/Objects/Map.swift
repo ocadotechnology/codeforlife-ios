@@ -44,7 +44,6 @@ class Map: SKScene {
     }
     
     func resetMap() {
-        self.removeAllChildren()
         resetMapArray()
         resetDestination()
     }
@@ -56,6 +55,9 @@ class Map: SKScene {
             for y in 0  ..< height {
                 mapArray[x].append(false)
             }
+        }
+        for node in nodes {
+            mapArray[node.coordinates.x][node.coordinates.y] = true
         }
     }
     
@@ -75,14 +77,9 @@ class Map: SKScene {
     }
     
     func draw() {
+        self.removeAllChildren()
         resetMap()
         drawGrass()
-        
-        // Interpret nodes in a 2D map
-        for node in nodes {
-            mapArray[node.coordinates.x][node.coordinates.y] = true
-        }
-        
         drawRoads()
         drawDecorations()
 

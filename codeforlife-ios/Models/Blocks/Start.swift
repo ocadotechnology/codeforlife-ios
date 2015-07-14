@@ -18,4 +18,9 @@ class Start: Block {
     override func submit() {
         CommandFactory.NativeResetAnimationCommand().execute()
     }
+    
+    override func submitMock() {
+        CommandFactory.NativeAddAnimationCommand(StartAnimation()).execute()
+    }
+    
 }

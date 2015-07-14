@@ -81,7 +81,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         var handler = GameViewInteractionHandler()
         handler.gameViewController = self
         config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
-        webView = WKWebView(frame: CGRect(origin: CGPointMake(view.frame.width - 150,50), size: CGSize(width: 100, height: 100))
+        webView = WKWebView(frame: CGRect(origin: CGPointMake(view.frame.width - 350,0), size: CGSize(width: 350, height: 300))
             , configuration: config)
         webView?.navigationDelegate = self
         webView?.UIDelegate = self

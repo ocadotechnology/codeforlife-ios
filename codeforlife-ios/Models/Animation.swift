@@ -22,6 +22,7 @@ class Animation {
             if self.nextAnimation != nil {
                 self.nextAnimation?.executeChainAnimation(completion: completion)
             } else {
+                println("HI")
                 CommandFactory.NativeDeliverCommand().executeWithCompletionHandler {
                     CommandFactory.NativeShowResultCommand().execute()
                 }

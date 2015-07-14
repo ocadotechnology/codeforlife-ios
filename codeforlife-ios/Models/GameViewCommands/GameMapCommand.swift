@@ -90,13 +90,14 @@ class NGVAddAnimationCommand : GameMapCommand {
     }
     
     override func executeWithCompletionHandler(completion: () -> Void) {
+        gameViewController.gameMapViewController?.animationQueue.last?.nextAnimation = self.animation
         gameViewController.gameMapViewController?.animationQueue.append(self.animation)
     }
 }
 
 class NGVResetAnimationCommand: GameMapCommand {
     override func executeWithCompletionHandler(completion: () -> Void) {
-        gameViewController.gameMapViewController?.animationQueue = [Animation]()
+        gameViewController.gameMapViewController?.animationQueue.removeAll(keepCapacity: false)
     }
 }
 

@@ -23,6 +23,10 @@ class Right: Block {
     
     override func submit() {
         CommandFactory.WebViewTurnRightCommand().execute()
+    }
+    
+    override func submitMock() {
+        CommandFactory.WebViewTurnRightCommand().execute()
         CommandFactory.NativeAddAnimationCommand(TurnRight()).execute()
     }
 }

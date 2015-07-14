@@ -21,11 +21,7 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
         }
     }
     
-    var animationQueue: [Animation] = [] {
-        didSet {
-            animationQueue.first?.executeChainAnimation()
-        }
-    }
+    var animationQueue: [Animation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
