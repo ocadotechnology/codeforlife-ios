@@ -27,7 +27,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         "document.getElementById('paper').style.width = '100%';" +
         "document.getElementById('direct_drive').style.display = 'none';" +
         "ocargo.blocklyControl.reset();" +
-        "ocargo.game.reset();"
+        "ocargo.game.reset();" +
+        "$('#mute_radio').trigger('click');"
 
     // Controllers
     weak var gameMapViewController: GameMapViewController?

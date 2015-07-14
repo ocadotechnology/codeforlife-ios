@@ -15,7 +15,7 @@ class GameMenuCommand: GameViewCommand {
 }
 
 class NGVShowHelpCommand : GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController.MessageViewControllerInstance()
         gameViewController.addChildViewController(controller)
         gameViewController.view.addSubview(controller.view)
@@ -28,28 +28,28 @@ class NGVShowHelpCommand : GameMenuCommand {
         })
         viewController?.delegate.controller = controller
         controller.toggleMenu()
-        completion()
+        completion?()
     }
 }
 
 class NGVClearCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         gameViewController.blockTableViewController?.clearBlocks()
         gameViewController.gameMapViewController?.map?.player.resetPosition()
-        completion()
+        completion?()
     }
 }
 
 
 class NGVMuteCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         viewController?.mute = !viewController!.mute
-        completion()
+        completion?()
     }
 }
 
 class NGVPlayCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         CommandFactory.WebViewClearCommand().execute()
         gameViewController.gameMapViewController?.map?.resetMap()
         CommandFactory.NativeResetAnimationCommand().execute()
@@ -59,30 +59,29 @@ class NGVPlayCommand: GameMenuCommand {
         gameViewController.blockTableViewController?.submitBlocks()
         CommandFactory.WebViewPlayCommand().execute()
 //        viewController?.controlMode = .onStopControls
-        println("animationQueue.count = \(gameViewController.gameMapViewController?.animationQueue.count)")
         gameViewController.gameMapViewController?.animationQueue.first?.executeChainAnimation()
-        completion()
+        completion?()
     }
 }
 
 class NGVPauseCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         gameViewController.gameMapViewController?.pause()
-        completion()
+        completion?()
     }
 }
 
 class NGVResumeCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         gameViewController.gameMapViewController?.unpause()
-        completion()
+        completion?()
     }
 }
 
 class NGVStopCommand: GameMenuCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         viewController?.clearButton.enabled = true
-        completion()
+        completion?()
     }
 }
 
@@ -95,7 +94,7 @@ class NGVSwitchControlMode: GameMenuCommand {
         super.init(gameViewController: gameViewController)
     }
     
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         viewController?.controlMode = self.controlMode
     }
 }

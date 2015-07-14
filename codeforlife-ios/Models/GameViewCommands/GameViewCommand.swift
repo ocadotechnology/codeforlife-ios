@@ -14,7 +14,7 @@ protocol Command {
     func executeWithCompletionHandler(completion: () -> Void)
 }
 
-class GameViewCommand : Command {
+class GameViewCommand {
     
     unowned var gameViewController: GameViewController
     
@@ -22,14 +22,14 @@ class GameViewCommand : Command {
         self.gameViewController = gameViewController
     }
     
-    func execute() {
-        executeWithCompletionHandler{}
-    }
-    
-    func executeWithCompletionHandler(completion: () -> Void) {
-        completion()
+    func execute(completion: (() -> Void)? = nil) {
         fatalError("Abstract GameViewCommand method called")
     }
+    
+//    func executeWithCompletionHandler(completion: (() -> Void)? = nil) {
+//        completion()
+//        fatalError("Abstract GameViewCommand method called")
+//    }
 
 }
 
@@ -42,7 +42,7 @@ class GVLoadLevelCommand : GameViewCommand {
         self.level = level
     }
     
-    override func executeWithCompletionHandler(completion:() -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         var urlStr = level!.webViewUrl;
         var url = NSURL(string: urlStr);
         
@@ -54,7 +54,7 @@ class GVLoadLevelCommand : GameViewCommand {
 }
 
 class NGVShowPreGameMessageCommand: GameViewCommand {
-    override func executeWithCompletionHandler(completion:() -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController.MessageViewControllerInstance()
         gameViewController.addChildViewController(controller)
         gameViewController.view.addSubview(controller.view)
@@ -70,12 +70,12 @@ class NGVShowPreGameMessageCommand: GameViewCommand {
             controller.toggleMenu()
         }
         gameViewController.activityIndicator?.stopAnimating()
-        completion()
+        completion?()
     }
 }
 
 class NGVShowPostGameMessageCommand: GameViewCommand {
-    override func executeWithCompletionHandler(completion:() -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController.MessageViewControllerInstance()
         gameViewController.addChildViewController(controller)
         gameViewController.view.addSubview(controller.view)
@@ -98,12 +98,12 @@ class NGVShowPostGameMessageCommand: GameViewCommand {
                 })
             controller.toggleMenu()
         }
-        completion()
+        completion?()
     }
 }
 
 class NGVShowFailMessageCommand: GameViewCommand {
-    override func executeWithCompletionHandler(completion:() -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController.MessageViewControllerInstance()
         gameViewController.addChildViewController(controller)
         gameViewController.view.addSubview(controller.view)
@@ -121,7 +121,7 @@ class NGVShowFailMessageCommand: GameViewCommand {
             controller.toggleMenu()
             gameViewController.gameMenuViewController?.controlMode = .onStopControls
         }
-        completion()
+        completion?()
     }
 }
 

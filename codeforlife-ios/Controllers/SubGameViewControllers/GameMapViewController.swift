@@ -11,7 +11,6 @@ import SpriteKit
 
 class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
     
-    var skView = SKView()
     var map: Map? {
         didSet {
             map?.removeAllChildren()
@@ -21,7 +20,8 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
         }
     }
     
-    var animationQueue: [Animation] = []
+    lazy var skView = SKView()
+    lazy var animationQueue: [Animation] = [Animation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +41,5 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
         map?.paused = false
     }
     
-    deinit {
-        println("GameMapViewController is being deallocated")
-    }
-
+    deinit { println("GameMapViewController is being deallocated") }
 }

@@ -23,7 +23,7 @@ class Animation {
                 self.nextAnimation?.executeChainAnimation(completion: completion)
             } else {
                 println("HI")
-                CommandFactory.NativeDeliverCommand().executeWithCompletionHandler {
+                CommandFactory.NativeDeliverCommand().execute {
                     CommandFactory.NativeShowResultCommand().execute()
                 }
             }

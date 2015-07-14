@@ -23,19 +23,22 @@ class NGVAddBlockCommand: BlocklyCommand {
         super.init(gameViewController: gameViewController)
     }
     
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         viewController?.addBlock(self.block)
+        completion?()
     }
 }
 
 class NGVIncrementSelectedBlock: BlocklyCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         viewController?.selectedBlock++
+        completion?()
     }
 }
 
 class NGVResetSelectedBlock : BlocklyCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         viewController?.selectedBlock = 0
+        completion?()
     }
 }

@@ -20,45 +20,45 @@ class GameMapCommand: GameViewCommand {
 }
 
 class NGVMoveForwardCommand: GameMapCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStepControls).execute()
         map?.player.moveForward {
             CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
-            completion()
+            completion?()
         }
     }
 }
 
 class NGVTurnLeftCommand: GameMapCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStepControls).execute()
         map?.player.turnLeft {
             CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
-            completion()
+            completion?()
         }
     }
 }
 
 class NGVTurnRightCommand: GameMapCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStepControls).execute()
         map?.player.turnRight {
             CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
-            completion()
+            completion?()
         }
     }
 }
 
 class NGVDeliverCommand: GameMapCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         map?.player.deliver{
-            completion()
+            completion?()
         }
     }
 }
 
 class NGVShowResultCommand: GameMapCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         if map!.visitedAllDestinations() {
             CommandFactory.NativeShowPostGameMessageCommand().execute()
         } else {
@@ -69,13 +69,13 @@ class NGVShowResultCommand: GameMapCommand {
 }
 
 class NGVPauseAnimationCommand: GameMapCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         gameViewController.gameMapViewController?.pause()
     }
 }
 
 class NGVUnpauseAnimationCommand: GameMapCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         gameViewController.gameMapViewController?.unpause()
     }
 }
@@ -89,14 +89,14 @@ class NGVAddAnimationCommand : GameMapCommand {
         super.init(gameViewController : gameViewController)
     }
     
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         gameViewController.gameMapViewController?.animationQueue.last?.nextAnimation = self.animation
         gameViewController.gameMapViewController?.animationQueue.append(self.animation)
     }
 }
 
 class NGVResetAnimationCommand: GameMapCommand {
-    override func executeWithCompletionHandler(completion: () -> Void) {
+    override func execute(completion: (() -> Void)? = nil) {
         gameViewController.gameMapViewController?.animationQueue.removeAll(keepCapacity: false)
     }
 }
