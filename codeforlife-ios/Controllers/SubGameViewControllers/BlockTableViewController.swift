@@ -66,8 +66,12 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.panGestureRecognizer.minimumNumberOfTouches = 2
+        self.tableView.panGestureRecognizer.maximumNumberOfTouches = 2
         
         var recognizer = UIPanGestureRecognizer(target: self, action: Selector("panGesture:"))
+        recognizer.minimumNumberOfTouches = 1
+        recognizer.maximumNumberOfTouches = 1
         tableView.addGestureRecognizer(recognizer)
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -83,38 +87,51 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     var verticalMode = false
     var horizontalMode = false
     let cellHeight: CGFloat = 90
+    
+    private func resetPanGestureVariables() {
+        selectedCell?.layer.zPosition = 0
+        startPosition = nil
+        selectedRow = nil
+        selectedCell = nil
+        originalPosition = nil
+        verticalMode = false
+        horizontalMode = false
+    }
     func panGesture (sender:UIPanGestureRecognizer) {
         if (sender.state == UIGestureRecognizerState.Began) {
             recordStartPosition(sender.locationInView(self.tableView))
+            
         } else if (sender.state == UIGestureRecognizerState.Ended) {
             let stopPosition = sender.locationInView(self.tableView)
             let indexPath = tableView.indexPathForRowAtPoint(stopPosition)
             let dx = startPosition!.x - stopPosition.x
-            if horizontalMode && dx > 150 && selectedCell != nil && selectedRow != nil {
-                blocks.removeAtIndex(selectedRow!)
-            } else if verticalMode {
-                handleVerticalAction(stopPosition)
-            } else {
-                if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
-                    let cell = tableView.cellForRowAtIndexPath(indexPath)
-                    cell!.center = originalPosition!
+            if selectedCell != nil && selectedRow != nil {
+                if horizontalMode && dx > 150 {
+                    blocks.removeAtIndex(selectedRow!)
+                } else if verticalMode {
+                    let destinationRow = Int(round(((stopPosition.y - cellHeight/2) / cellHeight) - 0.5))
+                    repositionBlock(selectedRow!, to: max(1, min(destinationRow, blocks.count-1)))
+                } else if originalPosition != nil {
+                    selectedCell?.center = originalPosition!
                 }
             }
-            verticalMode = false
-            horizontalMode = false
-        } else if (sender.state == UIGestureRecognizerState.Changed) {
-            if let indexPath = tableView.indexPathForRowAtPoint(startPosition!),
-                    cell = tableView.cellForRowAtIndexPath(indexPath) {
-                let translation = sender.translationInView(self.tableView)
-                if originalPosition!.x + translation.x + 10 < originalPosition!.x && indexPath.row != 0  && !verticalMode {
-                    horizontalMode = true
-                    cell.center.x = originalPosition!.x + translation.x
-                } else if indexPath.row != 0 && !horizontalMode &&
-                        (originalPosition!.y + translation.y - 10 > originalPosition!.y ||
-                         originalPosition!.y + translation.y + 10 < originalPosition!.y){
-                    verticalMode = true
-                    cell.center.y = originalPosition!.y + translation.y
-                }
+            resetPanGestureVariables()
+        } else if (sender.state == UIGestureRecognizerState.Changed) && selectedCell != nil {
+            let translation = sender.translationInView(self.tableView)
+                    
+            if horizontalMode {
+                selectedCell?.center.x = originalPosition!.x + translation.x
+            } else if verticalMode {
+                selectedCell?.center.y = originalPosition!.y + translation.y
+            }
+            
+            let leftSwipeDetected = originalPosition!.x + translation.x + 10 < originalPosition!.x
+            let verticalSwipeDetected = originalPosition!.y + translation.y - 10 > originalPosition!.y
+                                        || originalPosition!.y + translation.y + 10 < originalPosition!.y
+            if leftSwipeDetected && !verticalMode {
+                horizontalMode = true
+            } else if verticalSwipeDetected && !horizontalMode {
+                verticalMode = true
             }
         }
     }
@@ -126,18 +143,10 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
             if indexPath.row != 0 {
                 selectedRow = indexPath.row
                 selectedCell = tableView.cellForRowAtIndexPath(indexPath)
+                selectedCell?.layer.zPosition = 1
                 originalPosition = selectedCell?.center
             }
         }
-    }
-    
-    private func handleVerticalAction(stopPosition: CGPoint) {
-        let row = Int(round(((stopPosition.y - cellHeight/2) / cellHeight) - 0.5))
-        repositionBlock(selectedRow!, to: min(row, blocks.count))
-//        if let indexPath = tableView.indexPathForRowAtPoint(startPosition!) {
-//            let cell = tableView.cellForRowAtIndexPath(indexPath)
-//            cell!.center = originalPosition!
-//        }
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

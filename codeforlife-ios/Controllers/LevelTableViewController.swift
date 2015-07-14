@@ -37,9 +37,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var levels = [Level]() {
         didSet {
-            if isViewLoaded() {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
         }
     }
 
@@ -79,7 +77,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
                 switch identifier {
                     case kCFLLoadLevelSegueIdentifier:
                         var indexPath = tableView.indexPathForSelectedRow()!
-                        gameViewController.level = levels[indexPath.row]
+                        gameViewController.requestedLevel = levels[indexPath.row]
                     default: break
                 }
             }

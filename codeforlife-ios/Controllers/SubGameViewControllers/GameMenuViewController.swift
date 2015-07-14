@@ -14,9 +14,9 @@ class GameMenuViewController: SubGameViewController {
     let pythonButtonText = "Python"
     let muteToUnmuteButtonText = "Unmute"
     let unmuteToMuteButtonText = "Mute"
-    let menuOffset: CGFloat = 40            // Offset to always show the head of the menu
-    let frameOffset: CGFloat = 10
-    let frameHeight: CGFloat = 300
+    let buttonHeight: CGFloat = 35
+    let buttonSpace:CGFloat = 10
+    let buttonCount: CGFloat = 6
     let animationDuration: NSTimeInterval = 0.5
     
     enum ControlMode {
@@ -39,26 +39,9 @@ class GameMenuViewController: SubGameViewController {
     
     var delegate = GameMenuViewControllerNativeDelegate()
     
-    var gameMenuFrame: CGSize {
-        return CGSize(
-            width: gameViewController.view.frame.width*(1-gameViewController.webViewPortion) - 2*frameOffset,
-            height: frameHeight)
-    }
-    
-    var showPosition : CGPoint {
-        return CGPointMake(
-            self.view.center.x,
-            self.view.center.y - frameHeight + menuOffset)
-    }
-    
-    var hidePosition : CGPoint {
-        return CGPointMake(
-            self.view.center.x,
-            self.view.center.y + frameHeight - menuOffset)
-    }
-    
     var mute = false {
         didSet {
+            muteButton.setImage(UIImage(named: mute ? "mute" : "unmute"), forState: UIControlState.Normal)
             muteButton.setTitle(mute ? muteToUnmuteButtonText : unmuteToMuteButtonText, forState: UIControlState.Normal)
         }
     }
@@ -83,7 +66,9 @@ class GameMenuViewController: SubGameViewController {
     var menuOpen = false {
         didSet {
             UIView.animateWithDuration(animationDuration) {
-                self.view.center = self.menuOpen ? self.showPosition : self.hidePosition
+                [unowned self] in
+                let menuMovement = (self.buttonHeight + self.buttonSpace) * (self.buttonCount - 1)
+                self.gameViewController.gameMenuView.center.y += self.menuOpen ? -menuMovement : menuMovement
             }
         }
     }
@@ -94,7 +79,6 @@ class GameMenuViewController: SubGameViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        view.center = hidePosition
     }
     
     override func viewDidLoad() {

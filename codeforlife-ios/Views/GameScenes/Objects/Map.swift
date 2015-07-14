@@ -40,6 +40,7 @@ class Map: SKScene {
     
     override func didMoveToView(view: SKView) {
         backgroundColor = kC4LGameMapGrassColor
+        self.scaleMode = SKSceneScaleMode.AspectFill
     }
     
     func resetMap() {

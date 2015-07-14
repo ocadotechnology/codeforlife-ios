@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BlockTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
+class BlockTableViewCell: UITableViewCell{
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var stepNumber: UILabel!
@@ -22,10 +22,12 @@ class BlockTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        backgroundColor = UIColor.clearColor()
     }
     
     override func setHighlighted(highlighted: Bool, animated: Bool) {
-//        super.setHighlighted(highlighted, animated: animated)
+        super.setHighlighted(highlighted, animated: animated)
+        backgroundColor = UIColor.clearColor()
     }
 
 }

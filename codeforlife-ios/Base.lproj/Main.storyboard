@@ -455,7 +455,9 @@
                                     <constraint firstItem="iOz-0R-aDf" firstAttribute="leading" secondItem="HXq-64-4eI" secondAttribute="leading" constant="20" symbolic="YES" id="5hv-Jv-lEU"/>
                                     <constraint firstAttribute="trailing" secondItem="UGD-ml-QgG" secondAttribute="trailing" id="9fd-xy-jh9"/>
                                     <constraint firstItem="7zm-h8-Jda" firstAttribute="leading" secondItem="HXq-64-4eI" secondAttribute="leading" constant="20" symbolic="YES" id="9px-Om-aUv"/>
-                                    <constraint firstItem="xgg-Ee-0gd" firstAttribute="top" secondItem="HXq-64-4eI" secondAttribute="top" constant="8" id="A0p-4G-SZL"/>
+                                    <constraint firstItem="xgg-Ee-0gd" firstAttribute="top" secondItem="HXq-64-4eI" secondAttribute="top" constant="8" id="A0p-4G-SZL">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                                    </constraint>
                                     <constraint firstAttribute="centerX" secondItem="xgg-Ee-0gd" secondAttribute="centerX" id="ASl-FL-DYv"/>
                                     <constraint firstItem="xgg-Ee-0gd" firstAttribute="leading" secondItem="HXq-64-4eI" secondAttribute="leading" id="Blx-D9-wtA"/>
                                     <constraint firstItem="Mfj-nm-gDD" firstAttribute="leading" secondItem="HXq-64-4eI" secondAttribute="leading" constant="20" symbolic="YES" id="CEE-gN-gnb"/>
@@ -466,7 +468,9 @@
                                     <constraint firstItem="nfy-1c-ose" firstAttribute="leading" secondItem="HXq-64-4eI" secondAttribute="leading" constant="20" symbolic="YES" id="Kmu-2l-m3U"/>
                                     <constraint firstItem="Mfj-nm-gDD" firstAttribute="leading" secondItem="HXq-64-4eI" secondAttribute="leading" id="KuM-6T-Ypk"/>
                                     <constraint firstAttribute="centerX" secondItem="iOz-0R-aDf" secondAttribute="centerX" id="Mjg-9y-nw1"/>
-                                    <constraint firstItem="nfy-1c-ose" firstAttribute="top" secondItem="7zm-h8-Jda" secondAttribute="bottom" constant="8" symbolic="YES" id="NTA-DE-ETg"/>
+                                    <constraint firstItem="nfy-1c-ose" firstAttribute="top" secondItem="7zm-h8-Jda" secondAttribute="bottom" constant="8" symbolic="YES" id="NTA-DE-ETg">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="8" symbolic="YES"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="xgg-Ee-0gd" secondAttribute="trailing" id="PVN-cC-cwX"/>
                                     <constraint firstItem="7zm-h8-Jda" firstAttribute="top" secondItem="xgg-Ee-0gd" secondAttribute="bottom" constant="8" symbolic="YES" id="RzG-3O-eyK"/>
                                     <constraint firstAttribute="trailing" secondItem="iOz-0R-aDf" secondAttribute="trailing" constant="20" symbolic="YES" id="SPk-tJ-8sS"/>
@@ -553,7 +557,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCw-JG-S4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AQj-Vj-aRe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2662" y="973"/>
+            <point key="canvasLocation" x="2933.25" y="711.75"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -576,7 +580,6 @@
                             </containerView>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YyK-32-Fjp" userLabel="Block Table View">
                                 <rect key="frame" x="16" y="40" width="250" height="510"/>
-                                <color key="backgroundColor" red="0.94117647059999998" green="0.75294117650000003" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="v79-AP-GFs"/>
                                 </constraints>
@@ -594,10 +597,12 @@
                                     <segue destination="j2m-kq-df1" kind="embed" identifier="DirectDriveViewController" id="Str-Nx-sIz"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDI-xX-x7y" userLabel="Game Menu View">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDI-xX-x7y" userLabel="Game Menu View">
                                 <rect key="frame" x="16" y="300" width="250" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="wIp-Y9-IZZ"/>
+                                    <constraint firstAttribute="height" constant="300" id="wIp-Y9-IZZ">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                    </constraint>
                                 </constraints>
                                 <connections>
                                     <segue destination="7Ne-xJ-S2H" kind="embed" identifier="GameMenuViewController" id="dVk-P6-Vqo"/>
@@ -611,9 +616,14 @@
                         <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YyK-32-Fjp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="03m-4Z-aGb"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hDI-xX-x7y" secondAttribute="bottom" id="35N-Qh-FgW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hDI-xX-x7y" secondAttribute="bottom" id="35N-Qh-FgW">
+                                <variation key="heightClass=regular-widthClass=regular" constant="-258"/>
+                            </constraint>
                             <constraint firstItem="YyK-32-Fjp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5LL-I2-Hsa"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PSW-Nj-hiM" secondAttribute="bottom" constant="8" symbolic="YES" id="8OC-iY-Cux"/>
+                            <constraint firstItem="hDI-xX-x7y" firstAttribute="top" secondItem="YyK-32-Fjp" secondAttribute="bottom" constant="3" id="BQB-OB-r0a">
+                                <variation key="heightClass=regular-widthClass=regular" constant="8" symbolic="YES"/>
+                            </constraint>
                             <constraint firstAttribute="bottom" secondItem="cYj-sG-Sq5" secondAttribute="bottom" constant="20" id="D8N-75-b2P"/>
                             <constraint firstItem="DAA-NT-in3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DzV-TB-PoM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YyK-32-Fjp" secondAttribute="bottom" constant="50" id="KW1-VH-pyn"/>
@@ -625,11 +635,22 @@
                             <constraint firstItem="cYj-sG-Sq5" firstAttribute="leading" secondItem="YyK-32-Fjp" secondAttribute="trailing" constant="20" id="h1Y-64-mjU"/>
                             <constraint firstItem="PSW-Nj-hiM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rpw-cR-OdF"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BQB-OB-r0a"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="BQB-OB-r0a"/>
+                                <exclude reference="KW1-VH-pyn"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="bI6-P7-s5v"/>
                     <connections>
                         <outlet property="activityIndicator" destination="DAA-NT-in3" id="CZB-JE-9me"/>
-                        <outlet property="gameMenuView" destination="YyK-32-Fjp" id="7AQ-PN-xfk"/>
+                        <outlet property="gameMenuView" destination="hDI-xX-x7y" id="zQE-Rz-9sQ"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="wmI-TC-Fom"/>
                     </connections>
                 </viewController>
@@ -671,7 +692,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejV-6P-6h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3391" y="973"/>
+            <point key="canvasLocation" x="3401" y="1211"/>
         </scene>
         <!--Direct Drive View Controller-->
         <scene sceneID="l4p-Xh-esH">
@@ -814,8 +835,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LEi-Za-5Nl" customClass="BlockTableView" customModule="codeforlife_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="250" height="510"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Block" rowHeight="80" id="edM-Ay-qx7" customClass="BlockTableViewCell" customModule="codeforlife_ios" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="Block" rowHeight="80" id="edM-Ay-qx7" customClass="BlockTableViewCell" customModule="codeforlife_ios" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="edM-Ay-qx7" id="1oZ-Ur-2bj">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -846,7 +870,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.0" green="0.75294117647058822" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="49i-Fh-Xdi" secondAttribute="bottom" id="3La-Qh-TxU"/>
                                                         <constraint firstItem="49i-Fh-Xdi" firstAttribute="top" secondItem="Mhp-8O-Tjv" secondAttribute="bottom" id="APX-dn-KGr"/>
@@ -864,6 +888,7 @@
                                                     </variation>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="ypA-j1-hCS" firstAttribute="leading" secondItem="1oZ-Ur-2bj" secondAttribute="leadingMargin" id="8E0-lZ-pyX"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ypA-j1-hCS" secondAttribute="trailing" id="Dha-Ws-7TB"/>
@@ -880,7 +905,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="LEi-Za-5Nl" firstAttribute="top" secondItem="FcY-LZ-v8w" secondAttribute="top" id="SFj-uj-FhJ"/>

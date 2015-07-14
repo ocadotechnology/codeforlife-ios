@@ -38,11 +38,10 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     var webView: WKWebView?
     var callBack: (() -> Void)?
     
+    weak var requestedLevel: Level?
     weak var level: Level? {
         didSet {
-            if isViewLoaded() {
-                loadLevel(self.level!)
-            }
+            loadLevel(self.level!)
         }
     }
 
@@ -53,24 +52,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         SharedContext.MainGameViewController = self
-        //setupWebView()
-        loadLevel(self.level!)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let identifier = segue.identifier {
-            switch identifier {
-            case "GameMenuViewController" :
-                self.gameMenuViewController = segue.destinationViewController as? GameMenuViewController
-            case "BlockTableViewController" :
-                self.blockTableViewController = segue.destinationViewController as? BlockTableViewController
-            case "DirectDriveViewController" :
-                self.directDriveViewController = segue.destinationViewController as? DirectDriveViewController
-            case "GameMapViewController" :
-                self.gameMapViewController = segue.destinationViewController as? GameMapViewController
-            default: break
-            }
-        }
+        setupWebView()
+        level = requestedLevel
     }
     
     func loadLevel(level: Level) {
@@ -112,6 +95,22 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "GameMenuViewController" :
+                self.gameMenuViewController = segue.destinationViewController as? GameMenuViewController
+            case "BlockTableViewController" :
+                self.blockTableViewController = segue.destinationViewController as? BlockTableViewController
+            case "DirectDriveViewController" :
+                self.directDriveViewController = segue.destinationViewController as? DirectDriveViewController
+            case "GameMapViewController" :
+                self.gameMapViewController = segue.destinationViewController as? GameMapViewController
+            default: break
+            }
+        }
+    }
+    
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         webView.evaluateJavaScript(webViewPreloadScript, completionHandler: nil)
             self.activityIndicator?.stopAnimating()
@@ -119,9 +118,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         self.callBack = nil
     }
     
-    deinit {
-        println("GameViewController is being deallocated")
-    }
+    deinit { println("GameViewController is being deallocated") }
 
     
 }

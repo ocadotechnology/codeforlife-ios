@@ -20,9 +20,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var episodes = [Episode]() {
         didSet {
-            if isViewLoaded() {
-                tableView.reloadData()
-            }
+            tableView.reloadData()
         }
     }
 

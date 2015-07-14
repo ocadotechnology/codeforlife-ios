@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class GameMapViewController: SubGameViewController {
+class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
     
     var skView = SKView()
     var map: Map? {

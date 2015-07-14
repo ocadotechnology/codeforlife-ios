@@ -94,8 +94,8 @@ class FetchMapAction : Action {
                 if let x = decoration["x"].int,
                         y = decoration["y"].int,
                     decorName = decoration["decorName"].string {
-                        var posX = CGFloat(x) * GameMapConfig.DecorationXRatio + GameMapConfig.Grid.width * GameMapConfig.DecorationYOffsetRatio
-                        var posY = CGFloat(y) * GameMapConfig.DecorationXRatio + GameMapConfig.Grid.height * GameMapConfig.DecorationXOffsetRatio
+                        var posX = CGFloat(x) * GameMapConfig.DecorationXRatio + GameMapConfig.Grid.width  * GameMapConfig.DecorationXOffsetRatio + GameMapConfig.MapXOffset
+                        var posY = CGFloat(y) * GameMapConfig.DecorationYRatio + GameMapConfig.Grid.height * GameMapConfig.DecorationYOffsetRatio + GameMapConfig.MapYOffset
                         decorations.append(Decoration(imageNamed: decorName, position: CGPointMake(posX, posY)))
                 }
             }
@@ -107,9 +107,6 @@ class FetchMapAction : Action {
         }
     }
     
-//    deinit {
-//        println("FetchMapAction is being deallocated")
-//    }
-
+//    deinit { println("FetchMapAction is being deallocated") }
     
 }
