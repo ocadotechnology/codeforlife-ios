@@ -173,6 +173,8 @@
 		EDBE3F501B568E1E000FC06F /* PopUpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F4E1B568E1E000FC06F /* PopUpAnimation.swift */; };
 		EDBE3F531B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F521B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift */; };
 		EDBE3F541B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F521B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift */; };
+		EDBE3F561B569B28000FC06F /* OnStopControlsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */; };
+		EDBE3F571B569B28000FC06F /* OnStopControlsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */; };
 		EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */; };
 		EDC8C1F31B36A25F004B1358 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */; };
 		EDC8C1F51B381213004B1358 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* CommandFactory.swift */; };
@@ -329,6 +331,7 @@
 		EDBE3F4B1B568BD1000FC06F /* DeliverAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliverAnimation.swift; sourceTree = "<group>"; };
 		EDBE3F4E1B568E1E000FC06F /* PopUpAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpAnimation.swift; sourceTree = "<group>"; };
 		EDBE3F521B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableViewPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnStopControlsAnimation.swift; sourceTree = "<group>"; };
 		EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewButton.swift; sourceTree = "<group>"; };
 		EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		EDC8C1F41B381213004B1358 /* CommandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandFactory.swift; sourceTree = "<group>"; };
@@ -734,14 +737,15 @@
 		EDD1A2C11B4FCE78001A82A2 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				EDD1A2BB1B4E7805001A82A2 /* Animation.swift */,
 				EDBE3F481B568695000FC06F /* AnimationHandler.swift */,
+				EDD1A2BB1B4E7805001A82A2 /* Animation.swift */,
 				EDD1A2C21B4FCEA3001A82A2 /* MoveForward.swift */,
 				EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */,
 				EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */,
 				EDBE3F451B554C2A000FC06F /* StartAnimation.swift */,
 				EDBE3F4B1B568BD1000FC06F /* DeliverAnimation.swift */,
 				EDBE3F4E1B568E1E000FC06F /* PopUpAnimation.swift */,
+				EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -1044,6 +1048,7 @@
 				EDA47C421B442798003356AB /* LevelTableView.swift in Sources */,
 				ED1A934B1B43D215004E6AD4 /* EpisodeTableViewCell.swift in Sources */,
 				EDBE3F461B554C2A000FC06F /* StartAnimation.swift in Sources */,
+				EDBE3F561B569B28000FC06F /* OnStopControlsAnimation.swift in Sources */,
 				EDBB66901B3B009C009020A5 /* GameMenuViewController.swift in Sources */,
 				ED222FD81B4C265D006E525A /* Tile.swift in Sources */,
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
@@ -1108,6 +1113,7 @@
 				EDBB667F1B3AA18F009020A5 /* GameViewButton.swift in Sources */,
 				EDBB667D1B3AA16D009020A5 /* GameViewController.swift in Sources */,
 				EDD1A2C41B4FCEA3001A82A2 /* MoveForward.swift in Sources */,
+				EDBE3F571B569B28000FC06F /* OnStopControlsAnimation.swift in Sources */,
 				EDBE3F4A1B568A63000FC06F /* AnimationHandler.swift in Sources */,
 				EDFE934D1B4182E200E01322 /* MessageView.swift in Sources */,
 				ED1A935A1B43D88E004E6AD4 /* APIActionDelegate.swift in Sources */,

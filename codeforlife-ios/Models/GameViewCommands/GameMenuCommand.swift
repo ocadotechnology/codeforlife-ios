@@ -65,6 +65,7 @@ class NGVPlayCommand: GameMenuCommand {
         gameViewController.blockTableViewController?.submitBlocks()
         gameViewController.gameMapViewController?.animationHandler.addAnimation(DeliverAnimation())
         gameViewController.gameMapViewController?.animationHandler.addAnimation(PopUpAnimation())
+        gameViewController.gameMapViewController?.animationHandler.addAnimation(OnStopControlsAnimation())
         
         // Execute Web Animation
         CommandFactory.WebViewPlayCommand().execute()

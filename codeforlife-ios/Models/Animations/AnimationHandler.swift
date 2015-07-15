@@ -51,6 +51,12 @@ class AnimationHandler {
         animationQueue.removeAll(keepCapacity: false)
     }
     
+    func resetVariables() {
+        currentIndex = 0
+        runAnimation = false
+        isAnimationRunning = false
+    }
+    
     private func resetAnimation() {
         self.currentIndex = 0
         self.map?.player.resetPosition()

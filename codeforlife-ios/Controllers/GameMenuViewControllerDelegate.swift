@@ -82,7 +82,11 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func stop() {
-
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeAllActions()
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.resetMap()
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.resetPosition()
+        SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.resetVariables()
+        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
     }
     
     func step() {
