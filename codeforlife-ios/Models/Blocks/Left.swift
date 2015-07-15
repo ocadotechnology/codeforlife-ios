@@ -27,6 +27,6 @@ class Left: Block {
     
     override func submitMock() {
         CommandFactory.WebViewTurnLeftCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(TurnLeft()).execute()
+        CommandFactory.NativeAddAnimationCommand(TurnLeftAnimation()).execute()
     }
 }

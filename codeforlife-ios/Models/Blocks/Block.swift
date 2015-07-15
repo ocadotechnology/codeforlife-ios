@@ -26,9 +26,7 @@ class Block {
                 completion?()
             }
         } else {
-            CommandFactory.NativeResetSelectedBlockCommand().execute {
-                completion?()
-            }
+            completion?()
         }
     }
     

@@ -139,14 +139,6 @@ class CommandFactory {
     class func NativeAddBlockCommand(block: Block) -> BlocklyCommand {
         return NGVAddBlockCommand(gameViewController: gameViewController!, block: block)
     }
-    
-    class func NativeIncrementSelectBlockCommand() -> BlocklyCommand {
-        return NGVIncrementSelectedBlock(gameViewController: gameViewController!)
-    }
-
-    class func NativeResetSelectedBlockCommand() -> BlocklyCommand {
-        return NGVResetSelectedBlock(gameViewController: gameViewController!)
-    }
 
     
     

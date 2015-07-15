@@ -84,8 +84,6 @@ class MessageViewController: SubGameViewController {
         closeMenu()
     }
     
-    deinit {
-        println("MessageViewController is being deallocated")
-    }
+//    deinit { println("MessageViewController is being deallocated") }
 
 }

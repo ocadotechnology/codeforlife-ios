@@ -47,8 +47,6 @@ class FetchLevelAction : Action, ActionProtocol
             }
     }
     
-//    deinit {
-//        println("FetchLevelAction is being deallocated")
-//    }
+//    deinit { println("FetchLevelAction is being deallocated") }
     
 }

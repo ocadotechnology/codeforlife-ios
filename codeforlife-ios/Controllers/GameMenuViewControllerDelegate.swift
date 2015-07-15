@@ -61,7 +61,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
         switch gameMenuViewController!.controlMode {
         case .onPlayControls: // Going to Pause
             gameMenuViewController?.controlMode = .onPauseControls
-            SharedContext.MainGameViewController?.gameMapViewController?.shouldRunAnimation = false
+            SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.runAnimation = false
             
         case .onStopControls: // Going to Play
             gameMenuViewController?.controlMode = .onPlayControls
@@ -71,11 +71,11 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
             
         case .onPauseControls: // Going to Resume
             gameMenuViewController?.controlMode = .onResumeControls
-            SharedContext.MainGameViewController?.gameMapViewController?.shouldRunAnimation = true
+            SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.runAnimation = true
             
         case .onResumeControls: // Going to Pause
             gameMenuViewController?.controlMode = .onPauseControls
-            SharedContext.MainGameViewController?.gameMapViewController?.shouldRunAnimation = false
+            SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.runAnimation = false
             
         case .onStepControls: break
         }

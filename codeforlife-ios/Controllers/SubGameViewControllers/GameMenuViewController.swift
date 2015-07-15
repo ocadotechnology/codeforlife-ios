@@ -45,16 +45,15 @@ class GameMenuViewController: SubGameViewController {
     /// and has no direct connection to any actual action to perform
     var controlMode = ControlMode.onStopControls {
         didSet {
-            println("switched to \(controlMode.description)")
             playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
             switch controlMode {
             case .onPlayControls:
                 clearButton.enabled = false
-                gameViewController.blockTableViewController?.editable = false
+                gameViewController.blockTableViewController?.recognizer?.editable = false
                 gameViewController.directDriveViewController?.disableDirectDrive()
             case .onStopControls:
                 clearButton.enabled = true
-                gameViewController.blockTableViewController?.editable = true
+                gameViewController.blockTableViewController?.recognizer?.editable = true
                 gameViewController.directDriveViewController?.enableDirectDrive()
             case .onPauseControls: break
             case .onResumeControls: break

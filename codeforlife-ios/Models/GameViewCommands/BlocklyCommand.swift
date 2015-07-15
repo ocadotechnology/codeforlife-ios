@@ -29,16 +29,9 @@ class NGVAddBlockCommand: BlocklyCommand {
     }
 }
 
-class NGVIncrementSelectedBlock: BlocklyCommand {
+class NGVRemoveAllBlocksCommand: BlocklyCommand {
     override func execute(completion: (() -> Void)? = nil) {
-        viewController?.selectedBlock++
-        completion?()
-    }
-}
-
-class NGVResetSelectedBlock : BlocklyCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        viewController?.selectedBlock = 0
+        viewController?.clearBlocks()
         completion?()
     }
 }
