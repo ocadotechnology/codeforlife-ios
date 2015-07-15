@@ -48,40 +48,30 @@ class NGVMuteCommand: GameMenuCommand {
     }
 }
 
+/// Called after control mode changes to onPlayControls
 class NGVPlayCommand: GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
+        
+        // Web UI Update
         CommandFactory.WebViewClearCommand().execute()
+        
+        // Native UI Update
+        gameViewController.blockTableViewController?.selectedBlock = 0
         gameViewController.gameMapViewController?.map?.resetMap()
         CommandFactory.NativeResetAnimationCommand().execute()
         viewController?.clearButton.enabled = false
+        
+        // Submit Blocks and retrieve Animations
         gameViewController.gameMapViewController?.map?.player.resetPosition()
-        gameViewController.blockTableViewController?.selectedBlock = 0
         gameViewController.blockTableViewController?.submitBlocks()
+        
+        // Execute Web Animation
         CommandFactory.WebViewPlayCommand().execute()
-//        viewController?.controlMode = .onStopControls
-        gameViewController.gameMapViewController?.animationQueue.first?.executeChainAnimation()
-        completion?()
-    }
-}
-
-class NGVPauseCommand: GameMenuCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        gameViewController.gameMapViewController?.pause()
-        completion?()
-    }
-}
-
-class NGVResumeCommand: GameMenuCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        gameViewController.gameMapViewController?.unpause()
-        completion?()
-    }
-}
-
-class NGVStopCommand: GameMenuCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        viewController?.clearButton.enabled = true
-        completion?()
+        
+        // Execute Animation
+        gameViewController.gameMapViewController?.animationQueue.first?.executeChainAnimation {
+            completion?()
+        }
     }
 }
 

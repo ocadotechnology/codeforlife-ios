@@ -14,6 +14,7 @@ protocol Command {
     func executeWithCompletionHandler(completion: () -> Void)
 }
 
+/// Commands should avoid having direct connections with changing control mode
 class GameViewCommand {
     
     unowned var gameViewController: GameViewController
@@ -25,11 +26,6 @@ class GameViewCommand {
     func execute(completion: (() -> Void)? = nil) {
         fatalError("Abstract GameViewCommand method called")
     }
-    
-//    func executeWithCompletionHandler(completion: (() -> Void)? = nil) {
-//        completion()
-//        fatalError("Abstract GameViewCommand method called")
-//    }
 
 }
 
@@ -48,7 +44,6 @@ class GVLoadLevelCommand : GameViewCommand {
         
         var request = NSURLRequest(URL: url!);
         gameViewController.webView?.loadRequest(request)
-        gameViewController.callBack = completion
     }
     
 }

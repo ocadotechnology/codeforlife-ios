@@ -121,23 +121,8 @@ class CommandFactory {
         return NGVShowFailMessageCommand(gameViewController: gameViewController!)
     }
     
-    
-    
-    
     class func NativePlayCommand() -> GameMenuCommand {
         return NGVPlayCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeStopCommand() -> GameMenuCommand {
-        return NGVStopCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativePauseCommand() -> GameMenuCommand {
-        return NGVPauseCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeResumeCommand() -> GameMenuCommand {
-        return NGVResumeCommand(gameViewController: gameViewController!)
     }
     
     class func NativeMuteCommand() -> GameMenuCommand {

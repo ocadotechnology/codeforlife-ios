@@ -13,6 +13,8 @@ protocol GameMenuViewControllerDelegate {
     func clear()
     func play()
     func help()
+    func stop()
+    func step()
     func muteSound()
     
 }
@@ -25,6 +27,14 @@ class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
     
     func play() {
         CommandFactory.WebViewPlayCommand().execute()
+    }
+    
+    func stop() {
+        
+    }
+    
+    func step() {
+        
     }
     
     func help() {
@@ -48,18 +58,36 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func play() {
-        CommandFactory.WebViewPlayCommand().execute()
         switch gameMenuViewController!.controlMode {
-        case .onPlayControls:
+        case .onPlayControls: // Going to Pause
             gameMenuViewController?.controlMode = .onPauseControls
-        case .onStopControls:
+            SharedContext.MainGameViewController?.gameMapViewController?.pause()
+            
+        case .onStopControls: // Going to Play
             gameMenuViewController?.controlMode = .onPlayControls
-        case .onPauseControls:
+            CommandFactory.NativePlayCommand().execute {
+                gameMenuViewController?.controlMode = .onStopControls
+            }
+            
+        case .onPauseControls: // Going to Resume
             gameMenuViewController?.controlMode = .onResumeControls
-        case .onResumeControls:
+            SharedContext.MainGameViewController?.gameMapViewController?.unpause()
+            
+        case .onResumeControls: // Going to Pause
             gameMenuViewController?.controlMode = .onPauseControls
+            SharedContext.MainGameViewController?.gameMapViewController?.pause()
+            
         case .onStepControls: break
         }
+    }
+    
+    func stop() {
+        gameMenuViewController?.controlMode = .onStopControls
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.resetPosition()
+    }
+    
+    func step() {
+        
     }
     
     func help() {
@@ -75,8 +103,6 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
         CommandFactory.NativeMuteCommand().execute()
     }
     
-    deinit {
-        println("GameMenuViewControllerDelegate is being deallocated")
-    }
+    deinit { println("GameMenuViewControllerDelegate is being deallocated") }
     
 }

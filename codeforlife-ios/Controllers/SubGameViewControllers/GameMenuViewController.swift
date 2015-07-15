@@ -16,15 +16,15 @@ class GameMenuViewController: SubGameViewController {
     let unmuteToMuteButtonText = "Mute"
     let buttonHeight: CGFloat = 35
     let buttonSpace:CGFloat = 10
-    let buttonCount: CGFloat = 6
+    let buttonCount: CGFloat = 8
     let animationDuration: NSTimeInterval = 0.5
     
-    enum ControlMode {
-        case onPlayControls
-        case onPauseControls
-        case onStepControls
-        case onStopControls
-        case onResumeControls
+    enum ControlMode: String {
+        case onPlayControls = "Play"
+        case onPauseControls = "Pause"
+        case onStepControls = "Step"
+        case onStopControls = "Stop"
+        case onResumeControls = "Resume"
         
         var text : String {
             switch self {
@@ -35,41 +35,37 @@ class GameMenuViewController: SubGameViewController {
             case .onResumeControls: return "Pause"
             }
         }
+        
+        var description : String {
+            return self.rawValue
+        }
+    }
+    
+    /// ControlMode only decides the UI update of the buttons,
+    /// and has no direct connection to any actual action to perform
+    var controlMode = ControlMode.onStopControls {
+        didSet {
+            println("switched to \(controlMode.description)")
+            playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
+            switch controlMode {
+            case .onPlayControls:
+                clearButton.enabled = false
+                gameViewController.blockTableViewController?.editable = false
+            case .onStopControls:
+                clearButton.enabled = true
+                gameViewController.blockTableViewController?.editable = true
+            case .onPauseControls: break
+            case .onResumeControls: break
+            case .onStepControls: break
+            }
+        }
     }
     
     var delegate = GameMenuViewControllerNativeDelegate()
     
     var mute = false {
         didSet {
-            muteButton.setImage(UIImage(named: mute ? "mute" : "unmute"), forState: UIControlState.Normal)
             muteButton.setTitle(mute ? muteToUnmuteButtonText : unmuteToMuteButtonText, forState: UIControlState.Normal)
-        }
-    }
-    
-    var controlMode = ControlMode.onStopControls {
-        didSet {
-            playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
-            switch controlMode {
-            case .onPlayControls:
-                CommandFactory.NativePlayCommand().execute()
-            case .onStopControls:
-                CommandFactory.NativeStopCommand().execute()
-            case .onPauseControls:
-                CommandFactory.NativePauseCommand().execute()
-            case .onResumeControls:
-                CommandFactory.NativeResumeCommand().execute()
-            case .onStepControls: break
-            }
-        }
-    }
-    
-    var menuOpen = false {
-        didSet {
-            UIView.animateWithDuration(animationDuration) {
-                [unowned self] in
-                let menuMovement = (self.buttonHeight + self.buttonSpace) * (self.buttonCount - 1)
-                self.gameViewController.gameMenuView.center.y += self.menuOpen ? -menuMovement : menuMovement
-            }
         }
     }
     
@@ -83,7 +79,11 @@ class GameMenuViewController: SubGameViewController {
     }
     
     @IBAction func toggleMenu() {
-        menuOpen = !menuOpen
+        UIView.animateWithDuration(animationDuration) {
+            [unowned self] in
+            let menuMovement = (self.buttonHeight + self.buttonSpace) * (self.buttonCount - 1)
+            self.gameViewController.gameMenuView.center.y += self.gameViewController.gameMenuView.center.y > self.gameViewController.view.frame.height ? -menuMovement : menuMovement
+        }
     }
 
     @IBAction func clear() {
@@ -94,6 +94,14 @@ class GameMenuViewController: SubGameViewController {
         delegate.play()
     }
     
+    @IBAction func stop() {
+        delegate.stop()
+    }
+    
+    @IBAction func step() {
+        delegate.step()
+    }
+    
     @IBAction func help() {
         delegate.help()
     }
@@ -102,8 +110,6 @@ class GameMenuViewController: SubGameViewController {
         delegate.muteSound()
     }
     
-    deinit {
-        println("GameMenuViewController is being deallocated")
-    }
+    deinit { println("GameMenuViewController is being deallocated") }
     
 }

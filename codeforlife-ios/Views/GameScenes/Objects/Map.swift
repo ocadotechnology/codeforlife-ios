@@ -33,16 +33,14 @@ class Map: SKScene {
             width: GameMapConfig.Grid.width*CGFloat(width),
             height: GameMapConfig.Grid.height*CGFloat(height)))
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func didMoveToView(view: SKView) {
         backgroundColor = kC4LGameMapGrassColor
         self.scaleMode = SKSceneScaleMode.AspectFill
     }
     
+    /// Reset Map array and Destinations.
+    /// This should only be called before executing animations.
     func resetMap() {
         resetMapArray()
         resetDestination()
@@ -67,6 +65,7 @@ class Map: SKScene {
         }
     }
     
+    /// Returns TRUE if all destinations have been reached.
     func visitedAllDestinations() -> Bool {
         for destination in destinations {
             if !destination.visited {
@@ -121,5 +120,10 @@ class Map: SKScene {
     }
     
     deinit { println("Map is being deallocated") }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }

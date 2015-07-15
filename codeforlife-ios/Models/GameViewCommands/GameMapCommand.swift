@@ -21,9 +21,7 @@ class GameMapCommand: GameViewCommand {
 
 class NGVMoveForwardCommand: GameMapCommand {
     override func execute(completion: (() -> Void)? = nil) {
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStepControls).execute()
         map?.player.moveForward {
-            CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
             completion?()
         }
     }
@@ -31,9 +29,7 @@ class NGVMoveForwardCommand: GameMapCommand {
 
 class NGVTurnLeftCommand: GameMapCommand {
     override func execute(completion: (() -> Void)? = nil) {
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStepControls).execute()
         map?.player.turnLeft {
-            CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
             completion?()
         }
     }
@@ -41,9 +37,7 @@ class NGVTurnLeftCommand: GameMapCommand {
 
 class NGVTurnRightCommand: GameMapCommand {
     override func execute(completion: (() -> Void)? = nil) {
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStepControls).execute()
         map?.player.turnRight {
-            CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
             completion?()
         }
     }
@@ -64,7 +58,6 @@ class NGVShowResultCommand: GameMapCommand {
         } else {
             CommandFactory.NativeShowFailMessageCommand().execute()
         }
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
     }
 }
 

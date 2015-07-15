@@ -48,13 +48,9 @@ class Van: MovableGameObject {
         self.runAction(actionRotate)
         resetCurrentCoordinates()
     }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // Origin of the Van is always one step further from the actual origin
-    func resetCurrentCoordinates() {
+    private func resetCurrentCoordinates() {
         self.currentCoordinates = self.origin.coordinates
         switch origin.compassDirection {
         case .N: currentCoordinates.y++
@@ -98,6 +94,10 @@ class Van: MovableGameObject {
             }
             completion?()
         }
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

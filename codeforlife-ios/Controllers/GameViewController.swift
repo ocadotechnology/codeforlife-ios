@@ -37,7 +37,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     weak var gameMenuViewController: GameMenuViewController?
     
     var webView: WKWebView?
-    var callBack: (() -> Void)?
     
     weak var requestedLevel: Level?
     weak var level: Level? {
@@ -115,8 +114,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         webView.evaluateJavaScript(webViewPreloadScript, completionHandler: nil)
             self.activityIndicator?.stopAnimating()
-        self.callBack?()
-        self.callBack = nil
     }
     
     deinit { println("GameViewController is being deallocated") }

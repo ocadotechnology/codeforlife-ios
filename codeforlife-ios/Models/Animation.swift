@@ -12,6 +12,7 @@ import Foundation
 class Animation {
     
     weak var nextAnimation: Animation?
+    var referenceBlock: Int?
     
     func executeAnimation(completion: (() -> Void)? = nil) {
         fatalError("Implement executeanimation()")
@@ -22,9 +23,10 @@ class Animation {
             if self.nextAnimation != nil {
                 self.nextAnimation?.executeChainAnimation(completion: completion)
             } else {
-                println("HI")
                 CommandFactory.NativeDeliverCommand().execute {
-                    CommandFactory.NativeShowResultCommand().execute()
+                    CommandFactory.NativeShowResultCommand().execute {
+                        completion?()
+                    }
                 }
             }
         }

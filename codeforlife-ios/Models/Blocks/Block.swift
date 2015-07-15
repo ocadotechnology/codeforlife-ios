@@ -22,10 +22,13 @@ class Block {
     
     func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
         if player.crashed {
-            CommandFactory.NativeShowFailMessageCommand().execute()
+            CommandFactory.NativeShowFailMessageCommand().execute {
+                completion?()
+            }
         } else {
-            CommandFactory.NativeResetSelectedBlockCommand().execute()
-            completion?()
+            CommandFactory.NativeResetSelectedBlockCommand().execute {
+                completion?()
+            }
         }
     }
     
@@ -35,9 +38,10 @@ class Block {
                 self.nextBlock?.executeBlockChainAction(player, completion: completion)
             } else {
                 player.deliver {
-                    CommandFactory.NativeShowResultCommand().execute()
+                    CommandFactory.NativeShowResultCommand().execute {
+                        completion?()
+                    }
                 }
-                completion?()
             }
         }
     }

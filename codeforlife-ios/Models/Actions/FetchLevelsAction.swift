@@ -40,8 +40,6 @@ class FetchLevelsAction : Action, ActionProtocol
         viewController.levels = levels
     }
     
-//    deinit {
-//        println("FetchLevelsAction is being deallocated")
-//    }
+    deinit { println("FetchLevelsAction is being deallocated") }
     
 }
