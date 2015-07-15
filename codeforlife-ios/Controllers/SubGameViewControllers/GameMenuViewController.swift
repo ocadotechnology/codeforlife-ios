@@ -51,9 +51,11 @@ class GameMenuViewController: SubGameViewController {
             case .onPlayControls:
                 clearButton.enabled = false
                 gameViewController.blockTableViewController?.editable = false
+                gameViewController.directDriveViewController?.disableDirectDrive()
             case .onStopControls:
                 clearButton.enabled = true
                 gameViewController.blockTableViewController?.editable = true
+                gameViewController.directDriveViewController?.enableDirectDrive()
             case .onPauseControls: break
             case .onResumeControls: break
             case .onStepControls: break

@@ -61,7 +61,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
         switch gameMenuViewController!.controlMode {
         case .onPlayControls: // Going to Pause
             gameMenuViewController?.controlMode = .onPauseControls
-            SharedContext.MainGameViewController?.gameMapViewController?.pause()
+            SharedContext.MainGameViewController?.gameMapViewController?.shouldRunAnimation = false
             
         case .onStopControls: // Going to Play
             gameMenuViewController?.controlMode = .onPlayControls
@@ -71,23 +71,21 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
             
         case .onPauseControls: // Going to Resume
             gameMenuViewController?.controlMode = .onResumeControls
-            SharedContext.MainGameViewController?.gameMapViewController?.unpause()
+            SharedContext.MainGameViewController?.gameMapViewController?.shouldRunAnimation = true
             
         case .onResumeControls: // Going to Pause
             gameMenuViewController?.controlMode = .onPauseControls
-            SharedContext.MainGameViewController?.gameMapViewController?.pause()
+            SharedContext.MainGameViewController?.gameMapViewController?.shouldRunAnimation = false
             
         case .onStepControls: break
         }
     }
     
     func stop() {
-        gameMenuViewController?.controlMode = .onStopControls
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.resetPosition()
+
     }
     
     func step() {
-        
     }
     
     func help() {

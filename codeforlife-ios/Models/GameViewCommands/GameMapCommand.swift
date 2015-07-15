@@ -54,9 +54,9 @@ class NGVDeliverCommand: GameMapCommand {
 class NGVShowResultCommand: GameMapCommand {
     override func execute(completion: (() -> Void)? = nil) {
         if map!.visitedAllDestinations() {
-            CommandFactory.NativeShowPostGameMessageCommand().execute()
+            CommandFactory.NativeShowPostGameMessageCommand().execute { completion?() }
         } else {
-            CommandFactory.NativeShowFailMessageCommand().execute()
+            CommandFactory.NativeShowFailMessageCommand().execute { completion?() }
         }
     }
 }

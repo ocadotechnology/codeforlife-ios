@@ -69,9 +69,11 @@ class NGVPlayCommand: GameMenuCommand {
         CommandFactory.WebViewPlayCommand().execute()
         
         // Execute Animation
-        gameViewController.gameMapViewController?.animationQueue.first?.executeChainAnimation {
-            completion?()
-        }
+//        gameViewController.gameMapViewController?.animationQueue.first?.executeChainAnimation {
+//            completion?()
+//        }
+        gameViewController.gameMapViewController?.currentAnimationIndex = 0
+        gameViewController.gameMapViewController?.shouldRunAnimation = true
     }
 }
 
