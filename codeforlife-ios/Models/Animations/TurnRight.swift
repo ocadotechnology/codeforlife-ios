@@ -8,16 +8,11 @@
 
 import Foundation
 
-class TurnRight: Animation {
+class TurnRightAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
         CommandFactory.NativeTurnRightCommand().execute(completion: completion)
     }
     
 }
 
-class DeliverAnimation: Animation {
-    
-    override func executeAnimation(completion: (() -> Void)? = nil) {
-        CommandFactory.NativeDeliverCommand().execute(completion: completion)
-    }
-}
+

@@ -165,6 +165,16 @@
 		EDBB669C1B3C1181009020A5 /* BlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66981B3C0B34009020A5 /* BlockTableViewCell.swift */; };
 		EDBE3F461B554C2A000FC06F /* StartAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F451B554C2A000FC06F /* StartAnimation.swift */; };
 		EDBE3F471B554C9F000FC06F /* StartAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F451B554C2A000FC06F /* StartAnimation.swift */; };
+		EDBE3F491B568695000FC06F /* AnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F481B568695000FC06F /* AnimationHandler.swift */; };
+		EDBE3F4A1B568A63000FC06F /* AnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F481B568695000FC06F /* AnimationHandler.swift */; };
+		EDBE3F4C1B568BD1000FC06F /* DeliverAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F4B1B568BD1000FC06F /* DeliverAnimation.swift */; };
+		EDBE3F4D1B568D84000FC06F /* DeliverAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F4B1B568BD1000FC06F /* DeliverAnimation.swift */; };
+		EDBE3F4F1B568E1E000FC06F /* PopUpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F4E1B568E1E000FC06F /* PopUpAnimation.swift */; };
+		EDBE3F501B568E1E000FC06F /* PopUpAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F4E1B568E1E000FC06F /* PopUpAnimation.swift */; };
+		EDBE3F531B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F521B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift */; };
+		EDBE3F541B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F521B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift */; };
+		EDBE3F561B569B28000FC06F /* OnStopControlsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */; };
+		EDBE3F571B569B28000FC06F /* OnStopControlsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */; };
 		EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */; };
 		EDC8C1F31B36A25F004B1358 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */; };
 		EDC8C1F51B381213004B1358 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* CommandFactory.swift */; };
@@ -317,6 +327,11 @@
 		EDBB66961B3C0A61009020A5 /* BlockTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableViewController.swift; sourceTree = "<group>"; };
 		EDBB66981B3C0B34009020A5 /* BlockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableViewCell.swift; sourceTree = "<group>"; };
 		EDBE3F451B554C2A000FC06F /* StartAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartAnimation.swift; sourceTree = "<group>"; };
+		EDBE3F481B568695000FC06F /* AnimationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHandler.swift; sourceTree = "<group>"; };
+		EDBE3F4B1B568BD1000FC06F /* DeliverAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliverAnimation.swift; sourceTree = "<group>"; };
+		EDBE3F4E1B568E1E000FC06F /* PopUpAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpAnimation.swift; sourceTree = "<group>"; };
+		EDBE3F521B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableViewPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnStopControlsAnimation.swift; sourceTree = "<group>"; };
 		EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewButton.swift; sourceTree = "<group>"; };
 		EDC8C1F21B36A25F004B1358 /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		EDC8C1F41B381213004B1358 /* CommandFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandFactory.swift; sourceTree = "<group>"; };
@@ -676,6 +691,14 @@
 			path = VehicleControllers;
 			sourceTree = "<group>";
 		};
+		EDBE3F511B56923E000FC06F /* GestureRecognizers */ = {
+			isa = PBXGroup;
+			children = (
+				EDBE3F521B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift */,
+			);
+			path = GestureRecognizers;
+			sourceTree = "<group>";
+		};
 		EDC8C1ED1B362276004B1358 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,11 +737,15 @@
 		EDD1A2C11B4FCE78001A82A2 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				EDBE3F481B568695000FC06F /* AnimationHandler.swift */,
 				EDD1A2BB1B4E7805001A82A2 /* Animation.swift */,
 				EDD1A2C21B4FCEA3001A82A2 /* MoveForward.swift */,
 				EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */,
 				EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */,
 				EDBE3F451B554C2A000FC06F /* StartAnimation.swift */,
+				EDBE3F4B1B568BD1000FC06F /* DeliverAnimation.swift */,
+				EDBE3F4E1B568E1E000FC06F /* PopUpAnimation.swift */,
+				EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -738,10 +765,11 @@
 			isa = PBXGroup;
 			children = (
 				ED0BC5B21B3062E60060FC84 /* GameViewController.swift */,
-				ED1A93621B43FF1F004E6AD4 /* GameViewControllers */,
-				ED5721BE1B47EEC40011F465 /* Delegates */,
 				ED1A93441B43D046004E6AD4 /* EpisodeViewController.swift */,
 				ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */,
+				ED1A93621B43FF1F004E6AD4 /* GameViewControllers */,
+				ED5721BE1B47EEC40011F465 /* Delegates */,
+				EDBE3F511B56923E000FC06F /* GestureRecognizers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -981,9 +1009,11 @@
 				ED1A93591B43D88E004E6AD4 /* APIActionDelegate.swift in Sources */,
 				ED5721C01B47EED20011F465 /* GameMenuViewControllerDelegate.swift in Sources */,
 				EDA47C451B442A1E003356AB /* GlobalConfig.swift in Sources */,
+				EDBE3F531B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift in Sources */,
 				EDBB66971B3C0A61009020A5 /* BlockTableViewController.swift in Sources */,
 				ED6F79911B3D7D9200DD2AFE /* DirectDriveButton.swift in Sources */,
 				ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */,
+				EDBE3F491B568695000FC06F /* AnimationHandler.swift in Sources */,
 				ED7799D41B46A09D00A854A3 /* Road.swift in Sources */,
 				ED222FB71B4A70BF006E525A /* GameMenuCommand.swift in Sources */,
 				ED1A93371B42AE81004E6AD4 /* Van.swift in Sources */,
@@ -991,6 +1021,7 @@
 				ED222FD51B4C21D1006E525A /* House.swift in Sources */,
 				ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */,
 				ED1A933D1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
+				EDBE3F4F1B568E1E000FC06F /* PopUpAnimation.swift in Sources */,
 				EDA47C4B1B453C1E003356AB /* Map.swift in Sources */,
 				ED6F79941B3D866F00DD2AFE /* Message.swift in Sources */,
 				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
@@ -1010,12 +1041,14 @@
 				ED1A93561B43D769004E6AD4 /* FetchEpisodesActionMockDelegate.swift in Sources */,
 				ED1EB0671B32C09800A595EF /* Action.swift in Sources */,
 				EDD1A2CC1B4FD4B7001A82A2 /* FetchMapAction.swift in Sources */,
+				EDBE3F4C1B568BD1000FC06F /* DeliverAnimation.swift in Sources */,
 				ED1A93481B43D0DD004E6AD4 /* Episode.swift in Sources */,
 				EDFE934C1B4182E200E01322 /* MessageView.swift in Sources */,
 				EDC8C1F31B36A25F004B1358 /* ColorConstants.swift in Sources */,
 				EDA47C421B442798003356AB /* LevelTableView.swift in Sources */,
 				ED1A934B1B43D215004E6AD4 /* EpisodeTableViewCell.swift in Sources */,
 				EDBE3F461B554C2A000FC06F /* StartAnimation.swift in Sources */,
+				EDBE3F561B569B28000FC06F /* OnStopControlsAnimation.swift in Sources */,
 				EDBB66901B3B009C009020A5 /* GameMenuViewController.swift in Sources */,
 				ED222FD81B4C265D006E525A /* Tile.swift in Sources */,
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
@@ -1080,6 +1113,8 @@
 				EDBB667F1B3AA18F009020A5 /* GameViewButton.swift in Sources */,
 				EDBB667D1B3AA16D009020A5 /* GameViewController.swift in Sources */,
 				EDD1A2C41B4FCEA3001A82A2 /* MoveForward.swift in Sources */,
+				EDBE3F571B569B28000FC06F /* OnStopControlsAnimation.swift in Sources */,
+				EDBE3F4A1B568A63000FC06F /* AnimationHandler.swift in Sources */,
 				EDFE934D1B4182E200E01322 /* MessageView.swift in Sources */,
 				ED1A935A1B43D88E004E6AD4 /* APIActionDelegate.swift in Sources */,
 				ED1A93461B43D046004E6AD4 /* EpisodeViewController.swift in Sources */,
@@ -1091,6 +1126,7 @@
 				ED6F799C1B3DB34900DD2AFE /* GameMenuView.swift in Sources */,
 				ED222FDD1B4D141D006E525A /* Forward.swift in Sources */,
 				ED1A93571B43D769004E6AD4 /* FetchEpisodesActionMockDelegate.swift in Sources */,
+				EDBE3F4D1B568D84000FC06F /* DeliverAnimation.swift in Sources */,
 				ED7799C31B4593BC00A854A3 /* TrafficLight.swift in Sources */,
 				ED222FD91B4C265D006E525A /* Tile.swift in Sources */,
 				ED222FBE1B4A7133006E525A /* BlocklyCommand.swift in Sources */,
@@ -1123,6 +1159,7 @@
 				ED222FD31B4C00AC006E525A /* MapTest.swift in Sources */,
 				ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */,
 				ED7799C21B4593BA00A854A3 /* Coordinates.swift in Sources */,
+				EDBE3F541B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift in Sources */,
 				ED222FE01B4D1434006E525A /* Left.swift in Sources */,
 				EDD1A2DC1B53A4F7001A82A2 /* Decoration.swift in Sources */,
 				ED7799D21B469E6500A854A3 /* Direction.swift in Sources */,
@@ -1162,6 +1199,7 @@
 				ED1A933E1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
 				EDBB667B1B3AA07E009020A5 /* VehicleController.swift in Sources */,
 				EDBE3F471B554C9F000FC06F /* StartAnimation.swift in Sources */,
+				EDBE3F501B568E1E000FC06F /* PopUpAnimation.swift in Sources */,
 				EDD1A2D61B4FDF6D001A82A2 /* FetchBlockSet.swift in Sources */,
 				ED5721C11B47EED20011F465 /* GameMenuViewControllerDelegate.swift in Sources */,
 				EDA47C651B4557A8003356AB /* FetchLevelsActionTest.swift in Sources */,

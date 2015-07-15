@@ -12,8 +12,8 @@ import Foundation
 class GameMapView: UIView {
     
     override func drawRect(rect: CGRect) {
-        layer.cornerRadius = 10
-        layer.masksToBounds = true
+//        layer.cornerRadius = 10
+//        layer.masksToBounds = true
     }
     
 }

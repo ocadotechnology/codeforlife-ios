@@ -26,3 +26,5 @@ let kC4LEpisodeBackgroundColor = UIColor(red: 240/255.0, green: 192/255.0, blue:
 let kC4LEpisodeBorderColor = UIColor(red: 240/255.0, green: 144/255, blue: 96/255, alpha: 1)                // #F09060
 
 let kC4LGameMapGrassColor = UIColor(red: 160/255, green: 197/255, blue: 58/255, alpha: 1) // #A0C53A
+
+let kC4LGameMenuBackgroundColor = UIColor(red: 62/255, green: 225/255, blue: 250/255, alpha: 1)

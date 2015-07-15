@@ -12,11 +12,13 @@ import Foundation
 class Block {
     
     weak var nextBlock: Block?
+    var type: String
     var description: String
     var color: UIColor
     
-    init(description: String, color: UIColor) {
+    init(description: String, type:String, color: UIColor) {
         self.description = description
+        self.type = type
         self.color = color
     }
     
@@ -26,9 +28,7 @@ class Block {
                 completion?()
             }
         } else {
-            CommandFactory.NativeResetSelectedBlockCommand().execute {
-                completion?()
-            }
+            completion?()
         }
     }
     

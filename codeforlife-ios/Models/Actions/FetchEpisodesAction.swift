@@ -43,8 +43,6 @@ class FetchEpisodesAction : Action, ActionProtocol {
         viewController.episodes = episodes
     }
     
-//    deinit {
-//        println("FetchEpisodesAction is being deallocated")
-//    }
+//    deinit { println("FetchEpisodesAction is being deallocated") }
     
 }

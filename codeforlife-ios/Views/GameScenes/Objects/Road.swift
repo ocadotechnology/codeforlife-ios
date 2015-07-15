@@ -12,6 +12,8 @@ import Foundation
 
 class Road: GameObject {
     
+    static let scale: CGFloat = 1.01
+    
     class Builder {
         
         private var imageNamed: RoadType
@@ -47,8 +49,8 @@ class Straight: Road {
     init() {
         super.init(
             imageNamed: "straight",
-            width: GameMapConfig.Grid.height * 138/202,
-            height: GameMapConfig.Grid.height * 207/202)
+            width: GameMapConfig.Grid.width * Road.scale * 131/200,
+            height: GameMapConfig.Grid.height * Road.scale * 202/200)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -61,8 +63,8 @@ class Turn: Road {
     init() {
         super.init(
             imageNamed: "turn",
-            width: GameMapConfig.Grid.height * 170/202,
-            height: GameMapConfig.Grid.height * 170/202)
+            width: GameMapConfig.Grid.height * Road.scale * 168/200,
+            height: GameMapConfig.Grid.height * Road.scale * 168/200)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -74,8 +76,8 @@ class Crossroads: Road {
     init() {
         super.init(
             imageNamed: "crossroads",
-            width: GameMapConfig.Grid.height * 203/202,
-            height: GameMapConfig.Grid.height)
+            width: GameMapConfig.Grid.height * Road.scale * 202/200,
+            height: GameMapConfig.Grid.height * Road.scale * 202/200)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -87,8 +89,8 @@ class TJunction: Road {
     init() {
         super.init(
             imageNamed: "t_junction",
-            width: GameMapConfig.Grid.width * 170/202,
-            height: GameMapConfig.Grid.height * 203/202)
+            width: GameMapConfig.Grid.width * Road.scale * 167/200,
+            height: GameMapConfig.Grid.height * Road.scale * 202/200)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -96,12 +98,12 @@ class TJunction: Road {
     }
 }
 
-class DeadEnd: Road {
+class DeadEnd: Road { // Non-Raphael Image
     init() {
         super.init(
             imageNamed: "dead_end",
-            width: GameMapConfig.Grid.width * 138/202,
-            height: GameMapConfig.Grid.height * 170/202)
+            width: GameMapConfig.Grid.width * Road.scale * 130/200,
+            height: GameMapConfig.Grid.height * Road.scale * 166/200)
     }
     
     required init(coder aDecoder: NSCoder) {

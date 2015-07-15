@@ -12,6 +12,7 @@ class Right: Block {
     init() {
         super.init(
             description: "Right",
+            type: "turn_right",
             color: kC4LBlocklyRightBlockColour)
     }
     
@@ -27,6 +28,6 @@ class Right: Block {
     
     override func submitMock() {
         CommandFactory.WebViewTurnRightCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(TurnRight()).execute()
+        CommandFactory.NativeAddAnimationCommand(TurnRightAnimation()).execute()
     }
 }

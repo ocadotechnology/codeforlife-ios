@@ -12,6 +12,7 @@ class Left: Block {
     init() {
         super.init(
             description: "Turn Left",
+            type: "turn_left",
             color: kC4LBlocklyLeftBlockColour)
     }
     
@@ -27,6 +28,6 @@ class Left: Block {
     
     override func submitMock() {
         CommandFactory.WebViewTurnLeftCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(TurnLeft()).execute()
+        CommandFactory.NativeAddAnimationCommand(TurnLeftAnimation()).execute()
     }
 }

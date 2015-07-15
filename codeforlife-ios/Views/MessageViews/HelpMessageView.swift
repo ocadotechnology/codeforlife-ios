@@ -22,6 +22,7 @@ class HelpMessageView: MessageView {
     class func instsanceFromXib(message: Message) -> HelpMessageView {
         var view = UINib(nibName: "HelpMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! HelpMessageView
         view.message = message
+        view.frame.size = CGSize(width: 500, height: 500)
         return view
     }
     

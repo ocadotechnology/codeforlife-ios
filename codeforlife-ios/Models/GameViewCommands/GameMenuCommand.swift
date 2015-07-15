@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class GameMenuCommand: GameViewCommand {
@@ -17,13 +18,12 @@ class GameMenuCommand: GameViewCommand {
 class NGVShowHelpCommand : GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController.MessageViewControllerInstance()
-        gameViewController.addChildViewController(controller)
-        gameViewController.view.addSubview(controller.view)
-        controller.didMoveToParentViewController(gameViewController)
+        controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
         controller.message = HelpMessage(
             context: gameViewController.level!.hint!,
             action: {
-                controller.closeMenu()
+                controller.dismissViewControllerAnimated(true, completion: nil)
                 self.viewController?.delegate.controller = nil
         })
         viewController?.delegate.controller = controller
@@ -43,7 +43,7 @@ class NGVClearCommand: GameMenuCommand {
 
 class NGVMuteCommand: GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
-        viewController?.mute = !viewController!.mute
+        viewController?.muted = !viewController!.muted
         completion?()
     }
 }
@@ -56,24 +56,23 @@ class NGVPlayCommand: GameMenuCommand {
         CommandFactory.WebViewClearCommand().execute()
         
         // Native UI Update
-        gameViewController.blockTableViewController?.selectedBlock = 0
         gameViewController.gameMapViewController?.map?.resetMap()
         CommandFactory.NativeResetAnimationCommand().execute()
-        viewController?.clearButton.enabled = false
+        gameViewController.blockTableViewController?.clearButton.enabled = false
         
         // Submit Blocks and retrieve Animations
         gameViewController.gameMapViewController?.map?.player.resetPosition()
         gameViewController.blockTableViewController?.submitBlocks()
+        gameViewController.gameMapViewController?.animationHandler.addAnimation(DeliverAnimation())
+        gameViewController.gameMapViewController?.animationHandler.addAnimation(PopUpAnimation())
+        gameViewController.gameMapViewController?.animationHandler.addAnimation(OnStopControlsAnimation())
         
         // Execute Web Animation
         CommandFactory.WebViewPlayCommand().execute()
         
         // Execute Animation
-//        gameViewController.gameMapViewController?.animationQueue.first?.executeChainAnimation {
-//            completion?()
-//        }
-        gameViewController.gameMapViewController?.currentAnimationIndex = 0
-        gameViewController.gameMapViewController?.shouldRunAnimation = true
+        gameViewController.gameMapViewController?.animationHandler.currentIndex = 0
+        gameViewController.gameMapViewController?.animationHandler.runAnimation = true
     }
 }
 

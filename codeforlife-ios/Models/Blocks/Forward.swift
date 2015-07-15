@@ -12,6 +12,7 @@ class Forward: Block {
     init() {
         super.init(
             description: "Move Forward",
+            type: "move_forwards",
             color: kC4LBlocklyForwardBlockColour)
     }
     
@@ -27,6 +28,6 @@ class Forward: Block {
     
     override func submitMock() {
         CommandFactory.WebViewMoveForwardCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(MoveForward()).execute()
+        CommandFactory.NativeAddAnimationCommand(MoveForwardAnimation()).execute()
     }
 }

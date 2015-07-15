@@ -12,6 +12,7 @@ class Deliver: Block {
     init() {
         super.init(
             description: "Deliver",
+            type: "deliver",
             color: kC4LBlocklyDeliverBlockColour)
     }
     

@@ -10,7 +10,6 @@ import Foundation
 
 protocol GameMenuViewControllerDelegate {
     
-    func clear()
     func play()
     func help()
     func stop()
@@ -20,10 +19,6 @@ protocol GameMenuViewControllerDelegate {
 }
 
 class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
-    
-    func clear() {
-        CommandFactory.WebViewClearCommand().execute()
-    }
     
     func play() {
         CommandFactory.WebViewPlayCommand().execute()
@@ -51,17 +46,12 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     
     weak var controller: MessageViewController?
     weak var gameMenuViewController: GameMenuViewController?
- 
-    func clear() {
-        CommandFactory.WebViewClearCommand().execute()
-        CommandFactory.NativeClearCommand().execute()
-    }
     
     func play() {
         switch gameMenuViewController!.controlMode {
         case .onPlayControls: // Going to Pause
             gameMenuViewController?.controlMode = .onPauseControls
-            SharedContext.MainGameViewController?.gameMapViewController?.shouldRunAnimation = false
+            SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.runAnimation = false
             
         case .onStopControls: // Going to Play
             gameMenuViewController?.controlMode = .onPlayControls
@@ -71,18 +61,22 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
             
         case .onPauseControls: // Going to Resume
             gameMenuViewController?.controlMode = .onResumeControls
-            SharedContext.MainGameViewController?.gameMapViewController?.shouldRunAnimation = true
+            SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.runAnimation = true
             
         case .onResumeControls: // Going to Pause
             gameMenuViewController?.controlMode = .onPauseControls
-            SharedContext.MainGameViewController?.gameMapViewController?.shouldRunAnimation = false
+            SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.runAnimation = false
             
         case .onStepControls: break
         }
     }
     
     func stop() {
-
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeAllActions()
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.resetMap()
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.resetPosition()
+        SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.resetVariables()
+        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
     }
     
     func step() {

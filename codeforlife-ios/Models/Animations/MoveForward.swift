@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MoveForward: Animation {
+class MoveForwardAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
         CommandFactory.NativeMoveForwardCommand().execute(completion: completion)
     }
