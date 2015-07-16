@@ -9,34 +9,5 @@
 import UIKit
 
 class GameViewButton: UIButton {
-    
-    var isCurrentTab: Bool = false
-    
-    override var highlighted: Bool {
-        get {
-            return super.highlighted
-        }
-        set {
-            if newValue {
-                backgroundColor = kC4LGameViewButtonHighlightedColour
-            } else if !isCurrentTab {
-                backgroundColor = UIColor.clearColor()
-            }
-        }
-    }
-    
-    override var selected: Bool {
-        get {
-            return isCurrentTab
-        }
-        set {
-            isCurrentTab = newValue
-            if newValue {
-                backgroundColor = kC4LGameViewButtonSelectedColour
-            } else {
-                backgroundColor = UIColor.clearColor()
-            }
-        }
-    }
 
 }

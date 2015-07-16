@@ -44,12 +44,9 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             loadLevel(self.level!)
         }
     }
-    @IBOutlet weak var muteButton: UIButton!
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     @IBOutlet weak var gameMenuView: UIView!
-    
     @IBOutlet weak var blockTableView: UIView!
     
     override func viewDidLoad() {
@@ -64,24 +61,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             self.WebViewFetchLevelPostAction()
             self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
         }
-    }
-    
-    var mute = false
-    
-    @IBAction func muteSound() {
-        if mute {
-            // TODO: Unmute sound
-            mute = !mute
-            muteButton.setImage(UIImage(named: "mute"), forState: UIControlState.Normal)
-        } else {
-            // TODO: mute sound
-            mute = !mute
-            muteButton.setImage(UIImage(named: "unmute"), forState: UIControlState.Normal)
-        }
-    }
-    
-    @IBAction func askForHelp() {
-        CommandFactory.NativeShowHelpCommand().execute()
     }
     
     private func WebViewFetchLevelPostAction() {

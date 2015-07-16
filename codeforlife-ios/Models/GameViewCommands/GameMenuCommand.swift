@@ -43,7 +43,7 @@ class NGVClearCommand: GameMenuCommand {
 
 class NGVMuteCommand: GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
-        viewController?.mute = !viewController!.mute
+        viewController?.muted = !viewController!.muted
         completion?()
     }
 }
@@ -58,7 +58,7 @@ class NGVPlayCommand: GameMenuCommand {
         // Native UI Update
         gameViewController.gameMapViewController?.map?.resetMap()
         CommandFactory.NativeResetAnimationCommand().execute()
-        viewController?.clearButton.enabled = false
+        gameViewController.blockTableViewController?.clearButton.enabled = false
         
         // Submit Blocks and retrieve Animations
         gameViewController.gameMapViewController?.map?.player.resetPosition()

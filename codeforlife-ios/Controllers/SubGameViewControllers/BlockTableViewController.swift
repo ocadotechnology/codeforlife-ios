@@ -17,6 +17,8 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableView: BlockTableView!
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var clearButton: GameViewButton!
+    
     var recognizer: BlockTableViewPanGestureRecognizer?
     
     var blocks: [Block] = [Start()] {
@@ -25,14 +27,6 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
             let indexPath = NSIndexPath(forRow: blocks.count - 1, inSection: 0)
             tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         }
-    }
-    
-    @IBAction func toggleBlocklyTable() {
-        UIView.animateWithDuration(ToggleBlocklyTableAnimationDuration) {
-            [unowned self] in
-            self.gameViewController.blockTableView.center.x += self.gameViewController.blockTableView.center.x > self.gameViewController.view.frame.width ? -self.TableViewWidth : self.TableViewWidth
-        }
-        
     }
     
     override func viewDidLoad() {
@@ -49,6 +43,10 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    @IBAction func clear() {
+        CommandFactory.WebViewClearCommand().execute()
+        CommandFactory.NativeClearCommand().execute()
     }
     
     final func clearBlocks() {

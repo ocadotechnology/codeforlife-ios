@@ -10,7 +10,6 @@ import Foundation
 
 protocol GameMenuViewControllerDelegate {
     
-    func clear()
     func play()
     func help()
     func stop()
@@ -20,10 +19,6 @@ protocol GameMenuViewControllerDelegate {
 }
 
 class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
-    
-    func clear() {
-        CommandFactory.WebViewClearCommand().execute()
-    }
     
     func play() {
         CommandFactory.WebViewPlayCommand().execute()
@@ -51,11 +46,6 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     
     weak var controller: MessageViewController?
     weak var gameMenuViewController: GameMenuViewController?
- 
-    func clear() {
-        CommandFactory.WebViewClearCommand().execute()
-        CommandFactory.NativeClearCommand().execute()
-    }
     
     func play() {
         switch gameMenuViewController!.controlMode {

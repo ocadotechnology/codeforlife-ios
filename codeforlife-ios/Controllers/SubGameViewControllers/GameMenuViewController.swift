@@ -48,11 +48,11 @@ class GameMenuViewController: SubGameViewController {
             playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
             switch controlMode {
             case .onPlayControls:
-                clearButton.enabled = false
+                gameViewController.blockTableViewController?.clearButton.enabled = false
                 gameViewController.blockTableViewController?.recognizer?.editable = false
                 gameViewController.directDriveViewController?.disableDirectDrive()
             case .onStopControls:
-                clearButton.enabled = true
+                gameViewController.blockTableViewController?.clearButton.enabled = true
                 gameViewController.blockTableViewController?.recognizer?.editable = true
                 gameViewController.directDriveViewController?.enableDirectDrive()
             case .onPauseControls: break
@@ -64,31 +64,23 @@ class GameMenuViewController: SubGameViewController {
     
     var delegate = GameMenuViewControllerNativeDelegate()
     
-    var mute = false {
+    var muted = false {
         didSet {
-            muteButton.setTitle(mute ? muteToUnmuteButtonText : unmuteToMuteButtonText, forState: UIControlState.Normal)
+            muteButton.setImage(UIImage(named: muted ? "muted" : "unmuted"), forState: UIControlState.Normal)
+            if muted {
+                // TODO: mute sound
+            } else {
+                // TODO: Unmute sound
+            }
         }
     }
     
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
-    @IBOutlet weak var clearButton: GameViewButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate.gameMenuViewController = self
-    }
-    
-    @IBAction func toggleMenu() {
-        UIView.animateWithDuration(animationDuration) {
-            [unowned self] in
-            let menuMovement = (self.buttonHeight + self.buttonSpace) * (self.buttonCount - 1)
-            self.gameViewController.gameMenuView.center.y += self.gameViewController.gameMenuView.center.y > self.gameViewController.view.frame.height ? -menuMovement : menuMovement
-        }
-    }
-
-    @IBAction func clear() {
-        delegate.clear()
     }
     
     @IBAction func play() {
@@ -107,8 +99,8 @@ class GameMenuViewController: SubGameViewController {
         delegate.help()
     }
     
-    @IBAction func muteSound() {
-        delegate.muteSound()
+    @IBAction func mute() {
+        muted = !muted
     }
     
     deinit { println("GameMenuViewController is being deallocated") }
