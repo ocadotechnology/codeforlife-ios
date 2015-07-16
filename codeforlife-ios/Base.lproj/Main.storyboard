@@ -531,7 +531,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-sG-Sq5" userLabel="Game Map View" customClass="GameMapView" customModule="codeforlife_ios" customModuleProvider="target">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-sG-Sq5" userLabel="Game Map View" customClass="GameMapView" customModule="codeforlife_ios" customModuleProvider="target">
                                 <rect key="frame" x="286" y="40" width="293" height="540"/>
                                 <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -541,10 +541,49 @@
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YyK-32-Fjp" userLabel="Block Table View">
                                 <rect key="frame" x="16" y="40" width="250" height="510"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="5Wg-Gd-99S"/>
                                     <constraint firstAttribute="width" constant="250" id="v79-AP-GFs"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5Wg-Gd-99S"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="5Wg-Gd-99S"/>
+                                        <exclude reference="v79-AP-GFs"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="4du-8I-ErY" kind="embed" identifier="BlockTableViewController" id="xnW-ET-lKi"/>
+                                </connections>
+                            </containerView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAA-NT-in3">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                            </activityIndicatorView>
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDI-xX-x7y" userLabel="Game Menu View">
+                                <rect key="frame" x="16" y="300" width="250" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="3hp-QC-5c9"/>
+                                    <constraint firstAttribute="height" constant="300" id="wIp-Y9-IZZ">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="400"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3hp-QC-5c9"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="3hp-QC-5c9"/>
+                                        <exclude reference="wIp-Y9-IZZ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="7Ne-xJ-S2H" kind="embed" identifier="GameMenuViewController" id="dVk-P6-Vqo"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSW-Nj-hiM" userLabel="Direct Drive View">
@@ -552,58 +591,97 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="IvZ-ff-c6J"/>
                                     <constraint firstAttribute="width" constant="240" id="SmL-ie-ahC"/>
+                                    <constraint firstAttribute="height" constant="165" id="WOL-XU-MeG"/>
+                                    <constraint firstAttribute="width" constant="240" id="ro8-13-Imk"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WOL-XU-MeG"/>
+                                        <exclude reference="ro8-13-Imk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="IvZ-ff-c6J"/>
+                                        <exclude reference="SmL-ie-ahC"/>
+                                        <include reference="WOL-XU-MeG"/>
+                                        <include reference="ro8-13-Imk"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="j2m-kq-df1" kind="embed" identifier="DirectDriveViewController" id="Str-Nx-sIz"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDI-xX-x7y" userLabel="Game Menu View">
-                                <rect key="frame" x="16" y="300" width="250" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="wIp-Y9-IZZ">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="400"/>
-                                    </constraint>
-                                </constraints>
-                                <connections>
-                                    <segue destination="7Ne-xJ-S2H" kind="embed" identifier="GameMenuViewController" id="dVk-P6-Vqo"/>
-                                </connections>
-                            </containerView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAA-NT-in3">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                                <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YyK-32-Fjp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="03m-4Z-aGb"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hDI-xX-x7y" secondAttribute="bottom" id="35N-Qh-FgW">
-                                <variation key="heightClass=regular-widthClass=regular" constant="-358"/>
+                            <constraint firstItem="hDI-xX-x7y" firstAttribute="leading" secondItem="YyK-32-Fjp" secondAttribute="leading" id="3Xt-sS-j80"/>
+                            <constraint firstAttribute="centerX" secondItem="DAA-NT-in3" secondAttribute="centerX" constant="390" id="AQ2-Cf-ndt">
+                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="YyK-32-Fjp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5LL-I2-Hsa"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PSW-Nj-hiM" secondAttribute="bottom" constant="8" symbolic="YES" id="8OC-iY-Cux"/>
-                            <constraint firstItem="hDI-xX-x7y" firstAttribute="top" secondItem="YyK-32-Fjp" secondAttribute="bottom" constant="3" id="BQB-OB-r0a">
-                                <variation key="heightClass=regular-widthClass=regular" constant="8" symbolic="YES"/>
+                            <constraint firstItem="PSW-Nj-hiM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="544" id="HiD-4t-tgp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YyK-32-Fjp" secondAttribute="bottom" constant="354" id="Ilx-We-Oh2">
+                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
                             </constraint>
-                            <constraint firstAttribute="bottom" secondItem="cYj-sG-Sq5" secondAttribute="bottom" constant="20" id="D8N-75-b2P"/>
-                            <constraint firstItem="DAA-NT-in3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DzV-TB-PoM"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YyK-32-Fjp" secondAttribute="bottom" constant="50" id="KW1-VH-pyn"/>
-                            <constraint firstAttribute="centerY" secondItem="DAA-NT-in3" secondAttribute="centerY" id="RF9-hB-3qC"/>
-                            <constraint firstItem="YyK-32-Fjp" firstAttribute="width" secondItem="hDI-xX-x7y" secondAttribute="width" id="ScE-Uu-vck"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cYj-sG-Sq5" secondAttribute="trailing" constant="5" id="Xcc-59-RRl"/>
-                            <constraint firstItem="cYj-sG-Sq5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="YU3-io-21M"/>
-                            <constraint firstItem="hDI-xX-x7y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fBn-px-Yzb"/>
-                            <constraint firstItem="cYj-sG-Sq5" firstAttribute="leading" secondItem="YyK-32-Fjp" secondAttribute="trailing" constant="20" id="h1Y-64-mjU"/>
-                            <constraint firstItem="PSW-Nj-hiM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rpw-cR-OdF"/>
+                            <constraint firstItem="cYj-sG-Sq5" firstAttribute="centerX" secondItem="DAA-NT-in3" secondAttribute="centerX" id="K7V-dU-XCK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PSW-Nj-hiM" secondAttribute="bottom" constant="8" symbolic="YES" id="W5L-Pm-2Qd"/>
+                            <constraint firstItem="PSW-Nj-hiM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="607" id="WlI-Mg-i0B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YyK-32-Fjp" secondAttribute="trailing" constant="518" id="XEI-Df-gRs">
+                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="DAA-NT-in3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YhQ-ek-XqT"/>
+                            <constraint firstItem="YyK-32-Fjp" firstAttribute="leading" secondItem="PSW-Nj-hiM" secondAttribute="trailing" constant="14" id="ZXZ-w6-lPY"/>
+                            <constraint firstItem="PSW-Nj-hiM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bO1-DE-wTQ"/>
+                            <constraint firstItem="cYj-sG-Sq5" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="dH7-Eh-Nj1"/>
+                            <constraint firstItem="hDI-xX-x7y" firstAttribute="trailing" secondItem="YyK-32-Fjp" secondAttribute="trailing" id="h0i-ts-pSe"/>
+                            <constraint firstItem="YyK-32-Fjp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mfO-G0-CpK"/>
+                            <constraint firstItem="YyK-32-Fjp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="nqM-Si-dHX"/>
+                            <constraint firstItem="cYj-sG-Sq5" firstAttribute="centerY" secondItem="DAA-NT-in3" secondAttribute="centerY" id="tQf-Kn-JqP"/>
+                            <constraint firstAttribute="bottom" secondItem="hDI-xX-x7y" secondAttribute="bottom" constant="-358" id="yRM-0C-eFI"/>
+                            <constraint firstItem="cYj-sG-Sq5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zZD-Z2-nYs"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="BQB-OB-r0a"/>
+                                <exclude reference="K7V-dU-XCK"/>
+                                <exclude reference="dH7-Eh-Nj1"/>
+                                <exclude reference="tQf-Kn-JqP"/>
+                                <exclude reference="zZD-Z2-nYs"/>
+                                <exclude reference="XEI-Df-gRs"/>
+                                <exclude reference="ZXZ-w6-lPY"/>
+                                <exclude reference="mfO-G0-CpK"/>
+                                <exclude reference="nqM-Si-dHX"/>
+                                <exclude reference="AQ2-Cf-ndt"/>
+                                <exclude reference="YhQ-ek-XqT"/>
+                                <exclude reference="HiD-4t-tgp"/>
+                                <exclude reference="WlI-Mg-i0B"/>
+                                <exclude reference="bO1-DE-wTQ"/>
+                                <exclude reference="Ilx-We-Oh2"/>
+                                <exclude reference="W5L-Pm-2Qd"/>
+                                <exclude reference="3Xt-sS-j80"/>
+                                <exclude reference="h0i-ts-pSe"/>
+                                <exclude reference="yRM-0C-eFI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
-                                <include reference="BQB-OB-r0a"/>
-                                <exclude reference="KW1-VH-pyn"/>
+                                <include reference="K7V-dU-XCK"/>
+                                <include reference="dH7-Eh-Nj1"/>
+                                <include reference="tQf-Kn-JqP"/>
+                                <include reference="zZD-Z2-nYs"/>
+                                <include reference="XEI-Df-gRs"/>
+                                <include reference="ZXZ-w6-lPY"/>
+                                <exclude reference="mfO-G0-CpK"/>
+                                <include reference="nqM-Si-dHX"/>
+                                <include reference="AQ2-Cf-ndt"/>
+                                <include reference="YhQ-ek-XqT"/>
+                                <exclude reference="HiD-4t-tgp"/>
+                                <exclude reference="WlI-Mg-i0B"/>
+                                <exclude reference="bO1-DE-wTQ"/>
+                                <include reference="Ilx-We-Oh2"/>
+                                <include reference="W5L-Pm-2Qd"/>
+                                <include reference="3Xt-sS-j80"/>
+                                <include reference="h0i-ts-pSe"/>
+                                <include reference="yRM-0C-eFI"/>
                             </mask>
                         </variation>
                     </view>
@@ -616,7 +694,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3391" y="248"/>
+            <point key="canvasLocation" x="3390.75" y="247.5"/>
         </scene>
         <!--Game Map View Controller-->
         <scene sceneID="CGG-lB-JO1">
@@ -626,7 +704,7 @@
                         <viewControllerLayoutGuide type="top" id="mlJ-oC-wPC"/>
                         <viewControllerLayoutGuide type="bottom" id="SUH-Ue-Jdn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CZy-ZG-bZM">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="CZy-ZG-bZM">
                         <rect key="frame" x="0.0" y="0.0" width="293" height="540"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

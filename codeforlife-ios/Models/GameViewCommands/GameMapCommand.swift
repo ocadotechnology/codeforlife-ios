@@ -61,18 +61,6 @@ class NGVShowResultCommand: GameMapCommand {
     }
 }
 
-class NGVPauseAnimationCommand: GameMapCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        gameViewController.gameMapViewController?.pause()
-    }
-}
-
-class NGVUnpauseAnimationCommand: GameMapCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        gameViewController.gameMapViewController?.unpause()
-    }
-}
-
 class NGVAddAnimationCommand : GameMapCommand {
     
     var animation: Animation

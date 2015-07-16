@@ -52,7 +52,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         SharedContext.MainGameViewController = self
-        setupWebView()
+//        setupWebView()
         level = requestedLevel
     }
     
@@ -81,7 +81,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         var handler = GameViewInteractionHandler()
         handler.gameViewController = self
         config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
-        webView = WKWebView(frame: CGRect(origin: CGPointMake(view.frame.width - 350,0), size: CGSize(width: 350, height: 300))
+        webView = WKWebView(frame: CGRect(origin: CGPointMake(view.center.y - 125,0), size: CGSize(width: 250, height: 200))
             , configuration: config)
         webView?.navigationDelegate = self
         webView?.UIDelegate = self
