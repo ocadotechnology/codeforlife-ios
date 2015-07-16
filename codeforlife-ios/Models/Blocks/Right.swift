@@ -12,6 +12,7 @@ class Right: Block {
     init() {
         super.init(
             description: "Right",
+            type: "turn_right",
             color: kC4LBlocklyRightBlockColour)
     }
     

@@ -54,6 +54,7 @@ class MessageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        preferredContentSize = CGSize(width: 500, height: 500)
         view.frame.size = CGSize(width: 500, height: 500)
         view.center = hidePosition
     }

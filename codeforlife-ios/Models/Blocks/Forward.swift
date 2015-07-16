@@ -12,6 +12,7 @@ class Forward: Block {
     init() {
         super.init(
             description: "Move Forward",
+            type: "move_forwards",
             color: kC4LBlocklyForwardBlockColour)
     }
     

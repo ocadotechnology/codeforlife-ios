@@ -61,6 +61,7 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     }
     
     final func submitBlocks() {
+        
         for block in blocks {
             block.submitMock()
         }
