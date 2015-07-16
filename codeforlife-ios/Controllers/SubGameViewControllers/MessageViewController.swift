@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageViewController: SubGameViewController {
+class MessageViewController: UIViewController {
     
     static func MessageViewControllerInstance() -> MessageViewController {
         return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MessageViewController") as! MessageViewController
@@ -23,12 +23,12 @@ class MessageViewController: SubGameViewController {
     
     var hidePosition: CGPoint {
         return CGPointMake(
-            gameViewController.view.center.x,
-            gameViewController.view.frame.height + messageFrame.height/2)
+            SharedContext.MainGameViewController!.view.center.x,
+            SharedContext.MainGameViewController!.view.frame.height + messageFrame.height/2)
     }
     
     var showPosition: CGPoint {
-        return gameViewController.view.center
+        return SharedContext.MainGameViewController!.view.center
     }
     
     weak var message: Message? {
@@ -36,6 +36,8 @@ class MessageViewController: SubGameViewController {
             self.view = message?.view
         }
     }
+    
+    @IBOutlet weak var containerView: UIView!
     
     var open = false {
         didSet {
@@ -52,6 +54,7 @@ class MessageViewController: SubGameViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         view.frame.size = CGSize(width: 500, height: 500)
         view.center = hidePosition
     }
@@ -73,8 +76,8 @@ class MessageViewController: SubGameViewController {
     }
     
     func gotoNextLevelAndDismiss() {
-        if let nextLevel = gameViewController.level?.nextLevel {
-            gameViewController.level = nextLevel
+        if let nextLevel = SharedContext.MainGameViewController!.level?.nextLevel {
+            SharedContext.MainGameViewController?.level = nextLevel
         }
         closeMenu()
     }

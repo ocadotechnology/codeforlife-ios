@@ -356,7 +356,7 @@
                                             <action selector="toggleMenu" destination="7Ne-xJ-S2H" eventType="touchUpInside" id="VHG-gV-jAr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGD-ml-QgG" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGD-ml-QgG" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="223" width="250" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="7oO-u0-n7p"/>
@@ -369,7 +369,7 @@
                                             <segue destination="AQj-Vj-aRe" kind="unwind" unwindAction="unwindToLevelTableView:" id="E1D-Lb-zAu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mfj-nm-gDD" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mfj-nm-gDD" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="180" width="250" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="QXf-C7-mcx"/>
@@ -382,7 +382,7 @@
                                             <action selector="muteSound" destination="7Ne-xJ-S2H" eventType="touchUpInside" id="db9-Mv-WQs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOz-0R-aDf" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOz-0R-aDf" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="137" width="250" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="SLT-Dm-oLD"/>
@@ -467,14 +467,14 @@
                                         <exclude reference="a9Y-go-kgv"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="9bt-cB-o0k"/>
-                                        <exclude reference="Dba-zI-Fl6"/>
-                                        <exclude reference="NVH-SV-IsM"/>
-                                        <exclude reference="WVu-oe-Vfm"/>
                                         <exclude reference="OyX-EP-T8l"/>
                                         <exclude reference="k5N-fQ-RAh"/>
                                         <exclude reference="mcB-Aa-a5u"/>
                                         <exclude reference="xLf-UU-Kkl"/>
+                                        <exclude reference="9bt-cB-o0k"/>
+                                        <exclude reference="Dba-zI-Fl6"/>
+                                        <exclude reference="NVH-SV-IsM"/>
+                                        <exclude reference="WVu-oe-Vfm"/>
                                         <exclude reference="vyM-5I-XbV"/>
                                     </mask>
                                 </variation>
@@ -484,14 +484,14 @@
                                         <include reference="a9Y-go-kgv"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="9bt-cB-o0k"/>
-                                        <include reference="Dba-zI-Fl6"/>
-                                        <include reference="NVH-SV-IsM"/>
-                                        <include reference="WVu-oe-Vfm"/>
                                         <include reference="OyX-EP-T8l"/>
                                         <include reference="k5N-fQ-RAh"/>
                                         <include reference="mcB-Aa-a5u"/>
                                         <include reference="xLf-UU-Kkl"/>
+                                        <include reference="9bt-cB-o0k"/>
+                                        <include reference="Dba-zI-Fl6"/>
+                                        <include reference="NVH-SV-IsM"/>
+                                        <include reference="WVu-oe-Vfm"/>
                                         <include reference="vyM-5I-XbV"/>
                                     </mask>
                                 </variation>
@@ -531,14 +531,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-sG-Sq5" userLabel="Game Map View" customClass="GameMapView" customModule="codeforlife_ios" customModuleProvider="target">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cYj-sG-Sq5" userLabel="Game Map View" customClass="GameMapView" customModule="codeforlife_ios" customModuleProvider="target">
                                 <rect key="frame" x="286" y="40" width="293" height="540"/>
                                 <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="seJ-0X-RCm" kind="embed" identifier="GameMapViewController" id="sei-H4-Ube"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YyK-32-Fjp" userLabel="Block Table View">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YyK-32-Fjp" userLabel="Block Table View">
                                 <rect key="frame" x="16" y="40" width="250" height="510"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="5Wg-Gd-99S">
@@ -561,7 +561,7 @@
                                     <segue destination="4du-8I-ErY" kind="embed" identifier="BlockTableViewController" id="xnW-ET-lKi"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSW-Nj-hiM" userLabel="Direct Drive View">
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PSW-Nj-hiM" userLabel="Direct Drive View">
                                 <rect key="frame" x="344" y="427" width="240" height="165"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="IvZ-ff-c6J"/>
@@ -587,7 +587,7 @@
                                     <segue destination="j2m-kq-df1" kind="embed" identifier="DirectDriveViewController" id="Str-Nx-sIz"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDI-xX-x7y" userLabel="Game Menu View">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDI-xX-x7y" userLabel="Game Menu View">
                                 <rect key="frame" x="16" y="300" width="250" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="3hp-QC-5c9"/>
@@ -613,7 +613,7 @@
                                     <segue destination="7Ne-xJ-S2H" kind="embed" identifier="GameMenuViewController" id="dVk-P6-Vqo"/>
                                 </connections>
                             </containerView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAA-NT-in3">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAA-NT-in3">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                                 <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
                             </activityIndicatorView>
@@ -657,15 +657,14 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="XEI-Df-gRs"/>
+                                <exclude reference="ZXZ-w6-lPY"/>
+                                <exclude reference="mfO-G0-CpK"/>
+                                <exclude reference="nqM-Si-dHX"/>
                                 <exclude reference="K7V-dU-XCK"/>
                                 <exclude reference="dH7-Eh-Nj1"/>
                                 <exclude reference="tQf-Kn-JqP"/>
                                 <exclude reference="zZD-Z2-nYs"/>
-                                <exclude reference="AQ2-Cf-ndt"/>
-                                <exclude reference="YhQ-ek-XqT"/>
-                                <exclude reference="HiD-4t-tgp"/>
-                                <exclude reference="WlI-Mg-i0B"/>
-                                <exclude reference="bO1-DE-wTQ"/>
                                 <exclude reference="3Xt-sS-j80"/>
                                 <exclude reference="GV3-iC-KZE"/>
                                 <exclude reference="QAy-Qq-pUS"/>
@@ -673,25 +672,25 @@
                                 <exclude reference="lYT-U8-MOh"/>
                                 <exclude reference="mts-1e-Y9W"/>
                                 <exclude reference="yRM-0C-eFI"/>
-                                <exclude reference="XEI-Df-gRs"/>
-                                <exclude reference="ZXZ-w6-lPY"/>
-                                <exclude reference="mfO-G0-CpK"/>
-                                <exclude reference="nqM-Si-dHX"/>
+                                <exclude reference="AQ2-Cf-ndt"/>
+                                <exclude reference="YhQ-ek-XqT"/>
+                                <exclude reference="HiD-4t-tgp"/>
+                                <exclude reference="WlI-Mg-i0B"/>
+                                <exclude reference="bO1-DE-wTQ"/>
                                 <exclude reference="Ilx-We-Oh2"/>
                                 <exclude reference="W5L-Pm-2Qd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
                             <mask key="constraints">
+                                <include reference="XEI-Df-gRs"/>
+                                <exclude reference="ZXZ-w6-lPY"/>
+                                <exclude reference="mfO-G0-CpK"/>
+                                <include reference="nqM-Si-dHX"/>
                                 <include reference="K7V-dU-XCK"/>
                                 <include reference="dH7-Eh-Nj1"/>
                                 <include reference="tQf-Kn-JqP"/>
                                 <include reference="zZD-Z2-nYs"/>
-                                <include reference="AQ2-Cf-ndt"/>
-                                <include reference="YhQ-ek-XqT"/>
-                                <exclude reference="HiD-4t-tgp"/>
-                                <exclude reference="WlI-Mg-i0B"/>
-                                <exclude reference="bO1-DE-wTQ"/>
                                 <exclude reference="3Xt-sS-j80"/>
                                 <include reference="GV3-iC-KZE"/>
                                 <exclude reference="QAy-Qq-pUS"/>
@@ -699,10 +698,11 @@
                                 <include reference="lYT-U8-MOh"/>
                                 <include reference="mts-1e-Y9W"/>
                                 <include reference="yRM-0C-eFI"/>
-                                <include reference="XEI-Df-gRs"/>
-                                <exclude reference="ZXZ-w6-lPY"/>
-                                <exclude reference="mfO-G0-CpK"/>
-                                <include reference="nqM-Si-dHX"/>
+                                <include reference="AQ2-Cf-ndt"/>
+                                <include reference="YhQ-ek-XqT"/>
+                                <exclude reference="HiD-4t-tgp"/>
+                                <exclude reference="WlI-Mg-i0B"/>
+                                <exclude reference="bO1-DE-wTQ"/>
                                 <include reference="Ilx-We-Oh2"/>
                                 <exclude reference="W5L-Pm-2Qd"/>
                             </mask>
@@ -749,8 +749,55 @@
                     <view key="view" contentMode="scaleToFill" id="g2M-kp-FNc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0jl-Sm-bFW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.43921568630000002" green="0.75294117650000003" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="UZz-id-Pi6"/>
+                                    <constraint firstAttribute="width" constant="500" id="lxR-NV-VXD"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UZz-id-Pi6"/>
+                                        <exclude reference="lxR-NV-VXD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="UZz-id-Pi6"/>
+                                        <include reference="lxR-NV-VXD"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="0jl-Sm-bFW" secondAttribute="centerX" id="Q2K-kk-vpi"/>
+                            <constraint firstAttribute="centerY" secondItem="0jl-Sm-bFW" secondAttribute="centerY" id="eHY-dl-Xv5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="0jl-Sm-bFW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Q2K-kk-vpi"/>
+                                <exclude reference="eHY-dl-Xv5"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="0jl-Sm-bFW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Q2K-kk-vpi"/>
+                                <include reference="eHY-dl-Xv5"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="0jl-Sm-bFW" id="4eD-Em-pRh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejV-6P-6h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -895,7 +942,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="250" height="510"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LEi-Za-5Nl" customClass="BlockTableView" customModule="codeforlife_ios" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LEi-Za-5Nl" customClass="BlockTableView" customModule="codeforlife_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="250" height="510"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1016,9 +1063,9 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="VHu-1D-nk9"/>
+                                <exclude reference="Kvh-6O-4bF"/>
                                 <exclude reference="kjG-jp-bxZ"/>
                                 <exclude reference="nIr-cQ-rDU"/>
-                                <exclude reference="Kvh-6O-4bF"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -1027,9 +1074,9 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="VHu-1D-nk9"/>
+                                <include reference="Kvh-6O-4bF"/>
                                 <include reference="kjG-jp-bxZ"/>
                                 <include reference="nIr-cQ-rDU"/>
-                                <include reference="Kvh-6O-4bF"/>
                             </mask>
                         </variation>
                     </view>
