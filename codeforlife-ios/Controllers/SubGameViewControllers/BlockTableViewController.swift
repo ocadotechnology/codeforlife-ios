@@ -11,6 +11,8 @@ import UIKit
 class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITableViewDataSource {
     
     let CellReuseIdentifier = "Block"
+    let TableViewWidth: CGFloat = 250
+    let ToggleBlocklyTableAnimationDuration: NSTimeInterval = 0.5
     
     @IBOutlet weak var tableView: BlockTableView!
     @IBOutlet weak var containerView: UIView!
@@ -25,10 +27,12 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        containerView.layer.cornerRadius = 10
-        containerView.layer.masksToBounds = true
+    @IBAction func toggleBlocklyTable() {
+        UIView.animateWithDuration(ToggleBlocklyTableAnimationDuration) {
+            [unowned self] in
+            self.gameViewController.blockTableView.center.x += self.gameViewController.blockTableView.center.x > self.gameViewController.view.frame.width ? -self.TableViewWidth : self.TableViewWidth
+        }
+        
     }
     
     override func viewDidLoad() {

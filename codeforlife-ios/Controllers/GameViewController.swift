@@ -49,6 +49,8 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     @IBOutlet weak var gameMenuView: UIView!
     
+    @IBOutlet weak var blockTableView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SharedContext.MainGameViewController = self
