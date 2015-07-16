@@ -18,15 +18,12 @@ class GameMenuCommand: GameViewCommand {
 class NGVShowHelpCommand : GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController.MessageViewControllerInstance()
-//        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
-        gameViewController.addChildViewController(controller)
-        gameViewController.view.addSubview(controller.view)
-        controller.didMoveToParentViewController(gameViewController)
+        controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
         controller.message = HelpMessage(
             context: gameViewController.level!.hint!,
             action: {
-                controller.closeMenu()
-//                controller.dismissViewControllerAnimated(true, completion: nil)
+                controller.dismissViewControllerAnimated(true, completion: nil)
                 self.viewController?.delegate.controller = nil
         })
         viewController?.delegate.controller = controller
