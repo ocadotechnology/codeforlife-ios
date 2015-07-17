@@ -18,8 +18,8 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
     @IBOutlet weak var leftButton: DirectDriveButton!
     @IBOutlet weak var rightButton: DirectDriveButton!
     
-    var controller: VehicleController = WebViewEnabled ? WebViewVehicleController() : NativeCarController()
-
+    var controller: VehicleController = WebViewVehicleController()
+    
     @IBAction func moveForward() {
         controller.moveForward()
     }
@@ -54,5 +54,5 @@ class DirectDriveViewController: SubGameViewController, VehicleController {
         rightButton.enabled = true
     }
     
-    deinit { println("DirectDrive is being deallocated") }
+//    deinit { println("DirectDrive is being deallocated") }
 }

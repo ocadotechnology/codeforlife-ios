@@ -6,11 +6,13 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class TurnLeftAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
-        CommandFactory.NativeTurnLeftCommand().execute(completion: completion)
+        println("Van Turn Left")
+        van?.turnLeft(animated: true, completion: completion)
     }
     
 }

@@ -12,29 +12,18 @@ import Foundation
 class Animation {
     
     weak var nextAnimation: Animation?
-    var referenceBlock: Int?
+    
+    weak var van: Van? {
+        return SharedContext.MainGameViewController?.gameMapViewController?.map?.van
+    }
     
     func executeAnimation(completion: (() -> Void)? = nil) {
         fatalError("Implement executeanimation()")
     }
     
-    func executeChainAnimation(completion: (() -> Void)? = nil) {
-        executeAnimation {
-            if self.nextAnimation != nil {
-                self.nextAnimation?.executeChainAnimation(completion: completion)
-            } else {
-                CommandFactory.NativeDeliverCommand().execute {
-                    CommandFactory.NativeShowResultCommand().execute {
-                        completion?()
-                    }
-                }
-            }
-        }
-    }
-    
-    func stop() {
+    final func stop() {
         SharedContext.MainGameViewController?.gameMapViewController?.map?.removeAllActions()
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeAllActions()
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.removeAllActions()
     }
     
 }

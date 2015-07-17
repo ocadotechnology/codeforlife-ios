@@ -12,11 +12,11 @@ class ErrorMessageView: MessageView {
     
     let viewCornerRadius: CGFloat = 50
     let viewBorderWidth: CGFloat = 10
-    let messageButtonBorderWidth: CGFloat = 5
-    let messageButtonCornerRadius: CGFloat = 25
+    let messageButtonBorderWidth: CGFloat = 3
+    let messageButtonCornerRadius: CGFloat = 20
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contextView: UITextView!
+    @IBOutlet weak var contextLabel: UILabel!
     @IBOutlet weak var messageButton: UIButton!
     
     class func instsanceFromXib(message: Message) -> ErrorMessageView {
@@ -31,15 +31,11 @@ class ErrorMessageView: MessageView {
     
     override func reloadContent() {
         titleLabel.text = message!.title
-        contextView.text = message!.context
+        contextLabel.text = message!.context
     }
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
-        layer.cornerRadius = viewCornerRadius
-        layer.masksToBounds = true
-        layer.borderColor = kC4LMessageBorderColour.CGColor
-        layer.borderWidth = viewBorderWidth
         messageButton.layer.cornerRadius = messageButtonCornerRadius
         messageButton.layer.masksToBounds = true
         messageButton.layer.borderWidth = messageButtonBorderWidth

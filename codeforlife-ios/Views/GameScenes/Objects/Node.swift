@@ -20,6 +20,8 @@ class Node: Equatable {
         
     }
     
+
+    
     var isDestination = false
     
     var coordinates: Coordinates
@@ -109,8 +111,8 @@ class Node: Equatable {
     
     var position : CGPoint {
         var result = CGPointMake(
-            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
-            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
+            CGFloat(coordinates.x) * GameMapConfig.GridSize.width + GameMapConfig.GridSize.width/2 + GameMapConfig.MapXOffset,
+            CGFloat(coordinates.y) * GameMapConfig.GridSize.height + GameMapConfig.GridSize.height/2 + GameMapConfig.MapYOffset)
         if direction.up {
             result.y += imageNamed.offset
         }

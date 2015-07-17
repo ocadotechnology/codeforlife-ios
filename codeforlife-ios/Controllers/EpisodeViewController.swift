@@ -11,11 +11,9 @@ import UIKit
 class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let CellReuseIdentifier = "Episode"
-    
     let SegueIdentifier = "FetchLevelsAction"
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var episodes = [Episode]() {
@@ -28,7 +26,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        FetchEpisodesAction(self).execute {
+        FetchEpisodesRequest(self).execute {
             activityIndicator?.stopAnimating()
         }
     }
@@ -66,6 +64,5 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func unwindToEpisodeViewController(segue: UIStoryboardSegue) {}
-    
 
 }

@@ -14,31 +14,8 @@ protocol GameMenuViewControllerDelegate {
     func help()
     func stop()
     func step()
+    func clear()
     func muteSound()
-    
-}
-
-class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
-    
-    func play() {
-        CommandFactory.WebViewPlayCommand().execute()
-    }
-    
-    func stop() {
-        
-    }
-    
-    func step() {
-        
-    }
-    
-    func help() {
-        CommandFactory.WebViewHelpCommand().execute()
-    }
-    
-    func muteSound() {
-        CommandFactory.WebViewMuteCommand().execute()
-    }
     
 }
 
@@ -55,7 +32,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
             
         case .onStopControls: // Going to Play
             gameMenuViewController?.controlMode = .onPlayControls
-            CommandFactory.NativePlayCommand().execute {
+            ActionFactory.createAction("Play").execute {
                 gameMenuViewController?.controlMode = .onStopControls
             }
             
@@ -72,29 +49,28 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func stop() {
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeAllActions()
+        SharedContext.MainGameViewController?.blockTableViewController?.resetHighlightCellVariables()
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.reset()
         SharedContext.MainGameViewController?.gameMapViewController?.map?.resetMap()
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.resetPosition()
         SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.resetVariables()
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
+        ActionFactory.createAction("ChangeToOnStopControls").execute()
+    }
+    
+    func clear() {
+        ActionFactory.createAction("Clear").execute()
     }
     
     func step() {
     }
     
     func help() {
-        if let controller = self.controller {
-            controller.closeMenu()
-            self.controller = nil
-        } else {
-            CommandFactory.NativeShowHelpCommand().execute()
-        }
+        ActionFactory.createAction("Help").execute()
     }
     
     func muteSound() {
-        CommandFactory.NativeMuteCommand().execute()
+        ActionFactory.createAction("Mute").execute()
     }
     
-    deinit { println("GameMenuViewControllerDelegate is being deallocated") }
+//    deinit { println("GameMenuViewControllerDelegate is being deallocated") }
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class MessageView: UIView {
-    
+
     var message: Message? {
         didSet { reloadContent() }
     }

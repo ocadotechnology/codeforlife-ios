@@ -16,18 +16,8 @@ class Deliver: Block {
             color: kC4LBlocklyDeliverBlockColour)
     }
     
-    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.deliver {
-            super.executeBlockAction(player, completion: completion)
-        }
+    override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
+        van?.deliver(animated: animated, completion: completion)
     }
-    
-    override func submit() {
-        CommandFactory.WebViewDeliverCommand().execute()
-    }
-    
-    override func submitMock() {
-        CommandFactory.WebViewDeliverCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(DeliverAnimation()).execute()
-    }
+
 }

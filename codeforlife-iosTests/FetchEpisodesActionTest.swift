@@ -25,7 +25,7 @@ class FetchEpisodesActionTest: XCTestCase {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("EpisodeViewController") as! EpisodeViewController
         let expectation = expectationWithDescription("Dev API Episode 1")
         
-        FetchEpisodesAction(controller).switchToDev().execute {
+        FetchEpisodesRequest(controller).switchToDev().execute {
             expectation.fulfill()
         }
         waitForExpectationsWithTimeout(10) { (error) -> Void in
@@ -39,8 +39,8 @@ class FetchEpisodesActionTest: XCTestCase {
     
     func testMockDelegate() {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("EpisodeViewController") as! EpisodeViewController
-        let delegate = FetchLevelsActionMockDelegate()
-        FetchEpisodesAction(controller).switchToMock().execute {}
+        let delegate = FetchLevelsRequestMockDelegate()
+        FetchEpisodesRequest(controller).switchToMock().execute {}
         XCTAssertEqual(controller.episodes.count, 4, "Episode count does not match")
     }
 

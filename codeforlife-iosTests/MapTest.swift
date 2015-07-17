@@ -101,8 +101,8 @@ class MapTest: XCTestCase {
     
     private func toNormalPoint(node: Node, _ x: CGFloat, _ y: CGFloat) -> CGPoint {
         return CGPointMake(
-            CGFloat(node.coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset + x,
-            CGFloat(node.coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset + y)
+            CGFloat(node.coordinates.x) * GameMapConfig.GridSize.width + GameMapConfig.GridSize.width/2 + GameMapConfig.MapXOffset + x,
+            CGFloat(node.coordinates.y) * GameMapConfig.GridSize.height + GameMapConfig.GridSize.height/2 + GameMapConfig.MapYOffset + y)
     }
 
 }

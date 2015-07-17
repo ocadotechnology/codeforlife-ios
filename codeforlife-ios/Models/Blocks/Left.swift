@@ -9,6 +9,7 @@
 import Foundation
 
 class Left: Block {
+    
     init() {
         super.init(
             description: "Turn Left",
@@ -16,18 +17,12 @@ class Left: Block {
             color: kC4LBlocklyLeftBlockColour)
     }
     
-    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.turnLeft {
-            super.executeBlockAction(player, completion: completion)
-        }
+    override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
+        ActionFactory.createAction("DisableDirectDrive").execute()
+        van?.turnLeft(animated: animated, completion: {
+            ActionFactory.createAction("EnableDirectDrive").execute()
+            completion?()
+        })
     }
     
-    override func submit() {
-        CommandFactory.WebViewTurnLeftCommand().execute()
-    }
-    
-    override func submitMock() {
-        CommandFactory.WebViewTurnLeftCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(TurnLeftAnimation()).execute()
-    }
 }

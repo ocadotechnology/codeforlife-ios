@@ -16,41 +16,16 @@ class Block {
     var description: String
     var color: UIColor
     
+    weak var van: Van? {
+        return SharedContext.MainGameViewController?.gameMapViewController?.map?.van
+    }
+    
     init(description: String, type:String, color: UIColor) {
         self.description = description
         self.type = type
         self.color = color
     }
     
-    func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        if player.crashed {
-            CommandFactory.NativeShowFailMessageCommand().execute {
-                completion?()
-            }
-        } else {
-            completion?()
-        }
-    }
+    func executeBlock(#animated: Bool, completion: (() -> Void)?) { completion?() }
     
-    func executeBlockChainAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        self.executeBlockAction(player) {
-            if self.nextBlock != nil {
-                self.nextBlock?.executeBlockChainAction(player, completion: completion)
-            } else {
-                player.deliver {
-                    CommandFactory.NativeShowResultCommand().execute {
-                        completion?()
-                    }
-                }
-            }
-        }
-    }
-    
-    func toString() -> String {
-        return ""
-    }
-    
-    func submit() {}
-    
-    func submitMock() {}
 }

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 struct Coordinates {
@@ -22,8 +23,22 @@ struct Coordinates {
         self.y = y
     }
     
+    func toMapPosition() -> CGPoint {
+        return CGPointMake(
+            CGFloat(self.x) * GameMapConfig.GridSize.width + GameMapConfig.GridSize.width/2 + GameMapConfig.MapXOffset,
+            CGFloat(self.y) * GameMapConfig.GridSize.height + GameMapConfig.GridSize.height/2 + GameMapConfig.MapYOffset)
+    }
+    
 }
 
 func ==(lhs: Coordinates, rhs: Coordinates) -> Bool {
     return (lhs.x == rhs.x) && (lhs.y == rhs.y)
+}
+
+func +(lhs: Coordinates, rhs: Coordinates) -> Coordinates {
+    return Coordinates(lhs.x+rhs.x, lhs.y+rhs.y)
+}
+
+func +=(lhs: Coordinates, rhs: Coordinates) -> Coordinates {
+    return Coordinates(lhs.x+rhs.x, lhs.y+rhs.y)
 }

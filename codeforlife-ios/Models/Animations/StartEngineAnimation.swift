@@ -11,9 +11,7 @@ import Foundation
 
 class StartEngineAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
-        let singleEngineSound = SKAction.playSoundFileNamed("moving.mp3", waitForCompletion: false)
-        let repeatEngineSound = SKAction.repeatActionForever(singleEngineSound)
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.runAction(repeatEngineSound, withKey: "EngineSound")
+        van?.engineStarted = true
         completion?()
     }
 }

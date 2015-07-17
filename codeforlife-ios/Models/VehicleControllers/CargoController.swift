@@ -11,27 +11,15 @@ import Foundation
 class WebViewVehicleController: VehicleController {
     
     func moveForward() {
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onPlayControls).execute()
-        CommandFactory.NativeMoveForwardCommand().execute {
-            CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
-        }
-        CommandFactory.NativeAddBlockCommand(Forward()).execute()
+        ActionFactory.createAction("AddMoveForwardBlock").execute()
     }
     
     func turnLeft() {
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onPlayControls).execute()
-        CommandFactory.NativeTurnLeftCommand().execute {
-            CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
-        }
-        CommandFactory.NativeAddBlockCommand(Left()).execute()
+        ActionFactory.createAction("AddTurnLeftBlock").execute()
     }
     
     func turnRight() {
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onPlayControls).execute()
-        CommandFactory.NativeTurnRightCommand().execute {
-            CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
-        }
-        CommandFactory.NativeAddBlockCommand(Right()).execute()
+        ActionFactory.createAction("AddTurnRightBlock").execute()
     }
     
     func go() {
@@ -39,11 +27,9 @@ class WebViewVehicleController: VehicleController {
     }
     
     func deliver() {
-        CommandFactory.NativeAddBlockCommand(Deliver()).execute()
+        ActionFactory.createAction("AddDeliverBlock").execute()
     }
     
-//    deinit {
-//        println("WebViewVehicleController is being deallocated")
-//    }
+//    deinit { println("WebViewVehicleController is being deallocated") }
     
 }

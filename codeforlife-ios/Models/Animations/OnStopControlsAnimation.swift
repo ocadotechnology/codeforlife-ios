@@ -10,6 +10,7 @@ import Foundation
 
 class OnStopControlsAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute(completion: completion)
+        println("OnStopControls")
+        ActionFactory.createAction("ChangeToOnStopControls").execute(completion: completion)
     }
 }

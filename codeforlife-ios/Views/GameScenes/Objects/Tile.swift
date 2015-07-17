@@ -15,12 +15,13 @@ class Tile: GameObject {
     init(_ coordinates: Coordinates) {
         super.init(
             imageNamed: "tile1",
-            width: GameMapConfig.Grid.width,
-            height: GameMapConfig.Grid.height)
-        
+            width:      GameMapConfig.GridSize.width*2,
+            height:     GameMapConfig.GridSize.height*2)
+        self.zPosition = 0
         self.position = CGPointMake(
-            CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
-            CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
+            CGFloat(coordinates.x+1) * GameMapConfig.GridSize.width + GameMapConfig.MapXOffset,
+            CGFloat(coordinates.y) * GameMapConfig.GridSize.height + GameMapConfig.MapYOffset)
+        
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -10,15 +10,14 @@ import UIKit
 
 class PreGameMessageView: MessageView {
     
-    let containerViewCornerRadius: CGFloat = 50
-    let containerViewBorderWidth: CGFloat = 10
-    let messageButtonBorderWidth: CGFloat = 5
-    let messageButtonCornerRadius: CGFloat = 25
+    let messageButtonBorderWidth: CGFloat = 3
+    let messageButtonCornerRadius: CGFloat = 20
 
-    @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contextView: UITextView!
+    @IBOutlet weak var contextLabel: UILabel!
+    @IBOutlet weak var messageButton: UIButton!
     
+    @IBOutlet weak var containerView: UIView!
     class func instsanceFromXib(message: Message) -> PreGameMessageView {
         var view = UINib(nibName: "PreGameMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PreGameMessageView
         view.message = message
@@ -30,16 +29,13 @@ class PreGameMessageView: MessageView {
     }
     
     override func reloadContent() {
+        containerView.center = self.center
         titleLabel.text = message!.title
-        contextView.text = message!.context
+        contextLabel.text = message!.context
     }
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
-        layer.cornerRadius = containerViewCornerRadius
-        layer.masksToBounds = true
-        layer.borderColor = kC4LMessageBorderColour.CGColor
-        layer.borderWidth = containerViewBorderWidth
         messageButton.layer.cornerRadius = messageButtonCornerRadius
         messageButton.layer.masksToBounds = true
         messageButton.layer.borderWidth = messageButtonBorderWidth

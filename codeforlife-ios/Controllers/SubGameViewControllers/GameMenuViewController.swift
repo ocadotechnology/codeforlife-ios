@@ -36,6 +36,16 @@ class GameMenuViewController: SubGameViewController {
             }
         }
         
+        var imageName: String {
+            switch self {
+            case .onPlayControls:   return "pause"
+            case .onPauseControls:  return "play"
+            case .onStepControls:   return "play"
+            case .onStopControls:   return "play"
+            case .onResumeControls: return "pause"
+            }
+        }
+        
         var description : String {
             return self.rawValue
         }
@@ -46,13 +56,14 @@ class GameMenuViewController: SubGameViewController {
     var controlMode = ControlMode.onStopControls {
         didSet {
             playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
+            playButton.setImage(UIImage(named: controlMode.imageName), forState: UIControlState.Normal)
             switch controlMode {
             case .onPlayControls:
-                gameViewController.blockTableViewController?.clearButton.enabled = false
+                clearButton.enabled = false
                 gameViewController.blockTableViewController?.recognizer?.editable = false
                 gameViewController.directDriveViewController?.disableDirectDrive()
             case .onStopControls:
-                gameViewController.blockTableViewController?.clearButton.enabled = true
+                clearButton.enabled = true
                 gameViewController.blockTableViewController?.recognizer?.editable = true
                 gameViewController.directDriveViewController?.enableDirectDrive()
             case .onPauseControls: break
@@ -75,12 +86,17 @@ class GameMenuViewController: SubGameViewController {
         }
     }
     
+    @IBOutlet weak var clearButton: GameViewButton!
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate.gameMenuViewController = self
+    }
+    
+    @IBAction func clear() {
+        delegate.clear()
     }
     
     @IBAction func play() {
@@ -103,6 +119,6 @@ class GameMenuViewController: SubGameViewController {
         muted = !muted
     }
     
-    deinit { println("GameMenuViewController is being deallocated") }
+//    deinit { println("GameMenuViewController is being deallocated") }
     
 }

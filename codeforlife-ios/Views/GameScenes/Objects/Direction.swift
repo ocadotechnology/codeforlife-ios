@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-enum Direction {
+enum Direction: Printable {
     case Left
     case Right
     case Up
@@ -39,5 +39,19 @@ enum Direction {
         case .Left:
             return CGFloat(M_PI)
         }
+    }
+    
+    var description : String {
+        switch self {
+        case .Up:
+            return "Up"
+        case .Right:
+            return "Right"
+        case .Down:
+            return "Down"
+        case .Left:
+            return "Left"
+        }
+        
     }
 }

@@ -14,12 +14,13 @@ class AnimationHandler {
         return SharedContext.MainGameViewController?.gameMapViewController?.map
     }
     
-    lazy var animationQueue: [Animation] = []
+    lazy var animationQueues: [[Animation]] = [[]]
+    
     var currentIndex = 0
+    
     var runAnimation = false {
         didSet {
             if runAnimation {
-                
                 // reset animations if all animations are run
                 if isAnimationCycleFinished {
                     resetAnimation()
@@ -30,53 +31,50 @@ class AnimationHandler {
     }
     
     var isAnimationCycleFinished: Bool {
-        return currentIndex >= animationQueue.count
+        return currentIndex >= animationQueues.count && runningAnimationsRemained == 1
     }
     
-    
-    var isAnimationRunning = false {
+    var runningAnimationsRemained = 0 {
         didSet {
-            if !isAnimationRunning {
+            if runningAnimationsRemained == 0 {
                 runAnimation = runAnimation.boolValue
             }
         }
     }
     
-    func addAnimation(animation: Animation) {
-        animationQueue.last?.nextAnimation = animation
-        animationQueue.append(animation)
+    func executeAnimations(animationQueues: [[Animation]]) {
+        self.animationQueues = animationQueues
+        currentIndex = 0
+        runAnimation = true
     }
     
     func removeAllAnimations() {
-        animationQueue.removeAll(keepCapacity: false)
+        animationQueues.removeAll(keepCapacity: false)
     }
     
     func resetVariables() {
         currentIndex = 0
         runAnimation = false
-        isAnimationRunning = false
+        runningAnimationsRemained = 0
     }
     
     private func resetAnimation() {
         self.currentIndex = 0
-        self.map?.player.resetPosition()
-        
+        self.map?.van.reset()
     }
     
     private func runAnimations() {
-        isAnimationRunning = true
-        animationQueue[currentIndex++].executeAnimation {
-            [unowned self] in
-            
-            if self.isAnimationCycleFinished {
-                self.runAnimation = false
+        println("===== \(currentIndex+1)/\(animationQueues.count) ======")
+        runningAnimationsRemained = animationQueues[currentIndex].count
+        for animation in animationQueues[currentIndex++] {
+            animation.executeAnimation {
+                [unowned self] in
+                if self.isAnimationCycleFinished {
+                    self.runAnimation = false
+                }
+                // Notify to run next Animation if all concurrent animations finish
+                self.runningAnimationsRemained--
             }
-            
-            // Notify to run next Animation if exists one
-            self.isAnimationRunning = false
         }
     }
-    
-    
-    
 }

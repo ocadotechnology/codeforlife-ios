@@ -17,15 +17,37 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableView: BlockTableView!
     @IBOutlet weak var containerView: UIView!
     
-    @IBOutlet weak var clearButton: GameViewButton!
-    
     var recognizer: BlockTableViewPanGestureRecognizer?
     
     var blocks: [Block] = [Start()] {
         didSet {
             self.tableView.reloadData()
-            let indexPath = NSIndexPath(forRow: blocks.count - 1, inSection: 0)
-            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+        }
+    }
+    
+    var currentSelectedCell = 0 {
+        willSet {
+            if currentSelectedCell > 0 && currentSelectedCell <= blocks.count {
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: currentSelectedCell, inSection: 0))?.backgroundColor = UIColor.clearColor()
+            }
+        }
+        didSet {
+            if currentSelectedCell > 0 && currentSelectedCell <= blocks.count {
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: currentSelectedCell, inSection: 0))?.backgroundColor = UIColor.greenColor()
+            }
+        }
+    }
+    
+    var incorrectCell = 0 {
+        willSet {
+            if incorrectCell > 0 && incorrectCell <= blocks.count {
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: incorrectCell, inSection: 0))?.backgroundColor = UIColor.clearColor()
+            }
+        }
+        didSet {
+            if incorrectCell > 0 && incorrectCell <= blocks.count {
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: incorrectCell, inSection: 0))?.backgroundColor = UIColor.redColor()
+            }
         }
     }
     
@@ -44,27 +66,35 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         tableView.dataSource = self
         tableView.delegate = self
     }
-    @IBAction func clear() {
-        CommandFactory.WebViewClearCommand().execute()
-        CommandFactory.NativeClearCommand().execute()
+    
+    final func recalculateVanPosition() {
+        gameViewController.gameMapViewController?.map?.resetMap()
+        gameViewController.gameMapViewController?.map?.van.reset()
+        for block in blocks {
+            block.executeBlock(animated: false, completion: nil)
+        }
     }
     
     final func clearBlocks() {
+        resetHighlightCellVariables()
         blocks.removeAll(keepCapacity: false)
         blocks.append(Start())
     }
     
+    final func resetHighlightCellVariables() {
+        currentSelectedCell = 0
+        incorrectCell = 0
+    }
+    
     final func addBlock(newBlock: Block) {
         blocks.append(newBlock)
+        let indexPath = NSIndexPath(forRow: blocks.count - 1, inSection: 0)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
     }
     
     final func submitBlocks() {
-        var str: String = "ocargo.animation.serializeAnimationQueue(["
-        for block in blocks {
-            str += block.type
-        }
-        str = str.substringToIndex(advance(str.startIndex, count(str)-1))
-        str += "])"
+        var str = blocks.reduce("ocargo.animation.serializeAnimationQueue([", combine: {$0 + $1.type})
+        str = blocks.count > 1 ? str.substringToIndex(advance(str.startIndex, count(str)-1)) + "])" : str + "])"
         println(str)
         gameViewController.runJavaScript(str)
     }
@@ -77,6 +107,11 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     
     final func handlePanGesture(sender: BlockTableViewPanGestureRecognizer) {
         recognizer?.handlePanGesture(sender)
+    }
+    
+    final func goToTopBlock() {
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
     }
 
     

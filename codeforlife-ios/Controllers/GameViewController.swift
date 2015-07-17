@@ -9,26 +9,13 @@
 import UIKit
 import WebKit
 import SnapKit
+import AVFoundation
 
-class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+class GameViewController: UIViewController, WKNavigationDelegate {
     
     let scriptMessageHandlerTitle = "handler"
     
-    let webViewPortion: CGFloat = 0.7
-    let webViewFrame = CGSize(width: 0, height: 0)
-    let webViewCornerRadius: CGFloat = 10
-    let webViewOffset: CGFloat = 10
-    
-    let webViewPreloadScript =
-        "document.getElementById('right').style.marginLeft = '0px';" +
-        "document.getElementById('tabs').style.display = 'none';" +
-        "document.getElementById('tab_panes').style.display = 'none';" +
-        "document.getElementById('consoleSlider').style.display = 'none';" +
-        "document.getElementById('paper').style.width = '100%';" +
-        "document.getElementById('direct_drive').style.display = 'none';" +
-        "ocargo.blocklyControl.reset();" +
-        "ocargo.game.reset();" +
-        "$('#mute_radio').trigger('click');"
+    let webViewPreloadScript = "$('#mute_radio').trigger('click');"
 
     // Controllers
     weak var gameMapViewController: GameMapViewController?
@@ -46,7 +33,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var gameMenuView: UIView!
     @IBOutlet weak var blockTableView: UIView!
     
     override func viewDidLoad() {
@@ -56,42 +42,28 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         level = requestedLevel
     }
     
-    func loadLevel(level: Level) {
-        FetchLevelAction(self).execute {
-            self.WebViewFetchLevelPostAction()
+    private func loadLevel(level: Level) {
+        FetchLevelRequest(self).execute {
+            [unowned self] in
+            FetchMapRequest(self, self.level?.mapUrl).execute()
+            ActionFactory.createAction("PregameMessage").execute()
+            ActionFactory.createAction("Clear").execute()
             self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
         }
     }
     
-    private func WebViewFetchLevelPostAction() {
-        FetchMapAction(self, level?.mapUrl).execute()
-        CommandFactory.NativeShowPreGameMessageCommand().execute()
-        CommandFactory.NativeClearCommand().execute()
-    }
-    
-    private func NativeFetchLevelPostAction() {
-        FetchMapAction(self, level?.mapUrl).execute()
-        CommandFactory.NativeShowPreGameMessageCommand().execute()
-        CommandFactory.NativeClearCommand().execute()
-    }
-    
-    
-    func setupWebView() {
-        var config = WKWebViewConfiguration()
-        var handler = GameViewInteractionHandler()
-        handler.gameViewController = self
+    private func setupWebView() {
+        let config = WKWebViewConfiguration()
+        let handler = GameViewInteractionHandler(self)
         config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
-        webView = WKWebView(frame: CGRect(origin: CGPointMake(view.center.y - 125,0), size: CGSize(width: 250, height: 200))
-            , configuration: config)
+        webView = WKWebView(frame: CGRectNull, configuration: config)
         webView?.navigationDelegate = self
-        webView?.UIDelegate = self
-        view.addSubview(webView!)
         activityIndicator?.startAnimating()
     }
     
-    func runJavaScript(javaScript: String, callback: () -> Void = {}) {
+    func runJavaScript(javaScript: String, callback: (() -> Void)? = nil) {
         webView?.evaluateJavaScript(javaScript) { ( _, _) in
-            callback()
+            callback?()
         }
     }
     
@@ -121,7 +93,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
     }
     
-    deinit { println("GameViewController is being deallocated") }
-
+//    deinit { println("GameViewController is being deallocated") }
     
 }

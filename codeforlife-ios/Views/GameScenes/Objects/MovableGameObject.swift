@@ -10,10 +10,7 @@ import UIKit
 import Foundation
 import SpriteKit
 
-
 class MovableGameObject: GameObject {
-    
-    let PI = CGFloat(M_PI)
 
     var currentCoordinates: Coordinates
     var direction : Direction
@@ -31,45 +28,105 @@ class MovableGameObject: GameObject {
         super.init(imageNamed: imageNamed, width: width, height: height)
     }
 
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func reset() {
+        removeAllActions()
+        resetCurrentCoordinates()
+        updatePosition()
     }
     
-    func resetPosition() {
-        fatalError("Implement resetPosition()")
+    final func resetCurrentCoordinates() {
+        self.currentCoordinates = self.origin.coordinates
+        self.direction = self.origin.compassDirection.direction
+        handleResetCurrentCoordinatesOffset()
     }
     
-    func moveForward(movement: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+    /// Handle the offset in addition to the original resetCurrentCoordinates function
+    /// to handle current coordinates reset for different kind of game objects
+    func handleResetCurrentCoordinatesOffset() {}
+    
+    final func updatePosition() {
+        self.position = currentCoordinates.toMapPosition()
+        handleUpdatePositionOffset()
+        let actionRotate = SKAction.rotateToAngle(direction.compassDirection.angle, duration: 0)
+        self.runAction(actionRotate)
+    }
+    
+    /// Handle the offset in addition to the original updatePosition function to
+    /// handle position update for different kind of game objects
+    func handleUpdatePositionOffset() {}
+    
+    
+    /*************
+     * Movements *
+     *************/
+    func moveForward(#animated: Bool, completion : (() -> Void)?) {
+        moveForwardWithAnimation(
+            movement: GameMapConfig.GridSize,
+            duration: animated ? 0.5 : 0,
+            completion: {
+                [unowned self] in
+                self.updatePosition()
+                completion?()
+        })
+    }
+    
+    func turnLeft(#animated: Bool, completion : (() -> Void)?) {
+        turnLeftWithAnimation(
+            radius: GameMapConfig.GridSize.height*(33+24+22)/202,
+            duration: animated ? 0.5 : 0,
+            completion: {
+                [unowned self] in
+                self.updatePosition()
+                completion?()
+            })
+    }
+    
+    func turnRight(#animated: Bool, completion : (() -> Void)?) {
+        turnRightWithAnimation(
+            radius: GameMapConfig.GridSize.height*(33+24+44+22)/202,
+            duration: animated ? 0.7 : 0,
+            completion: {
+                [unowned self] in
+                self.updatePosition()
+                completion?()
+        })
+    }
+    
+
+    /********************
+     * Helper Functions *
+     ********************/
+    private final func moveForwardWithAnimation(#movement: CGSize, duration: NSTimeInterval, completion: () -> Void) {
         var actionMove: SKAction
         switch direction {
         case .Left :
-            actionMove = SKAction.moveBy(CGVector(dx: -movement, dy: 0), duration: duration)
+            actionMove = SKAction.moveBy(CGVector(dx: -movement.width, dy: 0), duration: duration)
             currentCoordinates.x--
         case .Right:
-            actionMove = SKAction.moveBy(CGVector(dx:  movement, dy: 0), duration: duration)
+            actionMove = SKAction.moveBy(CGVector(dx:  movement.width, dy: 0), duration: duration)
             currentCoordinates.x++
         case .Up:
-            actionMove = SKAction.moveBy(CGVector(dx: 0, dy:  movement), duration: duration)
+            actionMove = SKAction.moveBy(CGVector(dx: 0, dy:  movement.height), duration: duration)
             currentCoordinates.y++
         case .Down:
-            actionMove = SKAction.moveBy(CGVector(dx: 0, dy: -movement), duration: duration)
+            actionMove = SKAction.moveBy(CGVector(dx: 0, dy: -movement.height), duration: duration)
             currentCoordinates.y--
         }
-        self.runAction(actionMove, completion: completion)
+        runAction(actionMove, completion: completion)
     }
     
-    func turnLeft(radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
-        turn(radius, duration: duration, left: true, completion: completion)
+    private final func turnLeftWithAnimation(#radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+        turnWithAnimation(radius, duration, left: true, completion)
     }
     
-    func turnRight (radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
-        turn(radius, duration: duration, left: false, completion: completion)
+    private final func turnRightWithAnimation(#radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+        turnWithAnimation(radius, duration, left: false, completion)
     }
     
-    private func turn(radius: CGFloat, duration: NSTimeInterval, left: Bool, completion: () -> Void) {
+    private final func turnWithAnimation(radius: CGFloat, _ duration: NSTimeInterval, left: Bool, _ completion: () -> Void) {
+        let PI = CGFloat(M_PI)
         let actionRotate = SKAction.rotateByAngle(left ? PI/2 : -PI/2, duration: duration)
         var path: UIBezierPath
-        var correctedPosition = self.position
         
         switch direction {
         case .Left :
@@ -80,9 +137,7 @@ class MovableGameObject: GameObject {
                 endAngle: PI,
                 clockwise: left)
             direction = left ? .Down : .Up
-            correctedPosition.x += -radius
-            correctedPosition.y += left ? -radius : radius
-            currentCoordinates.y += left ? -1 : 1
+            currentCoordinates.y += left ? -1 : +1
         case .Right:
             path = UIBezierPath(
                 arcCenter: CGPointMake(0, left ? radius : -radius) ,
@@ -91,8 +146,6 @@ class MovableGameObject: GameObject {
                 endAngle: 0,
                 clockwise: left)
             direction = left ? .Up : .Down
-            correctedPosition.x += radius
-            correctedPosition.y += left ? radius : -radius
             currentCoordinates.y += left ? 1 : -1
         case .Up:
             path = UIBezierPath(
@@ -102,8 +155,6 @@ class MovableGameObject: GameObject {
                 endAngle: PI/2,
                 clockwise: left)
             direction = left ? .Left : .Right
-            correctedPosition.x += left ? -radius : radius
-            correctedPosition.y += radius
             currentCoordinates.x += left ? -1 : 1
         case .Down:
             path = UIBezierPath(
@@ -113,8 +164,6 @@ class MovableGameObject: GameObject {
                 endAngle: PI*3/2,
                 clockwise: left)
             direction = left ? .Right : .Left
-            correctedPosition.x += left ? radius : -radius
-            correctedPosition.y += -radius
             currentCoordinates.x += left ? 1 : -1
         }
         let actionMove: SKAction = SKAction.followPath(
@@ -122,26 +171,12 @@ class MovableGameObject: GameObject {
             asOffset: true,
             orientToPath: false,
             duration: duration)
-        self.runAction(SKAction.group([actionRotate, actionMove]), completion: {
-                self.position = correctedPosition
-                completion()
+        runAction(SKAction.group([actionRotate, actionMove]), completion: {
+            completion()
             })
     }
-    
-    func deliver(_ completion : (() -> Void)? = nil) {
-        fatalError("Implement deliver()")
+        
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    
-    func moveForward(_ completion : (() -> Void)? = nil) {
-        fatalError("Implement moveForward()")
-    }
-    
-    func turnLeft(_ completion : (() -> Void)? = nil) {
-        fatalError("Implement turnLeft()")
-    }
-    
-    func turnRight(_ completion : (() -> Void)? = nil) {
-        fatalError("Implement turnRight()")
-    }
-    
 }

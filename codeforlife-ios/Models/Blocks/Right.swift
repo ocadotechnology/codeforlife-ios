@@ -16,18 +16,12 @@ class Right: Block {
             color: kC4LBlocklyRightBlockColour)
     }
     
-    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.turnRight {
-            super.executeBlockAction(player, completion: completion)
-        }
+    override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
+        ActionFactory.createAction("DisableDirectDrive").execute()
+        van?.turnRight(animated: animated, completion: {
+            ActionFactory.createAction("EnableDirectDrive").execute()
+            completion?()
+        })
     }
-    
-    override func submit() {
-        CommandFactory.WebViewTurnRightCommand().execute()
-    }
-    
-    override func submitMock() {
-        CommandFactory.WebViewTurnRightCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(TurnRightAnimation()).execute()
-    }
+
 }

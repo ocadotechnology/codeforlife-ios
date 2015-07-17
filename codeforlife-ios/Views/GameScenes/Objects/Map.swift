@@ -17,9 +17,8 @@ class Map: SKScene {
     var origin: Origin
     var destinations: [Destination]
     var decorations: [Decoration]
-    var player: Van
+    var van: Van
     lazy var mapArray = [[Bool]]()
-    
     
     init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Destination], decorations: [Decoration]) {
         self.width = width
@@ -28,11 +27,11 @@ class Map: SKScene {
         self.origin = origin
         self.destinations = destination
         self.decorations = decorations
-        self.player = Van(origin: origin)
-        self.player.zPosition = 1
+        self.van = Van(origin: origin)
+        self.van.zPosition = 0.8
         super.init(size: CGSize(
-            width: GameMapConfig.Grid.width*CGFloat(width),
-            height: GameMapConfig.Grid.height*CGFloat(height)))
+            width: GameMapConfig.GridSize.width*CGFloat(width),
+            height: GameMapConfig.GridSize.height*CGFloat(height)))
     }
     
     override func didMoveToView(view: SKView) {
@@ -40,9 +39,7 @@ class Map: SKScene {
         self.scaleMode = SKSceneScaleMode.AspectFill
     }
     
-    /// Reset Map array and Destinations.
-    /// This should only be called before executing animations.
-    func resetMap() {
+    final func resetMap() {
         resetMapArray()
         resetDestination()
     }
@@ -66,8 +63,7 @@ class Map: SKScene {
         }
     }
     
-    /// Returns TRUE if all destinations have been reached.
-    func visitedAllDestinations() -> Bool {
+    func allDestinationVisited() -> Bool {
         for destination in destinations {
             if !destination.visited {
                 return false
@@ -81,18 +77,19 @@ class Map: SKScene {
         resetMap()
         drawGrass()
         drawRoads()
+        drawBorders()
         drawDecorations()
 
         var cfc = CFC(origin: origin)
         addChild(cfc)
-        addChild(player)
+        addChild(van)
     }
     
     private func drawGrass() {
         for x in 0 ..< width {
             for y in 0  ..< height {
-                if !mapArray[x][y] {
-                    //addChild(Tile(Coordinates(x,y)))
+                if x%2 == 0 && y%2 == 0 {
+                    addChild(Tile(Coordinates(x,y)))
                 }
             }
         }
@@ -109,6 +106,12 @@ class Map: SKScene {
                 let house = House(origin: origin)
                 addChild(house)
             }
+        }
+    }
+    
+    private func drawBorders() {
+        for destination in destinations {
+            addChild(destination.createBorder())
         }
     }
     

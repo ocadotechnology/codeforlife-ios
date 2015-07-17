@@ -8,93 +8,111 @@
 
 import SpriteKit
 import Foundation
+import AVFoundation
 
 class Van: MovableGameObject {
     
-    init(origin: Origin) {
-        super.init(
-            imageNamed: "ocadoVan_big",
-            width: GameMapConfig.Grid.width*38/202,
-            height: GameMapConfig.Grid.width*38/202*510/264,
-            origin: origin)
-        self.resetPosition()
-        
+    var engine = AVAudioPlayer()
+    
+    var exploded = false {
+        didSet {
+            self.texture = SKTexture(imageNamed: exploded ? "van_wreckage" : "ocadoVan_big")
+        }
     }
     
-    override func resetPosition() {
-        var rad: CGFloat
-        self.position = CGPointMake(
-            CGFloat(origin.coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
-            CGFloat(origin.coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
-        
-        switch origin.compassDirection {
-        case .N:
-            self.position.x -= self.width/2 + GameMapConfig.Grid.width/45
-            self.position.y += GameMapConfig.Grid.height/2
-        case .E:
-            self.position.x += GameMapConfig.Grid.width/2
-            self.position.y += self.width/2 + GameMapConfig.Grid.height/45
-        case .S:
-            self.position.x += self.width/2 + GameMapConfig.Grid.width/45
-            self.position.y -= GameMapConfig.Grid.height/2
-        case .W:
-            self.position.x -= GameMapConfig.Grid.width/2
-            self.position.y -= self.width/2 + GameMapConfig.Grid.height/45
-        default : break
+    var engineStarted = false {
+        didSet {
+            if engineStarted {
+                engine.play()
+            } else {
+                engine.stop()
+            }
         }
-        
-        rad = origin.compassDirection.angle
-        self.direction = origin.compassDirection.direction
-        let actionRotate = SKAction.rotateToAngle(rad, duration: 0)
-        self.runAction(actionRotate)
-        resetCurrentCoordinates()
+    }
+    
+    init(origin: Origin) {
+        let engineSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("moving", ofType: "mp3")!)
+        self.engine = AVAudioPlayer(contentsOfURL: engineSound, error: nil)
+        self.engine.numberOfLoops = -1
+        self.engine.prepareToPlay()
+        super.init(
+            imageNamed: "ocadoVan_big",
+            width: GameMapConfig.GridSize.width*38/202,
+            height: GameMapConfig.GridSize.width*38/202*510/264,
+            origin: origin)
+        self.reset()
+    }
+    
+    override func reset() {
+        self.exploded = false
+        self.engineStarted = false
+        super.reset()
     }
     
     // Origin of the Van is always one step further from the actual origin
-    private func resetCurrentCoordinates() {
-        self.currentCoordinates = self.origin.coordinates
+    override func handleResetCurrentCoordinatesOffset() {
         switch origin.compassDirection {
-        case .N: currentCoordinates.y++
-        case .E: currentCoordinates.x++
-        case .S: currentCoordinates.y--
-        case .W: currentCoordinates.x--
+            case .N: currentCoordinates.y++
+            case .E: currentCoordinates.x++
+            case .S: currentCoordinates.y--
+            case .W: currentCoordinates.x--
         default: break
         }
     }
     
-    override func moveForward(_ completion : (() -> Void)? = nil) {
-        CommandFactory.NativeDisableDirectDriveCommand().execute()
-        self.moveForward(GameMapConfig.Grid.height, duration: 0.5) {
-            CommandFactory.NativeEnableDirectDriveCommand().execute()
-            completion?()
+    override func handleUpdatePositionOffset() {
+        switch direction {
+        case .Up:       self.position.x -= self.width/2 + GameMapConfig.GridSize.width/45
+        self.position.y -= GameMapConfig.GridSize.height/2
+        case .Right:    self.position.x -= GameMapConfig.GridSize.width/2
+        self.position.y += self.width/2 + GameMapConfig.GridSize.height/45
+        case .Down:    self.position.x += self.width/2 + GameMapConfig.GridSize.width/45
+        self.position.y += GameMapConfig.GridSize.height/2
+        case .Left:    self.position.x += GameMapConfig.GridSize.width/2
+        self.position.y -= self.width/2 + GameMapConfig.GridSize.height/45
+        default : break
         }
     }
     
-    override func turnLeft(_ completion : (() -> Void)? = nil) {
-        CommandFactory.NativeDisableDirectDriveCommand().execute()
-        self.turnLeft(GameMapConfig.Grid.height*(33+24+22)/202, duration: 0.5) {
-            CommandFactory.NativeEnableDirectDriveCommand().execute()
-            completion?()
-        }
-    }
-    
-    override func turnRight(_ completion : (() -> Void)? = nil) {
-        CommandFactory.NativeDisableDirectDriveCommand().execute()
-        self.turnRight(GameMapConfig.Grid.height*(33+24+44+22)/202, duration: 0.7) {
-            CommandFactory.NativeEnableDirectDriveCommand().execute()
-            completion?()
-        }
-    }
-    
-    override func deliver(_ completion: (() -> Void)? = nil) {
+    final func deliver(#animated: Bool, completion: (() -> Void)?) {
         if let map = SharedContext.MainGameViewController?.gameMapViewController?.map {
             for destination in map.destinations {
                 if destination.coordinates == currentCoordinates {
                     destination.visited = true
                 }
             }
-            completion?()
         }
+    }
+    
+    final func crash(completion: (() -> Void)?) {
+        
+        let numberOfExplosion = 200
+        let interval:Int = 500
+        let range:CGFloat = 25
+        let fireToSmokeRatio:UInt32 = 3
+        
+        for i in 1 ... numberOfExplosion {
+            
+            let explosionRange = CGFloat(Float(arc4random()) / Float(UINT32_MAX)) * range
+            var explosionPosition = self.position
+            explosionPosition.x += (CGFloat(Float(arc4random()) / Float(UINT32_MAX)) - 0.5) * range
+            explosionPosition.y += (CGFloat(Float(arc4random()) / Float(UINT32_MAX)) - 0.5) * range
+            var fire = arc4random_uniform(fireToSmokeRatio)
+            var explosion = GameObject(imageNamed: fire == 0 ? "smoke": "fire", width: 1, height: 1)
+            explosion.position = explosionPosition
+            explosion.zPosition = 1.0
+            SharedContext.MainGameViewController?.gameMapViewController?.map?.addChild(explosion)
+            explosion.runAction(SKAction.scaleBy(explosionRange, duration: 1)) {
+                [unowned self, unowned explosion] in
+                self.exploded = true
+                explosion.runAction(SKAction.scaleBy(1/explosionRange, duration: 1)) {
+                    [unowned explosion = explosion] in
+                    explosion.removeFromParent()
+                    
+                }
+            }
+        }
+        completion?()
     }
     
     required init(coder aDecoder: NSCoder) {
