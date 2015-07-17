@@ -22,12 +22,16 @@ class Deliver: Block {
         }
     }
     
+    override func toString() -> String {
+        return "\"deliver\","
+    }
+    
     override func submit() {
         CommandFactory.WebViewDeliverCommand().execute()
     }
     
-    override func submitMock() {
-        CommandFactory.WebViewDeliverCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(DeliverAnimation()).execute()
-    }
+//    override func submitMock() {
+//        CommandFactory.WebViewDeliverCommand().execute()
+//        CommandFactory.NativeAddAnimationCommand(DeliverAnimation()).execute()
+//    }
 }

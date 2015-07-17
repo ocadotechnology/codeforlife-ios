@@ -65,16 +65,16 @@ class NGVPlayCommand: GameMenuCommand {
         
         gameViewController.blockTableViewController?.submitBlocks()
         
-        gameViewController.gameMapViewController?.animationHandler.addAnimation(DeliverAnimation())
-        gameViewController.gameMapViewController?.animationHandler.addAnimation(PopUpAnimation())
-        gameViewController.gameMapViewController?.animationHandler.addAnimation(OnStopControlsAnimation())
+//        gameViewController.gameMapViewController?.animationHandler.addAnimation(DeliverAnimation())
+//        gameViewController.gameMapViewController?.animationHandler.addAnimation(PopUpAnimation())
+//        gameViewController.gameMapViewController?.animationHandler.addAnimation(OnStopControlsAnimation())
         
         // Execute Web Animation
         CommandFactory.WebViewPlayCommand().execute()
         
         // Execute Animation
-        gameViewController.gameMapViewController?.animationHandler.currentIndex = 0
-        gameViewController.gameMapViewController?.animationHandler.runAnimation = true
+//        gameViewController.gameMapViewController?.animationHandler.currentIndex = 0
+//        gameViewController.gameMapViewController?.animationHandler.runAnimation = true
     }
 }
 

@@ -30,8 +30,8 @@ class Forward: Block {
         CommandFactory.WebViewMoveForwardCommand().execute()
     }
     
-    override func submitMock() {
-        CommandFactory.WebViewMoveForwardCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(MoveForwardAnimation()).execute()
-    }
+//    override func submitMock() {
+//        CommandFactory.WebViewMoveForwardCommand().execute()
+//        CommandFactory.NativeAddAnimationCommand(MoveForwardAnimation()).execute()
+//    }
 }

@@ -162,10 +162,6 @@ class CommandFactory {
         return NGVShowResultCommand(gameViewController: gameViewController!)
     }
     
-    class func NativeAddAnimationCommand(animation: Animation) -> GameMapCommand {
-        return NGVAddAnimationCommand(gameViewController!, animation)
-    }
-    
     class func NativeResetAnimationCommand() -> GameMapCommand {
         return NGVResetAnimationCommand(gameViewController: gameViewController!)
     }

@@ -22,12 +22,16 @@ class Right: Block {
         }
     }
     
+    override func toString() -> String {
+        return "\"turn_right\","
+    }
+    
     override func submit() {
         CommandFactory.WebViewTurnRightCommand().execute()
     }
     
-    override func submitMock() {
-        CommandFactory.WebViewTurnRightCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(TurnRightAnimation()).execute()
-    }
+//    override func submitMock() {
+//        CommandFactory.WebViewTurnRightCommand().execute()
+//        CommandFactory.NativeAddAnimationCommand(TurnRightAnimation()).execute()
+//    }
 }

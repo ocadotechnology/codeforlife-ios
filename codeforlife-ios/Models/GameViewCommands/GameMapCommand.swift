@@ -61,20 +61,6 @@ class NGVShowResultCommand: GameMapCommand {
     }
 }
 
-class NGVAddAnimationCommand : GameMapCommand {
-    
-    var animation: Animation
-    
-    init(_ gameViewController: GameViewController, _ animation: Animation) {
-        self.animation = animation
-        super.init(gameViewController : gameViewController)
-    }
-    
-    override func execute(completion: (() -> Void)? = nil) {
-        gameViewController.gameMapViewController?.animationHandler.addAnimation(self.animation)
-    }
-}
-
 class NGVResetAnimationCommand: GameMapCommand {
     override func execute(completion: (() -> Void)? = nil) {
         gameViewController.gameMapViewController?.animationHandler.removeAllAnimations()

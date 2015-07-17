@@ -20,8 +20,8 @@ class Start: Block {
         CommandFactory.NativeResetAnimationCommand().execute()
     }
     
-    override func submitMock() {
-        CommandFactory.NativeAddAnimationCommand(StartAnimation()).execute()
-    }
+//    override func submitMock() {
+//        CommandFactory.NativeAddAnimationCommand(StartAnimation()).execute()
+//    }
     
 }

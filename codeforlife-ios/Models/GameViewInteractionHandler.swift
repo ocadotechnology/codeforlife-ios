@@ -30,6 +30,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if let result = message.body as? NSString {
+            println(result)
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
                 if let queues = json.array {
@@ -38,11 +39,10 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                         var animationQueue = convertToAnimationQueue(queue)
                         animationQueues.append(animationQueue)
                     }
-                    
-                    for queue in animationQueues {
-                        println(queue.count)
-                    }
-                    
+                    SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.animationQueues = animationQueues
+                    SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.currentIndex = 0
+                    SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.runAnimation = true
+
                 }
             }
         }

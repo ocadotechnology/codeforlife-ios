@@ -22,12 +22,16 @@ class Left: Block {
         }
     }
     
+    override func toString() -> String {
+        return "\"turn_left\","
+    }
+    
     override func submit() {
         CommandFactory.WebViewTurnLeftCommand().execute()
     }
     
-    override func submitMock() {
-        CommandFactory.WebViewTurnLeftCommand().execute()
-        CommandFactory.NativeAddAnimationCommand(TurnLeftAnimation()).execute()
-    }
+//    override func submitMock() {
+//        CommandFactory.WebViewTurnLeftCommand().execute()
+//        CommandFactory.NativeAddAnimationCommand(TurnLeftAnimation()).execute()
+//    }
 }
