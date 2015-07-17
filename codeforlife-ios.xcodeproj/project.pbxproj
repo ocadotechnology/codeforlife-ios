@@ -36,6 +36,10 @@
 		ED13D0111B5903AE00EA591A /* StopengineAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13D0101B5903AE00EA591A /* StopengineAnimation.swift */; };
 		ED13D0121B5903AE00EA591A /* StopengineAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13D0101B5903AE00EA591A /* StopengineAnimation.swift */; };
 		ED13D0161B59153C00EA591A /* SoundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13CFEF1B58FBCD00EA591A /* SoundAnimation.swift */; };
+		ED13D0181B59217900EA591A /* HighlightAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13D0171B59217900EA591A /* HighlightAnimation.swift */; };
+		ED13D0191B59217900EA591A /* HighlightAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13D0171B59217900EA591A /* HighlightAnimation.swift */; };
+		ED13D01B1B59218400EA591A /* HighlightIncorrectAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13D01A1B59218400EA591A /* HighlightIncorrectAnimation.swift */; };
+		ED13D01C1B59218400EA591A /* HighlightIncorrectAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13D01A1B59218400EA591A /* HighlightIncorrectAnimation.swift */; };
 		ED1A93261B428A36004E6AD4 /* BlockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93251B428A36004E6AD4 /* BlockTableView.swift */; };
 		ED1A93271B428A36004E6AD4 /* BlockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93251B428A36004E6AD4 /* BlockTableView.swift */; };
 		ED1A932C1B429567004E6AD4 /* GameMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A932B1B429567004E6AD4 /* GameMapViewController.swift */; };
@@ -282,6 +286,8 @@
 		ED13CFFF1B59002F00EA591A /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
 		ED13D00D1B5902C500EA591A /* StartEngineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartEngineAnimation.swift; sourceTree = "<group>"; };
 		ED13D0101B5903AE00EA591A /* StopengineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopengineAnimation.swift; sourceTree = "<group>"; };
+		ED13D0171B59217900EA591A /* HighlightAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightAnimation.swift; sourceTree = "<group>"; };
+		ED13D01A1B59218400EA591A /* HighlightIncorrectAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightIncorrectAnimation.swift; sourceTree = "<group>"; };
 		ED1A93251B428A36004E6AD4 /* BlockTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableView.swift; sourceTree = "<group>"; };
 		ED1A932B1B429567004E6AD4 /* GameMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapViewController.swift; sourceTree = "<group>"; };
 		ED1A93361B42AE81004E6AD4 /* Van.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Van.swift; path = ../Van.swift; sourceTree = "<group>"; };
@@ -794,6 +800,8 @@
 				ED13CFEF1B58FBCD00EA591A /* SoundAnimation.swift */,
 				ED13D00D1B5902C500EA591A /* StartEngineAnimation.swift */,
 				ED13D0101B5903AE00EA591A /* StopengineAnimation.swift */,
+				ED13D0171B59217900EA591A /* HighlightAnimation.swift */,
+				ED13D01A1B59218400EA591A /* HighlightIncorrectAnimation.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -1137,9 +1145,11 @@
 				ED7799D71B46AB3E00A854A3 /* GameMapConfig.swift in Sources */,
 				ED1A932C1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
 				EDD1A2C31B4FCEA3001A82A2 /* MoveForward.swift in Sources */,
+				ED13D01B1B59218400EA591A /* HighlightIncorrectAnimation.swift in Sources */,
 				EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */,
 				ED0A770A1B34560600267191 /* LevelTableViewCell.swift in Sources */,
 				ED1A93501B43D4A3004E6AD4 /* FetchEpisodesAction.swift in Sources */,
+				ED13D0181B59217900EA591A /* HighlightAnimation.swift in Sources */,
 				ED1A93261B428A36004E6AD4 /* BlockTableView.swift in Sources */,
 				EDA47C3B1B441E35003356AB /* EpisodeTableView.swift in Sources */,
 				ED7799CE1B46944200A854A3 /* FetchLevelAction.swift in Sources */,
@@ -1184,6 +1194,7 @@
 				ED1A935A1B43D88E004E6AD4 /* APIActionDelegate.swift in Sources */,
 				ED1A93461B43D046004E6AD4 /* EpisodeViewController.swift in Sources */,
 				ED1A93381B42AE81004E6AD4 /* Van.swift in Sources */,
+				ED13D0191B59217900EA591A /* HighlightAnimation.swift in Sources */,
 				ED7799D51B46A09D00A854A3 /* Road.swift in Sources */,
 				EDBB666B1B3AA029009020A5 /* LevelTableViewController.swift in Sources */,
 				EDFE934A1B41826A00E01322 /* PostGameMessage.swift in Sources */,
@@ -1276,6 +1287,7 @@
 				EDBB666A1B3AA018009020A5 /* LabelViewControllerTests.swift in Sources */,
 				EDA47C461B442A1E003356AB /* GlobalConfig.swift in Sources */,
 				EDFE933B1B41808700E01322 /* FailMessage.swift in Sources */,
+				ED13D01C1B59218400EA591A /* HighlightIncorrectAnimation.swift in Sources */,
 				EDA47C431B442798003356AB /* LevelTableView.swift in Sources */,
 				EDD1A2D91B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */,
 				EDBB66731B3AA07A009020A5 /* CommandFactory.swift in Sources */,
