@@ -12,7 +12,7 @@ class Start: Block {
     init() {
         super.init(
             description: "Start",
-            type: "start",
+            type: "",
             color: kC4LBlocklyStartBlockColour)
     }
     

@@ -52,7 +52,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         SharedContext.MainGameViewController = self
-//        setupWebView()
+        setupWebView()
         level = requestedLevel
     }
     
@@ -114,6 +114,11 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         webView.evaluateJavaScript(webViewPreloadScript, completionHandler: nil)
             self.activityIndicator?.stopAnimating()
+    }
+    
+    func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
+        var credential = NSURLCredential(user: "trial", password: "cabbage", persistence: NSURLCredentialPersistence.Permanent)
+        completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
     }
     
     deinit { println("GameViewController is being deallocated") }

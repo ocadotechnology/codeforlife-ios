@@ -18,6 +18,7 @@ class Van: MovableGameObject {
             height: GameMapConfig.Grid.width*38/202*510/264,
             origin: origin)
         self.resetPosition()
+        
     }
     
     override func resetPosition() {

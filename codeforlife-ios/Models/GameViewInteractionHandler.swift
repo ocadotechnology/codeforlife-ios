@@ -32,26 +32,41 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         if let result = message.body as? NSString {
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
-                if let tag = json[JSONIdentifier.Tag].string {
-                    switch tag {
-                    case JSONTag.PreGameMsg:
-                        CommandFactory.NativeShowPreGameMessageCommand().execute()
-                    case JSONTag.PostGameMsg:
-                        if let title = json[JSONIdentifier.Title].string {
-                            if let context = json[JSONIdentifier.Context].string {
-                                CommandFactory.NativeShowPostGameMessageCommand().execute()
+                if let queues = json.array {
+                    var animationQueues = [[Animation]]()
+                    for queue in queues {
+                        var animationQueue = [Animation]()
+                        for animation in queue {
+                            if let description = animation.1["description"].string {
+                                switch description {
+                                    case "starting sound":
+                                        animationQueue.append(SoundAnimation(gameSound: GameSound.Starting))
+                                    case "starting engine":
+                                        animationQueue.append(StartEngineAnimation())
+                                    case "van move action: FORWARD":
+                                        animationQueue.append(MoveForwardAnimation())
+                                    case "van delivering":
+                                        animationQueue.append(DeliverAnimation())
+                                    case "stopping engine":
+                                        animationQueue.append(StopEngineAnimation())
+                                    case "win popup":
+                                        animationQueue.append(PopUpAnimation())
+                                    case "win sound":
+                                        animationQueue.append(SoundAnimation(gameSound: GameSound.Win))
+                                    case "onStopControls":
+                                        animationQueue.append(OnStopControlsAnimation())
+                                default:
+                                    println("Implement Handling for \(description)")
+                                }
                             }
                         }
-                    case JSONTag.FailMessage:
-                        if let title = json[JSONIdentifier.Title].string {
-                            if let context = json[JSONIdentifier.Context].string {
-                                CommandFactory.NativeShowFailMessageCommand().execute()
-                            }
-                        }
-                    case JSONTag.HelpMessage:
-                        CommandFactory.NativeShowHelpCommand().execute()
-                    default: break
+                        animationQueues.append(animationQueue)
                     }
+                    
+                    for queue in animationQueues {
+                        println(queue.count)
+                    }
+                    
                 }
             }
         }

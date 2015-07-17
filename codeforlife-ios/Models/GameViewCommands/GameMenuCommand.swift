@@ -62,7 +62,9 @@ class NGVPlayCommand: GameMenuCommand {
         
         // Submit Blocks and retrieve Animations
         gameViewController.gameMapViewController?.map?.player.resetPosition()
+        
         gameViewController.blockTableViewController?.submitBlocks()
+        
         gameViewController.gameMapViewController?.animationHandler.addAnimation(DeliverAnimation())
         gameViewController.gameMapViewController?.animationHandler.addAnimation(PopUpAnimation())
         gameViewController.gameMapViewController?.animationHandler.addAnimation(OnStopControlsAnimation())

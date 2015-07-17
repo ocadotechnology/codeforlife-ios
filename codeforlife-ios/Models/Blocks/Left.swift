@@ -12,7 +12,7 @@ class Left: Block {
     init() {
         super.init(
             description: "Turn Left",
-            type: "turn_left",
+            type: "\"turn_left\",",
             color: kC4LBlocklyLeftBlockColour)
     }
     

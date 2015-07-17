@@ -59,10 +59,14 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     }
     
     final func submitBlocks() {
-        
+        var str: String = "ocargo.animation.serializeAnimationQueue(["
         for block in blocks {
-            block.submitMock()
+            str += block.type
         }
+        str = str.substringToIndex(advance(str.startIndex, count(str)-1))
+        str += "])"
+        println(str)
+        gameViewController.runJavaScript(str)
     }
     
     final func highlightRow(row: Int) {

@@ -20,6 +20,7 @@ class Map: SKScene {
     var player: Van
     lazy var mapArray = [[Bool]]()
     
+    
     init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Destination], decorations: [Decoration]) {
         self.width = width
         self.height = height
@@ -84,9 +85,7 @@ class Map: SKScene {
 
         var cfc = CFC(origin: origin)
         addChild(cfc)
-        
         addChild(player)
-        
     }
     
     private func drawGrass() {
