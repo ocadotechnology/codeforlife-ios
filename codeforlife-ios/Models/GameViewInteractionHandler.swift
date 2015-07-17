@@ -32,29 +32,107 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         if let result = message.body as? NSString {
             if let data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                 let json = JSON(data: data)
-                if let tag = json[JSONIdentifier.Tag].string {
-                    switch tag {
-                    case JSONTag.PreGameMsg:
-                        CommandFactory.NativeShowPreGameMessageCommand().execute()
-                    case JSONTag.PostGameMsg:
-                        if let title = json[JSONIdentifier.Title].string {
-                            if let context = json[JSONIdentifier.Context].string {
-                                CommandFactory.NativeShowPostGameMessageCommand().execute()
-                            }
-                        }
-                    case JSONTag.FailMessage:
-                        if let title = json[JSONIdentifier.Title].string {
-                            if let context = json[JSONIdentifier.Context].string {
-                                CommandFactory.NativeShowFailMessageCommand().execute()
-                            }
-                        }
-                    case JSONTag.HelpMessage:
-                        CommandFactory.NativeShowHelpCommand().execute()
-                    default: break
+                if let queues = json.array {
+                    var animationQueues = [[Animation]]()
+                    for queue in queues {
+                        var animationQueue = convertToAnimationQueue(queue)
+                        animationQueues.append(animationQueue)
                     }
+                    
+                    for queue in animationQueues {
+                        println(queue.count)
+                    }
+                    
                 }
             }
         }
+    }
+    
+    private func convertToAnimationQueue(queue: JSON) -> [Animation] {
+        var animations = [Animation]()
+        println("___NEW QUEUE___")
+        for object in queue {
+            if let type = object.1["type"].string {
+                println(type)
+                var animation: Animation?
+                switch type {
+                    case "van":
+                        animation = convertToVanAnimation(object.1)
+                    case "popup":
+                        animation = PopUpAnimation()
+                    case "trafficlight": break // TODO
+                    case "playSound":
+                        animation = convertToPlaySoundAnimation(object.1)
+                    case "highlight":
+                        animation = convertToHighlightAnimation(object.1)
+                    case "highlightIncorrect":
+                        animation = convertToHighlightIncorrectAnimation(object.1)
+                    case "onStopControls":
+                        animation = OnStopControlsAnimation()
+                default: break
+                }
+                if animation != nil {
+                    animations.append(animation!)
+                }
+            }
+        }
+        println("")
+        return animations
+    }
+    
+    private func convertToVanAnimation(object: JSON) -> Animation? {
+        var animation: Animation?
+        if let vanAction = object["vanAction"].string {
+            switch vanAction {
+            case "FORWARD":
+                animation = MoveForwardAnimation()
+            case "TURN_LEFT":
+                animation = TurnLeftAnimation()
+            case "TURN_RIGHT":
+                animation = TurnRightAnimation()
+            case "DELIVER":
+                animation = DeliverAnimation()
+            case "TURN_AROUND": break // TODO
+            default:
+                println("Implement van handling for \(description)")
+            }
+        }
+        return animation
+    }
+    
+    private func convertToPlaySoundAnimation(object: JSON) -> Animation? {
+        var animation: Animation?
+        if let description = object["description"].string {
+            switch description {
+            case "starting sound":
+                animation = MoveForwardAnimation()
+            case "starting engine":
+                animation = TurnLeftAnimation()
+            case "stopping engine":
+                animation = TurnRightAnimation()
+            case "win sound":
+                animation = DeliverAnimation()
+            default:
+                println("Implement sound handling for \(description)")
+            }
+        }
+        return animation
+    }
+    
+    private func convertToHighlightAnimation(object: JSON) -> Animation? {
+        var animation: Animation?
+        if let blockId = object["blockId"].int {
+            animation = HighlightAnimation(blockId: blockId)
+        }
+        return animation
+    }
+    
+    private func convertToHighlightIncorrectAnimation(object: JSON) -> Animation? {
+        var animation: Animation?
+        if let blockId = object["blockId"].int {
+            animation = HighlightIncorrectAnimation(blockId: blockId)
+        }
+        return animation
     }
     
 }

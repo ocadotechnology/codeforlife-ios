@@ -12,7 +12,7 @@ class Forward: Block {
     init() {
         super.init(
             description: "Move Forward",
-            type: "move_forwards",
+            type: "\"move_forwards\",",
             color: kC4LBlocklyForwardBlockColour)
     }
     
@@ -20,6 +20,10 @@ class Forward: Block {
         player.moveForward {
             super.executeBlockAction(player, completion: completion)
         }
+    }
+    
+    override func toString() -> String {
+        return "\"move_forwards\","
     }
     
     override func submit() {

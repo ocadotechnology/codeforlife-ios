@@ -46,6 +46,10 @@ class Block {
         }
     }
     
+    func toString() -> String {
+        return ""
+    }
+    
     func submit() {}
     
     func submitMock() {}

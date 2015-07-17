@@ -12,7 +12,7 @@ import Foundation
 
 class Road: GameObject {
     
-    static let scale: CGFloat = 1.01
+    static let scale: CGFloat = 1.00
     
     class Builder {
         
@@ -49,8 +49,8 @@ class Straight: Road {
     init() {
         super.init(
             imageNamed: "straight",
-            width: GameMapConfig.Grid.width * Road.scale * 131/200,
-            height: GameMapConfig.Grid.height * Road.scale * 202/200)
+            width: GameMapConfig.Grid.width * Road.scale * 133/200,
+            height: GameMapConfig.Grid.height * Road.scale * 201/200)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -63,8 +63,8 @@ class Turn: Road {
     init() {
         super.init(
             imageNamed: "turn",
-            width: GameMapConfig.Grid.height * Road.scale * 168/200,
-            height: GameMapConfig.Grid.height * Road.scale * 168/200)
+            width: GameMapConfig.Grid.height * Road.scale * 167/200,
+            height: GameMapConfig.Grid.height * Road.scale * 167/200)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -102,7 +102,7 @@ class DeadEnd: Road { // Non-Raphael Image
     init() {
         super.init(
             imageNamed: "dead_end",
-            width: GameMapConfig.Grid.width * Road.scale * 130/200,
+            width: GameMapConfig.Grid.width * Road.scale * 133/200,
             height: GameMapConfig.Grid.height * Road.scale * 166/200)
     }
     
