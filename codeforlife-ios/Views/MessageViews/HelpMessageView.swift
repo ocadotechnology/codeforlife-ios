@@ -10,8 +10,6 @@ import UIKit
 
 class HelpMessageView: MessageView {
 
-    let containerViewCornerRadius: CGFloat = 50
-    let containerViewBorderWidth: CGFloat = 10
     let messageButtonBorderWidth: CGFloat = 5
     let messageButtonCornerRadius: CGFloat = 25
     
@@ -22,7 +20,6 @@ class HelpMessageView: MessageView {
     class func instsanceFromXib(message: Message) -> HelpMessageView {
         var view = UINib(nibName: "HelpMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! HelpMessageView
         view.message = message
-        view.frame.size = CGSize(width: 500, height: 500)
         return view
     }
     
@@ -37,10 +34,6 @@ class HelpMessageView: MessageView {
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
-        layer.cornerRadius = containerViewCornerRadius
-        layer.masksToBounds = true
-        layer.borderColor = kC4LMessageBorderColour.CGColor
-        layer.borderWidth = containerViewBorderWidth
         messageButton.layer.cornerRadius = messageButtonCornerRadius
         messageButton.layer.masksToBounds = true
         messageButton.layer.borderWidth = messageButtonBorderWidth

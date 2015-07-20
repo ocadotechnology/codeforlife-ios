@@ -41,27 +41,25 @@ class WinPopupAnimation: PopUpAnimation {
     override func executeAnimation(#completion: (() -> Void)?) {
         println("Win Popup")
         let controller = MessageViewController.MessageViewControllerInstance()
-        println(controller.view.frame)
-        controller.view.frame.size = CGSize(width: 500, height: 500)
-        println(controller.view.frame)
         controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        SharedContext.MainGameViewController?.presentViewController(controller, animated: true) {
-            [weak controller = controller] in
-            controller?.view.frame.size = CGSize(width: 500, height: 500)
-            println(controller?.view.frame)
-        }
+        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: {
+            println(controller.view.frame)
+        })
         controller.message = PostGameMessage(
-            title: "You win!",
-            context: "Route score: \(pathScore)/\(maxPathScore) \nAlgorithm score: \(instrScore)/\(maxInstrScore) \nYour total score: \(pathScore+instrScore)/\(maxPathScore+maxInstrScore)\n\(popupMessage)",
+            context: popupMessage,
+            pathScore: pathScore,
+            maxPathScore: maxPathScore,
+            instrScore: instrScore,
+            maxInstrScore: maxInstrScore,
             nextLevelAction: {
                 controller.gotoNextLevelAndDismiss()
                 controller.dismissViewControllerAnimated(true, completion: nil)
             },
             playAgainAction: {
+                println(controller.view.frame)
                 controller.playAgainAndDismiss()
                 controller.dismissViewControllerAnimated(true, completion: nil)
         })
-        controller.toggleMenu()
         completion?()
     }
 }
@@ -72,14 +70,12 @@ class FailurePopupAnimation: PopUpAnimation {
         let controller = MessageViewController.MessageViewControllerInstance()
         controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
-        controller.didMoveToParentViewController(SharedContext.MainGameViewController!)
         controller.message = FailMessage(
             title: "Oh dear!",
             context: popupMessage,
             action: {
                 controller.dismissViewControllerAnimated(true, completion: nil)
         })
-        controller.toggleMenu()
         completion?()
     }
 }

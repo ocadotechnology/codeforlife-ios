@@ -10,10 +10,19 @@ import Foundation
 
 class PostGameMessage: Message {
     
+    var pathScore: Float
+    var instrScore: Float
+    var maxPathScore: Int
+    var maxInstrScore: Int
+    
     var playAgainAction: (() -> Void)?
     
-    init(title: String, context: String, nextLevelAction: () -> Void, playAgainAction: () -> Void) {
-        super.init(title: title, context: context, action: nextLevelAction)
+    init(context: String, pathScore: Float, maxPathScore: Int, instrScore: Float, maxInstrScore: Int, nextLevelAction: () -> Void, playAgainAction: () -> Void) {
+        self.pathScore = pathScore
+        self.maxPathScore = maxPathScore
+        self.instrScore = instrScore
+        self.maxInstrScore = maxInstrScore
+        super.init(title: "You win!", context: context, action: nextLevelAction)
         self.playAgainAction = playAgainAction
         self.view = PostGameMessageView.instsanceFromXib(self)
     }

@@ -84,7 +84,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     
     func help() {
         if let controller = self.controller {
-            controller.closeMenu()
+//            controller.closeMenu()
             self.controller = nil
         } else {
             CommandFactory.NativeShowHelpCommand().execute()

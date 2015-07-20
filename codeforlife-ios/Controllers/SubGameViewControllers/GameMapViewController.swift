@@ -17,7 +17,6 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
     var map: Map? {
         didSet {
             map?.removeAllChildren()
-//            map!.scaleMode = .ResizeFill
             skView.presentScene(map!)
             map?.draw()
         }

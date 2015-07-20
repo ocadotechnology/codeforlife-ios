@@ -23,13 +23,13 @@ class Block {
     }
     
     func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        if player.crashed {
-            CommandFactory.NativeShowFailMessageCommand().execute {
-                completion?()
-            }
-        } else {
-            completion?()
-        }
+//        if player.crashed {
+//            CommandFactory.NativeShowFailMessageCommand().execute {
+//                completion?()
+//            }
+//        } else {
+//            completion?()
+//        }
     }
     
     func executeBlockChainAction(player: MovableGameObject, completion: (() -> Void)? = nil) {

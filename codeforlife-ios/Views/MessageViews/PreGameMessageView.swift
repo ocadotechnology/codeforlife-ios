@@ -10,10 +10,8 @@ import UIKit
 
 class PreGameMessageView: MessageView {
     
-    let containerViewCornerRadius: CGFloat = 50
-    let containerViewBorderWidth: CGFloat = 10
-    let messageButtonBorderWidth: CGFloat = 5
-    let messageButtonCornerRadius: CGFloat = 25
+    let messageButtonBorderWidth: CGFloat = 3
+    let messageButtonCornerRadius: CGFloat = 20
 
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -36,10 +34,6 @@ class PreGameMessageView: MessageView {
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
-        layer.cornerRadius = containerViewCornerRadius
-        layer.masksToBounds = true
-        layer.borderColor = kC4LMessageBorderColour.CGColor
-        layer.borderWidth = containerViewBorderWidth
         messageButton.layer.cornerRadius = messageButtonCornerRadius
         messageButton.layer.masksToBounds = true
         messageButton.layer.borderWidth = messageButtonBorderWidth

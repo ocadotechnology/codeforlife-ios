@@ -963,55 +963,8 @@
                     <view key="view" contentMode="scaleToFill" id="g2M-kp-FNc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0jl-Sm-bFW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.43921568630000002" green="0.75294117650000003" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="UZz-id-Pi6"/>
-                                    <constraint firstAttribute="width" constant="500" id="lxR-NV-VXD"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="UZz-id-Pi6"/>
-                                        <exclude reference="lxR-NV-VXD"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="UZz-id-Pi6"/>
-                                        <include reference="lxR-NV-VXD"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="0jl-Sm-bFW" secondAttribute="centerX" id="Q2K-kk-vpi"/>
-                            <constraint firstAttribute="centerY" secondItem="0jl-Sm-bFW" secondAttribute="centerY" id="eHY-dl-Xv5"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="0jl-Sm-bFW"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="Q2K-kk-vpi"/>
-                                <exclude reference="eHY-dl-Xv5"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <mask key="subviews">
-                                <include reference="0jl-Sm-bFW"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="Q2K-kk-vpi"/>
-                                <include reference="eHY-dl-Xv5"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <connections>
-                        <outlet property="containerView" destination="0jl-Sm-bFW" id="4eD-Em-pRh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ejV-6P-6h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
