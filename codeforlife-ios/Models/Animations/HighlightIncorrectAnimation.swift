@@ -11,8 +11,7 @@ import Foundation
 
 class HighlightIncorrectAnimation: HighlightAnimation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
-//        fatalError("HighlightIncorrectAnimation")
-        println("HighlightIncorrectAnimation")
+        SharedContext.MainGameViewController?.blockTableViewController?.currentSelectedCell = blockId
         completion?()
     }
 }

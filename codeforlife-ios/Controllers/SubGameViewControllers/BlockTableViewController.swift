@@ -42,6 +42,19 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         }
     }
     
+    var incorrectCell = 0 {
+        willSet {
+            if incorrectCell > 0 && incorrectCell <= blocks.count {
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: incorrectCell, inSection: 0))?.backgroundColor = UIColor.clearColor()
+            }
+        }
+        didSet {
+            if incorrectCell > 0 && incorrectCell <= blocks.count {
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: incorrectCell, inSection: 0))?.backgroundColor = UIColor.redColor()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,12 +70,15 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
     @IBAction func clear() {
         CommandFactory.WebViewClearCommand().execute()
         CommandFactory.NativeClearCommand().execute()
     }
     
     final func clearBlocks() {
+        currentSelectedCell = 0
+        incorrectCell = 0
         blocks.removeAll(keepCapacity: false)
         blocks.append(Start())
     }

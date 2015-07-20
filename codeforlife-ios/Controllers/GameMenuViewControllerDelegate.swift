@@ -72,6 +72,8 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func stop() {
+        SharedContext.MainGameViewController?.blockTableViewController?.currentSelectedCell = 0
+        SharedContext.MainGameViewController?.blockTableViewController?.incorrectCell = 0
         SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeAllActions()
         SharedContext.MainGameViewController?.gameMapViewController?.map?.resetMap()
         SharedContext.MainGameViewController?.gameMapViewController?.map?.player.resetPosition()
@@ -83,12 +85,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func help() {
-        if let controller = self.controller {
-//            controller.closeMenu()
-            self.controller = nil
-        } else {
-            CommandFactory.NativeShowHelpCommand().execute()
-        }
+        CommandFactory.NativeShowHelpCommand().execute()
     }
     
     func muteSound() {
