@@ -19,38 +19,6 @@ class GameMapCommand: GameViewCommand {
     }
 }
 
-class NGVMoveForwardCommand: GameMapCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        map?.player.moveForward {
-            completion?()
-        }
-    }
-}
-
-class NGVTurnLeftCommand: GameMapCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        map?.player.turnLeft {
-            completion?()
-        }
-    }
-}
-
-class NGVTurnRightCommand: GameMapCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        map?.player.turnRight {
-            completion?()
-        }
-    }
-}
-
-class NGVDeliverCommand: GameMapCommand {
-    override func execute(completion: (() -> Void)? = nil) {
-        map?.player.deliver{
-            completion?()
-        }
-    }
-}
-
 class NGVShowResultCommand: GameMapCommand {
     override func execute(completion: (() -> Void)? = nil) {
 //        if map!.visitedAllDestinations() {

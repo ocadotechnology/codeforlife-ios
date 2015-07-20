@@ -19,6 +19,8 @@
 		ED0D01E81B5CF51D00AF7D10 /* crash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED0D01E51B5CF51D00AF7D10 /* crash.mp3 */; };
 		ED0D01E91B5CF51D00AF7D10 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED0D01E61B5CF51D00AF7D10 /* win.mp3 */; };
 		ED0D01EA1B5CF51D00AF7D10 /* failure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED0D01E71B5CF51D00AF7D10 /* failure.mp3 */; };
+		ED0D01EC1B5D22BD00AF7D10 /* MovementAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D01EB1B5D22BD00AF7D10 /* MovementAnimation.swift */; };
+		ED0D01ED1B5D22BD00AF7D10 /* MovementAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D01EB1B5D22BD00AF7D10 /* MovementAnimation.swift */; };
 		ED13CFF01B58FBCD00EA591A /* SoundAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13CFEF1B58FBCD00EA591A /* SoundAnimation.swift */; };
 		ED13CFF51B58FCE800EA591A /* starting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED13CFF41B58FCE800EA591A /* starting.mp3 */; };
 		ED13CFF61B58FCE800EA591A /* starting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED13CFF41B58FCE800EA591A /* starting.mp3 */; };
@@ -276,6 +278,7 @@
 		ED0D01E51B5CF51D00AF7D10 /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crash.mp3; sourceTree = "<group>"; };
 		ED0D01E61B5CF51D00AF7D10 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
 		ED0D01E71B5CF51D00AF7D10 /* failure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = failure.mp3; sourceTree = "<group>"; };
+		ED0D01EB1B5D22BD00AF7D10 /* MovementAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementAnimation.swift; sourceTree = "<group>"; };
 		ED13CFEF1B58FBCD00EA591A /* SoundAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundAnimation.swift; sourceTree = "<group>"; };
 		ED13CFF41B58FCE800EA591A /* starting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starting.mp3; sourceTree = "<group>"; };
 		ED13CFFB1B59002F00EA591A /* delivery.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = delivery.mp3; sourceTree = "<group>"; };
@@ -787,18 +790,19 @@
 				ED13D00C1B59003500EA591A /* Sounds */,
 				EDBE3F481B568695000FC06F /* AnimationHandler.swift */,
 				EDD1A2BB1B4E7805001A82A2 /* Animation.swift */,
+				ED13CFEF1B58FBCD00EA591A /* SoundAnimation.swift */,
+				ED0D01EB1B5D22BD00AF7D10 /* MovementAnimation.swift */,
 				EDD1A2C21B4FCEA3001A82A2 /* MoveForward.swift */,
 				EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */,
 				EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */,
-				EDBE3F451B554C2A000FC06F /* StartAnimation.swift */,
 				EDBE3F4B1B568BD1000FC06F /* DeliverAnimation.swift */,
-				EDBE3F4E1B568E1E000FC06F /* PopUpAnimation.swift */,
-				EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */,
-				ED13CFEF1B58FBCD00EA591A /* SoundAnimation.swift */,
-				ED13D00D1B5902C500EA591A /* StartEngineAnimation.swift */,
+				EDBE3F451B554C2A000FC06F /* StartAnimation.swift */,
 				ED13D0101B5903AE00EA591A /* StopengineAnimation.swift */,
+				ED13D00D1B5902C500EA591A /* StartEngineAnimation.swift */,
+				EDBE3F4E1B568E1E000FC06F /* PopUpAnimation.swift */,
 				ED13D0171B59217900EA591A /* HighlightAnimation.swift */,
 				ED13D01A1B59218400EA591A /* HighlightIncorrectAnimation.swift */,
+				EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -1155,6 +1159,7 @@
 				ED222FCA1B4AABCB006E525A /* CFC.swift in Sources */,
 				ED5721B81B47E7680011F465 /* RoadType.swift in Sources */,
 				ED222FE81B4D1580006E525A /* Start.swift in Sources */,
+				ED0D01EC1B5D22BD00AF7D10 /* MovementAnimation.swift in Sources */,
 				ED222FC01B4A77EA006E525A /* MovableGameObject.swift in Sources */,
 				EDD1A2D81B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */,
 				EDBB668D1B3AEEFC009020A5 /* DirectDriveViewController.swift in Sources */,
@@ -1188,6 +1193,7 @@
 				ED1A935A1B43D88E004E6AD4 /* APIActionDelegate.swift in Sources */,
 				ED1A93461B43D046004E6AD4 /* EpisodeViewController.swift in Sources */,
 				ED1A93381B42AE81004E6AD4 /* Van.swift in Sources */,
+				ED0D01ED1B5D22BD00AF7D10 /* MovementAnimation.swift in Sources */,
 				ED13D0191B59217900EA591A /* HighlightAnimation.swift in Sources */,
 				ED7799D51B46A09D00A854A3 /* Road.swift in Sources */,
 				EDBB666B1B3AA029009020A5 /* LevelTableViewController.swift in Sources */,

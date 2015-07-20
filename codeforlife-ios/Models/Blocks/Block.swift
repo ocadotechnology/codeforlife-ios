@@ -22,28 +22,12 @@ class Block {
         self.color = color
     }
     
-    func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-//        if player.crashed {
-//            CommandFactory.NativeShowFailMessageCommand().execute {
-//                completion?()
-//            }
-//        } else {
-//            completion?()
-//        }
+    func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)? = nil) {
+        fatalError("Implement executeBlockAnimation")
     }
     
-    func executeBlockChainAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        self.executeBlockAction(player) {
-            if self.nextBlock != nil {
-                self.nextBlock?.executeBlockChainAction(player, completion: completion)
-            } else {
-                player.deliver {
-                    CommandFactory.NativeShowResultCommand().execute {
-                        completion?()
-                    }
-                }
-            }
-        }
+    func executeBlockAction(player: MovableGameObject?, completion: (() -> Void)? = nil) {
+        fatalError("Implement executeBlockAction")
     }
     
     func toString() -> String {

@@ -16,22 +16,21 @@ class Left: Block {
             color: kC4LBlocklyLeftBlockColour)
     }
     
-    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.turnLeft {
-            super.executeBlockAction(player, completion: completion)
+    override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
+        
+        CommandFactory.NativeDisableDirectDriveCommand().execute()
+        TurnLeftAnimation(object: player!).executeAnimation {
+            CommandFactory.NativeEnableDirectDriveCommand().execute()
+            completion?()
         }
+    }
+    
+    override func executeBlockAction(player: MovableGameObject?, completion: (() -> Void)? = nil) {
+        player?.turnLeft()
     }
     
     override func toString() -> String {
         return "\"turn_left\","
     }
     
-    override func submit() {
-        CommandFactory.WebViewTurnLeftCommand().execute()
-    }
-    
-//    override func submitMock() {
-//        CommandFactory.WebViewTurnLeftCommand().execute()
-//        CommandFactory.NativeAddAnimationCommand(TurnLeftAnimation()).execute()
-//    }
 }

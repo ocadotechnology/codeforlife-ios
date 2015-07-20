@@ -62,38 +62,13 @@ class Van: MovableGameObject {
         }
     }
     
-    override func moveForward(_ completion : (() -> Void)? = nil) {
-        CommandFactory.NativeDisableDirectDriveCommand().execute()
-        self.moveForward(GameMapConfig.Grid.height, duration: 0.5) {
-            CommandFactory.NativeEnableDirectDriveCommand().execute()
-            completion?()
-        }
-    }
-    
-    override func turnLeft(_ completion : (() -> Void)? = nil) {
-        CommandFactory.NativeDisableDirectDriveCommand().execute()
-        self.turnLeft(GameMapConfig.Grid.height*(33+24+22)/202, duration: 0.5) {
-            CommandFactory.NativeEnableDirectDriveCommand().execute()
-            completion?()
-        }
-    }
-    
-    override func turnRight(_ completion : (() -> Void)? = nil) {
-        CommandFactory.NativeDisableDirectDriveCommand().execute()
-        self.turnRight(GameMapConfig.Grid.height*(33+24+44+22)/202, duration: 0.7) {
-            CommandFactory.NativeEnableDirectDriveCommand().execute()
-            completion?()
-        }
-    }
-    
-    override func deliver(_ completion: (() -> Void)? = nil) {
+    final func deliver() {
         if let map = SharedContext.MainGameViewController?.gameMapViewController?.map {
             for destination in map.destinations {
                 if destination.coordinates == currentCoordinates {
                     destination.visited = true
                 }
             }
-            completion?()
         }
     }
     

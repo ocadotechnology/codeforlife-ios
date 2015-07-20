@@ -134,22 +134,6 @@ class CommandFactory {
 
     
     
-    class func NativeMoveForwardCommand() -> GameMapCommand {
-        return NGVMoveForwardCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeTurnLeftCommand() -> GameMapCommand {
-        return NGVTurnLeftCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeTurnRightCommand() -> GameMapCommand {
-        return NGVTurnRightCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeDeliverCommand() -> GameMapCommand {
-        return NGVDeliverCommand(gameViewController: gameViewController!)
-    }
-    
     class func NativeShowResultCommand() -> GameMapCommand {
         return NGVShowResultCommand(gameViewController: gameViewController!)
     }

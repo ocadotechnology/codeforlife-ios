@@ -16,10 +16,16 @@ class Forward: Block {
             color: kC4LBlocklyForwardBlockColour)
     }
     
-    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.moveForward {
-            super.executeBlockAction(player, completion: completion)
+    override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
+        CommandFactory.NativeDisableDirectDriveCommand().execute()
+        MoveForwardAnimation(object: player!).executeAnimation {
+            CommandFactory.NativeEnableDirectDriveCommand().execute()
+            completion?()
         }
+    }
+    
+    override func executeBlockAction(player: MovableGameObject?, completion: (() -> Void)? = nil) {
+        player?.moveForward()
     }
     
     override func toString() -> String {
@@ -30,8 +36,4 @@ class Forward: Block {
         CommandFactory.WebViewMoveForwardCommand().execute()
     }
     
-//    override func submitMock() {
-//        CommandFactory.WebViewMoveForwardCommand().execute()
-//        CommandFactory.NativeAddAnimationCommand(MoveForwardAnimation()).execute()
-//    }
 }

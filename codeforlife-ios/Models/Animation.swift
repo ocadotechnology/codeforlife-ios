@@ -18,20 +18,6 @@ class Animation {
         fatalError("Implement executeanimation()")
     }
     
-    func executeChainAnimation(completion: (() -> Void)? = nil) {
-        executeAnimation {
-            if self.nextAnimation != nil {
-                self.nextAnimation?.executeChainAnimation(completion: completion)
-            } else {
-                CommandFactory.NativeDeliverCommand().execute {
-                    CommandFactory.NativeShowResultCommand().execute {
-                        completion?()
-                    }
-                }
-            }
-        }
-    }
-    
     func stop() {
         SharedContext.MainGameViewController?.gameMapViewController?.map?.removeAllActions()
         SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeAllActions()

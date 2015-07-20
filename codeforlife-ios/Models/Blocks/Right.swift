@@ -16,10 +16,17 @@ class Right: Block {
             color: kC4LBlocklyRightBlockColour)
     }
     
-    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.turnRight {
-            super.executeBlockAction(player, completion: completion)
+    override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
+        
+        CommandFactory.NativeDisableDirectDriveCommand().execute()
+        TurnRightAnimation(object: player!).executeAnimation {
+            CommandFactory.NativeEnableDirectDriveCommand().execute()
+            completion?()
         }
+    }
+    
+    override func executeBlockAction(player: MovableGameObject?, completion: (() -> Void)? = nil) {
+        player?.turnRight()
     }
     
     override func toString() -> String {

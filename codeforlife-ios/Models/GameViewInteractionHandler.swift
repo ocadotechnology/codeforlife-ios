@@ -95,16 +95,19 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     private func convertToVanAnimation(object: JSON) -> Animation? {
         var animation: Animation?
-        if let vanAction = object["vanAction"].string {
+        if let player = SharedContext.MainGameViewController?.gameMapViewController?.map?.player,
+                vanAction = object["vanAction"].string {
             switch vanAction {
             case "FORWARD":
-                animation = MoveForwardAnimation()
+                animation = MoveForwardAnimation(object: player)
             case "TURN_LEFT":
-                animation = TurnLeftAnimation()
+                animation = TurnLeftAnimation(object: player)
             case "TURN_RIGHT":
-                animation = TurnRightAnimation()
+                animation = TurnRightAnimation(object: player)
             case "DELIVER":
-                animation = DeliverAnimation()
+                if let destinationId = object["destinationID"].int {
+                    animation = DeliverAnimation(destinationId: destinationId)
+                }
             case "CRASH":
                 animation = convertToCrashAnimation(object)
             case "TURN_AROUND": break // TODO
@@ -117,14 +120,15 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     private func convertToCrashAnimation(object: JSON) -> Animation? {
         var animation: Animation?
-        if let attemptedAction = object["attemptedAction"].string {
+        if let player = SharedContext.MainGameViewController?.gameMapViewController?.map?.player,
+                attemptedAction = object["attemptedAction"].string {
             switch attemptedAction {
                 case "FORWARD":
-                    animation = MoveForwardAnimation()
+                    animation = MoveForwardAnimation(object: player)
                 case "TURN_LEFT":
-                    animation = TurnLeftAnimation()
+                    animation = TurnLeftAnimation(object: player)
                 case "TURN_RIGHT":
-                    animation = TurnRightAnimation()
+                    animation = TurnRightAnimation(object: player)
             default: break
             }
         }

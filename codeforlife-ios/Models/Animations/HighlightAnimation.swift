@@ -18,8 +18,7 @@ class HighlightAnimation: Animation {
     }
     
     override func executeAnimation(completion: (() -> Void)? = nil) {
-//        fatalError("HighlightAnimation")
-        println("Highlightanimation")
+        SharedContext.MainGameViewController?.blockTableViewController?.currentSelectedCell = blockId
         completion?()
     }
 }

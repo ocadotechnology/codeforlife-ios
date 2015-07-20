@@ -16,10 +16,12 @@ class Deliver: Block {
             color: kC4LBlocklyDeliverBlockColour)
     }
     
-    override func executeBlockAction(player: MovableGameObject, completion: (() -> Void)? = nil) {
-        player.deliver {
-            super.executeBlockAction(player, completion: completion)
+    override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
+//        DeliverAnimation(object: player!).executeAnimation(completion: completion)
+        if let van = player as? Van {
+            van.deliver()
         }
+        completion?()
     }
     
     override func toString() -> String {
@@ -30,8 +32,5 @@ class Deliver: Block {
         CommandFactory.WebViewDeliverCommand().execute()
     }
     
-//    override func submitMock() {
-//        CommandFactory.WebViewDeliverCommand().execute()
-//        CommandFactory.NativeAddAnimationCommand(DeliverAnimation()).execute()
-//    }
+
 }

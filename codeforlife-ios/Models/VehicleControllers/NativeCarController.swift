@@ -12,26 +12,18 @@ import Foundation
 class NativeCarController: VehicleController {
     
     func moveForward() {
-        CommandFactory.NativeAddBlockCommand(Forward()).execute()
-        CommandFactory.NativeMoveForwardCommand().execute()
     }
     
     func turnLeft() {
-        CommandFactory.NativeAddBlockCommand(Left()).execute()
-        CommandFactory.NativeTurnLeftCommand().execute()
     }
     
     func turnRight() {
-        CommandFactory.NativeAddBlockCommand(Right()).execute()
-        CommandFactory.NativeTurnRightCommand().execute()
     }
     
     func go() {
-        CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onPlayControls)
     }
     
     func deliver() {
-        CommandFactory.NativeAddBlockCommand(Deliver()).execute()
     }
     
 }

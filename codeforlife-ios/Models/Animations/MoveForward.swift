@@ -8,10 +8,13 @@
 
 import Foundation
 
-class MoveForwardAnimation: Animation {
+class MoveForwardAnimation: MovementAnimation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
         println("Van Move Forward")
-        CommandFactory.NativeMoveForwardCommand().execute(completion: completion)
+        self.moveForward(GameMapConfig.Grid.height, duration: 0.5) {
+            completion?()
+        }
+        object.moveForward()
     }
     
 }

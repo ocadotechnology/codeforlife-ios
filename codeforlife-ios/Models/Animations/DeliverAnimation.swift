@@ -9,8 +9,18 @@
 import Foundation
 
 class DeliverAnimation: Animation {
+    
+    var destinationId: Int
+    
+    init(destinationId: Int) {
+        self.destinationId = destinationId
+    }
+    
     override func executeAnimation(completion: (() -> Void)? = nil) {
         println("Van Deliver")
-        CommandFactory.NativeDeliverCommand().execute(completion: completion)
+        if let map = SharedContext.MainGameViewController?.gameMapViewController?.map {
+            map.destinations[destinationId].visited = true
+            completion?()
+        }
     }
 }

@@ -29,6 +29,19 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         }
     }
     
+    var currentSelectedCell = 0 {
+        willSet {
+            if currentSelectedCell > 0 && currentSelectedCell <= blocks.count {
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: currentSelectedCell, inSection: 0))?.backgroundColor = UIColor.clearColor()
+            }
+        }
+        didSet {
+            if currentSelectedCell > 0 && currentSelectedCell <= blocks.count {
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: currentSelectedCell, inSection: 0))?.backgroundColor = UIColor.yellowColor()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
