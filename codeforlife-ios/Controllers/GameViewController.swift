@@ -14,11 +14,6 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     let scriptMessageHandlerTitle = "handler"
     
-    let webViewPortion: CGFloat = 0.7
-    let webViewFrame = CGSize(width: 0, height: 0)
-    let webViewCornerRadius: CGFloat = 10
-    let webViewOffset: CGFloat = 10
-    
     let webViewPreloadScript =
         "document.getElementById('right').style.marginLeft = '0px';" +
         "document.getElementById('tabs').style.display = 'none';" +

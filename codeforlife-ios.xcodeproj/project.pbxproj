@@ -152,10 +152,8 @@
 		EDA47C581B45558A003356AB /* BlockTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C571B45558A003356AB /* BlockTest.swift */; };
 		EDA47C5A1B455601003356AB /* EpisodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C591B455601003356AB /* EpisodeTest.swift */; };
 		EDA47C5F1B4556B5003356AB /* CargoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C5E1B4556B5003356AB /* CargoController.swift */; };
-		EDA47C611B4556FB003356AB /* NativeCarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C601B4556FB003356AB /* NativeCarController.swift */; };
 		EDA47C651B4557A8003356AB /* FetchLevelsActionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C641B4557A8003356AB /* FetchLevelsActionTest.swift */; };
 		EDA47C661B455B72003356AB /* CargoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C5E1B4556B5003356AB /* CargoController.swift */; };
-		EDA47C671B455B74003356AB /* NativeCarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C601B4556FB003356AB /* NativeCarController.swift */; };
 		EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */; };
 		EDAEFBAD1B39934F003398EE /* VehicleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAC1B39934F003398EE /* VehicleController.swift */; };
 		EDBB666A1B3AA018009020A5 /* LabelViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66691B3AA018009020A5 /* LabelViewControllerTests.swift */; };
@@ -351,7 +349,6 @@
 		EDA47C571B45558A003356AB /* BlockTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTest.swift; sourceTree = "<group>"; };
 		EDA47C591B455601003356AB /* EpisodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTest.swift; sourceTree = "<group>"; };
 		EDA47C5E1B4556B5003356AB /* CargoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CargoController.swift; sourceTree = "<group>"; };
-		EDA47C601B4556FB003356AB /* NativeCarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeCarController.swift; sourceTree = "<group>"; };
 		EDA47C641B4557A8003356AB /* FetchLevelsActionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelsActionTest.swift; sourceTree = "<group>"; };
 		EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewInteractionHandler.swift; sourceTree = "<group>"; };
 		EDAEFBAC1B39934F003398EE /* VehicleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleController.swift; path = "codeforlife-ios/Models/VehicleControllers/VehicleController.swift"; sourceTree = SOURCE_ROOT; };
@@ -736,7 +733,6 @@
 			children = (
 				EDAEFBAC1B39934F003398EE /* VehicleController.swift */,
 				EDA47C5E1B4556B5003356AB /* CargoController.swift */,
-				EDA47C601B4556FB003356AB /* NativeCarController.swift */,
 			);
 			path = VehicleControllers;
 			sourceTree = "<group>";
@@ -1124,7 +1120,6 @@
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				ED222FC31B4A8D99006E525A /* CompassDirection.swift in Sources */,
 				ED222FC61B4A8FD1006E525A /* GameMapCommand.swift in Sources */,
-				EDA47C611B4556FB003356AB /* NativeCarController.swift in Sources */,
 				EDD1A2C61B4FCEB8001A82A2 /* TurnLeft.swift in Sources */,
 				ED222FB41B4A6C13006E525A /* DirectDriveCommand.swift in Sources */,
 				ED7799D11B469E6500A854A3 /* Direction.swift in Sources */,
@@ -1291,7 +1286,6 @@
 				EDA47C431B442798003356AB /* LevelTableView.swift in Sources */,
 				EDD1A2D91B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */,
 				EDBB66731B3AA07A009020A5 /* CommandFactory.swift in Sources */,
-				EDA47C671B455B74003356AB /* NativeCarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

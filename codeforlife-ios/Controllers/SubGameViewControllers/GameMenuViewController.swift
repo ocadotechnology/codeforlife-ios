@@ -103,6 +103,6 @@ class GameMenuViewController: SubGameViewController {
         muted = !muted
     }
     
-    deinit { println("GameMenuViewController is being deallocated") }
+//    deinit { println("GameMenuViewController is being deallocated") }
     
 }

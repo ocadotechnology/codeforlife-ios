@@ -30,5 +30,5 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
         skView.ignoresSiblingOrder = true
     }
     
-    deinit { println("GameMapViewController is being deallocated") }
+//    deinit { println("GameMapViewController is being deallocated") }
 }

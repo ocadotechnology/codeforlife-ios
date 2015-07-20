@@ -42,9 +42,7 @@ class WinPopupAnimation: PopUpAnimation {
         println("Win Popup")
         let controller = MessageViewController.MessageViewControllerInstance()
         controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: {
-            println(controller.view.frame)
-        })
+        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
         controller.message = PostGameMessage(
             context: popupMessage,
             pathScore: pathScore,
@@ -56,7 +54,6 @@ class WinPopupAnimation: PopUpAnimation {
                 controller.dismissViewControllerAnimated(true, completion: nil)
             },
             playAgainAction: {
-                println(controller.view.frame)
                 controller.playAgainAndDismiss()
                 controller.dismissViewControllerAnimated(true, completion: nil)
         })

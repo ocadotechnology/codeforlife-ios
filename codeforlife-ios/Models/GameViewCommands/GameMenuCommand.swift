@@ -23,11 +23,8 @@ class NGVShowHelpCommand : GameMenuCommand {
         controller.message = HelpMessage(
             context: gameViewController.level!.hint!,
             action: {
-                println(controller.view.frame)
                 controller.dismissViewControllerAnimated(true, completion: nil)
-                self.viewController?.delegate.controller = nil
         })
-        viewController?.delegate.controller = controller
         completion?()
     }
 }

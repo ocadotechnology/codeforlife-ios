@@ -13,9 +13,10 @@ class HelpMessageView: MessageView {
     let messageButtonBorderWidth: CGFloat = 5
     let messageButtonCornerRadius: CGFloat = 25
     
-    @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contextView: UITextView!
+    @IBOutlet weak var contextLabel: UILabel!
+    @IBOutlet weak var messageButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
     
     class func instsanceFromXib(message: Message) -> HelpMessageView {
         var view = UINib(nibName: "HelpMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! HelpMessageView
@@ -29,7 +30,7 @@ class HelpMessageView: MessageView {
     
     override func reloadContent() {
         titleLabel.text = message!.title
-        contextView.text = message!.context
+        contextLabel.text = message!.context
     }
     
     override func drawRect(rect: CGRect) {

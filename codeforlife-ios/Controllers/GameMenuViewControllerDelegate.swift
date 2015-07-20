@@ -92,6 +92,6 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
         CommandFactory.NativeMuteCommand().execute()
     }
     
-    deinit { println("GameMenuViewControllerDelegate is being deallocated") }
+//    deinit { println("GameMenuViewControllerDelegate is being deallocated") }
     
 }

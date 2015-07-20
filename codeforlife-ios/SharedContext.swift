@@ -11,5 +11,4 @@ import Foundation
 
 class SharedContext {
     static var MainGameViewController: GameViewController?
-    static var BlockMap = [Int, Block]()
 }

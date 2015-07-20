@@ -10,64 +10,56 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DL-g3-ch0">
-                    <rect key="frame" x="20" y="20" width="560" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="rf1-Gd-K0S"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5I-FO-Ii0">
-                    <rect key="frame" x="20" y="78" width="560" height="444"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Wg-XC-s3L">
+                    <rect key="frame" x="-50" y="237" width="700" height="127"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Context" translatesAutoresizingMaskIntoConstraints="NO" id="bIJ-K7-dlg">
-                            <rect key="frame" x="0.0" y="0.0" width="560" height="444"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-6C-kGz" userLabel="Title">
+                            <rect key="frame" x="20" y="20" width="660" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1t-h8-PAF" userLabel="Context">
+                            <rect key="frame" x="20" y="49" width="660" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nuY-fk-DnG">
+                            <rect key="frame" x="330" y="77" width="40" height="30"/>
+                            <state key="normal" title="Close">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="executeAction" destination="iN0-l3-epB" eventType="touchUpInside" id="Yv7-TS-vVi"/>
+                            </connections>
+                        </button>
                     </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="bIJ-K7-dlg" secondAttribute="trailing" id="C1h-zg-BG1"/>
-                        <constraint firstItem="bIJ-K7-dlg" firstAttribute="centerX" secondItem="l5I-FO-Ii0" secondAttribute="centerX" id="NOT-8m-FxJ"/>
-                        <constraint firstItem="bIJ-K7-dlg" firstAttribute="leading" secondItem="l5I-FO-Ii0" secondAttribute="leading" id="eqa-Y7-jLt"/>
-                        <constraint firstItem="bIJ-K7-dlg" firstAttribute="centerY" secondItem="l5I-FO-Ii0" secondAttribute="centerY" id="ezU-P9-Gyv"/>
-                        <constraint firstItem="bIJ-K7-dlg" firstAttribute="top" secondItem="l5I-FO-Ii0" secondAttribute="top" id="kge-CK-Raz"/>
-                        <constraint firstAttribute="bottom" secondItem="bIJ-K7-dlg" secondAttribute="bottom" id="odn-SC-fEe"/>
+                        <constraint firstItem="Qqv-6C-kGz" firstAttribute="top" secondItem="5Wg-XC-s3L" secondAttribute="top" constant="20" symbolic="YES" id="4rE-cU-sz3"/>
+                        <constraint firstAttribute="trailing" secondItem="A1t-h8-PAF" secondAttribute="trailing" constant="20" symbolic="YES" id="5ks-fW-pWD"/>
+                        <constraint firstAttribute="trailing" secondItem="Qqv-6C-kGz" secondAttribute="trailing" constant="20" symbolic="YES" id="DvU-zk-Iw6"/>
+                        <constraint firstItem="nuY-fk-DnG" firstAttribute="top" secondItem="A1t-h8-PAF" secondAttribute="bottom" constant="8" symbolic="YES" id="Q34-Dr-7jF"/>
+                        <constraint firstItem="A1t-h8-PAF" firstAttribute="top" secondItem="Qqv-6C-kGz" secondAttribute="bottom" constant="8" symbolic="YES" id="TYu-Jd-cVI"/>
+                        <constraint firstAttribute="width" constant="700" id="Vkd-te-M3M"/>
+                        <constraint firstAttribute="bottom" secondItem="nuY-fk-DnG" secondAttribute="bottom" constant="20" symbolic="YES" id="Xgf-4s-ODj"/>
+                        <constraint firstItem="A1t-h8-PAF" firstAttribute="leading" secondItem="5Wg-XC-s3L" secondAttribute="leading" constant="20" symbolic="YES" id="by9-Wf-yZB"/>
+                        <constraint firstItem="Qqv-6C-kGz" firstAttribute="leading" secondItem="5Wg-XC-s3L" secondAttribute="leading" constant="20" symbolic="YES" id="icd-iO-7Nd"/>
+                        <constraint firstAttribute="centerX" secondItem="nuY-fk-DnG" secondAttribute="centerX" id="jYS-7E-oYM"/>
                     </constraints>
-                </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csP-XB-Dv5">
-                    <rect key="frame" x="20" y="530" width="560" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="haq-H3-Nev"/>
-                    </constraints>
-                    <state key="normal" title="Close">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="executeAction" destination="iN0-l3-epB" eventType="touchUpInside" id="ced-i9-Sk6"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="9DL-g3-ch0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="KDJ-TW-S3l"/>
-                <constraint firstItem="csP-XB-Dv5" firstAttribute="top" secondItem="l5I-FO-Ii0" secondAttribute="bottom" constant="8" symbolic="YES" id="NGV-jG-61G"/>
-                <constraint firstItem="l5I-FO-Ii0" firstAttribute="top" secondItem="9DL-g3-ch0" secondAttribute="bottom" constant="8" symbolic="YES" id="OrW-9m-Oz6"/>
-                <constraint firstAttribute="bottom" secondItem="csP-XB-Dv5" secondAttribute="bottom" constant="20" id="QAs-d2-Yw4"/>
-                <constraint firstItem="l5I-FO-Ii0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="SS4-Xr-25e"/>
-                <constraint firstAttribute="trailing" secondItem="csP-XB-Dv5" secondAttribute="trailing" constant="20" id="Syc-y9-OYf"/>
-                <constraint firstAttribute="trailing" secondItem="9DL-g3-ch0" secondAttribute="trailing" constant="20" id="gHE-Ev-nay"/>
-                <constraint firstItem="csP-XB-Dv5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="jI2-XR-26h"/>
-                <constraint firstItem="9DL-g3-ch0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="wRR-be-lAI"/>
-                <constraint firstAttribute="trailing" secondItem="l5I-FO-Ii0" secondAttribute="trailing" constant="20" id="ymg-JF-Gr9"/>
+                <constraint firstAttribute="centerY" secondItem="5Wg-XC-s3L" secondAttribute="centerY" id="M3Z-Vd-WGR"/>
+                <constraint firstAttribute="centerX" secondItem="5Wg-XC-s3L" secondAttribute="centerX" id="YgB-lv-tdt"/>
             </constraints>
             <connections>
-                <outlet property="contextView" destination="bIJ-K7-dlg" id="t7v-ON-aOZ"/>
-                <outlet property="messageButton" destination="csP-XB-Dv5" id="dLa-WB-nOZ"/>
-                <outlet property="titleLabel" destination="9DL-g3-ch0" id="hL6-s5-Ao0"/>
+                <outlet property="containerView" destination="5Wg-XC-s3L" id="u1K-ke-Xig"/>
+                <outlet property="contextLabel" destination="A1t-h8-PAF" id="5i4-fy-64d"/>
+                <outlet property="messageButton" destination="nuY-fk-DnG" id="lgs-Wm-TKq"/>
+                <outlet property="titleLabel" destination="Qqv-6C-kGz" id="ygJ-k6-VeU"/>
             </connections>
         </view>
     </objects>

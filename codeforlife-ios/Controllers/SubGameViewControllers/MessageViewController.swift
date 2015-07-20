@@ -25,6 +25,10 @@ class MessageViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     func executeButtonAction() {
         message?.action?()
     }
