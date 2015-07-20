@@ -29,7 +29,6 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                     SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.animationQueues = animationQueues
                     SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.currentIndex = 0
                     SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.runAnimation = true
-
                 }
             }
         }
@@ -46,8 +45,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                     case "van":
                         animation = convertToVanAnimation(object.1)
                     case "popup":
-                        animation = PopUpAnimation()
-                    case "trafficlight": break // TODO
+                        animation = convertToPopupAnimation(object.1)
                     case "playSound":
                         animation = convertToPlaySoundAnimation(object.1)
                     case "highlight":
@@ -56,6 +54,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                         animation = convertToHighlightIncorrectAnimation(object.1)
                     case "onStopControls":
                         animation = OnStopControlsAnimation()
+                    case "trafficlight": break // TODO
                 default: break
                 }
                 if animation != nil {
@@ -65,6 +64,33 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         }
         println("")
         return animations
+    }
+    
+    private func convertToPopupAnimation(object: JSON) -> Animation? {
+        var animation: Animation?
+        if let popupType = object["popupType"].string {
+            switch popupType {
+                case "WIN":
+                    if let popupMessage = object["popupMessage"].string,
+                            pathLengthScore = object["pathLengthScore"].float,
+                            maxScoreForPathLength = object["maxScoreForPathLength"].int,
+                            instrScore = object["instrScore"].float,
+                            maxScoreForNumberOfInstructions = object["maxScoreForNumberOfInstructions"].int {
+                        animation = WinPopupAnimation(
+                            message: popupMessage,
+                            pathScore: pathLengthScore,
+                            maxPathScore: maxScoreForPathLength,
+                            instrScore: instrScore,
+                            maxInstrScore: maxScoreForNumberOfInstructions)
+                    }
+                case "FAIL":
+                    if let popupMessage = object["popupMessage"].string {
+                        animation = FailurePopupAnimation(message: popupMessage)
+                    }
+            default: break
+            }
+        }
+        return animation
     }
     
     private func convertToVanAnimation(object: JSON) -> Animation? {
@@ -121,6 +147,8 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                 animation = SoundAnimation(gameSound: GameSound.Failure)
             case "crash sound":
                 animation = SoundAnimation(gameSound: GameSound.Crash)
+            case "delivery":
+                animation = SoundAnimation(gameSound: GameSound.Delivery)
             default:
                 println("Implement sound handling for \(description)")
             }

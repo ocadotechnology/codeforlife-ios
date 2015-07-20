@@ -63,7 +63,9 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         for block in blocks {
             str += block.type
         }
-        str = str.substringToIndex(advance(str.startIndex, count(str)-1))
+        if blocks.count > 1 {
+            str = str.substringToIndex(advance(str.startIndex, count(str)-1))
+        }
         str += "])"
         println(str)
         gameViewController.runJavaScript(str)
