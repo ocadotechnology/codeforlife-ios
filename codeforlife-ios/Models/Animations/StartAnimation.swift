@@ -9,7 +9,6 @@
 import Foundation
 
 class StartAnimation: Animation {
-    
     override func executeAnimation(completion: (() -> Void)? = nil) {
         completion?()
     }

@@ -20,6 +20,8 @@ class Node: Equatable {
         
     }
     
+
+    
     var isDestination = false
     
     var coordinates: Coordinates

@@ -12,19 +12,6 @@ import WebKit
 
 // Deprecated
 class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
-    
-    struct JSONIdentifier {
-        static let Tag = "tag"
-        static let Title = "title"
-        static let Context = "context"
-    }
-    
-    struct JSONTag {
-        static let PreGameMsg = "preGameMessage"
-        static let PostGameMsg = "postGameMessage"
-        static let FailMessage = "failMessage"
-        static let HelpMessage = "help"
-    }
 
     weak var gameViewController: GameViewController?
     
@@ -53,7 +40,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         println("___NEW QUEUE___")
         for object in queue {
             if let type = object.1["type"].string {
-                println(type)
+                println((type, object.1["description"]))
                 var animation: Animation?
                 switch type {
                     case "van":
@@ -92,9 +79,27 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                 animation = TurnRightAnimation()
             case "DELIVER":
                 animation = DeliverAnimation()
+            case "CRASH":
+                animation = convertToCrashAnimation(object)
             case "TURN_AROUND": break // TODO
             default:
                 println("Implement van handling for \(description)")
+            }
+        }
+        return animation
+    }
+    
+    private func convertToCrashAnimation(object: JSON) -> Animation? {
+        var animation: Animation?
+        if let attemptedAction = object["attemptedAction"].string {
+            switch attemptedAction {
+                case "FORWARD":
+                    animation = MoveForwardAnimation()
+                case "TURN_LEFT":
+                    animation = TurnLeftAnimation()
+                case "TURN_RIGHT":
+                    animation = TurnRightAnimation()
+            default: break
             }
         }
         return animation
@@ -105,13 +110,17 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         if let description = object["description"].string {
             switch description {
             case "starting sound":
-                animation = MoveForwardAnimation()
+                animation = SoundAnimation(gameSound: GameSound.Starting)
             case "starting engine":
-                animation = TurnLeftAnimation()
+                animation = StartEngineAnimation()
             case "stopping engine":
-                animation = TurnRightAnimation()
+                animation = StopEngineAnimation()
             case "win sound":
-                animation = DeliverAnimation()
+                animation = SoundAnimation(gameSound: GameSound.Win)
+            case "failure sound":
+                animation = SoundAnimation(gameSound: GameSound.Failure)
+            case "crash sound":
+                animation = SoundAnimation(gameSound: GameSound.Crash)
             default:
                 println("Implement sound handling for \(description)")
             }

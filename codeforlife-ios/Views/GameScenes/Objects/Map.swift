@@ -81,6 +81,7 @@ class Map: SKScene {
         resetMap()
         drawGrass()
         drawRoads()
+        drawBorders()
         drawDecorations()
 
         var cfc = CFC(origin: origin)
@@ -109,6 +110,12 @@ class Map: SKScene {
                 let house = House(origin: origin)
                 addChild(house)
             }
+        }
+    }
+    
+    private func drawBorders() {
+        for destination in destinations {
+            addChild(destination.createBorder())
         }
     }
     

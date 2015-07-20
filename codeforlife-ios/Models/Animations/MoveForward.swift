@@ -10,6 +10,7 @@ import Foundation
 
 class MoveForwardAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
+        println("Van Move Forward")
         CommandFactory.NativeMoveForwardCommand().execute(completion: completion)
     }
     

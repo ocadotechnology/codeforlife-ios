@@ -10,6 +10,7 @@ import Foundation
 
 class TurnRightAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
+        println("Van Turn Right")
         CommandFactory.NativeTurnRightCommand().execute(completion: completion)
     }
     

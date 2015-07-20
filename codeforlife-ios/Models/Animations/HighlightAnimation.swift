@@ -18,6 +18,8 @@ class HighlightAnimation: Animation {
     }
     
     override func executeAnimation(completion: (() -> Void)? = nil) {
-        fatalError("HighlightAnimation")
+//        fatalError("HighlightAnimation")
+        println("Highlightanimation")
+        completion?()
     }
 }

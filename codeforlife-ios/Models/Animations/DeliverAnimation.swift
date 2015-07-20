@@ -10,6 +10,7 @@ import Foundation
 
 class DeliverAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
+        println("Van Deliver")
         CommandFactory.NativeDeliverCommand().execute(completion: completion)
     }
 }

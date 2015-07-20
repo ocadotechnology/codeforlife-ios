@@ -11,6 +11,8 @@ import Foundation
 
 class HighlightIncorrectAnimation: HighlightAnimation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
-        fatalError("HighlightIncorrectAnimation")
+//        fatalError("HighlightIncorrectAnimation")
+        println("HighlightIncorrectAnimation")
+        completion?()
     }
 }
