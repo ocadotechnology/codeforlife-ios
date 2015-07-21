@@ -17,49 +17,44 @@ class Van: MovableGameObject {
             width: GameMapConfig.Grid.width*38/202,
             height: GameMapConfig.Grid.width*38/202*510/264,
             origin: origin)
-        self.resetPosition()
+        self.reset()
         
-    }
-    
-    override func resetPosition() {
-        var rad: CGFloat
-        self.position = CGPointMake(
-            CGFloat(origin.coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
-            CGFloat(origin.coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
-        
-        switch origin.compassDirection {
-        case .N:
-            self.position.x -= self.width/2 + GameMapConfig.Grid.width/45
-            self.position.y += GameMapConfig.Grid.height/2
-        case .E:
-            self.position.x += GameMapConfig.Grid.width/2
-            self.position.y += self.width/2 + GameMapConfig.Grid.height/45
-        case .S:
-            self.position.x += self.width/2 + GameMapConfig.Grid.width/45
-            self.position.y -= GameMapConfig.Grid.height/2
-        case .W:
-            self.position.x -= GameMapConfig.Grid.width/2
-            self.position.y -= self.width/2 + GameMapConfig.Grid.height/45
-        default : break
-        }
-        
-        rad = origin.compassDirection.angle
-        self.direction = origin.compassDirection.direction
-        let actionRotate = SKAction.rotateToAngle(rad, duration: 0)
-        self.runAction(actionRotate)
-        resetCurrentCoordinates()
     }
     
     // Origin of the Van is always one step further from the actual origin
-    private func resetCurrentCoordinates() {
-        self.currentCoordinates = self.origin.coordinates
+    final override func resetCurrentCoordinates() {
+        self.direction = origin.compassDirection.direction
+        self.currentCoordinates = origin.coordinates
         switch origin.compassDirection {
-        case .N: currentCoordinates.y++
-        case .E: currentCoordinates.x++
-        case .S: currentCoordinates.y--
-        case .W: currentCoordinates.x--
+            case .N: currentCoordinates.y++
+            case .E: currentCoordinates.x++
+            case .S: currentCoordinates.y--
+            case .W: currentCoordinates.x--
         default: break
         }
+    }
+    
+    final override func updatePosition() {
+        self.position = CGPointMake(
+            CGFloat(currentCoordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
+            CGFloat(currentCoordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
+        
+        // Handle Offset
+        switch direction {
+            case .Up:       self.position.x -= self.width/2 + GameMapConfig.Grid.width/45
+                            self.position.y -= GameMapConfig.Grid.height/2
+            case .Right:    self.position.x -= GameMapConfig.Grid.width/2
+                            self.position.y += self.width/2 + GameMapConfig.Grid.height/45
+            case .Down:    self.position.x += self.width/2 + GameMapConfig.Grid.width/45
+                            self.position.y += GameMapConfig.Grid.height/2
+            case .Left:    self.position.x += GameMapConfig.Grid.width/2
+                            self.position.y -= self.width/2 + GameMapConfig.Grid.height/45
+        default : break
+        }
+        
+        // Handle Direction
+        let actionRotate = SKAction.rotateToAngle(direction.compassDirection.angle, duration: 0)
+        self.runAction(actionRotate)
     }
     
     final func deliver() {

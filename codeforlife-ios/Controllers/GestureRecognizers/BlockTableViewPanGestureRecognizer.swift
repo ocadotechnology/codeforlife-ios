@@ -41,9 +41,11 @@ class BlockTableViewPanGestureRecognizer: UIPanGestureRecognizer {
                 if selectedCell != nil && selectedRow != nil {
                     if horizontalMode && dx > 150 {
                         viewController.blocks.removeAtIndex(selectedRow!)
+                        viewController.recalculateVanPosition()
                     } else if verticalMode {
-                        let destinationRow = Int(round(((stopPosition.y - cellHeight/2) / cellHeight) - 0.5))
+                        let destinationRow = Int(round(((selectedCell!.center.y - cellHeight/2) / cellHeight) - 0.5))
                         repositionBlock(selectedRow!, to: max(1, min(destinationRow, viewController.blocks.count-1)))
+                        viewController.recalculateVanPosition()
                     } else if originalPosition != nil {
                         selectedCell?.center = originalPosition!
                     }
@@ -53,9 +55,9 @@ class BlockTableViewPanGestureRecognizer: UIPanGestureRecognizer {
                 let translation = sender.translationInView(viewController.tableView)
                 
                 if horizontalMode {
-                    selectedCell?.center.x = originalPosition!.x + translation.x
+                    selectedCell!.center.x = originalPosition!.x + translation.x
                 } else if verticalMode {
-                    selectedCell?.center.y = originalPosition!.y + translation.y
+                    selectedCell!.center.y = originalPosition!.y + translation.y
                 }
                 
                 let leftSwipeDetected = originalPosition!.x + translation.x + 10 < originalPosition!.x

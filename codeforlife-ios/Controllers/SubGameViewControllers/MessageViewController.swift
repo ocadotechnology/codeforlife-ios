@@ -10,10 +10,6 @@ import UIKit
 
 class MessageViewController: UIViewController {
     
-    static func MessageViewControllerInstance() -> MessageViewController {
-        return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("MessageViewController") as! MessageViewController
-    }
-    
     let containerViewCornerRadius: CGFloat = 50
     let containerViewBorderWidth: CGFloat = 10
     let messageButtonBorderWidth: CGFloat = 5
@@ -23,10 +19,6 @@ class MessageViewController: UIViewController {
         didSet {
             self.view = message?.view
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     func executeButtonAction() {
@@ -41,9 +33,8 @@ class MessageViewController: UIViewController {
     
     func playAgainAndDismiss() {
         SharedContext.MainGameViewController?.blockTableViewController?.clearBlocks()
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeAllActions()
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.reset()
         SharedContext.MainGameViewController?.gameMapViewController?.map?.resetMap()
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.resetPosition()
         SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.resetVariables()
         CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
     }

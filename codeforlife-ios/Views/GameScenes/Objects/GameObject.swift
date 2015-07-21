@@ -11,6 +11,8 @@ import Foundation
 
 class GameObject: SKSpriteNode {
     
+    let PI = CGFloat(M_PI)
+    
     var width: CGFloat
     var height: CGFloat
     

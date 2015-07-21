@@ -54,28 +54,23 @@ class AnimationHandler {
     
     private func resetAnimation() {
         self.currentIndex = 0
-        self.map?.player.resetPosition()
+        self.map?.van.reset()
         
     }
     
     private func runAnimations() {
-        println("\(animationQueues.count), \(currentIndex)")
+        println("===== \(currentIndex+1)/\(animationQueues.count) ======")
         runningAnimationsRemained = animationQueues[currentIndex].count
         for animation in animationQueues[currentIndex++] {
             animation.executeAnimation {
                 [unowned self] in
-                
                 if self.isAnimationCycleFinished {
                     self.runAnimation = false
                 }
-                
                 // Notify to run next Animation if all concurrent animations finish
                 self.runningAnimationsRemained--
-                
             }
         }
     }
-    
-    
     
 }

@@ -16,12 +16,4 @@ class Start: Block {
             color: kC4LBlocklyStartBlockColour)
     }
     
-    override func submit() {
-        CommandFactory.NativeResetAnimationCommand().execute()
-    }
-    
-//    override func submitMock() {
-//        CommandFactory.NativeAddAnimationCommand(StartAnimation()).execute()
-//    }
-    
 }

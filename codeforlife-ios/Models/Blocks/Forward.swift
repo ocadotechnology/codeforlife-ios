@@ -24,16 +24,13 @@ class Forward: Block {
         }
     }
     
-    override func executeBlockAction(player: MovableGameObject?, completion: (() -> Void)? = nil) {
-        player?.moveForward()
+    override func executeBlockAction() {
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.moveForward()
+        super.executeBlockAction()
     }
     
     override func toString() -> String {
         return "\"move_forwards\","
-    }
-    
-    override func submit() {
-        CommandFactory.WebViewMoveForwardCommand().execute()
     }
     
 }

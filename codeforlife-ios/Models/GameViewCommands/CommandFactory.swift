@@ -32,69 +32,20 @@ class CommandFactory {
         return SharedContext.MainGameViewController
     }
     
-    class func WebViewBlocklyCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewBlocklyCommandJavaScript)
-    }
     
-    class func WebViewClearCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewClearCommandJavaScript)
-    }
-    
-    class func WebViewPlayCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewPlayCommandJavaScript)
-    }
-    
-    class func WebViewStopCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewStopCommandJavaScript)
-    }
-    
-    class func WebViewStepCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewStepCommandJavaScript)
-    }
-    
-    class func WebViewLoadCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewLoadCommandJavaScript)
-    }
-    
-    class func WebViewSaveCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewSaveCommandJavaScript)
-    }
-    
-    class func WebViewHelpCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewHelpCommandJavaScript)
-    }
-    
-    class func WebViewMuteCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: kC4LGameViewMuteCommandJavaScript)
-    }
-    
-    class func WebViewMoveForwardCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: moveForwardJavaScript)
-    }
-    
-    class func WebViewTurnLeftCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: turnLeftJavaScript)
-    }
-    
-    class func WebViewTurnRightCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: turnRightJavaScript)
-    }
-    
-    class func WebViewDeliverCommand() -> GVJavaScriptCommand {
-        return GVJavaScriptCommand(gameViewController: gameViewController!, javascript: deliverJavaScript)
-    }
-    
+    /***********
+     * WebView *
+     ***********/
     class func WebViewLoadLevelCommand(level: Level) -> GVLoadLevelCommand {
         return GVLoadLevelCommand(level: level, gameViewController: gameViewController!)
     }
+
     
-    
-    
-    
-    
-    
-    class func NativeShowHelpCommand() -> GameViewCommand {
-        return NGVShowHelpCommand(gameViewController: gameViewController!)
+    /*********************
+    * Game Menu Controls *
+    **********************/
+    class func HelpCommand() -> GameViewCommand {
+        return GameMenuNativeHelpCommand(gameViewController: gameViewController!)
     }
     
     class func NativeClearCommand() -> GameViewCommand {

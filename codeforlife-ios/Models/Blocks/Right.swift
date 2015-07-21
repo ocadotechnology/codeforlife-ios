@@ -25,20 +25,13 @@ class Right: Block {
         }
     }
     
-    override func executeBlockAction(player: MovableGameObject?, completion: (() -> Void)? = nil) {
-        player?.turnRight()
+    override func executeBlockAction() {
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.turnRight()
+        super.executeBlockAction()
     }
     
     override func toString() -> String {
         return "\"turn_right\","
     }
-    
-    override func submit() {
-        CommandFactory.WebViewTurnRightCommand().execute()
-    }
-    
-//    override func submitMock() {
-//        CommandFactory.WebViewTurnRightCommand().execute()
-//        CommandFactory.NativeAddAnimationCommand(TurnRightAnimation()).execute()
-//    }
+
 }

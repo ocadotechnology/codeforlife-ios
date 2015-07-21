@@ -27,10 +27,5 @@ class Deliver: Block {
     override func toString() -> String {
         return "\"deliver\","
     }
-    
-    override func submit() {
-        CommandFactory.WebViewDeliverCommand().execute()
-    }
-    
 
 }

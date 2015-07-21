@@ -12,8 +12,6 @@ import SpriteKit
 
 
 class MovableGameObject: GameObject {
-    
-    let PI = CGFloat(M_PI)
 
     var currentCoordinates: Coordinates
     var direction : Direction
@@ -32,20 +30,36 @@ class MovableGameObject: GameObject {
     }
 
     
-    func resetPosition() {
-        fatalError("Implement resetPosition()")
+    func reset() {
+        removeAllActions()
+        resetCurrentCoordinates()
+        updatePosition()
     }
     
+    func resetCurrentCoordinates() {
+        self.currentCoordinates = self.origin.coordinates
+    }
+    
+    func updatePosition() {
+        self.position = CGPointMake(
+            CGFloat(currentCoordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
+            CGFloat(currentCoordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
+        self.direction = origin.compassDirection.direction
+        let actionRotate = SKAction.rotateToAngle(origin.compassDirection.angle, duration: 0)
+        self.runAction(actionRotate)
+    }
+    
+    
+    
+    /*************
+     * Movements *
+     *************/
     func moveForward() {
         switch direction {
-        case .Left :
-            currentCoordinates.x--
-        case .Right:
-            currentCoordinates.x++
-        case .Up:
-            currentCoordinates.y++
-        case .Down:
-            currentCoordinates.y--
+            case .Left :    currentCoordinates.x--
+            case .Right:    currentCoordinates.x++
+            case .Up:       currentCoordinates.y++
+            case .Down:     currentCoordinates.y--
         }
     }
     
@@ -59,18 +73,14 @@ class MovableGameObject: GameObject {
     
     private func turn(#left: Bool) {
         switch direction {
-        case .Left :
-            direction = left ? .Down : .Up
-            currentCoordinates.y += left ? 1 : -1
-        case .Right:
-            direction = left ? .Up : .Down
-            currentCoordinates.y += left ? -1 : 1
-        case .Up:
-            direction = left ? .Left : .Right
-            currentCoordinates.x += left ? -1 : 1
-        case .Down:
-            direction = left ? .Right : .Left
-            currentCoordinates.x += left ? 1 : -1
+            case .Left:     direction = left ? .Down : .Up
+                            currentCoordinates.y += left ? -1 : +1
+            case .Right:    direction = left ? .Up : .Down
+                            currentCoordinates.y += left ? 1 : -1
+            case .Up:       direction = left ? .Left : .Right
+                            currentCoordinates.x += left ? -1 : 1
+            case .Down:     direction = left ? .Right : .Left
+                            currentCoordinates.x += left ? 1 : -1
         }
     }
         

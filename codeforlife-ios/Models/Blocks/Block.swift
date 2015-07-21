@@ -22,19 +22,12 @@ class Block {
         self.color = color
     }
     
-    func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)? = nil) {
-        fatalError("Implement executeBlockAnimation")
-    }
+    func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)? = nil) { completion?() }
     
-    func executeBlockAction(player: MovableGameObject?, completion: (() -> Void)? = nil) {
-        fatalError("Implement executeBlockAction")
-    }
+    func executeBlockAction() {}
     
     func toString() -> String {
         return ""
     }
     
-    func submit() {}
-    
-    func submitMock() {}
 }

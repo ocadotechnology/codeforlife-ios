@@ -50,9 +50,8 @@ class GVLoadLevelCommand : GameViewCommand {
 
 class NGVShowPreGameMessageCommand: GameViewCommand {
     override func execute(completion: (() -> Void)? = nil) {
-        let controller = MessageViewController.MessageViewControllerInstance()
-        controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        controller.view.frame = SharedContext.MainGameViewController!.view.frame
+        let controller = MessageViewController()
+        controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
         SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
         if let level = gameViewController.level {
             controller.message = PreGameMessage(title: "Level \(level.name)", context: level.description!,

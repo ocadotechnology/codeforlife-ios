@@ -72,15 +72,27 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     }
     
     @IBAction func clear() {
-        CommandFactory.WebViewClearCommand().execute()
         CommandFactory.NativeClearCommand().execute()
     }
     
+    final func recalculateVanPosition() {
+        gameViewController.gameMapViewController?.map?.resetMap()
+        gameViewController.gameMapViewController?.map?.van.reset()
+        for block in blocks {
+            block.executeBlockAction()
+        }
+        gameViewController.gameMapViewController?.map?.van.updatePosition()
+    }
+    
     final func clearBlocks() {
-        currentSelectedCell = 0
-        incorrectCell = 0
+        resetHighlightCellVariables()
         blocks.removeAll(keepCapacity: false)
         blocks.append(Start())
+    }
+    
+    final func resetHighlightCellVariables() {
+        currentSelectedCell = 0
+        incorrectCell = 0
     }
     
     final func addBlock(newBlock: Block) {

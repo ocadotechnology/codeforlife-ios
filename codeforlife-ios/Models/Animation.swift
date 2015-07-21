@@ -20,7 +20,7 @@ class Animation {
     
     func stop() {
         SharedContext.MainGameViewController?.gameMapViewController?.map?.removeAllActions()
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeAllActions()
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.removeAllActions()
     }
     
 }

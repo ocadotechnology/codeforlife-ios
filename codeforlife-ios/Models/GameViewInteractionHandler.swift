@@ -95,7 +95,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     private func convertToVanAnimation(object: JSON) -> Animation? {
         var animation: Animation?
-        if let player = SharedContext.MainGameViewController?.gameMapViewController?.map?.player,
+        if let player = SharedContext.MainGameViewController?.gameMapViewController?.map?.van,
                 vanAction = object["vanAction"].string {
             switch vanAction {
             case "FORWARD":
@@ -120,7 +120,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     private func convertToCrashAnimation(object: JSON) -> Animation? {
         var animation: Animation?
-        if let player = SharedContext.MainGameViewController?.gameMapViewController?.map?.player,
+        if let player = SharedContext.MainGameViewController?.gameMapViewController?.map?.van,
                 attemptedAction = object["attemptedAction"].string {
             switch attemptedAction {
                 case "FORWARD":

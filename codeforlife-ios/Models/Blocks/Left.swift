@@ -25,8 +25,9 @@ class Left: Block {
         }
     }
     
-    override func executeBlockAction(player: MovableGameObject?, completion: (() -> Void)? = nil) {
-        player?.turnLeft()
+    override func executeBlockAction() {
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.turnLeft()
+        super.executeBlockAction()
     }
     
     override func toString() -> String {

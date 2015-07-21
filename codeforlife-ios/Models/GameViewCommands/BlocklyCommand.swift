@@ -25,7 +25,7 @@ class NGVAddBlockCommand: BlocklyCommand {
     
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.addBlock(self.block)
-        self.block.executeBlockAnimation(SharedContext.MainGameViewController?.gameMapViewController?.map?.player)
+        self.block.executeBlockAnimation(SharedContext.MainGameViewController?.gameMapViewController?.map?.van)
         completion?()
     }
 }

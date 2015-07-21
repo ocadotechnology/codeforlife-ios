@@ -18,30 +18,6 @@ protocol GameMenuViewControllerDelegate {
     
 }
 
-class GameMenuViewControllerWebViewDelegate: GameMenuViewControllerDelegate {
-    
-    func play() {
-        CommandFactory.WebViewPlayCommand().execute()
-    }
-    
-    func stop() {
-        
-    }
-    
-    func step() {
-        
-    }
-    
-    func help() {
-        CommandFactory.WebViewHelpCommand().execute()
-    }
-    
-    func muteSound() {
-        CommandFactory.WebViewMuteCommand().execute()
-    }
-    
-}
-
 class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     
     weak var controller: MessageViewController?
@@ -72,11 +48,9 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func stop() {
-        SharedContext.MainGameViewController?.blockTableViewController?.currentSelectedCell = 0
-        SharedContext.MainGameViewController?.blockTableViewController?.incorrectCell = 0
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeAllActions()
+        SharedContext.MainGameViewController?.blockTableViewController?.resetHighlightCellVariables()
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.reset()
         SharedContext.MainGameViewController?.gameMapViewController?.map?.resetMap()
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.resetPosition()
         SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.resetVariables()
         CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
     }
@@ -85,7 +59,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func help() {
-        CommandFactory.NativeShowHelpCommand().execute()
+        CommandFactory.HelpCommand().execute()
     }
     
     func muteSound() {

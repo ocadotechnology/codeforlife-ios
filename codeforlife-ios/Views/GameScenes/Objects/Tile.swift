@@ -15,8 +15,8 @@ class Tile: GameObject {
     init(_ coordinates: Coordinates) {
         super.init(
             imageNamed: "tile1",
-            width: GameMapConfig.Grid.width,
-            height: GameMapConfig.Grid.height)
+            width:      GameMapConfig.Grid.width,
+            height:     GameMapConfig.Grid.height)
         
         self.position = CGPointMake(
             CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
