@@ -124,11 +124,11 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                 attemptedAction = object["attemptedAction"].string {
             switch attemptedAction {
                 case "FORWARD":
-                    animation = MoveForwardAnimation(object: player)
+                    animation = MoveForwardCrashAnimation(object: player)
                 case "TURN_LEFT":
-                    animation = TurnLeftAnimation(object: player)
+                    animation = TurnLeftCrashAnimation(object: player)
                 case "TURN_RIGHT":
-                    animation = TurnRightAnimation(object: player)
+                    animation = TurnRightCrashAnimation(object: player)
             default: break
             }
         }

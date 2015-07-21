@@ -21,6 +21,11 @@ class Van: MovableGameObject {
         
     }
     
+    final override func reset() {
+        texture = SKTexture(imageNamed: "ocadoVan_big")
+        super.reset()
+    }
+    
     // Origin of the Van is always one step further from the actual origin
     final override func resetCurrentCoordinates() {
         self.direction = origin.compassDirection.direction

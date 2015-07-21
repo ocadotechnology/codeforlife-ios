@@ -66,6 +66,7 @@ class AnimationHandler {
                 [unowned self] in
                 if self.isAnimationCycleFinished {
                     self.runAnimation = false
+                    println("Animation Cycle Finished")
                 }
                 // Notify to run next Animation if all concurrent animations finish
                 self.runningAnimationsRemained--

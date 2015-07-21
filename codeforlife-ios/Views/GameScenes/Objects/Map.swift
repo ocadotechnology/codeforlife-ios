@@ -28,7 +28,7 @@ class Map: SKScene {
         self.destinations = destination
         self.decorations = decorations
         self.van = Van(origin: origin)
-        self.van.zPosition = 1
+        self.van.zPosition = 0.8
         super.init(size: CGSize(
             width: GameMapConfig.Grid.width*CGFloat(width),
             height: GameMapConfig.Grid.height*CGFloat(height)))
