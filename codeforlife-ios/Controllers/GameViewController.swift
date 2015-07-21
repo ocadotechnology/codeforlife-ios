@@ -80,7 +80,7 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             , configuration: config)
         webView?.navigationDelegate = self
         webView?.UIDelegate = self
-        view.addSubview(webView!)
+//        view.addSubview(webView!)
         activityIndicator?.startAnimating()
     }
     

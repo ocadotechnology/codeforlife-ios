@@ -24,7 +24,6 @@ class ExplodeAnimation: Animation {
                 explosionPosition.x += (CGFloat(Float(arc4random()) / Float(UINT32_MAX)) - 0.5) * range
                 explosionPosition.y += (CGFloat(Float(arc4random()) / Float(UINT32_MAX)) - 0.5) * range
                 var fire = arc4random_uniform(fireToSmokeRatio)
-                print(fire)
                 var explosion = GameObject(imageNamed: fire == 0 ? "smoke": "fire", width: 1, height: 1)
                 explosion.position = explosionPosition
                 explosion.zPosition = 1.0

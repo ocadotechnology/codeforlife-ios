@@ -27,6 +27,7 @@ class SoundAnimation: Animation {
     }
     
     override func executeAnimation(completion: (() -> Void)? = nil) {
+        println("Play Game Sound: \(gameSound.rawValue)")
         SharedContext.MainGameViewController?.gameMapViewController?.map?.van.runAction(SKAction.playSoundFileNamed(gameSound.rawValue, waitForCompletion: true)) {
             completion?()
         }
