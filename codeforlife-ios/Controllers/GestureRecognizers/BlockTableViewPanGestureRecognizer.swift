@@ -103,61 +103,77 @@ class BlockTableViewPanGestureRecognizer: UIPanGestureRecognizer {
         return destinationRow
     }
     
+    /// Animate the reposition of other blocks when certain block is repositioned.
     private func repositionBlockAnimations(#startRow: Int, endRow: Int) {
         if startRow != endRow {
             let minRow = min(startRow, endRow) + (startRow < endRow ? 1 : 0)
             let maxRow = max(startRow, endRow) - (startRow > endRow ? 1 : 0)
             for index in minRow ... maxRow {
+                let cell = self.viewController.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+                cell?.layer.zPosition = 0.9
                 UIView.animateWithDuration(animationDuration,
-                    animations: { [unowned self] in
-                        let cell = self.viewController.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+                    animations: { [weak cell = cell] in
                         cell?.center.y += startRow < endRow ? -self.cellHeight : self.cellHeight
+                    },
+                    completion: { [weak cell = cell] (completed) -> Void in
+                        cell?.layer.zPosition = 0
                     }
                 )
             }
         }
     }
     
+    /// Animate the reposition of a block from one position to another.
     private func repositionBlockWithAnimation(from: Int, to: Int) {
         let row = from
         let originalX = originalPosition!.x
+        let cell = viewController.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0))
+        cell?.layer.zPosition = 1
         UIView.animateWithDuration(animationDuration,
-            animations: { [unowned self] in
-                let cell = self.viewController.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0))
+            animations: { [weak cell = cell] in
                 cell?.center.x = originalX
                 cell?.center.y = CGFloat(to) * self.cellHeight + self.cellHeight/2
             },
-            completion: { [unowned self] (completed) -> Void in
+            completion: { [unowned self, weak cell = cell] (completed) -> Void in
+                cell?.layer.zPosition = 0
                 var block = self.viewController.blocks.removeAtIndex(row)
                 self.viewController.blocks.splice([block], atIndex: to)
             }
         )
     }
     
+    /// Remove a block with animation
     private func removeBlockWithAnimation() {
         let row = selectedRow!
+        let cell = viewController.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0))
+        cell?.layer.zPosition = 1
         UIView.animateWithDuration(animationDuration,
-            animations: { [unowned self] in
-                self.viewController.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0))?.center.x -= self.cellWidth
+            animations: { [weak cell = cell] in
+                cell?.center.x -= self.cellWidth
             },
-            completion: { [unowned self] (completed) -> Void in
+            completion: { [unowned self, weak cell = cell] (completed) -> Void in
+                cell?.layer.zPosition = 0
                 self.viewController.blocks.removeAtIndex(row)
                 self.viewController.recalculateVanPosition()
             }
         )
     }
     
+    /// Animate the reposition of other blocks when a block is removed.
     private func removeBlockAnimations() {
         let row = selectedRow!
         for index in row+1 ..< viewController.blocks.count {
+            let cell = viewController.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+            cell?.layer.zPosition = 0.9
             UIView.animateWithDuration(animationDuration,
-                animations: { [unowned self] in
-                    self.viewController.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))?.center.y -= self.cellHeight
+                animations: { [weak cell = cell] in
+                    cell?.center.y -= self.cellHeight
+                },
+                completion: { [weak cell = cell] (completed) -> Void in
+                    cell?.layer.zPosition = 0
                 }
             )
         }
-        
     }
-    
     
 }
