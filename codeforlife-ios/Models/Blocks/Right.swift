@@ -29,9 +29,5 @@ class Right: Block {
         SharedContext.MainGameViewController?.gameMapViewController?.map?.van.turnRight()
         super.executeBlockAction()
     }
-    
-    override func toString() -> String {
-        return "\"turn_right\","
-    }
 
 }

@@ -29,8 +29,4 @@ class Forward: Block {
         super.executeBlockAction()
     }
     
-    override func toString() -> String {
-        return "\"move_forwards\","
-    }
-    
 }

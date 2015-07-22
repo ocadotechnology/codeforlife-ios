@@ -26,8 +26,4 @@ class Block {
     
     func executeBlockAction() {}
     
-    func toString() -> String {
-        return ""
-    }
-    
 }

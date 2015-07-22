@@ -33,7 +33,7 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         }
         didSet {
             if currentSelectedCell > 0 && currentSelectedCell <= blocks.count {
-                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: currentSelectedCell, inSection: 0))?.backgroundColor = UIColor.yellowColor()
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: currentSelectedCell, inSection: 0))?.backgroundColor = UIColor.greenColor()
             }
         }
     }
@@ -94,14 +94,8 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     }
     
     final func submitBlocks() {
-        var str: String = "ocargo.animation.serializeAnimationQueue(["
-        for block in blocks {
-            str += block.type
-        }
-        if blocks.count > 1 {
-            str = str.substringToIndex(advance(str.startIndex, count(str)-1))
-        }
-        str += "])"
+        var str = blocks.reduce("ocargo.animation.serializeAnimationQueue([", combine: {$0 + $1.type})
+        str = blocks.count > 1 ? str.substringToIndex(advance(str.startIndex, count(str)-1)) + "])" : str + "])"
         println(str)
         gameViewController.runJavaScript(str)
     }

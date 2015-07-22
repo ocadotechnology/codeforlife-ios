@@ -30,8 +30,4 @@ class Left: Block {
         super.executeBlockAction()
     }
     
-    override func toString() -> String {
-        return "\"turn_left\","
-    }
-    
 }
