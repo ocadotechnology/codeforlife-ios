@@ -833,14 +833,12 @@
 				ED13D00C1B59003500EA591A /* Sounds */,
 				EDBE3F481B568695000FC06F /* AnimationHandler.swift */,
 				EDD1A2BB1B4E7805001A82A2 /* Animation.swift */,
+				ED1045681B5E7248001FA170 /* ExplodeAnimation.swift */,
 				ED13CFEF1B58FBCD00EA591A /* SoundAnimation.swift */,
 				ED0D01EB1B5D22BD00AF7D10 /* MovementAnimation.swift */,
 				EDD1A2C21B4FCEA3001A82A2 /* MoveForward.swift */,
-				ED10456B1B5E7D55001FA170 /* MoveForwardCrashAnimation.swift */,
 				EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */,
-				ED10456E1B5E7DDF001FA170 /* TurnLeftCrashAnimation.swift */,
 				EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */,
-				ED1045711B5E7E1B001FA170 /* TurnRightCrashAnimation.swift */,
 				EDBE3F4B1B568BD1000FC06F /* DeliverAnimation.swift */,
 				ED13D0101B5903AE00EA591A /* StopEngineAnimation.swift */,
 				ED13D00D1B5902C500EA591A /* StartEngineAnimation.swift */,
@@ -848,7 +846,9 @@
 				ED13D0171B59217900EA591A /* HighlightAnimation.swift */,
 				ED13D01A1B59218400EA591A /* HighlightIncorrectAnimation.swift */,
 				EDBE3F551B569B28000FC06F /* OnStopControlsAnimation.swift */,
-				ED1045681B5E7248001FA170 /* ExplodeAnimation.swift */,
+				ED10456B1B5E7D55001FA170 /* MoveForwardCrashAnimation.swift */,
+				ED10456E1B5E7DDF001FA170 /* TurnLeftCrashAnimation.swift */,
+				ED1045711B5E7E1B001FA170 /* TurnRightCrashAnimation.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
