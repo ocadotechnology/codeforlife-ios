@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
+import UIKit
 import Foundation
 import SwiftyJSON
 import WebKit
 
-// Deprecated
 class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
 
     weak var gameViewController: GameViewController?
@@ -74,8 +74,14 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
                             maxScoreForPathLength = object["maxScoreForPathLength"].int,
                             instrScore = object["instrScore"].float,
                             maxScoreForNumberOfInstructions = object["maxScoreForNumberOfInstructions"].int {
+                                
+                        var processedMessage = popupMessage
+                            .stringByReplacingOccurrencesOfString("<br>", withString: "\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                            .stringByReplacingOccurrencesOfString("<b>", withString: "<", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                            .stringByReplacingOccurrencesOfString("</b>", withString: ">", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                                
                         animation = WinPopupAnimation(
-                            message: popupMessage,
+                            message: processedMessage,
                             pathScore: pathLengthScore,
                             maxPathScore: maxScoreForPathLength,
                             instrScore: instrScore,

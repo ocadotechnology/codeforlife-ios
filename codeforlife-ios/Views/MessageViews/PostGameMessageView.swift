@@ -56,7 +56,7 @@ class PostGameMessageView: MessageView {
             }
             
             for index in 0 ..< 10 {
-                let imageView = UIImageView(image: UIImage(named: Float(index) <= message.pathScore ? "coin_gold" : "coin_empty_transparent"))
+                let imageView = UIImageView(image: UIImage(named: Float(index+1) <= message.instrScore ? "coin_gold" : "coin_empty_transparent"))
                 imageView.frame = CGRect(origin: CGPointMake(frame.origin.x+CGFloat(index)*45, frame.origin.y), size: CGSize(width: 45, height: 45))
                 instrScoreImages.addSubview(imageView)
             }

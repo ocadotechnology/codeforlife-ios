@@ -8,10 +8,17 @@
 
 import SpriteKit
 import Foundation
+import AVFoundation
 
 class Van: MovableGameObject {
     
+    var engine = AVAudioPlayer()
+    
     init(origin: Origin) {
+        let engineSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("moving", ofType: "mp3")!)
+        self.engine = AVAudioPlayer(contentsOfURL: engineSound, error: nil)
+        self.engine.numberOfLoops = -1
+        self.engine.prepareToPlay()
         super.init(
             imageNamed: "ocadoVan_big",
             width: GameMapConfig.Grid.width*38/202,

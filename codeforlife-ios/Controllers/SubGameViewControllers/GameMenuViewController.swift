@@ -36,6 +36,16 @@ class GameMenuViewController: SubGameViewController {
             }
         }
         
+        var imageName: String {
+            switch self {
+            case .onPlayControls:   return "pause"
+            case .onPauseControls:  return "resume"
+            case .onStepControls:   return "resume"
+            case .onStopControls:   return "play"
+            case .onResumeControls: return "pause"
+            }
+        }
+        
         var description : String {
             return self.rawValue
         }
@@ -46,6 +56,7 @@ class GameMenuViewController: SubGameViewController {
     var controlMode = ControlMode.onStopControls {
         didSet {
             playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
+            playButton.setImage(UIImage(named: controlMode.imageName), forState: UIControlState.Normal)
             switch controlMode {
             case .onPlayControls:
                 clearButton.enabled = false

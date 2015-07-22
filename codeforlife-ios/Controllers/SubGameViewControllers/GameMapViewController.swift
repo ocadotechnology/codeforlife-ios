@@ -16,6 +16,7 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
     
     var map: Map? {
         didSet {
+            map?.backgroundColor = kC4LGameMapGrassColor
             map?.removeAllChildren()
             skView.presentScene(map!)
             map?.draw()
@@ -25,6 +26,7 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = skView
+        skView.backgroundColor = kC4LGameMapGrassColor
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true

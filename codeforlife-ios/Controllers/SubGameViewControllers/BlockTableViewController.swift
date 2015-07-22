@@ -22,8 +22,6 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     var blocks: [Block] = [Start()] {
         didSet {
             self.tableView.reloadData()
-            let indexPath = NSIndexPath(forRow: blocks.count - 1, inSection: 0)
-            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         }
     }
     
@@ -91,6 +89,8 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     
     final func addBlock(newBlock: Block) {
         blocks.append(newBlock)
+        let indexPath = NSIndexPath(forRow: blocks.count - 1, inSection: 0)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
     }
     
     final func submitBlocks() {
@@ -114,6 +114,11 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     
     final func handlePanGesture(sender: BlockTableViewPanGestureRecognizer) {
         recognizer?.handlePanGesture(sender)
+    }
+    
+    final func goToTopBlock() {
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
     }
 
     

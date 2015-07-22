@@ -88,8 +88,8 @@ class Map: SKScene {
     private func drawGrass() {
         for x in 0 ..< width {
             for y in 0  ..< height {
-                if !mapArray[x][y] {
-                    //addChild(Tile(Coordinates(x,y)))
+                if x%2 == 0 && y%2 == 0 {
+                    addChild(Tile(Coordinates(x,y)))
                 }
             }
         }

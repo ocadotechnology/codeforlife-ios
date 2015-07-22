@@ -41,6 +41,8 @@ class NGVStopCommand: GameMenuCommand {
 class NGVClearCommand: GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
         gameViewController.blockTableViewController?.clearBlocks()
+        gameViewController.gameMapViewController?.map?.resetMap()
+        gameViewController.blockTableViewController?.resetHighlightCellVariables()
         gameViewController.gameMapViewController?.map?.van.reset()
         completion?()
     }
@@ -62,10 +64,10 @@ class NGVPlayCommand: GameMenuCommand {
         gameViewController.gameMapViewController?.map?.resetMap()
         CommandFactory.NativeResetAnimationCommand().execute()
         gameViewController.gameMenuViewController?.clearButton.enabled = false
+        gameViewController.blockTableViewController?.goToTopBlock()
         
         // Submit Blocks and retrieve Animations
         gameViewController.gameMapViewController?.map?.van.reset()
-        
         gameViewController.blockTableViewController?.submitBlocks()
 
     }

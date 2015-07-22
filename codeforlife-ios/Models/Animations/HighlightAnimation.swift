@@ -19,7 +19,10 @@ class HighlightAnimation: Animation {
     
     override func executeAnimation(completion: (() -> Void)? = nil) {
         println("Highlight Cell: \(blockId)")
-        SharedContext.MainGameViewController?.blockTableViewController?.currentSelectedCell = blockId
+        let indexPath = NSIndexPath(forRow: blockId, inSection: 0)
+        let viewController = SharedContext.MainGameViewController?.blockTableViewController
+        viewController?.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Middle, animated: true)
+        viewController?.currentSelectedCell = blockId
         completion?()
     }
 }

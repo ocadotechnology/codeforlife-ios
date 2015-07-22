@@ -54,7 +54,9 @@ class NGVShowPreGameMessageCommand: GameViewCommand {
         controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
         SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
         if let level = gameViewController.level {
-            controller.message = PreGameMessage(title: "Level \(level.name)", context: level.description!,
+            controller.message = PreGameMessage(
+                title: "Level \(level.name)",
+                context: level.description!,
                 action: {
                     controller.dismissViewControllerAnimated(true, completion: nil)
             })

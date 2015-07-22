@@ -132,6 +132,7 @@
 		ED5721C11B47EED20011F465 /* GameMenuViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5721BF1B47EED20011F465 /* GameMenuViewControllerDelegate.swift */; };
 		ED5721C41B4854870011F465 /* FetchLevelActionMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5721C31B4854870011F465 /* FetchLevelActionMockDelegate.swift */; };
 		ED5721C51B4854870011F465 /* FetchLevelActionMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5721C31B4854870011F465 /* FetchLevelActionMockDelegate.swift */; };
+		ED6DC3BF1B5FC77B00EB6F22 /* EpisodeNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6DC3BE1B5FC77B00EB6F22 /* EpisodeNavigationButton.swift */; };
 		ED6F79881B3D46CF00DD2AFE /* GameMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79871B3D46CF00DD2AFE /* GameMenuView.swift */; };
 		ED6F798A1B3D565B00DD2AFE /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79891B3D565B00DD2AFE /* MessageViewController.swift */; };
 		ED6F798F1B3D5A0E00DD2AFE /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6F79891B3D565B00DD2AFE /* MessageViewController.swift */; };
@@ -158,6 +159,7 @@
 		ED7799D51B46A09D00A854A3 /* Road.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D31B46A09D00A854A3 /* Road.swift */; };
 		ED7799D71B46AB3E00A854A3 /* GameMapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */; };
 		ED7799D81B46AB3E00A854A3 /* GameMapConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */; };
+		ED8AEB9B1B5FE8020049EA8D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8AEB9A1B5FE8020049EA8D /* AVFoundation.framework */; };
 		EDA47C3B1B441E35003356AB /* EpisodeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */; };
 		EDA47C3C1B441E35003356AB /* EpisodeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */; };
 		EDA47C3F1B442411003356AB /* LevelBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3E1B442411003356AB /* LevelBackButton.swift */; };
@@ -357,6 +359,7 @@
 		ED5721BA1B47E7CC0011F465 /* Origin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Origin.swift; path = Objects/Origin.swift; sourceTree = "<group>"; };
 		ED5721BF1B47EED20011F465 /* GameMenuViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMenuViewControllerDelegate.swift; sourceTree = "<group>"; };
 		ED5721C31B4854870011F465 /* FetchLevelActionMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelActionMockDelegate.swift; sourceTree = "<group>"; };
+		ED6DC3BE1B5FC77B00EB6F22 /* EpisodeNavigationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeNavigationButton.swift; sourceTree = "<group>"; };
 		ED6F79871B3D46CF00DD2AFE /* GameMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameMenuView.swift; path = ../GameMenuView.swift; sourceTree = "<group>"; };
 		ED6F79891B3D565B00DD2AFE /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectDriveButton.swift; sourceTree = "<group>"; };
@@ -369,6 +372,7 @@
 		ED7799D01B469E6500A854A3 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Direction.swift; path = Objects/Direction.swift; sourceTree = "<group>"; };
 		ED7799D31B46A09D00A854A3 /* Road.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Road.swift; path = ../Road.swift; sourceTree = "<group>"; };
 		ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapConfig.swift; sourceTree = "<group>"; };
+		ED8AEB9A1B5FE8020049EA8D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTableView.swift; sourceTree = "<group>"; };
 		EDA47C3E1B442411003356AB /* LevelBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelBackButton.swift; sourceTree = "<group>"; };
 		EDA47C411B442798003356AB /* LevelTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableView.swift; sourceTree = "<group>"; };
@@ -431,6 +435,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8AEB9B1B5FE8020049EA8D /* AVFoundation.framework in Frameworks */,
 				B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +454,7 @@
 		61C117FDD7A1D26AE44D9944 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED8AEB9A1B5FE8020049EA8D /* AVFoundation.framework */,
 				D77FE0166D1735B9290ACD65 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -750,6 +756,7 @@
 				EDC8C1F01B369D3C004B1358 /* GameViewButton.swift */,
 				ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */,
 				EDA47C3E1B442411003356AB /* LevelBackButton.swift */,
+				ED6DC3BE1B5FC77B00EB6F22 /* EpisodeNavigationButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1144,6 +1151,7 @@
 				EDBE3F4F1B568E1E000FC06F /* PopUpAnimation.swift in Sources */,
 				EDA47C4B1B453C1E003356AB /* Map.swift in Sources */,
 				ED6F79941B3D866F00DD2AFE /* Message.swift in Sources */,
+				ED6DC3BF1B5FC77B00EB6F22 /* EpisodeNavigationButton.swift in Sources */,
 				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
 				EDC8C1F51B381213004B1358 /* CommandFactory.swift in Sources */,
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,

@@ -36,8 +36,18 @@ class FetchLevelAction : Action, ActionProtocol
             mapUrl = json["map"].string,
             level = viewController.level {
                 
-                level.description = description
-                level.hint = hint
+                var processedDescription = description
+                    .stringByReplacingOccurrencesOfString("<br>", withString: "\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    .stringByReplacingOccurrencesOfString("<b>", withString: "<", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    .stringByReplacingOccurrencesOfString("</b>", withString: ">", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                
+                var processedHint = hint
+                    .stringByReplacingOccurrencesOfString("<br>", withString: "\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    .stringByReplacingOccurrencesOfString("<b>", withString: "<", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                    .stringByReplacingOccurrencesOfString("</b>", withString: ">", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                
+                level.description = processedDescription
+                level.hint = processedHint
                 level.blocklyEnabled = blocklyEnabled
                 level.pythonViewEnabled = pythonViewEnabled
                 level.pythonEnabled = pythonEnabled
