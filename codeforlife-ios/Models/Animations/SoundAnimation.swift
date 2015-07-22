@@ -10,12 +10,12 @@ import SpriteKit
 import Foundation
 
 enum GameSound: String {
-    case Starting = "starting.mp3"
-    case Delivery = "delivery.mp3"
-    case Win = "win.mp3"
-    case Failure = "failure.mp3"
-    case Tension = "tension.mp3"
-    case Crash = "crash.mp3"
+    case Starting   = "starting.mp3"
+    case Delivery   = "delivery.mp3"
+    case Win        = "win.mp3"
+    case Failure    = "failure.mp3"
+    case Tension    = "tension.mp3"
+    case Crash      = "crash.mp3"
 }
 
 class SoundAnimation: Animation {

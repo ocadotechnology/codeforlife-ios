@@ -24,6 +24,11 @@ class Deliver: Block {
         completion?()
     }
     
+    override func executeBlockAction() {
+        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.deliver()
+        super.executeBlockAction()
+    }
+    
     override func toString() -> String {
         return "\"deliver\","
     }
