@@ -11,7 +11,7 @@ import Foundation
 
 struct GameMapConfig {
     
-     struct Grid {
+    struct Grid {
         static let height: CGFloat = 70
         static let width: CGFloat = 70
     }

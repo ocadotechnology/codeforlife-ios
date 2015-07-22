@@ -61,7 +61,7 @@ class NGVPlayCommand: GameMenuCommand {
         // Native UI Update
         gameViewController.gameMapViewController?.map?.resetMap()
         CommandFactory.NativeResetAnimationCommand().execute()
-        gameViewController.blockTableViewController?.clearButton.enabled = false
+        gameViewController.gameMenuViewController?.clearButton.enabled = false
         
         // Submit Blocks and retrieve Animations
         gameViewController.gameMapViewController?.map?.van.reset()

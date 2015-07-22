@@ -17,8 +17,6 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableView: BlockTableView!
     @IBOutlet weak var containerView: UIView!
     
-    @IBOutlet weak var clearButton: GameViewButton!
-    
     var recognizer: BlockTableViewPanGestureRecognizer?
     
     var blocks: [Block] = [Start()] {
@@ -69,10 +67,6 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.dataSource = self
         tableView.delegate = self
-    }
-    
-    @IBAction func clear() {
-        CommandFactory.NativeClearCommand().execute()
     }
     
     final func recalculateVanPosition() {

@@ -14,6 +14,7 @@ protocol GameMenuViewControllerDelegate {
     func help()
     func stop()
     func step()
+    func clear()
     func muteSound()
     
 }
@@ -53,6 +54,10 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
         SharedContext.MainGameViewController?.gameMapViewController?.map?.resetMap()
         SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.resetVariables()
         CommandFactory.NativeSwitchControlModeCommand(GameMenuViewController.ControlMode.onStopControls).execute()
+    }
+    
+    func clear() {
+        CommandFactory.NativeClearCommand().execute()
     }
     
     func step() {

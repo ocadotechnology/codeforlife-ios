@@ -48,11 +48,11 @@ class GameMenuViewController: SubGameViewController {
             playButton.setTitle(controlMode.text, forState: UIControlState.Normal)
             switch controlMode {
             case .onPlayControls:
-                gameViewController.blockTableViewController?.clearButton.enabled = false
+                clearButton.enabled = false
                 gameViewController.blockTableViewController?.recognizer?.editable = false
                 gameViewController.directDriveViewController?.disableDirectDrive()
             case .onStopControls:
-                gameViewController.blockTableViewController?.clearButton.enabled = true
+                clearButton.enabled = true
                 gameViewController.blockTableViewController?.recognizer?.editable = true
                 gameViewController.directDriveViewController?.enableDirectDrive()
             case .onPauseControls: break
@@ -75,12 +75,17 @@ class GameMenuViewController: SubGameViewController {
         }
     }
     
+    @IBOutlet weak var clearButton: GameViewButton!
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate.gameMenuViewController = self
+    }
+    
+    @IBAction func clear() {
+        delegate.clear()
     }
     
     @IBAction func play() {
