@@ -10,13 +10,13 @@ import UIKit
 import SpriteKit
 import Foundation
 
-class TurnRightCrashAnimation: MovementAnimation {
+class TurnRightCrashAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
         println("Van Turn Right and Crash")
-        self.turnRight(GameMapConfig.GridSize.height*(33+24+44+22)/202, duration: 0.7) {
-            ExplodeAnimation().executeAnimation(completion: completion)
-        }
-        object.turnRight()
+        van?.turnRight(animated: true, completion: {
+            [weak van] in
+            van?.crash(completion)
+        })
     }
     
 }

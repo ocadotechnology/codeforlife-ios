@@ -16,17 +16,12 @@ class Forward: Block {
             color: kC4LBlocklyForwardBlockColour)
     }
     
-    override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
+    override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
         CommandFactory.NativeDisableDirectDriveCommand().execute()
-        MoveForwardAnimation(object: player!).executeAnimation {
+        van?.moveForward(animated: animated, completion: {
             CommandFactory.NativeEnableDirectDriveCommand().execute()
             completion?()
-        }
-    }
-    
-    override func executeBlockAction() {
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.moveForward()
-        super.executeBlockAction()
+        })
     }
     
 }

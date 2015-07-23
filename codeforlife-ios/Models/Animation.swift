@@ -13,6 +13,10 @@ class Animation {
     
     weak var nextAnimation: Animation?
     
+    weak var van: Van? {
+        return SharedContext.MainGameViewController?.gameMapViewController?.map?.van
+    }
+    
     func executeAnimation(completion: (() -> Void)? = nil) {
         fatalError("Implement executeanimation()")
     }

@@ -16,14 +16,16 @@ class Block {
     var description: String
     var color: UIColor
     
+    weak var van: Van? {
+        return SharedContext.MainGameViewController?.gameMapViewController?.map?.van
+    }
+    
     init(description: String, type:String, color: UIColor) {
         self.description = description
         self.type = type
         self.color = color
     }
     
-    func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)? = nil) { completion?() }
-    
-    func executeBlockAction() {}
+    func executeBlock(#animated: Bool, completion: (() -> Void)?) { completion?() }
     
 }

@@ -49,26 +49,70 @@ class MovableGameObject: GameObject {
         self.runAction(actionRotate)
     }
     
-    
-    
     /*************
      * Movements *
      *************/
-    func moveForward() {
-        switch direction {
-            case .Left :    currentCoordinates.x--
-            case .Right:    currentCoordinates.x++
-            case .Up:       currentCoordinates.y++
-            case .Down:     currentCoordinates.y--
+    func moveForward(#animated: Bool, completion : (() -> Void)?) {
+        moveForwardAnimation(
+            movement: GameMapConfig.GridSize,
+            duration: animated ? 0.5 : 0,
+            completion: {
+                [unowned self] in
+                self.updatePosition()
+                completion?()
+        })
+        switch self.direction {
+        case .Left :    self.currentCoordinates.x--
+        case .Right:    self.currentCoordinates.x++
+        case .Up:       self.currentCoordinates.y++
+        case .Down:     self.currentCoordinates.y--
         }
     }
     
-    func turnLeft() {
-        turn(left: true)
+    func turnLeft(#animated: Bool, completion : (() -> Void)?) {
+        turnLeftAnimation(
+            radius: GameMapConfig.GridSize.height*(33+24+22)/202,
+            duration: animated ? 0.5 : 0,
+            completion: {
+                [unowned self] in
+                self.updatePosition()
+                completion?()
+            })
+        self.turn(left: true)
     }
     
-    func turnRight() {
-        turn(left: false)
+    func turnRight(#animated: Bool, completion : (() -> Void)?) {
+        turnRightAnimation(
+            radius: GameMapConfig.GridSize.height*(33+24+44+22)/202,
+            duration: animated ? 0.5 : 0,
+            completion: {
+                [unowned self] in
+                self.updatePosition()
+                completion?()
+        })
+        self.turn(left: false)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    private func moveForwardAnimation(#movement: CGSize, duration: NSTimeInterval, completion: () -> Void) {
+        var actionMove: SKAction
+        switch direction {
+        case .Left :
+            actionMove = SKAction.moveBy(CGVector(dx: -movement.width, dy: 0), duration: duration)
+        case .Right:
+            actionMove = SKAction.moveBy(CGVector(dx:  movement.width, dy: 0), duration: duration)
+        case .Up:
+            actionMove = SKAction.moveBy(CGVector(dx: 0, dy:  movement.height), duration: duration)
+        case .Down:
+            actionMove = SKAction.moveBy(CGVector(dx: 0, dy: -movement.height), duration: duration)
+        }
+        runAction(actionMove, completion: completion)
     }
     
     private func turn(#left: Bool) {
@@ -82,6 +126,59 @@ class MovableGameObject: GameObject {
             case .Down:     direction = left ? .Right : .Left
                             currentCoordinates.x += left ? 1 : -1
         }
+    }
+    
+    private func turnLeftAnimation(#radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+        turnAnimation(radius, duration, left: true, completion)
+    }
+    
+    private func turnRightAnimation (#radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+        turnAnimation(radius, duration, left: false, completion)
+    }
+    
+    private func turnAnimation(radius: CGFloat, _ duration: NSTimeInterval, left: Bool, _ completion: () -> Void) {
+        let PI = CGFloat(M_PI)
+        let actionRotate = SKAction.rotateByAngle(left ? PI/2 : -PI/2, duration: duration)
+        var path: UIBezierPath
+        
+        switch direction {
+        case .Left :
+            path = UIBezierPath(
+                arcCenter: CGPointMake(0, left ? -radius : radius) ,
+                radius: radius,
+                startAngle: left ? CGFloat(M_PI/2) : PI*3/2,
+                endAngle: PI,
+                clockwise: left)
+        case .Right:
+            path = UIBezierPath(
+                arcCenter: CGPointMake(0, left ? radius : -radius) ,
+                radius: radius,
+                startAngle: left ? CGFloat(M_PI*3/2) : PI/2,
+                endAngle: 0,
+                clockwise: left)
+        case .Up:
+            path = UIBezierPath(
+                arcCenter: CGPointMake(left ? -radius : radius, 0) ,
+                radius: radius,
+                startAngle: left ? 0 : PI,
+                endAngle: PI/2,
+                clockwise: left)
+        case .Down:
+            path = UIBezierPath(
+                arcCenter: CGPointMake(left ? radius : -radius, 0) ,
+                radius: radius,
+                startAngle: left ? CGFloat(M_PI) : 0,
+                endAngle: PI*3/2,
+                clockwise: left)
+        }
+        let actionMove: SKAction = SKAction.followPath(
+            path.CGPath,
+            asOffset: true,
+            orientToPath: false,
+            duration: duration)
+        runAction(SKAction.group([actionRotate, actionMove]), completion: {
+            completion()
+            })
     }
         
     required init(coder aDecoder: NSCoder) {

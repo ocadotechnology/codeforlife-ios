@@ -16,14 +16,8 @@ class Deliver: Block {
             color: kC4LBlocklyDeliverBlockColour)
     }
     
-    override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
-        executeBlockAction()
-        completion?()
-    }
-    
-    override func executeBlockAction() {
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.deliver()
-        super.executeBlockAction()
+    override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
+        van?.deliver(animated: animated, completion: completion)
     }
 
 }

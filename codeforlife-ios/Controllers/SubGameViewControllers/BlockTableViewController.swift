@@ -71,9 +71,8 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         gameViewController.gameMapViewController?.map?.resetMap()
         gameViewController.gameMapViewController?.map?.van.reset()
         for block in blocks {
-            block.executeBlockAction()
+            block.executeBlock(animated: false, completion: nil)
         }
-        gameViewController.gameMapViewController?.map?.van.updatePosition()
     }
     
     final func clearBlocks() {

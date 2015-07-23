@@ -17,8 +17,6 @@
 		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
 		ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* GameViewController.swift */; };
 		ED0D01E91B5CF51D00AF7D10 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED0D01E61B5CF51D00AF7D10 /* win.mp3 */; };
-		ED0D01EC1B5D22BD00AF7D10 /* MovementAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D01EB1B5D22BD00AF7D10 /* MovementAnimation.swift */; };
-		ED0D01ED1B5D22BD00AF7D10 /* MovementAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D01EB1B5D22BD00AF7D10 /* MovementAnimation.swift */; };
 		ED10454D1B5E36EB001FA170 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10454C1B5E36EB001FA170 /* Destination.swift */; };
 		ED10454E1B5E36EB001FA170 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10454C1B5E36EB001FA170 /* Destination.swift */; };
 		ED1045511B5E3DC1001FA170 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1045501B5E3DC1001FA170 /* Turn.swift */; };
@@ -37,8 +35,6 @@
 		ED1045641B5E5D78001FA170 /* crash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED1045621B5E5D78001FA170 /* crash.mp3 */; };
 		ED1045661B5E5DAD001FA170 /* failure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED1045651B5E5DAD001FA170 /* failure.mp3 */; };
 		ED1045671B5E5DAD001FA170 /* failure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ED1045651B5E5DAD001FA170 /* failure.mp3 */; };
-		ED1045691B5E7248001FA170 /* ExplodeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1045681B5E7248001FA170 /* ExplodeAnimation.swift */; };
-		ED10456A1B5E7248001FA170 /* ExplodeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1045681B5E7248001FA170 /* ExplodeAnimation.swift */; };
 		ED10456C1B5E7D55001FA170 /* MoveForwardCrashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10456B1B5E7D55001FA170 /* MoveForwardCrashAnimation.swift */; };
 		ED10456D1B5E7D55001FA170 /* MoveForwardCrashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10456B1B5E7D55001FA170 /* MoveForwardCrashAnimation.swift */; };
 		ED10456F1B5E7DDF001FA170 /* TurnLeftCrashAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10456E1B5E7DDF001FA170 /* TurnLeftCrashAnimation.swift */; };
@@ -162,6 +158,8 @@
 		ED8AEB9B1B5FE8020049EA8D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8AEB9A1B5FE8020049EA8D /* AVFoundation.framework */; };
 		ED90B4471B60D6920076B70D /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4461B60D6920076B70D /* CGPointExtension.swift */; };
 		ED90B4481B60D6920076B70D /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4461B60D6920076B70D /* CGPointExtension.swift */; };
+		ED90B44A1B60DD100076B70D /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4491B60DD100076B70D /* AnimationFactory.swift */; };
+		ED90B44B1B60DD100076B70D /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4491B60DD100076B70D /* AnimationFactory.swift */; };
 		EDA47C3B1B441E35003356AB /* EpisodeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */; };
 		EDA47C3C1B441E35003356AB /* EpisodeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */; };
 		EDA47C3F1B442411003356AB /* LevelBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3E1B442411003356AB /* LevelBackButton.swift */; };
@@ -300,7 +298,6 @@
 		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
 		ED0BC5B21B3062E60060FC84 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ED0D01E61B5CF51D00AF7D10 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
-		ED0D01EB1B5D22BD00AF7D10 /* MovementAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementAnimation.swift; sourceTree = "<group>"; };
 		ED10454C1B5E36EB001FA170 /* Destination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Destination.swift; path = Objects/Destination.swift; sourceTree = "<group>"; };
 		ED1045501B5E3DC1001FA170 /* Turn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
 		ED1045531B5E3DDD001FA170 /* TJunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TJunction.swift; sourceTree = "<group>"; };
@@ -310,7 +307,6 @@
 		ED10455F1B5E3E3B001FA170 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		ED1045621B5E5D78001FA170 /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crash.mp3; sourceTree = "<group>"; };
 		ED1045651B5E5DAD001FA170 /* failure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = failure.mp3; sourceTree = "<group>"; };
-		ED1045681B5E7248001FA170 /* ExplodeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplodeAnimation.swift; sourceTree = "<group>"; };
 		ED10456B1B5E7D55001FA170 /* MoveForwardCrashAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveForwardCrashAnimation.swift; sourceTree = "<group>"; };
 		ED10456E1B5E7DDF001FA170 /* TurnLeftCrashAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnLeftCrashAnimation.swift; sourceTree = "<group>"; };
 		ED1045711B5E7E1B001FA170 /* TurnRightCrashAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnRightCrashAnimation.swift; sourceTree = "<group>"; };
@@ -376,6 +372,7 @@
 		ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapConfig.swift; sourceTree = "<group>"; };
 		ED8AEB9A1B5FE8020049EA8D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ED90B4461B60D6920076B70D /* CGPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
+		ED90B4491B60DD100076B70D /* AnimationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationFactory.swift; sourceTree = "<group>"; };
 		EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTableView.swift; sourceTree = "<group>"; };
 		EDA47C3E1B442411003356AB /* LevelBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelBackButton.swift; sourceTree = "<group>"; };
 		EDA47C411B442798003356AB /* LevelTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableView.swift; sourceTree = "<group>"; };
@@ -850,11 +847,10 @@
 			isa = PBXGroup;
 			children = (
 				ED13D00C1B59003500EA591A /* Sounds */,
+				ED90B4491B60DD100076B70D /* AnimationFactory.swift */,
 				EDBE3F481B568695000FC06F /* AnimationHandler.swift */,
 				EDD1A2BB1B4E7805001A82A2 /* Animation.swift */,
-				ED1045681B5E7248001FA170 /* ExplodeAnimation.swift */,
 				ED13CFEF1B58FBCD00EA591A /* SoundAnimation.swift */,
-				ED0D01EB1B5D22BD00AF7D10 /* MovementAnimation.swift */,
 				EDD1A2C21B4FCEA3001A82A2 /* MoveForward.swift */,
 				EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */,
 				EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */,
@@ -1155,7 +1151,6 @@
 				ED7799D41B46A09D00A854A3 /* Road.swift in Sources */,
 				ED222FB71B4A70BF006E525A /* GameMenuCommand.swift in Sources */,
 				ED1A93371B42AE81004E6AD4 /* Van.swift in Sources */,
-				ED1045691B5E7248001FA170 /* ExplodeAnimation.swift in Sources */,
 				EDFE933A1B41804900E01322 /* FailMessage.swift in Sources */,
 				ED222FD51B4C21D1006E525A /* House.swift in Sources */,
 				ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */,
@@ -1211,6 +1206,7 @@
 				EDFE934F1B419FF900E01322 /* SubGameViewController.swift in Sources */,
 				ED10455A1B5E3E01001FA170 /* CrossRoads.swift in Sources */,
 				ED13D00E1B5902C500EA591A /* StartEngineAnimation.swift in Sources */,
+				ED90B44A1B60DD100076B70D /* AnimationFactory.swift in Sources */,
 				ED222FCD1B4AD4A5006E525A /* SharedContext.swift in Sources */,
 				EDA47C501B454715003356AB /* Node.swift in Sources */,
 				EDD1A2B81B4D5497001A82A2 /* Rotation.swift in Sources */,
@@ -1235,7 +1231,6 @@
 				ED222FCA1B4AABCB006E525A /* CFC.swift in Sources */,
 				ED5721B81B47E7680011F465 /* RoadType.swift in Sources */,
 				ED222FE81B4D1580006E525A /* Start.swift in Sources */,
-				ED0D01EC1B5D22BD00AF7D10 /* MovementAnimation.swift in Sources */,
 				ED222FC01B4A77EA006E525A /* MovableGameObject.swift in Sources */,
 				EDD1A2D81B4FDF79001A82A2 /* FetchBlockSetMockDelegate.swift in Sources */,
 				EDBB668D1B3AEEFC009020A5 /* DirectDriveViewController.swift in Sources */,
@@ -1271,7 +1266,6 @@
 				ED1A935A1B43D88E004E6AD4 /* APIActionDelegate.swift in Sources */,
 				ED1A93461B43D046004E6AD4 /* EpisodeViewController.swift in Sources */,
 				ED1A93381B42AE81004E6AD4 /* Van.swift in Sources */,
-				ED0D01ED1B5D22BD00AF7D10 /* MovementAnimation.swift in Sources */,
 				ED13D0191B59217900EA591A /* HighlightAnimation.swift in Sources */,
 				ED7799D51B46A09D00A854A3 /* Road.swift in Sources */,
 				EDBB666B1B3AA029009020A5 /* LevelTableViewController.swift in Sources */,
@@ -1338,7 +1332,6 @@
 				ED7799C11B4592C400A854A3 /* Map.swift in Sources */,
 				ED1045701B5E7DDF001FA170 /* TurnLeftCrashAnimation.swift in Sources */,
 				EDBB669B1B3C1007009020A5 /* BlockTableViewController.swift in Sources */,
-				ED10456A1B5E7248001FA170 /* ExplodeAnimation.swift in Sources */,
 				EDBB667E1B3AA18F009020A5 /* LevelTableViewCell.swift in Sources */,
 				EDA47C401B442411003356AB /* LevelBackButton.swift in Sources */,
 				ED222FC11B4A77EA006E525A /* MovableGameObject.swift in Sources */,
@@ -1347,6 +1340,7 @@
 				ED222FE61B4D1572006E525A /* Deliver.swift in Sources */,
 				ED1A93271B428A36004E6AD4 /* BlockTableView.swift in Sources */,
 				EDBB668E1B3AF135009020A5 /* DirectDriveViewController.swift in Sources */,
+				ED90B44B1B60DD100076B70D /* AnimationFactory.swift in Sources */,
 				EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */,
 				EDD1A2C71B4FCEB8001A82A2 /* TurnLeft.swift in Sources */,
 				EDA47C581B45558A003356AB /* BlockTest.swift in Sources */,

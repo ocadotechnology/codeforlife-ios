@@ -14,6 +14,22 @@ class Van: MovableGameObject {
     
     var engine = AVAudioPlayer()
     
+    var exploded = false {
+        didSet {
+            self.texture = SKTexture(imageNamed: exploded ? "van_wreckage" : "ocadoVan_big")
+        }
+    }
+    
+    var engineStarted = false {
+        didSet {
+            if engineStarted {
+                engine.play()
+            } else {
+                engine.stop()
+            }
+        }
+    }
+    
     init(origin: Origin) {
         let engineSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("moving", ofType: "mp3")!)
         self.engine = AVAudioPlayer(contentsOfURL: engineSound, error: nil)
@@ -29,7 +45,8 @@ class Van: MovableGameObject {
     }
     
     final override func reset() {
-        texture = SKTexture(imageNamed: "ocadoVan_big")
+        self.exploded = false
+        self.engineStarted = false
         super.reset()
     }
     
@@ -69,7 +86,7 @@ class Van: MovableGameObject {
         self.runAction(actionRotate)
     }
     
-    final func deliver() {
+    final func deliver(#animated: Bool, completion: (() -> Void)?) {
         if let map = SharedContext.MainGameViewController?.gameMapViewController?.map {
             for destination in map.destinations {
                 if destination.coordinates == currentCoordinates {
@@ -77,6 +94,37 @@ class Van: MovableGameObject {
                 }
             }
         }
+    }
+    
+    final func crash(completion: (() -> Void)?) {
+        
+        let numberOfExplosion = 200
+        let interval:Int = 500
+        let range:CGFloat = 25
+        let fireToSmokeRatio:UInt32 = 3
+        
+        for i in 1 ... numberOfExplosion {
+            
+            let explosionRange = CGFloat(Float(arc4random()) / Float(UINT32_MAX)) * range
+            var explosionPosition = self.position
+            explosionPosition.x += (CGFloat(Float(arc4random()) / Float(UINT32_MAX)) - 0.5) * range
+            explosionPosition.y += (CGFloat(Float(arc4random()) / Float(UINT32_MAX)) - 0.5) * range
+            var fire = arc4random_uniform(fireToSmokeRatio)
+            var explosion = GameObject(imageNamed: fire == 0 ? "smoke": "fire", width: 1, height: 1)
+            explosion.position = explosionPosition
+            explosion.zPosition = 1.0
+            SharedContext.MainGameViewController?.gameMapViewController?.map?.addChild(explosion)
+            explosion.runAction(SKAction.scaleBy(explosionRange, duration: 1)) {
+                [unowned self, unowned explosion] in
+                self.exploded = true
+                explosion.runAction(SKAction.scaleBy(1/explosionRange, duration: 1)) {
+                    [unowned explosion = explosion] in
+                    explosion.removeFromParent()
+                    
+                }
+            }
+        }
+        completion?()
     }
     
     required init(coder aDecoder: NSCoder) {

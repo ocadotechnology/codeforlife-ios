@@ -9,6 +9,7 @@
 import Foundation
 
 class Left: Block {
+    
     init() {
         super.init(
             description: "Turn Left",
@@ -16,17 +17,12 @@ class Left: Block {
             color: kC4LBlocklyLeftBlockColour)
     }
     
-    override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
+    override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
         CommandFactory.NativeDisableDirectDriveCommand().execute()
-        TurnLeftAnimation(object: player!).executeAnimation {
+        van?.turnLeft(animated: animated, completion: {
             CommandFactory.NativeEnableDirectDriveCommand().execute()
             completion?()
-        }
-    }
-    
-    override func executeBlockAction() {
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.turnLeft()
-        super.executeBlockAction()
+        })
     }
     
 }

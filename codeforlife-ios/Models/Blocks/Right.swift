@@ -16,17 +16,12 @@ class Right: Block {
             color: kC4LBlocklyRightBlockColour)
     }
     
-    override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
+    override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
         CommandFactory.NativeDisableDirectDriveCommand().execute()
-        TurnRightAnimation(object: player!).executeAnimation {
+        van?.turnRight(animated: animated, completion: {
             CommandFactory.NativeEnableDirectDriveCommand().execute()
             completion?()
-        }
-    }
-    
-    override func executeBlockAction() {
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.turnRight()
-        super.executeBlockAction()
+        })
     }
 
 }

@@ -11,7 +11,7 @@ import Foundation
 
 class StartEngineAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
-        SharedContext.MainGameViewController?.gameMapViewController?.map?.van.engine.play()
+        van?.engineStarted = true
         completion?()
     }
 }

@@ -15,7 +15,9 @@ class AnimationHandler {
     }
     
     lazy var animationQueues: [[Animation]] = [[]]
+    
     var currentIndex = 0
+    
     var runAnimation = false {
         didSet {
             if runAnimation {
@@ -40,6 +42,12 @@ class AnimationHandler {
         }
     }
     
+    func executeAnimations(animationQueues: [[Animation]]) {
+        self.animationQueues = animationQueues
+        currentIndex = 0
+        runAnimation = true
+    }
+    
     func removeAllAnimations() {
         animationQueues.removeAll(keepCapacity: false)
     }
@@ -53,7 +61,6 @@ class AnimationHandler {
     private func resetAnimation() {
         self.currentIndex = 0
         self.map?.van.reset()
-        
     }
     
     private func runAnimations() {

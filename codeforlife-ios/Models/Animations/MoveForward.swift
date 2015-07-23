@@ -8,13 +8,10 @@
 
 import Foundation
 
-class MoveForwardAnimation: MovementAnimation {
+class MoveForwardAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
         println("Van Move Forward")
-        self.moveForward(GameMapConfig.GridSize.height, duration: 0.5) {
-            completion?()
-        }
-        object.moveForward()
+        van?.moveForward(animated: true, completion: completion)
     }
     
 }

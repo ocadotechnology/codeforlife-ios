@@ -9,13 +9,10 @@
 import UIKit
 import Foundation
 
-class TurnRightAnimation: MovementAnimation {
+class TurnRightAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
         println("Van Turn Right")
-        self.turnRight(GameMapConfig.GridSize.height*(33+24+44+22)/202, duration: 0.7) {
-            completion?()
-        }
-        object.turnRight()
+        van?.turnRight(animated: true, completion: completion)
     }
     
 }
