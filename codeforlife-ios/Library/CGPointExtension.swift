@@ -12,3 +12,7 @@ import Foundation
 func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
     return CGPointMake(lhs.x+rhs.x, lhs.y+rhs.y)
 }
+
+func +=(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+    return CGPointMake(lhs.x+rhs.x, lhs.y+rhs.y)
+}

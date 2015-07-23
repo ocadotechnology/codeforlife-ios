@@ -41,19 +41,16 @@ class Van: MovableGameObject {
             height: GameMapConfig.GridSize.width*38/202*510/264,
             origin: origin)
         self.reset()
-        
     }
     
-    final override func reset() {
+    override func reset() {
         self.exploded = false
         self.engineStarted = false
         super.reset()
     }
     
     // Origin of the Van is always one step further from the actual origin
-    final override func resetCurrentCoordinates() {
-        self.direction = origin.compassDirection.direction
-        self.currentCoordinates = origin.coordinates
+    override func handleResetCurrentCoordinatesOffset() {
         switch origin.compassDirection {
             case .N: currentCoordinates.y++
             case .E: currentCoordinates.x++
@@ -63,27 +60,18 @@ class Van: MovableGameObject {
         }
     }
     
-    final override func updatePosition() {
-        self.position = CGPointMake(
-            CGFloat(currentCoordinates.x) * GameMapConfig.GridSize.width + GameMapConfig.GridSize.width/2 + GameMapConfig.MapXOffset,
-            CGFloat(currentCoordinates.y) * GameMapConfig.GridSize.height + GameMapConfig.GridSize.height/2 + GameMapConfig.MapYOffset)
-        
-        // Handle Offset
+    override func handleUpdatePositionOffset() {
         switch direction {
-            case .Up:       self.position.x -= self.width/2 + GameMapConfig.GridSize.width/45
-                            self.position.y -= GameMapConfig.GridSize.height/2
-            case .Right:    self.position.x -= GameMapConfig.GridSize.width/2
-                            self.position.y += self.width/2 + GameMapConfig.GridSize.height/45
-            case .Down:    self.position.x += self.width/2 + GameMapConfig.GridSize.width/45
-                            self.position.y += GameMapConfig.GridSize.height/2
-            case .Left:    self.position.x += GameMapConfig.GridSize.width/2
-                            self.position.y -= self.width/2 + GameMapConfig.GridSize.height/45
+        case .Up:       self.position.x -= self.width/2 + GameMapConfig.GridSize.width/45
+        self.position.y -= GameMapConfig.GridSize.height/2
+        case .Right:    self.position.x -= GameMapConfig.GridSize.width/2
+        self.position.y += self.width/2 + GameMapConfig.GridSize.height/45
+        case .Down:    self.position.x += self.width/2 + GameMapConfig.GridSize.width/45
+        self.position.y += GameMapConfig.GridSize.height/2
+        case .Left:    self.position.x += GameMapConfig.GridSize.width/2
+        self.position.y -= self.width/2 + GameMapConfig.GridSize.height/45
         default : break
         }
-        
-        // Handle Direction
-        let actionRotate = SKAction.rotateToAngle(direction.compassDirection.angle, duration: 0)
-        self.runAction(actionRotate)
     }
     
     final func deliver(#animated: Bool, completion: (() -> Void)?) {

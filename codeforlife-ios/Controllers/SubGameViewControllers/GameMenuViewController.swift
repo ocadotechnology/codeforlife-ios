@@ -39,8 +39,8 @@ class GameMenuViewController: SubGameViewController {
         var imageName: String {
             switch self {
             case .onPlayControls:   return "pause"
-            case .onPauseControls:  return "resume"
-            case .onStepControls:   return "resume"
+            case .onPauseControls:  return "play"
+            case .onStepControls:   return "play"
             case .onStopControls:   return "play"
             case .onResumeControls: return "pause"
             }
