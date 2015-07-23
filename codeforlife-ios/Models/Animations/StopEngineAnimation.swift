@@ -11,7 +11,6 @@ import Foundation
 
 class StopEngineAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
-//        SharedContext.MainGameViewController?.gameMapViewController?.map?.player.removeActionForKey("engineSound")
         SharedContext.MainGameViewController?.gameMapViewController?.map?.van.engine.stop()
         completion?()
     }

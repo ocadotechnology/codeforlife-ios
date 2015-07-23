@@ -17,10 +17,7 @@ class Deliver: Block {
     }
     
     override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
-//        DeliverAnimation(object: player!).executeAnimation(completion: completion)
-        if let van = player as? Van {
-            van.deliver()
-        }
+        executeBlockAction()
         completion?()
     }
     

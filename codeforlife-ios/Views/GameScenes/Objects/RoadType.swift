@@ -25,11 +25,11 @@ enum RoadType: String, Printable {
     var offset : CGFloat {
         switch self {
         case .DeadEnd:
-            return GameMapConfig.Grid.height*(1-(166-1)/200)/2
+            return GameMapConfig.GridSize.height*(1-(166-1)/200)/2
         case .Turn:
-            return GameMapConfig.Grid.height*(1-(167-1)/200)/2
+            return GameMapConfig.GridSize.height*(1-(167-1)/200)/2
         case .TJunction:
-            return GameMapConfig.Grid.height*(1-(167-1)/200)/2
+            return GameMapConfig.GridSize.height*(1-(167-1)/200)/2
         default: break
         }
         return 0

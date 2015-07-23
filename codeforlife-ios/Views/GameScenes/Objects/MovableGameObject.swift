@@ -42,8 +42,8 @@ class MovableGameObject: GameObject {
     
     func updatePosition() {
         self.position = CGPointMake(
-            CGFloat(currentCoordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
-            CGFloat(currentCoordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
+            CGFloat(currentCoordinates.x) * GameMapConfig.GridSize.width + GameMapConfig.GridSize.width/2 + GameMapConfig.MapXOffset,
+            CGFloat(currentCoordinates.y) * GameMapConfig.GridSize.height + GameMapConfig.GridSize.height/2 + GameMapConfig.MapYOffset)
         self.direction = origin.compassDirection.direction
         let actionRotate = SKAction.rotateToAngle(origin.compassDirection.angle, duration: 0)
         self.runAction(actionRotate)

@@ -35,11 +35,9 @@ class Destination {
         self.border = SKShapeNode(
             rect: CGRect(
                 origin: CGPointMake(
-                    CGFloat(coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.MapXOffset,
-                    CGFloat(coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.MapYOffset),
-                size: CGSize(
-                    width: GameMapConfig.Grid.width,
-                    height: GameMapConfig.Grid.height)))
+                    CGFloat(coordinates.x) * GameMapConfig.GridSize.width + GameMapConfig.MapXOffset,
+                    CGFloat(coordinates.y) * GameMapConfig.GridSize.height + GameMapConfig.MapYOffset),
+                size: GameMapConfig.GridSize))
         self.border?.lineWidth = 2
         self.border?.strokeColor = UIColor.redColor()
         self.border?.zPosition = 0.5

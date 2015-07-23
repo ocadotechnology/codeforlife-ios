@@ -11,10 +11,7 @@ import Foundation
 
 struct GameMapConfig {
     
-    struct Grid {
-        static let height: CGFloat = 70
-        static let width: CGFloat = 70
-    }
+    static let GridSize = CGSize(width: 70, height: 70)
     
     static let straightToTurnRatio: CGFloat = 1.24
     

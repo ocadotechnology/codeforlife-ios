@@ -21,8 +21,8 @@ class Van: MovableGameObject {
         self.engine.prepareToPlay()
         super.init(
             imageNamed: "ocadoVan_big",
-            width: GameMapConfig.Grid.width*38/202,
-            height: GameMapConfig.Grid.width*38/202*510/264,
+            width: GameMapConfig.GridSize.width*38/202,
+            height: GameMapConfig.GridSize.width*38/202*510/264,
             origin: origin)
         self.reset()
         
@@ -48,19 +48,19 @@ class Van: MovableGameObject {
     
     final override func updatePosition() {
         self.position = CGPointMake(
-            CGFloat(currentCoordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
-            CGFloat(currentCoordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
+            CGFloat(currentCoordinates.x) * GameMapConfig.GridSize.width + GameMapConfig.GridSize.width/2 + GameMapConfig.MapXOffset,
+            CGFloat(currentCoordinates.y) * GameMapConfig.GridSize.height + GameMapConfig.GridSize.height/2 + GameMapConfig.MapYOffset)
         
         // Handle Offset
         switch direction {
-            case .Up:       self.position.x -= self.width/2 + GameMapConfig.Grid.width/45
-                            self.position.y -= GameMapConfig.Grid.height/2
-            case .Right:    self.position.x -= GameMapConfig.Grid.width/2
-                            self.position.y += self.width/2 + GameMapConfig.Grid.height/45
-            case .Down:    self.position.x += self.width/2 + GameMapConfig.Grid.width/45
-                            self.position.y += GameMapConfig.Grid.height/2
-            case .Left:    self.position.x += GameMapConfig.Grid.width/2
-                            self.position.y -= self.width/2 + GameMapConfig.Grid.height/45
+            case .Up:       self.position.x -= self.width/2 + GameMapConfig.GridSize.width/45
+                            self.position.y -= GameMapConfig.GridSize.height/2
+            case .Right:    self.position.x -= GameMapConfig.GridSize.width/2
+                            self.position.y += self.width/2 + GameMapConfig.GridSize.height/45
+            case .Down:    self.position.x += self.width/2 + GameMapConfig.GridSize.width/45
+                            self.position.y += GameMapConfig.GridSize.height/2
+            case .Left:    self.position.x += GameMapConfig.GridSize.width/2
+                            self.position.y -= self.width/2 + GameMapConfig.GridSize.height/45
         default : break
         }
         

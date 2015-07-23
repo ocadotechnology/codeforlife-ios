@@ -11,7 +11,7 @@ import Foundation
 class MoveForwardAnimation: MovementAnimation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
         println("Van Move Forward")
-        self.moveForward(GameMapConfig.Grid.height, duration: 0.5) {
+        self.moveForward(GameMapConfig.GridSize.height, duration: 0.5) {
             completion?()
         }
         object.moveForward()

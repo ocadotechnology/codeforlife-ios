@@ -17,7 +17,6 @@ class Right: Block {
     }
     
     override func executeBlockAnimation(player: MovableGameObject?, completion: (() -> Void)?) {
-        
         CommandFactory.NativeDisableDirectDriveCommand().execute()
         TurnRightAnimation(object: player!).executeAnimation {
             CommandFactory.NativeEnableDirectDriveCommand().execute()

@@ -14,8 +14,8 @@ class Error: Road {
     init() {
         super.init(
             imageNamed: "Error",
-            width:      GameMapConfig.Grid.width,
-            height:     GameMapConfig.Grid.height)
+            width:      GameMapConfig.GridSize.width,
+            height:     GameMapConfig.GridSize.height)
     }
     
     required init(coder aDecoder: NSCoder) {

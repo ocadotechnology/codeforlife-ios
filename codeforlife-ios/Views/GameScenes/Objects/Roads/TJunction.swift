@@ -14,8 +14,8 @@ class TJunction: Road {
     init() {
         super.init(
             imageNamed: "t_junction",
-            width:      GameMapConfig.Grid.width * Road.scale * 167/200,
-            height:     GameMapConfig.Grid.height * Road.scale * 202/200)
+            width:      GameMapConfig.GridSize.width * Road.scale * 167/200,
+            height:     GameMapConfig.GridSize.height * Road.scale * 202/200)
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -12,13 +12,12 @@ import Foundation
 class Animation {
     
     weak var nextAnimation: Animation?
-    var referenceBlock: Int?
     
     func executeAnimation(completion: (() -> Void)? = nil) {
         fatalError("Implement executeanimation()")
     }
     
-    func stop() {
+    final func stop() {
         SharedContext.MainGameViewController?.gameMapViewController?.map?.removeAllActions()
         SharedContext.MainGameViewController?.gameMapViewController?.map?.van.removeAllActions()
     }

@@ -35,10 +35,8 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     private func convertToAnimationQueue(queue: JSON) -> [Animation] {
         var animations = [Animation]()
-        println("___NEW QUEUE___")
         for object in queue {
             if let type = object.1["type"].string {
-                println((type, object.1["description"]))
                 var animation: Animation?
                 switch type {
                     case "van":

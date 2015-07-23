@@ -27,3 +27,7 @@ struct Coordinates {
 func ==(lhs: Coordinates, rhs: Coordinates) -> Bool {
     return (lhs.x == rhs.x) && (lhs.y == rhs.y)
 }
+
+func +(lhs: Coordinates, rhs: Coordinates) -> Coordinates {
+    return Coordinates(lhs.x+rhs.x, lhs.y+rhs.y)
+}

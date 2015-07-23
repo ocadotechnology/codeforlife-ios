@@ -30,8 +30,8 @@ class Map: SKScene {
         self.van = Van(origin: origin)
         self.van.zPosition = 0.8
         super.init(size: CGSize(
-            width: GameMapConfig.Grid.width*CGFloat(width),
-            height: GameMapConfig.Grid.height*CGFloat(height)))
+            width: GameMapConfig.GridSize.width*CGFloat(width),
+            height: GameMapConfig.GridSize.height*CGFloat(height)))
     }
     
     override func didMoveToView(view: SKView) {

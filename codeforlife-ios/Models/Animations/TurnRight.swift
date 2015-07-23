@@ -12,7 +12,7 @@ import Foundation
 class TurnRightAnimation: MovementAnimation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
         println("Van Turn Right")
-        self.turnRight(GameMapConfig.Grid.height*(33+24+44+22)/202, duration: 0.7) {
+        self.turnRight(GameMapConfig.GridSize.height*(33+24+44+22)/202, duration: 0.7) {
             completion?()
         }
         object.turnRight()

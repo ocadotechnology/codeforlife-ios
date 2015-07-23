@@ -15,8 +15,8 @@ class Turn: Road {
     init() {
         super.init(
             imageNamed: "turn",
-            width:      GameMapConfig.Grid.height * Road.scale * 167/200,
-            height:     GameMapConfig.Grid.height * Road.scale * 167/200)
+            width:      GameMapConfig.GridSize.height * Road.scale * 167/200,
+            height:     GameMapConfig.GridSize.height * Road.scale * 167/200)
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -15,8 +15,8 @@ class DeadEnd: Road { // Non-Raphael Image
     init() {
         super.init(
             imageNamed: "dead_end",
-            width:      GameMapConfig.Grid.width * Road.scale * 133/200,
-            height:     GameMapConfig.Grid.height * Road.scale * 166/200)
+            width:      GameMapConfig.GridSize.width * Road.scale * 133/200,
+            height:     GameMapConfig.GridSize.height * Road.scale * 166/200)
     }
     
     required init(coder aDecoder: NSCoder) {

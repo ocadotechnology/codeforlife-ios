@@ -19,7 +19,6 @@ class AnimationHandler {
     var runAnimation = false {
         didSet {
             if runAnimation {
-                
                 // reset animations if all animations are run
                 if isAnimationCycleFinished {
                     resetAnimation()
@@ -32,7 +31,6 @@ class AnimationHandler {
     var isAnimationCycleFinished: Bool {
         return currentIndex >= animationQueues.count && runningAnimationsRemained == 1
     }
-    
     
     var runningAnimationsRemained = 0 {
         didSet {
@@ -66,12 +64,10 @@ class AnimationHandler {
                 [unowned self] in
                 if self.isAnimationCycleFinished {
                     self.runAnimation = false
-                    println("Animation Cycle Finished")
                 }
                 // Notify to run next Animation if all concurrent animations finish
                 self.runningAnimationsRemained--
             }
         }
     }
-    
 }

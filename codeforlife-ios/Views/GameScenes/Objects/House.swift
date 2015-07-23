@@ -18,34 +18,34 @@ class House: GameObject {
     init(origin: Origin) {
         super.init(
             imageNamed: "house",
-            width: GameMapConfig.Grid.width*254/500,
-            height: GameMapConfig.Grid.height*229/500)
+            width: GameMapConfig.GridSize.width*254/500,
+            height: GameMapConfig.GridSize.height*229/500)
         
         self.position = CGPointMake(
-            CGFloat(origin.coordinates.x) * GameMapConfig.Grid.width + GameMapConfig.Grid.width/2 + GameMapConfig.MapXOffset,
-            CGFloat(origin.coordinates.y) * GameMapConfig.Grid.height + GameMapConfig.Grid.height/2 + GameMapConfig.MapYOffset)
+            CGFloat(origin.coordinates.x) * GameMapConfig.GridSize.width + GameMapConfig.GridSize.width/2 + GameMapConfig.MapXOffset,
+            CGFloat(origin.coordinates.y) * GameMapConfig.GridSize.height + GameMapConfig.GridSize.height/2 + GameMapConfig.MapYOffset)
         
         switch origin.compassDirection {
         case .N:
-            self.position.y += GameMapConfig.Grid.height * ratio1
+            self.position.y += GameMapConfig.GridSize.height * ratio1
         case .E:
-            self.position.x += GameMapConfig.Grid.width * ratio1
+            self.position.x += GameMapConfig.GridSize.width * ratio1
         case .S:
-            self.position.y -= GameMapConfig.Grid.height * ratio1
+            self.position.y -= GameMapConfig.GridSize.height * ratio1
         case .W:
-            self.position.x -= GameMapConfig.Grid.width * ratio1
+            self.position.x -= GameMapConfig.GridSize.width * ratio1
         case .NE:
-            self.position.y += GameMapConfig.Grid.height * ratio2
-            self.position.x += GameMapConfig.Grid.width * ratio2
+            self.position.y += GameMapConfig.GridSize.height * ratio2
+            self.position.x += GameMapConfig.GridSize.width * ratio2
         case .SE:
-            self.position.y -= GameMapConfig.Grid.height * ratio2
-            self.position.x += GameMapConfig.Grid.width * ratio2
+            self.position.y -= GameMapConfig.GridSize.height * ratio2
+            self.position.x += GameMapConfig.GridSize.width * ratio2
         case .SW:
-            self.position.y -= GameMapConfig.Grid.height * ratio2
-            self.position.x -= GameMapConfig.Grid.width * ratio2
+            self.position.y -= GameMapConfig.GridSize.height * ratio2
+            self.position.x -= GameMapConfig.GridSize.width * ratio2
         case .NW:
-            self.position.y += GameMapConfig.Grid.height * ratio2
-            self.position.x -= GameMapConfig.Grid.width * ratio2
+            self.position.y += GameMapConfig.GridSize.height * ratio2
+            self.position.x -= GameMapConfig.GridSize.width * ratio2
         default: break
         }
         
