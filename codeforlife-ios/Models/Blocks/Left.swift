@@ -18,9 +18,9 @@ class Left: Block {
     }
     
     override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
-        CommandFactory.createCommand("DisableDirectDrive").execute()
+        ActionFactory.createAction("DisableDirectDrive").execute()
         van?.turnLeft(animated: animated, completion: {
-            CommandFactory.createCommand("EnableDirectDrive").execute()
+            ActionFactory.createAction("EnableDirectDrive").execute()
             completion?()
         })
     }

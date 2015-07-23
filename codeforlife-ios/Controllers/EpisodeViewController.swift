@@ -28,7 +28,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        FetchEpisodesAction(self).execute {
+        FetchEpisodesRequest(self).execute {
             activityIndicator?.stopAnimating()
         }
     }

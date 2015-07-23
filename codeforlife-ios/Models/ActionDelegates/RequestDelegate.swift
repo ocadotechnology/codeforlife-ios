@@ -9,13 +9,13 @@
 import Foundation
 import Alamofire
 
-protocol ActionDelegate {
+protocol RequestDelegate {
 
     func execute(processData: (NSData -> Void), callback: () -> Void)
     
 }
 
-class ErrorActionDelegate : ActionDelegate {
+class ErrorRequestDelegate : RequestDelegate {
     
     func execute(processData: (NSData -> Void), callback: () -> Void) {
         fatalError("Error")

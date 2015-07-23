@@ -9,19 +9,19 @@
 import Foundation
 import Alamofire
 
-protocol ActionProtocol {
+protocol RequestProtocol {
     func processData(data: NSData)
 }
 
-class Action : ActionProtocol {
+class Request: RequestProtocol {
     
     var mode = Mode
     var params = [String: String]()
-    var delegate : ActionDelegate
-    var mockDelegate: ActionDelegate
+    var delegate : RequestDelegate
+    var mockDelegate: RequestDelegate
     var devUrl: String?
     
-    init(devUrl: String?, delegate: ActionDelegate, mockDelegate: ActionDelegate) {
+    init(devUrl: String?, delegate: RequestDelegate, mockDelegate: RequestDelegate) {
         self.devUrl = devUrl
         self.delegate = delegate
         self.mockDelegate = mockDelegate
@@ -38,15 +38,15 @@ class Action : ActionProtocol {
         }
     }
     
-    final func switchToMock() -> Action {
+    final func switchToMock() -> Request {
         self.mode = MockMode
         self.delegate = mockDelegate
         return self
     }
     
-    final func switchToDev() -> Action {
+    final func switchToDev() -> Request {
         self.mode = DevMode
-        self.delegate = APIActionDelegate(url: devUrl, method: Alamofire.Method.GET)
+        self.delegate = APIRequestDelegate(url: devUrl, method: Alamofire.Method.GET)
         return self
     }
     

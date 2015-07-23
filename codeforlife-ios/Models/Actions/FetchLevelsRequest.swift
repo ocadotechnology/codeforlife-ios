@@ -11,7 +11,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class FetchLevelsAction : Action, ActionProtocol
+class FetchLevelsRequest : Request, RequestProtocol
 {
     unowned var viewController: LevelTableViewController
 
@@ -19,8 +19,8 @@ class FetchLevelsAction : Action, ActionProtocol
         self.viewController = viewController
         super.init(
             devUrl: url,
-            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
-            mockDelegate: FetchLevelsActionMockDelegate())
+            delegate: APIRequestDelegate(url: url, method: Alamofire.Method.GET),
+            mockDelegate: FetchLevelsRequestMockDelegate())
     }
     
     override func processData(data: NSData) {

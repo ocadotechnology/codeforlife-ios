@@ -1,5 +1,5 @@
 //
-//  GameMenuCommand.swift
+//  GameMenuAction.swift
 //  codeforlife-ios
 //
 //  Created by Joey Chan on 06/07/2015.
@@ -9,13 +9,13 @@
 import UIKit
 import Foundation
 
-class GameMenuCommand: GameViewCommand {
+class GameMenuAction: GameViewAction {
     weak var viewController: GameMenuViewController? {
         return gameViewController?.gameMenuViewController
     }
 }
 
-class GameMenuHelpCommand : GameMenuCommand {
+class GameMenuHelpAction : GameMenuAction {
     override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController()
         controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
@@ -29,7 +29,7 @@ class GameMenuHelpCommand : GameMenuCommand {
     }
 }
 
-class GameMenuStopCommand: GameMenuCommand {
+class GameMenuStopAction: GameMenuAction {
     override func execute(completion: (() -> Void)? = nil) {
         gameViewController?.gameMapViewController?.map?.resetMap()
         gameViewController?.blockTableViewController?.clearBlocks()
@@ -38,7 +38,7 @@ class GameMenuStopCommand: GameMenuCommand {
     }
 }
 
-class GameMenuClearCommand: GameMenuCommand {
+class GameMenuClearAction: GameMenuAction {
     override func execute(completion: (() -> Void)? = nil) {
         gameViewController?.blockTableViewController?.clearBlocks()
         gameViewController?.gameMapViewController?.map?.resetMap()
@@ -49,7 +49,7 @@ class GameMenuClearCommand: GameMenuCommand {
 }
 
 
-class GameMenuMuteCommand: GameMenuCommand {
+class GameMenuMuteAction: GameMenuAction {
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.muted = !viewController!.muted
         completion?()
@@ -57,12 +57,12 @@ class GameMenuMuteCommand: GameMenuCommand {
 }
 
 /// Called after control mode changes to onPlayControls
-class GameMenuPlayCommand: GameMenuCommand {
+class GameMenuPlayAction: GameMenuAction {
     override func execute(completion: (() -> Void)? = nil) {
         
         // Native UI Update
         gameViewController?.gameMapViewController?.map?.resetMap()
-        CommandFactory.createCommand("ResetAnimation").execute()
+        ActionFactory.createAction("ResetAnimation").execute()
         viewController?.clearButton.enabled = false
         gameViewController?.blockTableViewController?.goToTopBlock()
         
@@ -73,7 +73,7 @@ class GameMenuPlayCommand: GameMenuCommand {
     }
 }
 
-class GameMenuSwitchControlModeCommand: GameMenuCommand {
+class GameMenuSwitchControlModeAction: GameMenuAction {
     
     var controlMode: GameMenuViewController.ControlMode
     

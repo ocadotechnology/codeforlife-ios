@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class FetchBlockSet : Action {
+class FetchBlockSetRequest : Request, RequestProtocol {
     
     weak var gameViewController: GameViewController?
     
@@ -18,8 +18,8 @@ class FetchBlockSet : Action {
         self.gameViewController = gameViewController
         super.init(
             devUrl: "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/blocks/",
-            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
-            mockDelegate: FetchBlockSetMockDelegate())
+            delegate: APIRequestDelegate(url: url, method: Alamofire.Method.GET),
+            mockDelegate: FetchBlockSetRequestMockDelegate())
     }
     
     override func processData(data: NSData) {

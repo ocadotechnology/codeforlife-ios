@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class APIActionDelegate : ActionDelegate {
+class APIRequestDelegate : RequestDelegate {
     
     var url: String
     var method: Alamofire.Method

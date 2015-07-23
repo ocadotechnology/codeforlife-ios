@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class FetchLevelActionMockDelegate: ActionDelegate {
+class FetchLevelRequestMockDelegate: RequestDelegate {
 
     func execute(processData: (NSData -> Void), callback: () -> Void) {
         var json = JSON(

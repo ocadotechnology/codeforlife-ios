@@ -11,7 +11,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class FetchEpisodesAction : Action, ActionProtocol {
+class FetchEpisodesRequest : Request, RequestProtocol {
     
     let url = "Insert Actual API URL"
     
@@ -21,8 +21,8 @@ class FetchEpisodesAction : Action, ActionProtocol {
         self.viewController = viewController
         super.init(
             devUrl: "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/",
-            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
-            mockDelegate: FetchEpisodesActionMockDelegate())
+            delegate: APIRequestDelegate(url: url, method: Alamofire.Method.GET),
+            mockDelegate: FetchEpisodesRequestMockDelegate())
     }
     
     override func processData(data: NSData) {

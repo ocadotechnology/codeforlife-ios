@@ -32,7 +32,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
             
         case .onStopControls: // Going to Play
             gameMenuViewController?.controlMode = .onPlayControls
-            CommandFactory.createCommand("Play").execute {
+            ActionFactory.createAction("Play").execute {
                 gameMenuViewController?.controlMode = .onStopControls
             }
             
@@ -53,22 +53,22 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
         SharedContext.MainGameViewController?.gameMapViewController?.map?.van.reset()
         SharedContext.MainGameViewController?.gameMapViewController?.map?.resetMap()
         SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.resetVariables()
-        CommandFactory.createCommand("ChangeToOnStopControls").execute()
+        ActionFactory.createAction("ChangeToOnStopControls").execute()
     }
     
     func clear() {
-        CommandFactory.createCommand("Clear").execute()
+        ActionFactory.createAction("Clear").execute()
     }
     
     func step() {
     }
     
     func help() {
-        CommandFactory.createCommand("Help").execute()
+        ActionFactory.createAction("Help").execute()
     }
     
     func muteSound() {
-        CommandFactory.createCommand("Mute").execute()
+        ActionFactory.createAction("Mute").execute()
     }
     
 //    deinit { println("GameMenuViewControllerDelegate is being deallocated") }

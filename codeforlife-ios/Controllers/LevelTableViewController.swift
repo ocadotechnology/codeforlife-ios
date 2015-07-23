@@ -27,7 +27,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
                 prevEpisodeButton.hidden = episode?.prevEpisode == nil ? true : false
                 nextEpisodeButton.hidden = episode?.nextEpisode == nil ? true : false
                 activityIndicator.startAnimating()
-                FetchLevelsAction(self, episode!.url).execute {
+                FetchLevelsRequest(self, episode!.url).execute {
                     self.activityIndicator?.stopAnimating()
                     self.titleLabel.text = self.episode?.name
                 }

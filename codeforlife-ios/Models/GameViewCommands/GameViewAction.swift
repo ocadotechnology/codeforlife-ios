@@ -1,5 +1,5 @@
 //
-//  GameViewCommand.swift
+//  GameViewAction.swift
 //  codeforlife-ios
 //
 //  Created by Joey Chan on 19/06/2015.
@@ -9,7 +9,7 @@
 import Foundation
 import WebKit
 
-class GameViewCommand: Command {
+class GameViewAction: Action {
     
     weak var gameViewController: GameViewController? {
         return SharedContext.MainGameViewController
@@ -17,7 +17,7 @@ class GameViewCommand: Command {
     
 }
 
-class WebViewLoadLevelCommand : GameViewCommand {
+class WebViewLoadLevelAction : GameViewAction {
     
     override func execute(completion: (() -> Void)? = nil) {
         if let urlStr = gameViewController?.level?.webViewUrl {
@@ -29,7 +29,7 @@ class WebViewLoadLevelCommand : GameViewCommand {
     
 }
 
-class NGVShowPreGameMessageCommand: GameViewCommand {
+class NGVShowPreGameMessageAction: GameViewAction {
     override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController()
         controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
@@ -47,7 +47,7 @@ class NGVShowPreGameMessageCommand: GameViewCommand {
     }
 }
 
-class GVJavaScriptCommand : GameViewCommand {
+class GVJavaScriptAction : GameViewAction {
     
     var javascript: String?
     

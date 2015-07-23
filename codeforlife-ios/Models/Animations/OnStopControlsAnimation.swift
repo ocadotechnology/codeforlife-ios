@@ -11,6 +11,6 @@ import Foundation
 class OnStopControlsAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
         println("OnStopControls")
-        CommandFactory.createCommand("ChangeToOnStopControls").execute(completion: completion)
+        ActionFactory.createAction("ChangeToOnStopControls").execute(completion: completion)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  GameMapCommand.swift
+//  GameMapAction.swift
 //  codeforlife-ios
 //
 //  Created by Joey Chan on 06/07/2015.
@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class GameMapCommand: GameViewCommand {
+class GameMapAction: GameViewAction {
     
     weak var map : Map? {
         return gameViewController?.gameMapViewController?.map
@@ -20,7 +20,7 @@ class GameMapCommand: GameViewCommand {
     }
 }
 
-class GameMapResetAnimationCommand: GameMapCommand {
+class GameMapResetAnimationAction: GameMapAction {
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.animationHandler.removeAllAnimations()
     }

@@ -11,7 +11,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class FetchMapAction : Action {
+class FetchMapRequest : Request, RequestProtocol {
     
     weak var viewController: GameMapViewController?
     
@@ -19,8 +19,8 @@ class FetchMapAction : Action {
         self.viewController = viewController?.gameMapViewController
         super.init(
             devUrl: url,
-            delegate: APIActionDelegate(url: url, method: Alamofire.Method.GET),
-            mockDelegate: FetchMapActionMockDelegate())
+            delegate: APIRequestDelegate(url: url, method: Alamofire.Method.GET),
+            mockDelegate: FetchMapRequestMockDelegate())
     }
     
     override func processData(data: NSData) {

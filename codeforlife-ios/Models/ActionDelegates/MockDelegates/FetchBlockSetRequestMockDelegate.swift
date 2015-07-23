@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class FetchBlockSetMockDelegate: ActionDelegate {
+class FetchBlockSetRequestMockDelegate: RequestDelegate {
     
     func execute(processData: (NSData -> Void), callback: () -> Void) {
         var json = JSON(

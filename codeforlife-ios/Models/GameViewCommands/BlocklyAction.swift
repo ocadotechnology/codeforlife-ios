@@ -1,5 +1,5 @@
 //
-//  BlocklyCommand.swift
+//  BlocklyAction.swift
 //  codeforlife-ios
 //
 //  Created by Joey Chan on 06/07/2015.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-class BlocklyCommand : GameViewCommand {
+class BlocklyAction : GameViewAction {
     weak var viewController : BlockTableViewController? {
         return gameViewController?.blockTableViewController
     }
 }
 
-class BlocklyAddBlockCommand: BlocklyCommand {
+class BlocklyAddBlockAction: BlocklyAction {
     
     var block: Block
     
@@ -28,7 +28,7 @@ class BlocklyAddBlockCommand: BlocklyCommand {
     }
 }
 
-class BlocklyRemoveAllBlocksCommand: BlocklyCommand {
+class BlocklyRemoveAllBlocksAction: BlocklyAction {
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.clearBlocks()
         completion?()

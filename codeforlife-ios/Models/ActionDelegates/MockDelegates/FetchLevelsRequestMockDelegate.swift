@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class FetchLevelsActionMockDelegate: ActionDelegate
+class FetchLevelsRequestMockDelegate: RequestDelegate
 {
     
     func execute(processData: (NSData -> Void), callback: () -> Void) {

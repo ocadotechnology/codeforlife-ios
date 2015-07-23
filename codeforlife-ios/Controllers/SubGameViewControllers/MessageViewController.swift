@@ -36,7 +36,7 @@ class MessageViewController: UIViewController {
         SharedContext.MainGameViewController?.gameMapViewController?.map?.van.reset()
         SharedContext.MainGameViewController?.gameMapViewController?.map?.resetMap()
         SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.resetVariables()
-        CommandFactory.createCommand("ChangeToOnStopControls").execute()
+        ActionFactory.createAction("ChangeToOnStopControls").execute()
     }
     
 //    deinit { println("MessageViewController is being deallocated") }

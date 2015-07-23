@@ -1,5 +1,5 @@
 //
-//  Command.swift
+//  Action.swift
 //  codeforlife-ios
 //
 //  Created by Joey Chan on 23/07/2015.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-/// Commands should avoid having direct connections with changing control mode
-class Command {
+/// Actions should avoid having direct connections with changing control mode
+class Action {
     
     func execute(completion: (() -> Void)? = nil) {
-        fatalError("Abstract GameViewCommand method called")
+        fatalError("Abstract GameViewAction method called")
     }
     
 }

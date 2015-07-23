@@ -1,5 +1,5 @@
 //
-//  DirectDriveCommand.swift
+//  DirectDriveAction.swift
 //  codeforlife-ios
 //
 //  Created by Joey Chan on 06/07/2015.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DirectDriveCommand: GameViewCommand {
+class DirectDriveAction: GameViewAction {
 
     weak var viewController : DirectDriveViewController? {
         return gameViewController?.directDriveViewController
@@ -16,14 +16,14 @@ class DirectDriveCommand: GameViewCommand {
 
 }
 
-class NGVDisableDirectDriveCommand: DirectDriveCommand {
+class NGVDisableDirectDriveAction: DirectDriveAction {
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.disableDirectDrive()
         completion?()
     }
 }
 
-class NGVEnableDirectDriveCommand: DirectDriveCommand {
+class NGVEnableDirectDriveAction: DirectDriveAction {
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.enableDirectDrive()
         completion?()
