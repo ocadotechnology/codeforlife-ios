@@ -1133,7 +1133,6 @@
                     <connections>
                         <outlet property="activityIndicator" destination="DAA-NT-in3" id="CZB-JE-9me"/>
                         <outlet property="blockTableView" destination="YyK-32-Fjp" id="aW1-lM-WXV"/>
-                        <outlet property="gameMenuView" destination="hDI-xX-x7y" id="zQE-Rz-9sQ"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="wmI-TC-Fom"/>
                     </connections>
                 </viewController>

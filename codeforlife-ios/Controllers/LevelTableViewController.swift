@@ -10,7 +10,7 @@ import UIKit
 
 class LevelTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let kCFLLoadLevelSegueIdentifier = "LoadLevel"
+    let SegueIdentifier = "LoadLevel"
     let CellReuseIdentifier = "Level"
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -59,7 +59,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var indexPath = tableView.indexPathForSelectedRow()!
         var level = levels[indexPath.row]
-        performSegueWithIdentifier(kCFLLoadLevelSegueIdentifier, sender: self)
+        performSegueWithIdentifier(SegueIdentifier, sender: self)
     }
 
 
@@ -75,7 +75,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
         if let gameViewController = segue.destinationViewController as? GameViewController {
             if let identifier = segue.identifier {
                 switch identifier {
-                    case kCFLLoadLevelSegueIdentifier:
+                    case SegueIdentifier:
                         var indexPath = tableView.indexPathForSelectedRow()!
                         gameViewController.requestedLevel = levels[indexPath.row]
                     default: break

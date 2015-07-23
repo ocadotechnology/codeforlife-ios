@@ -131,8 +131,7 @@ class BlockTableViewController: SubGameViewController, UITableViewDelegate, UITa
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! BlockTableViewCell
         unowned var block = blocks[indexPath.row]
         cell.selectionStyle = .None
-        cell.stepNumber.text = ""
-//        cell.stepNumber.text = indexPath.row == 0 ? "" : "Step \(indexPath.row)"
+        cell.stepNumber.text = indexPath.row == 0 ? "" : "Step \(indexPath.row)"
         cell.blockDescription.text = block.description
         cell.containerView.backgroundColor = block.color
         return cell

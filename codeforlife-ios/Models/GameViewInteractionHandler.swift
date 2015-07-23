@@ -13,9 +13,12 @@ import WebKit
 
 class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
 
-    weak var gameViewController: GameViewController?
+    unowned var gameViewController: GameViewController
     var animationFactory = AnimationFactory()
     
+    init(_ gameViewController: GameViewController) {
+        self.gameViewController = gameViewController
+    }
     
     // AnimationQueues is a 2D array with lists of animations(ie [[Animation]])
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
