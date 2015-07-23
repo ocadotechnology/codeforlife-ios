@@ -9,41 +9,22 @@
 import Foundation
 import WebKit
 
-protocol Command {
-    func execute()
-    func executeWithCompletionHandler(completion: () -> Void)
+class GameViewCommand: Command {
+    
+    weak var gameViewController: GameViewController? {
+        return SharedContext.MainGameViewController
+    }
+    
 }
 
-/// Commands should avoid having direct connections with changing control mode
-class GameViewCommand {
-    
-    unowned var gameViewController: GameViewController
-    
-    init(gameViewController: GameViewController ) {
-        self.gameViewController = gameViewController
-    }
-    
-    func execute(completion: (() -> Void)? = nil) {
-        fatalError("Abstract GameViewCommand method called")
-    }
-
-}
-
-class GVLoadLevelCommand : GameViewCommand {
-    
-    weak var level: Level?
-    
-    init(level: Level, gameViewController: GameViewController) {
-        super.init(gameViewController: gameViewController)
-        self.level = level
-    }
+class WebViewLoadLevelCommand : GameViewCommand {
     
     override func execute(completion: (() -> Void)? = nil) {
-        var urlStr = level!.webViewUrl;
-        var url = NSURL(string: urlStr);
-        
-        var request = NSURLRequest(URL: url!);
-        gameViewController.webView?.loadRequest(request)
+        if let urlStr = gameViewController?.level?.webViewUrl {
+            var url = NSURL(string: urlStr);
+            var request = NSURLRequest(URL: url!);
+            gameViewController?.webView?.loadRequest(request)
+        }
     }
     
 }
@@ -52,8 +33,8 @@ class NGVShowPreGameMessageCommand: GameViewCommand {
     override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController()
         controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
-        if let level = gameViewController.level {
+        gameViewController?.presentViewController(controller, animated: true, completion: nil)
+        if let level = gameViewController?.level {
             controller.message = PreGameMessage(
                 title: "Level \(level.name)",
                 context: level.description!,
@@ -61,9 +42,25 @@ class NGVShowPreGameMessageCommand: GameViewCommand {
                     controller.dismissViewControllerAnimated(true, completion: nil)
             })
         }
-        gameViewController.activityIndicator?.stopAnimating()
+        gameViewController?.activityIndicator?.stopAnimating()
         completion?()
     }
+}
+
+class GVJavaScriptCommand : GameViewCommand {
+    
+    var javascript: String?
+    
+    init(gameViewController: GameViewController, javascript: String) {
+        self.javascript = javascript
+    }
+    
+    override func execute(completion: (() -> Void)? = nil) {
+        gameViewController?.runJavaScript(javascript!) {
+            completion?()
+        }
+    }
+    
 }
 
 

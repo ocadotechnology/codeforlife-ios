@@ -10,17 +10,16 @@ import Foundation
 
 class BlocklyCommand : GameViewCommand {
     weak var viewController : BlockTableViewController? {
-        return gameViewController.blockTableViewController
+        return gameViewController?.blockTableViewController
     }
 }
 
-class NGVAddBlockCommand: BlocklyCommand {
+class BlocklyAddBlockCommand: BlocklyCommand {
     
     var block: Block
     
-    init(gameViewController: GameViewController, block: Block) {
+    init(block: Block) {
         self.block = block
-        super.init(gameViewController: gameViewController)
     }
     
     override func execute(completion: (() -> Void)? = nil) {
@@ -29,7 +28,7 @@ class NGVAddBlockCommand: BlocklyCommand {
     }
 }
 
-class NGVRemoveAllBlocksCommand: BlocklyCommand {
+class BlocklyRemoveAllBlocksCommand: BlocklyCommand {
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.clearBlocks()
         completion?()

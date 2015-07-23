@@ -11,15 +11,15 @@ import Foundation
 class WebViewVehicleController: VehicleController {
     
     func moveForward() {
-        CommandFactory.NativeAddBlockCommand(Forward()).execute()
+        CommandFactory.createCommand("AddMoveForwardBlock").execute()
     }
     
     func turnLeft() {
-        CommandFactory.NativeAddBlockCommand(Left()).execute()
+        CommandFactory.createCommand("AddTurnLeftBlock").execute()
     }
     
     func turnRight() {
-        CommandFactory.NativeAddBlockCommand(Right()).execute()
+        CommandFactory.createCommand("AddTurnRightBlock").execute()
     }
     
     func go() {
@@ -27,7 +27,7 @@ class WebViewVehicleController: VehicleController {
     }
     
     func deliver() {
-        CommandFactory.NativeAddBlockCommand(Deliver()).execute()
+        CommandFactory.createCommand("AddDeliverBlock").execute()
     }
     
 //    deinit { println("WebViewVehicleController is being deallocated") }

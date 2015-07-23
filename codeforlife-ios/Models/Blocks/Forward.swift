@@ -17,9 +17,9 @@ class Forward: Block {
     }
     
     override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
-        CommandFactory.NativeDisableDirectDriveCommand().execute()
+        CommandFactory.createCommand("DisableDirectDrive").execute()
         van?.moveForward(animated: animated, completion: {
-            CommandFactory.NativeEnableDirectDriveCommand().execute()
+            CommandFactory.createCommand("EnableDirectDrive").execute()
             completion?()
         })
     }

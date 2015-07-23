@@ -11,17 +11,17 @@ import Foundation
 
 class GameMenuCommand: GameViewCommand {
     weak var viewController: GameMenuViewController? {
-        return gameViewController.gameMenuViewController
+        return gameViewController?.gameMenuViewController
     }
 }
 
-class GameMenuNativeHelpCommand : GameMenuCommand {
+class GameMenuHelpCommand : GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
         let controller = MessageViewController()
         controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
+        gameViewController?.presentViewController(controller, animated: true, completion: nil)
         controller.message = HelpMessage(
-            context: gameViewController.level!.hint!,
+            context: gameViewController!.level!.hint!,
             action: {
                 controller.dismissViewControllerAnimated(true, completion: nil)
         })
@@ -29,27 +29,27 @@ class GameMenuNativeHelpCommand : GameMenuCommand {
     }
 }
 
-class NGVStopCommand: GameMenuCommand {
+class GameMenuStopCommand: GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
-        gameViewController.gameMapViewController?.map?.resetMap()
-        gameViewController.blockTableViewController?.clearBlocks()
-        gameViewController.gameMapViewController?.map?.van.reset()
+        gameViewController?.gameMapViewController?.map?.resetMap()
+        gameViewController?.blockTableViewController?.clearBlocks()
+        gameViewController?.gameMapViewController?.map?.van.reset()
         completion?()
     }
 }
 
-class NGVClearCommand: GameMenuCommand {
+class GameMenuClearCommand: GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
-        gameViewController.blockTableViewController?.clearBlocks()
-        gameViewController.gameMapViewController?.map?.resetMap()
-        gameViewController.blockTableViewController?.resetHighlightCellVariables()
-        gameViewController.gameMapViewController?.map?.van.reset()
+        gameViewController?.blockTableViewController?.clearBlocks()
+        gameViewController?.gameMapViewController?.map?.resetMap()
+        gameViewController?.blockTableViewController?.resetHighlightCellVariables()
+        gameViewController?.gameMapViewController?.map?.van.reset()
         completion?()
     }
 }
 
 
-class NGVMuteCommand: GameMenuCommand {
+class GameMenuMuteCommand: GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.muted = !viewController!.muted
         completion?()
@@ -57,29 +57,28 @@ class NGVMuteCommand: GameMenuCommand {
 }
 
 /// Called after control mode changes to onPlayControls
-class NGVPlayCommand: GameMenuCommand {
+class GameMenuPlayCommand: GameMenuCommand {
     override func execute(completion: (() -> Void)? = nil) {
         
         // Native UI Update
-        gameViewController.gameMapViewController?.map?.resetMap()
-        CommandFactory.NativeResetAnimationCommand().execute()
-        gameViewController.gameMenuViewController?.clearButton.enabled = false
-        gameViewController.blockTableViewController?.goToTopBlock()
+        gameViewController?.gameMapViewController?.map?.resetMap()
+        CommandFactory.createCommand("ResetAnimation").execute()
+        viewController?.clearButton.enabled = false
+        gameViewController?.blockTableViewController?.goToTopBlock()
         
         // Submit Blocks and retrieve Animations
-        gameViewController.gameMapViewController?.map?.van.reset()
-        gameViewController.blockTableViewController?.submitBlocks()
+        gameViewController?.gameMapViewController?.map?.van.reset()
+        gameViewController?.blockTableViewController?.submitBlocks()
 
     }
 }
 
-class NGVSwitchControlMode: GameMenuCommand {
+class GameMenuSwitchControlModeCommand: GameMenuCommand {
     
     var controlMode: GameMenuViewController.ControlMode
     
-    init(gameViewController: GameViewController, controlMode: GameMenuViewController.ControlMode) {
+    init(controlMode: GameMenuViewController.ControlMode) {
         self.controlMode = controlMode
-        super.init(gameViewController: gameViewController)
     }
     
     override func execute(completion: (() -> Void)? = nil) {

@@ -54,23 +54,13 @@ class GameViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     func loadLevel(level: Level) {
         FetchLevelAction(self).execute {
-            self.WebViewFetchLevelPostAction()
+            [unowned self] in
+            FetchMapAction(self, self.level?.mapUrl).execute()
+            CommandFactory.createCommand("PregameMessage").execute()
+            CommandFactory.createCommand("Clear").execute()
             self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
         }
     }
-    
-    private func WebViewFetchLevelPostAction() {
-        FetchMapAction(self, level?.mapUrl).execute()
-        CommandFactory.NativeShowPreGameMessageCommand().execute()
-        CommandFactory.NativeClearCommand().execute()
-    }
-    
-    private func NativeFetchLevelPostAction() {
-        FetchMapAction(self, level?.mapUrl).execute()
-        CommandFactory.NativeShowPreGameMessageCommand().execute()
-        CommandFactory.NativeClearCommand().execute()
-    }
-    
     
     func setupWebView() {
         var config = WKWebViewConfiguration()

@@ -28,69 +28,48 @@ let deliverJavaScript = "ocargo.blocklyControl.addBlockToEndOfProgram('deliver')
 
 class CommandFactory {
     
-    class weak var gameViewController : GameViewController? {
-        return SharedContext.MainGameViewController
-    }
-    
-    
-    /***********
-     * WebView *
-     ***********/
-    class func WebViewLoadLevelCommand(level: Level) -> GVLoadLevelCommand {
-        return GVLoadLevelCommand(level: level, gameViewController: gameViewController!)
-    }
-
-    
-    /*********************
-    * Game Menu Controls *
-    **********************/
-    class func HelpCommand() -> GameViewCommand {
-        return GameMenuNativeHelpCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeClearCommand() -> GameViewCommand {
-        return NGVClearCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeDisableDirectDriveCommand() -> GameViewCommand {
-        return NGVDisableDirectDriveCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeEnableDirectDriveCommand() -> GameViewCommand {
-        return NGVEnableDirectDriveCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeShowPreGameMessageCommand() -> GameViewCommand {
-        return NGVShowPreGameMessageCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativePlayCommand() -> GameMenuCommand {
-        return NGVPlayCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeMuteCommand() -> GameMenuCommand {
-        return NGVMuteCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeSwitchControlModeCommand(controlMode: GameMenuViewController.ControlMode) -> GameMenuCommand {
-        return NGVSwitchControlMode(gameViewController: gameViewController!, controlMode: controlMode)
-    }
-    
-    
-    
-    
-    class func NativeAddBlockCommand(block: Block) -> BlocklyCommand {
-        return NGVAddBlockCommand(gameViewController: gameViewController!, block: block)
-    }
-
-    
-    
-    class func NativeShowResultCommand() -> GameMapCommand {
-        return NGVShowResultCommand(gameViewController: gameViewController!)
-    }
-    
-    class func NativeResetAnimationCommand() -> GameMapCommand {
-        return NGVResetAnimationCommand(gameViewController: gameViewController!)
+    static func createCommand(command: String) -> Command {
+        switch command {
+            case "WebViewLoadLevel":
+                return WebViewLoadLevelCommand()
+            case "Help":
+                return GameMenuHelpCommand()
+            case "Clear":
+                return GameMenuClearCommand()
+            case "DisableDirectDrive":
+                return NGVDisableDirectDriveCommand()
+            case "EnableDirectDrive":
+                return NGVEnableDirectDriveCommand()
+            case "PregameMessage":
+                return NGVShowPreGameMessageCommand()
+            case "Play":
+                return GameMenuPlayCommand()
+            case "Mute":
+                return GameMenuMuteCommand()
+            case "ResetAnimation":
+                return GameMapResetAnimationCommand()
+            case "ChangeToOnStopControls":
+                return GameMenuSwitchControlModeCommand(controlMode: GameMenuViewController.ControlMode.onStopControls)
+            case "ChangeToOnPlayControls":
+                return GameMenuSwitchControlModeCommand(controlMode: GameMenuViewController.ControlMode.onPlayControls)
+            case "ChangeToOnPauseControls":
+                return GameMenuSwitchControlModeCommand(controlMode: GameMenuViewController.ControlMode.onPauseControls)
+            case "ChangeToOnResumeControls":
+                return GameMenuSwitchControlModeCommand(controlMode: GameMenuViewController.ControlMode.onResumeControls)
+            case "ChangeToOnStepControls":
+                return GameMenuSwitchControlModeCommand(controlMode: GameMenuViewController.ControlMode.onStepControls)
+            case "AddMoveForwardBlock":
+                return BlocklyAddBlockCommand(block: Forward())
+            case "AddTurnLeftBlock":
+                return BlocklyAddBlockCommand(block: Left())
+            case "AddTurnRightBlock":
+                return BlocklyAddBlockCommand(block: Right())
+            case "AddDeliverBlock":
+                return BlocklyAddBlockCommand(block: Deliver())
+            
+        default:
+            return Command() //Error Command
+        }
     }
     
 }

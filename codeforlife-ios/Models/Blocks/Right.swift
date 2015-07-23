@@ -17,9 +17,9 @@ class Right: Block {
     }
     
     override func executeBlock(#animated: Bool, completion: (() -> Void)?) {
-        CommandFactory.NativeDisableDirectDriveCommand().execute()
+        CommandFactory.createCommand("DisableDirectDrive").execute()
         van?.turnRight(animated: animated, completion: {
-            CommandFactory.NativeEnableDirectDriveCommand().execute()
+            CommandFactory.createCommand("EnableDirectDrive").execute()
             completion?()
         })
     }

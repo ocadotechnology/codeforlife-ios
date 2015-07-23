@@ -118,7 +118,6 @@
 		ED222FE61B4D1572006E525A /* Deliver.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FE41B4D1572006E525A /* Deliver.swift */; };
 		ED222FE81B4D1580006E525A /* Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FE71B4D1580006E525A /* Start.swift */; };
 		ED222FE91B4D1580006E525A /* Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FE71B4D1580006E525A /* Start.swift */; };
-		ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */; };
 		ED236EA41B341E9F00B63380 /* GameViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EA31B341E9F00B63380 /* GameViewCommand.swift */; };
 		ED5721B81B47E7680011F465 /* RoadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5721B71B47E7680011F465 /* RoadType.swift */; };
 		ED5721B91B47E7680011F465 /* RoadType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5721B71B47E7680011F465 /* RoadType.swift */; };
@@ -160,6 +159,10 @@
 		ED90B4481B60D6920076B70D /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4461B60D6920076B70D /* CGPointExtension.swift */; };
 		ED90B44A1B60DD100076B70D /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4491B60DD100076B70D /* AnimationFactory.swift */; };
 		ED90B44B1B60DD100076B70D /* AnimationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4491B60DD100076B70D /* AnimationFactory.swift */; };
+		ED90B44D1B6102260076B70D /* BlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B44C1B6102260076B70D /* BlockFactory.swift */; };
+		ED90B44E1B6102260076B70D /* BlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B44C1B6102260076B70D /* BlockFactory.swift */; };
+		ED90B4531B61165E0076B70D /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4521B61165E0076B70D /* Command.swift */; };
+		ED90B4541B61165E0076B70D /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90B4521B61165E0076B70D /* Command.swift */; };
 		EDA47C3B1B441E35003356AB /* EpisodeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */; };
 		EDA47C3C1B441E35003356AB /* EpisodeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */; };
 		EDA47C3F1B442411003356AB /* LevelBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C3E1B442411003356AB /* LevelBackButton.swift */; };
@@ -192,7 +195,6 @@
 		EDBB66711B3AA072009020A5 /* FetchLevelsActionMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB0721B331B7100A595EF /* FetchLevelsActionMockDelegate.swift */; };
 		EDBB66731B3AA07A009020A5 /* CommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC8C1F41B381213004B1358 /* CommandFactory.swift */; };
 		EDBB66741B3AA07A009020A5 /* GameViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236EA31B341E9F00B63380 /* GameViewCommand.swift */; };
-		EDBB66751B3AA07A009020A5 /* GVJavaScriptCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */; };
 		EDBB66771B3AA07E009020A5 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF41E7F0402D1DF38E4BA7F2 /* Level.swift */; };
 		EDBB667A1B3AA07E009020A5 /* GameViewInteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */; };
 		EDBB667B1B3AA07E009020A5 /* VehicleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAC1B39934F003398EE /* VehicleController.swift */; };
@@ -351,7 +353,6 @@
 		ED222FE11B4D1451006E525A /* Right.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Right.swift; sourceTree = "<group>"; };
 		ED222FE41B4D1572006E525A /* Deliver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deliver.swift; sourceTree = "<group>"; };
 		ED222FE71B4D1580006E525A /* Start.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Start.swift; sourceTree = "<group>"; };
-		ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GVJavaScriptCommand.swift; path = "codeforlife-ios/Models/GameViewCommands/GVJavaScriptCommand.swift"; sourceTree = SOURCE_ROOT; };
 		ED236EA31B341E9F00B63380 /* GameViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCommand.swift; sourceTree = "<group>"; };
 		ED5721B71B47E7680011F465 /* RoadType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoadType.swift; path = ../RoadType.swift; sourceTree = "<group>"; };
 		ED5721BA1B47E7CC0011F465 /* Origin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Origin.swift; path = Objects/Origin.swift; sourceTree = "<group>"; };
@@ -373,6 +374,8 @@
 		ED8AEB9A1B5FE8020049EA8D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ED90B4461B60D6920076B70D /* CGPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
 		ED90B4491B60DD100076B70D /* AnimationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationFactory.swift; sourceTree = "<group>"; };
+		ED90B44C1B6102260076B70D /* BlockFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockFactory.swift; sourceTree = "<group>"; };
+		ED90B4521B61165E0076B70D /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTableView.swift; sourceTree = "<group>"; };
 		EDA47C3E1B442411003356AB /* LevelBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelBackButton.swift; sourceTree = "<group>"; };
 		EDA47C411B442798003356AB /* LevelTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableView.swift; sourceTree = "<group>"; };
@@ -694,6 +697,7 @@
 			isa = PBXGroup;
 			children = (
 				EDBB66941B3C0977009020A5 /* Block.swift */,
+				ED90B44C1B6102260076B70D /* BlockFactory.swift */,
 				ED222FDB1B4D141D006E525A /* Forward.swift */,
 				ED222FDE1B4D1434006E525A /* Left.swift */,
 				ED222FE11B4D1451006E525A /* Right.swift */,
@@ -706,9 +710,9 @@
 		ED236EA11B341CF800B63380 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
+				ED90B4521B61165E0076B70D /* Command.swift */,
 				EDC8C1F41B381213004B1358 /* CommandFactory.swift */,
 				ED236EA31B341E9F00B63380 /* GameViewCommand.swift */,
-				ED236E9F1B34161D00B63380 /* GVJavaScriptCommand.swift */,
 				ED222FB31B4A6C13006E525A /* DirectDriveCommand.swift */,
 				ED222FB61B4A70BF006E525A /* GameMenuCommand.swift */,
 				ED222FBC1B4A7133006E525A /* BlocklyCommand.swift */,
@@ -1141,6 +1145,7 @@
 				ED5721C01B47EED20011F465 /* GameMenuViewControllerDelegate.swift in Sources */,
 				EDA47C451B442A1E003356AB /* GlobalConfig.swift in Sources */,
 				EDBE3F531B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift in Sources */,
+				ED90B44D1B6102260076B70D /* BlockFactory.swift in Sources */,
 				ED13D0111B5903AE00EA591A /* StopEngineAnimation.swift in Sources */,
 				ED13CFF01B58FBCD00EA591A /* SoundAnimation.swift in Sources */,
 				EDBB66971B3C0A61009020A5 /* BlockTableViewController.swift in Sources */,
@@ -1153,7 +1158,6 @@
 				ED1A93371B42AE81004E6AD4 /* Van.swift in Sources */,
 				EDFE933A1B41804900E01322 /* FailMessage.swift in Sources */,
 				ED222FD51B4C21D1006E525A /* House.swift in Sources */,
-				ED236EA01B34161D00B63380 /* GVJavaScriptCommand.swift in Sources */,
 				ED1A933D1B42C1BC004E6AD4 /* GameMapView.swift in Sources */,
 				EDBE3F4F1B568E1E000FC06F /* PopUpAnimation.swift in Sources */,
 				EDA47C4B1B453C1E003356AB /* Map.swift in Sources */,
@@ -1220,6 +1224,7 @@
 				ED10455D1B5E3E0D001FA170 /* Straight.swift in Sources */,
 				ED1A93501B43D4A3004E6AD4 /* FetchEpisodesAction.swift in Sources */,
 				ED13D0181B59217900EA591A /* HighlightAnimation.swift in Sources */,
+				ED90B4531B61165E0076B70D /* Command.swift in Sources */,
 				ED1A93261B428A36004E6AD4 /* BlockTableView.swift in Sources */,
 				EDA47C3B1B441E35003356AB /* EpisodeTableView.swift in Sources */,
 				ED7799CE1B46944200A854A3 /* FetchLevelAction.swift in Sources */,
@@ -1312,6 +1317,7 @@
 				ED10455B1B5E3E01001FA170 /* CrossRoads.swift in Sources */,
 				ED222FD31B4C00AC006E525A /* MapTest.swift in Sources */,
 				ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */,
+				ED90B4541B61165E0076B70D /* Command.swift in Sources */,
 				ED13D00F1B5902C500EA591A /* StartEngineAnimation.swift in Sources */,
 				ED7799C21B4593BA00A854A3 /* Coordinates.swift in Sources */,
 				EDBE3F541B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift in Sources */,
@@ -1323,7 +1329,6 @@
 				EDD1A2BD1B4EAAE5001A82A2 /* Animation.swift in Sources */,
 				ED222FCE1B4AD4A5006E525A /* SharedContext.swift in Sources */,
 				ED1045551B5E3DDD001FA170 /* TJunction.swift in Sources */,
-				EDBB66751B3AA07A009020A5 /* GVJavaScriptCommand.swift in Sources */,
 				ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */,
 				ED222FE91B4D1580006E525A /* Start.swift in Sources */,
 				EDDF0F201B417DBC00F2D779 /* ErrorMessageView.swift in Sources */,
@@ -1341,6 +1346,7 @@
 				ED1A93271B428A36004E6AD4 /* BlockTableView.swift in Sources */,
 				EDBB668E1B3AF135009020A5 /* DirectDriveViewController.swift in Sources */,
 				ED90B44B1B60DD100076B70D /* AnimationFactory.swift in Sources */,
+				ED90B44E1B6102260076B70D /* BlockFactory.swift in Sources */,
 				EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */,
 				EDD1A2C71B4FCEB8001A82A2 /* TurnLeft.swift in Sources */,
 				EDA47C581B45558A003356AB /* BlockTest.swift in Sources */,

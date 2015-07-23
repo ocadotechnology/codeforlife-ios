@@ -11,7 +11,7 @@ import Foundation
 class DirectDriveCommand: GameViewCommand {
 
     weak var viewController : DirectDriveViewController? {
-        return gameViewController.directDriveViewController
+        return gameViewController?.directDriveViewController
     }
 
 }
