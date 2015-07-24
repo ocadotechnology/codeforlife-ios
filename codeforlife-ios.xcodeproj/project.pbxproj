@@ -10,6 +10,22 @@
 		68551E6CF0BF93CECF16DB9E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D4CA7DAE1B32C74800C09F74 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */; };
+		ED0622401B6256FC0062D3A5 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06223F1B6256FC0062D3A5 /* LoadScreenViewController.swift */; };
+		ED0622411B6256FC0062D3A5 /* LoadScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06223F1B6256FC0062D3A5 /* LoadScreenViewController.swift */; };
+		ED0622421B6258770062D3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
+		ED0622441B6259760062D3A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED0622431B6259760062D3A5 /* CoreData.framework */; };
+		ED06227A1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */; };
+		ED06227B1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */; };
+		ED06228F1B6274700062D3A5 /* LoadEpisodesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06228E1B6274700062D3A5 /* LoadEpisodesRequest.swift */; };
+		ED0622901B6274700062D3A5 /* LoadEpisodesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06228E1B6274700062D3A5 /* LoadEpisodesRequest.swift */; };
+		ED0622921B627AFC0062D3A5 /* XEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0622911B627AFC0062D3A5 /* XEpisode.swift */; };
+		ED0622931B627AFC0062D3A5 /* XEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0622911B627AFC0062D3A5 /* XEpisode.swift */; };
+		ED0622981B627F530062D3A5 /* XLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0622971B627F530062D3A5 /* XLevel.swift */; };
+		ED0622991B627F530062D3A5 /* XLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0622971B627F530062D3A5 /* XLevel.swift */; };
+		ED06229B1B62809D0062D3A5 /* LoadLevelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06229A1B62809D0062D3A5 /* LoadLevelsRequest.swift */; };
+		ED06229C1B62809D0062D3A5 /* LoadLevelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06229A1B62809D0062D3A5 /* LoadLevelsRequest.swift */; };
+		ED06229E1B6281E00062D3A5 /* LoadLevelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06229D1B6281E00062D3A5 /* LoadLevelRequest.swift */; };
+		ED06229F1B6281E00062D3A5 /* LoadLevelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06229D1B6281E00062D3A5 /* LoadLevelRequest.swift */; };
 		ED0A770A1B34560600267191 /* LevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0A77091B34560600267191 /* LevelTableViewCell.swift */; };
 		ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
 		ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5941B305D720060FC84 /* Main.storyboard */; };
@@ -289,6 +305,14 @@
 		D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		D77FE0166D1735B9290ACD65 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98E0ACB1B0824664611C8C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		ED06223F1B6256FC0062D3A5 /* LoadScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadScreenViewController.swift; sourceTree = "<group>"; };
+		ED0622431B6259760062D3A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ED0622791B625B3F0062D3A5 /* codeforlife-ios.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "codeforlife-ios.xcdatamodel"; sourceTree = "<group>"; };
+		ED06228E1B6274700062D3A5 /* LoadEpisodesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadEpisodesRequest.swift; sourceTree = "<group>"; };
+		ED0622911B627AFC0062D3A5 /* XEpisode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XEpisode.swift; sourceTree = "<group>"; };
+		ED0622971B627F530062D3A5 /* XLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XLevel.swift; sourceTree = "<group>"; };
+		ED06229A1B62809D0062D3A5 /* LoadLevelsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadLevelsRequest.swift; sourceTree = "<group>"; };
+		ED06229D1B6281E00062D3A5 /* LoadLevelRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadLevelRequest.swift; sourceTree = "<group>"; };
 		ED0A77091B34560600267191 /* LevelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableViewCell.swift; sourceTree = "<group>"; };
 		ED0BC58B1B305D720060FC84 /* codeforlife-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codeforlife-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC58F1B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -438,6 +462,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0622441B6259760062D3A5 /* CoreData.framework in Frameworks */,
 				ED8AEB9B1B5FE8020049EA8D /* AVFoundation.framework in Frameworks */,
 				B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */,
 			);
@@ -457,6 +482,7 @@
 		61C117FDD7A1D26AE44D9944 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED0622431B6259760062D3A5 /* CoreData.framework */,
 				ED8AEB9A1B5FE8020049EA8D /* AVFoundation.framework */,
 				D77FE0166D1735B9290ACD65 /* Pods.framework */,
 			);
@@ -523,6 +549,8 @@
 		ED0BC58D1B305D720060FC84 /* codeforlife-ios */ = {
 			isa = PBXGroup;
 			children = (
+				ED0622971B627F530062D3A5 /* XLevel.swift */,
+				ED0622911B627AFC0062D3A5 /* XEpisode.swift */,
 				ED0BC5941B305D720060FC84 /* Main.storyboard */,
 				EDA47C441B442A1E003356AB /* GlobalConfig.swift */,
 				ED7799D61B46AB3E00A854A3 /* GameMapConfig.swift */,
@@ -535,6 +563,7 @@
 				ED0BC5991B305D720060FC84 /* LaunchScreen.xib */,
 				ED0BC5901B305D720060FC84 /* AppDelegate.swift */,
 				ED0BC58F1B305D720060FC84 /* Info.plist */,
+				ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */,
 			);
 			path = "codeforlife-ios";
 			sourceTree = "<group>";
@@ -689,6 +718,9 @@
 				ED7799CD1B46944200A854A3 /* FetchLevelRequest.swift */,
 				EDD1A2CB1B4FD4B7001A82A2 /* FetchMapRequest.swift */,
 				EDD1A2D41B4FDF6D001A82A2 /* FetchBlockSetRequest.swift */,
+				ED06228E1B6274700062D3A5 /* LoadEpisodesRequest.swift */,
+				ED06229A1B62809D0062D3A5 /* LoadLevelsRequest.swift */,
+				ED06229D1B6281E00062D3A5 /* LoadLevelRequest.swift */,
 			);
 			name = Request;
 			path = Actions;
@@ -887,9 +919,10 @@
 		EDFF14DE1B316EA900962C68 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ED0BC5B21B3062E60060FC84 /* GameViewController.swift */,
+				ED06223F1B6256FC0062D3A5 /* LoadScreenViewController.swift */,
 				ED1A93441B43D046004E6AD4 /* EpisodeViewController.swift */,
 				ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */,
+				ED0BC5B21B3062E60060FC84 /* GameViewController.swift */,
 				ED1A93621B43FF1F004E6AD4 /* GameViewControllers */,
 				ED5721BE1B47EEC40011F465 /* Delegates */,
 				EDBE3F511B56923E000FC06F /* GestureRecognizers */,
@@ -1139,6 +1172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDA47C521B454798003356AB /* TrafficLight.swift in Sources */,
+				ED0622401B6256FC0062D3A5 /* LoadScreenViewController.swift in Sources */,
 				ED7799C81B468ADC00A854A3 /* GameObject.swift in Sources */,
 				ED222FDC1B4D141D006E525A /* Forward.swift in Sources */,
 				ED1A93451B43D046004E6AD4 /* EpisodeViewController.swift in Sources */,
@@ -1146,6 +1180,7 @@
 				ED5721C01B47EED20011F465 /* GameMenuViewControllerDelegate.swift in Sources */,
 				EDA47C451B442A1E003356AB /* GlobalConfig.swift in Sources */,
 				EDBE3F531B56926D000FC06F /* BlockTableViewPanGestureRecognizer.swift in Sources */,
+				ED06229E1B6281E00062D3A5 /* LoadLevelRequest.swift in Sources */,
 				ED90B44D1B6102260076B70D /* BlockFactory.swift in Sources */,
 				ED13D0111B5903AE00EA591A /* StopEngineAnimation.swift in Sources */,
 				ED13CFF01B58FBCD00EA591A /* SoundAnimation.swift in Sources */,
@@ -1164,6 +1199,7 @@
 				EDA47C4B1B453C1E003356AB /* Map.swift in Sources */,
 				ED6F79941B3D866F00DD2AFE /* Message.swift in Sources */,
 				ED6DC3BF1B5FC77B00EB6F22 /* EpisodeNavigationButton.swift in Sources */,
+				ED0622981B627F530062D3A5 /* XLevel.swift in Sources */,
 				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
 				EDC8C1F51B381213004B1358 /* ActionFactory.swift in Sources */,
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
@@ -1175,6 +1211,7 @@
 				EDBB66991B3C0B34009020A5 /* BlockTableViewCell.swift in Sources */,
 				EDA47C3F1B442411003356AB /* LevelBackButton.swift in Sources */,
 				ED222FBD1B4A7133006E525A /* BlocklyAction.swift in Sources */,
+				ED06228F1B6274700062D3A5 /* LoadEpisodesRequest.swift in Sources */,
 				ED1EB0711B331A2800A595EF /* FetchLevelsRequest.swift in Sources */,
 				ED6F79881B3D46CF00DD2AFE /* GameMenuView.swift in Sources */,
 				ED1EB06F1B3314C900A595EF /* RequestDelegate.swift in Sources */,
@@ -1198,12 +1235,14 @@
 				EDD1A2C61B4FCEB8001A82A2 /* TurnLeft.swift in Sources */,
 				ED222FB41B4A6C13006E525A /* DirectDriveAction.swift in Sources */,
 				ED10456F1B5E7DDF001FA170 /* TurnLeftCrashAnimation.swift in Sources */,
+				ED06227A1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */,
 				ED7799D11B469E6500A854A3 /* Direction.swift in Sources */,
 				ED90B4471B60D6920076B70D /* CGPointExtension.swift in Sources */,
 				ED1045541B5E3DDD001FA170 /* TJunction.swift in Sources */,
 				EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */,
 				ED222FDF1B4D1434006E525A /* Left.swift in Sources */,
 				ED1EB0731B331B7100A595EF /* FetchLevelsRequestMockDelegate.swift in Sources */,
+				ED06229B1B62809D0062D3A5 /* LoadLevelsRequest.swift in Sources */,
 				ED222FE21B4D1451006E525A /* Right.swift in Sources */,
 				ED222FE51B4D1572006E525A /* Deliver.swift in Sources */,
 				ED5721C41B4854870011F465 /* FetchLevelRequestMockDelegate.swift in Sources */,
@@ -1252,6 +1291,7 @@
 				ED10454D1B5E36EB001FA170 /* Destination.swift in Sources */,
 				EDDF0F151B41783F00F2D779 /* PreGameMessage.swift in Sources */,
 				ED5721BB1B47E7CC0011F465 /* Origin.swift in Sources */,
+				ED0622921B627AFC0062D3A5 /* XEpisode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1293,6 +1333,7 @@
 				ED90B4481B60D6920076B70D /* CGPointExtension.swift in Sources */,
 				EDBB66821B3AB36C009020A5 /* GameViewControllerTests.swift in Sources */,
 				EDBB66711B3AA072009020A5 /* FetchLevelsRequestMockDelegate.swift in Sources */,
+				ED06229C1B62809D0062D3A5 /* LoadLevelsRequest.swift in Sources */,
 				EDBB667A1B3AA07E009020A5 /* GameViewInteractionHandler.swift in Sources */,
 				ED10455E1B5E3E0D001FA170 /* Straight.swift in Sources */,
 				ED13D0121B5903AE00EA591A /* StopEngineAnimation.swift in Sources */,
@@ -1314,7 +1355,12 @@
 				ED5721B91B47E7680011F465 /* RoadType.swift in Sources */,
 				ED7799B21B45716700A854A3 /* FetchEpisodesActionTest.swift in Sources */,
 				EDA47C561B45537F003356AB /* LevelTest.swift in Sources */,
+				ED0622991B627F530062D3A5 /* XLevel.swift in Sources */,
+				ED0622931B627AFC0062D3A5 /* XEpisode.swift in Sources */,
+				ED0622411B6256FC0062D3A5 /* LoadScreenViewController.swift in Sources */,
 				EDD1A2CA1B4FCED5001A82A2 /* TurnRight.swift in Sources */,
+				ED0622901B6274700062D3A5 /* LoadEpisodesRequest.swift in Sources */,
+				ED06227B1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */,
 				ED10455B1B5E3E01001FA170 /* CrossRoads.swift in Sources */,
 				ED222FD31B4C00AC006E525A /* MapTest.swift in Sources */,
 				ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */,
@@ -1342,6 +1388,7 @@
 				EDA47C401B442411003356AB /* LevelBackButton.swift in Sources */,
 				ED222FC11B4A77EA006E525A /* MovableGameObject.swift in Sources */,
 				ED7799C91B468ADC00A854A3 /* GameObject.swift in Sources */,
+				ED0622421B6258770062D3A5 /* AppDelegate.swift in Sources */,
 				ED222FCB1B4AABCB006E525A /* CFC.swift in Sources */,
 				ED222FE61B4D1572006E525A /* Deliver.swift in Sources */,
 				ED1A93271B428A36004E6AD4 /* BlockTableView.swift in Sources */,
@@ -1360,6 +1407,7 @@
 				ED1045581B5E3DED001FA170 /* DeadEnd.swift in Sources */,
 				ED1045611B5E3E3B001FA170 /* Error.swift in Sources */,
 				EDD1A2D31B4FDEA0001A82A2 /* FetchMapRequestMockDelegate.swift in Sources */,
+				ED06229F1B6281E00062D3A5 /* LoadLevelRequest.swift in Sources */,
 				EDBB66911B3B0103009020A5 /* GameMenuViewController.swift in Sources */,
 				ED222FB51B4A6C13006E525A /* DirectDriveAction.swift in Sources */,
 				EDFE933E1B4181FF00E01322 /* PostGameMessageView.swift in Sources */,
@@ -1506,6 +1554,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "codeforlife-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1523,6 +1572,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "codeforlife-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1597,6 +1647,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED0622791B625B3F0062D3A5 /* codeforlife-ios.xcdatamodel */,
+			);
+			currentVersion = ED0622791B625B3F0062D3A5 /* codeforlife-ios.xcdatamodel */;
+			path = "codeforlife-ios.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ED0BC5831B305D720060FC84 /* Project object */;
 }

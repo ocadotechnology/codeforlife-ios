@@ -21,6 +21,7 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view = GameView()
         let gameView = self.view as! GameView
         gameView.backgroundColor = kC4LGameMapGrassColor
         gameView.showsFPS = true
