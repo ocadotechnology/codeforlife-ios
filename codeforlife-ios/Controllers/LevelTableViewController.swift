@@ -15,27 +15,36 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var prevEpisodeButton: UIButton!
     @IBOutlet weak var nextEpisodeButton: UIButton!
     
-    weak var requestedEpisode: Episode?
-    
-    var episode : Episode? {
+    var index = 0 {
         didSet {
             if isViewLoaded() {
-                prevEpisodeButton.hidden = episode?.prevEpisode == nil ? true : false
-                nextEpisodeButton.hidden = episode?.nextEpisode == nil ? true : false
-                activityIndicator.startAnimating()
-                FetchLevelsRequest(self, episode!.url).execute {
-                    self.activityIndicator?.stopAnimating()
-                    self.titleLabel.text = self.episode?.name
-                }
+                loadEpisode(self.index)
             }
         }
     }
     
-    var levels = [Level]() {
+//    var requestedEpisode: Episode?
+//    
+//    var episode : Episode? {
+//        didSet {
+//            if isViewLoaded() {
+//                prevEpisodeButton.hidden = episode?.prevEpisode == nil ? true : false
+//                nextEpisodeButton.hidden = episode?.nextEpisode == nil ? true : false
+//                activityIndicator.startAnimating()
+////                FetchLevelsRequest(self, episode!.url).execute {
+////                    [unowned self] in
+////                    self.activityIndicator?.stopAnimating()
+////                    self.titleLabel.text = self.episode?.name
+////                }
+//                
+//            }
+//        }
+//    }
+    
+    var levels = [XLevel]() {
         didSet {
             self.tableView.reloadData()
         }
@@ -45,7 +54,18 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        episode = requestedEpisode!
+        loadEpisode(self.index)
+    }
+        
+    private func loadEpisode(index: Int) {
+        let episodes = XEpisode.fetchResults().sorted({$0.id < $1.id})
+        let episodeUrl = episodes[index-1].url
+        levels = XLevel.fetchResults()
+                        .filter({[unowned self] in $0.episodeUrl == episodeUrl})
+                        .sorted({$0.level < $1.level})
+        prevEpisodeButton.hidden = index == 1
+        nextEpisodeButton.hidden = index == XEpisode.fetchResults().count
+        self.titleLabel.text = XEpisode.fetchResults().filter({$0.id == self.index})[0].name
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -57,15 +77,13 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var indexPath = tableView.indexPathForSelectedRow()!
-        var level = levels[indexPath.row]
         performSegueWithIdentifier(SegueIdentifier, sender: self)
     }
 
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
-        var level = levels[indexPath.row]
+        let level = levels[indexPath.row]
         cell.numberLabel.text =  "Level " + level.name
         cell.descriptionLabel.text = level.title
         return cell
@@ -76,29 +94,17 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
             if let identifier = segue.identifier {
                 switch identifier {
                     case SegueIdentifier:
-                        var indexPath = tableView.indexPathForSelectedRow()!
-                        gameViewController.requestedLevel = levels[indexPath.row]
+                        let indexPath = tableView.indexPathForSelectedRow()!
+                        let item = levels[indexPath.row]
+                        gameViewController.level = item.toLevel()
                     default: break
                 }
             }
         }
     }
     
-    @IBAction func gotoPreviousEpisode() {
-        if let previousEpisode = episode?.prevEpisode {
-            episode = previousEpisode
-        }
-    }
-    
-    @IBAction func gotoNextEpisode() {
-        if let nextEpisode = episode?.nextEpisode {
-            episode = nextEpisode
-        }
-    }
-    
-    
-    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {
-        SharedContext.MainGameViewController = nil
-    }
+    @IBAction func gotoPreviousEpisode() { index-- }
+    @IBAction func gotoNextEpisode() { index++ }
+    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) { SharedContext.MainGameViewController = nil }
 
 }

@@ -11,6 +11,23 @@ import Foundation
 import SwiftyJSON
 import WebKit
 
+// WKUserContentController retains its message handler causing a retain cycle,
+// one of the solution to this problem is to make the actual WKScriptMessageHandler
+// a weak var
+class InteractionHandler: NSObject, WKScriptMessageHandler {
+    
+    weak var delegate: WKScriptMessageHandler?
+    init(delegate: WKScriptMessageHandler?) {
+        self.delegate = delegate
+        super.init()
+    }
+    
+    func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
+        self.delegate?.userContentController(userContentController, didReceiveScriptMessage: message)
+    }
+    
+}
+
 class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
 
     unowned var gameViewController: GameViewController
@@ -22,7 +39,7 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
     // AnimationQueues is a 2D array with lists of animations(ie [[Animation]])
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
-        
+
         if let result = message.body as? NSString,
                 data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
             let queues = JSON(data: data)

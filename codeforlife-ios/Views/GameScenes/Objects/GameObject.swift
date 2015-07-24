@@ -13,8 +13,8 @@ class GameObject: SKSpriteNode {
     
     let PI = CGFloat(M_PI)
     
-    var width: CGFloat
-    var height: CGFloat
+    let width: CGFloat
+    let height: CGFloat
     
     init(imageNamed: String, width: CGFloat, height: CGFloat) {
         self.width = width

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D2134" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CDMap" representedClassName="CDMap" syncable="YES">
+        <attribute name="jsonData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="XEpisode" representedClassName="XEpisode" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="XLevel" representedClassName="XLevel" syncable="YES">
+        <attribute name="blocklyEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="blockSetUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="episodeUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hint" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="levelDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mapUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pythonEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="pythonViewEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="webViewUrl" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="XEpisode" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="XLevel" positionX="-54" positionY="9" width="128" height="240"/>
+        <element name="CDMap" positionX="-36" positionY="108" width="128" height="75"/>
+    </elements>
+</model>

@@ -12,7 +12,7 @@ import AVFoundation
 
 class Van: MovableGameObject {
     
-    var engine = AVAudioPlayer()
+    let engine: AVAudioPlayer
     
     var exploded = false {
         didSet {

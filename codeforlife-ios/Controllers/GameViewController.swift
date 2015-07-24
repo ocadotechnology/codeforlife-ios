@@ -25,12 +25,13 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView?
     
-    weak var requestedLevel: Level?
-    weak var level: Level? {
+    var level: Level? {
         didSet {
             loadLevel(self.level!)
         }
     }
+    
+    var gameViewInteractionHandler: WKScriptMessageHandler?
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var blockTableView: UIView!
@@ -38,25 +39,29 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         SharedContext.MainGameViewController = self
+        gameViewInteractionHandler = GameViewInteractionHandler(self)
         setupWebView()
-        level = requestedLevel
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        loadLevel(self.level!)
     }
     
     private func loadLevel(level: Level) {
-        FetchLevelRequest(self).execute {
-            [unowned self] in
-            FetchMapRequest(self, self.level?.mapUrl).execute()
-            ActionFactory.createAction("PregameMessage").execute()
-            ActionFactory.createAction("Clear").execute()
-            self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
-        }
+        let map = CDMap.fetchResults().filter({$0.url == self.level!.url})[0].toMap()
+        SharedContext.MainGameViewController?.gameMapViewController?.map = map
+        ActionFactory.createAction("PregameMessage").execute()
+        ActionFactory.createAction("Clear").execute()
+        self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
     }
     
     private func setupWebView() {
-        let config = WKWebViewConfiguration()
-        let handler = GameViewInteractionHandler(self)
-        config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
-        webView = WKWebView(frame: CGRectNull, configuration: config)
+        let userContentController = WKUserContentController()
+        userContentController.addScriptMessageHandler(InteractionHandler(delegate: gameViewInteractionHandler), name: scriptMessageHandlerTitle)
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController = userContentController
+        webView = WKWebView(frame: CGRectZero, configuration: configuration)
         webView?.navigationDelegate = self
         activityIndicator?.startAnimating()
     }
@@ -93,6 +98,14 @@ class GameViewController: UIViewController, WKNavigationDelegate {
         completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
     }
     
-//    deinit { println("GameViewController is being deallocated") }
+    // Some extra releases need to be done manually due to the retain cycle
+    // caused by UserContentController. It is believed that there exists a
+    // retain cycle between WKUserContentController and its ScriptMessageHandler
+    deinit {
+        println("GameViewController is being deallocated")
+        self.webView?.stopLoading()
+        self.webView?.configuration.userContentController.removeScriptMessageHandlerForName(scriptMessageHandlerTitle)
+        self.webView = nil
+    }
     
 }

@@ -17,7 +17,7 @@ class Level {
     var blocklyEnabled: Bool?
     var pythonEnabled: Bool?
     var pythonViewEnabled: Bool?
-    var nextLevel: Level?
+    weak var nextLevel: Level?
     var webViewUrl: String
 
     init(url: String, name: String, title: String) {

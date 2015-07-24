@@ -9,8 +9,9 @@
 import SpriteKit
 import UIKit
 import Foundation
+import CoreData
 
-struct Origin {
+class Origin {
     
     var coordinates: Coordinates
     var compassDirection: CompassDirection
@@ -20,7 +21,7 @@ struct Origin {
         self.compassDirection = compassDirection
     }
     
-    init(_ x: Int, _ y: Int, _ compassDirection: CompassDirection) {
+    convenience init(_ x: Int, _ y: Int, _ compassDirection: CompassDirection) {
         self.init(Coordinates(x, y), compassDirection)
     }
     
