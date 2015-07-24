@@ -31,6 +31,8 @@ class GameViewController: UIViewController, WKNavigationDelegate {
             loadLevel(self.level!)
         }
     }
+    
+    var gameViewInteractionHandler: WKScriptMessageHandler?
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var blockTableView: UIView!
@@ -38,6 +40,7 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         SharedContext.MainGameViewController = self
+        gameViewInteractionHandler = GameViewInteractionHandler(self)
         setupWebView()
         level = requestedLevel
     }
@@ -53,10 +56,11 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     }
     
     private func setupWebView() {
-        let config = WKWebViewConfiguration()
-        let handler = GameViewInteractionHandler(self)
-        config.userContentController.addScriptMessageHandler(handler, name: scriptMessageHandlerTitle)
-        webView = WKWebView(frame: CGRectNull, configuration: config)
+        let userContentController = WKUserContentController()
+        userContentController.addScriptMessageHandler(InteractionHandler(delegate: gameViewInteractionHandler), name: scriptMessageHandlerTitle)
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController = userContentController
+        webView = WKWebView(frame: CGRectZero, configuration: configuration)
         webView?.navigationDelegate = self
         activityIndicator?.startAnimating()
     }
@@ -93,6 +97,14 @@ class GameViewController: UIViewController, WKNavigationDelegate {
         completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
     }
     
-//    deinit { println("GameViewController is being deallocated") }
+    // Some extra releases need to be done manually due to the retain cycle
+    // caused by UserContentController. It is believed that there exists a
+    // retain cycle between WKUserContentController and its ScriptMessageHandler
+    deinit {
+        println("GameViewController is being deallocated")
+        self.webView?.stopLoading()
+        self.webView?.configuration.userContentController.removeScriptMessageHandlerForName(scriptMessageHandlerTitle)
+        self.webView = nil
+    }
     
 }

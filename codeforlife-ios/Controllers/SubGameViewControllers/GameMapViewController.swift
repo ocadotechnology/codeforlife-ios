@@ -11,26 +11,47 @@ import SpriteKit
 
 class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
     
-    lazy var skView = SKView()
     lazy var animationHandler = AnimationHandler()
     
     var map: Map? {
         didSet {
-            map?.backgroundColor = kC4LGameMapGrassColor
-            map?.removeAllChildren()
-            skView.presentScene(map!)
-            map?.draw()
+            loadMap()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = skView
-        skView.backgroundColor = kC4LGameMapGrassColor
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        skView.ignoresSiblingOrder = true
+        let gameView = self.view as! GameView
+        gameView.backgroundColor = kC4LGameMapGrassColor
+        gameView.showsFPS = true
+        gameView.showsNodeCount = true
+        gameView.ignoresSiblingOrder = true
+        loadMap()
     }
     
-//    deinit { println("GameMapViewController is being deallocated") }
+    private func loadMap() {
+        if let map = self.map,
+            gameView = self.view as? GameView {
+            gameView.presentScene(map)
+            map.backgroundColor = kC4LGameMapGrassColor
+            map.removeAllChildren()
+            map.draw()
+        }
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        let gameView = self.view as! GameView
+        gameView.presentScene(nil)
+        map?.removeAllChildren()
+        map?.removeFromParent()
+    }
+    
+    deinit { println("GameMapViewController is being deallocated") }
+}
+
+class GameView: SKView {
+    deinit {
+        println("GameView is being deallocated")
+    }
 }

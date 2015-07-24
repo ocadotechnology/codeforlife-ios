@@ -28,6 +28,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
                 nextEpisodeButton.hidden = episode?.nextEpisode == nil ? true : false
                 activityIndicator.startAnimating()
                 FetchLevelsRequest(self, episode!.url).execute {
+                    [unowned self] in
                     self.activityIndicator?.stopAnimating()
                     self.titleLabel.text = self.episode?.name
                 }
@@ -57,15 +58,13 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var indexPath = tableView.indexPathForSelectedRow()!
-        var level = levels[indexPath.row]
         performSegueWithIdentifier(SegueIdentifier, sender: self)
     }
 
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
-        var level = levels[indexPath.row]
+        let level = levels[indexPath.row]
         cell.numberLabel.text =  "Level " + level.name
         cell.descriptionLabel.text = level.title
         return cell
@@ -76,7 +75,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
             if let identifier = segue.identifier {
                 switch identifier {
                     case SegueIdentifier:
-                        var indexPath = tableView.indexPathForSelectedRow()!
+                        let indexPath = tableView.indexPathForSelectedRow()!
                         gameViewController.requestedLevel = levels[indexPath.row]
                     default: break
                 }

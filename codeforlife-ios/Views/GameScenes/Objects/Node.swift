@@ -20,30 +20,15 @@ class Node: Equatable {
         
     }
     
-
-    
+    let coordinates: Coordinates
     var isDestination = false
-    
-    var coordinates: Coordinates
-    
-    var previousNode: Node?
-    
+    weak var previousNode: Node?
+    lazy var direction = Direction()
     lazy var trafficLights = [TrafficLight]()
     
     var connectedNodes = [Node]() {
         didSet {
-            direction = Direction()
-            for node in connectedNodes {
-                if node.isAboveOf(self) {
-                    direction.up = true
-                } else if node.isRightOf(self) {
-                    direction.right = true
-                } else if node.isBelowOf(self) {
-                    direction.down = true
-                } else if node.isLeftOf(self) {
-                    direction.left = true
-                }
-            }
+            updateDirection()
         }
     }
     
@@ -107,8 +92,6 @@ class Node: Equatable {
         }
     }
     
-    lazy var direction = Direction()
-    
     var position : CGPoint {
         var result = CGPointMake(
             CGFloat(coordinates.x) * GameMapConfig.GridSize.width + GameMapConfig.GridSize.width/2 + GameMapConfig.MapXOffset,
@@ -157,9 +140,23 @@ class Node: Equatable {
     }
     
     
-    
     init( _ coordinates: Coordinates) {
         self.coordinates = coordinates
+    }
+    
+    private func updateDirection() {
+        direction = Direction()
+        for node in connectedNodes {
+            if node.isAboveOf(self) {
+                direction.up = true
+            } else if node.isRightOf(self) {
+                direction.right = true
+            } else if node.isBelowOf(self) {
+                direction.down = true
+            } else if node.isLeftOf(self) {
+                direction.left = true
+            }
+        }
     }
     
     func addConnectedNode(node: Node) {

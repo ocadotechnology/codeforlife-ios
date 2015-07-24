@@ -27,6 +27,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         FetchEpisodesRequest(self).execute {
+            [weak activityIndicator] in
             activityIndicator?.stopAnimating()
         }
     }
