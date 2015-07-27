@@ -96,7 +96,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
                     case SegueIdentifier:
                         let indexPath = tableView.indexPathForSelectedRow()!
                         let item = levels[indexPath.row]
-                        gameViewController.requestedLevel = Level(url: item.url, name: item.name, title: item.title)
+                        gameViewController.level = item.toLevel()
                     default: break
                 }
             }

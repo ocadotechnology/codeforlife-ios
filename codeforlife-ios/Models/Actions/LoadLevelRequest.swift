@@ -50,6 +50,7 @@ class LoadLevelRequest: Request, RequestProtocol {
                                                 levelDescription: processedDescription,
                                                 hint: processedHint,
                                                 blockSetUrl: blockSetUrl,
+                                                blocklyEnabled: blocklyEnabled,
                                                 pythonEnabled: pythonEnabled,
                                                 pythonViewEnabled: pythonViewEnabled,
                                                 webViewUrl: kCFLDomain + kCFLRapidRouter + name + "/?mode=ios",

@@ -23,7 +23,7 @@ class LoadScreenViewController: UIViewController {
                 case 0: progressView!.progress = 0
                 case 1: XEpisode.save(); progressView!.progress = 0.2
                 case 2: XLevel.save(); progressView!.progress = 0.6
-                case 3: CDMap.save(); progressView!.progress = 0.9
+                case 3: CDMap.save(); progressView!.progress = 1.0
                 default: progressView!.progress = 1.0
                 }
                 runUpdate++
@@ -38,7 +38,7 @@ class LoadScreenViewController: UIViewController {
             case  1: loadEpisodes()
             case  2: loadLevels()
             case  3: loadMaps()
-            default: finishUpdate()
+            default: finishUpdate();
             }
         }
     }
@@ -46,14 +46,14 @@ class LoadScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var episodeVersion = 1.00
+        var episodeVersion = 1.0
         var levelVersion = 1.0
         
         let noUpdateNeeded = episodeVersion == 1.0
         
         if noUpdateNeeded {
             println("No updates required")
-            finishUpdate()
+            runUpdate = -1
         } else {
             println("Updates required")
             runUpdate++   // run Update
@@ -65,6 +65,7 @@ class LoadScreenViewController: UIViewController {
     private func finishUpdate() {
         println("Updates finished.")
         startButton.enabled = true
+        progressView.hidden = true
     }
     
     private func startUpdate() {

@@ -23,10 +23,11 @@ class XLevel: NSManagedObject {
     @NSManaged var mapUrl: String
     @NSManaged var levelDescription: String
     @NSManaged var hint: String
+    @NSManaged var blocklyEnabled: NSNumber
     @NSManaged var pythonEnabled: NSNumber
     @NSManaged var pythonViewEnabled: NSNumber
     
-    class func createInManagedObjectContext(episodeUrl: String, level: Int, name: String, title: String, url: String, levelDescription: String, hint: String, blockSetUrl: String, pythonEnabled: Bool, pythonViewEnabled: Bool, webViewUrl: String, mapUrl: String) -> XLevel {
+    class func createInManagedObjectContext(episodeUrl: String, level: Int, name: String, title: String, url: String, levelDescription: String, hint: String, blockSetUrl: String, blocklyEnabled: Bool, pythonEnabled: Bool, pythonViewEnabled: Bool, webViewUrl: String, mapUrl: String) -> XLevel {
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
@@ -49,6 +50,7 @@ class XLevel: NSManagedObject {
     }
     
     class func fetchResults() -> [XLevel] {
+        
         let fetchRequest = NSFetchRequest(entityName: "XLevel")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
@@ -60,21 +62,18 @@ class XLevel: NSManagedObject {
     }
     
     class func save() {
+        
         let fetchRequest = NSFetchRequest(entityName: "XLevel")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
         
         var error: NSError?
         managedObjectContext?.save(&error)
-        if error != nil {
-            let alert = UIAlertView()
-            alert.message = "Cannot Save Episodes"
-            alert.dismissWithClickedButtonIndex(-1, animated: true)
-            alert.show()
-        }
+        if error != nil { println("Error: Cannot save levels") }
     }
     
     class func removeAllEntries() {
+        
         let fetchRequest = NSFetchRequest(entityName: "XLevel")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
@@ -92,6 +91,9 @@ class XLevel: NSManagedObject {
         level.blockSetUrl = blockSetUrl
         level.mapUrl = mapUrl
         level.webViewUrl = webViewUrl
+        level.blocklyEnabled = Bool(blocklyEnabled)
+        level.pythonEnabled = Bool(pythonEnabled)
+        level.pythonViewEnabled = Bool(pythonViewEnabled)
         return level
     }
 

@@ -25,9 +25,7 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView?
     
-    var requestedLevel: Level?
-    
-    weak var level: Level? {
+    var level: Level? {
         didSet {
             loadLevel(self.level!)
         }
@@ -43,22 +41,20 @@ class GameViewController: UIViewController, WKNavigationDelegate {
         SharedContext.MainGameViewController = self
         gameViewInteractionHandler = GameViewInteractionHandler(self)
         setupWebView()
-        level = requestedLevel
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        loadLevel(self.level!)
     }
     
     private func loadLevel(level: Level) {
-        FetchLevelRequest(self).execute {
-            [unowned self] in
-            FetchMapRequest(self, level.mapUrl).execute()
-            ActionFactory.createAction("PregameMessage").execute()
-            ActionFactory.createAction("Clear").execute()
-            self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
-        }
+        let map = CDMap.fetchResults().filter({$0.url == self.level!.url})[0].toMap()
+        SharedContext.MainGameViewController?.gameMapViewController?.map = map
+        ActionFactory.createAction("PregameMessage").execute()
+        ActionFactory.createAction("Clear").execute()
+        self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
     }
-
-//    private func loadLevel(levelUrl: String) {
-//        self.level = XLevel.fetchResults().filter({$0.url == levelUrl})[0].toLevel()
-//    }
     
     private func setupWebView() {
         let userContentController = WKUserContentController()
