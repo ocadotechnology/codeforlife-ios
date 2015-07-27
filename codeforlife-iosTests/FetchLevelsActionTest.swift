@@ -25,9 +25,9 @@ class FetchLevelsActionTest: XCTestCase {
         
         for episode in 1 ... 11 {
             let expectation = expectationWithDescription("FetchLevelsActionTest")
-            FetchLevelsRequest(controller, "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/\(episode)").switchToDev().execute {
-                expectation.fulfill()
-            }
+//            FetchLevelsRequest(controller, "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/\(episode)").switchToDev().execute {
+//                expectation.fulfill()
+//            }
             waitForExpectationsWithTimeout(10) { (error) -> Void in
                 if error != nil {
                     println(error)
@@ -41,7 +41,7 @@ class FetchLevelsActionTest: XCTestCase {
     func testMockDelegate() {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("LevelTableViewController") as! LevelTableViewController
         let delegate = FetchLevelsRequestMockDelegate()
-        FetchLevelsRequest(controller, "").switchToMock().execute {}
+//        FetchLevelsRequest(controller, "").switchToMock().execute {}
         XCTAssertEqual(controller.levels.count, 4, "Level count does not match")
     }
 

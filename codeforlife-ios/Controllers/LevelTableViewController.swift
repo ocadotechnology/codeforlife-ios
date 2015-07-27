@@ -44,7 +44,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
 //        }
 //    }
     
-    var levels = [XLevel]() {
+    var levels = [Level]() {
         didSet {
             self.tableView.reloadData()
         }
@@ -58,14 +58,15 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     }
         
     private func loadEpisode(index: Int) {
-        let episodes = XEpisode.fetchResults().sorted({$0.id < $1.id})
+        let episodes = Episode.fetchResults().sorted({$0.id < $1.id})
+        println("\(episodes.count) levels in Episode \(index)")
         let episodeUrl = episodes[index-1].url
-        levels = XLevel.fetchResults()
+        levels = Level.fetchResults()
                         .filter({[unowned self] in $0.episodeUrl == episodeUrl})
                         .sorted({$0.level < $1.level})
         prevEpisodeButton.hidden = index == 1
-        nextEpisodeButton.hidden = index == XEpisode.fetchResults().count
-        self.titleLabel.text = XEpisode.fetchResults().filter({$0.id == self.index})[0].name
+        nextEpisodeButton.hidden = index == Episode.fetchResults().count
+        self.titleLabel.text = Episode.fetchResults().filter({$0.id == self.index})[0].name
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -95,8 +96,8 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
                 switch identifier {
                     case SegueIdentifier:
                         let indexPath = tableView.indexPathForSelectedRow()!
-                        let item = levels[indexPath.row]
-                        gameViewController.level = item.toLevel()
+                        let level = levels[indexPath.row]
+                        gameViewController.levelUrl = level.url
                     default: break
                 }
             }

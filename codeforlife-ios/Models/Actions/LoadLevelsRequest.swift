@@ -25,7 +25,6 @@ class LoadLevelsRequest: Request, RequestProtocol {
     }
     
     override func processData(data: NSData) {
-        var levels = [Level]()
         let json = JSON(data: data)
         if let levelArray = json.array {
             viewController.numberOfRequestLeft = levelArray.count

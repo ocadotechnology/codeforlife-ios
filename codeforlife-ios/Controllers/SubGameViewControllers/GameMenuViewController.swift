@@ -62,13 +62,24 @@ class GameMenuViewController: SubGameViewController {
                 clearButton.enabled = false
                 gameViewController.blockTableViewController?.recognizer?.editable = false
                 gameViewController.directDriveViewController?.disableDirectDrive()
+                
+            case .onStepControls:
+                clearButton.enabled = false
+                playButton.enabled = false
+                gameViewController.blockTableViewController?.recognizer?.editable = false
+                gameViewController.directDriveViewController?.disableDirectDrive()
+                
+            case .onPauseControls:
+                playButton.enabled = true
+                
+            case .onResumeControls: break
+                
             case .onStopControls:
                 clearButton.enabled = true
+                playButton.enabled = true
                 gameViewController.blockTableViewController?.recognizer?.editable = true
                 gameViewController.directDriveViewController?.enableDirectDrive()
-            case .onPauseControls: break
-            case .onResumeControls: break
-            case .onStepControls: break
+                
             }
         }
     }
@@ -89,6 +100,7 @@ class GameMenuViewController: SubGameViewController {
     @IBOutlet weak var clearButton: GameViewButton!
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
+    @IBOutlet weak var stepButton: GameViewButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

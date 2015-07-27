@@ -10,33 +10,32 @@ import UIKit
 import Foundation
 import CoreData
 
-@objc(XEpisode)
-class XEpisode: NSManagedObject {
+@objc(Episode)
+class Episode: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var url: String
     @NSManaged var id: NSNumber
     
-    class func createInManagedObjectContext(id: Int, name: String, url: String) -> XEpisode {
+    class func createInManagedObjectContext(id: Int, name: String, url: String) -> Episode {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("XEpisode", inManagedObjectContext: managedObjectContext!) as! XEpisode
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Episode", inManagedObjectContext: managedObjectContext!) as! Episode
         newItem.id = id
         newItem.name = name
         newItem.url = url
         return newItem
     }
     
-    class func fetchResults() -> [XEpisode] {
-        let fetchRequest = NSFetchRequest(entityName: "XEpisode")
+    class func fetchResults() -> [Episode] {
+        let fetchRequest = NSFetchRequest(entityName: "Episode")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        let fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [XEpisode]
+        let fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Episode]
         return fetchResults ?? []
     }
     
     class func save() {
-        let fetchRequest = NSFetchRequest(entityName: "XEpisode")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
         var error: NSError?
@@ -45,10 +44,9 @@ class XEpisode: NSManagedObject {
     }
     
     class func removeAllEntries() {
-        let fetchRequest = NSFetchRequest(entityName: "XEpisode")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        for episode in XEpisode.fetchResults() {
+        for episode in Episode.fetchResults() {
             managedObjectContext?.deleteObject(episode)
         }
     }

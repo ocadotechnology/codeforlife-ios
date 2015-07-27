@@ -26,8 +26,9 @@ class MessageViewController: UIViewController {
     }
     
     func gotoNextLevelAndDismiss() {
-        if let nextLevel = SharedContext.MainGameViewController!.level?.nextLevel {
-            SharedContext.MainGameViewController?.level = nextLevel
+        if let nextLevelUrl = SharedContext.MainGameViewController!.level?.nextLevelUrl {
+            SharedContext.MainGameViewController?.levelUrl = nextLevelUrl
+            println("Next Level Url = \(nextLevelUrl)")
         }
     }
     

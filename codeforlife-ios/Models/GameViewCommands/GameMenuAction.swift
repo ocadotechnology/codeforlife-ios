@@ -21,7 +21,7 @@ class GameMenuHelpAction : GameMenuAction {
         controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
         gameViewController?.presentViewController(controller, animated: true, completion: nil)
         controller.message = HelpMessage(
-            context: gameViewController!.level!.hint!,
+            context: gameViewController!.level!.hint,
             action: {
                 controller.dismissViewControllerAnimated(true, completion: nil)
         })

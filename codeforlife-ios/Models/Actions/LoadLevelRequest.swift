@@ -42,7 +42,9 @@ class LoadLevelRequest: Request, RequestProtocol {
             
             let processedDescription = description.removedHtmlTag()
             let processedHint = hint.removedHtmlTag()
-            XLevel.createInManagedObjectContext(episodeUrl,
+            let nextLevelUrl = json["next_level"].string ?? ""
+                    
+            Level.createInManagedObjectContext(episodeUrl,
                                                 level: level,
                                                 name: name,
                                                 title: title,
@@ -54,7 +56,8 @@ class LoadLevelRequest: Request, RequestProtocol {
                                                 pythonEnabled: pythonEnabled,
                                                 pythonViewEnabled: pythonViewEnabled,
                                                 webViewUrl: kCFLDomain + kCFLRapidRouter + name + "/?mode=ios",
-                                                mapUrl: mapUrl)
+                                                mapUrl: mapUrl,
+                                                nextLevelUrl: nextLevelUrl)
         }
     }
     
