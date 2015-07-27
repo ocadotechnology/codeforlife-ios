@@ -18,6 +18,14 @@ class AnimationHandler {
     
     var currentIndex = 0
     
+    var step = false {
+        didSet {
+            if step {
+                runAnimation = true
+            }
+        }
+    }
+    
     var runAnimation = false {
         didSet {
             if runAnimation {
@@ -37,7 +45,10 @@ class AnimationHandler {
     var runningAnimationsRemained = 0 {
         didSet {
             if runningAnimationsRemained == 0 {
+                if !step {
                 runAnimation = runAnimation.boolValue
+                }
+                step = false
             }
         }
     }

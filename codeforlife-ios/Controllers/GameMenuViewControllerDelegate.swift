@@ -61,6 +61,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func step() {
+        SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.step = true
     }
     
     func help() {

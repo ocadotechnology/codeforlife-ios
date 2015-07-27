@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -245,12 +245,12 @@
 		EDD1A2B91B4D54D9001A82A2 /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2B71B4D5497001A82A2 /* Rotation.swift */; };
 		EDD1A2BC1B4E7805001A82A2 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2BB1B4E7805001A82A2 /* Animation.swift */; };
 		EDD1A2BD1B4EAAE5001A82A2 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2BB1B4E7805001A82A2 /* Animation.swift */; };
-		EDD1A2C31B4FCEA3001A82A2 /* MoveForward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C21B4FCEA3001A82A2 /* MoveForward.swift */; };
-		EDD1A2C41B4FCEA3001A82A2 /* MoveForward.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C21B4FCEA3001A82A2 /* MoveForward.swift */; };
-		EDD1A2C61B4FCEB8001A82A2 /* TurnLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */; };
-		EDD1A2C71B4FCEB8001A82A2 /* TurnLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */; };
-		EDD1A2C91B4FCED5001A82A2 /* TurnRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */; };
-		EDD1A2CA1B4FCED5001A82A2 /* TurnRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */; };
+		EDD1A2C31B4FCEA3001A82A2 /* MoveForwardAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C21B4FCEA3001A82A2 /* MoveForwardAnimation.swift */; };
+		EDD1A2C41B4FCEA3001A82A2 /* MoveForwardAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C21B4FCEA3001A82A2 /* MoveForwardAnimation.swift */; };
+		EDD1A2C61B4FCEB8001A82A2 /* TurnLeftAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C51B4FCEB8001A82A2 /* TurnLeftAnimation.swift */; };
+		EDD1A2C71B4FCEB8001A82A2 /* TurnLeftAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C51B4FCEB8001A82A2 /* TurnLeftAnimation.swift */; };
+		EDD1A2C91B4FCED5001A82A2 /* TurnRightAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C81B4FCED5001A82A2 /* TurnRightAnimation.swift */; };
+		EDD1A2CA1B4FCED5001A82A2 /* TurnRightAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2C81B4FCED5001A82A2 /* TurnRightAnimation.swift */; };
 		EDD1A2D21B4FDEA0001A82A2 /* FetchMapRequestMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D11B4FDEA0001A82A2 /* FetchMapRequestMockDelegate.swift */; };
 		EDD1A2D31B4FDEA0001A82A2 /* FetchMapRequestMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D11B4FDEA0001A82A2 /* FetchMapRequestMockDelegate.swift */; };
 		EDD1A2D81B4FDF79001A82A2 /* FetchBlockSetRequestMockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1A2D71B4FDF79001A82A2 /* FetchBlockSetRequestMockDelegate.swift */; };
@@ -429,9 +429,9 @@
 		EDC8C1F41B381213004B1358 /* ActionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionFactory.swift; sourceTree = "<group>"; };
 		EDD1A2B71B4D5497001A82A2 /* Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
 		EDD1A2BB1B4E7805001A82A2 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = ../Animation.swift; sourceTree = "<group>"; };
-		EDD1A2C21B4FCEA3001A82A2 /* MoveForward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveForward.swift; sourceTree = "<group>"; };
-		EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnLeft.swift; sourceTree = "<group>"; };
-		EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnRight.swift; sourceTree = "<group>"; };
+		EDD1A2C21B4FCEA3001A82A2 /* MoveForwardAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveForwardAnimation.swift; sourceTree = "<group>"; };
+		EDD1A2C51B4FCEB8001A82A2 /* TurnLeftAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnLeftAnimation.swift; sourceTree = "<group>"; };
+		EDD1A2C81B4FCED5001A82A2 /* TurnRightAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnRightAnimation.swift; sourceTree = "<group>"; };
 		EDD1A2D11B4FDEA0001A82A2 /* FetchMapRequestMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchMapRequestMockDelegate.swift; sourceTree = "<group>"; };
 		EDD1A2D71B4FDF79001A82A2 /* FetchBlockSetRequestMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchBlockSetRequestMockDelegate.swift; sourceTree = "<group>"; };
 		EDD1A2DA1B53A4F7001A82A2 /* Decoration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Decoration.swift; path = ../../../Models/Decoration.swift; sourceTree = "<group>"; };
@@ -885,9 +885,9 @@
 				EDBE3F481B568695000FC06F /* AnimationHandler.swift */,
 				EDD1A2BB1B4E7805001A82A2 /* Animation.swift */,
 				ED13CFEF1B58FBCD00EA591A /* SoundAnimation.swift */,
-				EDD1A2C21B4FCEA3001A82A2 /* MoveForward.swift */,
-				EDD1A2C51B4FCEB8001A82A2 /* TurnLeft.swift */,
-				EDD1A2C81B4FCED5001A82A2 /* TurnRight.swift */,
+				EDD1A2C21B4FCEA3001A82A2 /* MoveForwardAnimation.swift */,
+				EDD1A2C51B4FCEB8001A82A2 /* TurnLeftAnimation.swift */,
+				EDD1A2C81B4FCED5001A82A2 /* TurnRightAnimation.swift */,
 				EDBE3F4B1B568BD1000FC06F /* DeliverAnimation.swift */,
 				ED13D0101B5903AE00EA591A /* StopEngineAnimation.swift */,
 				ED13D00D1B5902C500EA591A /* StartEngineAnimation.swift */,
@@ -1013,7 +1013,7 @@
 				};
 			};
 			buildConfigurationList = ED0BC5861B305D720060FC84 /* Build configuration list for PBXProject "codeforlife-ios" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1234,7 +1234,7 @@
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				ED222FC31B4A8D99006E525A /* CompassDirection.swift in Sources */,
 				ED222FC61B4A8FD1006E525A /* GameMapAction.swift in Sources */,
-				EDD1A2C61B4FCEB8001A82A2 /* TurnLeft.swift in Sources */,
+				EDD1A2C61B4FCEB8001A82A2 /* TurnLeftAnimation.swift in Sources */,
 				ED222FB41B4A6C13006E525A /* DirectDriveAction.swift in Sources */,
 				ED10456F1B5E7DDF001FA170 /* TurnLeftCrashAnimation.swift in Sources */,
 				ED06227A1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */,
@@ -1259,7 +1259,7 @@
 				ED7799D71B46AB3E00A854A3 /* GameMapConfig.swift in Sources */,
 				ED1045511B5E3DC1001FA170 /* Turn.swift in Sources */,
 				ED1A932C1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
-				EDD1A2C31B4FCEA3001A82A2 /* MoveForward.swift in Sources */,
+				EDD1A2C31B4FCEA3001A82A2 /* MoveForwardAnimation.swift in Sources */,
 				ED13D01B1B59218400EA591A /* HighlightIncorrectAnimation.swift in Sources */,
 				EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */,
 				ED0A770A1B34560600267191 /* LevelTableViewCell.swift in Sources */,
@@ -1286,7 +1286,7 @@
 				ED6F798A1B3D565B00DD2AFE /* MessageViewController.swift in Sources */,
 				EDFE933D1B4181FF00E01322 /* PostGameMessageView.swift in Sources */,
 				EDD1A2D21B4FDEA0001A82A2 /* FetchMapRequestMockDelegate.swift in Sources */,
-				EDD1A2C91B4FCED5001A82A2 /* TurnRight.swift in Sources */,
+				EDD1A2C91B4FCED5001A82A2 /* TurnRightAnimation.swift in Sources */,
 				ED10454D1B5E36EB001FA170 /* Destination.swift in Sources */,
 				EDDF0F151B41783F00F2D779 /* PreGameMessage.swift in Sources */,
 				ED5721BB1B47E7CC0011F465 /* Origin.swift in Sources */,
@@ -1304,7 +1304,7 @@
 				ED5721BC1B47E7CC0011F465 /* Origin.swift in Sources */,
 				EDBB667F1B3AA18F009020A5 /* GameViewButton.swift in Sources */,
 				EDBB667D1B3AA16D009020A5 /* GameViewController.swift in Sources */,
-				EDD1A2C41B4FCEA3001A82A2 /* MoveForward.swift in Sources */,
+				EDD1A2C41B4FCEA3001A82A2 /* MoveForwardAnimation.swift in Sources */,
 				EDBE3F571B569B28000FC06F /* OnStopControlsAnimation.swift in Sources */,
 				EDBE3F4A1B568A63000FC06F /* AnimationHandler.swift in Sources */,
 				EDFE934D1B4182E200E01322 /* MessageView.swift in Sources */,
@@ -1358,7 +1358,7 @@
 				ED0622991B627F530062D3A5 /* Level.swift in Sources */,
 				ED0622931B627AFC0062D3A5 /* Episode.swift in Sources */,
 				ED0622411B6256FC0062D3A5 /* LoadScreenViewController.swift in Sources */,
-				EDD1A2CA1B4FCED5001A82A2 /* TurnRight.swift in Sources */,
+				EDD1A2CA1B4FCED5001A82A2 /* TurnRightAnimation.swift in Sources */,
 				ED0622901B6274700062D3A5 /* LoadEpisodesRequest.swift in Sources */,
 				ED06227B1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */,
 				ED10455B1B5E3E01001FA170 /* CrossRoads.swift in Sources */,
@@ -1395,7 +1395,7 @@
 				ED90B44B1B60DD100076B70D /* AnimationFactory.swift in Sources */,
 				ED90B44E1B6102260076B70D /* BlockFactory.swift in Sources */,
 				EDBB669A1B3C0DE2009020A5 /* Block.swift in Sources */,
-				EDD1A2C71B4FCEB8001A82A2 /* TurnLeft.swift in Sources */,
+				EDD1A2C71B4FCEB8001A82A2 /* TurnLeftAnimation.swift in Sources */,
 				EDA47C581B45558A003356AB /* BlockTest.swift in Sources */,
 				EDFE93501B419FF900E01322 /* SubGameViewController.swift in Sources */,
 				ED1A93491B43D0DD004E6AD4 /* Episode_original.swift in Sources */,
