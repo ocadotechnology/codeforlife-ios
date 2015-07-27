@@ -21,8 +21,8 @@ class LoadScreenViewController: UIViewController {
                 println("Done")
                 switch runUpdate {
                 case 0: progressView!.progress = 0
-                case 1: XEpisode.save(); progressView!.progress = 0.2
-                case 2: XLevel.save(); progressView!.progress = 0.6
+                case 1: Episode.save(); progressView!.progress = 0.2
+                case 2: Level.save(); progressView!.progress = 0.6
                 case 3: CDMap.save(); progressView!.progress = 1.0
                 default: progressView!.progress = 1.0
                 }
@@ -76,20 +76,20 @@ class LoadScreenViewController: UIViewController {
     
     private func loadEpisodes() {
         print("Loading Episodes... ")
-        XEpisode.removeAllEntries()
+        Episode.removeAllEntries()
         LoadEpisodesRequest(loadScreenviewController: self).execute()
     }
     
     private func loadLevels() {
         print("Loading levels... ")
-        XLevel.removeAllEntries()
+        Level.removeAllEntries()
         LoadLevelsRequest(loadScreenviewController: self).execute()
     }
     
     private func loadMaps() {
         print("Loading maps... ")
         CDMap.removeAllEntries()
-        let levels = XLevel.fetchResults()
+        let levels = Level.fetchResults()
         numberOfRequestLeft = levels.count
         for level in levels {
             LoadMapRequest(loadScreenviewController: self, levelUrl: level.url, mapUrl: level.mapUrl).execute()

@@ -35,7 +35,6 @@ class CDMap: NSManagedObject {
     }
     
     class func save() {
-        let fetchRequest = NSFetchRequest(entityName: "CDMap")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
         var error: NSError?
@@ -44,7 +43,6 @@ class CDMap: NSManagedObject {
     }
     
     class func removeAllEntries() {
-        let fetchRequest = NSFetchRequest(entityName: "CDMap")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
         for map in CDMap.fetchResults() {
@@ -143,6 +141,5 @@ class CDMap: NSManagedObject {
         }
         return decorations
     }
-    
-    
+
 }

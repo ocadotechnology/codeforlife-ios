@@ -32,7 +32,7 @@ class LoadEpisodesRequest: Request, RequestProtocol {
             for episode in episodeArray {
                 if let name = episode["name"].string,
                         url = episode["url"].string {
-                    XEpisode.createInManagedObjectContext(index++, name: name, url: url)
+                    Episode.createInManagedObjectContext(index++, name: name, url: url)
                     viewController.numberOfRequestLeft--
                 }
             }

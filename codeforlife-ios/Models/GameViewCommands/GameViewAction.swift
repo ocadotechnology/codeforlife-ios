@@ -37,7 +37,7 @@ class NGVShowPreGameMessageAction: GameViewAction {
         if let level = gameViewController?.level {
             controller.message = PreGameMessage(
                 title: "Level \(level.name)",
-                context: level.description!,
+                context: level.levelDescription,
                 action: {
                     controller.dismissViewControllerAnimated(true, completion: nil)
             })

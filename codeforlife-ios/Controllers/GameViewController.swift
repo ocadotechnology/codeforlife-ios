@@ -14,24 +14,22 @@ import AVFoundation
 class GameViewController: UIViewController, WKNavigationDelegate {
     
     let scriptMessageHandlerTitle = "handler"
-    
     let webViewPreloadScript = "$('#mute_radio').trigger('click');"
 
-    // Controllers
     weak var gameMapViewController: GameMapViewController?
     weak var blockTableViewController: BlockTableViewController?
     weak var directDriveViewController: DirectDriveViewController?
     weak var gameMenuViewController: GameMenuViewController?
-    
+
+    var gameViewInteractionHandler: WKScriptMessageHandler?
     var webView: WKWebView?
     
-    var level: Level? {
+    var level: Level?
+    var levelUrl = "" {
         didSet {
-            loadLevel(self.level!)
+            loadLevel(levelUrl)
         }
     }
-    
-    var gameViewInteractionHandler: WKScriptMessageHandler?
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var blockTableView: UIView!
@@ -45,15 +43,19 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        loadLevel(self.level!)
+        loadLevel(levelUrl)
     }
     
-    private func loadLevel(level: Level) {
-        let map = CDMap.fetchResults().filter({$0.url == self.level!.url})[0].toMap()
-        SharedContext.MainGameViewController?.gameMapViewController?.map = map
-        ActionFactory.createAction("PregameMessage").execute()
-        ActionFactory.createAction("Clear").execute()
-        self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
+    private func loadLevel(levelUrl: String) {
+        let levels  = Level.fetchResults().filter({$0.url == levelUrl})
+        if levels.count > 0 {
+            level = levels[0]
+            let map = CDMap.fetchResults().filter({$0.url == self.level!.url})[0].toMap()
+            SharedContext.MainGameViewController?.gameMapViewController?.map = map
+            ActionFactory.createAction("PregameMessage").execute()
+            ActionFactory.createAction("Clear").execute()
+            self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
+        }
     }
     
     private func setupWebView() {
@@ -102,7 +104,7 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     // caused by UserContentController. It is believed that there exists a
     // retain cycle between WKUserContentController and its ScriptMessageHandler
     deinit {
-        println("GameViewController is being deallocated")
+//        println("GameViewController is being deallocated")
         self.webView?.stopLoading()
         self.webView?.configuration.userContentController.removeScriptMessageHandlerForName(scriptMessageHandlerTitle)
         self.webView = nil

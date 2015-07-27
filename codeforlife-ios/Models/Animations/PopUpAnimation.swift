@@ -41,8 +41,6 @@ class WinPopupAnimation: PopUpAnimation {
     override func executeAnimation(#completion: (() -> Void)?) {
         println("Win Popup")
         let controller = MessageViewController()
-        controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
         controller.message = PostGameMessage(
             context: popupMessage,
             pathScore: pathScore,
@@ -57,6 +55,11 @@ class WinPopupAnimation: PopUpAnimation {
                 controller.playAgainAndDismiss()
                 controller.dismissViewControllerAnimated(true, completion: nil)
         })
+        if let view = controller.view as? PostGameMessageView {
+            view.nextLevelButton.hidden = SharedContext.MainGameViewController?.level?.nextLevelUrl == ""
+        }
+        controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+        SharedContext.MainGameViewController?.presentViewController(controller, animated: true, completion: nil)
         completion?()
     }
 }

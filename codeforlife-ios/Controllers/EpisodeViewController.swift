@@ -15,7 +15,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
-    var episodes = [XEpisode]() {
+    var episodes = [Episode]() {
         didSet {
             tableView.reloadData()
         }
@@ -29,7 +29,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func FetchEpisodesFromCoreData() {
-        episodes = XEpisode.fetchResults().sorted({$0.id < $1.id})
+        episodes = Episode.fetchResults().sorted({$0.id < $1.id})
         println("\(episodes.count) episodes in total")
     }
     

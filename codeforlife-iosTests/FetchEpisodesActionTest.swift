@@ -25,9 +25,9 @@ class FetchEpisodesActionTest: XCTestCase {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("EpisodeViewController") as! EpisodeViewController
         let expectation = expectationWithDescription("Dev API Episode 1")
         
-        FetchEpisodesRequest(controller).switchToDev().execute {
-            expectation.fulfill()
-        }
+//        FetchEpisodesRequest(controller).switchToDev().execute {
+//            expectation.fulfill()
+//        }
         waitForExpectationsWithTimeout(10) { (error) -> Void in
             if error != nil {
                 println(error)
@@ -40,7 +40,7 @@ class FetchEpisodesActionTest: XCTestCase {
     func testMockDelegate() {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("EpisodeViewController") as! EpisodeViewController
         let delegate = FetchLevelsRequestMockDelegate()
-        FetchEpisodesRequest(controller).switchToMock().execute {}
+//        FetchEpisodesRequest(controller).switchToMock().execute {}
         XCTAssertEqual(controller.episodes.count, 4, "Episode count does not match")
     }
 
