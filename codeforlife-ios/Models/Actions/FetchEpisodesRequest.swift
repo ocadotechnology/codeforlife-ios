@@ -40,7 +40,7 @@ class FetchEpisodesRequest : Request, RequestProtocol {
                 }
             }
         }
-        viewController.episodes = episodes
+//        viewController.episodes = episodes
     }
     
 //    deinit { println("FetchEpisodesAction is being deallocated") }

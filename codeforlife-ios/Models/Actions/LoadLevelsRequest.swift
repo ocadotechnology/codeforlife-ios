@@ -14,11 +14,12 @@ import SwiftyJSON
 class LoadLevelsRequest: Request, RequestProtocol {
     
     unowned var viewController: LoadScreenViewController
+    let url = ""
     
-    init(loadScreenviewController: LoadScreenViewController, url: String) {
+    init(loadScreenviewController: LoadScreenViewController) {
         self.viewController = loadScreenviewController
         super.init(
-            devUrl: url,
+            devUrl: "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/levels/",
             delegate: APIRequestDelegate(url: url, method: Alamofire.Method.GET),
             mockDelegate: FetchLevelsRequestMockDelegate())
     }
@@ -26,11 +27,15 @@ class LoadLevelsRequest: Request, RequestProtocol {
     override func processData(data: NSData) {
         var levels = [Level]()
         let json = JSON(data: data)
-        if let levelArray = json["level_set"].array {
+        if let levelArray = json.array {
+            viewController.numberOfRequestLeft = levelArray.count
+            var index = 1;
             for level in levelArray {
                 if let url = level["url"].string {
-                    viewController.jobRemained++
-                    LoadLevelRequest(loadScreenviewController: viewController, url: url).execute()
+                    LoadLevelRequest(loadScreenviewController: viewController,level: index++, url: url).execute {
+                        [unowned viewController] in
+                        viewController.numberOfRequestLeft--
+                    }
                 }
             }
         }

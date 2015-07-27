@@ -13,13 +13,13 @@ class EpisodeTableViewCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
 
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
-        let scale:CGFloat = highlighted ? 1.05 : 1/1.05
-        let center = containerView.center
-        containerView.frame.size.height *= scale
-        containerView.frame.size.width *= scale
-        containerView.center = center
-    }
+//    override func setHighlighted(highlighted: Bool, animated: Bool) {
+//        let scale:CGFloat = highlighted ? 1.05 : 1/1.05
+//        let center = containerView.center
+//        containerView.frame.size.height *= scale
+//        containerView.frame.size.width *= scale
+//        containerView.center = center
+//    }
     
     override func setSelected(selected: Bool, animated: Bool) {
         //        super.setSelected(selected, animated: animated)

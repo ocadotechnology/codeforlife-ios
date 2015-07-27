@@ -36,15 +36,8 @@ class FetchLevelRequest : Request, RequestProtocol
             mapUrl = json["map"].string,
             level = viewController.level {
                 
-                var processedDescription = description
-                    .stringByReplacingOccurrencesOfString("<br>", withString: "\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                    .stringByReplacingOccurrencesOfString("<b>", withString: "<", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                    .stringByReplacingOccurrencesOfString("</b>", withString: ">", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                
-                var processedHint = hint
-                    .stringByReplacingOccurrencesOfString("<br>", withString: "\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                    .stringByReplacingOccurrencesOfString("<b>", withString: "<", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                    .stringByReplacingOccurrencesOfString("</b>", withString: ">", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                var processedDescription = description.removedHtmlTag()
+                var processedHint = hint.removedHtmlTag()
                 
                 level.description = processedDescription
                 level.hint = processedHint

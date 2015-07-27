@@ -22,7 +22,7 @@ class XEpisode: NSManagedObject {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("XEpisode", inManagedObjectContext: managedObjectContext!) as! XEpisode
-        
+
         newItem.id = id
         newItem.name = name
         newItem.url = url
@@ -39,6 +39,35 @@ class XEpisode: NSManagedObject {
             return fetchResults
         }
         return []
+    }
+    
+    class func save() {
+        let fetchRequest = NSFetchRequest(entityName: "XEpisode")
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedObjectContext = appDelegate.managedObjectContext
+        
+        var error: NSError?
+        managedObjectContext?.save(&error)
+        if error != nil {
+            let alert = UIAlertView()
+            alert.message = "Cannot Save Episodes"
+            alert.dismissWithClickedButtonIndex(-1, animated: true)
+            alert.show()
+        }
+    }
+    
+    class func removeAllEntries() {
+        let fetchRequest = NSFetchRequest(entityName: "XEpisode")
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedObjectContext = appDelegate.managedObjectContext
+        
+        let episodes = XEpisode.fetchResults()
+        for episode in episodes {
+            managedObjectContext?.deleteObject(episode)
+        }
+        
+        
+        
     }
 
 }

@@ -14,9 +14,8 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     let SegueIdentifier = "FetchLevelsAction"
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var episodes = [Episode]() {
+    var episodes = [XEpisode]() {
         didSet {
             tableView.reloadData()
         }
@@ -26,10 +25,12 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        FetchEpisodesRequest(self).execute {
-            [weak activityIndicator] in
-            activityIndicator?.stopAnimating()
-        }
+        FetchEpisodesFromCoreData()
+    }
+    
+    private func FetchEpisodesFromCoreData() {
+        episodes = XEpisode.fetchResults().sorted({$0.id < $1.id})
+        println("\(episodes.count) episodes in total")
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -57,7 +58,9 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
                 switch identifier {
                 case SegueIdentifier:
                     var indexPath = tableView.indexPathForSelectedRow()!
-                    controller.requestedEpisode = episodes[indexPath.row]
+                    controller.index = indexPath.row + 1
+//                    let item = episodes[indexPath.row]
+//                    controller.requestedEpisode = Episode(name: item.name, url: item.url)
                 default: break
                 }
             }

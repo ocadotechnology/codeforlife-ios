@@ -37,7 +37,7 @@ class FetchLevelsRequest : Request, RequestProtocol
                 }
             }
         }
-        viewController.levels = levels
+//        viewController.levels = levels
     }
     
 //    deinit { println("FetchLevelsAction is being deallocated") }

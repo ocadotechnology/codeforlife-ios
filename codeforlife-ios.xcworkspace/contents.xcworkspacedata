@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Episode1.swift">
-   </FileRef>
-   <FileRef
       location = "group:codeforlife-ios.xcodeproj">
    </FileRef>
    <FileRef
