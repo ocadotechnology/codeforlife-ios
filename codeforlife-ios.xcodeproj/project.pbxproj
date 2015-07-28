@@ -202,6 +202,18 @@
 		EDA47C661B455B72003356AB /* CargoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA47C5E1B4556B5003356AB /* CargoController.swift */; };
 		EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */; };
 		EDAEFBAD1B39934F003398EE /* VehicleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAEFBAC1B39934F003398EE /* VehicleController.swift */; };
+		EDB02B261B6776A4001D62FA /* LoadBlockSetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B251B6776A4001D62FA /* LoadBlockSetRequest.swift */; };
+		EDB02B271B6776CB001D62FA /* LoadBlockSetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B251B6776A4001D62FA /* LoadBlockSetRequest.swift */; };
+		EDB02B291B677BEC001D62FA /* LevelBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B281B677BEC001D62FA /* LevelBlock.swift */; };
+		EDB02B2A1B677BEC001D62FA /* LevelBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B281B677BEC001D62FA /* LevelBlock.swift */; };
+		EDB02B2C1B677BEC001D62FA /* DecorationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B2B1B677BEC001D62FA /* DecorationType.swift */; };
+		EDB02B2D1B677BEC001D62FA /* DecorationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B2B1B677BEC001D62FA /* DecorationType.swift */; };
+		EDB02B2F1B677BEC001D62FA /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B2E1B677BEC001D62FA /* ThemeType.swift */; };
+		EDB02B301B677BEC001D62FA /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B2E1B677BEC001D62FA /* ThemeType.swift */; };
+		EDB02B321B677BEC001D62FA /* LevelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B311B677BEC001D62FA /* LevelMode.swift */; };
+		EDB02B331B677BEC001D62FA /* LevelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B311B677BEC001D62FA /* LevelMode.swift */; };
+		EDB02B351B677BEC001D62FA /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B341B677BEC001D62FA /* BlockType.swift */; };
+		EDB02B361B677BEC001D62FA /* BlockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B341B677BEC001D62FA /* BlockType.swift */; };
 		EDBB666A1B3AA018009020A5 /* LabelViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBB66691B3AA018009020A5 /* LabelViewControllerTests.swift */; };
 		EDBB666B1B3AA029009020A5 /* LevelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */; };
 		EDBB666C1B3AA06A009020A5 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CA7DAD1B32C74800C09F74 /* URLConstants.swift */; };
@@ -412,6 +424,12 @@
 		EDA47C641B4557A8003356AB /* FetchLevelsActionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchLevelsActionTest.swift; sourceTree = "<group>"; };
 		EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewInteractionHandler.swift; sourceTree = "<group>"; };
 		EDAEFBAC1B39934F003398EE /* VehicleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VehicleController.swift; path = "codeforlife-ios/Models/VehicleControllers/VehicleController.swift"; sourceTree = SOURCE_ROOT; };
+		EDB02B251B6776A4001D62FA /* LoadBlockSetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadBlockSetRequest.swift; sourceTree = "<group>"; };
+		EDB02B281B677BEC001D62FA /* LevelBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelBlock.swift; path = ../../LevelBlock.swift; sourceTree = "<group>"; };
+		EDB02B2B1B677BEC001D62FA /* DecorationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DecorationType.swift; path = ../../DecorationType.swift; sourceTree = "<group>"; };
+		EDB02B2E1B677BEC001D62FA /* ThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeType.swift; path = ../../ThemeType.swift; sourceTree = "<group>"; };
+		EDB02B311B677BEC001D62FA /* LevelMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelMode.swift; path = ../../LevelMode.swift; sourceTree = "<group>"; };
+		EDB02B341B677BEC001D62FA /* BlockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockType.swift; path = ../../BlockType.swift; sourceTree = "<group>"; };
 		EDBB66691B3AA018009020A5 /* LabelViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelViewControllerTests.swift; sourceTree = "<group>"; };
 		EDBB66811B3AB36C009020A5 /* GameViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewControllerTests.swift; path = ../GameViewControllerTests.swift; sourceTree = "<group>"; };
 		EDBB668C1B3AEEFC009020A5 /* DirectDriveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectDriveViewController.swift; sourceTree = "<group>"; };
@@ -496,6 +514,11 @@
 			isa = PBXGroup;
 			children = (
 				ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */,
+				EDB02B341B677BEC001D62FA /* BlockType.swift */,
+				EDB02B311B677BEC001D62FA /* LevelMode.swift */,
+				EDB02B2E1B677BEC001D62FA /* ThemeType.swift */,
+				EDB02B2B1B677BEC001D62FA /* DecorationType.swift */,
+				EDB02B281B677BEC001D62FA /* LevelBlock.swift */,
 				ED0622AC1B6642580062D3A5 /* CDMap.swift */,
 				ED0622971B627F530062D3A5 /* Level.swift */,
 				ED0622911B627AFC0062D3A5 /* Episode.swift */,
@@ -717,6 +740,7 @@
 				ED06229A1B62809D0062D3A5 /* LoadLevelsRequest.swift */,
 				ED06229D1B6281E00062D3A5 /* LoadLevelRequest.swift */,
 				ED0622AF1B66463C0062D3A5 /* LoadMapRequest.swift */,
+				EDB02B251B6776A4001D62FA /* LoadBlockSetRequest.swift */,
 			);
 			name = Request;
 			path = Actions;
@@ -1205,6 +1229,7 @@
 				ED6DC3BF1B5FC77B00EB6F22 /* EpisodeNavigationButton.swift in Sources */,
 				ED0622981B627F530062D3A5 /* Level.swift in Sources */,
 				ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */,
+				EDB02B291B677BEC001D62FA /* LevelBlock.swift in Sources */,
 				EDC8C1F51B381213004B1358 /* ActionFactory.swift in Sources */,
 				ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */,
 				ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */,
@@ -1244,9 +1269,11 @@
 				EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */,
 				ED222FDF1B4D1434006E525A /* Left.swift in Sources */,
 				ED1EB0731B331B7100A595EF /* FetchLevelsRequestMockDelegate.swift in Sources */,
+				EDB02B2C1B677BEC001D62FA /* DecorationType.swift in Sources */,
 				ED06229B1B62809D0062D3A5 /* LoadLevelsRequest.swift in Sources */,
 				ED222FE21B4D1451006E525A /* Right.swift in Sources */,
 				ED222FE51B4D1572006E525A /* Deliver.swift in Sources */,
+				EDB02B351B677BEC001D62FA /* BlockType.swift in Sources */,
 				ED5721C41B4854870011F465 /* FetchLevelRequestMockDelegate.swift in Sources */,
 				EDA47C481B443225003356AB /* LevelTitleLabel.swift in Sources */,
 				EDFE934F1B419FF900E01322 /* SubGameViewController.swift in Sources */,
@@ -1264,6 +1291,7 @@
 				EDC8C1F11B369D3C004B1358 /* GameViewButton.swift in Sources */,
 				ED0A770A1B34560600267191 /* LevelTableViewCell.swift in Sources */,
 				ED10455D1B5E3E0D001FA170 /* Straight.swift in Sources */,
+				EDB02B261B6776A4001D62FA /* LoadBlockSetRequest.swift in Sources */,
 				ED13D0181B59217900EA591A /* HighlightAnimation.swift in Sources */,
 				ED90B4531B61165E0076B70D /* Action.swift in Sources */,
 				ED1A93261B428A36004E6AD4 /* BlockTableView.swift in Sources */,
@@ -1271,11 +1299,13 @@
 				EDBB66951B3C0977009020A5 /* Block.swift in Sources */,
 				EDD1A2BC1B4E7805001A82A2 /* Animation.swift in Sources */,
 				EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */,
+				EDB02B321B677BEC001D62FA /* LevelMode.swift in Sources */,
 				EDFE93491B41826A00E01322 /* PostGameMessage.swift in Sources */,
 				ED222FCA1B4AABCB006E525A /* CFC.swift in Sources */,
 				ED5721B81B47E7680011F465 /* RoadType.swift in Sources */,
 				ED222FE81B4D1580006E525A /* Start.swift in Sources */,
 				ED222FC01B4A77EA006E525A /* MovableGameObject.swift in Sources */,
+				EDB02B2F1B677BEC001D62FA /* ThemeType.swift in Sources */,
 				EDD1A2D81B4FDF79001A82A2 /* FetchBlockSetRequestMockDelegate.swift in Sources */,
 				EDBB668D1B3AEEFC009020A5 /* DirectDriveViewController.swift in Sources */,
 				ED6F79971B3D9DF000DD2AFE /* HelpMessage.swift in Sources */,
@@ -1333,15 +1363,19 @@
 				EDBB66821B3AB36C009020A5 /* GameViewControllerTests.swift in Sources */,
 				EDBB66711B3AA072009020A5 /* FetchLevelsRequestMockDelegate.swift in Sources */,
 				ED06229C1B62809D0062D3A5 /* LoadLevelsRequest.swift in Sources */,
+				EDB02B301B677BEC001D62FA /* ThemeType.swift in Sources */,
 				EDBB667A1B3AA07E009020A5 /* GameViewInteractionHandler.swift in Sources */,
 				ED0622AE1B6642580062D3A5 /* CDMap.swift in Sources */,
 				ED10455E1B5E3E0D001FA170 /* Straight.swift in Sources */,
 				ED13D0121B5903AE00EA591A /* StopEngineAnimation.swift in Sources */,
 				ED222FC41B4A8D99006E525A /* CompassDirection.swift in Sources */,
 				ED222FE31B4D1451006E525A /* Right.swift in Sources */,
+				EDB02B2D1B677BEC001D62FA /* DecorationType.swift in Sources */,
 				EDBB666F1B3AA06E009020A5 /* RequestDelegate.swift in Sources */,
+				EDB02B2A1B677BEC001D62FA /* LevelBlock.swift in Sources */,
 				EDBB66771B3AA07E009020A5 /* Level_original.swift in Sources */,
 				EDDF0F131B416E4A00F2D779 /* PreGameMessageView.swift in Sources */,
+				EDB02B271B6776CB001D62FA /* LoadBlockSetRequest.swift in Sources */,
 				EDBB666E1B3AA06E009020A5 /* Request.swift in Sources */,
 				EDBB669C1B3C1181009020A5 /* BlockTableViewCell.swift in Sources */,
 				EDBB66741B3AA07A009020A5 /* GameViewAction.swift in Sources */,
@@ -1383,7 +1417,9 @@
 				ED7799C11B4592C400A854A3 /* Map.swift in Sources */,
 				ED1045701B5E7DDF001FA170 /* TurnLeftCrashAnimation.swift in Sources */,
 				EDBB669B1B3C1007009020A5 /* BlockTableViewController.swift in Sources */,
+				EDB02B361B677BEC001D62FA /* BlockType.swift in Sources */,
 				EDBB667E1B3AA18F009020A5 /* LevelTableViewCell.swift in Sources */,
+				EDB02B331B677BEC001D62FA /* LevelMode.swift in Sources */,
 				EDA47C401B442411003356AB /* LevelBackButton.swift in Sources */,
 				ED222FC11B4A77EA006E525A /* MovableGameObject.swift in Sources */,
 				ED7799C91B468ADC00A854A3 /* GameObject.swift in Sources */,

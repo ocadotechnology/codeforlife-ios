@@ -27,13 +27,13 @@ class LoadLevelsRequest: Request, RequestProtocol {
     override func processData(data: NSData) {
         let json = JSON(data: data)
         if let levelArray = json.array {
-            viewController.numberOfRequestLeft = levelArray.count
+            viewController.numberOfRequests = levelArray.count
             var index = 1;
             for level in levelArray {
                 if let url = level["url"].string {
                     LoadLevelRequest(loadScreenviewController: viewController,level: index++, url: url).execute {
                         [unowned viewController] in
-                        viewController.numberOfRequestLeft--
+                        viewController.numberOfRequestsLeft--
                     }
                 }
             }

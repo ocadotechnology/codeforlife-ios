@@ -29,7 +29,7 @@ class LoadMapRequest: Request, RequestProtocol {
     
     override func processData(data: NSData) {
         CDMap.createInManagedObjectContext(levelUrl, jsonData: data)
-        viewController.numberOfRequestLeft--
+        viewController.numberOfRequestsLeft--
     }
 
 }

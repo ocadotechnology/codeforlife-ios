@@ -15,18 +15,32 @@ class LoadScreenViewController: UIViewController {
     
     @IBOutlet weak var progressView: UIProgressView!
     
-    var numberOfRequestLeft = 0 {
+    var numberOfRequests = 0 {
         didSet {
-            if numberOfRequestLeft == 0 {
+            numberOfRequestsLeft = numberOfRequests
+        }
+    }
+    
+    var numberOfRequestsLeft = 0 {
+        didSet {
+            if numberOfRequestsLeft == 0 {
                 println("Done")
                 switch runUpdate {
-                case 0: progressView!.progress = 0
+                case 0: progressView!.progress = 0.0
                 case 1: Episode.save(); progressView!.progress = 0.2
                 case 2: Level.save(); progressView!.progress = 0.6
                 case 3: CDMap.save(); progressView!.progress = 1.0
                 default: progressView!.progress = 1.0
                 }
                 runUpdate++
+            } else {
+                switch runUpdate {
+                case 1: progressView!.progress = 0.2 * (1 - Float(numberOfRequestsLeft)/Float(numberOfRequests))
+                case 2: progressView!.progress = 0.2 + 0.4 * (1 - Float(numberOfRequestsLeft)/Float(numberOfRequests))
+                case 3: progressView!.progress = 0.6 + 0.4 * (1 - Float(numberOfRequestsLeft)/Float(numberOfRequests))
+                default: break
+                    
+                }
             }
         }
     }
@@ -46,7 +60,7 @@ class LoadScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var episodeVersion = 1.0
+        var episodeVersion = 1.01
         var levelVersion = 1.0
         
         let noUpdateNeeded = episodeVersion == 1.0
@@ -71,7 +85,7 @@ class LoadScreenViewController: UIViewController {
     private func startUpdate() {
         print("Starting Application Update... ")
         startButton.enabled = false
-        numberOfRequestLeft = 0
+        numberOfRequestsLeft = 0
     }
     
     private func loadEpisodes() {
@@ -90,7 +104,7 @@ class LoadScreenViewController: UIViewController {
         print("Loading maps... ")
         CDMap.removeAllEntries()
         let levels = Level.fetchResults()
-        numberOfRequestLeft = levels.count
+        numberOfRequests = levels.count
         for level in levels {
             LoadMapRequest(loadScreenviewController: self, levelUrl: level.url, mapUrl: level.mapUrl).execute()
         }
