@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Blockly/BlocklyTest/BlocklyTest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Blockly/Blockly/Blockly.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:codeforlife-ios.xcodeproj">
    </FileRef>
    <FileRef

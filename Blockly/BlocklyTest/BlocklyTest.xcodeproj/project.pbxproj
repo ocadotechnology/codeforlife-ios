@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 47;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDB02BA51B6789C1001D62FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BA41B6789C1001D62FA /* AppDelegate.swift */; };
+		EDB02BA71B6789C1001D62FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BA61B6789C1001D62FA /* ViewController.swift */; };
+		EDB02BAA1B6789C1001D62FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB02BA81B6789C1001D62FA /* Main.storyboard */; };
+		EDB02BAC1B6789C1001D62FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDB02BAB1B6789C1001D62FA /* Images.xcassets */; };
+		EDB02BAF1B6789C1001D62FA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB02BAD1B6789C1001D62FA /* LaunchScreen.xib */; };
+		EDB02BBB1B6789C1001D62FA /* BlocklyTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BBA1B6789C1001D62FA /* BlocklyTestTests.swift */; };
+		EDB02BC51B6789F6001D62FA /* Blockly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB02BC41B6789F6001D62FA /* Blockly.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDB02BB51B6789C1001D62FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDB02B971B6789C1001D62FA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDB02B9E1B6789C1001D62FA;
+			remoteInfo = BlocklyTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EDB02B9F1B6789C1001D62FA /* BlocklyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocklyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB02BA31B6789C1001D62FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDB02BA41B6789C1001D62FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDB02BA61B6789C1001D62FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDB02BA91B6789C1001D62FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDB02BAB1B6789C1001D62FA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EDB02BAE1B6789C1001D62FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EDB02BB41B6789C1001D62FA /* BlocklyTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocklyTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB02BB91B6789C1001D62FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDB02BBA1B6789C1001D62FA /* BlocklyTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklyTestTests.swift; sourceTree = "<group>"; };
+		EDB02BC41B6789F6001D62FA /* Blockly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blockly.framework; path = "../Blockly/build/Debug-iphoneos/Blockly.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDB02B9C1B6789C1001D62FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB02BC51B6789F6001D62FA /* Blockly.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDB02BB11B6789C1001D62FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDB02B961B6789C1001D62FA = {
+			isa = PBXGroup;
+			children = (
+				EDB02BC41B6789F6001D62FA /* Blockly.framework */,
+				EDB02BA11B6789C1001D62FA /* BlocklyTest */,
+				EDB02BB71B6789C1001D62FA /* BlocklyTestTests */,
+				EDB02BA01B6789C1001D62FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDB02BA01B6789C1001D62FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDB02B9F1B6789C1001D62FA /* BlocklyTest.app */,
+				EDB02BB41B6789C1001D62FA /* BlocklyTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDB02BA11B6789C1001D62FA /* BlocklyTest */ = {
+			isa = PBXGroup;
+			children = (
+				EDB02BA41B6789C1001D62FA /* AppDelegate.swift */,
+				EDB02BA61B6789C1001D62FA /* ViewController.swift */,
+				EDB02BA81B6789C1001D62FA /* Main.storyboard */,
+				EDB02BAB1B6789C1001D62FA /* Images.xcassets */,
+				EDB02BAD1B6789C1001D62FA /* LaunchScreen.xib */,
+				EDB02BA21B6789C1001D62FA /* Supporting Files */,
+			);
+			path = BlocklyTest;
+			sourceTree = "<group>";
+		};
+		EDB02BA21B6789C1001D62FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDB02BA31B6789C1001D62FA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDB02BB71B6789C1001D62FA /* BlocklyTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDB02BBA1B6789C1001D62FA /* BlocklyTestTests.swift */,
+				EDB02BB81B6789C1001D62FA /* Supporting Files */,
+			);
+			path = BlocklyTestTests;
+			sourceTree = "<group>";
+		};
+		EDB02BB81B6789C1001D62FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDB02BB91B6789C1001D62FA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDB02B9E1B6789C1001D62FA /* BlocklyTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDB02BBE1B6789C1001D62FA /* Build configuration list for PBXNativeTarget "BlocklyTest" */;
+			buildPhases = (
+				EDB02B9B1B6789C1001D62FA /* Sources */,
+				EDB02B9C1B6789C1001D62FA /* Frameworks */,
+				EDB02B9D1B6789C1001D62FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlocklyTest;
+			productName = BlocklyTest;
+			productReference = EDB02B9F1B6789C1001D62FA /* BlocklyTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EDB02BB31B6789C1001D62FA /* BlocklyTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDB02BC11B6789C1001D62FA /* Build configuration list for PBXNativeTarget "BlocklyTestTests" */;
+			buildPhases = (
+				EDB02BB01B6789C1001D62FA /* Sources */,
+				EDB02BB11B6789C1001D62FA /* Frameworks */,
+				EDB02BB21B6789C1001D62FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDB02BB61B6789C1001D62FA /* PBXTargetDependency */,
+			);
+			name = BlocklyTestTests;
+			productName = BlocklyTestTests;
+			productReference = EDB02BB41B6789C1001D62FA /* BlocklyTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDB02B971B6789C1001D62FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Joey Chan";
+				TargetAttributes = {
+					EDB02B9E1B6789C1001D62FA = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					EDB02BB31B6789C1001D62FA = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = EDB02B9E1B6789C1001D62FA;
+					};
+				};
+			};
+			buildConfigurationList = EDB02B9A1B6789C1001D62FA /* Build configuration list for PBXProject "BlocklyTest" */;
+			compatibilityVersion = "Xcode 6.3";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDB02B961B6789C1001D62FA;
+			productRefGroup = EDB02BA01B6789C1001D62FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDB02B9E1B6789C1001D62FA /* BlocklyTest */,
+				EDB02BB31B6789C1001D62FA /* BlocklyTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDB02B9D1B6789C1001D62FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB02BAA1B6789C1001D62FA /* Main.storyboard in Resources */,
+				EDB02BAF1B6789C1001D62FA /* LaunchScreen.xib in Resources */,
+				EDB02BAC1B6789C1001D62FA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDB02BB21B6789C1001D62FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDB02B9B1B6789C1001D62FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB02BA71B6789C1001D62FA /* ViewController.swift in Sources */,
+				EDB02BA51B6789C1001D62FA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDB02BB01B6789C1001D62FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB02BBB1B6789C1001D62FA /* BlocklyTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDB02BB61B6789C1001D62FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDB02B9E1B6789C1001D62FA /* BlocklyTest */;
+			targetProxy = EDB02BB51B6789C1001D62FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EDB02BA81B6789C1001D62FA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDB02BA91B6789C1001D62FA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDB02BAD1B6789C1001D62FA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDB02BAE1B6789C1001D62FA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDB02BBC1B6789C1001D62FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		EDB02BBD1B6789C1001D62FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDB02BBF1B6789C1001D62FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/joey.chan/Documents/c4l/codeforlife-ios/Blockly/Blockly/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = BlocklyTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EDB02BC01B6789C1001D62FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/joey.chan/Documents/c4l/codeforlife-ios/Blockly/Blockly/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = BlocklyTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EDB02BC21B6789C1001D62FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BlocklyTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlocklyTest.app/BlocklyTest";
+			};
+			name = Debug;
+		};
+		EDB02BC31B6789C1001D62FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BlocklyTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlocklyTest.app/BlocklyTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDB02B9A1B6789C1001D62FA /* Build configuration list for PBXProject "BlocklyTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDB02BBC1B6789C1001D62FA /* Debug */,
+				EDB02BBD1B6789C1001D62FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDB02BBE1B6789C1001D62FA /* Build configuration list for PBXNativeTarget "BlocklyTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDB02BBF1B6789C1001D62FA /* Debug */,
+				EDB02BC01B6789C1001D62FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EDB02BC11B6789C1001D62FA /* Build configuration list for PBXNativeTarget "BlocklyTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDB02BC21B6789C1001D62FA /* Debug */,
+				EDB02BC31B6789C1001D62FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDB02B971B6789C1001D62FA /* Project object */;
+}

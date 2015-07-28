@@ -60,7 +60,7 @@ class LoadScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var episodeVersion = 1.01
+        var episodeVersion = 1.0
         var levelVersion = 1.0
         
         let noUpdateNeeded = episodeVersion == 1.0
