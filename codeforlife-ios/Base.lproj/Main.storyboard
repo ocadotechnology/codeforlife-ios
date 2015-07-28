@@ -14,6 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5fE-Uj-QKV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Bq-ed-tTY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RapidRouter_logo_w_BG" translatesAutoresizingMaskIntoConstraints="NO" id="QLv-Aj-ThL">
@@ -64,14 +65,14 @@
                                 <exclude reference="pNt-P2-o8j"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ZBQ-aF-e0u"/>
+                                <exclude reference="vlr-TD-gQC"/>
+                                <exclude reference="gUU-nE-VfT"/>
+                                <exclude reference="jMQ-SX-HDb"/>
                                 <exclude reference="HDQ-AK-yhg"/>
                                 <exclude reference="QRH-dW-Y93"/>
                                 <exclude reference="ZMJ-9o-Bem"/>
                                 <exclude reference="yrj-e8-QPV"/>
-                                <exclude reference="jMQ-SX-HDb"/>
-                                <exclude reference="gUU-nE-VfT"/>
-                                <exclude reference="ZBQ-aF-e0u"/>
-                                <exclude reference="vlr-TD-gQC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -81,14 +82,14 @@
                                 <include reference="pNt-P2-o8j"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ZBQ-aF-e0u"/>
+                                <include reference="vlr-TD-gQC"/>
+                                <include reference="gUU-nE-VfT"/>
+                                <include reference="jMQ-SX-HDb"/>
                                 <include reference="HDQ-AK-yhg"/>
                                 <include reference="QRH-dW-Y93"/>
                                 <include reference="ZMJ-9o-Bem"/>
                                 <include reference="yrj-e8-QPV"/>
-                                <include reference="jMQ-SX-HDb"/>
-                                <include reference="gUU-nE-VfT"/>
-                                <include reference="ZBQ-aF-e0u"/>
-                                <include reference="vlr-TD-gQC"/>
                             </mask>
                         </variation>
                     </view>
@@ -917,6 +918,7 @@
                         <outlet property="clearButton" destination="DSp-mP-2aT" id="7RI-e2-QYQ"/>
                         <outlet property="muteButton" destination="QX2-Zs-Bhz" id="rRg-zS-BlR"/>
                         <outlet property="playButton" destination="nfy-1c-ose" id="yLR-Lz-8i0"/>
+                        <outlet property="stepButton" destination="vWJ-Yx-ZIz" id="5mu-L2-CUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCw-JG-S4a" userLabel="First Responder" sceneMemberID="firstResponder"/>

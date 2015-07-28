@@ -32,9 +32,7 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
             
         case .onStopControls: // Going to Play
             gameMenuViewController?.controlMode = .onPlayControls
-            ActionFactory.createAction("Play").execute {
-                gameMenuViewController?.controlMode = .onStopControls
-            }
+            ActionFactory.createAction("Play").execute()
             
         case .onPauseControls: // Going to Resume
             gameMenuViewController?.controlMode = .onResumeControls
@@ -61,7 +59,20 @@ class GameMenuViewControllerNativeDelegate: GameMenuViewControllerDelegate {
     }
     
     func step() {
-        SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.step = true
+        switch gameMenuViewController!.controlMode {
+            
+        case .onStopControls:
+            gameMenuViewController?.controlMode = .onStepControls
+            SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.step = true
+            ActionFactory.createAction("Play").execute()
+            
+        case .onPauseControls:
+            gameMenuViewController?.controlMode = .onStepControls
+            SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.step = true
+            SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.runAnimation = true
+            
+        default: break
+        }
     }
     
     func help() {

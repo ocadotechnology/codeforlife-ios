@@ -18,17 +18,11 @@ class AnimationHandler {
     
     var currentIndex = 0
     
-    var step = false {
-        didSet {
-            if step {
-                runAnimation = true
-            }
-        }
-    }
+    var step = false
     
     var runAnimation = false {
         didSet {
-            if runAnimation {
+            if runAnimation && runningAnimationsRemained == 0 {
                 // reset animations if all animations are run
                 if isAnimationCycleFinished {
                     resetAnimation()
@@ -45,10 +39,11 @@ class AnimationHandler {
     var runningAnimationsRemained = 0 {
         didSet {
             if runningAnimationsRemained == 0 {
-                if !step {
-                runAnimation = runAnimation.boolValue
+                runAnimation = step ? false : runAnimation.boolValue
+                if step {
+                    step = false
+                    SharedContext.MainGameViewController?.gameMenuViewController?.controlMode = GameMenuViewController.ControlMode.onPauseControls
                 }
-                step = false
             }
         }
     }
