@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D2134" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BlockType" representedClassName="BlockType" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="CDMap" representedClassName="CDMap" syncable="YES">
         <attribute name="jsonData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DecorationType" representedClassName="DecorationType" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="theme" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="z_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Episode" representedClassName="Episode" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -25,9 +39,32 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="webViewUrl" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="LevelBlock" representedClassName="LevelBlock" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="LevelMode" representedClassName="LevelMode" syncable="YES">
+        <attribute name="blocklyEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="pythonEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="pythonViewEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="ThemeType" representedClassName="ThemeType" syncable="YES">
+        <attribute name="background" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="border" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
+        <element name="CDMap" positionX="-36" positionY="108" width="128" height="75"/>
         <element name="Episode" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Level" positionX="-54" positionY="9" width="128" height="255"/>
-        <element name="CDMap" positionX="-36" positionY="108" width="128" height="75"/>
+        <element name="LevelBlock" positionX="-45" positionY="99" width="128" height="105"/>
+        <element name="BlockType" positionX="-36" positionY="108" width="128" height="90"/>
+        <element name="DecorationType" positionX="-27" positionY="117" width="128" height="150"/>
+        <element name="ThemeType" positionX="-18" positionY="126" width="128" height="120"/>
+        <element name="LevelMode" positionX="0" positionY="135" width="128" height="90"/>
     </elements>
 </model>

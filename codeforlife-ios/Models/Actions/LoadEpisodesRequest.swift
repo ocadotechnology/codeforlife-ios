@@ -28,12 +28,12 @@ class LoadEpisodesRequest: Request, RequestProtocol {
         var index = 1
         let json = JSON(data: data)
         if let episodeArray = json.array {
-            viewController.numberOfRequestLeft = episodeArray.count
+            viewController.numberOfRequests = episodeArray.count
             for episode in episodeArray {
                 if let name = episode["name"].string,
                         url = episode["url"].string {
                     Episode.createInManagedObjectContext(index++, name: name, url: url)
-                    viewController.numberOfRequestLeft--
+                    viewController.numberOfRequestsLeft--
                 }
             }
         }
