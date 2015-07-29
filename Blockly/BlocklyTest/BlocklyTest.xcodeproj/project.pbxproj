@@ -13,7 +13,7 @@
 		EDB02BAC1B6789C1001D62FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDB02BAB1B6789C1001D62FA /* Images.xcassets */; };
 		EDB02BAF1B6789C1001D62FA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB02BAD1B6789C1001D62FA /* LaunchScreen.xib */; };
 		EDB02BBB1B6789C1001D62FA /* BlocklyTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BBA1B6789C1001D62FA /* BlocklyTestTests.swift */; };
-		EDB02BC51B6789F6001D62FA /* Blockly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB02BC41B6789F6001D62FA /* Blockly.framework */; };
+		EDB02BCA1B678E52001D62FA /* Blockly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB02BC91B678E52001D62FA /* Blockly.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,7 @@
 		EDB02BB91B6789C1001D62FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDB02BBA1B6789C1001D62FA /* BlocklyTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklyTestTests.swift; sourceTree = "<group>"; };
 		EDB02BC41B6789F6001D62FA /* Blockly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blockly.framework; path = "../Blockly/build/Debug-iphoneos/Blockly.framework"; sourceTree = "<group>"; };
+		EDB02BC91B678E52001D62FA /* Blockly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blockly.framework; path = "../Blockly/build/Debug-iphoneos/Blockly.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDB02BC51B6789F6001D62FA /* Blockly.framework in Frameworks */,
+				EDB02BCA1B678E52001D62FA /* Blockly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,10 +63,10 @@
 		EDB02B961B6789C1001D62FA = {
 			isa = PBXGroup;
 			children = (
-				EDB02BC41B6789F6001D62FA /* Blockly.framework */,
 				EDB02BA11B6789C1001D62FA /* BlocklyTest */,
 				EDB02BB71B6789C1001D62FA /* BlocklyTestTests */,
 				EDB02BA01B6789C1001D62FA /* Products */,
+				EDB02BC61B678CF4001D62FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +115,15 @@
 				EDB02BB91B6789C1001D62FA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDB02BC61B678CF4001D62FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDB02BC91B678E52001D62FA /* Blockly.framework */,
+				EDB02BC41B6789F6001D62FA /* Blockly.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,10 +356,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/joey.chan/Documents/c4l/codeforlife-ios/Blockly/Blockly/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = BlocklyTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -360,10 +366,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/joey.chan/Documents/c4l/codeforlife-ios/Blockly/Blockly/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = BlocklyTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

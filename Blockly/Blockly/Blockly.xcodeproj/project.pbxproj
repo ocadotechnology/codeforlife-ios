@@ -10,8 +10,13 @@
 		EDB02B471B6780BF001D62FA /* Blockly.h in Headers */ = {isa = PBXBuildFile; fileRef = EDB02B461B6780BF001D62FA /* Blockly.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDB02B4D1B6780BF001D62FA /* Blockly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB02B411B6780BF001D62FA /* Blockly.framework */; };
 		EDB02B541B6780BF001D62FA /* BlocklyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B531B6780BF001D62FA /* BlocklyTests.swift */; };
-		EDB02B5E1B678121001D62FA /* BlocklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B5D1B678121001D62FA /* BlocklyViewController.swift */; };
-		EDB02B5F1B678121001D62FA /* BlocklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B5D1B678121001D62FA /* BlocklyViewController.swift */; };
+		EDB02B5E1B678121001D62FA /* BlocklyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B5D1B678121001D62FA /* BlocklyScene.swift */; };
+		EDB02B5F1B678121001D62FA /* BlocklyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B5D1B678121001D62FA /* BlocklyScene.swift */; };
+		EDB02BC81B678D67001D62FA /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB02BC71B678D67001D62FA /* SpriteKit.framework */; };
+		EDB02BCC1B68B82D001D62FA /* Blockly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BCB1B68B82D001D62FA /* Blockly.swift */; };
+		EDB02BCD1B68B82D001D62FA /* Blockly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BCB1B68B82D001D62FA /* Blockly.swift */; };
+		EDB02BCF1B68B860001D62FA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BCE1B68B860001D62FA /* Extension.swift */; };
+		EDB02BD01B68B860001D62FA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BCE1B68B860001D62FA /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +36,10 @@
 		EDB02B4C1B6780BF001D62FA /* BlocklyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocklyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB02B521B6780BF001D62FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDB02B531B6780BF001D62FA /* BlocklyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklyTests.swift; sourceTree = "<group>"; };
-		EDB02B5D1B678121001D62FA /* BlocklyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlocklyViewController.swift; path = Controllers/BlocklyViewController.swift; sourceTree = "<group>"; };
+		EDB02B5D1B678121001D62FA /* BlocklyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlocklyScene.swift; path = Controllers/BlocklyScene.swift; sourceTree = "<group>"; };
+		EDB02BC71B678D67001D62FA /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		EDB02BCB1B68B82D001D62FA /* Blockly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blockly.swift; sourceTree = "<group>"; };
+		EDB02BCE1B68B860001D62FA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB02BC81B678D67001D62FA /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +65,7 @@
 		EDB02B371B6780BF001D62FA = {
 			isa = PBXGroup;
 			children = (
+				EDB02BC71B678D67001D62FA /* SpriteKit.framework */,
 				EDB02B431B6780BF001D62FA /* Blockly */,
 				EDB02B501B6780BF001D62FA /* BlocklyTests */,
 				EDB02B421B6780BF001D62FA /* Products */,
@@ -76,7 +86,9 @@
 			children = (
 				EDB02B461B6780BF001D62FA /* Blockly.h */,
 				EDB02B441B6780BF001D62FA /* Supporting Files */,
-				EDB02B5D1B678121001D62FA /* BlocklyViewController.swift */,
+				EDB02B5D1B678121001D62FA /* BlocklyScene.swift */,
+				EDB02BCE1B68B860001D62FA /* Extension.swift */,
+				EDB02BCB1B68B82D001D62FA /* Blockly.swift */,
 			);
 			path = Blockly;
 			sourceTree = "<group>";
@@ -213,7 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDB02B5E1B678121001D62FA /* BlocklyViewController.swift in Sources */,
+				EDB02BCF1B68B860001D62FA /* Extension.swift in Sources */,
+				EDB02BCC1B68B82D001D62FA /* Blockly.swift in Sources */,
+				EDB02B5E1B678121001D62FA /* BlocklyScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,8 +235,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB02BCD1B68B82D001D62FA /* Blockly.swift in Sources */,
 				EDB02B541B6780BF001D62FA /* BlocklyTests.swift in Sources */,
-				EDB02B5F1B678121001D62FA /* BlocklyViewController.swift in Sources */,
+				EDB02B5F1B678121001D62FA /* BlocklyScene.swift in Sources */,
+				EDB02BD01B68B860001D62FA /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
