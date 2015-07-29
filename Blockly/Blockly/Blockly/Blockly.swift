@@ -4,33 +4,84 @@ import SpriteKit
 public class Blockly: SKSpriteNode {
     
     /**
-     Only update either next or prev to avoid infinite recursion.
+     Nodes are always formed in pairs.
+    
+     Agressive Node   |   Passive Node
+     -----------------+------------------
+     - prev           |   - next
+     - parentBy       |   - childBy
+     - BigSister      |   - littleSister
+
+     Only update Agressive nod avoid infinite recursion.
      Update prev instead of next for the following reason: For a linked list to sumbit all its relevant contents, it does not matter what previous node of some unwanted node is, since it will never be reached as long as it is not the next node of any wanted node. Hence when a unwanted node is detached from the previous node, the previous node must always set its next node to nil.
      */
-    public weak var prev: Blockly? { willSet { prev?.next = (newValue == prev) ? self : nil } }
-    public weak var next: Blockly?
-    public weak var parentBy: Blockly? { willSet { parentBy?.childBy = (newValue == parentBy) ? self : nil } }
-    public weak var childBy: Blockly?
     
-    public var nextSnappingEnabled = true
-    public var prevSnappingEnabled = true
-    public var parentSnappingEnabled = false
-    public var sisterSnappingEnabled = false
-    
-    static let defaultSize = CGSize(width: 100, height: 80)
-    static let defaultColor = UIColor.blackColor()
-        
-    public var topGravity    : CGFloat = 20
-    public var bottomGravity : CGFloat = 20
-    public var leftGravity   : CGFloat = 20
-    
-    public var prevPos: CGPoint?
-    
-    public var count: Int {
-        return next == nil ? 0 : next!.count + 1
+    public weak var prev: Blockly? {
+        /** Unlink itself from its previous node */
+        willSet { prev?.next = (newValue == prev) ? self : nil }
     }
     
-    public static func build(builderClosure: (Blockly) -> Void) -> Blockly {
+    public weak var next: Blockly? {
+        /** Reset the position and size of the parent node for consistent update after new linkage is set */
+        willSet { head.parentBy?.updateFromChild(totalHeight/2) }
+        /** Update the position and size of the parent node */
+        didSet { head.parentBy?.updateFromChild(-totalHeight/2) }
+    }
+    
+    /**
+     Parent Node is always positioned on the left of the child node by default
+     */
+    public weak var parentBy: Blockly? {
+        /** Unlink itself from its parent Node */
+        willSet { parentBy?.childBy = (newValue == parentBy) ? self : nil }
+    }
+    
+    /**
+     Child Node is always positioned on the bottom right of the parent node by default.
+     Each node can only have ond child node. However by appending nodes to the child node, a linked list of "children" can be created
+     */
+    public weak var childBy: Blockly? {
+        /** Reset position and size before linking or unlinking child */
+        willSet { updateFromChild(childBy == nil ? 0 : childBy!.totalHeight/2) }
+        /** Update position and size after linking or unlinking child */
+        didSet { updateFromChild(childBy == nil ? 0 : -childBy!.totalHeight/2) }
+    }
+    
+    /** Allow nodes to snap to its bottom, enabled by default */
+    public var nextSnappingEnabled = true
+    
+    /** Allow nodes to snap to its top, enabled by default */
+    public var prevSnappingEnabled = true
+    
+    /** Allow nodes to snap to its right becoming a child, disabled by default */
+    public var parentSnappingEnabled = false
+    
+    /** Allow nodes to snap to its top right becoming a sister, disabled by default */
+    public var sisterSnappingEnabled = false
+    
+    static let defaultSize = CGSize(width: 100, height: 80)     /** Default size of a Blockly */
+    static let defaultColor = UIColor.blackColor()              /** Default color of a Blockly */
+    
+    public var originalSize = CGSize(width: 100, height: 80) {
+        didSet { self.size = originalSize }
+    }
+        
+    public var topGravity    : CGFloat = 30     /* Top Stickiness */
+    public var bottomGravity : CGFloat = 30     /* Bottom Stickiness */
+    public var parentGravity : CGFloat = 30   /* Parent Stickiness */
+    
+    /** Returns the number of nodes linked after */
+    public var count: Int { return next == nil ? 0 : next!.count + 1 }
+    
+    /** Return the total height of all the nodes linked after including itself */
+    public var totalHeight: CGFloat { return next == nil ? size.height : next!.totalHeight + size.height }
+    
+    /** Return the first node of its node chain */
+    public var head: Blockly { return prev == nil ? self : prev!.head }
+    
+    /** Blockly Builder */
+    public typealias BlocklyBuilderClosure = (Blockly) -> Void
+    public static func build(builderClosure: BlocklyBuilderClosure) -> Blockly {
         let blockly = Blockly()
         blockly.size = defaultSize
         blockly.color = defaultColor
@@ -68,7 +119,7 @@ public class Blockly: SKSpriteNode {
     
     func updateParent() {
         if parentSnappingEnabled {
-            var neighbour = self.scene?.nodeAtPoint(CGPointMake(position.x - size.width/2 - leftGravity, position.y))
+            var neighbour = self.scene?.nodeAtPoint(CGPointMake(position.x - size.width/2 - parentGravity, position.y))
             if let neighbour = neighbour as? Blockly where
                 (neighbour.childBy == nil || neighbour.childBy == self) &&
                     (parentBy == nil || parentBy == neighbour) {
@@ -83,26 +134,42 @@ public class Blockly: SKSpriteNode {
     /**
      Snap to the bottom of the previous node or right of the parent node
      Note that parent node has higher priority than previous node
-     It also auto update the position of all the nodes linked after
+     It also auto update the position of all the passvive nodes linked
+    
+     Must not call the following function or  it will cause infinite loop:
+     - snapToNeighbour on prev
+     - snapToNeighbour on parentBy
      */
     func snapToNeighbour() {
         if let parentBy = parentBy {
-           position = CGPointMake(parentBy.position.x + parentBy.size.width/2 + size.width/2, parentBy.position.y)
+            position = CGPointMake(
+                parentBy.position.x + parentBy.size.width/2 ,                                               /* Embedded to the right of the parent node */
+                parentBy.position.y + parentBy.size.height/2 - parentBy.originalSize.height - size.height/2 /* Children stick to the bottom */
+            )
         } else if let prev = prev {
-            position = CGPointMake(prev.position.x, prev.position.y - size.height)
+            position = CGPointMake(
+                prev.position.x,                                        /* Same x */
+                prev.position.y - prev.size.height/2 - size.height/2    /* Stick to the bottom of the previous node */
+            )
         }
         updateNextPosition()
         updateChildPosition()
     }
     
-    /**
-     Update the positions of all the nodes linked after
-     */
+    /** Update the positions of all the nodes linked after */
     func updateNextPosition() { next?.snapToNeighbour() }
     
-    /**
-     Update the positions of the child
-     */
+    /** Update the positions of the child */
     func updateChildPosition() { childBy?.snapToNeighbour() }
+    
+    /**
+     Update positions and size due to changes in children
+     @param translationY, self will translate by translationY unit
+     */
+    func updateFromChild(translationY: CGFloat) {
+        self.position.y += translationY
+        self.size.height = originalSize.height + (childBy == nil ? 0 : childBy!.totalHeight)
+        self.updateNextPosition()
+    }
 
 }

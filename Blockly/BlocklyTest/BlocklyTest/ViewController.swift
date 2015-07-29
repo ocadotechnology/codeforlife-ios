@@ -56,6 +56,18 @@ class ViewController: UIViewController {
         })
         return blockly
     }
+    
+    private func SisteBlock(pos: CGPoint) -> Blockly {
+        let blockly = Blockly.build({
+            $0.size.height /= 2
+            $0.position = pos
+            $0.color = UIColor.brownColor()
+            $0.sisterSnappingEnabled = true
+            $0.prevSnappingEnabled = false
+            $0.nextSnappingEnabled = false
+        })
+        return blockly
+    }
 
 }
 
