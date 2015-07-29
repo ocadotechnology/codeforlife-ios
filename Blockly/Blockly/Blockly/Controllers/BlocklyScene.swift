@@ -44,7 +44,7 @@ public class BlocklyScene: SKScene {
             var currPos = sender.locationInView(sender.view)
             currPos = convertPointFromView(currPos)
             if let currBlockly = nodeAtPoint(currPos) as? Blockly {
-                blocklyOnDrag = currBlockly
+                blocklyOnDrag = currBlockly.root
             }
         case UIGestureRecognizerState.Changed:
             var translation = sender.translationInView(sender.view!)
