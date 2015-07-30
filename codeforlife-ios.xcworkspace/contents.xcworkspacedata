@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Blockly2/Blockly2.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Blockly/BlocklyTest/BlocklyTest.xcodeproj">
    </FileRef>
    <FileRef
