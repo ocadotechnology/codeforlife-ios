@@ -11,27 +11,17 @@ import SpriteKit
 import Blockly
 
 class ViewController: BlocklyVC {
-    
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        let bp = BlocklyScene(size: view.frame.size)
-//        let blocklyView = self.view as! SKView
-//        blocklyView.showsFPS = true
-//        blocklyView.showsNodeCount = true
-//        blocklyView.presentScene(bp)
-//        println(blocklyView.scene)
-//        bp.addHead(StartBlock(CGPointMake(500, 500)))
-//        bp.addBlockly(NormalBlock(CGPointMake(200, 200)))
-//        bp.addBlockly(NormalBlock(CGPointMake(300, 300)))
-//        bp.addBlockly(ConditionalBlock(CGPointMake(400, 400)))
-//        for blockly in IfThenBlock(CGPointMake(600, 600)) {
-//            bp.addBlockly(blockly)
-//        }
-//    }
-    
 
-    
-    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        addHead(StartBlock(CGPointMake(500, 500)))
+        addBlockly(NormalBlock(CGPointMake(200, 200)))
+        addBlockly(NormalBlock(CGPointMake(300, 300)))
+        addBlockly(ConditionalBlock(CGPointMake(400, 400)))
+        addBlocklyArray(IfThenBlock(CGPointMake(600, 600)))
+    }
+
+
 
 }
 

@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED9EB5B71B6A358B00F79AAB /* BlocklyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EB5B61B6A358B00F79AAB /* BlocklyMenu.swift */; };
+		ED9EB5B81B6A358B00F79AAB /* BlocklyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EB5B61B6A358B00F79AAB /* BlocklyMenu.swift */; };
 		EDB02B471B6780BF001D62FA /* Blockly.h in Headers */ = {isa = PBXBuildFile; fileRef = EDB02B461B6780BF001D62FA /* Blockly.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDB02B4D1B6780BF001D62FA /* Blockly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB02B411B6780BF001D62FA /* Blockly.framework */; };
 		EDB02B541B6780BF001D62FA /* BlocklyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B531B6780BF001D62FA /* BlocklyTests.swift */; };
-		EDB02B5E1B678121001D62FA /* BlocklyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B5D1B678121001D62FA /* BlocklyScene.swift */; };
-		EDB02B5F1B678121001D62FA /* BlocklyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B5D1B678121001D62FA /* BlocklyScene.swift */; };
+		EDB02B5E1B678121001D62FA /* BlocklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B5D1B678121001D62FA /* BlocklyViewController.swift */; };
+		EDB02B5F1B678121001D62FA /* BlocklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02B5D1B678121001D62FA /* BlocklyViewController.swift */; };
 		EDB02BC81B678D67001D62FA /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB02BC71B678D67001D62FA /* SpriteKit.framework */; };
 		EDB02BCC1B68B82D001D62FA /* Blockly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BCB1B68B82D001D62FA /* Blockly.swift */; };
 		EDB02BCD1B68B82D001D62FA /* Blockly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BCB1B68B82D001D62FA /* Blockly.swift */; };
@@ -30,13 +32,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED9EB5B61B6A358B00F79AAB /* BlocklyMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyMenu.swift; sourceTree = "<group>"; };
 		EDB02B411B6780BF001D62FA /* Blockly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blockly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB02B451B6780BF001D62FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDB02B461B6780BF001D62FA /* Blockly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blockly.h; sourceTree = "<group>"; };
 		EDB02B4C1B6780BF001D62FA /* BlocklyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocklyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB02B521B6780BF001D62FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDB02B531B6780BF001D62FA /* BlocklyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklyTests.swift; sourceTree = "<group>"; };
-		EDB02B5D1B678121001D62FA /* BlocklyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlocklyScene.swift; path = Controllers/BlocklyScene.swift; sourceTree = "<group>"; };
+		EDB02B5D1B678121001D62FA /* BlocklyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlocklyViewController.swift; path = Controllers/BlocklyViewController.swift; sourceTree = "<group>"; };
 		EDB02BC71B678D67001D62FA /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		EDB02BCB1B68B82D001D62FA /* Blockly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blockly.swift; sourceTree = "<group>"; };
 		EDB02BCE1B68B860001D62FA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -86,9 +89,10 @@
 			children = (
 				EDB02B461B6780BF001D62FA /* Blockly.h */,
 				EDB02B441B6780BF001D62FA /* Supporting Files */,
-				EDB02B5D1B678121001D62FA /* BlocklyScene.swift */,
+				EDB02B5D1B678121001D62FA /* BlocklyViewController.swift */,
 				EDB02BCE1B68B860001D62FA /* Extension.swift */,
 				EDB02BCB1B68B82D001D62FA /* Blockly.swift */,
+				ED9EB5B61B6A358B00F79AAB /* BlocklyMenu.swift */,
 			);
 			path = Blockly;
 			sourceTree = "<group>";
@@ -226,8 +230,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB02BCF1B68B860001D62FA /* Extension.swift in Sources */,
+				ED9EB5B71B6A358B00F79AAB /* BlocklyMenu.swift in Sources */,
 				EDB02BCC1B68B82D001D62FA /* Blockly.swift in Sources */,
-				EDB02B5E1B678121001D62FA /* BlocklyScene.swift in Sources */,
+				EDB02B5E1B678121001D62FA /* BlocklyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,9 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9EB5B81B6A358B00F79AAB /* BlocklyMenu.swift in Sources */,
 				EDB02BCD1B68B82D001D62FA /* Blockly.swift in Sources */,
 				EDB02B541B6780BF001D62FA /* BlocklyTests.swift in Sources */,
-				EDB02B5F1B678121001D62FA /* BlocklyScene.swift in Sources */,
+				EDB02B5F1B678121001D62FA /* BlocklyViewController.swift in Sources */,
 				EDB02BD01B68B860001D62FA /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +432,7 @@
 				EDB02B591B6780BF001D62FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EDB02B5A1B6780BF001D62FA /* Build configuration list for PBXNativeTarget "BlocklyTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +441,7 @@
 				EDB02B5C1B6780BF001D62FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
