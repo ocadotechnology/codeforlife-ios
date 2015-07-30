@@ -1,7 +1,7 @@
 import Foundation
 import SpriteKit
 
-public class Blockly: SKSpriteNode {
+public class Blockly: UIView {
     
     /**
      Nodes are always formed in pairs.
@@ -34,8 +34,8 @@ public class Blockly: SKSpriteNode {
                                 max(head.totalHeight, head.parentBy == nil ? 0 : head.parentBy!.originalSize.height)
         self.next = newNext
         let newParentHeight = max(head.totalHeight, head.parentBy == nil ? 0 : head.parentBy!.originalSize.height)
-        head.parentBy?.size.height = newParentHeight
-        head.parentBy?.position.y += (oldParentHeight - newParentHeight)/2
+        head.parentBy?.frame.size.height = newParentHeight
+        head.parentBy?.center.y += (oldParentHeight - newParentHeight)/2
     }
     
     
@@ -48,8 +48,8 @@ public class Blockly: SKSpriteNode {
     private func updateChild(newChildBy: Blockly?) {
         let translation = max(0, childBy == nil ? 0 : childBy!.totalHeight/2 - originalSize.height/2)
         self.childBy = newChildBy
-        self.size.height = max(originalSize.height, childBy == nil ? 0 : childBy!.totalHeight)
-        self.position.y += childBy == nil ? translation : -translation
+        self.frame.size.height = max(originalSize.height, childBy == nil ? 0 : childBy!.totalHeight)
+        self.center.y += childBy == nil ? translation : -translation
     }
     
     public var nextSnappingEnabled = true       /** Allow nodes to snap to its bottom, enabled by default */
@@ -62,13 +62,13 @@ public class Blockly: SKSpriteNode {
     static let defaultColor = UIColor.blackColor()              /** Default color of a Blockly */
     
     public var originalSize = CGSize(width: 100, height: 80) {
-        didSet { self.size = originalSize }
+        didSet { self.frame.size = originalSize }
     }
     
     /**
      After updating position, adjust positions of all the children and nodes linked after
      */
-    override public var position: CGPoint {
+    override public var center: CGPoint {
         didSet { updateNextAndChildPosition() }
     }
     
@@ -85,7 +85,7 @@ public class Blockly: SKSpriteNode {
     public var count: Int { return next == nil ? 0 : next!.count + 1 }
     
     /** Return the total height of all the nodes linked after including itself */
-    public var totalHeight: CGFloat { return next == nil ? size.height : next!.totalHeight + size.height }
+    public var totalHeight: CGFloat { return next == nil ? frame.height : next!.totalHeight + frame.height }
     
     /** Return the first node of its node chain */
     public var head: Blockly { return prev == nil ? self : prev!.head }
@@ -96,8 +96,8 @@ public class Blockly: SKSpriteNode {
     public typealias BlocklyBuilderClosure = (Blockly) -> Void
     public static func build(builderClosure: BlocklyBuilderClosure) -> Blockly {
         let blockly = Blockly()
-        blockly.size = defaultSize
-        blockly.color = defaultColor
+        blockly.frame.size = defaultSize
+        blockly.backgroundColor = defaultColor
         builderClosure(blockly)
         return blockly
     }
@@ -107,8 +107,8 @@ public class Blockly: SKSpriteNode {
      */
     func updatePrev() {
         if prevSnappingEnabled && !lockPrev {
-            var neighbour = self.scene?.nodeAtPoint(CGPointMake(position.x, position.y + size.height/2 + topGravity))
-            if let neighbour = neighbour as? Blockly where
+            let positionToFind = CGPointMake(center.x, center.y + frame.height/2 + topGravity)
+            if let neighbour = discoverNeighbour(positionToFind) where
                 (neighbour.next == nil || neighbour.next == self) &&
                 (prev == nil || prev == neighbour) {
                 prev = neighbour
@@ -120,8 +120,8 @@ public class Blockly: SKSpriteNode {
     
     func updateNext() {
         if nextSnappingEnabled && !(next != nil && next!.lockPrev) {
-            var neighbour = self.scene?.nodeAtPoint(CGPointMake(position.x, position.y - size.height/2 - bottomGravity))
-            if let neighbour = neighbour as? Blockly where
+            let positionToFind = CGPointMake(center.x, center.y - frame.height/2 - bottomGravity)
+            if let neighbour = discoverNeighbour(positionToFind) where
                 (neighbour.prev == nil || neighbour.prev == self) &&
                 (next == nil || next == neighbour) {
                 neighbour.prev = self
@@ -133,8 +133,8 @@ public class Blockly: SKSpriteNode {
     
     func updateParent() {
         if parentSnappingEnabled {
-            var neighbour = self.scene?.nodeAtPoint(CGPointMake(position.x - size.width/2 - parentGravity, position.y))
-            if let neighbour = neighbour as? Blockly where
+            let positionToFind = CGPointMake(center.x - frame.width/2 - parentGravity, center.y)
+            if let neighbour = discoverNeighbour(positionToFind) where
                 (neighbour.childBy == nil || neighbour.childBy == self) &&
                 (parentBy == nil || parentBy == neighbour) {
                 parentBy = neighbour
@@ -155,25 +155,29 @@ public class Blockly: SKSpriteNode {
      */
     public func snapToNeighbour() {
         if let parentBy = parentBy {
-            position = CGPointMake(
-                parentBy.position.x + parentBy.size.width/2 + size.width/2,                                 /* Stick to the right of the parent node */
-                parentBy.position.y + parentBy.size.height/2 - size.height/2 /* Stick to the top */
+            center = CGPointMake(
+                parentBy.center.x + parentBy.frame.width/2 + frame.width/2,                                 /* Stick to the right of the parent node */
+                parentBy.center.y + parentBy.frame.height/2 - frame.height/2 /* Stick to the top */
             )
         } else if let prev = prev {
-            position = CGPointMake(
-                prev.position.x - prev.size.width/2 + size.width/2,     /* Same x */
-                prev.position.y - prev.size.height/2 - size.height/2    /* Stick to the bottom of the previous node */
+            center = CGPointMake(
+                prev.center.x - prev.frame.width/2 + frame.width/2,     /* Same x */
+                prev.center.y - prev.frame.height/2 - frame.height/2    /* Stick to the bottom of the previous node */
             )
         } else if let next = next {
-            position = CGPointMake(
-                next.position.x - next.size.width/2 + size.width/2,
-                next.position.y + next.size.height/2 + size.height/2
+            center = CGPointMake(
+                next.center.x - next.frame.width/2 + frame.width/2,
+                next.center.y + next.frame.height/2 + frame.height/2
             )
         }
     }
     
-    public func discoverNeighbour() -> Blockly? {
-        
+    public func discoverNeighbour(pos: CGPoint) -> Blockly? {
+        for subview in superview!.subviews {
+            if let subview = subview as? Blockly where CGRectContainsPoint(subview.frame, pos) {
+                return subview
+            }
+        }
         return nil
     }
 
