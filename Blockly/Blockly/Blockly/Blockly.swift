@@ -13,60 +13,44 @@ public class Blockly: SKSpriteNode {
 
      Only update Agressive nod avoid infinite recursion.
      Update prev instead of next for the following reason: For a linked list to sumbit all its relevant contents, it does not matter what previous node of some unwanted node is, since it will never be reached as long as it is not the next node of any wanted node. Hence when a unwanted node is detached from the previous node, the previous node must always set its next node to nil.
+    
+     Recommended Guidelines:
+     1. Always update node reference before changing the position of the nodes
+            - Updating position will also change child and next position, which may cause child and next unable to detach
+     2. Avoid using willSet and didSet on both parties of a node pair
+            - May cause infinite loop in recursion
      */
     
-    public weak var prev: Blockly? {
-        /** 
-         - Reset ParentHeight
-         - Unlink from Parent
-         - Reset Parent Position
-         */
-        willSet {
-            self.prev?.head.parentBy?.size.height -= totalHeight
-            self.prev?.next = nil
-            self.prev?.head.parentBy?.position.y += totalHeight/2
-        }
-        
-        /**
-         - Link to new parent
-         - Update parent height
-         - Update parent position
-         */
-        didSet {
-            self.prev?.next = self
-            self.prev?.head.parentBy?.size.height += totalHeight
-            self.prev?.head.parentBy?.position.y -= totalHeight/2
-        }
-    }
     
     public weak var next: Blockly?
-    
-    
-    /**
-     Parent Node is always positioned on the left of the child node by default
-     Before changing parent node, remove self from parent node
-     After changing parent node, set self as child node of parent node
-     */
-    public weak var parentBy: Blockly? {
-        willSet {
-            let translation = max(0, totalHeight/2 - (parentBy == nil ? totalHeight/2 : self.parentBy!.originalSize.height/2))
-            self.parentBy?.size.height = max(originalSize.height, (childBy == nil ? 0 : childBy!.totalHeight))
-            self.parentBy?.childBy = nil
-            self.parentBy?.position.y += translation
-        }
-        didSet {
-            let translation = max(0, totalHeight/2 - (parentBy == nil ? totalHeight/2 : self.parentBy!.originalSize.height/2))
-            self.parentBy?.size.height = max(originalSize.height, (childBy == nil ? 0 : childBy!.totalHeight))
-            self.parentBy?.childBy = self
-            self.parentBy?.position.y -= translation
-        }
+    public weak var prev: Blockly? {
+        willSet { self.prev?.updateNext(nil) }
+        didSet { self.prev?.updateNext(self) }
     }
     
-    /**
-     Child Node is always positioned on the bottom right of the parent node by default.
-     Each node can only have ond child node. However by appending nodes to the child node, a linked list of "children" can be created
-     */
+    private func updateNext(newNext: Blockly?) {
+        let oldParentHeight = newNext == nil ?
+                                head.totalHeight :
+                                max(head.totalHeight, head.parentBy == nil ? 0 : head.parentBy!.originalSize.height)
+        self.next = newNext
+        let newParentHeight = max(head.totalHeight, head.parentBy == nil ? 0 : head.parentBy!.originalSize.height)
+        head.parentBy?.size.height = newParentHeight
+        head.parentBy?.position.y += (oldParentHeight - newParentHeight)/2
+    }
+    
+    
     public weak var childBy: Blockly?
+    public weak var parentBy: Blockly? {
+        willSet { self.parentBy?.updateChild(nil) }
+        didSet { self.parentBy?.updateChild(self) }
+    }
+
+    private func updateChild(newChildBy: Blockly?) {
+        let translation = max(0, childBy == nil ? 0 : childBy!.totalHeight/2 - originalSize.height/2)
+        self.childBy = newChildBy
+        self.size.height = max(originalSize.height, childBy == nil ? 0 : childBy!.totalHeight)
+        self.position.y += childBy == nil ? translation : -translation
+    }
     
     public var nextSnappingEnabled = true       /** Allow nodes to snap to its bottom, enabled by default */
     public var prevSnappingEnabled = true       /** Allow nodes to snap to its top, enabled by default */
