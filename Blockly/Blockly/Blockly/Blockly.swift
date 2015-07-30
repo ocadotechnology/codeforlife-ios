@@ -69,10 +69,12 @@ public class Blockly: SKSpriteNode {
      After updating position, adjust positions of all the children and nodes linked after
      */
     override public var position: CGPoint {
-        didSet {
-            self.updateNextPosition()
-            self.updateChildPosition()
-        }
+        didSet { updateNextAndChildPosition() }
+    }
+    
+    private func updateNextAndChildPosition() {
+        next?.snapToNeighbour()
+        childBy?.snapToNeighbour()
     }
         
     public var topGravity    : CGFloat = 30     /* Top Stickiness */
@@ -168,26 +170,11 @@ public class Blockly: SKSpriteNode {
                 next.position.y + next.size.height/2 + size.height/2
             )
         }
-//        updateNextPosition()
-//        updateChildPosition()
     }
     
-    
-    /** Update the positions of all the nodes linked after */
-    public func updateNextPosition() { next?.snapToNeighbour() }
-    
-    /** Update the positions of the child */
-    public func updateChildPosition() { childBy?.snapToNeighbour() }
-    
-    /**
-     Update positions and size due to changes in children
-     @param translationY, self will translate by translationY unit
-    
-     Order is important, size must always be changed before position
-     */
-    public func updateFromChild(translationY: CGFloat) {
-        self.size.height = max(originalSize.height, (childBy == nil ? 0 : childBy!.totalHeight))
-        self.position.y += translationY
+    public func discoverNeighbour() -> Blockly? {
+        
+        return nil
     }
 
 }
