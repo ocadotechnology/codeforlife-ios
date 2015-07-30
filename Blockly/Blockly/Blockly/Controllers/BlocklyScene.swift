@@ -52,14 +52,12 @@ public class BlocklyScene: SKScene {
             if let blockly = blocklyOnDrag {
                 let position = blockly.position
                 blockly.position = CGPointMake(position.x + translation.x, position.y + translation.y)
-                blockly.updateNextPosition()
-                blockly.updateChildPosition()
             }
             sender.setTranslation(CGPointZero, inView: sender.view)
         case UIGestureRecognizerState.Ended:
+            blocklyOnDrag?.updateParent()
             blocklyOnDrag?.updatePrev()
             blocklyOnDrag?.updateNext()
-            blocklyOnDrag?.updateParent()
             blocklyOnDrag?.snapToNeighbour()
             blocklyOnDrag = nil
         default: break

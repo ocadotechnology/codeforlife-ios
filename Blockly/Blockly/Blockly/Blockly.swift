@@ -16,17 +16,31 @@ public class Blockly: SKSpriteNode {
      */
     
     public weak var prev: Blockly? {
-        /** Unlink itself from its previous node */
-        willSet { prev?.next = nil }
-        didSet { prev?.next = self }
+        /** 
+         - Reset ParentHeight
+         - Unlink from Parent
+         - Reset Parent Position
+         */
+        willSet {
+            self.prev?.head.parentBy?.size.height -= totalHeight
+            self.prev?.next = nil
+            self.prev?.head.parentBy?.position.y += totalHeight/2
+        }
+        
+        /**
+         - Link to new parent
+         - Update parent height
+         - Update parent position
+         */
+        didSet {
+            self.prev?.next = self
+            self.prev?.head.parentBy?.size.height += totalHeight
+            self.prev?.head.parentBy?.position.y -= totalHeight/2
+        }
     }
     
-    public weak var next: Blockly? {
-        /** Reset the position and size of the parent node for consistent update after new linkage is set */
-        willSet { head.parentBy?.updateFromChild(totalHeight/2) }
-        /** Update the position and size of the parent node */
-        didSet { head.parentBy?.updateFromChild(-totalHeight/2) }
-    }
+    public weak var next: Blockly?
+    
     
     /**
      Parent Node is always positioned on the left of the child node by default
@@ -34,20 +48,25 @@ public class Blockly: SKSpriteNode {
      After changing parent node, set self as child node of parent node
      */
     public weak var parentBy: Blockly? {
-        willSet { parentBy?.childBy = nil }
-        didSet { parentBy?.childBy = self }
+        willSet {
+            let translation = max(0, totalHeight/2 - (parentBy == nil ? totalHeight/2 : self.parentBy!.originalSize.height/2))
+            self.parentBy?.size.height = max(originalSize.height, (childBy == nil ? 0 : childBy!.totalHeight))
+            self.parentBy?.childBy = nil
+            self.parentBy?.position.y += translation
+        }
+        didSet {
+            let translation = max(0, totalHeight/2 - (parentBy == nil ? totalHeight/2 : self.parentBy!.originalSize.height/2))
+            self.parentBy?.size.height = max(originalSize.height, (childBy == nil ? 0 : childBy!.totalHeight))
+            self.parentBy?.childBy = self
+            self.parentBy?.position.y -= translation
+        }
     }
     
     /**
      Child Node is always positioned on the bottom right of the parent node by default.
      Each node can only have ond child node. However by appending nodes to the child node, a linked list of "children" can be created
-     Before changing child node: reset position and size
-     After changing child node: update position and size to adjust the view to include all children
      */
-    public weak var childBy: Blockly? {
-        willSet { updateFromChild(childBy == nil ? 0 : childBy!.totalHeight/2) }
-        didSet { updateFromChild(childBy == nil ? 0 : -childBy!.totalHeight/2) }
-    }
+    public weak var childBy: Blockly?
     
     public var nextSnappingEnabled = true       /** Allow nodes to snap to its bottom, enabled by default */
     public var prevSnappingEnabled = true       /** Allow nodes to snap to its top, enabled by default */
@@ -68,7 +87,7 @@ public class Blockly: SKSpriteNode {
     override public var position: CGPoint {
         didSet {
             self.updateNextPosition()
-//            self.updateChildPosition()
+            self.updateChildPosition()
         }
     }
         
@@ -165,8 +184,8 @@ public class Blockly: SKSpriteNode {
                 next.position.y + next.size.height/2 + size.height/2
             )
         }
-        updateNextPosition()
-        updateChildPosition()
+//        updateNextPosition()
+//        updateChildPosition()
     }
     
     
@@ -184,7 +203,7 @@ public class Blockly: SKSpriteNode {
      */
     public func updateFromChild(translationY: CGFloat) {
         self.size.height = max(originalSize.height, (childBy == nil ? 0 : childBy!.totalHeight))
-//        self.position.y += translationY
+        self.position.y += translationY
     }
 
 }
