@@ -47,11 +47,18 @@ public class Blockly: UIView {
         
         /** Remove all the Inputs and redisplay them */
         self.removeAllSubviews()
-        for (index, input) in enumerate(inputs) {
-            input.frame.origin = self.bounds.origin + CGPointMake(0, CGFloat(index)*defaultSize.height)
+        for input in inputs {
             addSubview(input)
         }
-        
+    }
+    
+    func updateInputsFrame() {
+        for (index, input) in enumerate(inputs) {
+            /** Adjust position */
+            input.frame.origin = CGPointMake(0, CGFloat(index)*defaultSize.height)
+            /** Adjust width */
+            input.frame.size.width = self.frame.width
+        }
     }
     
     private func removeAllSubviews() {
@@ -61,7 +68,7 @@ public class Blockly: UIView {
     }
     
     func appendInput(type: InputType, field: String) {
-        inputs.append(Input(type: type, field: field))
+        inputs.append(Input(sourceBlock: self, type: type, field: field))
     }
     
     public func removeInput(index: Int) {

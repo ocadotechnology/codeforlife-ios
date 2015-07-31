@@ -11,14 +11,11 @@ import Blockly2
 
 class ViewController: BlocklyViewController {
     
-
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         let blockly = BlocklyFactory().createIfThenBlock()
         addBlockly(blockly)
     }
-
-
 
 }
 

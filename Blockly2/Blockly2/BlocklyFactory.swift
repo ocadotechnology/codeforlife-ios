@@ -16,6 +16,14 @@ public class BlocklyFactory {
         let blockly = Blockly(buildClosure: {
             $0.appendInput(InputType.Value, field: "if")
             $0.appendInput(InputType.Statment, field: "then")
+            $0.inputs[1].field = "THENENEN"
+        })
+        return blockly
+    }
+    
+    public func createMoveForwardBlock() -> Blockly {
+        let blockly = Blockly(buildClosure: {
+            $0.appendInput(InputType.Dummy, field: "Move Forward")
         })
         return blockly
     }

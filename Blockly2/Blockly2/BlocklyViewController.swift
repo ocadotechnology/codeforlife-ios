@@ -34,8 +34,7 @@ public class BlocklyViewController: UIViewController {
         switch sender.state {
         case UIGestureRecognizerState.Began:
             let currPos = sender.locationInView(sender.view)
-            blocklyOnDrag = ios
-            iosfindBlocklyAtPoint(currPos)
+            blocklyOnDrag = findBlocklyAtPoint(currPos)
         case UIGestureRecognizerState.Changed:
             let translation = sender.translationInView(sender.view!)
             if let blockly = blocklyOnDrag {

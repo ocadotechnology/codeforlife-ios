@@ -20,27 +20,47 @@ class Input: UIView {
     let defaultFrame = CGRect(origin: CGPointZero, size: CGSizeMake(80, 40))
     
     lazy var textLabel =  UILabel()
-    
-    init(type: InputType, field: String) {
-        super.init(frame: defaultFrame)
-        backgroundColor = defaultColor
-        setupTextLabel(field)
+    var field: String = "" {
+        didSet { updateTextLabel() }
     }
-
-    required init(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+    
+    unowned var sourceBlock: Blockly
     
     /**
-     Setup the UILabel to display the @field text
+     Initialization
+     @param type Input type of the input
+     @field String to display on the input
+     */
+    init(sourceBlock: Blockly, type: InputType, field: String) {
+        self.field = field
+        self.sourceBlock = sourceBlock
+        super.init(frame: defaultFrame)
+        backgroundColor = defaultColor
+        addSubview(textLabel)
+        updateTextLabel()
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        self.field = ""
+        self.sourceBlock = Blockly(buildClosure: {
+            $0.center = CGPointZero
+        })
+        super.init(coder: aDecoder)
+    }
+    
+    /**
+     Update the UILabel to display the @field text
      @param field String to display
      */
-    private func setupTextLabel(field: String) {
+    private func updateTextLabel() {
         textLabel.text = field
         textLabel.frame = self.bounds
         let frameHeight = textLabel.frame.height
         textLabel.sizeToFit()
         textLabel.frame.size.height = frameHeight
-        addSubview(textLabel)
-        self.frame.size.width = max(defaultFrame.size.width, subviews.reduce(0, combine: {max($0, $1.frame.size.width)}) + 20)
+        self.frame.size.width = subviews.reduce(0, combine: {max($0, $1.frame.size.width)})
+        sourceBlock.frame.size.width = max(sourceBlock.frame.width, self.frame.width)
+        sourceBlock.updateInputsFrame()
     }
     
 }
