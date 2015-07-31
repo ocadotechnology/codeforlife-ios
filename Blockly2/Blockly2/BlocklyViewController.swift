@@ -43,6 +43,7 @@ public class BlocklyViewController: UIViewController {
             }
             sender.setTranslation(CGPointZero, inView: sender.view)
         case UIGestureRecognizerState.Ended:
+            blocklyOnDrag?.updateNeighbour()
             blocklyOnDrag = nil
         default: break
         }
