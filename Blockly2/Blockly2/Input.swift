@@ -70,7 +70,6 @@ class Input: UIView {
          Must be larger then the minimalSize
          */
         sourceBlock.frame.size.width = max(sourceBlock.frame.width, self.frame.width + 20)
-        println("newWidth = \(sourceBlock.frame.width)")
         /**
          Update all the Input views to fit the Blockly View
          */

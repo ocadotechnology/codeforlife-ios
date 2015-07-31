@@ -29,20 +29,28 @@ public class BlocklyViewController: UIViewController {
         topBlocks.append(blockly)
     }
     
-    private var blocklyOnDrag: Blockly?
+    private weak var blocklyOnDrag: Blockly?
+    private weak var blocklyOnHighlighted: Blockly?
     func handlePanGesture(sender: UIPanGestureRecognizer) {
         switch sender.state {
         case UIGestureRecognizerState.Began:
             let currPos = sender.locationInView(sender.view)
             blocklyOnDrag = findBlocklyAtPoint(currPos)
         case UIGestureRecognizerState.Changed:
+            blocklyOnHighlighted?.layer.borderWidth = 0
+            blocklyOnHighlighted = nil
             let translation = sender.translationInView(sender.view!)
             if let blockly = blocklyOnDrag {
                 let center = blockly.center
                 blockly.center = CGPointMake(center.x + translation.x, center.y + translation.y)
+                blocklyOnHighlighted = blockly.findClosestBlockly()
+                blocklyOnHighlighted?.layer.borderWidth = 5
+                blocklyOnHighlighted?.layer.borderColor = UIColor.yellowColor().CGColor
             }
             sender.setTranslation(CGPointZero, inView: sender.view)
         case UIGestureRecognizerState.Ended:
+            blocklyOnHighlighted?.layer.borderWidth = 0
+            blocklyOnHighlighted = nil
             blocklyOnDrag?.updateNeighbour()
             blocklyOnDrag = nil
         default: break

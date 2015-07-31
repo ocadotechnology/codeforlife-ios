@@ -185,6 +185,15 @@ public class Blockly: UIView {
         self.connectPreviousBlockly(previousBlockly)
     }
     
+    func findClosestBlockly() -> Blockly? {
+        if let blockly = nextConnection?.findClosestConnection(searchRadius)?.sourceBlock {
+            return blockly
+        } else if let blockly = previousConnection?.findClosestConnection(searchRadius)?.sourceBlock {
+            return blockly
+        }
+        return nil
+    }
+    
     /**
      Update Next Blockly 
      @param otherBlockly reference to the new blockly or nil to disconnect from the next blockly
