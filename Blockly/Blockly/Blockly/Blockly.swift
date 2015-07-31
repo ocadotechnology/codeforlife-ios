@@ -38,6 +38,8 @@ public class Blockly: UIView {
     var canHavePrev   = false      /** Allow nodes to snap to its top, enabled by default */
     var canHaveBigSister = false    /** Allow nodes to snap to its right becoming a littleSister, disabled by default */
     var canHaveLittleSister  = false
+    var canHaveParent = false
+    var canHaveChild = false
     
     var lockToPrev = false
     
@@ -57,7 +59,8 @@ public class Blockly: UIView {
         
     var prevStickiness  : CGFloat = 30      /* Top Stickiness */
     var nextStickiness  : CGFloat = 30      /* Bottom Stickiness */
-    var littleSisterStickiness : CGFloat = 30      /* Parent Stickiness */
+    var bigSisterStickiness : CGFloat = 30      /* Parent Stickiness */
+    var parentStickiness : CGFloat = 30
     
     /** Returns the number of nodes linked after */
     var count: Int { return next == nil ? 0 : next!.count + 1 }
@@ -136,7 +139,7 @@ public class Blockly: UIView {
     
     func updateBigSister() {
         if canHaveBigSister {
-            let positionToFind = CGPointMake(center.x - frame.width/2 - littleSisterStickiness, center.y)
+            let positionToFind = CGPointMake(center.x - frame.width/2 - bigSisterStickiness, center.y)
             if let neighbour = discoverNeighbour(positionToFind) where
                 neighbour.canHaveLittleSister &&
                 (neighbour.littleSister == nil || neighbour.littleSister == self) &&

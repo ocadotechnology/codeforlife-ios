@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED51C0D41B6B671A00C38EC9 /* Blockly2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED51C0D31B6B671A00C38EC9 /* Blockly2.framework */; };
 		EDB02BA51B6789C1001D62FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BA41B6789C1001D62FA /* AppDelegate.swift */; };
 		EDB02BA71B6789C1001D62FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BA61B6789C1001D62FA /* ViewController.swift */; };
 		EDB02BAA1B6789C1001D62FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB02BA81B6789C1001D62FA /* Main.storyboard */; };
 		EDB02BAC1B6789C1001D62FA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDB02BAB1B6789C1001D62FA /* Images.xcassets */; };
 		EDB02BAF1B6789C1001D62FA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDB02BAD1B6789C1001D62FA /* LaunchScreen.xib */; };
 		EDB02BBB1B6789C1001D62FA /* BlocklyTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB02BBA1B6789C1001D62FA /* BlocklyTestTests.swift */; };
-		EDB02BCA1B678E52001D62FA /* Blockly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB02BC91B678E52001D62FA /* Blockly.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED51C0D31B6B671A00C38EC9 /* Blockly2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Blockly2.framework; path = "../../Blockly2/build/Debug-iphoneos/Blockly2.framework"; sourceTree = "<group>"; };
 		EDB02B9F1B6789C1001D62FA /* BlocklyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlocklyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB02BA31B6789C1001D62FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDB02BA41B6789C1001D62FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDB02BCA1B678E52001D62FA /* Blockly.framework in Frameworks */,
+				ED51C0D41B6B671A00C38EC9 /* Blockly2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +121,7 @@
 		EDB02BC61B678CF4001D62FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED51C0D31B6B671A00C38EC9 /* Blockly2.framework */,
 				EDB02BC91B678E52001D62FA /* Blockly.framework */,
 				EDB02BC41B6789F6001D62FA /* Blockly.framework */,
 			);
@@ -356,6 +358,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/joey.chan/Documents/c4l/codeforlife-ios/Blockly2/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = BlocklyTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -366,6 +372,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/joey.chan/Documents/c4l/codeforlife-ios/Blockly2/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = BlocklyTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +435,7 @@
 				EDB02BC01B6789C1001D62FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EDB02BC11B6789C1001D62FA /* Build configuration list for PBXNativeTarget "BlocklyTestTests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +444,7 @@
 				EDB02BC31B6789C1001D62FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,18 +7,15 @@
 //
 
 import UIKit
-import SpriteKit
-import Blockly
+import Blockly2
 
-class ViewController: BlocklyVC {
+class ViewController: BlocklyViewController {
+    
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        addHead(StartBlock(CGPointMake(500, 500)))
-        addBlockly(NormalBlock(CGPointMake(200, 200)))
-        addBlockly(NormalBlock(CGPointMake(300, 300)))
-        addBlockly(ConditionalBlock(CGPointMake(400, 400)))
-        addBlocklyArray(IfThenBlock(CGPointMake(600, 600)))
+        let blockly = BlocklyFactory().createIfThenBlock()
+        addBlockly(blockly)
     }
 
 
