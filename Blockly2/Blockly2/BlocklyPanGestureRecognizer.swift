@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class BlocklyPanGestureRecognizer: UIPanGestureRecognizer {

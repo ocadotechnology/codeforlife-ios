@@ -29,29 +29,56 @@ public class BlocklyViewController: UIViewController {
         topBlocks.append(blockly)
     }
     
-    private weak var blocklyOnDrag: Blockly?
-    private weak var blocklyOnHighlighted: Blockly?
+    private weak var blocklyOnDrag: Blockly? {
+        willSet {
+            self.blocklyOnDrag?.layer.borderWidth = 0
+            self.blocklyOnDrag?.updateNeighbour()
+        }
+        didSet {
+            self.blocklyOnDrag?.layer.borderWidth = 5
+            self.blocklyOnDrag?.layer.borderColor = UIColor.yellowColor().CGColor
+        }
+    }
+    
+    private weak var blocklyOnHighlighted: Blockly? {
+        willSet {
+            self.blocklyOnHighlighted?.layer.borderWidth = 0
+        }
+        didSet {
+            self.blocklyOnHighlighted?.layer.borderWidth = 5
+            self.blocklyOnHighlighted?.layer.borderColor = UIColor.greenColor().CGColor
+        }
+    }
+    
     func handlePanGesture(sender: UIPanGestureRecognizer) {
         switch sender.state {
         case UIGestureRecognizerState.Began:
+            /**
+             Locate the Blockly which is about to be dragged around
+             */
             let currPos = sender.locationInView(sender.view)
             blocklyOnDrag = findBlocklyAtPoint(currPos)
+            
         case UIGestureRecognizerState.Changed:
-            blocklyOnHighlighted?.layer.borderWidth = 0
+            
             blocklyOnHighlighted = nil
             let translation = sender.translationInView(sender.view!)
             if let blockly = blocklyOnDrag {
+                
+                /** Update blocklyOnDrag position */
                 let center = blockly.center
                 blockly.center = CGPointMake(center.x + translation.x, center.y + translation.y)
-                blocklyOnHighlighted = blockly.findClosestBlockly()
-                blocklyOnHighlighted?.layer.borderWidth = 5
-                blocklyOnHighlighted?.layer.borderColor = UIColor.yellowColor().CGColor
+                
+                /** Highlight the closest blockly if one is in search range */
+                if let closestBlockly = blockly.findClosestBlockly() where
+                        closestBlockly != blocklyOnDrag?.nextConnection?.targetConnection?.sourceBlock {
+                    blocklyOnHighlighted = blockly.findClosestBlockly()
+                }
             }
             sender.setTranslation(CGPointZero, inView: sender.view)
+            
         case UIGestureRecognizerState.Ended:
-            blocklyOnHighlighted?.layer.borderWidth = 0
             blocklyOnHighlighted = nil
-            blocklyOnDrag?.updateNeighbour()
             blocklyOnDrag = nil
         default: break
         }

@@ -24,6 +24,7 @@
 		ED51C0E31B6B796300C38EC9 /* BlocklyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51C0E11B6B796300C38EC9 /* BlocklyFactory.swift */; };
 		ED51C0E81B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51C0E71B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift */; };
 		ED51C0E91B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51C0E71B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift */; };
+		EDA4E6C01B6F5A5D00CF2051 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA4E6BE1B6F5A5D00CF2051 /* ExtensionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		ED51C0DE1B6B708E00C38EC9 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		ED51C0E11B6B796300C38EC9 /* BlocklyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyFactory.swift; sourceTree = "<group>"; };
 		ED51C0E71B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		EDA4E6BE1B6F5A5D00CF2051 /* ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				ED51C0C61B6B666500C38EC9 /* Blockly2Tests.swift */,
+				EDA4E6BE1B6F5A5D00CF2051 /* ExtensionTests.swift */,
 				ED51C0C41B6B666500C38EC9 /* Supporting Files */,
 			);
 			path = Blockly2Tests;
@@ -257,6 +260,7 @@
 				ED51C0C71B6B666500C38EC9 /* Blockly2Tests.swift in Sources */,
 				ED51C0E01B6B708E00C38EC9 /* Extension.swift in Sources */,
 				ED51C0D21B6B668900C38EC9 /* BlocklyViewController.swift in Sources */,
+				EDA4E6C01B6F5A5D00CF2051 /* ExtensionTests.swift in Sources */,
 				ED51C0E91B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift in Sources */,
 				ED51C0DA1B6B68A800C38EC9 /* Connection.swift in Sources */,
 			);
@@ -444,6 +448,7 @@
 				ED51C0CC1B6B666500C38EC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED51C0CD1B6B666500C38EC9 /* Build configuration list for PBXNativeTarget "Blockly2Tests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +457,7 @@
 				ED51C0CF1B6B666500C38EC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

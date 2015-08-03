@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
-import Darwin
+import UIKit
 import Foundation
 
 func +(lhs:CGPoint, rhs: CGPoint) -> CGPoint {

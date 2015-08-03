@@ -27,4 +27,12 @@ public class BlocklyFactory {
         return blockly
     }
     
+    public func createTurnLeftBlock() -> Blockly {
+        let blockly = Blockly(buildClosure: {
+            $0.appendInput(InputType.Dummy, field: "Turn Left")
+            $0.backgroundColor = UIColor.redColor()
+        })
+        return blockly
+    }
+    
 }

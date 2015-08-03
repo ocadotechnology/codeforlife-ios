@@ -12,7 +12,7 @@ public class Blockly: UIView {
 
     let defaultSize = CGSizeMake(120, 60)
     let defaultCenter = CGPointMake(400, 400)
-    let defaultColor = UIColor.blueColor()
+    let defaultColor = UIColor(red: 64/255, green: 208/255, blue: 192/255, alpha: 1) //#40D0C0
     let searchRadius:CGFloat = 20
     
     /**
@@ -31,53 +31,14 @@ public class Blockly: UIView {
     }
     
     /**
-     Return a reference to the next blockly, nil if there does not exists one
+     Contact Point to establish connection with another block
      */
-    weak var nextBlockly: Blockly?
-    
-    /**
-     Return a reference to the previous blockly, nil if there does not exists one
-     Only add observer in either nextBlockly or previousBlockly to avoid infinite recursion
-     @willSet remove reference from previous blockly
-     @didSet setup reference to the new previous blockly
-     */
-    weak var previousBlockly: Blockly? {
-        willSet { self.previousBlockly?.nextBlockly = nil }
-        didSet { self.previousBlockly?.nextBlockly = self }
-    }
+    var nextConnection: Connection?
     
     /**
      Contact Point to establish connection with another block
-     @get CGPoint in the middle of the top frame, nil if blockly does not allow a next blockly
-     @set If new value is not nil, blockly center will be updated to fit the contact point
      */
-    var nextConnection: Connection? {
-        get {
-            let type = ConnectionType.NextConnection
-            let position = center + CGPointMake(0, frame.height/2)
-            let connection = Connection(self, type, position)
-            return allowNextStatement ? connection : nil
-        }
-    }
-    
-    /**
-     Contact Point to establish connection with another block
-     @get CGPoint in the middle of the bottom frame, nil if blockly does not allow a previous blockly
-     @set If new value is not nil, blockly center will be updated to fit the contact point
-     */
-    var previousConnection: Connection? {
-        get {
-            let type = ConnectionType.PreviousConnection
-            let position = center + CGPointMake(0, -frame.height/2)
-            let connection = Connection(self, type, position)
-            return allowPreviousStatement ? connection : nil
-        }
-        set {
-            if let previousConnection = newValue?.position {
-                center = previousConnection + CGPointMake(0, frame.height/2)
-            }
-        }
-    }
+    var previousConnection: Connection?
     
     /**
      Center of the blockly
@@ -85,6 +46,8 @@ public class Blockly: UIView {
      */
     override public var center: CGPoint {
         didSet {
+            nextConnection?.position = center + CGPointMake(0, frame.height/2)
+            previousConnection?.position = center  + CGPointMake(0, -frame.height/2)
             updateNextPosition()
         }
     }
@@ -107,18 +70,43 @@ public class Blockly: UIView {
      Update next blockly's previous contact point to stick to my next contact point
      */
     func updateNextPosition() {
-        nextBlockly?.snapToNeighbour()
+        nextConnection?.targetConnection?.sourceBlock.snapToNeighbour()
     }
     
     /**
      This blockly is allowed to have a next statement by default
      */
-    var allowNextStatement = true
+    var allowNextStatement = true {
+        didSet {
+            println(self.nextConnection)
+            println(initializeNextConnection)
+            self.nextConnection = allowNextStatement ? initializeNextConnection() : nil
+            println(self.nextConnection)
+        }
+    }
+    
+    private func initializeNextConnection() -> Connection {
+        let type = ConnectionType.NextConnection
+        let position = center + CGPointMake(0, frame.height/2)
+        let connection = Connection(self, type, position)
+        return connection
+    }
     
     /**
      this blockly is allowed to have a previous statement by default
      */
-    var allowPreviousStatement = true
+    var allowPreviousStatement = true {
+        didSet {
+            self.previousConnection = allowPreviousStatement ? initializePreviousConnection() : nil
+        }
+    }
+    
+    private func initializePreviousConnection() -> Connection {
+        let type = ConnectionType.PreviousConnection
+        let position = center + CGPointMake(0, -frame.height/2)
+        let connection = Connection(self, type, position)
+        return connection
+    }
     
     /**
     Create a Blockly when customized setting
@@ -131,6 +119,8 @@ public class Blockly: UIView {
         frame.size = defaultSize
         backgroundColor = defaultColor
         center = defaultCenter
+        self.nextConnection = initializeNextConnection()
+        self.previousConnection = initializePreviousConnection()
         buildClosure(self)
     }
     
@@ -178,20 +168,30 @@ public class Blockly: UIView {
      Locate the cloest contact point for each valid contact point of this blockly
      */
     func updateNeighbour() {
-        let nextBlockly = nextConnection?.findClosestConnection(searchRadius)?.sourceBlock
-        self.connectNextBlockly(nextBlockly)
+        let includeConnected = true
         
-        let previousBlockly = previousConnection?.findClosestConnection(searchRadius)?.sourceBlock
+        /** Search for the current closest connections */
+        let nextBlockly = nextConnection?.findClosestConnection(searchRadius, includeConnected)?.sourceBlock
+        let previousBlockly = previousConnection?.findClosestConnection(searchRadius, includeConnected)?.sourceBlock
+        
+        /** Disconnect all connections */
+        self.connectNextBlockly(nil)
+        self.connectPreviousBlockly(nil)
+        
+        /** Reconnection all the connections */
+        self.connectNextBlockly(nextBlockly)
         self.connectPreviousBlockly(previousBlockly)
     }
     
     func findClosestBlockly() -> Blockly? {
-        if let blockly = nextConnection?.findClosestConnection(searchRadius)?.sourceBlock {
-            return blockly
-        } else if let blockly = previousConnection?.findClosestConnection(searchRadius)?.sourceBlock {
-            return blockly
+        var result: Blockly?
+        let includeConnected = true
+        if let blockly = nextConnection?.findClosestConnection(searchRadius, includeConnected)?.sourceBlock {
+            result = blockly
+        } else if let blockly = previousConnection?.findClosestConnection(searchRadius, includeConnected)?.sourceBlock {
+            result = blockly
         }
-        return nil
+        return result
     }
     
     /**
@@ -199,7 +199,9 @@ public class Blockly: UIView {
      @param otherBlockly reference to the new blockly or nil to disconnect from the next blockly
      */
     public func connectNextBlockly(otherBlockly: Blockly?) {
-        if otherBlockly?.previousBlockly != nil {
+        if self.nextConnection?.targetConnection?.sourceBlock == otherBlockly {
+            otherBlockly?.snapToNeighbour()
+        } else if otherBlockly?.previousConnection?.targetConnection != nil {
             /** Already have a next blockly */
             
             /** Detach the original next blockly */
@@ -210,7 +212,9 @@ public class Blockly: UIView {
             
         } else {
             /** Attach to the next blockly */
-            otherBlockly?.previousBlockly = self
+            self.nextConnection?.targetConnection?.targetConnection = nil
+            self.nextConnection?.targetConnection = otherBlockly?.previousConnection
+            otherBlockly?.previousConnection?.targetConnection = self.nextConnection
             otherBlockly?.snapToNeighbour()
         }
     }
@@ -221,18 +225,25 @@ public class Blockly: UIView {
      @param, otherBlockly reference to the new blockly or nil to disconnect from the previous blockly
      */
     public func connectPreviousBlockly(otherBlockly: Blockly?) {
-        if otherBlockly?.nextBlockly != nil {
+        if self.previousConnection?.targetConnection?.sourceBlock == otherBlockly {
+            otherBlockly?.snapToNeighbour()
+        } else if otherBlockly?.nextConnection?.targetConnection != nil {
             /** otherBlockly Already have a previous blockly */
         } else {
             /** Attach to the previous blockly */
-            previousBlockly = otherBlockly
+            self.previousConnection?.targetConnection?.targetConnection = nil
+            self.previousConnection?.targetConnection = otherBlockly?.nextConnection
+            otherBlockly?.nextConnection?.targetConnection = self.previousConnection
             snapToNeighbour()
         }
     }
     
     func snapToNeighbour() {
-        if let blockly = previousBlockly {
-            self.previousConnection = blockly.nextConnection
+        let previousBlockly = previousConnection?.targetConnection?.sourceBlock
+        let newPosition = previousBlockly?.nextConnection?.position
+        if let newPosition = newPosition {
+            self.previousConnection?.position = newPosition
+            self.previousConnection?.updateSourceBlockCenter()
         }
         updateNextPosition()
     }
@@ -262,6 +273,8 @@ public class Blockly: UIView {
     
     required public init(coder aDecoder: NSCoder) {
         minimalSize = defaultSize
+        allowNextStatement = true
+        allowPreviousStatement = true
         super.init(coder: aDecoder)
     }
 

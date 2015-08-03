@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 enum InputType {
@@ -16,7 +17,7 @@ enum InputType {
 
 class Input: UIView {
     
-    let defaultColor = UIColor(red: 64/255, green: 208/255, blue: 192/255, alpha: 1) //#40D0C0
+    let defaultColor = UIColor.clearColor()
     let defaultFrame = CGRect(origin: CGPointZero, size: CGSizeMake(120, 60))
     
     lazy var textLabel =  UILabel()

@@ -17,8 +17,10 @@ class ViewController: BlocklyViewController {
         super.viewDidAppear(animated)
         let b1 = factory.createMoveForwardBlock()
         let b2 = factory.createMoveForwardBlock()
+        let b3 = factory.createTurnLeftBlock()
         addBlockly(b1)
         addBlockly(b2)
+        addBlockly(b3)
     }
 
 }
