@@ -18,9 +18,12 @@ enum InputType {
 class Input: UIView {
     
     let defaultColor = UIColor.clearColor()
-    let defaultFrame = CGRect(origin: CGPointZero, size: CGSizeMake(120, 60))
+    let defaultFrame = CGRect(origin: CGPointZero, size: CGSizeMake(150, 40))
+    let defaultBorderWidth: CGFloat = 1
+    let defaultBorderColor = UIColor.grayColor().CGColor
     
     lazy var textLabel =  UILabel()
+    
     var field: String = "" {
         didSet { updateTextLabel() }
     }
@@ -28,15 +31,19 @@ class Input: UIView {
     unowned var sourceBlock: Blockly
     
     /**
-     Initialization
-     @param type Input type of the input
-     @field String to display on the input
+        Initialization
+     
+        :param: type Input type of the input
+     
+        :param: field String to display on the input
      */
     init(sourceBlock: Blockly, type: InputType, field: String) {
         self.field = field
         self.sourceBlock = sourceBlock
         super.init(frame: defaultFrame)
-        backgroundColor = defaultColor
+        self.backgroundColor = defaultColor
+        self.layer.borderWidth = defaultBorderWidth
+        self.layer.borderColor = defaultBorderColor
         addSubview(textLabel)
         updateTextLabel()
     }
@@ -50,8 +57,9 @@ class Input: UIView {
     }
     
     /**
-     Update the UILabel to display the @field text
-     @param field String to display
+        Update the UILabel to display the @field text
+     
+        :param: field String to display
      */
     private func updateTextLabel() {
         /** Update Text */

@@ -11,23 +11,8 @@ import UIKit
 public class BlocklyViewController: UIViewController {
     
     lazy var topBlocks = [Blockly]()
+    
     private var recognizer: BlocklyPanGestureRecognizer?
-    
-    override public func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.recognizer = BlocklyPanGestureRecognizer(self)
-        view.addGestureRecognizer(self.recognizer!)
-    }
-    
-    override public func viewWillDisappear(animated: Bool) {
-        view.removeGestureRecognizer(recognizer!)
-    }
-
-
-    public func addBlockly(blockly: Blockly) {
-        view.addSubview(blockly)
-        topBlocks.append(blockly)
-    }
     
     private weak var blocklyOnDrag: Blockly? {
         willSet {
@@ -50,6 +35,22 @@ public class BlocklyViewController: UIViewController {
         }
     }
     
+    override public func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.recognizer = BlocklyPanGestureRecognizer(self)
+        view.addGestureRecognizer(self.recognizer!)
+    }
+    
+    override public func viewWillDisappear(animated: Bool) {
+        view.removeGestureRecognizer(recognizer!)
+    }
+
+
+    public func addBlockly(blockly: Blockly) {
+        view.addSubview(blockly)
+        topBlocks.append(blockly)
+    }
+    
     func handlePanGesture(sender: UIPanGestureRecognizer) {
         switch sender.state {
         case UIGestureRecognizerState.Began:
@@ -60,7 +61,7 @@ public class BlocklyViewController: UIViewController {
             blocklyOnDrag = findBlocklyAtPoint(currPos)
             
         case UIGestureRecognizerState.Changed:
-            
+        
             blocklyOnHighlighted = nil
             let translation = sender.translationInView(sender.view!)
             if let blockly = blocklyOnDrag {
@@ -70,9 +71,9 @@ public class BlocklyViewController: UIViewController {
                 blockly.center = CGPointMake(center.x + translation.x, center.y + translation.y)
                 
                 /** Highlight the closest blockly if one is in search range */
-                if let closestBlockly = blockly.findClosestBlockly() where
+                if let closestBlockly = blockly.findClosestConnection()?.sourceBlock where
                         closestBlockly != blocklyOnDrag?.nextConnection?.targetConnection?.sourceBlock {
-                    blocklyOnHighlighted = blockly.findClosestBlockly()
+                    blocklyOnHighlighted = closestBlockly
                 }
             }
             sender.setTranslation(CGPointZero, inView: sender.view)

@@ -31,18 +31,7 @@ public class Connection {
     let positionOffset: CGPoint
     let type: ConnectionType
     let sourceBlock: Blockly
-    var targetConnection: Connection? {
-        willSet {
-            if type.isAggressiveType {
-                targetConnection?.targetConnection = nil
-            }
-        }
-        didSet {
-            if type.isAggressiveType {
-                targetConnection?.targetConnection = self
-            }
-        }
-    }
+    var targetConnection: Connection?
     
     init(_ sourceBlock: Blockly, _ type: ConnectionType, _ position: CGPoint) {
         self.sourceBlock = sourceBlock
@@ -59,10 +48,11 @@ public class Connection {
      Find the Closest suitable connection within search radius including/excluding connected connection
      @param searchRadius radius in CGFloat to seach for the connection
      @param includeConnected true if result should include connected connections, false otherwise
-     @return connection in the closest distance, nil if there does not exist one
+     @return a tuple of connection in the closest distance, nil if there does not exist one, with the shortestDistance
      */
     func findClosestConnection(searchRadius: CGFloat, _ includeConnected: Bool) -> Connection? {
         var closest: Connection?
+        var shortestDistance: CGFloat = -1
         if let subviews = sourceBlock.superview?.subviews {
             for view in subviews {
                 if let otherBlockly = view as? Blockly where otherBlockly != sourceBlock {
@@ -81,10 +71,12 @@ public class Connection {
                             } else if closest == nil {
                                 /** This is the first acceptable result */
                                 closest = otherConnection
+                                shortestDistance = distanceBetween(self.position, otherConnection.position)
                             } else if let currentClosest = closest where
-                            distanceBetween(self.position, otherConnection.position) < distanceBetween(self.position, currentClosest.position) {
+                            distanceBetween(self.position, otherConnection.position) < shortestDistance {
                                 /** There is a new connection closer to the current resull */
                                 closest = otherConnection
+                                shortestDistance = distanceBetween(self.position, otherConnection.position)
                             }
                         }
                     }
