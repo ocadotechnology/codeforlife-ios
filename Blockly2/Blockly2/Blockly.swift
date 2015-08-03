@@ -65,6 +65,11 @@ public class Blockly: UIView {
         if previousConnection != nil {
             connections.append(previousConnection!)
         }
+        for input in inputs {
+            if let connection = input.connection {
+                connections.append(connection)
+            }
+        }
         return connections
     }
     
@@ -114,9 +119,9 @@ public class Blockly: UIView {
         self.frame.size = defaultSize
         self.backgroundColor = defaultColor
         self.center = defaultCenter
+        buildClosure(self)
         self.nextConnection = createNextConnection()
         self.previousConnection = createPreviousConnection()
-        buildClosure(self)
     }
     
     /**
@@ -206,7 +211,7 @@ public class Blockly: UIView {
         let oldPreviousBlockly = self.previousConnection?.targetConnection?.sourceBlock
         let newPreviousBlockly = self.previousConnection?.findClosestConnection(searchRadius, includeConnected)?.sourceBlock
         self.connectPreviousBlockly(newPreviousBlockly)
-        return oldPreviousBlockly != newPreviousBlockly
+        return oldPreviousBlockly != newPreviousBlockly && newPreviousBlockly != nil
     }
     
     

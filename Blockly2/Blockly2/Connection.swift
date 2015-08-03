@@ -10,18 +10,18 @@ import UIKit
 import Foundation
 
 enum ConnectionType {
+    case InputValue
+    case OutputValue
     case NextConnection
     case PreviousConnection
     
     var oppositeType: ConnectionType {
         switch self {
+        case .InputValue: return .OutputValue
+        case .OutputValue: return .InputValue
         case .NextConnection: return .PreviousConnection
         case .PreviousConnection: return .NextConnection
         }
-    }
-    
-    var isAggressiveType: Bool {
-        return (self == NextConnection)
     }
 }
 
@@ -45,10 +45,13 @@ public class Connection {
     }
     
     /**
-     Find the Closest suitable connection within search radius including/excluding connected connection
-     @param searchRadius radius in CGFloat to seach for the connection
-     @param includeConnected true if result should include connected connections, false otherwise
-     @return a tuple of connection in the closest distance, nil if there does not exist one, with the shortestDistance
+        Find the Closest suitable connection within search radius including/excluding connected connection
+     
+        :param: searchRadius radius in CGFloat to seach for the connection
+     
+        :param: includeConnected true if result should include connected connections, false otherwise
+     
+        :returns: a tuple of connection in the closest distance, nil if there does not exist one, with the shortestDistance
      */
     func findClosestConnection(searchRadius: CGFloat, _ includeConnected: Bool) -> Connection? {
         var closest: Connection?
@@ -89,10 +92,13 @@ public class Connection {
 }
 
 /**
- Equality check for Connection
- @param lhs First connection to be compared to
- @param rhs Second connection to be compared to
- @return true if they share the same sourceBlock and type, false otherwise
+    Equality check for Connection
+ 
+    :param: lhs First connection to be compared to
+
+    :param: rhs Second connection to be compared to
+
+    :returns: true if they share the same sourceBlock and type, false otherwise
  */
 func ==(lhs: Connection, rhs: Connection) -> Bool {
     return lhs.type == rhs.type && lhs.sourceBlock == rhs.sourceBlock

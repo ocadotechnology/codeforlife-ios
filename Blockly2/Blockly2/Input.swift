@@ -11,7 +11,7 @@ import Foundation
 
 enum InputType {
     case Value
-    case Statment
+    case Statement
     case Dummy
 }
 
@@ -28,6 +28,10 @@ class Input: UIView {
         didSet { updateTextLabel() }
     }
     
+    var connection: Connection?
+    
+    var type: InputType
+    
     unowned var sourceBlock: Blockly
     
     /**
@@ -39,6 +43,7 @@ class Input: UIView {
      */
     init(sourceBlock: Blockly, type: InputType, field: String) {
         self.field = field
+        self.type = type
         self.sourceBlock = sourceBlock
         super.init(frame: defaultFrame)
         self.backgroundColor = defaultColor
@@ -46,13 +51,13 @@ class Input: UIView {
         self.layer.borderColor = defaultBorderColor
         addSubview(textLabel)
         updateTextLabel()
+        setupConnection()
     }
 
     required init(coder aDecoder: NSCoder) {
         self.field = ""
-        self.sourceBlock = Blockly(buildClosure: {
-            $0.center = CGPointZero
-        })
+        self.sourceBlock = Blockly(buildClosure: { $0.center = CGPointZero })
+        self.type = .Dummy
         super.init(coder: aDecoder)
     }
     
@@ -83,6 +88,18 @@ class Input: UIView {
          Update all the Input views to fit the Blockly View
          */
         sourceBlock.updateInputsFrame()
+    }
+    
+    private func setupConnection() {
+        if type == .Value {
+            let type = ConnectionType.InputValue
+            let position = center + CGPointMake(frame.width/2, 0)
+            self.connection = Connection(sourceBlock, type, position)
+        } else if type == .Statement {
+            let type = ConnectionType.InputValue
+            let position = center + CGPointMake(frame.width/4, frame.height/2)
+            self.connection = Connection(sourceBlock, type, position)
+        }
     }
     
 }

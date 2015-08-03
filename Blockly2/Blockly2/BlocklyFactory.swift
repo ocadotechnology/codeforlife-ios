@@ -15,7 +15,7 @@ public class BlocklyFactory {
     public func createIfThenBlock() -> Blockly {
         let blockly = Blockly(buildClosure: {
             $0.appendInput(InputType.Value, field: "if")
-            $0.appendInput(InputType.Statment, field: "then")
+            $0.appendInput(InputType.Statement, field: "then")
         })
         return blockly
     }
