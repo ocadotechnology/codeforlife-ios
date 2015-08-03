@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		ED51C0BA1B6B666500C38EC9 /* Blockly2.h in Headers */ = {isa = PBXBuildFile; fileRef = ED51C0B91B6B666500C38EC9 /* Blockly2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED51C0C01B6B666500C38EC9 /* Blockly2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED51C0B41B6B666500C38EC9 /* Blockly2.framework */; };
-		ED51C0C71B6B666500C38EC9 /* Blockly2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51C0C61B6B666500C38EC9 /* Blockly2Tests.swift */; };
 		ED51C0D11B6B668900C38EC9 /* BlocklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51C0D01B6B668900C38EC9 /* BlocklyViewController.swift */; };
 		ED51C0D21B6B668900C38EC9 /* BlocklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51C0D01B6B668900C38EC9 /* BlocklyViewController.swift */; };
 		ED51C0D61B6B67CB00C38EC9 /* Blockly.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51C0D51B6B67CB00C38EC9 /* Blockly.swift */; };
@@ -25,6 +24,7 @@
 		ED51C0E81B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51C0E71B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift */; };
 		ED51C0E91B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51C0E71B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift */; };
 		EDA4E6C01B6F5A5D00CF2051 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA4E6BE1B6F5A5D00CF2051 /* ExtensionTests.swift */; };
+		EDA4E6C21B6FBF7400CF2051 /* BlocklyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA4E6C11B6FBF7400CF2051 /* BlocklyTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 		ED51C0B91B6B666500C38EC9 /* Blockly2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blockly2.h; sourceTree = "<group>"; };
 		ED51C0BF1B6B666500C38EC9 /* Blockly2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Blockly2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED51C0C51B6B666500C38EC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED51C0C61B6B666500C38EC9 /* Blockly2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockly2Tests.swift; sourceTree = "<group>"; };
 		ED51C0D01B6B668900C38EC9 /* BlocklyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyViewController.swift; sourceTree = "<group>"; };
 		ED51C0D51B6B67CB00C38EC9 /* Blockly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blockly.swift; sourceTree = "<group>"; };
 		ED51C0D81B6B68A800C38EC9 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		ED51C0E11B6B796300C38EC9 /* BlocklyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyFactory.swift; sourceTree = "<group>"; };
 		ED51C0E71B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyPanGestureRecognizer.swift; sourceTree = "<group>"; };
 		EDA4E6BE1B6F5A5D00CF2051 /* ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
+		EDA4E6C11B6FBF7400CF2051 /* BlocklyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 		ED51C0C31B6B666500C38EC9 /* Blockly2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				ED51C0C61B6B666500C38EC9 /* Blockly2Tests.swift */,
+				EDA4E6C11B6FBF7400CF2051 /* BlocklyTest.swift */,
 				EDA4E6BE1B6F5A5D00CF2051 /* ExtensionTests.swift */,
 				ED51C0C41B6B666500C38EC9 /* Supporting Files */,
 			);
@@ -256,8 +256,8 @@
 			files = (
 				ED51C0DD1B6B6BE700C38EC9 /* Input.swift in Sources */,
 				ED51C0D71B6B67CB00C38EC9 /* Blockly.swift in Sources */,
+				EDA4E6C21B6FBF7400CF2051 /* BlocklyTest.swift in Sources */,
 				ED51C0E31B6B796300C38EC9 /* BlocklyFactory.swift in Sources */,
-				ED51C0C71B6B666500C38EC9 /* Blockly2Tests.swift in Sources */,
 				ED51C0E01B6B708E00C38EC9 /* Extension.swift in Sources */,
 				ED51C0D21B6B668900C38EC9 /* BlocklyViewController.swift in Sources */,
 				EDA4E6C01B6F5A5D00CF2051 /* ExtensionTests.swift in Sources */,

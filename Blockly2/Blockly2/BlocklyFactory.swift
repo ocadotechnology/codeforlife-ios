@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 public class BlocklyFactory {
@@ -31,6 +32,14 @@ public class BlocklyFactory {
         let blockly = Blockly(buildClosure: {
             $0.appendInput(InputType.Dummy, field: "Turn Left")
             $0.backgroundColor = UIColor.redColor()
+        })
+        return blockly
+    }
+    
+    public func createTrueBlock() -> Blockly {
+        let blockly = Blockly(buildClosure:  {
+            $0.addOutput()
+            $0.backgroundColor = UIColor.orangeColor()
         })
         return blockly
     }

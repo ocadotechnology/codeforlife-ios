@@ -49,7 +49,6 @@ public class BlocklyViewController: UIViewController {
     public func addBlockly(blockly: Blockly) {
         view.addSubview(blockly)
         topBlocks.append(blockly)
-        println("\(blockly) has been added with \(blockly.connections.count) connections")
     }
     
     func handlePanGesture(sender: UIPanGestureRecognizer) {

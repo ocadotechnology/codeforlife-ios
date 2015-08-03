@@ -41,6 +41,8 @@ public class Blockly: UIView {
      */
     var previousConnection: Connection?
     
+    var outputConnection: Connection?
+    
     /**
         Center of the blockly
         
@@ -119,9 +121,9 @@ public class Blockly: UIView {
         self.frame.size = defaultSize
         self.backgroundColor = defaultColor
         self.center = defaultCenter
-        buildClosure(self)
         self.nextConnection = createNextConnection()
         self.previousConnection = createPreviousConnection()
+        buildClosure(self)
     }
     
     /**
@@ -157,8 +159,13 @@ public class Blockly: UIView {
         
         /** Remove all the Inputs and redisplay them */
         self.removeAllSubviews()
-        for input in inputs {
-            addSubview(input)
+        
+        if outputConnection != nil {
+            
+        } else {
+            for input in inputs {
+                addSubview(input)
+            }
         }
         updateInputsFrame()
     }
@@ -190,14 +197,19 @@ public class Blockly: UIView {
         Locate the cloest contact point for each valid contact point of this blockly and update connetions
      */
     func updateNeighbour() {
+        let includeConnected = true
         if !PreviousBlocklyUpdated() {
             /**
                  Previous Blockly has the priority to be updated first
                  If no changes in previous blockly but changes in next blockly, apply the change in next blockly
              */
-            let includeConnected = true
             let newNextBlockly = self.nextConnection?.findClosestConnection(searchRadius, includeConnected)?.sourceBlock
             self.connectNextBlockly(newNextBlockly)
+        }
+        
+        if outputConnection != nil {
+            let newOutputBlockly = self.outputConnection?.findClosestConnection(searchRadius, includeConnected)?.sourceBlock
+            
         }
     }
     
@@ -328,6 +340,11 @@ public class Blockly: UIView {
      */
     func appendInput(type: InputType, field: String) {
         inputs.append(Input(sourceBlock: self, type: type, field: field))
+    }
+    
+    func addOutput() {
+        outputConnection = Connection(self, ConnectionType.OutputValue, center + CGPointMake(-frame.width/2, 0))
+        allowNextStatement = false
     }
     
     /**

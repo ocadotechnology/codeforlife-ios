@@ -9,11 +9,11 @@
 import UIKit
 import Foundation
 
-enum ConnectionType {
-    case InputValue
-    case OutputValue
-    case NextConnection
-    case PreviousConnection
+enum ConnectionType: String {
+    case InputValue = "InputValue"
+    case OutputValue = "OutputValue"
+    case NextConnection = "NextConnection"
+    case PreviousConnection = "PreviousConnction"
     
     var oppositeType: ConnectionType {
         switch self {
