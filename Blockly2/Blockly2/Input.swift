@@ -36,7 +36,7 @@ class Input: UIView {
     
     /**
         Initialization
-     
+
         :param: type Input type of the input
      
         :param: field String to display on the input
@@ -87,7 +87,7 @@ class Input: UIView {
 //        /**
 //         Update all the Input views to fit the Blockly View
 //         */
-        sourceBlock.updateInputsFrame()
+//        sourceBlock.updateInputsFrame()
     }
     
     func setupConnection() {

@@ -35,6 +35,18 @@ public class BlocklyViewController: UIViewController {
         }
     }
     
+    var connections: [Connection] {
+        var connections = [Connection]()
+        for subview in view.subviews {
+            if let blockly = subview as? Blockly {
+                for connection in blockly.connections {
+                    connections.append(connection)
+                }
+            }
+        }
+        return connections
+    }
+    
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.recognizer = BlocklyPanGestureRecognizer(self)
@@ -47,6 +59,7 @@ public class BlocklyViewController: UIViewController {
 
 
     public func addBlockly(blockly: Blockly) {
+        blockly.workspace = self
         view.addSubview(blockly)
         topBlocks.append(blockly)
     }
@@ -68,7 +81,7 @@ public class BlocklyViewController: UIViewController {
                 blockly.center = CGPointMake(center.x + translation.x, center.y + translation.y)
                 
                 /** Highlight the closest blockly if one is in search range */
-                if let closestBlockly = blockly.findClosestConnection()?.sourceBlock where
+                if let closestBlockly = blockly.findClosestAvailableConnection()?.sourceBlock where
                         closestBlockly != blocklyOnDrag?.nextConnection?.targetConnection?.sourceBlock {
                     blocklyOnHighlighted = closestBlockly
                 }

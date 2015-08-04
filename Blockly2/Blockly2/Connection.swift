@@ -40,12 +40,19 @@ public class PreviousConnection: Connection {
     }
 }
 
+public class OutputConnection: Connection {
+    init(_ sourceBlock: Blockly, _ position: CGPoint) {
+        super.init(sourceBlock, .OutputValue, position)
+    }
+}
+
 public class Connection {
     
     var position: CGPoint
     let positionOffset: CGPoint
     let type: ConnectionType
     let sourceBlock: Blockly
+    let searchRadius: CGFloat = 20
     var targetConnection: Connection?
     
     init(_ sourceBlock: Blockly, _ type: ConnectionType, _ position: CGPoint) {
@@ -55,12 +62,18 @@ public class Connection {
         self.positionOffset = sourceBlock.center - position
     }
     
+    /**
+        Update sourceBlock center to follow the change in connection position
+        This is done manually to avoid infinite recursion
+     */
     func updateSourceBlockCenter() {
         self.sourceBlock.center = position + positionOffset
     }
     
     /**
         Find the Closest suitable connection within search radius including/excluding connected connection
+    
+        :param: connections list of connections to search through
      
         :param: searchRadius radius in CGFloat to seach for the connection
      
@@ -68,39 +81,46 @@ public class Connection {
      
         :returns: a tuple of connection in the closest distance, nil if there does not exist one, with the shortestDistance
      */
-    func findClosestConnection(searchRadius: CGFloat, _ includeConnected: Bool) -> Connection? {
+    func findClosestAvailableConnection(connections: [Connection], _ searchRadius: CGFloat, includeConnected: Bool) -> (Connection, CGFloat)? {
         var closest: Connection?
         var shortestDistance: CGFloat = -1
-        if let subviews = sourceBlock.superview?.subviews {
-            for view in subviews {
-                if let otherBlockly = view as? Blockly where otherBlockly != sourceBlock {
-                    /** Search through all the connection in all the blocklys */
-                    for otherConnection in otherBlockly.connections {
-                        if (otherConnection.type.oppositeType == self.type)
-                            && (distanceBetween(self.position, otherConnection.position) <= searchRadius) {
-                                
-                            if let targetConnection = targetConnection where
-                                otherConnection == targetConnection && !includeConnected {
-                                /**
-                                 otherConenction is already connected
-                                 Do nothing
-                                 */
-                            } else if closest == nil {
-                                /** This is the first acceptable result */
-                                closest = otherConnection
-                                shortestDistance = distanceBetween(self.position, otherConnection.position)
-                            } else if let currentClosest = closest where
-                            distanceBetween(self.position, otherConnection.position) < shortestDistance {
-                                /** There is a new connection closer to the current resull */
-                                closest = otherConnection
-                                shortestDistance = distanceBetween(self.position, otherConnection.position)
-                            }
-                        }
-                    }
+        for otherConnection in connections {
+            if matchSearchCondition(otherConnection) {
+                if closest == nil || distanceTo(otherConnection) < shortestDistance {
+                    closest = otherConnection
+                    shortestDistance = distanceTo(otherConnection)
                 }
             }
         }
-        return closest
+        return closest != nil ? (closest!, shortestDistance) : nil
+    }
+    
+    func distanceTo(otherConnection: Connection) -> CGFloat {
+        return distanceBetween(self, otherConnection)
+    }
+    
+    /**
+        Another Connection must fulfill all the following search conditions to be validated
+        
+        1. Not sharing the same blockly
+        
+        2. Opposite type of each other
+        
+        3. Within search range
+        
+        4. Cannot be inserted between two blocklys as previous blockly of the latter blockly
+    
+        :param: otherConnection the connection to be checked against the conditions
+        
+        :returns: true if otherConnection fulfills all the conditions, false otherwise
+     */
+    
+    private func matchSearchCondition(otherConnection: Connection) -> Bool {
+        return
+    /* 1 */  self.sourceBlock != otherConnection.sourceBlock
+    /* 2 */  && otherConnection.type.oppositeType == self.type
+    /* 3 */  && distanceTo(otherConnection) <= searchRadius
+    /* 4 */  && !(otherConnection.type == .PreviousConnection && otherConnection.targetConnection != nil)
     }
     
 }
