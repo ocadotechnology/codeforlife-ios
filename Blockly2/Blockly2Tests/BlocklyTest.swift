@@ -39,6 +39,7 @@ class BlocklyTest: XCTestCase {
     func testTrueBlockInit() {
         let blockly = factory.createTrueBlock()
         XCTAssertNil(blockly.nextConnection, "Next connection is not nil")
+        XCTAssertNotNil(blockly.outputConnection, "Output conenction shoult not be nil")
     }
     
     func testAllowNextStatement() {

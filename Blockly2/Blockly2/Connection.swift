@@ -25,6 +25,21 @@ enum ConnectionType: String {
     }
 }
 
+public class NextConnection: Connection {
+    
+    init(_ sourceBlock: Blockly, _ position: CGPoint) {
+        super.init(sourceBlock, .NextConnection, position)
+    }
+    
+}
+
+public class PreviousConnection: Connection {
+    
+    init(_ sourceBlock: Blockly, _ position: CGPoint) {
+        super.init(sourceBlock, .PreviousConnection, position)
+    }
+}
+
 public class Connection {
     
     var position: CGPoint
@@ -59,12 +74,11 @@ public class Connection {
         if let subviews = sourceBlock.superview?.subviews {
             for view in subviews {
                 if let otherBlockly = view as? Blockly where otherBlockly != sourceBlock {
-                    
                     /** Search through all the connection in all the blocklys */
                     for otherConnection in otherBlockly.connections {
                         if (otherConnection.type.oppositeType == self.type)
                             && (distanceBetween(self.position, otherConnection.position) <= searchRadius) {
-                            
+                                
                             if let targetConnection = targetConnection where
                                 otherConnection == targetConnection && !includeConnected {
                                 /**

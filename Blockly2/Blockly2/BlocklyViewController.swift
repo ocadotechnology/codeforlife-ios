@@ -54,9 +54,6 @@ public class BlocklyViewController: UIViewController {
     func handlePanGesture(sender: UIPanGestureRecognizer) {
         switch sender.state {
         case UIGestureRecognizerState.Began:
-            /**
-             Locate the Blockly which is about to be dragged around
-             */
             let currPos = sender.locationInView(sender.view)
             blocklyOnDrag = findBlocklyAtPoint(currPos)
             

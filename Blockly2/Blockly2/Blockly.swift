@@ -15,32 +15,17 @@ public class Blockly: UIView {
     let defaultColor = UIColor(red: 64/255, green: 208/255, blue: 192/255, alpha: 1) //#40D0C0
     let searchRadius:CGFloat = 20
     
-    /**
-        Minimal Size of the Blockly, which the blockly should never be small than this size
-     */
     var minimalSize: CGSize
     
-    /**
-        List of all the inputs
-    
-        Upon changes, the blockly view will be reset
-     */
     var inputs = [Input]() {
         didSet {
+            println(inputs.count)
             render()
         }
     }
     
-    /**
-        Contact Point to establish connection with another block
-     */
-    var nextConnection: Connection?
-    
-    /**
-        Contact Point to establish connection with another block
-     */
     var previousConnection: Connection?
-    
+    var nextConnection: Connection?
     var outputConnection: Connection?
     
     /**
@@ -53,6 +38,7 @@ public class Blockly: UIView {
             nextConnection?.position = center + CGPointMake(0, frame.height/2)
             previousConnection?.position = center  + CGPointMake(0, -frame.height/2)
             updateNextPosition()
+            println(frame.origin)
         }
     }
     
@@ -159,14 +145,11 @@ public class Blockly: UIView {
         
         /** Remove all the Inputs and redisplay them */
         self.removeAllSubviews()
-        
-        if outputConnection != nil {
-            
-        } else {
-            for input in inputs {
-                addSubview(input)
-            }
+
+        for input in inputs {
+            addSubview(input)
         }
+        
         updateInputsFrame()
     }
     
@@ -176,7 +159,7 @@ public class Blockly: UIView {
     func updateInputsFrame() {
         for (index, input) in enumerate(inputs) {
             /** Adjust position */
-            input.frame.origin = CGPointMake(0, CGFloat(index)*defaultSize.height)
+            input.frame.origin = CGPointMake(0, CGFloat(index) * defaultSize.height)
             /** Adjust width */
             input.frame.size.width = self.frame.width
         }
@@ -339,6 +322,10 @@ public class Blockly: UIView {
         :param: field String to be displayed
      */
     func appendInput(type: InputType, field: String) {
+        let input = Input(sourceBlock: self, type: type, field: field)
+        if let lastInput = inputs.last {
+            input.frame.origin = lastInput.frame.origin + CGPointMake(0, lastInput.frame.height)
+        }
         inputs.append(Input(sourceBlock: self, type: type, field: field))
     }
     

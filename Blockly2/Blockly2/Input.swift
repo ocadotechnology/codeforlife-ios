@@ -24,7 +24,7 @@ class Input: UIView {
     
     lazy var textLabel =  UILabel()
     
-    var field: String = "" {
+    var field: String {
         didSet { updateTextLabel() }
     }
     
@@ -33,6 +33,12 @@ class Input: UIView {
     var type: InputType
     
     unowned var sourceBlock: Blockly
+    
+    override var center: CGPoint {
+        didSet {
+            connection?.position = center + CGPointMake(frame.width/2, 0)
+        }
+    }
     
     /**
         Initialization
@@ -70,34 +76,34 @@ class Input: UIView {
         /** Update Text */
         textLabel.text = field
         
-        /** Resize textLabel to fit Input View height and text width */
+//        /** Resize textLabel to fit Input View height and text width */
         textLabel.frame = self.bounds
-        let frameHeight = textLabel.frame.height
-        textLabel.sizeToFit()
-        textLabel.frame.size.height = frameHeight
-        
-        /** Resize Input View to just include all the subviews */
-        self.frame.size.width = subviews.reduce(0, combine: {max($0, $1.frame.size.width)})
-        
-        /**
-         Update Blockly View to just include all the Input views
-         Must be larger then the minimalSize
-         */
-        sourceBlock.frame.size.width = max(sourceBlock.frame.width, self.frame.width + 20)
-        /**
-         Update all the Input views to fit the Blockly View
-         */
+//        let frameHeight = textLabel.frame.height
+//        textLabel.sizeToFit()
+//        textLabel.frame.size.height = frameHeight
+//        
+//        /** Resize Input View to just include all the subviews */
+//        self.frame.size.width = subviews.reduce(0, combine: {max($0, $1.frame.size.width)})
+//        
+//        /**
+//         Update Blockly View to just include all the Input views
+//         Must be larger then the minimalSize
+//         */
+//        sourceBlock.frame.size.width = max(sourceBlock.frame.width, self.frame.width + 20)
+//        /**
+//         Update all the Input views to fit the Blockly View
+//         */
         sourceBlock.updateInputsFrame()
     }
     
-    private func setupConnection() {
+    func setupConnection() {
         if type == .Value {
             let type = ConnectionType.InputValue
-            let position = center + CGPointMake(frame.width/2, 0)
+            let position = CGPointMake(frame.width, frame.height/2)
             self.connection = Connection(sourceBlock, type, position)
         } else if type == .Statement {
             let type = ConnectionType.InputValue
-            let position = center + CGPointMake(frame.width/4, frame.height/2)
+            let position = CGPointMake(frame.width*3/4, frame.height)
             self.connection = Connection(sourceBlock, type, position)
         }
     }
