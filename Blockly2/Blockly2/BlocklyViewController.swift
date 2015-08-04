@@ -81,7 +81,7 @@ public class BlocklyViewController: UIViewController {
                 blockly.center = CGPointMake(center.x + translation.x, center.y + translation.y)
                 
                 /** Highlight the closest blockly if one is in search range */
-                if let closestBlockly = blockly.findClosestAvailableConnection()?.sourceBlock where
+                if let closestBlockly = blockly.findHighlightConnection()?.sourceBlock where
                         closestBlockly != blocklyOnDrag?.nextConnection?.targetConnection?.sourceBlock {
                     blocklyOnHighlighted = closestBlockly
                 }

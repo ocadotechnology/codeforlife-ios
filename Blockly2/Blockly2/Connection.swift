@@ -108,6 +108,8 @@ public class Connection {
         
         3. Within search range
     
+        4. Connection cannot be inserted between two blocklys as the previous blockly of the latter one
+    
         :param: otherConnection the connection to be checked against the conditions
         
         :returns: true if otherConnection fulfills all the conditions, false otherwise
@@ -117,7 +119,8 @@ public class Connection {
         return
         /* 1 */ self.sourceBlock != otherConnection.sourceBlock &&
         /* 2 */ otherConnection.type.oppositeType == self.type &&
-        /* 3 */ distanceTo(otherConnection) <= searchRadius
+        /* 3 */ distanceTo(otherConnection) <= searchRadius &&
+        /* 4 */ !(otherConnection.type == .PreviousConnection && otherConnection.targetConnection != nil && !(otherConnection == targetConnection))
     }
     
 }
@@ -127,10 +130,10 @@ public class Connection {
  
     :param: lhs First connection to be compared to
 
-    :param: rhs Second connection to be compared to
+    :param: rhs Second connection to be compared to, can be optional
 
     :returns: true if they share the same sourceBlock and type, false otherwise
  */
-func ==(lhs: Connection, rhs: Connection) -> Bool {
-        return lhs.type == rhs.type && lhs.sourceBlock == rhs.sourceBlock
+func ==(lhs: Connection, rhs: Connection?) -> Bool {
+    return rhs != nil && lhs.type == rhs!.type && lhs.sourceBlock == rhs!.sourceBlock
 }

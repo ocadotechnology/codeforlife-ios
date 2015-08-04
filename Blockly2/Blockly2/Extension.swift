@@ -32,16 +32,16 @@ func distanceBetween(lhs: Connection, rhs: Connection) -> CGFloat {
     return distanceBetween(lhs.position, rhs.position)
 }
 
-func min2(lhs: (Connection, CGFloat)?, rhs: (Connection, CGFloat)?) -> (Connection, CGFloat)? {
+func betterOf(lhs: (Connection, CGFloat)?, rhs: (Connection, CGFloat)?) -> (Connection, CGFloat)? {
     if lhs != nil && rhs != nil {
         return lhs!.1 < rhs!.1 ? lhs : rhs
     }
     return lhs ?? rhs
 }
 
-func min(args: (Connection, CGFloat)?...) -> (Connection, CGFloat)? {
+func bestOf(args: (Connection, CGFloat)?...) -> (Connection, CGFloat)? {
     var minimum: (Connection, CGFloat)?
-    args.foreach({minimum = min2(minimum, $0)})
+    args.foreach({minimum = betterOf(minimum, $0)})
     return minimum
 }
 
