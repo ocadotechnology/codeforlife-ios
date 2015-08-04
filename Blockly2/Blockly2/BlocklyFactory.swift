@@ -23,7 +23,7 @@ public class BlocklyFactory {
     
     public func createMoveForwardBlock() -> Blockly {
         let blockly = Blockly(buildClosure: {
-            $0.appendInput(InputType.Value, field: "Move Forward")
+            $0.appendInput(InputType.Dummy, field: "Move Forward")
         })
         return blockly
     }

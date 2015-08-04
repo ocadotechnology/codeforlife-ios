@@ -28,17 +28,11 @@ class Input: UIView {
         didSet { updateTextLabel() }
     }
     
-    var connection: Connection?
+    var connection: InputConnection?
     
     var type: InputType
     
     unowned var sourceBlock: Blockly
-    
-    override var center: CGPoint {
-        didSet {
-            connection?.position = center + CGPointMake(frame.width/2, 0)
-        }
-    }
     
     /**
         Initialization
@@ -98,13 +92,13 @@ class Input: UIView {
     
     func setupConnection() {
         if type == .Value {
-            let type = ConnectionType.InputValue
+            let inputType = InputType.Value
             let position = CGPointMake(frame.width, frame.height/2)
-            self.connection = Connection(sourceBlock, type, position)
+            self.connection = InputConnection(self, inputType)
         } else if type == .Statement {
-            let type = ConnectionType.InputValue
+            let inputType = InputType.Statement
             let position = CGPointMake(frame.width*3/4, frame.height)
-            self.connection = Connection(sourceBlock, type, position)
+            self.connection = InputConnection(self, inputType)
         }
     }
     

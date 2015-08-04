@@ -20,3 +20,7 @@ func -(lhs:CGPoint, rhs: CGPoint) -> CGPoint {
 func distanceBetween(lhs: CGPoint, rhs: CGPoint) -> CGFloat {
     return sqrt((lhs.x-rhs.x)*(lhs.x-rhs.x) + (lhs.y-rhs.y)*(lhs.y-rhs.y))
 }
+
+func distanceBetween(lhs: Connection, rhs: Connection) -> CGFloat {
+    return distanceBetween(lhs.position, rhs.position)
+}

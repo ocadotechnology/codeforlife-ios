@@ -19,7 +19,6 @@ public class Blockly: UIView {
     
     var inputs = [Input]() {
         didSet {
-            println(inputs.count)
             render()
         }
     }
@@ -37,8 +36,8 @@ public class Blockly: UIView {
         didSet {
             nextConnection?.position = center + CGPointMake(0, frame.height/2)
             previousConnection?.position = center  + CGPointMake(0, -frame.height/2)
+            outputConnection?.position = center + CGPointMake(-frame.width/2, 0)
             updateNextPosition()
-            println(frame.origin)
         }
     }
     
@@ -192,7 +191,7 @@ public class Blockly: UIView {
         
         if outputConnection != nil {
             let newOutputBlockly = self.outputConnection?.findClosestConnection(searchRadius, includeConnected)?.sourceBlock
-            
+            println(newOutputBlockly)
         }
     }
     
@@ -217,16 +216,26 @@ public class Blockly: UIView {
         var closest: Connection?
         var shortestDistance: CGFloat = -1
         let includeConnected = true
-        if let connection = nextConnection?.findClosestConnection(searchRadius, includeConnected).0 {
+        if let connection = nextConnection?.findClosestConnection(searchRadius, includeConnected) {
             closest = connection
-            shortestDistance = distanceBetween(nextConnection!.position, connection.position)
+            shortestDistance = distanceBetween(nextConnection!, connection)
         }
         if let connection = previousConnection?.findClosestConnection(searchRadius, includeConnected) {
-            let distance = distanceBetween(previousConnection!.position, connection.position)
+            let distance = distanceBetween(previousConnection!, connection)
             if closest == nil {
                 closest = connection
                 shortestDistance = distance
-            } else if distanceBetween(previousConnection!.position, connection.position) < shortestDistance {
+            } else if distanceBetween(previousConnection!, connection) < shortestDistance {
+                closest = connection
+                shortestDistance = distance
+            }
+        }
+        if let connection = outputConnection?.findClosestConnection(searchRadius, includeConnected) {
+            let distance = distanceBetween(outputConnection!, connection)
+            if closest == nil {
+                closest = connection
+                shortestDistance = distance
+            } else if distanceBetween(outputConnection!, connection) < shortestDistance {
                 closest = connection
                 shortestDistance = distance
             }

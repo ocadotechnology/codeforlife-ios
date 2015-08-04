@@ -9,19 +9,23 @@
 import UIKit
 import Foundation
 
-public class InputConnection {
+public class InputConnection: Connection {
     
     var sourceInput: Input
     var inputType: InputType
     
-    var position: CGPoint {
-        let offset = CGPointMake(sourceInput.frame.width, sourceInput.frame.height/2)
-        return sourceInput.sourceBlock.frame.origin + offset
+    override var position: CGPoint {
+        get {
+            let offset = CGPointMake(sourceInput.frame.width, sourceInput.frame.height/2)
+            return sourceInput.sourceBlock.frame.origin + sourceInput.frame.origin + offset
+        }
+        set {}
     }
     
     init(_ sourceInput: Input, _ inputType: InputType) {
         self.sourceInput = sourceInput
         self.inputType = inputType
+        super.init(sourceInput.sourceBlock, .InputValue, CGPointZero)
     }
     
 }

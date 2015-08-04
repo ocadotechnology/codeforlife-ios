@@ -30,8 +30,16 @@ class BlocklyTest: XCTestCase {
     
     func testIfThenBlocklyInit() {
         let blockly = factory.createIfThenBlock()
+        let input1 = blockly.inputs.first
+        let input2 = blockly.inputs.last
         XCTAssertNotNil(blockly.nextConnection, "Next connection is nil")
         XCTAssertNotNil(blockly.previousConnection, "Previous connection is nil")
+        XCTAssertNotNil(input1, "If Input is nil")
+        XCTAssertNotNil(input2, "Then Input is nil")
+        XCTAssertNotNil(input1?.connection, "If Input Connection is nil")
+        XCTAssertNotNil(input2?.connection, "Then Input Connection is nil")
+        XCTAssertTrue(input1?.connection?.type == ConnectionType.InputValue, "Input1 Conenction Type is not correct")
+        XCTAssertTrue(input2?.connection?.type == ConnectionType.InputValue, "Input2 Conenction Type is not correct")
         XCTAssertNil(blockly.outputConnection, "Outputconnection is not nil")
         XCTAssertEqual(blockly.connections.count, 4, "Connection Count is not correct")
     }
@@ -40,6 +48,7 @@ class BlocklyTest: XCTestCase {
         let blockly = factory.createTrueBlock()
         XCTAssertNil(blockly.nextConnection, "Next connection is not nil")
         XCTAssertNotNil(blockly.outputConnection, "Output conenction shoult not be nil")
+        XCTAssertTrue(blockly.outputConnection?.type == ConnectionType.OutputValue, "Output Connection Type is not correct")
     }
     
     func testAllowNextStatement() {
