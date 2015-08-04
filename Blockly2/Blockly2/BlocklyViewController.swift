@@ -85,16 +85,6 @@ public class BlocklyViewController: UIViewController {
                         closestBlockly != blocklyOnDrag?.nextConnection?.targetConnection?.sourceBlock {
                     blocklyOnHighlighted = closestBlockly
                 }
-//                println(blockly.outputConnection?.position)
-//                for v in view.subviews {
-//                    if let blockly = v as? Blockly {
-//                        println("______")
-//                        for connection in blockly.connections {
-//                            println(connection.position)
-//                        }
-//                    }
-//                }
-
             }
             sender.setTranslation(CGPointZero, inView: sender.view)
             

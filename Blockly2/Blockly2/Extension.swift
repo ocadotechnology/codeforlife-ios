@@ -13,6 +13,13 @@ func +(lhs:CGPoint, rhs: CGPoint) -> CGPoint {
     return CGPointMake(lhs.x+rhs.x, lhs.y+rhs.y)
 }
 
+func +=(lhs: CGPoint?, rhs: CGPoint?) -> CGPoint? {
+    if let lhs = lhs, rhs = rhs {
+        return CGPointMake(lhs.x+rhs.x, lhs.y+rhs.y)
+    }
+    return lhs ?? rhs
+}
+
 func -(lhs:CGPoint, rhs: CGPoint) -> CGPoint {
     return CGPointMake(lhs.x-rhs.x, lhs.y-rhs.y)
 }
@@ -50,6 +57,14 @@ extension Array {
         for element in self {
             closure(element)
         }
+    }
+    
+}
+
+extension CGSize {
+    
+    func toCGPoint() -> CGPoint {
+        return CGPointMake(self.width, self.height)
     }
     
 }

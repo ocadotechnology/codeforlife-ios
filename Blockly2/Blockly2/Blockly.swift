@@ -183,6 +183,7 @@ public class Blockly: UIView {
         let connections = workspace!.connections
         let oldNextBlockly = self.nextConnection?.targetConnection?.sourceBlock
         let newNextBlockly = self.nextConnection?.findClosestAvailableConnection(connections, searchRadius, includeConnected: true)?.0.sourceBlock
+        println(newNextBlockly)
         self.connectNextBlockly(newNextBlockly)
         return oldNextBlockly != newNextBlockly && newNextBlockly != nil
     }
@@ -261,6 +262,7 @@ public class Blockly: UIView {
                 /** Detach the original previous blockly */
                 self.previousConnection?.targetConnection?.targetConnection = nil
                 self.previousConnection?.targetConnection = nil
+                println("1")
             }
             
             if otherBlockly?.nextConnection?.targetConnection != nil {
@@ -275,15 +277,21 @@ public class Blockly: UIView {
                 self.previousConnection?.targetConnection = otherBlockly?.nextConnection
                 /** Try to attach the orphan block back to my tail */
                 if let lastConnection = lastBlockly.nextConnection {
+                    /** Possible to attach the orphan block */
                     lastConnection.targetConnection = orphanBlock?.previousConnection
                     orphanBlock?.previousConnection?.targetConnection = lastConnection
+                } else {
+                    /** Next Statement is not allowed in the last blockly */
+                    orphanBlock?.center += orphanBlock?.frame.size.toCGPoint() ?? CGPointZero
                 }
+                println("2")
                 
             } else {
                 /** Attach to the previous blockly */
                 self.previousConnection?.targetConnection?.targetConnection = nil
                 self.previousConnection?.targetConnection = otherBlockly?.nextConnection
                 otherBlockly?.nextConnection?.targetConnection = self.previousConnection
+                println("3")
             }
         }
         snapToNeighbour()

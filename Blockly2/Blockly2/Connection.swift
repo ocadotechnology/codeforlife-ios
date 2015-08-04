@@ -100,15 +100,13 @@ public class Connection {
     }
     
     /**
-        Another Connection must fulfill all the following search conditions to be validated
+        Another Connection must be already connected or fulfill all the following search conditions to be validated
         
         1. Not sharing the same blockly
         
         2. Opposite type of each other
         
         3. Within search range
-        
-        4. Cannot be inserted between two blocklys as previous blockly of the latter blockly
     
         :param: otherConnection the connection to be checked against the conditions
         
@@ -117,10 +115,9 @@ public class Connection {
     
     private func matchSearchCondition(otherConnection: Connection) -> Bool {
         return
-    /* 1 */  self.sourceBlock != otherConnection.sourceBlock
-    /* 2 */  && otherConnection.type.oppositeType == self.type
-    /* 3 */  && distanceTo(otherConnection) <= searchRadius
-    /* 4 */  && !(otherConnection.type == .PreviousConnection && otherConnection.targetConnection != nil)
+        /* 1 */ self.sourceBlock != otherConnection.sourceBlock &&
+        /* 2 */ otherConnection.type.oppositeType == self.type &&
+        /* 3 */ distanceTo(otherConnection) <= searchRadius
     }
     
 }
@@ -135,5 +132,5 @@ public class Connection {
     :returns: true if they share the same sourceBlock and type, false otherwise
  */
 func ==(lhs: Connection, rhs: Connection) -> Bool {
-    return lhs.type == rhs.type && lhs.sourceBlock == rhs.sourceBlock
+        return lhs.type == rhs.type && lhs.sourceBlock == rhs.sourceBlock
 }
