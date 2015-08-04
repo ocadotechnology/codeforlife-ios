@@ -25,13 +25,13 @@ public class BlocklyViewController: UIViewController {
         }
     }
     
-    private weak var blocklyOnHighlighted: Blockly? {
+    private weak var connectionHighlighted: Connection? {
         willSet {
-            self.blocklyOnHighlighted?.layer.borderWidth = 0
+            self.connectionHighlighted?.sourceBlock.layer.borderWidth = 0
         }
         didSet {
-            self.blocklyOnHighlighted?.layer.borderWidth = 5
-            self.blocklyOnHighlighted?.layer.borderColor = UIColor.greenColor().CGColor
+            self.connectionHighlighted?.sourceBlock.layer.borderWidth = 5
+            self.connectionHighlighted?.sourceBlock.layer.borderColor = UIColor.greenColor().CGColor
         }
     }
     
@@ -72,7 +72,7 @@ public class BlocklyViewController: UIViewController {
             
         case UIGestureRecognizerState.Changed:
         
-            blocklyOnHighlighted = nil
+            connectionHighlighted = nil
             let translation = sender.translationInView(sender.view!)
             if let blockly = blocklyOnDrag {
                 
@@ -81,15 +81,13 @@ public class BlocklyViewController: UIViewController {
                 blockly.center = CGPointMake(center.x + translation.x, center.y + translation.y)
                 
                 /** Highlight the closest blockly if one is in search range */
-                if let closestBlockly = blockly.findHighlightConnection()?.sourceBlock where
-                        closestBlockly != blocklyOnDrag?.nextConnection?.targetConnection?.sourceBlock {
-                    blocklyOnHighlighted = closestBlockly
-                }
+                connectionHighlighted = blockly.findHighlightConnection()
+                
             }
             sender.setTranslation(CGPointZero, inView: sender.view)
             
         case UIGestureRecognizerState.Ended:
-            blocklyOnHighlighted = nil
+            connectionHighlighted = nil
             blocklyOnDrag = nil
         default: break
         }

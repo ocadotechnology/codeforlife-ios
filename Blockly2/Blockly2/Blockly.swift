@@ -285,7 +285,11 @@ public class Blockly: UIView {
                     orphanBlock?.previousConnection?.targetConnection = lastConnection
                 } else {
                     /** Next Statement is not allowed in the last blockly */
-                    orphanBlock?.center += orphanBlock?.frame.size.toCGPoint() ?? CGPointZero
+                    if let orphanBlock = orphanBlock {
+                        let offset = CGPointMake(orphanBlock.frame.width*1.5, orphanBlock.frame.height*1.5)
+                        orphanBlock.center = orphanBlock.center + offset
+                        println(orphanBlock.center)
+                    }
                 }
                 
             } else {
