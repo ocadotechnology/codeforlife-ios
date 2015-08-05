@@ -17,6 +17,7 @@ public class Blockly: UIView {
     let defaultCenter = CGPointMake(400, 400)
     let defaultColor = UIColor(red: 64/255, green: 208/255, blue: 192/255, alpha: 1) //#40D0C0
     let searchRadius:CGFloat = 20
+    let shapeLayer = CAShapeLayer()
     
     var minimalSize: CGSize
     
@@ -92,7 +93,11 @@ public class Blockly: UIView {
         self.minimalSize = defaultSize
         super.init(frame: CGRect(origin: CGPointZero, size: CGSizeZero))
         self.frame.size = defaultSize
-        self.backgroundColor = defaultColor
+        self.backgroundColor = UIColor.clearColor()
+        self.shapeLayer.fillColor = defaultColor.CGColor
+        self.shapeLayer.strokeColor = UIColor.grayColor().CGColor
+        self.shapeLayer.zPosition = -1
+        self.layer.addSublayer(shapeLayer)
         self.center = defaultCenter
         self.nextConnection = createNextConnection()
         self.previousConnection = createPreviousConnection()
@@ -122,7 +127,7 @@ public class Blockly: UIView {
      */
     func render() {
         /** Calculate and update the height of the blockly */
-        let newHeight = max(minimalSize.height, CGFloat(inputs.count)*defaultSize.height)
+        let newHeight = max(minimalSize.height + 10 + 10, CGFloat(inputs.count)*defaultSize.height + 10 + 10)
         let oldOrigin = frame.origin
         frame.size.height = newHeight
         frame.origin = oldOrigin
@@ -139,7 +144,7 @@ public class Blockly: UIView {
     func updateInputsFrame() {
         for (index, input) in enumerate(inputs) {
             /** Adjust position */
-            input.frame.origin = CGPointMake(0, CGFloat(index) * defaultSize.height)
+            input.frame.origin = CGPointMake(0, CGFloat(index) * defaultSize.height + 10)
             /** Adjust width */
             input.frame.size.width = self.frame.width
         }
@@ -225,6 +230,7 @@ public class Blockly: UIView {
         let position = center + CGPointMake(-frame.width/2, 0)
         outputConnection = OutputConnection(self, position)
         allowNextStatement = false
+        render()
     }
     
     /**
@@ -240,6 +246,22 @@ public class Blockly: UIView {
         super.drawRect(rect)
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
+        
+        let path = UIBezierPath()
+        path.moveToPoint(CGPointMake(0, 0))
+        path.addLineToPoint(CGPointMake(20, 0))
+        path.addLineToPoint(CGPointMake(30, 10))
+        path.addLineToPoint(CGPointMake(40, 0))
+        path.addLineToPoint(CGPointMake(frame.width, 0))
+        path.addLineToPoint(CGPointMake(frame.width, frame.height-10))
+        path.addLineToPoint(CGPointMake(40, frame.height-10))
+        path.addLineToPoint(CGPointMake(30, frame.height))
+        path.addLineToPoint(CGPointMake(20, frame.height-10))
+        path.addLineToPoint(CGPointMake(0, frame.height-10))
+        path.closePath()
+        path.stroke()
+        path.fill()
+        shapeLayer.path = path.CGPath
     }
     
     required public init(coder aDecoder: NSCoder) {

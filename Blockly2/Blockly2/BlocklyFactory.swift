@@ -31,7 +31,7 @@ public class BlocklyFactory {
     public func createTurnLeftBlock() -> Blockly {
         let blockly = Blockly(buildClosure: {
             $0.appendInput(InputType.Dummy, field: "Turn Left")
-            $0.backgroundColor = UIColor.redColor()
+//            $0.backgroundColor = UIColor.redColor()
         })
         return blockly
     }
@@ -39,7 +39,7 @@ public class BlocklyFactory {
     public func createTrueBlock() -> Blockly {
         let blockly = Blockly(buildClosure:  {
             $0.addOutput()
-            $0.backgroundColor = UIColor.orangeColor()
+//            $0.backgroundColor = UIColor.orangeColor()
         })
         return blockly
     }
