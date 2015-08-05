@@ -311,12 +311,9 @@ public class Blockly: UIView {
             self.previousConnection?.position = newPosition
             self.previousConnection?.updateSourceBlockCenter()
         }
-        println("snapToNeighbour = \(outputConnection?.targetConnection?.position)")
-        if let newPosition = outputConnection?.targetConnection?.position {
-            self.outputConnection?.position = newPosition
-            println((self.outputConnection?.position, outputConnection?.targetConnection?.sourceBlock.center))
-            self.outputConnection?.updateSourceBlockCenter()
-        }
+        println("previous blockly next connection: \(newPosition)")
+        println("frame:\(frame)")
+        println("previous connection: \(previousConnection?.position)")
         updateNextBlocklyPosition()
     }
     

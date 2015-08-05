@@ -9,43 +9,6 @@
 import UIKit
 import Foundation
 
-enum ConnectionType: String {
-    case InputValue = "InputValue"
-    case OutputValue = "OutputValue"
-    case NextConnection = "NextConnection"
-    case PreviousConnection = "PreviousConnction"
-    
-    var oppositeType: ConnectionType {
-        switch self {
-        case .InputValue: return .OutputValue
-        case .OutputValue: return .InputValue
-        case .NextConnection: return .PreviousConnection
-        case .PreviousConnection: return .NextConnection
-        }
-    }
-}
-
-public class NextConnection: Connection {
-    
-    init(_ sourceBlock: Blockly, _ position: CGPoint) {
-        super.init(sourceBlock, .NextConnection, position)
-    }
-    
-}
-
-public class PreviousConnection: Connection {
-    
-    init(_ sourceBlock: Blockly, _ position: CGPoint) {
-        super.init(sourceBlock, .PreviousConnection, position)
-    }
-}
-
-public class OutputConnection: Connection {
-    init(_ sourceBlock: Blockly, _ position: CGPoint) {
-        super.init(sourceBlock, .OutputValue, position)
-    }
-}
-
 public class Connection {
     
     var position: CGPoint
@@ -54,6 +17,7 @@ public class Connection {
     let sourceBlock: Blockly
     let searchRadius: CGFloat = 20
     var targetConnection: Connection?
+    var delegate: ConnectionDelegate?
     
     init(_ sourceBlock: Blockly, _ type: ConnectionType, _ position: CGPoint) {
         self.sourceBlock = sourceBlock
@@ -67,7 +31,7 @@ public class Connection {
         This is done manually to avoid infinite recursion
      */
     func updateSourceBlockCenter() {
-        self.sourceBlock.center = position + positionOffset
+        delegate!.updateSourceBlockCenter()
     }
     
     /**
@@ -92,12 +56,15 @@ public class Connection {
                 }
             }
         }
-//        println(closest)
         return closest != nil ? (closest!, shortestDistance) : nil
     }
     
-    func distanceTo(otherConnection: Connection) -> CGFloat {
+    final func distanceTo(otherConnection: Connection) -> CGFloat {
         return distanceBetween(self, otherConnection)
+    }
+    
+    func connect(otherConnection: Connection) {
+        delegate!.connect(otherConnection)
     }
     
     /**
@@ -117,14 +84,7 @@ public class Connection {
      */
     
     private func matchSearchCondition(otherConnection: Connection) -> Bool {
-        return
-        /* 1 */ self.sourceBlock != otherConnection.sourceBlock &&
-        /* 2 */ otherConnection.type.oppositeType == self.type &&
-        /* 3 */ distanceTo(otherConnection) <= searchRadius &&
-        /* 4 */ !(otherConnection.type == .PreviousConnection &&
-                    otherConnection.targetConnection != nil &&
-                    targetConnection != nil &&
-                    !(otherConnection == targetConnection!))
+        return delegate!.matchSearchCondition(otherConnection)
     }
     
 }

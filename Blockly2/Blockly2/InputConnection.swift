@@ -26,6 +26,31 @@ public class InputConnection: Connection {
         self.sourceInput = sourceInput
         self.inputType = inputType
         super.init(sourceInput.sourceBlock, .InputValue, CGPointZero)
+        self.delegate = InputConnectionDelegate(self)
     }
     
+}
+
+public class InputConnectionDelegate: ConnectionDelegate {
+    
+    unowned var connection: InputConnection
+    
+    init(_ connection: InputConnection) {
+        self.connection = connection
+    }
+    
+    func connect(otherConnection: Connection?) {
+        // TODO
+    }
+    
+    func matchSearchCondition(otherConnection: Connection) -> Bool {
+        return
+        /* 1 */ connection.sourceBlock != otherConnection.sourceBlock &&
+        /* 2 */ connection.type == otherConnection.type.oppositeType &&
+        /* 3 */ connection.distanceTo(otherConnection) <= connection.searchRadius
+    }
+    
+    func updateSourceBlockCenter() {
+        connection.sourceBlock.center = connection.position + connection.positionOffset
+    }
 }
