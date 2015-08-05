@@ -27,6 +27,7 @@
 		EDA4E6C21B6FBF7400CF2051 /* BlocklyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA4E6C11B6FBF7400CF2051 /* BlocklyTest.swift */; };
 		EDA4E6C41B70BD1100CF2051 /* InputConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA4E6C31B70BD1100CF2051 /* InputConnection.swift */; };
 		EDA4E6C51B70BD1100CF2051 /* InputConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA4E6C31B70BD1100CF2051 /* InputConnection.swift */; };
+		EDEBD9E31B71F332003B3DC4 /* ConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9E21B71F332003B3DC4 /* ConnectionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		EDA4E6BE1B6F5A5D00CF2051 /* ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		EDA4E6C11B6FBF7400CF2051 /* BlocklyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyTest.swift; sourceTree = "<group>"; };
 		EDA4E6C31B70BD1100CF2051 /* InputConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputConnection.swift; sourceTree = "<group>"; };
+		EDEBD9E21B71F332003B3DC4 /* ConnectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				EDA4E6C11B6FBF7400CF2051 /* BlocklyTest.swift */,
+				EDEBD9E21B71F332003B3DC4 /* ConnectionTests.swift */,
 				EDA4E6BE1B6F5A5D00CF2051 /* ExtensionTests.swift */,
 				ED51C0C41B6B666500C38EC9 /* Supporting Files */,
 			);
@@ -262,6 +265,7 @@
 				ED51C0DD1B6B6BE700C38EC9 /* Input.swift in Sources */,
 				ED51C0D71B6B67CB00C38EC9 /* Blockly.swift in Sources */,
 				EDA4E6C21B6FBF7400CF2051 /* BlocklyTest.swift in Sources */,
+				EDEBD9E31B71F332003B3DC4 /* ConnectionTests.swift in Sources */,
 				ED51C0E31B6B796300C38EC9 /* BlocklyFactory.swift in Sources */,
 				ED51C0E01B6B708E00C38EC9 /* Extension.swift in Sources */,
 				ED51C0D21B6B668900C38EC9 /* BlocklyViewController.swift in Sources */,

@@ -103,8 +103,8 @@ class BlocklyTest: XCTestCase {
         blockly1.connectNextBlockly(blockly2)
         XCTAssertNotNil(blockly1.nextConnection?.targetConnection, "blockly1.nextConnection.targetConnection should not be nil")
         XCTAssertNotNil(blockly2.previousConnection?.targetConnection, "blockly2.previousConnection.targetConnection should not be nil")
-        XCTAssertTrue(blockly1.nextConnection!.targetConnection! == blockly2.previousConnection!, "")
-        XCTAssertTrue(blockly2.previousConnection!.targetConnection! == blockly1.nextConnection!, "")
+        XCTAssertTrue(blockly1.nextConnection?.targetConnection == blockly2.previousConnection, "")
+        XCTAssertTrue(blockly2.previousConnection?.targetConnection == blockly1.nextConnection, "")
         
         blockly1.connectNextBlockly(blockly3)
         XCTAssertNil(blockly2.previousConnection?.targetConnection, "blockly2.previousConnection.targetConnection should be nil")

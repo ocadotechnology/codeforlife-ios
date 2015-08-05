@@ -92,6 +92,7 @@ public class Connection {
                 }
             }
         }
+//        println(closest)
         return closest != nil ? (closest!, shortestDistance) : nil
     }
     
@@ -120,7 +121,10 @@ public class Connection {
         /* 1 */ self.sourceBlock != otherConnection.sourceBlock &&
         /* 2 */ otherConnection.type.oppositeType == self.type &&
         /* 3 */ distanceTo(otherConnection) <= searchRadius &&
-        /* 4 */ !(otherConnection.type == .PreviousConnection && otherConnection.targetConnection != nil && !(otherConnection == targetConnection))
+        /* 4 */ !(otherConnection.type == .PreviousConnection &&
+                    otherConnection.targetConnection != nil &&
+                    targetConnection != nil &&
+                    !(otherConnection == targetConnection!))
     }
     
 }
@@ -134,6 +138,6 @@ public class Connection {
 
     :returns: true if they share the same sourceBlock and type, false otherwise
  */
-func ==(lhs: Connection, rhs: Connection?) -> Bool {
-    return rhs != nil && lhs.type == rhs!.type && lhs.sourceBlock == rhs!.sourceBlock
+func ==(lhs: Connection, rhs: Connection) -> Bool {
+    return lhs.type == rhs.type && lhs.sourceBlock == rhs.sourceBlock
 }
