@@ -254,46 +254,7 @@ public class Blockly: UIView {
         :param: otherBlockly reference to the new blockly or nil to disconnect from the previous blockly
      */
     func connectPreviousBlockly(otherBlockly: Blockly?) {
-        if self.previousConnection?.targetConnection?.sourceBlock == otherBlockly {
-            /** No Change in Previous Blockly */
-            
-        } else {
-
-            /** Detach the original previous blockly if there exists one */
-            self.previousConnection?.targetConnection?.targetConnection = nil
-            self.previousConnection?.targetConnection = nil
-            
-            if otherBlockly?.nextConnection?.targetConnection != nil {
-                
-                /** otherBlockly Already have a next blockly */
-                let orphanBlock = otherBlockly?.nextConnection?.targetConnection?.sourceBlock
-                
-                /** Detach the orginal next blockly of otherBlockly */
-                otherBlockly?.nextConnection?.targetConnection = nil
-                orphanBlock?.previousConnection?.targetConnection = nil
-                
-                /** Attach me to the next blockly of otherBlockly */
-                otherBlockly?.nextConnection?.targetConnection = self.previousConnection
-                self.previousConnection?.targetConnection = otherBlockly?.nextConnection
-                
-                if let lastConnection = lastBlockly.nextConnection {
-                    /** Attach the orphan block back to my tail */
-                    lastConnection.targetConnection = orphanBlock?.previousConnection
-                    orphanBlock?.previousConnection?.targetConnection = lastConnection
-                } else {
-                    /** Next Statement is not allowed in the last blockly */
-                    orphanBlock?.bump()
-                }
-                
-            } else {
-                /** Attach to the previous blockly */
-                self.previousConnection?.targetConnection = otherBlockly?.nextConnection
-                otherBlockly?.nextConnection?.targetConnection = self.previousConnection
-            }
-            
-        }
-        /** Update position after connection */
-        snapToNeighbour()
+        previousConnection?.connect(otherBlockly?.nextConnection)
     }
     
     func bump() {
@@ -304,16 +265,13 @@ public class Blockly: UIView {
     /**
         Update my center such that my previous connection position is always stick to the next connection of my previous blockly
      */
-    private func snapToNeighbour() {
+    func snapToNeighbour() {
         let previousBlockly = previousConnection?.targetConnection?.sourceBlock
         let newPosition = previousBlockly?.nextConnection?.position
         if let newPosition = newPosition {
             self.previousConnection?.position = newPosition
             self.previousConnection?.updateSourceBlockCenter()
         }
-        println("previous blockly next connection: \(newPosition)")
-        println("frame:\(frame)")
-        println("previous connection: \(previousConnection?.position)")
         updateNextBlocklyPosition()
     }
     

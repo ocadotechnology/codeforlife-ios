@@ -63,7 +63,7 @@ public class Connection {
         return distanceBetween(self, otherConnection)
     }
     
-    func connect(otherConnection: Connection) {
+    func connect(otherConnection: Connection?) {
         delegate!.connect(otherConnection)
     }
     

@@ -37,7 +37,47 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
     }
     
     func connect(otherConnection: Connection?) {
-        // Todo
+        if let targetConnection = connection.targetConnection,
+                otherConnection = otherConnection where targetConnection == otherConnection {
+            /** No Change in Previous Blockly */
+            
+        } else {
+            
+            /** Detach the original previous blockly if there exists one */
+            connection.targetConnection?.targetConnection = nil
+            connection.targetConnection = nil
+            
+            if otherConnection?.targetConnection != nil {
+                
+                /** otherBlockly Already have a next blockly */
+                let orphanConnection = otherConnection?.targetConnection
+                
+                /** Detach the orginal next blockly of otherBlockly */
+                otherConnection?.targetConnection = nil
+                orphanConnection?.targetConnection = nil
+                
+                /** Attach me to the next blockly of otherBlockly */
+                otherConnection?.targetConnection = connection
+                connection.targetConnection = otherConnection
+                
+                if let lastConnection = connection.sourceBlock.lastBlockly.nextConnection {
+                    /** Attach the orphan block back to my tail */
+                    lastConnection.targetConnection = orphanConnection
+                    orphanConnection?.targetConnection = lastConnection
+                } else {
+                    /** Next Statement is not allowed in the last blockly */
+                    orphanConnection?.sourceBlock.bump()
+                }
+                
+            } else {
+                /** Attach to the previous blockly */
+                connection.targetConnection = otherConnection
+                otherConnection?.targetConnection = connection
+            }
+            
+        }
+        /** Update position after connection */
+        connection.sourceBlock.snapToNeighbour()
     }
     
 }
