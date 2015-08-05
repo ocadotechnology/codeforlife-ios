@@ -10,6 +10,13 @@ import Foundation
 
 public class NextConnection: Connection {
     
+    override var position: CGPoint {
+        didSet {
+            targetConnection?.position = position
+            targetConnection?.updateSourceBlockCenter()
+        }
+    }
+    
     init(_ sourceBlock: Blockly, _ position: CGPoint) {
         super.init(sourceBlock, .NextConnection, position)
         self.delegate = NextConnectionDelegate(self)
@@ -30,7 +37,39 @@ public class NextConnectionDelegate: ConnectionDelegate {
     }
     
     func connect(otherConnection: Connection?) {
-        // TODO
+        if let targetConnection = connection.targetConnection,
+                otherConnection = otherConnection where targetConnection == otherConnection {
+            /** No change in next blockly */
+            
+        } else {
+            /** There are changes in next blockly */
+            
+            if let previousConnection = connection.sourceBlock.previousConnection,
+                    previousTarget = previousConnection.targetConnection,
+                    otherConnection = otherConnection where previousTarget == otherConnection {
+                /** otherBlockly was my previous blockly */
+                
+                /** Detach the previous link */
+                otherConnection.targetConnection = nil
+                previousConnection.targetConnection = nil
+                
+                /** Attach otherBlockly as my next blockly */
+                otherConnection.targetConnection = connection
+                connection.targetConnection = otherConnection
+                
+            } else if otherConnection?.targetConnection != nil {
+                /**
+                otherBlockly already has a previous Blockly
+                Do nothing
+                */
+            } else {
+                /** Attach to the next blockly */
+                connection.targetConnection?.targetConnection = nil
+                connection.targetConnection = otherConnection
+                otherConnection?.targetConnection = connection
+            }
+        }
+        otherConnection?.sourceBlock.snapToNeighbour()
     }
     
     func matchSearchCondition(otherConnection: Connection) -> Bool {
