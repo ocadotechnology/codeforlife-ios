@@ -33,6 +33,8 @@
 		EDEBD9EA1B72140C003B3DC4 /* PreviousConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9E91B72140C003B3DC4 /* PreviousConnection.swift */; };
 		EDEBD9EE1B72143E003B3DC4 /* ConnectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9ED1B72143E003B3DC4 /* ConnectionType.swift */; };
 		EDEBD9F01B721452003B3DC4 /* ConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9EF1B721452003B3DC4 /* ConnectionDelegate.swift */; };
+		EDEBD9F21B72416D003B3DC4 /* InputValueConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9F11B72416D003B3DC4 /* InputValueConnection.swift */; };
+		EDEBD9F41B72417B003B3DC4 /* InputStatementConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9F31B72417B003B3DC4 /* InputStatementConnection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		EDEBD9E91B72140C003B3DC4 /* PreviousConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousConnection.swift; sourceTree = "<group>"; };
 		EDEBD9ED1B72143E003B3DC4 /* ConnectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionType.swift; sourceTree = "<group>"; };
 		EDEBD9EF1B721452003B3DC4 /* ConnectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDelegate.swift; sourceTree = "<group>"; };
+		EDEBD9F11B72416D003B3DC4 /* InputValueConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValueConnection.swift; sourceTree = "<group>"; };
+		EDEBD9F31B72417B003B3DC4 /* InputStatementConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputStatementConnection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,8 @@
 				EDEBD9ED1B72143E003B3DC4 /* ConnectionType.swift */,
 				EDEBD9EF1B721452003B3DC4 /* ConnectionDelegate.swift */,
 				EDA4E6C31B70BD1100CF2051 /* InputConnection.swift */,
+				EDEBD9F11B72416D003B3DC4 /* InputValueConnection.swift */,
+				EDEBD9F31B72417B003B3DC4 /* InputStatementConnection.swift */,
 				EDEBD9E51B7213C9003B3DC4 /* OutputConnection.swift */,
 				EDEBD9E71B7213FA003B3DC4 /* NextConnection.swift */,
 				EDEBD9E91B72140C003B3DC4 /* PreviousConnection.swift */,
@@ -276,8 +282,10 @@
 				ED51C0D91B6B68A800C38EC9 /* Connection.swift in Sources */,
 				EDEBD9F01B721452003B3DC4 /* ConnectionDelegate.swift in Sources */,
 				EDEBD9E81B7213FA003B3DC4 /* NextConnection.swift in Sources */,
+				EDEBD9F41B72417B003B3DC4 /* InputStatementConnection.swift in Sources */,
 				EDEBD9EE1B72143E003B3DC4 /* ConnectionType.swift in Sources */,
 				ED51C0E81B6B7CD900C38EC9 /* BlocklyPanGestureRecognizer.swift in Sources */,
+				EDEBD9F21B72416D003B3DC4 /* InputValueConnection.swift in Sources */,
 				ED51C0E21B6B796300C38EC9 /* BlocklyFactory.swift in Sources */,
 				EDEBD9E61B7213C9003B3DC4 /* OutputConnection.swift in Sources */,
 				ED51C0DC1B6B6BE700C38EC9 /* Input.swift in Sources */,

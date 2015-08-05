@@ -15,10 +15,7 @@ public class InputConnection: Connection {
     var inputType: InputType
     
     override var position: CGPoint {
-        get {
-            let offset = CGPointMake(sourceInput.frame.width, sourceInput.frame.height/2)
-            return sourceInput.sourceBlock.frame.origin + sourceInput.frame.origin + offset
-        }
+        get { println("Accessing abstract variable"); return CGPointZero }
         set {}
     }
     
@@ -45,17 +42,15 @@ public class InputConnectionDelegate: ConnectionDelegate {
     }
     
     func connect(otherConnection: Connection?) {
-        // TODO
+        println("InputConnections do not initiate connections")
     }
     
     func matchSearchCondition(otherConnection: Connection) -> Bool {
-        return
-        /* 1 */ connection.sourceBlock != otherConnection.sourceBlock &&
-        /* 2 */ connection.type == otherConnection.type.oppositeType &&
-        /* 3 */ connection.distanceTo(otherConnection) <= connection.searchRadius
+        println("InputConnections do not initiate connections")
+        return false
     }
     
     func updateSourceBlockCenter() {
-        // DO Nothing
+        println("InputConnections do no alter the center of source blockly")
     }
 }
