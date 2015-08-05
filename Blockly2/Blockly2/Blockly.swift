@@ -224,20 +224,23 @@ public class Blockly: UIView {
             
         } else {
             /** There are changes in next blockly */
-            if self.previousConnection?.targetConnection?.sourceBlock == otherBlockly {
-            /** otherBlockly was my previous blockly */
             
-            /** Detach the previous link */
-            otherBlockly?.nextConnection?.targetConnection = nil
-            self.previousConnection?.targetConnection = nil
+            if self.previousConnection?.targetConnection?.sourceBlock == otherBlockly {
+                /** otherBlockly was my previous blockly */
+                
+                /** Detach the previous link */
+                otherBlockly?.nextConnection?.targetConnection = nil
+                self.previousConnection?.targetConnection = nil
 
-            /** Attach otherBlockly as my next blockly */
-            otherBlockly?.previousConnection?.targetConnection = self.nextConnection
-            self.nextConnection?.targetConnection = otherBlockly?.previousConnection
+                /** Attach otherBlockly as my next blockly */
+                otherBlockly?.previousConnection?.targetConnection = self.nextConnection
+                self.nextConnection?.targetConnection = otherBlockly?.previousConnection
         
             } else if otherBlockly?.previousConnection?.targetConnection != nil {
-                /** Already have a next blockly */
-                
+                /**
+                    otherBlockly already has a previous Blockly
+                    Do nothing
+                 */
             } else {
                 /** Attach to the next blockly */
                 self.nextConnection?.targetConnection?.targetConnection = nil
@@ -257,49 +260,53 @@ public class Blockly: UIView {
     private func connectPreviousBlockly(otherBlockly: Blockly?) {
         if self.previousConnection?.targetConnection?.sourceBlock == otherBlockly {
             /** No Change in Previous Blockly */
-        } else {
-            /** There are changes in previous blockly */
             
-            if self.previousConnection?.targetConnection != nil {
-                /** I already have a previous blockly */
-                
-                /** Detach the original previous blockly */
-                self.previousConnection?.targetConnection?.targetConnection = nil
-                self.previousConnection?.targetConnection = nil
-            }
+        } else {
+
+            /** Detach the original previous blockly if there exists one */
+            self.previousConnection?.targetConnection?.targetConnection = nil
+            self.previousConnection?.targetConnection = nil
             
             if otherBlockly?.nextConnection?.targetConnection != nil {
                 
                 /** otherBlockly Already have a next blockly */
                 let orphanBlock = otherBlockly?.nextConnection?.targetConnection?.sourceBlock
+                
                 /** Detach the orginal next blockly of otherBlockly */
                 otherBlockly?.nextConnection?.targetConnection = nil
                 orphanBlock?.previousConnection?.targetConnection = nil
+                
                 /** Attach me to the next blockly of otherBlockly */
                 otherBlockly?.nextConnection?.targetConnection = self.previousConnection
                 self.previousConnection?.targetConnection = otherBlockly?.nextConnection
-                /** Try to attach the orphan block back to my tail */
+                
                 if let lastConnection = lastBlockly.nextConnection {
-                    /** Possible to attach the orphan block */
+                    /** Attach the orphan block back to my tail */
                     lastConnection.targetConnection = orphanBlock?.previousConnection
                     orphanBlock?.previousConnection?.targetConnection = lastConnection
                 } else {
                     /** Next Statement is not allowed in the last blockly */
-                    if let orphanBlock = orphanBlock {
-                        let offset = CGPointMake(orphanBlock.frame.width*1.5, orphanBlock.frame.height*1.5)
-                        orphanBlock.center = orphanBlock.center + offset
-                        println(orphanBlock.center)
-                    }
+                    orphanBlock?.bump()
                 }
                 
             } else {
                 /** Attach to the previous blockly */
-                self.previousConnection?.targetConnection?.targetConnection = nil
                 self.previousConnection?.targetConnection = otherBlockly?.nextConnection
                 otherBlockly?.nextConnection?.targetConnection = self.previousConnection
             }
+            
         }
+        /** Update position after connection */
         snapToNeighbour()
+    }
+    
+    func bump() {
+        let offset = CGPointMake(frame.width*1.5, frame.height*1.5)
+        center = center + offset
+    }
+    
+    private func connectOutputBlockly(otherBlockly: Blockly?) {
+        
     }
     
     /**
