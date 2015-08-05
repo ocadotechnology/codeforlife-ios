@@ -29,6 +29,11 @@ public class InputConnection: Connection {
         self.delegate = InputConnectionDelegate(self)
     }
     
+    func updateTargetConnectionPosition() {
+        targetConnection?.position = position
+        targetConnection?.updateSourceBlockCenter()
+    }
+    
 }
 
 public class InputConnectionDelegate: ConnectionDelegate {
@@ -51,6 +56,6 @@ public class InputConnectionDelegate: ConnectionDelegate {
     }
     
     func updateSourceBlockCenter() {
-        connection.sourceBlock.center = connection.position + connection.positionOffset
+        // DO Nothing
     }
 }

@@ -69,7 +69,8 @@ public class NextConnectionDelegate: ConnectionDelegate {
                 otherConnection?.targetConnection = connection
             }
         }
-        otherConnection?.sourceBlock.snapToNeighbour()
+        otherConnection?.position = connection.position
+        otherConnection?.updateSourceBlockCenter()
     }
     
     func matchSearchCondition(otherConnection: Connection) -> Bool {

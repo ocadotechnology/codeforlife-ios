@@ -45,7 +45,8 @@ public class Connection {
      
         :returns: a tuple of connection in the closest distance, nil if there does not exist one, with the shortestDistance
      */
-    func findClosestAvailableConnection(connections: [Connection], _ searchRadius: CGFloat, includeConnected: Bool) -> (Connection, CGFloat)? {
+    typealias ConnectionResult = (Connection, CGFloat)
+    func findClosestConnectionResult(connections: [Connection], _ searchRadius: CGFloat, includeConnected: Bool) -> ConnectionResult? {
         var closest: Connection?
         var shortestDistance: CGFloat = -1
         for otherConnection in connections {

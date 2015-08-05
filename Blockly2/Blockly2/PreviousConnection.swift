@@ -77,7 +77,10 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
             
         }
         /** Update position after connection */
-        connection.sourceBlock.snapToNeighbour()
+        if let otherConnection = otherConnection {
+            connection.position = otherConnection.position
+            connection.updateSourceBlockCenter()
+        }
     }
     
 }

@@ -31,7 +31,36 @@ public class OutputConnectionDelegate: ConnectionDelegate {
     }
     
     func connect(otherConnection: Connection?) {
-        // TODO
+        if let targetConnection = connection.targetConnection,
+            otherConnection = otherConnection where targetConnection == otherConnection {
+                /** No change */
+        } else {
+            /** Change */
+            
+            if connection.targetConnection != nil {
+                /** I already have a connection */
+                /** Detach from the original connection */
+                connection.targetConnection?.targetConnection = nil
+                connection.targetConnection = nil
+            }
+            
+            if otherConnection?.targetConnection != nil {
+                /** otherConnection is already connected to another connection */
+                /** detach otherConnection from its original connection */
+                otherConnection?.targetConnection?.targetConnection = nil
+                otherConnection?.targetConnection = nil
+            }
+            
+            /** Attach otherconnection to myself */
+            connection.targetConnection = otherConnection
+            otherConnection?.targetConnection = connection
+        }
+        
+        /** Snap to Output Blockly */
+        if let otherConnection = otherConnection {
+            connection.position = otherConnection.position
+            connection.updateSourceBlockCenter()
+        }
     }
     
     func updateSourceBlockCenter() {

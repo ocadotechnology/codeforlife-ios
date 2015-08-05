@@ -38,6 +38,7 @@ public class Blockly: UIView {
             nextConnection?.position = center + CGPointMake(0, frame.height/2)
             previousConnection?.position = center  + CGPointMake(0, -frame.height/2)
             outputConnection?.position = center + CGPointMake(-frame.width/2, 0)
+            inputs.foreach({$0.connection?.updateTargetConnectionPosition()})
         }
     }
     
@@ -66,10 +67,16 @@ public class Blockly: UIView {
         didSet { self.previousConnection = allowPreviousStatement ? createPreviousConnection() : nil }
     }
     
+    /**
+        Return the last blockly in my blockly chain
+     */
     var lastBlockly: Blockly {
         return nextBlockly?.lastBlockly ?? self
     }
     
+    /**
+        Return my next blockly if one exists
+     */
     var nextBlockly: Blockly? {
         return nextConnection?.targetConnection?.sourceBlock
     }
@@ -142,41 +149,26 @@ public class Blockly: UIView {
         Locate the cloest contact point for each valid contact point of this blockly and update connetions
      */
     func updateNeighbour() {
-        let includeConnected = true
-        PreviousBlocklyUpdated()
-        NextBlocklyUpdated()
-    }
-    
-    /**
-        Update any change in Previous Blockly
+        let connections = workspace!.connections
         
-        :returns: true if previous blockly has changes, false otherwise
-     */
-    private func PreviousBlocklyUpdated() -> Bool {
-        let connections = workspace!.connections
-        let oldPreviousBlockly = self.previousConnection?.targetConnection?.sourceBlock
-        let newPreviousBlockly = self.previousConnection?.findClosestAvailableConnection(connections, searchRadius, includeConnected: true)?.0.sourceBlock
-        self.connectPreviousBlockly(newPreviousBlockly)
-        return oldPreviousBlockly != newPreviousBlockly && newPreviousBlockly != nil
+        let newOutputConnection = self.outputConnection?.findClosestConnectionResult(connections, searchRadius, includeConnected: true)?.0
+        self.outputConnection?.connect(newOutputConnection)
+        
+        let newPreviousConnection = self.previousConnection?.findClosestConnectionResult(connections, searchRadius, includeConnected: true)?.0
+        self.previousConnection?.connect(newPreviousConnection)
+        
+        let newNextConnection = self.nextConnection?.findClosestConnectionResult(connections, searchRadius, includeConnected: true)?.0
+        self.nextConnection?.connect(newNextConnection)
     }
-    
-    private func NextBlocklyUpdated() -> Bool {
-        let connections = workspace!.connections
-        let oldNextBlockly = self.nextConnection?.targetConnection?.sourceBlock
-        let newNextBlockly = self.nextConnection?.findClosestAvailableConnection(connections, searchRadius, includeConnected: true)?.0.sourceBlock
-        self.connectNextBlockly(newNextBlockly)
-        return oldNextBlockly != newNextBlockly && newNextBlockly != nil
-    }
-    
     
     /**
         Find the closest connection to be highlighted
      */
     func findHighlightConnection() -> Connection? {
         let connections = workspace!.connections
-        let nextConnectionResult = nextConnection?.findClosestAvailableConnection(connections, searchRadius, includeConnected: true)
-        let previousConnectionResult = previousConnection?.findClosestAvailableConnection(connections, searchRadius, includeConnected: true)
-        let outputConnectionResult = outputConnection?.findClosestAvailableConnection(connections, searchRadius, includeConnected: true)
+        let nextConnectionResult = nextConnection?.findClosestConnectionResult(connections, searchRadius, includeConnected: true)
+        let previousConnectionResult = previousConnection?.findClosestConnectionResult(connections, searchRadius, includeConnected: true)
+        let outputConnectionResult = outputConnection?.findClosestConnectionResult(connections, searchRadius, includeConnected: true)
         var closestResult = bestOf(nextConnectionResult, previousConnectionResult, outputConnectionResult)
         
         // Never highlight connected next blockly
@@ -205,21 +197,10 @@ public class Blockly: UIView {
         previousConnection?.connect(otherBlockly?.nextConnection)
     }
     
+    
     func bump() {
         let offset = CGPointMake(frame.width*1.5, frame.height*1.5)
         center = center + offset
-    }
-    
-    /**
-        Update my center such that my previous connection position is always stick to the next connection of my previous blockly
-     */
-    func snapToNeighbour() {
-        let previousBlockly = previousConnection?.targetConnection?.sourceBlock
-        let newPosition = previousBlockly?.nextConnection?.position
-        if let newPosition = newPosition {
-            self.previousConnection?.position = newPosition
-            self.previousConnection?.updateSourceBlockCenter()
-        }
     }
     
     /**
