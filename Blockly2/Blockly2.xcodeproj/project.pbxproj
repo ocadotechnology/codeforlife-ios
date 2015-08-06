@@ -35,6 +35,8 @@
 		EDEBD9F01B721452003B3DC4 /* ConnectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9EF1B721452003B3DC4 /* ConnectionDelegate.swift */; };
 		EDEBD9F21B72416D003B3DC4 /* InputValueConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9F11B72416D003B3DC4 /* InputValueConnection.swift */; };
 		EDEBD9F41B72417B003B3DC4 /* InputStatementConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9F31B72417B003B3DC4 /* InputStatementConnection.swift */; };
+		EDEBD9F81B7354EA003B3DC4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9F71B7354EA003B3DC4 /* Config.swift */; };
+		EDEBD9F91B7354EA003B3DC4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEBD9F71B7354EA003B3DC4 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,7 @@
 		EDEBD9EF1B721452003B3DC4 /* ConnectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDelegate.swift; sourceTree = "<group>"; };
 		EDEBD9F11B72416D003B3DC4 /* InputValueConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValueConnection.swift; sourceTree = "<group>"; };
 		EDEBD9F31B72417B003B3DC4 /* InputStatementConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputStatementConnection.swift; sourceTree = "<group>"; };
+		EDEBD9F71B7354EA003B3DC4 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,7 @@
 				EDEBD9E51B7213C9003B3DC4 /* OutputConnection.swift */,
 				EDEBD9E71B7213FA003B3DC4 /* NextConnection.swift */,
 				EDEBD9E91B72140C003B3DC4 /* PreviousConnection.swift */,
+				EDEBD9F71B7354EA003B3DC4 /* Config.swift */,
 			);
 			name = Connections;
 			sourceTree = "<group>";
@@ -289,6 +293,7 @@
 				ED51C0E21B6B796300C38EC9 /* BlocklyFactory.swift in Sources */,
 				EDEBD9E61B7213C9003B3DC4 /* OutputConnection.swift in Sources */,
 				ED51C0DC1B6B6BE700C38EC9 /* Input.swift in Sources */,
+				EDEBD9F81B7354EA003B3DC4 /* Config.swift in Sources */,
 				ED51C0D11B6B668900C38EC9 /* BlocklyViewController.swift in Sources */,
 				EDEBD9EA1B72140C003B3DC4 /* PreviousConnection.swift in Sources */,
 			);
@@ -303,6 +308,7 @@
 				EDA4E6C21B6FBF7400CF2051 /* BlocklyTest.swift in Sources */,
 				EDEBD9E31B71F332003B3DC4 /* ConnectionTests.swift in Sources */,
 				ED51C0E31B6B796300C38EC9 /* BlocklyFactory.swift in Sources */,
+				EDEBD9F91B7354EA003B3DC4 /* Config.swift in Sources */,
 				ED51C0E01B6B708E00C38EC9 /* Extension.swift in Sources */,
 				ED51C0D21B6B668900C38EC9 /* BlocklyViewController.swift in Sources */,
 				EDA4E6C51B70BD1100CF2051 /* InputConnection.swift in Sources */,

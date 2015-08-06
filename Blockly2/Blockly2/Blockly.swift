@@ -36,8 +36,8 @@ public class Blockly: UIView {
      */
     override public var center: CGPoint {
         didSet {
-            nextConnection?.position = frame.origin + CGPointMake(frame.width/2, frame.height)
-            previousConnection?.position = frame.origin + CGPointMake(frame.width/2, 0)
+            nextConnection?.position = frame.origin + CGPointMake(30, frame.height)
+            previousConnection?.position = frame.origin + CGPointMake(30, 10)
             outputConnection?.position = frame.origin + CGPointMake(0, frame.height/2)
             inputs.foreach({$0.connection?.updateTargetConnectionPosition()})
         }
@@ -249,14 +249,14 @@ public class Blockly: UIView {
         
         let path = UIBezierPath()
         path.moveToPoint(CGPointMake(0, 0))
-        path.addLineToPoint(CGPointMake(20, 0))
-        path.addLineToPoint(CGPointMake(30, 10))
-        path.addLineToPoint(CGPointMake(40, 0))
+        path.addLineToPoint(CGPointMake(PreviousConnectionOffset.x-10, 0))
+        path.addLineToPoint(CGPointMake(PreviousConnectionOffset.x, PreviousConnectionOffset.y))
+        path.addLineToPoint(CGPointMake(PreviousConnectionOffset.x+10, 0))
         path.addLineToPoint(CGPointMake(frame.width, 0))
         path.addLineToPoint(CGPointMake(frame.width, frame.height-10))
-        path.addLineToPoint(CGPointMake(40, frame.height-10))
-        path.addLineToPoint(CGPointMake(30, frame.height))
-        path.addLineToPoint(CGPointMake(20, frame.height-10))
+        path.addLineToPoint(CGPointMake(NextConnectionOffset.x+10, frame.height-10))
+        path.addLineToPoint(CGPointMake(NextConnectionOffset.x, frame.height))
+        path.addLineToPoint(CGPointMake(NextConnectionOffset.x-10, frame.height-10))
         path.addLineToPoint(CGPointMake(0, frame.height-10))
         path.closePath()
         path.stroke()

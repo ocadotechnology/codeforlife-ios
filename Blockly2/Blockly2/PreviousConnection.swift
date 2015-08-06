@@ -25,7 +25,7 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
     }
     
     func updateSourceBlockCenter() {
-        let offset = CGPointMake(-connection.sourceBlock.frame.width/2, 0)
+        let offset = CGPointMake(-30, -10)
         connection.sourceBlock.frame.origin = connection.position + offset
         connection.sourceBlock.center = connection.sourceBlock.frame.origin + CGPointMake(connection.sourceBlock.frame.width/2, connection.sourceBlock.frame.height/2)
     }
