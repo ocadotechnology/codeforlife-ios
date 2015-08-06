@@ -33,8 +33,10 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
     func matchSearchCondition(otherConnection: Connection) -> Bool {
         return
         /* 1 */ connection.sourceBlock != otherConnection.sourceBlock &&
-        /* 2 */ connection.type == otherConnection.type.oppositeType &&
-        /* 3 */ connection.distanceTo(otherConnection) <= SearchRadius
+        /* 2 */ connection.distanceTo(otherConnection) <= SearchRadius &&
+        /* 3 */ (otherConnection.type == ConnectionType.NextConnection ||
+                    otherConnection.type == ConnectionType.InputValue &&
+                    (otherConnection as! InputConnection).inputType == InputType.Statement)
     }
     
     func connect(otherConnection: Connection?) {
@@ -45,7 +47,9 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
         } else {
             
             /** Detach the original previous blockly if there exists one */
+            let oldPreviousConnection = connection.targetConnection
             connection.targetConnection?.targetConnection = nil
+            oldPreviousConnection?.sourceBlock.parentBlockly?.render()
             connection.targetConnection = nil
             
             if otherConnection?.targetConnection != nil {
@@ -54,8 +58,8 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
                 let orphanConnection = otherConnection?.targetConnection
                 
                 /** Detach the orginal next blockly of otherBlockly */
-                otherConnection?.targetConnection = nil
                 orphanConnection?.targetConnection = nil
+                otherConnection?.targetConnection = nil
                 
                 /** Attach me to the next blockly of otherBlockly */
                 otherConnection?.targetConnection = connection
@@ -79,6 +83,8 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
         }
         /** Update position after connection */
         if let otherConnection = otherConnection {
+            println(connection.sourceBlock.parentBlockly)
+            connection.sourceBlock.parentBlockly?.render()
             UIView.animateWithDuration(ConnectionSnapDuration, animations: {
                 [unowned connection] in
                 connection.position = otherConnection.position

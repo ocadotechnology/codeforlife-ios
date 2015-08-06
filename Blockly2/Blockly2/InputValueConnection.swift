@@ -12,7 +12,7 @@ import Foundation
 public class InputValueConnection: InputConnection {
     
     override var totalHeight: CGFloat {
-        return 40
+        return 40 + TabHeight + BlankHeight
     }
     
     override var position: CGPoint {

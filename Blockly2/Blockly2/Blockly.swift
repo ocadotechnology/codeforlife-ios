@@ -17,7 +17,7 @@ public class Blockly: UIView {
     let defaultCenter = CGPointMake(400, 400)
     let defaultColor = UIColor(red: 64/255, green: 208/255, blue: 192/255, alpha: 1) //#40D0C0
     let searchRadius:CGFloat = 20
-    let shapeLayer = CAShapeLayer()
+    var shapeLayer = CAShapeLayer()
     
     var minimalSize: CGSize
     
@@ -28,6 +28,22 @@ public class Blockly: UIView {
     var previousConnection: PreviousConnection?
     var nextConnection: NextConnection?
     var outputConnection: OutputConnection?
+    
+    var totalHeight: CGFloat {
+        return frame.height - TabHeight + (nextBlockly?.totalHeight ?? TabHeight)
+    }
+    
+    var parentBlockly: Blockly? {
+        if let previousTargetConnection = previousConnection?.targetConnection {
+            if previousTargetConnection is InputStatementConnection {
+                return previousTargetConnection.sourceBlock
+            } else {
+                return previousTargetConnection.sourceBlock.parentBlockly
+            }
+        } else {
+            return nil
+        }
+    }
     
     /**
         Center of the blockly
@@ -94,10 +110,12 @@ public class Blockly: UIView {
         super.init(frame: CGRect(origin: CGPointZero, size: CGSizeZero))
         self.frame.size = defaultSize
         self.backgroundColor = UIColor.clearColor()
-        self.shapeLayer.fillColor = defaultColor.CGColor
-        self.shapeLayer.strokeColor = UIColor.grayColor().CGColor
-        self.shapeLayer.zPosition = -1
-        self.layer.addSublayer(shapeLayer)
+        shapeLayer.backgroundColor = UIColor.clearColor().CGColor
+        shapeLayer.fillColor = defaultColor.CGColor
+        shapeLayer.strokeColor = UIColor.grayColor().CGColor
+        shapeLayer.shadowColor = UIColor.clearColor().CGColor
+        shapeLayer.zPosition = -1
+        layer.addSublayer(shapeLayer)
         self.center = defaultCenter
         self.nextConnection = NextConnection(self)
         self.previousConnection = PreviousConnection(self)
@@ -110,6 +128,7 @@ public class Blockly: UIView {
     func render() {
         /** Calculate and update the height of the blockly */
         let newHeight = calculateFrameHeight()
+        println("New Height = \(newHeight)")
         let oldOrigin = frame.origin
         frame.size.height = newHeight
         frame.origin = oldOrigin
@@ -118,13 +137,16 @@ public class Blockly: UIView {
         subviews.foreach({$0.removeFromSuperview()})
         inputs.foreach({[unowned self] in self.addSubview($0)})
         updateInputsFrame()
+        shapeLayer.path = drawPath().CGPath
     }
     
     private func calculateFrameHeight() -> CGFloat {
         var result: CGFloat = 0
         for input in inputs {
             result += input.totalHeight
+            println("temp temp result = \(result)")
         }
+        println("temp result = \(result)")
         result = max(minimalSize.height, result)
         return result + TabHeight + BlankHeight
     }
@@ -135,7 +157,7 @@ public class Blockly: UIView {
     func updateInputsFrame() {
         for (index, input) in enumerate(inputs) {
             /** Adjust position */
-            input.frame.origin = CGPointMake(TabHeight + InputOffset, CGFloat(index) * defaultSize.height + BlankHeight)
+            input.frame.origin = CGPointMake(TabHeight + InputOffset, index < 1 ? BlankHeight : inputs[index-1].frame.origin.y + inputs[index-1].totalHeight)
             /** Adjust width */
             input.frame.size.width = self.frame.width - InputOffset - TabHeight*2
         }
@@ -179,8 +201,6 @@ public class Blockly: UIView {
             path.addLineToPoint(CGPointMake(10, frame.height/2 - 10))
         }
         path.closePath()
-        path.stroke()
-        path.fill()
         return path
     }
     

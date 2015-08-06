@@ -18,7 +18,7 @@ public class InputConnection: Connection {
     }
     
     override var position: CGPoint {
-        get { println("Accessing abstract variable"); return CGPointZero }
+        get { fatalError("Accessing abstract variable"); return CGPointZero }
         set {}
     }
     
@@ -26,7 +26,6 @@ public class InputConnection: Connection {
         self.sourceInput = sourceInput
         self.inputType = inputType
         super.init(sourceInput.sourceBlock, .InputValue, CGPointZero)
-        self.delegate = InputConnectionDelegate(self)
     }
     
     func updateTargetConnectionPosition() {

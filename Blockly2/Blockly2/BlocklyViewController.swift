@@ -90,6 +90,7 @@ public class BlocklyViewController: UIViewController {
             
         case UIGestureRecognizerState.Ended:
             connectionHighlighted = nil
+            println(blocklyOnDrag?.totalHeight)
             blocklyOnDrag = nil
         default: break
         }

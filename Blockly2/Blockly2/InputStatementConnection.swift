@@ -12,13 +12,16 @@ import Foundation
 public class InputStatementConnection: InputConnection {
     
     override var totalHeight: CGFloat {
-        return 40 + 40 + 10 + 10
+        if let targetConnection = targetConnection {
+            return sourceInput.frame.height + targetConnection.sourceBlock.totalHeight
+        }
+        return sourceInput.frame.height + 40 + TabHeight + BlankHeight
     }
     
     override var position: CGPoint {
         get {
-            let offset = CGPointMake(sourceInput.frame.width*3/4, sourceInput.frame.height)
-            return sourceInput.sourceBlock.frame.origin + sourceInput.frame.origin + offset
+            let offset = CGPointMake(sourceInput.sourceBlock.frame.width*3/4, sourceInput.frame.height + TabHeight)
+            return sourceInput.sourceBlock.frame.origin + CGPointMake(0,sourceInput.frame.origin.y) + offset
         }
         set {}
     }
@@ -26,6 +29,5 @@ public class InputStatementConnection: InputConnection {
     init(_ sourceInput: Input) {
         super.init(sourceInput, InputType.Statement)
     }
-    
     
 }
