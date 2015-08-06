@@ -27,7 +27,7 @@ public class OutputConnectionDelegate: ConnectionDelegate {
         return
         /* 1 */ connection.sourceBlock != otherConnection.sourceBlock &&
         /* 2 */ connection.type == otherConnection.type.oppositeType &&
-        /* 3 */ connection.distanceTo(otherConnection) <= connection.searchRadius
+        /* 3 */ connection.distanceTo(otherConnection) <= SearchRadius
     }
     
     func connect(otherConnection: Connection?) {
@@ -58,8 +58,11 @@ public class OutputConnectionDelegate: ConnectionDelegate {
         
         /** Snap to Output Blockly */
         if let otherConnection = otherConnection {
-            connection.position = otherConnection.position
-            connection.updateSourceBlockCenter()
+            UIView.animateWithDuration(ConnectionSnapDuration, animations: {
+                [unowned connection, unowned otherConnection] in
+                connection.position = otherConnection.position
+                connection.updateSourceBlockCenter()
+            })
         }
     }
     

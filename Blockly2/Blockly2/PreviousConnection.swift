@@ -10,7 +10,8 @@ import Foundation
 
 public class PreviousConnection: Connection {
     
-    init(_ sourceBlock: Blockly, _ position: CGPoint) {
+    init(_ sourceBlock: Blockly) {
+        let position = sourceBlock.frame.origin + PreviousConnectionOffset
         super.init(sourceBlock, .PreviousConnection, position)
         self.delegate = PreviousConnectionDelegate(self)
     }
@@ -25,16 +26,15 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
     }
     
     func updateSourceBlockCenter() {
-        let offset = CGPointMake(-30, -10)
-            connection.sourceBlock.frame.origin = connection.position + offset
-            connection.sourceBlock.center = connection.sourceBlock.frame.origin + CGPointMake(connection.sourceBlock.frame.width/2, connection.sourceBlock.frame.height/2)
+        connection.sourceBlock.frame.origin = connection.position - PreviousConnectionOffset
+        connection.sourceBlock.center = connection.sourceBlock.frame.origin + CGPointMake(connection.sourceBlock.frame.width/2, connection.sourceBlock.frame.height/2)
     }
     
     func matchSearchCondition(otherConnection: Connection) -> Bool {
         return
         /* 1 */ connection.sourceBlock != otherConnection.sourceBlock &&
         /* 2 */ connection.type == otherConnection.type.oppositeType &&
-        /* 3 */ connection.distanceTo(otherConnection) <= connection.searchRadius
+        /* 3 */ connection.distanceTo(otherConnection) <= SearchRadius
     }
     
     func connect(otherConnection: Connection?) {
@@ -79,7 +79,7 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
         }
         /** Update position after connection */
         if let otherConnection = otherConnection {
-            UIView.animateWithDuration(0.2, animations: {
+            UIView.animateWithDuration(ConnectionSnapDuration, animations: {
                 [unowned connection] in
                 connection.position = otherConnection.position
                 connection.updateSourceBlockCenter()

@@ -34,6 +34,10 @@ class Input: UIView {
     
     unowned var sourceBlock: Blockly
     
+    var totalHeight: CGFloat {
+        return connection?.totalHeight ?? defaultFrame.height
+    }
+    
     /**
         Initialization
 

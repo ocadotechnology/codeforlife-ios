@@ -40,6 +40,7 @@ public class BlocklyFactory {
         let blockly = Blockly(buildClosure:  {
             $0.addOutput()
 //            $0.backgroundColor = UIColor.orangeColor()
+            $0.allowPreviousStatement = false
         })
         return blockly
     }

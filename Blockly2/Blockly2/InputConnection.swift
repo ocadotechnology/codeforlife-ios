@@ -13,6 +13,9 @@ public class InputConnection: Connection {
     
     var sourceInput: Input
     var inputType: InputType
+    var totalHeight: CGFloat {
+        fatalError("Abstract InputConnection Height")
+    }
     
     override var position: CGPoint {
         get { println("Accessing abstract variable"); return CGPointZero }

@@ -15,7 +15,6 @@ public class Connection {
     let positionOffset: CGPoint
     let type: ConnectionType
     let sourceBlock: Blockly
-    let searchRadius: CGFloat = 20
     var targetConnection: Connection?
     var delegate: ConnectionDelegate?
     

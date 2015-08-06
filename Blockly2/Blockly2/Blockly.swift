@@ -58,14 +58,14 @@ public class Blockly: UIView {
         This blockly is allowed to have a next statement by default
      */
     var allowNextStatement = true {
-        didSet { self.nextConnection = allowNextStatement ? createNextConnection() : nil }
+        didSet { self.nextConnection = allowNextStatement ? NextConnection(self) : nil }
     }
     
     /**
         This blockly is allowed to have a previous statement by default
      */
     var allowPreviousStatement = true {
-        didSet { self.previousConnection = allowPreviousStatement ? createPreviousConnection() : nil }
+        didSet { self.previousConnection = allowPreviousStatement ? PreviousConnection(self) : nil }
     }
     
     /**
@@ -99,27 +99,9 @@ public class Blockly: UIView {
         self.shapeLayer.zPosition = -1
         self.layer.addSublayer(shapeLayer)
         self.center = defaultCenter
-        self.nextConnection = createNextConnection()
-        self.previousConnection = createPreviousConnection()
+        self.nextConnection = NextConnection(self)
+        self.previousConnection = PreviousConnection(self)
         buildClosure(self)
-    }
-    
-    /**
-        Create a Next Connection
-     */
-    private func createNextConnection() -> NextConnection {
-        let position = center + CGPointMake(0, frame.height/2)
-        let connection = NextConnection(self, position)
-        return connection
-    }
-    
-    /**
-        Create a Previous Connection
-     */
-    private func createPreviousConnection() -> PreviousConnection {
-        let position = center + CGPointMake(0, -frame.height/2)
-        let connection = PreviousConnection(self, position)
-        return connection
     }
     
     /**
@@ -127,7 +109,7 @@ public class Blockly: UIView {
      */
     func render() {
         /** Calculate and update the height of the blockly */
-        let newHeight = max(minimalSize.height + 10 + 10, CGFloat(inputs.count)*defaultSize.height + 10 + 10)
+        let newHeight = calculateFrameHeight()
         let oldOrigin = frame.origin
         frame.size.height = newHeight
         frame.origin = oldOrigin
@@ -138,15 +120,24 @@ public class Blockly: UIView {
         updateInputsFrame()
     }
     
+    private func calculateFrameHeight() -> CGFloat {
+        var result: CGFloat = 0
+        for input in inputs {
+            result += input.totalHeight
+        }
+        result = max(minimalSize.height, result)
+        return result + TabHeight + BlankHeight
+    }
+    
     /**
         Reposition all the subviews and resize their widths to follow the blockly frame width
      */
     func updateInputsFrame() {
         for (index, input) in enumerate(inputs) {
             /** Adjust position */
-            input.frame.origin = CGPointMake(10, CGFloat(index) * defaultSize.height + 10)
+            input.frame.origin = CGPointMake(TabHeight + InputOffset, CGFloat(index) * defaultSize.height + BlankHeight)
             /** Adjust width */
-            input.frame.size.width = self.frame.width - 10 - 10
+            input.frame.size.width = self.frame.width - InputOffset - TabHeight*2
         }
     }
     

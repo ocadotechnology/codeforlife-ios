@@ -17,7 +17,8 @@ public class NextConnection: Connection {
         }
     }
     
-    init(_ sourceBlock: Blockly, _ position: CGPoint) {
+    init(_ sourceBlock: Blockly) {
+        let position = sourceBlock.frame.origin + CGPointMake(0, sourceBlock.frame.height - TabHeight) + NextConnectionOffset
         super.init(sourceBlock, .NextConnection, position)
         self.delegate = NextConnectionDelegate(self)
     }
@@ -34,11 +35,8 @@ public class NextConnectionDelegate: ConnectionDelegate {
     
     func updateSourceBlockCenter() {
         let frame = connection.sourceBlock.frame
-        UIView.animateWithDuration(0.5, animations: {
-            [unowned connection] in
-            connection.sourceBlock.frame.origin = connection.position + CGPointMake(-30, -connection.sourceBlock.frame.height)
-            connection.sourceBlock.center = connection.sourceBlock.frame.origin + CGPointMake(connection.sourceBlock.frame.width/2, connection.sourceBlock.frame.height/2)
-        })
+        connection.sourceBlock.frame.origin = connection.position - CGPointMake(0, connection.sourceBlock.frame.height-TabHeight) - NextConnectionOffset
+        connection.sourceBlock.center = connection.sourceBlock.frame.origin + CGPointMake(connection.sourceBlock.frame.width/2, connection.sourceBlock.frame.height/2)
     }
     
     func connect(otherConnection: Connection?) {
@@ -75,7 +73,7 @@ public class NextConnectionDelegate: ConnectionDelegate {
             }
         }
         
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animateWithDuration(ConnectionSnapDuration, animations: {
             [weak otherConnection, unowned connection] in
             otherConnection?.position = connection.position
             otherConnection?.updateSourceBlockCenter()
@@ -86,7 +84,7 @@ public class NextConnectionDelegate: ConnectionDelegate {
         return
         /* 1 */ connection.sourceBlock != otherConnection.sourceBlock &&
         /* 2 */ connection.type == otherConnection.type.oppositeType &&
-        /* 3 */ connection.distanceTo(otherConnection) <= connection.searchRadius &&
+        /* 3 */ connection.distanceTo(otherConnection) <= SearchRadius &&
         /* 4 */ !(otherConnection.type == .PreviousConnection &&
                     otherConnection.targetConnection != nil &&
                     connection.targetConnection != nil &&

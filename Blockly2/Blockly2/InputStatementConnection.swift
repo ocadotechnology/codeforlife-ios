@@ -11,6 +11,10 @@ import Foundation
 
 public class InputStatementConnection: InputConnection {
     
+    override var totalHeight: CGFloat {
+        return 40 + 40 + 10 + 10
+    }
+    
     override var position: CGPoint {
         get {
             let offset = CGPointMake(sourceInput.frame.width*3/4, sourceInput.frame.height)
