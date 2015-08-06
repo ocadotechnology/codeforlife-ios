@@ -45,4 +45,13 @@ public class BlocklyFactory {
         return blockly
     }
     
+    public func createIfThenElseBlock() -> Blockly {
+        let blockly = Blockly(buildClosure: {
+            $0.appendInput(InputType.Value, field: "If")
+            $0.appendInput(InputType.Statement, field: "Then")
+            $0.appendInput(InputType.Statement, field: "Else")
+        })
+        return blockly
+    }
+    
 }

@@ -33,8 +33,10 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
     func matchSearchCondition(otherConnection: Connection) -> Bool {
         return
         /* 1 */ connection.sourceBlock != otherConnection.sourceBlock &&
-        /* 2 */ connection.type == otherConnection.type.oppositeType &&
-        /* 3 */ connection.distanceTo(otherConnection) <= SearchRadius
+        /* 2 */ connection.distanceTo(otherConnection) <= SearchRadius &&
+        /* 3 */ (otherConnection.type == ConnectionType.NextConnection ||
+                    otherConnection.type == ConnectionType.InputValue &&
+                    (otherConnection as! InputConnection).inputType == InputType.Statement)
     }
     
     func connect(otherConnection: Connection?) {
@@ -79,6 +81,7 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
         }
         /** Update position after connection */
         if let otherConnection = otherConnection {
+//            connection.sourceBlock.parentBlockly?.render()
             UIView.animateWithDuration(ConnectionSnapDuration, animations: {
                 [unowned connection] in
                 connection.position = otherConnection.position

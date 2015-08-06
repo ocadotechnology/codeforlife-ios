@@ -20,11 +20,13 @@ class ViewController: BlocklyViewController {
         let b3 = factory.createTurnLeftBlock()
         let b4 = factory.createIfThenBlock()
         let b5 = factory.createTrueBlock()
+        let b6 = factory.createIfThenElseBlock()
         addBlockly(b1)
         addBlockly(b2)
         addBlockly(b3)
         addBlockly(b4)
         addBlockly(b5)
+        addBlockly(b6)
     }
 
 }
