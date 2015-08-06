@@ -96,7 +96,7 @@ public class BlocklyViewController: UIViewController {
     }
     
     private func findBlocklyAtPoint(pos: CGPoint) -> Blockly? {
-        for subview in view.subviews {
+        for subview in view.subviews.reverse() {
             if let subview = subview as? Blockly where CGRectContainsPoint(subview.frame, pos) {
                 return subview
             }

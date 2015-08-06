@@ -155,6 +155,14 @@ public class Blockly: UIView {
                 path.addLineToPoint(CGPointMake(frame.width, input.center.y-10))
                 path.addLineToPoint(CGPointMake(frame.width-10, input.center.y))
                 path.addLineToPoint(CGPointMake(frame.width, input.center.y+10))
+            } else if input.connection is InputStatementConnection {
+                path.addLineToPoint(CGPointMake(frame.width, input.frame.origin.y + input.frame.height))
+                path.addLineToPoint(CGPointMake(frame.width*3/4 + TabWidth/2, input.frame.origin.y + input.frame.height))
+                path.addLineToPoint(CGPointMake(frame.width*3/4, input.frame.origin.y + input.frame.height + TabHeight))
+                path.addLineToPoint(CGPointMake(frame.width*3/4 - TabWidth/2, input.frame.origin.y + input.frame.height))
+                path.addLineToPoint(CGPointMake(frame.width/2, input.frame.origin.y + input.frame.height))
+                path.addLineToPoint(CGPointMake(frame.width/2, input.frame.origin.y + input.frame.height + input.totalHeight - 10 - 40))
+                path.addLineToPoint(CGPointMake(frame.width, input.frame.origin.y + input.frame.height + input.totalHeight - 10 - 40))
             }
         }
         
