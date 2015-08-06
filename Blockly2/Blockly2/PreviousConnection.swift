@@ -26,8 +26,8 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
     
     func updateSourceBlockCenter() {
         let offset = CGPointMake(-30, -10)
-        connection.sourceBlock.frame.origin = connection.position + offset
-        connection.sourceBlock.center = connection.sourceBlock.frame.origin + CGPointMake(connection.sourceBlock.frame.width/2, connection.sourceBlock.frame.height/2)
+            connection.sourceBlock.frame.origin = connection.position + offset
+            connection.sourceBlock.center = connection.sourceBlock.frame.origin + CGPointMake(connection.sourceBlock.frame.width/2, connection.sourceBlock.frame.height/2)
     }
     
     func matchSearchCondition(otherConnection: Connection) -> Bool {
@@ -79,8 +79,11 @@ public class PreviousConnectionDelegate: ConnectionDelegate {
         }
         /** Update position after connection */
         if let otherConnection = otherConnection {
-            connection.position = otherConnection.position
-            connection.updateSourceBlockCenter()
+            UIView.animateWithDuration(0.2, animations: {
+                [unowned connection] in
+                connection.position = otherConnection.position
+                connection.updateSourceBlockCenter()
+            })
         }
     }
     

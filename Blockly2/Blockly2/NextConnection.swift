@@ -34,8 +34,11 @@ public class NextConnectionDelegate: ConnectionDelegate {
     
     func updateSourceBlockCenter() {
         let frame = connection.sourceBlock.frame
-        connection.sourceBlock.frame.origin = connection.position + CGPointMake(-30, -connection.sourceBlock.frame.height)
-        connection.sourceBlock.center = connection.sourceBlock.frame.origin + CGPointMake(connection.sourceBlock.frame.width/2, connection.sourceBlock.frame.height/2)
+        UIView.animateWithDuration(0.5, animations: {
+            [unowned connection] in
+            connection.sourceBlock.frame.origin = connection.position + CGPointMake(-30, -connection.sourceBlock.frame.height)
+            connection.sourceBlock.center = connection.sourceBlock.frame.origin + CGPointMake(connection.sourceBlock.frame.width/2, connection.sourceBlock.frame.height/2)
+        })
     }
     
     func connect(otherConnection: Connection?) {
@@ -71,8 +74,12 @@ public class NextConnectionDelegate: ConnectionDelegate {
                 otherConnection?.targetConnection = connection
             }
         }
-        otherConnection?.position = connection.position
-        otherConnection?.updateSourceBlockCenter()
+        
+        UIView.animateWithDuration(0.2, animations: {
+            [weak otherConnection, unowned connection] in
+            otherConnection?.position = connection.position
+            otherConnection?.updateSourceBlockCenter()
+        })
     }
     
     func matchSearchCondition(otherConnection: Connection) -> Bool {

@@ -16,22 +16,24 @@ public class BlocklyViewController: UIViewController {
     
     private weak var blocklyOnDrag: Blockly? {
         willSet {
-            self.blocklyOnDrag?.layer.borderWidth = 0
+            self.blocklyOnDrag?.shapeLayer.lineWidth = 1
+            self.blocklyOnDrag?.shapeLayer.strokeColor = UIColor.grayColor().CGColor
             self.blocklyOnDrag?.updateNeighbour()
         }
         didSet {
-            self.blocklyOnDrag?.layer.borderWidth = 5
-            self.blocklyOnDrag?.layer.borderColor = UIColor.yellowColor().CGColor
+            self.blocklyOnDrag?.shapeLayer.lineWidth = 3
+            self.blocklyOnDrag?.shapeLayer.strokeColor = UIColor.yellowColor().CGColor
         }
     }
     
     private weak var connectionHighlighted: Connection? {
         willSet {
-            self.connectionHighlighted?.sourceBlock.layer.borderWidth = 0
+            self.connectionHighlighted?.sourceBlock.shapeLayer.lineWidth = 1
+            self.connectionHighlighted?.sourceBlock.shapeLayer.strokeColor = UIColor.grayColor().CGColor
         }
         didSet {
-            self.connectionHighlighted?.sourceBlock.layer.borderWidth = 5
-            self.connectionHighlighted?.sourceBlock.layer.borderColor = UIColor.greenColor().CGColor
+            self.connectionHighlighted?.sourceBlock.shapeLayer.lineWidth = 3
+            self.connectionHighlighted?.sourceBlock.shapeLayer.strokeColor = UIColor.greenColor().CGColor
         }
     }
     

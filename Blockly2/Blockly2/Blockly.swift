@@ -144,10 +144,45 @@ public class Blockly: UIView {
     func updateInputsFrame() {
         for (index, input) in enumerate(inputs) {
             /** Adjust position */
-            input.frame.origin = CGPointMake(0, CGFloat(index) * defaultSize.height + 10)
+            input.frame.origin = CGPointMake(10, CGFloat(index) * defaultSize.height + 10)
             /** Adjust width */
-            input.frame.size.width = self.frame.width
+            input.frame.size.width = self.frame.width - 10 - 10
         }
+    }
+    
+    func drawPath() -> UIBezierPath {
+        let path = UIBezierPath()
+        path.moveToPoint(CGPointMake(10, 0))
+        if allowPreviousStatement {
+            path.addLineToPoint(CGPointMake(PreviousConnectionOffset.x-10, 0))
+            path.addLineToPoint(CGPointMake(PreviousConnectionOffset.x, PreviousConnectionOffset.y))
+            path.addLineToPoint(CGPointMake(PreviousConnectionOffset.x+10, 0))
+        }
+        path.addLineToPoint(CGPointMake(frame.width, 0))
+        for input in inputs {
+            if input.connection is InputValueConnection {
+                path.addLineToPoint(CGPointMake(frame.width, input.center.y-10))
+                path.addLineToPoint(CGPointMake(frame.width-10, input.center.y))
+                path.addLineToPoint(CGPointMake(frame.width, input.center.y+10))
+            }
+        }
+        
+        path.addLineToPoint(CGPointMake(frame.width, frame.height-10))
+        if allowNextStatement {
+            path.addLineToPoint(CGPointMake(NextConnectionOffset.x+10, frame.height-10))
+            path.addLineToPoint(CGPointMake(NextConnectionOffset.x, frame.height))
+            path.addLineToPoint(CGPointMake(NextConnectionOffset.x-10, frame.height-10))
+        }
+        path.addLineToPoint(CGPointMake(10, frame.height-10))
+        if outputConnection != nil {
+            path.addLineToPoint(CGPointMake(10, frame.height/2 + 10))
+            path.addLineToPoint(CGPointMake(0, frame.height/2))
+            path.addLineToPoint(CGPointMake(10, frame.height/2 - 10))
+        }
+        path.closePath()
+        path.stroke()
+        path.fill()
+        return path
     }
     
     /**
@@ -246,22 +281,7 @@ public class Blockly: UIView {
         super.drawRect(rect)
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
-        
-        let path = UIBezierPath()
-        path.moveToPoint(CGPointMake(0, 0))
-        path.addLineToPoint(CGPointMake(PreviousConnectionOffset.x-10, 0))
-        path.addLineToPoint(CGPointMake(PreviousConnectionOffset.x, PreviousConnectionOffset.y))
-        path.addLineToPoint(CGPointMake(PreviousConnectionOffset.x+10, 0))
-        path.addLineToPoint(CGPointMake(frame.width, 0))
-        path.addLineToPoint(CGPointMake(frame.width, frame.height-10))
-        path.addLineToPoint(CGPointMake(NextConnectionOffset.x+10, frame.height-10))
-        path.addLineToPoint(CGPointMake(NextConnectionOffset.x, frame.height))
-        path.addLineToPoint(CGPointMake(NextConnectionOffset.x-10, frame.height-10))
-        path.addLineToPoint(CGPointMake(0, frame.height-10))
-        path.closePath()
-        path.stroke()
-        path.fill()
-        shapeLayer.path = path.CGPath
+        shapeLayer.path = drawPath().CGPath
     }
     
     required public init(coder aDecoder: NSCoder) {
