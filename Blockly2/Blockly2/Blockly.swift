@@ -36,9 +36,9 @@ public class Blockly: UIView {
      */
     override public var center: CGPoint {
         didSet {
-            nextConnection?.position = center + CGPointMake(0, frame.height/2)
-            previousConnection?.position = center  + CGPointMake(0, -frame.height/2)
-            outputConnection?.position = center + CGPointMake(-frame.width/2, 0)
+            nextConnection?.position = frame.origin + CGPointMake(frame.width/2, frame.height)
+            previousConnection?.position = frame.origin + CGPointMake(frame.width/2, 0)
+            outputConnection?.position = frame.origin + CGPointMake(0, frame.height/2)
             inputs.foreach({$0.connection?.updateTargetConnectionPosition()})
         }
     }
