@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (1.2.3)
+  - Blockly (0.1.0-alpha)
   - SnapKit (0.12.0)
   - SwiftyJSON (2.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 1.2)
+  - Blockly (= 0.1.0-alpha)
   - SnapKit (~> 0.12)
   - SwiftyJSON (~> 2.2.0)
 
 SPEC CHECKSUMS:
   Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
+  Blockly: 483ad0c5961ad15f3f0b4d81e852db47a06ee82e
   SnapKit: 00c388aa3bf1944c1b55472f31e841f75bd83882
   SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c
 

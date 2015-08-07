@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
 #define COCOAPODS_VERSION_PATCH_Alamofire 3
 
+// Blockly
+#define COCOAPODS_POD_AVAILABLE_Blockly
+#define COCOAPODS_VERSION_MAJOR_Blockly 0
+#define COCOAPODS_VERSION_MINOR_Blockly 1
+#define COCOAPODS_VERSION_PATCH_Blockly 0
+
 // SnapKit
 #define COCOAPODS_POD_AVAILABLE_SnapKit
 #define COCOAPODS_VERSION_MAJOR_SnapKit 0
