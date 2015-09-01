@@ -19,6 +19,7 @@ class Map: SKScene {
     var decorations: [Decoration]
     var van: Van
     lazy var mapArray = [[Bool]]()
+    let originalSize: CGSize
     
     init(width: Int, height: Int, origin: Origin, nodes: [Node], destination: [Destination], decorations: [Decoration]) {
         self.width = width
@@ -29,13 +30,13 @@ class Map: SKScene {
         self.decorations = decorations
         self.van = Van(origin: origin)
         self.van.zPosition = 0.8
-        super.init(size: CGSize(
-            width: GameMapConfig.GridSize.width*CGFloat(width),
-            height: GameMapConfig.GridSize.height*CGFloat(height)))
+        self.originalSize = CGSizeMake(
+            GameMapConfig.GridSize.width*CGFloat(width),
+            GameMapConfig.GridSize.height*CGFloat(height))
+        super.init(size: originalSize)
     }
     
     override func didMoveToView(view: SKView) {
-        backgroundColor = kC4LGameMapGrassColor
         self.scaleMode = SKSceneScaleMode.AspectFill
     }
     

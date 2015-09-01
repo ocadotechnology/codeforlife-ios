@@ -18,7 +18,6 @@ class GameViewController: UIViewController, WKNavigationDelegate {
 
     weak var gameMapViewController: GameMapViewController?
     weak var blockTableViewController: BlockTableViewController?
-    weak var directDriveViewController: DirectDriveViewController?
     weak var gameMenuViewController: GameMenuViewController?
 
     var gameViewInteractionHandler: WKScriptMessageHandler?
@@ -81,8 +80,6 @@ class GameViewController: UIViewController, WKNavigationDelegate {
                 self.gameMenuViewController = segue.destinationViewController as? GameMenuViewController
             case "BlockTableViewController" :
                 self.blockTableViewController = segue.destinationViewController as? BlockTableViewController
-            case "DirectDriveViewController" :
-                self.directDriveViewController = segue.destinationViewController as? DirectDriveViewController
             case "GameMapViewController" :
                 self.gameMapViewController = segue.destinationViewController as? GameMapViewController
             default: break

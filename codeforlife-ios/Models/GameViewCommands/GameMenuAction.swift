@@ -64,7 +64,6 @@ class GameMenuPlayAction: GameMenuAction {
         gameViewController?.gameMapViewController?.map?.resetMap()
         ActionFactory.createAction("ResetAnimation").execute()
         viewController?.clearButton.enabled = false
-        gameViewController?.blockTableViewController?.goToTopBlock()
         
         // Submit Blocks and retrieve Animations
         gameViewController?.gameMapViewController?.map?.van.reset()
@@ -83,6 +82,7 @@ class GameMenuSwitchControlModeAction: GameMenuAction {
     
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.controlMode = self.controlMode
+        completion?()
     }
 }
 

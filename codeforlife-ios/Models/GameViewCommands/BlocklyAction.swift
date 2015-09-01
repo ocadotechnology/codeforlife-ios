@@ -14,20 +14,6 @@ class BlocklyAction : GameViewAction {
     }
 }
 
-class BlocklyAddBlockAction: BlocklyAction {
-    
-    var block: Block
-    
-    init(block: Block) {
-        self.block = block
-    }
-    
-    override func execute(completion: (() -> Void)? = nil) {
-        viewController?.addBlock(self.block)
-        self.block.executeBlock(animated: true, completion: completion)
-    }
-}
-
 class BlocklyRemoveAllBlocksAction: BlocklyAction {
     override func execute(completion: (() -> Void)? = nil) {
         viewController?.clearBlocks()

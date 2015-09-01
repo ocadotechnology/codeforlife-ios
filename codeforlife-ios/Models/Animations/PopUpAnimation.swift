@@ -48,12 +48,12 @@ class WinPopupAnimation: PopUpAnimation {
             instrScore: instrScore,
             maxInstrScore: maxInstrScore,
             nextLevelAction: {
-                controller.gotoNextLevelAndDismiss()
                 controller.dismissViewControllerAnimated(true, completion: nil)
+                controller.gotoNextLevelAndDismiss()
             },
             playAgainAction: {
-                controller.playAgainAndDismiss()
                 controller.dismissViewControllerAnimated(true, completion: nil)
+                controller.playAgainAndDismiss()
         })
         if let view = controller.view as? PostGameMessageView {
             view.nextLevelButton.hidden = SharedContext.MainGameViewController?.level?.nextLevelUrl == ""

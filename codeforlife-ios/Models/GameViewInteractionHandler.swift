@@ -40,18 +40,23 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     // AnimationQueues is a 2D array with lists of animations(ie [[Animation]])
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
 
+        println("[GameViewInteractionController] Receiving Packages...")
+        
         if let result = message.body as? NSString,
                 data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
             let queues = JSON(data: data)
             if let queuesArray = queues.array {
                 var animationQueues = [[Animation]]()
+                println("[GameViewInteractionController] Processing data to animation queue")
                 for queue in queuesArray {
                     if let queueArray = queue.array {
                         var animationQueue = convertToAnimationQueue(queueArray)
                         animationQueues.append(animationQueue)
                     }
                 }
-                SharedContext.MainGameViewController?.gameMapViewController?.animationHandler.executeAnimations(animationQueues)
+                let animationHandler = SharedContext.MainGameViewController?.gameMapViewController?.animationHandler
+                animationHandler?.resetVariables()
+                animationHandler?.executeAnimations(animationQueues)
             }
         }
         

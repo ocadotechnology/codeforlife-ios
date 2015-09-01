@@ -20,29 +20,11 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var index = 0 {
         didSet {
-            if isViewLoaded() {
+            if isViewLoaded() && index <= 2{
                 loadEpisode(self.index)
             }
         }
     }
-    
-//    var requestedEpisode: Episode?
-//    
-//    var episode : Episode? {
-//        didSet {
-//            if isViewLoaded() {
-//                prevEpisodeButton.hidden = episode?.prevEpisode == nil ? true : false
-//                nextEpisodeButton.hidden = episode?.nextEpisode == nil ? true : false
-//                activityIndicator.startAnimating()
-////                FetchLevelsRequest(self, episode!.url).execute {
-////                    [unowned self] in
-////                    self.activityIndicator?.stopAnimating()
-////                    self.titleLabel.text = self.episode?.name
-////                }
-//                
-//            }
-//        }
-//    }
     
     var levels = [Level]() {
         didSet {
@@ -65,7 +47,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
                         .filter({[unowned self] in $0.episodeUrl == episodeUrl})
                         .sorted({$0.level < $1.level})
         prevEpisodeButton.hidden = index == 1
-        nextEpisodeButton.hidden = index == Episode.fetchResults().count
+        nextEpisodeButton.hidden = index == 2
         self.titleLabel.text = Episode.fetchResults().filter({$0.id == self.index})[0].name
     }
 

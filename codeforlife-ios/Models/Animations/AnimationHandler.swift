@@ -72,6 +72,7 @@ class AnimationHandler {
     private func runAnimations() {
         println("===== \(currentIndex+1)/\(animationQueues.count) ======")
         runningAnimationsRemained = animationQueues[currentIndex].count
+        println("Number of Animations to run = \(runningAnimationsRemained)")
         for animation in animationQueues[currentIndex++] {
             animation.executeAnimation {
                 [unowned self] in
@@ -80,6 +81,7 @@ class AnimationHandler {
                 }
                 // Notify to run next Animation if all concurrent animations finish
                 self.runningAnimationsRemained--
+                println("Animations remained = \(self.runningAnimationsRemained)")
             }
         }
     }

@@ -21,8 +21,7 @@ class HighlightAnimation: Animation {
         println("Highlight Cell: \(blockId)")
         let indexPath = NSIndexPath(forRow: blockId, inSection: 0)
         let viewController = SharedContext.MainGameViewController?.blockTableViewController
-        viewController?.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Middle, animated: true)
-        viewController?.currentSelectedCell = blockId
+        viewController?.highlightRow(blockId)
         completion?()
     }
 }

@@ -15,8 +15,8 @@ struct GameMapConfig {
     
     static let straightToTurnRatio: CGFloat = 1.24
     
-    static let MapYOffset: CGFloat = 50
-    static let MapXOffset: CGFloat = 20
+    static let MapYOffset: CGFloat = 0
+    static let MapXOffset: CGFloat = 110
     
     static let DecorationXRatio: CGFloat = 0.7
     static let DecorationYRatio: CGFloat = 0.7

@@ -60,14 +60,12 @@ class GameMenuViewController: SubGameViewController {
             switch controlMode {
             case .onPlayControls:
                 clearButton.enabled = false
-                gameViewController.blockTableViewController?.recognizer?.editable = false
-                gameViewController.directDriveViewController?.disableDirectDrive()
+                gameViewController.blockTableViewController?.editable = false
                 
             case .onStepControls:
                 clearButton.enabled = false
                 playButton.enabled = false
-                gameViewController.blockTableViewController?.recognizer?.editable = false
-                gameViewController.directDriveViewController?.disableDirectDrive()
+                gameViewController.blockTableViewController?.editable = false
                 
             case .onPauseControls:
                 playButton.enabled = true
@@ -77,8 +75,7 @@ class GameMenuViewController: SubGameViewController {
             case .onStopControls:
                 clearButton.enabled = true
                 playButton.enabled = true
-                gameViewController.blockTableViewController?.recognizer?.editable = true
-                gameViewController.directDriveViewController?.enableDirectDrive()
+                gameViewController.blockTableViewController?.editable = true
                 
             }
         }

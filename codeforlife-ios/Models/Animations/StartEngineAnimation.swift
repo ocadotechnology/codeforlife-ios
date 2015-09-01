@@ -11,6 +11,7 @@ import Foundation
 
 class StartEngineAnimation: Animation {
     override func executeAnimation(completion: (() -> Void)? = nil) {
+        println("Starting Engine")
         van?.engineStarted = true
         completion?()
     }

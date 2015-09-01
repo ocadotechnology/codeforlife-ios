@@ -19,10 +19,6 @@ class ActionFactory {
                 return GameMenuHelpAction()
             case "Clear":
                 return GameMenuClearAction()
-            case "DisableDirectDrive":
-                return NGVDisableDirectDriveAction()
-            case "EnableDirectDrive":
-                return NGVEnableDirectDriveAction()
             case "PregameMessage":
                 return NGVShowPreGameMessageAction()
             case "Play":
@@ -41,14 +37,6 @@ class ActionFactory {
                 return GameMenuSwitchControlModeAction(controlMode: GameMenuViewController.ControlMode.onResumeControls)
             case "ChangeToOnStepControls":
                 return GameMenuSwitchControlModeAction(controlMode: GameMenuViewController.ControlMode.onStepControls)
-            case "AddMoveForwardBlock":
-                return BlocklyAddBlockAction(block: Forward())
-            case "AddTurnLeftBlock":
-                return BlocklyAddBlockAction(block: Left())
-            case "AddTurnRightBlock":
-                return BlocklyAddBlockAction(block: Right())
-            case "AddDeliverBlock":
-                return BlocklyAddBlockAction(block: Deliver())
             
         default:
             return Action() //Error Action

@@ -14,20 +14,21 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
     lazy var animationHandler = AnimationHandler()
     
     var map: Map? {
-        didSet {
-            loadMap()
-        }
+        didSet { loadMap() }
     }
+    
+    var panRecognizer: GameMapPanGestureRecognizer?
+    var pinchRecognizer: GameMapPinchGestureREcognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = GameView()
+        self.view = GameView(frame: view.frame)
         let gameView = self.view as! GameView
-        gameView.backgroundColor = kC4LGameMapGrassColor
         gameView.showsFPS = true
         gameView.showsNodeCount = true
         gameView.ignoresSiblingOrder = true
-        loadMap()
+//        panRecognizer = GameMapPanGestureRecognizer(viewController: self)
+        pinchRecognizer = GameMapPinchGestureREcognizer(viewController: self)
     }
     
     private func loadMap() {
@@ -46,6 +47,14 @@ class GameMapViewController: SubGameViewController, UIScrollViewDelegate {
         gameView.presentScene(nil)
         map?.removeAllChildren()
         map?.removeFromParent()
+    }
+    
+    func handlePanGesture(sender: UIPanGestureRecognizer) {
+        panRecognizer?.handlePanGesture(sender)
+    }
+    
+    func handlePinchGesture(sender: UIPinchGestureRecognizer) {
+        pinchRecognizer?.handlePinchGesture(sender)
     }
     
     deinit { println("GameMapViewController is being deallocated") }

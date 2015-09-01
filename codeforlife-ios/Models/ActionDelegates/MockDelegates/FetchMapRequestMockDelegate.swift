@@ -13,6 +13,8 @@ import Alamofire
 class FetchMapRequestMockDelegate : RequestDelegate {
     
     func execute(processData: (NSData -> Void), callback: () -> Void) {
+        
+/*
         var json = JSON(
             [
                 "origin": "{\"coordinate\":[6, 1], \"direction\":\"S\"}",
@@ -126,6 +128,7 @@ class FetchMapRequestMockDelegate : RequestDelegate {
         
         var data = json.rawData()
         processData(data!)
+*/
         callback()
     }
 
