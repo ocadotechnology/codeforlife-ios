@@ -29,7 +29,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func FetchEpisodesFromCoreData() {
-        episodes = Episode.fetchResults().sorted({$0.id < $1.id})
+        episodes = Episode.fetchResults().sorted({$0.id < $1.id}).filter({$0.id <= 2})
         println("\(episodes.count) episodes in total")
     }
     
@@ -59,8 +59,6 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
                 case SegueIdentifier:
                     var indexPath = tableView.indexPathForSelectedRow()!
                     controller.index = indexPath.row + 1
-//                    let item = episodes[indexPath.row]
-//                    controller.requestedEpisode = Episode(name: item.name, url: item.url)
                 default: break
                 }
             }

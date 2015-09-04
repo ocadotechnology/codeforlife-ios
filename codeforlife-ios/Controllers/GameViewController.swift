@@ -15,13 +15,36 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     
     let scriptMessageHandlerTitle = "handler"
     let webViewPreloadScript = "$('#mute_radio').trigger('click');"
+    
+    struct SegueIdentifier {
+        static let GameMenuViewController = "GameMenuViewController"
+        static let BlocklyViewController = "BlockTableViewController"
+        static let GameMapViewController = "GameMapViewController"
+    }
 
-    weak var gameMapViewController: GameMapViewController?
-    weak var blockTableViewController: BlockTableViewController?
-    weak var gameMenuViewController: GameMenuViewController?
+    weak var gameMapViewController: GameMapViewController? {
+        didSet {
+            self.gameMapViewController?.gvcDelegate = self.gameViewInteractionHandler.gvcDelegate
+            self.gameViewInteractionHandler.gvcDelegate.setGameMapViewController(self.gameMapViewController)
+        }
+    }
+    
+    weak var blockTableViewController: BlockTableViewController? {
+        didSet {
+            self.blockTableViewController?.gvcDelegate = self.gameViewInteractionHandler.gvcDelegate
+            self.gameViewInteractionHandler.gvcDelegate.setBlocklyViewController(blockTableViewController)
+        }
+    }
+    
+    weak var gameMenuViewController: GameMenuViewController? {
+        didSet {
+            self.gameMenuViewController?.gvcDelegate = self.gameViewInteractionHandler.gvcDelegate
+            self.gameViewInteractionHandler.gvcDelegate.setGameMenuViewController(self.gameMenuViewController)
+        }
+    }
 
-    var gameViewInteractionHandler: WKScriptMessageHandler?
-    var webView: WKWebView?
+    let gameViewInteractionHandler: GameViewInteractionHandler
+    let webView: WKWebView
     
     var level: Level?
     var levelUrl = "" {
@@ -33,11 +56,29 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var blockTableView: UIView!
     
+    init(_ coder: NSCoder? = nil) {
+        gameViewInteractionHandler = GameViewInteractionHandler()
+        let userContentController = WKUserContentController()
+        userContentController.addScriptMessageHandler(InteractionHandler(delegate: gameViewInteractionHandler), name: scriptMessageHandlerTitle)
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController = userContentController
+        webView = WKWebView(frame: CGRectZero, configuration: configuration)
+        if let coder = coder {
+            super.init(coder: coder)
+        } else {
+            super.init(nibName: nil, bundle: nil)
+        }
+        webView.navigationDelegate = self
+    }
+    
+    required convenience init(coder: NSCoder) {
+        self.init(coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        SharedContext.MainGameViewController = self
-        gameViewInteractionHandler = GameViewInteractionHandler(self)
-        setupWebView()
+        gameViewInteractionHandler.gameViewController = self
+        activityIndicator?.startAnimating()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -49,52 +90,43 @@ class GameViewController: UIViewController, WKNavigationDelegate {
         let levels  = Level.fetchResults().filter({$0.url == levelUrl})
         if levels.count > 0 {
             level = levels[0]
-            let map = CDMap.fetchResults().filter({$0.url == self.level!.url})[0].toMap()
-            SharedContext.MainGameViewController?.gameMapViewController?.map = map
-            ActionFactory.createAction("PregameMessage").execute()
-            ActionFactory.createAction("Clear").execute()
-            self.webView?.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
+            let mapScene = CDMap.fetchResults().filter({$0.url == self.level!.url})[0].toMap(gameViewInteractionHandler.gvcDelegate)
+            gameMapViewController?.mapScene = mapScene
+            gameViewInteractionHandler.gvcDelegate.displayPregameMessage(nil)
+            gameViewInteractionHandler.gvcDelegate.clear(nil)
+            self.webView.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
         }
-    }
-    
-    private func setupWebView() {
-        let userContentController = WKUserContentController()
-        userContentController.addScriptMessageHandler(InteractionHandler(delegate: gameViewInteractionHandler), name: scriptMessageHandlerTitle)
-        let configuration = WKWebViewConfiguration()
-        configuration.userContentController = userContentController
-        webView = WKWebView(frame: CGRectZero, configuration: configuration)
-        webView?.navigationDelegate = self
-        activityIndicator?.startAnimating()
     }
     
     func runJavaScript(javaScript: String, callback: (() -> Void)? = nil) {
-        webView?.evaluateJavaScript(javaScript) { ( _, _) in
-            callback?()
-        }
+        webView.evaluateJavaScript(javaScript) { ( _, _) in callback?() }
+    }
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        webView.evaluateJavaScript(webViewPreloadScript, completionHandler: nil)
+        self.activityIndicator?.stopAnimating()
+    }
+    
+    func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
+        var credential = NSURLCredential(user: DevUsername, password: DevPassword, persistence: NSURLCredentialPersistence.Permanent)
+        completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "GameMenuViewController" :
-                self.gameMenuViewController = segue.destinationViewController as? GameMenuViewController
-            case "BlockTableViewController" :
-                self.blockTableViewController = segue.destinationViewController as? BlockTableViewController
-            case "GameMapViewController" :
-                self.gameMapViewController = segue.destinationViewController as? GameMapViewController
-            default: break
+                case SegueIdentifier.GameMenuViewController :
+                    self.gameMenuViewController = segue.destinationViewController as? GameMenuViewController
+                    
+                case SegueIdentifier.BlocklyViewController :
+                    self.blockTableViewController = segue.destinationViewController as? BlockTableViewController
+                    
+                case SegueIdentifier.GameMapViewController :
+                    self.gameMapViewController = segue.destinationViewController as? GameMapViewController
+                
+                default: break
             }
         }
-    }
-    
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        webView.evaluateJavaScript(webViewPreloadScript, completionHandler: nil)
-            self.activityIndicator?.stopAnimating()
-    }
-    
-    func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
-        var credential = NSURLCredential(user: "trial", password: "cabbage", persistence: NSURLCredentialPersistence.Permanent)
-        completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
     }
     
     // Some extra releases need to be done manually due to the retain cycle
@@ -102,9 +134,8 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     // retain cycle between WKUserContentController and its ScriptMessageHandler
     deinit {
 //        println("GameViewController is being deallocated")
-        self.webView?.stopLoading()
-        self.webView?.configuration.userContentController.removeScriptMessageHandlerForName(scriptMessageHandlerTitle)
-        self.webView = nil
+        self.webView.stopLoading()
+        self.webView.configuration.userContentController.removeScriptMessageHandlerForName(scriptMessageHandlerTitle)
     }
     
 }

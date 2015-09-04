@@ -2,40 +2,40 @@
 //  AnimationFactory.swift
 //  codeforlife-ios
 //
-//  Created by Joey Chan on 23/07/2015.
+//  Created by Joey Chan on 08/09/2015.
 //  Copyright (c) 2015 Joey Chan. All rights reserved.
 //
 
-import SwiftyJSON
 import Foundation
+import SwiftyJSON
 
 class AnimationFactory {
     
-    final func createAnimation(json: JSON) -> Animation? {
-        var animation: Animation?
+    weak var animationDelegate: GameViewControllerDelegate?
+    
+    init(animationDelegate: GameViewControllerDelegate?) {
+        self.animationDelegate = animationDelegate
+    }
+
+    func createAction(json: JSON) -> Animation? {
+        var action: Animation?
         if let type = json["type"].string {
             switch type {
-            case "van":
-                animation = convertToVanAnimation(json)
-            case "popup":
-                animation = convertToPopupAnimation(json)
-            case "playSound":
-                animation = convertToPlaySoundAnimation(json)
-            case "highlight":
-                animation = convertToHighlightAnimation(json)
-            case "highlightIncorrect":
-                animation = convertToHighlightIncorrectAnimation(json)
-            case "onStopControls":
-                animation = OnStopControlsAnimation()
-            case "trafficlight": break // TODO
+            case "van":                 action = convertToVanAction(json)
+            case "popup":               action = convertToPopupAction(json)
+            case "playSound":           action = convertToPlaySoundAction(json)
+            case "highlight":           action = convertToHighlightAction(json)
+            case "highlightIncorrect":  action = convertToHighlightIncorrectAction(json)
+            case "onStopControls":      action = OnStopControlsAction(delegate: animationDelegate)
+                
             default: break
             }
         }
-        return animation
+        return action
     }
     
-    private func convertToPopupAnimation(json: JSON) -> Animation? {
-        var animation: Animation?
+    private func convertToPopupAction(json: JSON) -> Animation? {
+        var action: Animation?
         if let popupType = json["popupType"].string {
             switch popupType {
             case "WIN":
@@ -50,7 +50,8 @@ class AnimationFactory {
                             .stringByReplacingOccurrencesOfString("<b>", withString: "<", options: NSStringCompareOptions.LiteralSearch, range: nil)
                             .stringByReplacingOccurrencesOfString("</b>", withString: ">", options: NSStringCompareOptions.LiteralSearch, range: nil)
                         
-                        animation = WinPopupAnimation(
+                        action = WinPopupAction(
+                            delegate: animationDelegate,
                             message: processedMessage,
                             pathScore: pathLengthScore,
                             maxPathScore: maxScoreForPathLength,
@@ -59,96 +60,93 @@ class AnimationFactory {
                 }
             case "FAIL":
                 if let popupMessage = json["popupMessage"].string {
-                    animation = FailurePopupAnimation(message: popupMessage)
+                    action = FailurePopupAction(message: popupMessage, delegate: animationDelegate)
                 }
             default: break
             }
         }
-        return animation
+        return action
     }
     
-    private func convertToVanAnimation(json: JSON) -> Animation? {
-        var animation: Animation?
-        if let player = SharedContext.MainGameViewController?.gameMapViewController?.map?.van,
-            vanAction = json["vanAction"].string {
+    private func convertToVanAction(json: JSON) -> Animation? {
+        var action: Animation?
+        if let vanAction = json["vanAction"].string {
                 switch vanAction {
                 case "FORWARD":
-                    animation = MoveForwardAnimation()
+                    action = GameVanMoveForwardAction(delegate: animationDelegate)
                 case "TURN_LEFT":
-                    animation = TurnLeftAnimation()
+                    action = GameVanTurnLeftAction(delegate: animationDelegate)
                 case "TURN_RIGHT":
-                    animation = TurnRightAnimation()
+                    action = GameVanTurnRightAction(delegate: animationDelegate)
                 case "DELIVER":
                     if let destinationId = json["destinationID"].int {
-                        animation = DeliverAnimation(destinationId: destinationId)
+                        action = GameVanDeliverAction(delegate: animationDelegate, destinationId: destinationId)
                     }
                 case "CRASH":
-                    animation = convertToCrashAnimation(json)
-                case "TURN_AROUND": break // TODO
-                default:
-                    println("Implement van handling for \(vanAction)")
+                    action = convertToCrashAction(json)
+                    
+                default: println("Implement van handling for \(vanAction)")
                 }
         }
-        return animation
+        return action
     }
     
-    private func convertToCrashAnimation(json: JSON) -> Animation? {
+    private func convertToCrashAction(json: JSON) -> Animation? {
         var animation: Animation?
-        if let player = SharedContext.MainGameViewController?.gameMapViewController?.map?.van,
-            attemptedAction = json["attemptedAction"].string {
+        if let attemptedAction = json["attemptedAction"].string {
                 switch attemptedAction {
                 case "FORWARD":
-                    animation = MoveForwardCrashAnimation()
+                    animation = GameVanMoveForwardCrashAction(delegate: animationDelegate)
                 case "TURN_LEFT":
-                    animation = TurnLeftCrashAnimation()
+                    animation = GameVanTurnLeftCrashAction(delegate: animationDelegate)
                 case "TURN_RIGHT":
-                    animation = TurnRightCrashAnimation()
+                    animation = GameVanTurnRightCrashAction(delegate: animationDelegate)
+                    
                 default: break
                 }
         }
         return animation
     }
     
-    private func convertToPlaySoundAnimation(json: JSON) -> Animation? {
-        var animation: Animation?
+    private func convertToPlaySoundAction(json: JSON) -> Animation? {
+        var action: Animation?
         if let description = json["description"].string {
             switch description {
             case "starting sound":
-                animation = SoundAnimation(gameSound: GameSound.Starting)
+                action = GameSoundAction(delegate: animationDelegate, gameSound: GameSound.Starting, waitForCompletion: true)
             case "starting engine":
-                animation = StartEngineAnimation()
+                action = GameVanStartEngineAction(delegate: animationDelegate)
             case "stopping engine":
-                animation = StopEngineAnimation()
+                action = GameVanStopEngineAction(delegate: animationDelegate)
             case "win sound":
-                animation = SoundAnimation(gameSound: GameSound.Win)
+                action = GameSoundAction(delegate: animationDelegate, gameSound: GameSound.Win, waitForCompletion: false)
             case "failure sound":
-                animation = SoundAnimation(gameSound: GameSound.Failure)
+                action = GameSoundAction(delegate: animationDelegate, gameSound: GameSound.Failure, waitForCompletion: false)
             case "crash sound":
-                animation = SoundAnimation(gameSound: GameSound.Crash)
+                action = GameSoundAction(delegate: animationDelegate, gameSound: GameSound.Crash, waitForCompletion: false)
             case "delivery":
-                animation = SoundAnimation(gameSound: GameSound.Delivery)
-            default:
-                println("Implement sound handling for \(description)")
+                action = GameSoundAction(delegate: animationDelegate, gameSound: GameSound.Delivery, waitForCompletion: true)
+                
+            default: println("Implement sound handling for \(description)")
             }
         }
-        return animation
+        return action
     }
     
-    private func convertToHighlightAnimation(json: JSON) -> Animation? {
-        var animation: Animation?
+    private func convertToHighlightAction(json: JSON) -> Animation? {
+        var action: Animation?
         if let blockId = json["blockId"].int {
-            animation = HighlightAnimation(blockId: blockId)
+            action = BlocklyHighlightAnimation(delegate: animationDelegate, blockId: blockId)
         }
-        return animation
+        return action
     }
     
-    private func convertToHighlightIncorrectAnimation(json: JSON) -> Animation? {
-        var animation: Animation?
+    private func convertToHighlightIncorrectAction(json: JSON) -> Animation? {
+        var action: Animation?
         if let blockId = json["blockId"].int {
-            animation = HighlightIncorrectAnimation(blockId: blockId)
+            action = BlocklyHighlightIncorrectAction(delegate: animationDelegate, blockId: blockId)
         }
-        return animation
+        return action
     }
-    
     
 }

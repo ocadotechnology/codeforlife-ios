@@ -11,6 +11,7 @@
 *.perspectivev3
 *.pbxuser
 *.xcuserdatad
+Pods/Pods.xcodeproj/xcuserdata/*
 
 build/
 ocunit.xml

@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Load Screen View Controller-->
+        <!--Launch Screen View Controller-->
         <scene sceneID="oAg-1a-aUT">
             <objects>
-                <viewController id="fQE-jL-rKf" customClass="LoadScreenViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fQE-jL-rKf" customClass="LaunchScreenViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v34-17-gCj"/>
                         <viewControllerLayoutGuide type="bottom" id="5fE-Uj-QKV"/>
@@ -100,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HH6-fi-moZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421.75" y="-1179"/>
+            <point key="canvasLocation" x="1993" y="-1259"/>
         </scene>
         <!--Episode View Controller-->
         <scene sceneID="kIc-Kq-7Lq">
@@ -184,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwy-uX-Mxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421.75" y="-491.25"/>
+            <point key="canvasLocation" x="2805" y="-1259"/>
         </scene>
         <!--Level Table View Controller-->
         <scene sceneID="7O8-OV-w0X">
@@ -400,7 +400,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iL0-JM-HDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zqE-N0-6hf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3187.5" y="-491.25"/>
+            <point key="canvasLocation" x="3747" y="-1259"/>
         </scene>
         <!--Game Menu View Controller-->
         <scene sceneID="GEn-CA-lej">
@@ -934,7 +934,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCw-JG-S4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AQj-Vj-aRe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3496.125" y="134.25"/>
+            <point key="canvasLocation" x="4623.5" y="-394"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -996,10 +996,6 @@
                                     <segue destination="7Ne-xJ-S2H" kind="embed" identifier="GameMenuViewController" id="dVk-P6-Vqo"/>
                                 </connections>
                             </containerView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAA-NT-in3">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                                <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
-                            </activityIndicatorView>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YyK-32-Fjp" userLabel="Block Table View">
                                 <rect key="frame" x="16" y="40" width="250" height="510"/>
                                 <constraints>
@@ -1023,6 +1019,10 @@
                                     <segue destination="4du-8I-ErY" kind="embed" identifier="BlockTableViewController" id="xnW-ET-lKi"/>
                                 </connections>
                             </containerView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAA-NT-in3">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <color key="color" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1199,7 +1199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3858" y="-491.25"/>
+            <point key="canvasLocation" x="4722" y="-1259"/>
         </scene>
         <!--Game Map View Controller-->
         <scene sceneID="CGG-lB-JO1">
@@ -1212,12 +1212,68 @@
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="CZy-ZG-bZM">
                         <rect key="frame" x="0.0" y="0.0" width="293" height="540"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpC-pB-LAo" userLabel="Map View" customClass="SKView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WG-MQ-z7Z">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RpC-pB-LAo" secondAttribute="trailing" id="Rdo-BF-TFy"/>
+                            <constraint firstItem="9WG-MQ-z7Z" firstAttribute="top" secondItem="mlJ-oC-wPC" secondAttribute="bottom" id="TIc-mc-83k"/>
+                            <constraint firstItem="9WG-MQ-z7Z" firstAttribute="leading" secondItem="RpC-pB-LAo" secondAttribute="leading" id="ewp-YY-rcD"/>
+                            <constraint firstItem="9WG-MQ-z7Z" firstAttribute="trailing" secondItem="RpC-pB-LAo" secondAttribute="trailing" id="h00-7q-bYS"/>
+                            <constraint firstItem="9WG-MQ-z7Z" firstAttribute="bottom" secondItem="SUH-Ue-Jdn" secondAttribute="top" id="npx-Wb-Pch"/>
+                            <constraint firstItem="RpC-pB-LAo" firstAttribute="leading" secondItem="CZy-ZG-bZM" secondAttribute="leading" id="uhK-QQ-qkd"/>
+                            <constraint firstItem="RpC-pB-LAo" firstAttribute="bottom" secondItem="SUH-Ue-Jdn" secondAttribute="top" id="v0p-HW-gCv"/>
+                            <constraint firstItem="RpC-pB-LAo" firstAttribute="top" secondItem="9WG-MQ-z7Z" secondAttribute="top" id="xQx-4P-u8b"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="RpC-pB-LAo"/>
+                                <exclude reference="9WG-MQ-z7Z"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="TIc-mc-83k"/>
+                                <exclude reference="ewp-YY-rcD"/>
+                                <exclude reference="h00-7q-bYS"/>
+                                <exclude reference="npx-Wb-Pch"/>
+                                <exclude reference="Rdo-BF-TFy"/>
+                                <exclude reference="uhK-QQ-qkd"/>
+                                <exclude reference="v0p-HW-gCv"/>
+                                <exclude reference="xQx-4P-u8b"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="RpC-pB-LAo"/>
+                                <include reference="9WG-MQ-z7Z"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="TIc-mc-83k"/>
+                                <include reference="ewp-YY-rcD"/>
+                                <include reference="h00-7q-bYS"/>
+                                <include reference="npx-Wb-Pch"/>
+                                <include reference="Rdo-BF-TFy"/>
+                                <include reference="uhK-QQ-qkd"/>
+                                <include reference="v0p-HW-gCv"/>
+                                <include reference="xQx-4P-u8b"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="MapView" destination="RpC-pB-LAo" id="wof-ry-ped"/>
+                        <outlet property="mapView" destination="RpC-pB-LAo" id="RzB-M1-idG"/>
+                        <outlet property="scrollView" destination="9WG-MQ-z7Z" id="dI6-h3-kFf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leV-SW-IPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4647.5" y="285"/>
+            <point key="canvasLocation" x="5223.5" y="-278"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="ei4-8z-TMX">
@@ -1257,7 +1313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3R-rU-Zms" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4096.5" y="367.5"/>
+            <point key="canvasLocation" x="3536.5" y="-317"/>
         </scene>
     </scenes>
     <resources>

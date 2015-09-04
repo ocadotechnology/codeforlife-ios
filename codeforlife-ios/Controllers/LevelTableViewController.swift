@@ -41,11 +41,11 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
         
     private func loadEpisode(index: Int) {
         let episodes = Episode.fetchResults().sorted({$0.id < $1.id})
-        println("\(episodes.count) levels in Episode \(index)")
         let episodeUrl = episodes[index-1].url
         levels = Level.fetchResults()
                         .filter({[unowned self] in $0.episodeUrl == episodeUrl})
-                        .sorted({$0.level < $1.level})
+            .sorted({$0.level < $1.level})
+        println("\(levels.count) levels in Episode \(index)")
         prevEpisodeButton.hidden = index == 1
         nextEpisodeButton.hidden = index == 2
         self.titleLabel.text = Episode.fetchResults().filter({$0.id == self.index})[0].name
@@ -88,6 +88,6 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func gotoPreviousEpisode() { index-- }
     @IBAction func gotoNextEpisode() { index++ }
-    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) { SharedContext.MainGameViewController = nil }
+    @IBAction func unwindToLevelTableView(segue: UIStoryboardSegue) {}
 
 }

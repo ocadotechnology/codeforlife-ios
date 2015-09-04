@@ -7,245 +7,249 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00B4A662EFA661D21A3CD9AB841C32BC /* BVCExtensionInterpretation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877B5FB401568337B7389D851224C92D /* BVCExtensionInterpretation.swift */; };
-		034BB9C151D1C368FE7B1CFA48AEA615 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32ECC119E52B5DBCD7F6D9FE1A6CE45 /* Validation.swift */; };
-		09D97047C5A1EA0CFBAEFCBB7EE8D510 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 20F63BC2A11387D3B47826C534A667DE /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0ACBEA024B55262C99D2F375FCB4AB43 /* ReturnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64050A74581D966E18022A8443B53616 /* ReturnType.swift */; };
-		0B89C462961F5456DF8D8EDCEA1B7840 /* PreviousConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECA455AECEB52CDA31F672D4F0D1C97 /* PreviousConnectionPoint.swift */; };
-		1159CB4AB6D3247FA5D3EEBDB0A93345 /* Blockly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18154193FD58DE877FAF5DD94213983A /* Blockly.swift */; };
-		14435AB3359FF67D2E5B340034B1F446 /* BVCExtensionGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA15E7931B1A2989A50D1CD824F6046 /* BVCExtensionGestureRecognizer.swift */; };
-		16510E8995F880624D041DFC3191B950 /* BlocklyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBBC20C9E44FB4078C3790AB4D3EA6A /* BlocklyFactory.swift */; };
+		03EC1B1EB41B2950AA5F1A5BD0DF151C /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493CE82BB2DBD012B3A23AD51290465 /* ResponseSerialization.swift */; };
+		0401EF7AC188CAA0A69FC93102359248 /* BlocklyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4049021B165DD987FA8FAD6373EF9CE /* BlocklyConfiguration.swift */; };
+		05B483A12E9666EFA242BD0FD53BDFE7 /* InputValueConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9BFFBDB41F765FC9B479D3EE6BA61 /* InputValueConnection.swift */; };
+		0F6936FC453FEBCCAB1810CC7C5899B7 /* BlocklyCores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93450E72ABC303021FBA560E91504415 /* BlocklyCores.swift */; };
+		1416741614B41C00949A5C7B1348B3F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EC4B75BAE91861986227C1BE7B931E /* Foundation.framework */; };
+		17154D4BBEFF1766422F1004F0539AF5 /* BlocklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB30C63FA243254F2FC83C2D87D47A5 /* BlocklyViewController.swift */; };
+		1772131EE772A90BF0588A511C439AE6 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7BBE2BAFFDE4436DE2CA15A9D5238 /* Manager.swift */; };
+		19D04CA5F8ED4347E01BA320242A36DC /* FieldTextInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99527D335ECDA5512B194E577D7131E3 /* FieldTextInputValidator.swift */; };
 		1A089D36CCCBDD881CCD45446954B371 /* SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E13811703F4D15A85A9D2260B00A6A8 /* SnapKit.swift */; };
-		1AB8199A6C55472A0BC27528077F3EA0 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214933A0E4690773CBEF22C9297EF3A /* Manager.swift */; };
+		1D94F3FA69C7DBC1FD351084A14B3D98 /* OutputConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B58FFA279C5E7D217E9A806454F6AFF /* OutputConnectionPoint.swift */; };
+		208B8B14032DA50253E922849F809372 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCBA33F5A17E8E2187ABC82D54BDE2 /* MultipartFormData.swift */; };
 		22146A3B71EE47900269447075267D49 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79B446D865CE125AC740FDABBA29405 /* ConstraintItem.swift */; };
 		23F5940A08DB5F0B129F9DFF7CCC3452 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 85E62DA073C367ACFC8C77B0B6180FD1 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		27F5099022D3CD6BD56CC421CB74203C /* BlocklyUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BBBDD5BD4D28F284BC96710DE2819B /* BlocklyUIState.swift */; };
-		28D5D23B4BDC76A492486CE6CE784686 /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B2DD47DB2A30A54AC3A1A93B964F66 /* Workspace.swift */; };
-		2C57CA9CA471D2B085734FC09DEA2464 /* BlocklyCoreExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C778C84B02BF9D66D68C71682899B532 /* BlocklyCoreExtension.swift */; };
-		2F607F647B24198F0D6493B4B6F34DB7 /* BlocklyDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E308C530E3366272FD6AF1D2A5F9033E /* BlocklyDrawer.swift */; };
-		2FCF869E83A270922C19D8A7F33B74D4 /* Blockly.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B0E83E6E70796E1B03E93DC1524D37 /* Blockly.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3007D9B55087F8409FC330BFD697A7E9 /* BlocklyInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353F9CFD40087AF8D0FA3E904F659E2 /* BlocklyInterpreter.swift */; };
-		34B1238800F75453F546F83F715C54B4 /* BlocklyPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BD85225D3F845FD450CC0C1F05FF95 /* BlocklyPanGestureRecognizer.swift */; };
+		262626DABE847DE1010A50A02A138F36 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97387862A3C9DE398DFCFC0B193E5362 /* ParameterEncoding.swift */; };
+		2677BB486413B837F04AA680728BB2DC /* BlocklyTrashcan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A966F071B7ED8774F25CC40F4D476C9 /* BlocklyTrashcan.swift */; };
+		37587BD1B6BB34863160B9118211B08C /* BlocklyUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC02BEFB5BE367AA9D4A427EFA5ACD51 /* BlocklyUIState.swift */; };
 		3769B9433B301E32A9DC200E73038AF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EC4B75BAE91861986227C1BE7B931E /* Foundation.framework */; };
-		38AC55E36ECF3951C282A7F50E32A48A /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7598224D531BB00D0059C06BFC3CB235 /* Alamofire.swift */; };
-		3950783271B2FAF914BABB36B75DDCFD /* BlocklyUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBBF49CE555BC0A74C905EF8E649B76 /* BlocklyUIDelegate.swift */; };
+		39A633462B3513AA7501E01C204D6AF5 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC833DD1AEC4CE6CDF1FC163BB27BB5 /* Request.swift */; };
 		39A8A7DB3537BDC61EF618B1737C1EB5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F861572AEF58AF8E8738463397C601 /* SwiftyJSON.swift */; };
+		39E1DCCDEE1D2CE844434A0DE29F91BC /* InputValueConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543A48F4FB61B215425846AF14B55049 /* InputValueConnectionPoint.swift */; };
+		3B05D707D365BD9ECE01462B668DCE01 /* ReturnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52FA8BD6C3C7E4F3FFF3865457589E3 /* ReturnType.swift */; };
 		3C82DAC4A708FB34E8EA66C82D08EAA2 /* View+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B605BCB86C161823225245B5EDBB7 /* View+SnapKit.swift */; };
-		3E0F042DCB56ACE543662CA2BF463542 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F93D9C4B83386C30E51E533C52A62D7 /* Request.swift */; };
-		3EFD47C4F1FC176BD7B9C2307F0D5C69 /* InputValueConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC4D191279DE047C672E38766E1DF15 /* InputValueConnection.swift */; };
-		4009A681AC759EEC0324AC87FD1C8EBF /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C894E8542E3B8201DC0E5635B4A4C08 /* Alamofire-dummy.m */; };
-		4672C50D4D405D7262B09D8613B0770D /* BlocklyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DCF1905C5A25A96679D3101EBE4455 /* BlocklyDelegate.swift */; };
+		448D990EBDFDB0695C757B00A324C4BD /* BlocklyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641F7B0611BA68500B8D9250CF3F4AA7 /* BlocklyButton.swift */; };
+		46D10385B8241AAECF18939E10F944A4 /* BlocklyCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930D0F365F041432172DB06FBEBFD68B /* BlocklyCore.swift */; };
 		476D0748C45D8907375FE0B073CEEF50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EC4B75BAE91861986227C1BE7B931E /* Foundation.framework */; };
-		4A05DCF855A36220803D1D8E96BD3DD5 /* BlocklyMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00589DEA06C798CFAA02574BF1E6344 /* BlocklyMenuButton.swift */; };
-		4E4BEED524683FA8E257379C66670988 /* BlocklyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A530C08E91C23CFE834D9CAA46E6F2EA /* BlocklyButton.swift */; };
-		5044FD2AF8E2E51FDC7C7B203FBE3638 /* BlocklyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F0BD537557D49BEB1AFA4A3839C65A /* BlocklyGenerator.swift */; };
-		588C55800439C938F914777CC38F2467 /* InputValueConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F084FB3E5F311EBB4B926AA5629BE935 /* InputValueConnectionPoint.swift */; };
+		4A3BB5F2B5F29136940817CCF8E1C844 /* InputStatementConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994190805E21C31B463F6734948B0D3 /* InputStatementConnectionPoint.swift */; };
+		4DD1EEF3B26D8C2519D13D495C5421E3 /* NextConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF43AE249E0D08FAF47672CA60579ACB /* NextConnectionPoint.swift */; };
+		4EB4616FE0627502F59C5283000031BC /* BVCExtensionInterpretation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF6D4358D59B65B99F914D3291D3B76 /* BVCExtensionInterpretation.swift */; };
+		590C7AEE736D922F0BFD5798F896F511 /* Blockly-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6ECA4F95A9305764A3E6870205DBB0B /* Blockly-dummy.m */; };
+		5D9B405817BABE13F8C98E9F5C540C13 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675AEB9EF3366A73E580DF497C9FBF3F /* Connection.swift */; };
 		604AC93637F2CBB5D54D0950C2E56CBA /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11A7B60D7208B393697E6DBAC0309DA /* ConstraintMaker.swift */; };
-		674B8B6E4EC8A0B060CDA717C54FBD9E /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D389E1CE46E08964C1FA37B1848BC3D /* Download.swift */; };
+		620D237D13ACBA2E471383BDC69646B2 /* InputConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C77084DB94BBC4AF103813818D2659 /* InputConnection.swift */; };
+		62D56D63622C2C6D712CAD7219E025E0 /* BlocklyExtensionCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95C4102CC9B86391C17C4E55245A90C /* BlocklyExtensionCustomization.swift */; };
+		64E0DEB89518962104654F2EF98634D4 /* BlocklyPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAF4447BE972B78797C231943E9906 /* BlocklyPanGestureRecognizer.swift */; };
+		6A51B63D87794EE93326A83F35E3F3EF /* BlocklyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9788A5165DBA2CBA60334BE11C967A74 /* BlocklyFactory.swift */; };
+		6B669E84CBD05C54E916671E579118CC /* BlocklyMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43615F7FDFCE14EB3C2E987B138048F5 /* BlocklyMenuButton.swift */; };
 		6BFDEC714855D29F024742DA5E9DBFB5 /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D367D337E0670CA623B6F343C738D610 /* SnapKit-dummy.m */; };
-		6D87A73B5017F0EC60D70A092BC84AA7 /* BlocklyExtensionCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB673A492B27960016690E3440D746B1 /* BlocklyExtensionCustomization.swift */; };
+		6EDF4FAE5207D09A090BEA8F5405EB98 /* BlocklyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B153187E2F9CBBE735A15527CA96FF9 /* BlocklyGenerator.swift */; };
 		726CC8949AD9DB523732F497AEF566A0 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7963F02D79E7AF9280CB2426B041D /* ConstraintRelation.swift */; };
+		73A3EAECC6E11C95B4FA9C374368E377 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3CCD6053F97F198ECEF16B8D3CCD7 /* Validation.swift */; };
+		7480CC679DE1C17AC34FF2A0675BAAC0 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD403400F6237A482D00C260892C730 /* Upload.swift */; };
+		77DF3036B624D0FA3D7DDA17B7A74D40 /* BlocklyExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628C941277BE5D724C13AE75E27A1ADE /* BlocklyExtensionDelegate.swift */; };
+		796CA3D860DF028B0BAB86D99340DEA1 /* BlocklyInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1D9003945AC6D9EACAADBA08F2A73A /* BlocklyInterpreter.swift */; };
+		797291EB87F4739743DE61BD8F18597F /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34C7F66FEF9E045DA61EB338C536858 /* Input.swift */; };
+		7B9624EF62D54C8CBF99E4352AA0A36A /* Blockly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DCA31E7A5B176F06204BBAA8823F71 /* Blockly.swift */; };
 		804B994DD42A6A3C3A324D5377F1FB97 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799F700E0350C1622AF654FBAC56DC3E /* ConstraintAttributes.swift */; };
 		84ED7FEBE3F346BEA288422986F53438 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6701D0395AA53671F30906FDA34B59 /* Debugging.swift */; };
 		85E0A62EDF1B29F208623993EB92D9E7 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 413D4C68BCDED964834146EFB422C3B3 /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8670F6862EEEFC1C3CB74251EB4D1BF0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553CDF10678C58FFECB1EC003CD49A44 /* Extension.swift */; };
-		868F9881F1F1B1FF754AAF09FA163199 /* BlocklyCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D1E445B8119AE00FD28F077C1FDCE /* BlocklyCore.swift */; };
+		865790200FB86A2516F3B5FB724F29A6 /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B86AE84F0AFDC46067FEB7A8F38712 /* Workspace.swift */; };
 		86D7CDF1DF0E7F8EF6B64A3D2DE329B7 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB44D45A9A34C20A034D0D004999B563 /* LayoutConstraint.swift */; };
-		86DA7568D10EB24E2E71438A7BFA2865 /* BlocklyExtensionShortcutVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C899FE19AB51D03831B4503AC001E1 /* BlocklyExtensionShortcutVariables.swift */; };
-		89300AD9CB42179B2D32F058A3EE3509 /* InputConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D1499E13A4336C71595A8A073BB70 /* InputConnection.swift */; };
+		888255B343ABB668F911B13C60536E43 /* NextConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99978549BAF142F770D3B07AFBA00283 /* NextConnection.swift */; };
+		8C3561655961E33EB06094415189709B /* BVCExtensionGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC510EC65B5724D36ED6754A71430EBE /* BVCExtensionGestureRecognizer.swift */; };
 		90EF20BB8DC0A183A97CEE5D4BE375EE /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3575B7F9DE11C652ED4F55D4D976B /* SwiftyJSON-dummy.m */; };
-		934F748C72D265536AE2D9E0C1708CC4 /* BlocklyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1418D245D1BE84683121A0AEF36EF5 /* BlocklyViewController.swift */; };
-		99F98A47A5E55CD58DEC42A42ECC9850 /* BlocklyCores.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACF39B6B373481C1701F6319D2CB543 /* BlocklyCores.swift */; };
+		92DB78476206889BB7C9FA2C5D519C4E /* BlocklyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB499037C7DA91F74D04364AE779A8 /* BlocklyDelegate.swift */; };
+		93CD2D6FFC8DB4C07E784585919B5D8A /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B08284450986CC53E40C46B404263E5 /* ServerTrustPolicy.swift */; };
+		946FFAED1A5840C33447A4A340DD0834 /* PreviousConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038F1C14EB72DFB2F3E1AB179F27A72C /* PreviousConnection.swift */; };
+		9715F15A02386DB0F61127F1C9649B90 /* Blockly-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73984EDFF6C33F9B92E4C259F72572B1 /* Blockly-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D7C9A631C0EB1530C0DCFA887618587 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC6726B2AA1DAAC6F94E1FF507AE34F /* ConstraintDescription.swift */; };
-		A4626324404EA99D4340E5F95E4A8866 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EDB051EB40DE9C046A613E2D55B3FD /* ParameterEncoding.swift */; };
-		AEC440529072EE061D6045D34E86BB88 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36817B86F0D6AD051C512EC934DFEFCC /* Connection.swift */; };
-		B077C718603CB359F923324CB14A4DBD /* Blockly-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A2295D2E9429A7F989EE48E03F0A98D4 /* Blockly-dummy.m */; };
+		A14BEB6E69C71131A365E179014B459A /* BlocklyDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D4C8E417BDCD9DFAA608F5CF84461 /* BlocklyDrawer.swift */; };
+		A47A69B9C7BF02147EE9824A5DC17A87 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10469810DFDC8EB4E28850DE6031CAE8 /* Download.swift */; };
+		AA954EAEDB9C417D48846B9BA0132078 /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A24552F37A7814CCB45CAE0D6C6A1C /* FieldType.swift */; };
+		AAE10C04C71402B60F080E8B15ED1946 /* BlocklyUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E9859F546A4A6DEFAA95EF76210731 /* BlocklyUIDelegate.swift */; };
+		ABA64F81F19C93C5A7E14E99A0BF6312 /* Blockly.h in Headers */ = {isa = PBXBuildFile; fileRef = 228A6DAE04ECCD38355DE9E645C908F3 /* Blockly.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B12F19D2BD4393832C2CDEC13930A5E7 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0270ACC0A1AAAC0088467BF0131477 /* Constraint.swift */; };
+		B1A1BC65F374E2F3B0E8686DD1D5EDC3 /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 075E9983BE501C017170ADD453333D0F /* Alamofire-dummy.m */; };
 		B2B8DA274F8F397158E9D33FFE049FFD /* EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76927A838B74013DE81260B84691E9 /* EdgeInsets.swift */; };
-		B378D82BF9D206164925E90723921C12 /* InputConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3938A5FC5361D3578E4F775E99A786 /* InputConnectionPoint.swift */; };
-		B5A5564CE8834404891068E23DD595B2 /* FieldTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DDA9B16EFE872EA2FA08E3B00F552D /* FieldTextInput.swift */; };
-		C0A1C38E9A5E47F7A054836A0673BE97 /* NextConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285037EED9B0B15A723B651C0B1703E9 /* NextConnection.swift */; };
-		C75BECD0FFC449CE097857634405E4D5 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F45C2A858EA6AD0A2B796D644436 /* ResponseSerialization.swift */; };
-		C806FF019CA12E992F423FF635B30C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EC4B75BAE91861986227C1BE7B931E /* Foundation.framework */; };
-		C945B7197E7709CDF7591148F80B5301 /* PreviousConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82374F02BA3A7EFC1BC91080728856A7 /* PreviousConnection.swift */; };
-		D08D24E605BA0132B6C2FB5090FA7C81 /* InputStatementConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D2F274FBA498C2DBAC318C1ED9EC2 /* InputStatementConnectionPoint.swift */; };
-		D0999A9323942A7F40AAE91181ACAE86 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0527B3D872D85900362EEAD601AE4B8 /* Upload.swift */; };
-		D110B23B600D7D2D248CD50422A0E279 /* BlocklyExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBD558780C271386C32421E5351FE3A /* BlocklyExtensionDelegate.swift */; };
-		D1B3B5795010A2D0D32E0F4A36050396 /* BlocklyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5631B2DD523179A4CE8DC36B31ACC45 /* BlocklyConfiguration.swift */; };
-		DB376949A94BF82E9909A4C61231B9FC /* OutputConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087F881F2857105D0C84659CC767CE68 /* OutputConnection.swift */; };
-		E07C437883C895D86E225D92047104FF /* BlocklyTrashcan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF2B4E1C56C4A6DBEE94AC31767F4C /* BlocklyTrashcan.swift */; };
-		E369E6FFFE6562B8625491C6A35EABF0 /* ConnectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D92AC1F9F5EDC71508D246F6EA42BA /* ConnectionType.swift */; };
+		B54D537F104B5A6941235E91EC3F9DDC /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD0FDCA7DAE1D831759B8923E2D6FB0 /* Alamofire.swift */; };
+		B82A9707BE082488BF0A7F8F9E9F7F08 /* BlocklyCoreExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF582440EFEBEAE9271DE62A79E84F1A /* BlocklyCoreExtension.swift */; };
+		BA88965D32536C463B9AE7122396C48D /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D731EE70EB4D51F666EDD7EE55D275B3 /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3CB5BE6A9DA451F85723E85FB2275DE /* OutputConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E926ECF352E2A2E4D1E9D61B691A507D /* OutputConnection.swift */; };
+		C510295FFD5B89766A10DB1518E1FADF /* ConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54469A8D046887B8FBEA802D536EFB38 /* ConnectionPoint.swift */; };
+		C61BE596542F1422F271067D7E349510 /* InputStatementConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D19640AC8DA8E9B9C5867EB4AEEAD8 /* InputStatementConnection.swift */; };
+		D0DD08F3369E2418527D5CCA74605A37 /* BVCExtensionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D178BA5744332EF433B4E33DB67551 /* BVCExtensionGenerator.swift */; };
+		D3445100B15A6723399D18349036ED1D /* InputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E6E3FF57375831E7087235E56C17F1 /* InputType.swift */; };
+		D4AAD205C12A6E6E9540C4D618D06D9D /* InputConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7BB3A7CBB929F2EE37D32F13253080 /* InputConnectionPoint.swift */; };
+		D517B0C37BCDBFB026612B51561B8389 /* PreviousConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A408ECF9D57F7043F9982225016F08 /* PreviousConnectionPoint.swift */; };
+		D8E124EA63A86124FD1003F047F0B7F0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A1C6FEE6E0A840B1C9104344F37CE5 /* Extension.swift */; };
+		DE6E5ED07B3752E91651BBCB3C740D58 /* FieldTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C779740B37C826B7CB9037BF664B5B /* FieldTextInput.swift */; };
+		E2AD0550B3B85DE9D55CF164D2087A87 /* ConnectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11138E97E5394CFA7973EA99A4E47B60 /* ConnectionType.swift */; };
 		E48FE76CF3979769666BE6239A8BC147 /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C286D55A76BCC8482590A779339C2D72 /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E4BDFD8852C868BC2C40D8762991FF34 /* InputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08A8A5B867C872900D44012BC95B3D7 /* InputType.swift */; };
-		E5EA8BBF186EA7CBC694BDD3AD7D648B /* Blockly-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6E1F58FF1430040C58777F5C76D618 /* Blockly-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E6E835BDB77ABA923CC0DC1130509B48 /* Blockly.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14314AB0097F262B1A3086C38DEF699D /* Blockly.bundle */; };
-		EC5DAF5154CA3976422B0A228C676BAC /* BVCExtensionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B168ED60AAC26A1382665BF04C493A2 /* BVCExtensionGenerator.swift */; };
 		EDD147D64BC86E5198D4E99B05028490 /* ViewController+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F6A7822756001C1AC412B0A1751A8 /* ViewController+SnapKit.swift */; };
-		EF7FE04325729B0CDBA734AB2AB94914 /* InputStatementConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18DD8E28548B15878B18A935C1C2AFE /* InputStatementConnection.swift */; };
-		F0CB2366BDA8A6724840710DFF595155 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EC4B75BAE91861986227C1BE7B931E /* Foundation.framework */; };
-		F0DEBE20313FBB7124DF4380971E5236 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373267F8A0471A8A2AB3660152A2B013 /* Input.swift */; };
-		F29BB1ADFA3667CF36099034251D71D9 /* ConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E1C3F06C1888203C839D6AEAC87F7 /* ConnectionPoint.swift */; };
-		F67BE5E5E80BD546AE8A328A45C482C3 /* OutputConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D31D79C18A3812219AF0E9E0E0486E /* OutputConnectionPoint.swift */; };
-		F6ABC2AE92C64F3B81B8721E2F433720 /* FieldTextInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23614792892F172DE2B8966265E4EB7F /* FieldTextInputValidator.swift */; };
+		F084D40AC00C40844BC0C8695C221B55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EC4B75BAE91861986227C1BE7B931E /* Foundation.framework */; };
+		F3FC4F93EC2EF43C6E59585B552812AE /* Blockly.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6DC9CC05DBA6AE1BDCCD7D3104D9A49 /* Blockly.bundle */; };
 		F7DDAE900EED9ABD4430EAB819BBED9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4EC4B75BAE91861986227C1BE7B931E /* Foundation.framework */; };
 		F90294F35D05F11D95F29DE6F83D88C9 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 211DB6CAAD1979A1D4B810618894354D /* Pods-dummy.m */; };
-		F9DCCA5D9DA1D6A2D23735666863A99C /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE92C276BF3B430C92365948EAB7770 /* FieldType.swift */; };
-		FFF263F19D495A195FC25A3B6327C9FA /* NextConnectionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E859F26A856FF9161CDA95CB91213F /* NextConnectionPoint.swift */; };
+		FBD8EF173C2B72C9A4E69D2F3D622747 /* BlocklyExtensionShortcutVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC575A0D72A580D8295B6E49FC6C6E /* BlocklyExtensionShortcutVariables.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		12096A49A3BD5F3CAE047F9F47EB90B6 /* PBXContainerItemProxy */ = {
+		31110D05052BC3ADBA49E986578B1880 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B9A04D3C9B208813656510FDA8ADAE02;
-			remoteInfo = SwiftyJSON;
-		};
-		167F2AE51E99099D3BB328111A01430C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F8823ED50A6B9D29540522ECF62E4A05;
-			remoteInfo = Alamofire;
-		};
-		60AAABDF89D7D00CF0D4A8033B822127 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 25E9DAD818126E2E0616291439E9E99B;
+			remoteGlobalIDString = C83D183594195DE2DB2B48FAE237C8D6;
 			remoteInfo = "Blockly-Blockly";
 		};
-		A6EEAA274642C7E2F162C116B98B5F8F /* PBXContainerItemProxy */ = {
+		36F3B1F12F930641F5E1D3B2DBAAF20D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4EDA452517A913B556C7860F490D5FD3;
 			remoteInfo = SnapKit;
 		};
-		FECB016BF7E10E360C902E40C4A9CCF8 /* PBXContainerItemProxy */ = {
+		4B17BAF25E58D59FE2B80B389AE35397 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 002F6C5F7FE2BC53CDA2655AE40E6E47;
+			remoteGlobalIDString = 167ADAE3C03F95A67A3B7BAD7B6E3874;
+			remoteInfo = Alamofire;
+		};
+		97C8A92DD002CFCFFC10322C70B68F42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BB404D33A7BC1CE4391A45F42EC3D96;
 			remoteInfo = Blockly;
+		};
+		A0C5D33B9889AD5C5209A7E59439FC53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9A04D3C9B208813656510FDA8ADAE02;
+			remoteInfo = SwiftyJSON;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05D3EE2377F6ECE010563A0BB312A5A9 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
-		07B2DD47DB2A30A54AC3A1A93B964F66 /* Workspace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Workspace.swift; path = Pod/Classes/Workspace.swift; sourceTree = "<group>"; };
-		087F881F2857105D0C84659CC767CE68 /* OutputConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutputConnection.swift; path = Pod/Classes/Connections/OutputConnection.swift; sourceTree = "<group>"; };
-		08B0E83E6E70796E1B03E93DC1524D37 /* Blockly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Blockly.h; path = Pod/Classes/Blockly.h; sourceTree = "<group>"; };
+		038F1C14EB72DFB2F3E1AB179F27A72C /* PreviousConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreviousConnection.swift; path = Pod/Classes/Connections/PreviousConnection.swift; sourceTree = "<group>"; };
+		0493CE82BB2DBD012B3A23AD51290465 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		071A54198CB45809B9451AA84B65B7A0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		075E9983BE501C017170ADD453333D0F /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		09A7BBE2BAFFDE4436DE2CA15A9D5238 /* Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Source/Manager.swift; sourceTree = "<group>"; };
 		0A76927A838B74013DE81260B84691E9 /* EdgeInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EdgeInsets.swift; path = Source/EdgeInsets.swift; sourceTree = "<group>"; };
+		0B08284450986CC53E40C46B404263E5 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		0C1D9003945AC6D9EACAADBA08F2A73A /* BlocklyInterpreter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyInterpreter.swift; path = Pod/Classes/BlocklyInterpreter.swift; sourceTree = "<group>"; };
 		0EA0871B5A2875AEC07926405E0730C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		14314AB0097F262B1A3086C38DEF699D /* Blockly.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Blockly.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		18154193FD58DE877FAF5DD94213983A /* Blockly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Blockly.swift; path = Pod/Classes/Blockly.swift; sourceTree = "<group>"; };
-		20F63BC2A11387D3B47826C534A667DE /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		10469810DFDC8EB4E28850DE6031CAE8 /* Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Source/Download.swift; sourceTree = "<group>"; };
+		11138E97E5394CFA7973EA99A4E47B60 /* ConnectionType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectionType.swift; path = Pod/Classes/Connections/ConnectionType.swift; sourceTree = "<group>"; };
+		11C77084DB94BBC4AF103813818D2659 /* InputConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputConnection.swift; path = Pod/Classes/Connections/InputConnection.swift; sourceTree = "<group>"; };
+		14EC52E36CB3A7EF9AF459C42F33E0FD /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
 		211DB6CAAD1979A1D4B810618894354D /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		23614792892F172DE2B8966265E4EB7F /* FieldTextInputValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldTextInputValidator.swift; path = Pod/Classes/FieldTextInputValidator.swift; sourceTree = "<group>"; };
-		27DCF1905C5A25A96679D3101EBE4455 /* BlocklyDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyDelegate.swift; path = Pod/Classes/BlocklyDelegate.swift; sourceTree = "<group>"; };
-		285037EED9B0B15A723B651C0B1703E9 /* NextConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NextConnection.swift; path = Pod/Classes/Connections/NextConnection.swift; sourceTree = "<group>"; };
+		228A6DAE04ECCD38355DE9E645C908F3 /* Blockly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Blockly.h; path = Pod/Classes/Blockly.h; sourceTree = "<group>"; };
+		256D4C8E417BDCD9DFAA608F5CF84461 /* BlocklyDrawer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyDrawer.swift; path = Pod/Classes/BlocklyDrawer.swift; sourceTree = "<group>"; };
+		25EAF4447BE972B78797C231943E9906 /* BlocklyPanGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyPanGestureRecognizer.swift; path = Pod/Classes/BlocklyPanGestureRecognizer.swift; sourceTree = "<group>"; };
 		2A5B605BCB86C161823225245B5EDBB7 /* View+SnapKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+SnapKit.swift"; path = "Source/View+SnapKit.swift"; sourceTree = "<group>"; };
 		2B0270ACC0A1AAAC0088467BF0131477 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
-		317C611EA89CB3A707D781C83BD1B42C /* Blockly.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Blockly.xcconfig; sourceTree = "<group>"; };
+		30D19640AC8DA8E9B9C5867EB4AEEAD8 /* InputStatementConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputStatementConnection.swift; path = Pod/Classes/Connections/InputStatementConnection.swift; sourceTree = "<group>"; };
 		31F861572AEF58AF8E8738463397C601 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
-		34170B13CE9287B203A26BCB9E08A02D /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
-		34769C8FE80642F7E30B71CBA020CC15 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		36817B86F0D6AD051C512EC934DFEFCC /* Connection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Pod/Classes/Connections/Connection.swift; sourceTree = "<group>"; };
-		36975C0D0F9D1D9FD7CAB3452460F704 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		373267F8A0471A8A2AB3660152A2B013 /* Input.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Input.swift; path = Pod/Classes/Input.swift; sourceTree = "<group>"; };
-		392D1E445B8119AE00FD28F077C1FDCE /* BlocklyCore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyCore.swift; path = Pod/Classes/BlocklyCore.swift; sourceTree = "<group>"; };
-		3D389E1CE46E08964C1FA37B1848BC3D /* Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Download.swift; path = Source/Download.swift; sourceTree = "<group>"; };
+		34AC575A0D72A580D8295B6E49FC6C6E /* BlocklyExtensionShortcutVariables.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyExtensionShortcutVariables.swift; path = Pod/Classes/BlocklyExtensionShortcutVariables.swift; sourceTree = "<group>"; };
+		35AB499037C7DA91F74D04364AE779A8 /* BlocklyDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyDelegate.swift; path = Pod/Classes/BlocklyDelegate.swift; sourceTree = "<group>"; };
 		3DBD3F68F708AA6E6115CA4B4FCA0258 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E3938A5FC5361D3578E4F775E99A786 /* InputConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputConnectionPoint.swift; path = Pod/Classes/Connections/InputConnectionPoint.swift; sourceTree = "<group>"; };
-		3F8E92492D4F3C5EB49F9741BA492218 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		413D4C68BCDED964834146EFB422C3B3 /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
-		4214933A0E4690773CBEF22C9297EF3A /* Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = Source/Manager.swift; sourceTree = "<group>"; };
-		45473F0852DC0CA5525E67BABD621E91 /* Alamofire-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Alamofire-Private.xcconfig"; sourceTree = "<group>"; };
-		49D92AC1F9F5EDC71508D246F6EA42BA /* ConnectionType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectionType.swift; path = Pod/Classes/Connections/ConnectionType.swift; sourceTree = "<group>"; };
-		4AC4D191279DE047C672E38766E1DF15 /* InputValueConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputValueConnection.swift; path = Pod/Classes/Connections/InputValueConnection.swift; sourceTree = "<group>"; };
-		4AE92C276BF3B430C92365948EAB7770 /* FieldType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldType.swift; path = Pod/Classes/FieldType.swift; sourceTree = "<group>"; };
-		4DDCB6C469A664A8A1E84BA32DAA3374 /* Blockly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blockly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		50BF2B4E1C56C4A6DBEE94AC31767F4C /* BlocklyTrashcan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyTrashcan.swift; path = Pod/Classes/Connections/BlocklyTrashcan.swift; sourceTree = "<group>"; };
-		54C899FE19AB51D03831B4503AC001E1 /* BlocklyExtensionShortcutVariables.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyExtensionShortcutVariables.swift; path = Pod/Classes/BlocklyExtensionShortcutVariables.swift; sourceTree = "<group>"; };
-		553CDF10678C58FFECB1EC003CD49A44 /* Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Pod/Classes/Extension.swift; sourceTree = "<group>"; };
-		55BD85225D3F845FD450CC0C1F05FF95 /* BlocklyPanGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyPanGestureRecognizer.swift; path = Pod/Classes/BlocklyPanGestureRecognizer.swift; sourceTree = "<group>"; };
-		55CED914B3193E1B401AEC36DFDF338D /* SwiftyJSON-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftyJSON-Private.xcconfig"; sourceTree = "<group>"; };
-		5DB62D3C9B17447A8ECFE40E29281671 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
-		5E1418D245D1BE84683121A0AEF36EF5 /* BlocklyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyViewController.swift; path = Pod/Classes/BlocklyViewController.swift; sourceTree = "<group>"; };
-		5ECA455AECEB52CDA31F672D4F0D1C97 /* PreviousConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreviousConnectionPoint.swift; path = Pod/Classes/Connections/PreviousConnectionPoint.swift; sourceTree = "<group>"; };
-		64050A74581D966E18022A8443B53616 /* ReturnType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReturnType.swift; path = Pod/Classes/ReturnType.swift; sourceTree = "<group>"; };
+		43615F7FDFCE14EB3C2E987B138048F5 /* BlocklyMenuButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyMenuButton.swift; path = Pod/Classes/BlocklyMenuButton.swift; sourceTree = "<group>"; };
+		4AF3CCD6053F97F198ECEF16B8D3CCD7 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		4B153187E2F9CBBE735A15527CA96FF9 /* BlocklyGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyGenerator.swift; path = Pod/Classes/BlocklyGenerator.swift; sourceTree = "<group>"; };
+		543A48F4FB61B215425846AF14B55049 /* InputValueConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputValueConnectionPoint.swift; path = Pod/Classes/InputValueConnectionPoint.swift; sourceTree = "<group>"; };
+		54469A8D046887B8FBEA802D536EFB38 /* ConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectionPoint.swift; path = Pod/Classes/Connections/ConnectionPoint.swift; sourceTree = "<group>"; };
+		5994190805E21C31B463F6734948B0D3 /* InputStatementConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputStatementConnectionPoint.swift; path = Pod/Classes/InputStatementConnectionPoint.swift; sourceTree = "<group>"; };
+		60A3C9C3FA674208DAD5C704FADF6F02 /* Blockly.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Blockly.xcconfig; sourceTree = "<group>"; };
+		60E6E3FF57375831E7087235E56C17F1 /* InputType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputType.swift; path = Pod/Classes/InputType.swift; sourceTree = "<group>"; };
+		628C941277BE5D724C13AE75E27A1ADE /* BlocklyExtensionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyExtensionDelegate.swift; path = Pod/Classes/BlocklyExtensionDelegate.swift; sourceTree = "<group>"; };
+		641F7B0611BA68500B8D9250CF3F4AA7 /* BlocklyButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyButton.swift; path = Pod/Classes/BlocklyButton.swift; sourceTree = "<group>"; };
+		675AEB9EF3366A73E580DF497C9FBF3F /* Connection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Pod/Classes/Connections/Connection.swift; sourceTree = "<group>"; };
+		6B58FFA279C5E7D217E9A806454F6AFF /* OutputConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutputConnectionPoint.swift; path = Pod/Classes/Connections/OutputConnectionPoint.swift; sourceTree = "<group>"; };
+		6DB30C63FA243254F2FC83C2D87D47A5 /* BlocklyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyViewController.swift; path = Pod/Classes/BlocklyViewController.swift; sourceTree = "<group>"; };
+		6DCF007A22E91D2772DCEE9FA97DE861 /* SnapKit-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SnapKit-Private.xcconfig"; sourceTree = "<group>"; };
+		6DF94DAF80A9CEFD8C5A85FDF11CF2BA /* Blockly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blockly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E13811703F4D15A85A9D2260B00A6A8 /* SnapKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SnapKit.swift; path = Source/SnapKit.swift; sourceTree = "<group>"; };
-		74BF52B6114C171A160488E898DD2275 /* Blockly-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Blockly-prefix.pch"; sourceTree = "<group>"; };
-		7598224D531BB00D0059C06BFC3CB235 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		6E7BB3A7CBB929F2EE37D32F13253080 /* InputConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputConnectionPoint.swift; path = Pod/Classes/Connections/InputConnectionPoint.swift; sourceTree = "<group>"; };
+		6FF6D4358D59B65B99F914D3291D3B76 /* BVCExtensionInterpretation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BVCExtensionInterpretation.swift; path = Pod/Classes/BVCExtensionInterpretation.swift; sourceTree = "<group>"; };
+		73984EDFF6C33F9B92E4C259F72572B1 /* Blockly-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Blockly-umbrella.h"; sourceTree = "<group>"; };
+		73D178BA5744332EF433B4E33DB67551 /* BVCExtensionGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BVCExtensionGenerator.swift; path = Pod/Classes/BVCExtensionGenerator.swift; sourceTree = "<group>"; };
+		76A1C6FEE6E0A840B1C9104344F37CE5 /* Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Pod/Classes/Extension.swift; sourceTree = "<group>"; };
+		78A408ECF9D57F7043F9982225016F08 /* PreviousConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreviousConnectionPoint.swift; path = Pod/Classes/Connections/PreviousConnectionPoint.swift; sourceTree = "<group>"; };
 		799F700E0350C1622AF654FBAC56DC3E /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Source/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
 		79D7963F02D79E7AF9280CB2426B041D /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
-		7B168ED60AAC26A1382665BF04C493A2 /* BVCExtensionGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BVCExtensionGenerator.swift; path = Pod/Classes/BVCExtensionGenerator.swift; sourceTree = "<group>"; };
-		81A4775727693B69BBF7C79E766DFD74 /* SnapKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.xcconfig; sourceTree = "<group>"; };
-		81D31D79C18A3812219AF0E9E0E0486E /* OutputConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutputConnectionPoint.swift; path = Pod/Classes/Connections/OutputConnectionPoint.swift; sourceTree = "<group>"; };
-		82374F02BA3A7EFC1BC91080728856A7 /* PreviousConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreviousConnection.swift; path = Pod/Classes/Connections/PreviousConnection.swift; sourceTree = "<group>"; };
+		7C130AC91DDE8C24253640BEB9A2051B /* Blockly-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Blockly-prefix.pch"; sourceTree = "<group>"; };
+		7FD0FDCA7DAE1D831759B8923E2D6FB0 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		8316EBDC8DC954FEC45C9CAB448DC08B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E62DA073C367ACFC8C77B0B6180FD1 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
-		877B5FB401568337B7389D851224C92D /* BVCExtensionInterpretation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BVCExtensionInterpretation.swift; path = Pod/Classes/BVCExtensionInterpretation.swift; sourceTree = "<group>"; };
-		8782F45C2A858EA6AD0A2B796D644436 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
 		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		8F3E1C3F06C1888203C839D6AEAC87F7 /* ConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectionPoint.swift; path = Pod/Classes/Connections/ConnectionPoint.swift; sourceTree = "<group>"; };
-		8F93D9C4B83386C30E51E533C52A62D7 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
-		9353F9CFD40087AF8D0FA3E904F659E2 /* BlocklyInterpreter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyInterpreter.swift; path = Pod/Classes/BlocklyInterpreter.swift; sourceTree = "<group>"; };
-		9C894E8542E3B8201DC0E5635B4A4C08 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
-		9CBD558780C271386C32421E5351FE3A /* BlocklyExtensionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyExtensionDelegate.swift; path = Pod/Classes/BlocklyExtensionDelegate.swift; sourceTree = "<group>"; };
+		8A966F071B7ED8774F25CC40F4D476C9 /* BlocklyTrashcan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyTrashcan.swift; path = Pod/Classes/Connections/BlocklyTrashcan.swift; sourceTree = "<group>"; };
+		8FD403400F6237A482D00C260892C730 /* Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Source/Upload.swift; sourceTree = "<group>"; };
+		906035829A741796BFE1924AF5B8183E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90C779740B37C826B7CB9037BF664B5B /* FieldTextInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldTextInput.swift; path = Pod/Classes/FieldTextInput.swift; sourceTree = "<group>"; };
+		930D0F365F041432172DB06FBEBFD68B /* BlocklyCore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyCore.swift; path = Pod/Classes/BlocklyCore.swift; sourceTree = "<group>"; };
+		93450E72ABC303021FBA560E91504415 /* BlocklyCores.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyCores.swift; path = Pod/Classes/BlocklyCores.swift; sourceTree = "<group>"; };
+		97387862A3C9DE398DFCFC0B193E5362 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		9788A5165DBA2CBA60334BE11C967A74 /* BlocklyFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyFactory.swift; path = Pod/Classes/BlocklyFactory.swift; sourceTree = "<group>"; };
+		99527D335ECDA5512B194E577D7131E3 /* FieldTextInputValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldTextInputValidator.swift; path = Pod/Classes/FieldTextInputValidator.swift; sourceTree = "<group>"; };
+		99978549BAF142F770D3B07AFBA00283 /* NextConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NextConnection.swift; path = Pod/Classes/Connections/NextConnection.swift; sourceTree = "<group>"; };
+		9EC833DD1AEC4CE6CDF1FC163BB27BB5 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		A00F6A7822756001C1AC412B0A1751A8 /* ViewController+SnapKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ViewController+SnapKit.swift"; path = "Source/ViewController+SnapKit.swift"; sourceTree = "<group>"; };
 		A0D3575B7F9DE11C652ED4F55D4D976B /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
-		A2295D2E9429A7F989EE48E03F0A98D4 /* Blockly-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Blockly-dummy.m"; sourceTree = "<group>"; };
-		A530C08E91C23CFE834D9CAA46E6F2EA /* BlocklyButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyButton.swift; path = Pod/Classes/BlocklyButton.swift; sourceTree = "<group>"; };
-		A5631B2DD523179A4CE8DC36B31ACC45 /* BlocklyConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyConfiguration.swift; path = Pod/Classes/BlocklyConfiguration.swift; sourceTree = "<group>"; };
-		AE8D2F274FBA498C2DBAC318C1ED9EC2 /* InputStatementConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputStatementConnectionPoint.swift; path = Pod/Classes/InputStatementConnectionPoint.swift; sourceTree = "<group>"; };
-		AEBBF49CE555BC0A74C905EF8E649B76 /* BlocklyUIDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyUIDelegate.swift; path = Pod/Classes/BlocklyUIDelegate.swift; sourceTree = "<group>"; };
-		AED1C27B2E07F6638388953274EB208F /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		B5DDA9B16EFE872EA2FA08E3B00F552D /* FieldTextInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldTextInput.swift; path = Pod/Classes/FieldTextInput.swift; sourceTree = "<group>"; };
-		B8EDB051EB40DE9C046A613E2D55B3FD /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		A5DB6782464D1CBEF6E891C2199EE990 /* Alamofire-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Alamofire-Private.xcconfig"; sourceTree = "<group>"; };
+		A6DC9CC05DBA6AE1BDCCD7D3104D9A49 /* Blockly.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Blockly.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7DF3379F2E6D568A591F51D436C7531 /* Blockly-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Blockly-Private.xcconfig"; sourceTree = "<group>"; };
+		A9E1691A0A9EA8B0E5FECF8FB6013B3B /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		AB2C4ECB6B19C4B37E9BC806D5453C1A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD0CF84E63EC9B6E3710F35D10759D60 /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BAA15E7931B1A2989A50D1CD824F6046 /* BVCExtensionGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BVCExtensionGestureRecognizer.swift; path = Pod/Classes/BVCExtensionGestureRecognizer.swift; sourceTree = "<group>"; };
-		BE5D1499E13A4336C71595A8A073BB70 /* InputConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputConnection.swift; path = Pod/Classes/Connections/InputConnection.swift; sourceTree = "<group>"; };
-		BFBBC20C9E44FB4078C3790AB4D3EA6A /* BlocklyFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyFactory.swift; path = Pod/Classes/BlocklyFactory.swift; sourceTree = "<group>"; };
-		C0527B3D872D85900362EEAD601AE4B8 /* Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Upload.swift; path = Source/Upload.swift; sourceTree = "<group>"; };
-		C1F0BD537557D49BEB1AFA4A3839C65A /* BlocklyGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyGenerator.swift; path = Pod/Classes/BlocklyGenerator.swift; sourceTree = "<group>"; };
+		BC02BEFB5BE367AA9D4A427EFA5ACD51 /* BlocklyUIState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyUIState.swift; path = Pod/Classes/BlocklyUIState.swift; sourceTree = "<group>"; };
+		BDFD6BDED1543DF5F7EBD546120C5980 /* SwiftyJSON-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftyJSON-Private.xcconfig"; sourceTree = "<group>"; };
+		BF87F94B816F3E1571346DAE2E554178 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C286D55A76BCC8482590A779339C2D72 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
 		C5CD79E7DF6B51A134A701E157205B10 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C778C84B02BF9D66D68C71682899B532 /* BlocklyCoreExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyCoreExtension.swift; path = Pod/Classes/BlocklyCoreExtension.swift; sourceTree = "<group>"; };
-		C8897EA53A01B35432D08D77850023D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8751842BE9F6A293AB258FEB7947F4E /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
 		CA6701D0395AA53671F30906FDA34B59 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
-		CACF39B6B373481C1701F6319D2CB543 /* BlocklyCores.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyCores.swift; path = Pod/Classes/BlocklyCores.swift; sourceTree = "<group>"; };
 		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		CC510EC65B5724D36ED6754A71430EBE /* BVCExtensionGestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BVCExtensionGestureRecognizer.swift; path = Pod/Classes/BVCExtensionGestureRecognizer.swift; sourceTree = "<group>"; };
+		CF43AE249E0D08FAF47672CA60579ACB /* NextConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NextConnectionPoint.swift; path = Pod/Classes/Connections/NextConnectionPoint.swift; sourceTree = "<group>"; };
+		CFC51935BFFA4525E4380A0A8E3883E2 /* Blockly.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Blockly.modulemap; sourceTree = "<group>"; };
 		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D18DD8E28548B15878B18A935C1C2AFE /* InputStatementConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputStatementConnection.swift; path = Pod/Classes/Connections/InputStatementConnection.swift; sourceTree = "<group>"; };
+		D2B86AE84F0AFDC46067FEB7A8F38712 /* Workspace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Workspace.swift; path = Pod/Classes/Workspace.swift; sourceTree = "<group>"; };
+		D34C7F66FEF9E045DA61EB338C536858 /* Input.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Input.swift; path = Pod/Classes/Input.swift; sourceTree = "<group>"; };
 		D367D337E0670CA623B6F343C738D610 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
+		D3DCA31E7A5B176F06204BBAA8823F71 /* Blockly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Blockly.swift; path = Pod/Classes/Blockly.swift; sourceTree = "<group>"; };
+		D6E9859F546A4A6DEFAA95EF76210731 /* BlocklyUIDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyUIDelegate.swift; path = Pod/Classes/BlocklyUIDelegate.swift; sourceTree = "<group>"; };
+		D731EE70EB4D51F666EDD7EE55D275B3 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		D7CCBA33F5A17E8E2187ABC82D54BDE2 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		DB44D45A9A34C20A034D0D004999B563 /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
-		DEA3F13778E0BDC13F389758E4A29D59 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E00589DEA06C798CFAA02574BF1E6344 /* BlocklyMenuButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyMenuButton.swift; path = Pod/Classes/BlocklyMenuButton.swift; sourceTree = "<group>"; };
-		E08A8A5B867C872900D44012BC95B3D7 /* InputType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputType.swift; path = Pod/Classes/InputType.swift; sourceTree = "<group>"; };
-		E0BBBDD5BD4D28F284BC96710DE2819B /* BlocklyUIState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyUIState.swift; path = Pod/Classes/BlocklyUIState.swift; sourceTree = "<group>"; };
+		DBD43AF88EB00100D2EFBAA356A25051 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		E11A7B60D7208B393697E6DBAC0309DA /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Source/ConstraintMaker.swift; sourceTree = "<group>"; };
-		E308C530E3366272FD6AF1D2A5F9033E /* BlocklyDrawer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyDrawer.swift; path = Pod/Classes/BlocklyDrawer.swift; sourceTree = "<group>"; };
-		E32A16CBF86E5A323B65B4199A4BCCCA /* Blockly-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Blockly-Private.xcconfig"; sourceTree = "<group>"; };
+		E24600B33E4ED3DE5B8BE799C4F0E627 /* SnapKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.xcconfig; sourceTree = "<group>"; };
+		E39A9E72808D7FCD921062CBDB9954A9 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
 		E4EC4B75BAE91861986227C1BE7B931E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E5D7B7F9D458A3F337CEF093FE7D7360 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		E6ECA4F95A9305764A3E6870205DBB0B /* Blockly-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Blockly-dummy.m"; sourceTree = "<group>"; };
 		E7144448A75750D7A658638834B532D1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
 		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8A24552F37A7814CCB45CAE0D6C6A1C /* FieldType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldType.swift; path = Pod/Classes/FieldType.swift; sourceTree = "<group>"; };
+		E926ECF352E2A2E4D1E9D61B691A507D /* OutputConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutputConnection.swift; path = Pod/Classes/Connections/OutputConnection.swift; sourceTree = "<group>"; };
+		E9C9BFFBDB41F765FC9B479D3EE6BA61 /* InputValueConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputValueConnection.swift; path = Pod/Classes/Connections/InputValueConnection.swift; sourceTree = "<group>"; };
 		EB4CB50B42FA0112BD3CB968CB68AC93 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB86550D0E072B198CF8D9C1F1BC4485 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
-		EC26AF2EA96A9AC493A4EE203D73B397 /* Blockly.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Blockly.modulemap; sourceTree = "<group>"; };
 		EDC6726B2AA1DAAC6F94E1FF507AE34F /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Source/ConstraintDescription.swift; sourceTree = "<group>"; };
-		EE04E3DC1CDA0B8C8B5E1C2E6C2AD269 /* SnapKit-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SnapKit-Private.xcconfig"; sourceTree = "<group>"; };
-		F084FB3E5F311EBB4B926AA5629BE935 /* InputValueConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InputValueConnectionPoint.swift; path = Pod/Classes/InputValueConnectionPoint.swift; sourceTree = "<group>"; };
-		F12CBC05679578DF5068458260AD5277 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SnapKit.modulemap; sourceTree = "<group>"; };
-		F21704E17CEA3094FCF33B6C40279C2E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F32ECC119E52B5DBCD7F6D9FE1A6CE45 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		F4049021B165DD987FA8FAD6373EF9CE /* BlocklyConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyConfiguration.swift; path = Pod/Classes/BlocklyConfiguration.swift; sourceTree = "<group>"; };
+		F52FA8BD6C3C7E4F3FFF3865457589E3 /* ReturnType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReturnType.swift; path = Pod/Classes/ReturnType.swift; sourceTree = "<group>"; };
 		F79B446D865CE125AC740FDABBA29405 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
-		F7E859F26A856FF9161CDA95CB91213F /* NextConnectionPoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NextConnectionPoint.swift; path = Pod/Classes/Connections/NextConnectionPoint.swift; sourceTree = "<group>"; };
-		FA014CBBB17047CAB095A4CF7F9DE229 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
-		FB673A492B27960016690E3440D746B1 /* BlocklyExtensionCustomization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyExtensionCustomization.swift; path = Pod/Classes/BlocklyExtensionCustomization.swift; sourceTree = "<group>"; };
-		FF6E1F58FF1430040C58777F5C76D618 /* Blockly-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Blockly-umbrella.h"; sourceTree = "<group>"; };
+		F95C4102CC9B86391C17C4E55245A90C /* BlocklyExtensionCustomization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyExtensionCustomization.swift; path = Pod/Classes/BlocklyExtensionCustomization.swift; sourceTree = "<group>"; };
+		FF582440EFEBEAE9271DE62A79E84F1A /* BlocklyCoreExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlocklyCoreExtension.swift; path = Pod/Classes/BlocklyCoreExtension.swift; sourceTree = "<group>"; };
+		FFA1657EC54646E587B277638D081012 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,19 +261,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		849305835D7168B77D836AC2853A6F32 /* Frameworks */ = {
+		65EF4B4D02048BE2ADC9F290832DD28F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0CB2366BDA8A6724840710DFF595155 /* Foundation.framework in Frameworks */,
+				F084D40AC00C40844BC0C8695C221B55 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C079EDD09C3625A212C035EE0369B3E6 /* Frameworks */ = {
+		961A2545F84FF1B8FE817F65D6F44241 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C806FF019CA12E992F423FF635B30C23 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B97C244AFB5E6CBD00C53CDC67DF2DB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1416741614B41C00949A5C7B1348B3F0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,53 +300,91 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF972FA9B60E3A6D8BA93189E09801BB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10B71EFF0C9F97A216038EBF99A59F61 /* Support Files */ = {
+		2CB7D6F4A832938E20C389A8D37D8FC7 /* Alamofire */ = {
 			isa = PBXGroup;
 			children = (
-				EC26AF2EA96A9AC493A4EE203D73B397 /* Blockly.modulemap */,
-				317C611EA89CB3A707D781C83BD1B42C /* Blockly.xcconfig */,
-				E32A16CBF86E5A323B65B4199A4BCCCA /* Blockly-Private.xcconfig */,
-				A2295D2E9429A7F989EE48E03F0A98D4 /* Blockly-dummy.m */,
-				74BF52B6114C171A160488E898DD2275 /* Blockly-prefix.pch */,
-				FF6E1F58FF1430040C58777F5C76D618 /* Blockly-umbrella.h */,
-				DEA3F13778E0BDC13F389758E4A29D59 /* Info.plist */,
+				7FD0FDCA7DAE1D831759B8923E2D6FB0 /* Alamofire.swift */,
+				10469810DFDC8EB4E28850DE6031CAE8 /* Download.swift */,
+				09A7BBE2BAFFDE4436DE2CA15A9D5238 /* Manager.swift */,
+				D7CCBA33F5A17E8E2187ABC82D54BDE2 /* MultipartFormData.swift */,
+				97387862A3C9DE398DFCFC0B193E5362 /* ParameterEncoding.swift */,
+				9EC833DD1AEC4CE6CDF1FC163BB27BB5 /* Request.swift */,
+				0493CE82BB2DBD012B3A23AD51290465 /* ResponseSerialization.swift */,
+				0B08284450986CC53E40C46B404263E5 /* ServerTrustPolicy.swift */,
+				8FD403400F6237A482D00C260892C730 /* Upload.swift */,
+				4AF3CCD6053F97F198ECEF16B8D3CCD7 /* Validation.swift */,
+				9D34D469AA28E5C6CEACDE1C1AA32998 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Blockly";
+			path = Alamofire;
 			sourceTree = "<group>";
 		};
-		333C04F83F4641523DCB5D65ABF63E8F /* SwiftyJSON */ = {
+		2DD1286DB3163F76901D1EF08002269D /* Blockly */ = {
 			isa = PBXGroup;
 			children = (
-				31F861572AEF58AF8E8738463397C601 /* SwiftyJSON.swift */,
-				5C01FEABE1E563BAB7ED3E96FD64C66D /* Support Files */,
+				73D178BA5744332EF433B4E33DB67551 /* BVCExtensionGenerator.swift */,
+				CC510EC65B5724D36ED6754A71430EBE /* BVCExtensionGestureRecognizer.swift */,
+				6FF6D4358D59B65B99F914D3291D3B76 /* BVCExtensionInterpretation.swift */,
+				228A6DAE04ECCD38355DE9E645C908F3 /* Blockly.h */,
+				D3DCA31E7A5B176F06204BBAA8823F71 /* Blockly.swift */,
+				641F7B0611BA68500B8D9250CF3F4AA7 /* BlocklyButton.swift */,
+				F4049021B165DD987FA8FAD6373EF9CE /* BlocklyConfiguration.swift */,
+				930D0F365F041432172DB06FBEBFD68B /* BlocklyCore.swift */,
+				FF582440EFEBEAE9271DE62A79E84F1A /* BlocklyCoreExtension.swift */,
+				93450E72ABC303021FBA560E91504415 /* BlocklyCores.swift */,
+				35AB499037C7DA91F74D04364AE779A8 /* BlocklyDelegate.swift */,
+				256D4C8E417BDCD9DFAA608F5CF84461 /* BlocklyDrawer.swift */,
+				F95C4102CC9B86391C17C4E55245A90C /* BlocklyExtensionCustomization.swift */,
+				628C941277BE5D724C13AE75E27A1ADE /* BlocklyExtensionDelegate.swift */,
+				34AC575A0D72A580D8295B6E49FC6C6E /* BlocklyExtensionShortcutVariables.swift */,
+				9788A5165DBA2CBA60334BE11C967A74 /* BlocklyFactory.swift */,
+				4B153187E2F9CBBE735A15527CA96FF9 /* BlocklyGenerator.swift */,
+				0C1D9003945AC6D9EACAADBA08F2A73A /* BlocklyInterpreter.swift */,
+				43615F7FDFCE14EB3C2E987B138048F5 /* BlocklyMenuButton.swift */,
+				25EAF4447BE972B78797C231943E9906 /* BlocklyPanGestureRecognizer.swift */,
+				8A966F071B7ED8774F25CC40F4D476C9 /* BlocklyTrashcan.swift */,
+				D6E9859F546A4A6DEFAA95EF76210731 /* BlocklyUIDelegate.swift */,
+				BC02BEFB5BE367AA9D4A427EFA5ACD51 /* BlocklyUIState.swift */,
+				6DB30C63FA243254F2FC83C2D87D47A5 /* BlocklyViewController.swift */,
+				675AEB9EF3366A73E580DF497C9FBF3F /* Connection.swift */,
+				54469A8D046887B8FBEA802D536EFB38 /* ConnectionPoint.swift */,
+				11138E97E5394CFA7973EA99A4E47B60 /* ConnectionType.swift */,
+				76A1C6FEE6E0A840B1C9104344F37CE5 /* Extension.swift */,
+				90C779740B37C826B7CB9037BF664B5B /* FieldTextInput.swift */,
+				99527D335ECDA5512B194E577D7131E3 /* FieldTextInputValidator.swift */,
+				E8A24552F37A7814CCB45CAE0D6C6A1C /* FieldType.swift */,
+				D34C7F66FEF9E045DA61EB338C536858 /* Input.swift */,
+				11C77084DB94BBC4AF103813818D2659 /* InputConnection.swift */,
+				6E7BB3A7CBB929F2EE37D32F13253080 /* InputConnectionPoint.swift */,
+				30D19640AC8DA8E9B9C5867EB4AEEAD8 /* InputStatementConnection.swift */,
+				5994190805E21C31B463F6734948B0D3 /* InputStatementConnectionPoint.swift */,
+				60E6E3FF57375831E7087235E56C17F1 /* InputType.swift */,
+				E9C9BFFBDB41F765FC9B479D3EE6BA61 /* InputValueConnection.swift */,
+				543A48F4FB61B215425846AF14B55049 /* InputValueConnectionPoint.swift */,
+				99978549BAF142F770D3B07AFBA00283 /* NextConnection.swift */,
+				CF43AE249E0D08FAF47672CA60579ACB /* NextConnectionPoint.swift */,
+				E926ECF352E2A2E4D1E9D61B691A507D /* OutputConnection.swift */,
+				6B58FFA279C5E7D217E9A806454F6AFF /* OutputConnectionPoint.swift */,
+				038F1C14EB72DFB2F3E1AB179F27A72C /* PreviousConnection.swift */,
+				78A408ECF9D57F7043F9982225016F08 /* PreviousConnectionPoint.swift */,
+				F52FA8BD6C3C7E4F3FFF3865457589E3 /* ReturnType.swift */,
+				D2B86AE84F0AFDC46067FEB7A8F38712 /* Workspace.swift */,
+				DDBB59B4234427EFD697127F9DB6ECB5 /* Support Files */,
 			);
-			path = SwiftyJSON;
+			path = Blockly;
 			sourceTree = "<group>";
 		};
-		41281099118DDFF03ACF53A49B25F470 /* Support Files */ = {
+		305F4CF4E3FDAFDDF52996C0452DE677 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C8897EA53A01B35432D08D77850023D4 /* Info.plist */,
-				F12CBC05679578DF5068458260AD5277 /* SnapKit.modulemap */,
-				81A4775727693B69BBF7C79E766DFD74 /* SnapKit.xcconfig */,
-				EE04E3DC1CDA0B8C8B5E1C2E6C2AD269 /* SnapKit-Private.xcconfig */,
-				D367D337E0670CA623B6F343C738D610 /* SnapKit-dummy.m */,
-				34170B13CE9287B203A26BCB9E08A02D /* SnapKit-prefix.pch */,
-				413D4C68BCDED964834146EFB422C3B3 /* SnapKit-umbrella.h */,
+				2CB7D6F4A832938E20C389A8D37D8FC7 /* Alamofire */,
+				2DD1286DB3163F76901D1EF08002269D /* Blockly */,
+				78AB06E055E352FCC7119EED67D438A6 /* SnapKit */,
+				771D865C5069516E83B9FE5A7E5EF59D /* SwiftyJSON */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SnapKit";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
@@ -346,89 +395,34 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		569C90327729488930289D38D09DD52D /* Blockly */ = {
+		6BA74CABDE5619CE97E958F46A3D2AD0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7B168ED60AAC26A1382665BF04C493A2 /* BVCExtensionGenerator.swift */,
-				BAA15E7931B1A2989A50D1CD824F6046 /* BVCExtensionGestureRecognizer.swift */,
-				877B5FB401568337B7389D851224C92D /* BVCExtensionInterpretation.swift */,
-				08B0E83E6E70796E1B03E93DC1524D37 /* Blockly.h */,
-				18154193FD58DE877FAF5DD94213983A /* Blockly.swift */,
-				A530C08E91C23CFE834D9CAA46E6F2EA /* BlocklyButton.swift */,
-				A5631B2DD523179A4CE8DC36B31ACC45 /* BlocklyConfiguration.swift */,
-				392D1E445B8119AE00FD28F077C1FDCE /* BlocklyCore.swift */,
-				C778C84B02BF9D66D68C71682899B532 /* BlocklyCoreExtension.swift */,
-				CACF39B6B373481C1701F6319D2CB543 /* BlocklyCores.swift */,
-				27DCF1905C5A25A96679D3101EBE4455 /* BlocklyDelegate.swift */,
-				E308C530E3366272FD6AF1D2A5F9033E /* BlocklyDrawer.swift */,
-				FB673A492B27960016690E3440D746B1 /* BlocklyExtensionCustomization.swift */,
-				9CBD558780C271386C32421E5351FE3A /* BlocklyExtensionDelegate.swift */,
-				54C899FE19AB51D03831B4503AC001E1 /* BlocklyExtensionShortcutVariables.swift */,
-				BFBBC20C9E44FB4078C3790AB4D3EA6A /* BlocklyFactory.swift */,
-				C1F0BD537557D49BEB1AFA4A3839C65A /* BlocklyGenerator.swift */,
-				9353F9CFD40087AF8D0FA3E904F659E2 /* BlocklyInterpreter.swift */,
-				E00589DEA06C798CFAA02574BF1E6344 /* BlocklyMenuButton.swift */,
-				55BD85225D3F845FD450CC0C1F05FF95 /* BlocklyPanGestureRecognizer.swift */,
-				50BF2B4E1C56C4A6DBEE94AC31767F4C /* BlocklyTrashcan.swift */,
-				AEBBF49CE555BC0A74C905EF8E649B76 /* BlocklyUIDelegate.swift */,
-				E0BBBDD5BD4D28F284BC96710DE2819B /* BlocklyUIState.swift */,
-				5E1418D245D1BE84683121A0AEF36EF5 /* BlocklyViewController.swift */,
-				36817B86F0D6AD051C512EC934DFEFCC /* Connection.swift */,
-				8F3E1C3F06C1888203C839D6AEAC87F7 /* ConnectionPoint.swift */,
-				49D92AC1F9F5EDC71508D246F6EA42BA /* ConnectionType.swift */,
-				553CDF10678C58FFECB1EC003CD49A44 /* Extension.swift */,
-				B5DDA9B16EFE872EA2FA08E3B00F552D /* FieldTextInput.swift */,
-				23614792892F172DE2B8966265E4EB7F /* FieldTextInputValidator.swift */,
-				4AE92C276BF3B430C92365948EAB7770 /* FieldType.swift */,
-				373267F8A0471A8A2AB3660152A2B013 /* Input.swift */,
-				BE5D1499E13A4336C71595A8A073BB70 /* InputConnection.swift */,
-				3E3938A5FC5361D3578E4F775E99A786 /* InputConnectionPoint.swift */,
-				D18DD8E28548B15878B18A935C1C2AFE /* InputStatementConnection.swift */,
-				AE8D2F274FBA498C2DBAC318C1ED9EC2 /* InputStatementConnectionPoint.swift */,
-				E08A8A5B867C872900D44012BC95B3D7 /* InputType.swift */,
-				4AC4D191279DE047C672E38766E1DF15 /* InputValueConnection.swift */,
-				F084FB3E5F311EBB4B926AA5629BE935 /* InputValueConnectionPoint.swift */,
-				285037EED9B0B15A723B651C0B1703E9 /* NextConnection.swift */,
-				F7E859F26A856FF9161CDA95CB91213F /* NextConnectionPoint.swift */,
-				087F881F2857105D0C84659CC767CE68 /* OutputConnection.swift */,
-				81D31D79C18A3812219AF0E9E0E0486E /* OutputConnectionPoint.swift */,
-				82374F02BA3A7EFC1BC91080728856A7 /* PreviousConnection.swift */,
-				5ECA455AECEB52CDA31F672D4F0D1C97 /* PreviousConnectionPoint.swift */,
-				64050A74581D966E18022A8443B53616 /* ReturnType.swift */,
-				07B2DD47DB2A30A54AC3A1A93B964F66 /* Workspace.swift */,
-				10B71EFF0C9F97A216038EBF99A59F61 /* Support Files */,
-			);
-			path = Blockly;
-			sourceTree = "<group>";
-		};
-		5C01FEABE1E563BAB7ED3E96FD64C66D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				34769C8FE80642F7E30B71CBA020CC15 /* Info.plist */,
-				05D3EE2377F6ECE010563A0BB312A5A9 /* SwiftyJSON.modulemap */,
-				3F8E92492D4F3C5EB49F9741BA492218 /* SwiftyJSON.xcconfig */,
-				55CED914B3193E1B401AEC36DFDF338D /* SwiftyJSON-Private.xcconfig */,
+				AB2C4ECB6B19C4B37E9BC806D5453C1A /* Info.plist */,
+				FFA1657EC54646E587B277638D081012 /* SwiftyJSON.modulemap */,
+				E39A9E72808D7FCD921062CBDB9954A9 /* SwiftyJSON.xcconfig */,
+				BDFD6BDED1543DF5F7EBD546120C5980 /* SwiftyJSON-Private.xcconfig */,
 				A0D3575B7F9DE11C652ED4F55D4D976B /* SwiftyJSON-dummy.m */,
-				5DB62D3C9B17447A8ECFE40E29281671 /* SwiftyJSON-prefix.pch */,
+				14EC52E36CB3A7EF9AF459C42F33E0FD /* SwiftyJSON-prefix.pch */,
 				85E62DA073C367ACFC8C77B0B6180FD1 /* SwiftyJSON-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SwiftyJSON";
 			sourceTree = "<group>";
 		};
-		6B8DD1BC3EA1445AB457D19D7A3C71B3 /* Support Files */ = {
+		6E9116F10302DA81132BC313F4ECF198 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FA014CBBB17047CAB095A4CF7F9DE229 /* Alamofire.modulemap */,
-				EB86550D0E072B198CF8D9C1F1BC4485 /* Alamofire.xcconfig */,
-				45473F0852DC0CA5525E67BABD621E91 /* Alamofire-Private.xcconfig */,
-				9C894E8542E3B8201DC0E5635B4A4C08 /* Alamofire-dummy.m */,
-				AED1C27B2E07F6638388953274EB208F /* Alamofire-prefix.pch */,
-				20F63BC2A11387D3B47826C534A667DE /* Alamofire-umbrella.h */,
-				36975C0D0F9D1D9FD7CAB3452460F704 /* Info.plist */,
+				906035829A741796BFE1924AF5B8183E /* Info.plist */,
+				DBD43AF88EB00100D2EFBAA356A25051 /* SnapKit.modulemap */,
+				E24600B33E4ED3DE5B8BE799C4F0E627 /* SnapKit.xcconfig */,
+				6DCF007A22E91D2772DCEE9FA97DE861 /* SnapKit-Private.xcconfig */,
+				D367D337E0670CA623B6F343C738D610 /* SnapKit-dummy.m */,
+				AD0CF84E63EC9B6E3710F35D10759D60 /* SnapKit-prefix.pch */,
+				413D4C68BCDED964834146EFB422C3B3 /* SnapKit-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Alamofire";
+			path = "../Target Support Files/SnapKit";
 			sourceTree = "<group>";
 		};
 		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
@@ -449,15 +443,59 @@
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
+		771D865C5069516E83B9FE5A7E5EF59D /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				31F861572AEF58AF8E8738463397C601 /* SwiftyJSON.swift */,
+				6BA74CABDE5619CE97E958F46A3D2AD0 /* Support Files */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		78AB06E055E352FCC7119EED67D438A6 /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				2B0270ACC0A1AAAC0088467BF0131477 /* Constraint.swift */,
+				799F700E0350C1622AF654FBAC56DC3E /* ConstraintAttributes.swift */,
+				EDC6726B2AA1DAAC6F94E1FF507AE34F /* ConstraintDescription.swift */,
+				F79B446D865CE125AC740FDABBA29405 /* ConstraintItem.swift */,
+				E11A7B60D7208B393697E6DBAC0309DA /* ConstraintMaker.swift */,
+				79D7963F02D79E7AF9280CB2426B041D /* ConstraintRelation.swift */,
+				CA6701D0395AA53671F30906FDA34B59 /* Debugging.swift */,
+				0A76927A838B74013DE81260B84691E9 /* EdgeInsets.swift */,
+				DB44D45A9A34C20A034D0D004999B563 /* LayoutConstraint.swift */,
+				6E13811703F4D15A85A9D2260B00A6A8 /* SnapKit.swift */,
+				2A5B605BCB86C161823225245B5EDBB7 /* View+SnapKit.swift */,
+				A00F6A7822756001C1AC412B0A1751A8 /* ViewController+SnapKit.swift */,
+				6E9116F10302DA81132BC313F4ECF198 /* Support Files */,
+			);
+			path = SnapKit;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				EAD6D579C89DF5FF234463984131A1FF /* Pods */,
+				305F4CF4E3FDAFDDF52996C0452DE677 /* Pods */,
 				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
 				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		9D34D469AA28E5C6CEACDE1C1AA32998 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9E1691A0A9EA8B0E5FECF8FB6013B3B /* Alamofire.modulemap */,
+				E5D7B7F9D458A3F337CEF093FE7D7360 /* Alamofire.xcconfig */,
+				A5DB6782464D1CBEF6E891C2199EE990 /* Alamofire-Private.xcconfig */,
+				075E9983BE501C017170ADD453333D0F /* Alamofire-dummy.m */,
+				C8751842BE9F6A293AB258FEB7947F4E /* Alamofire-prefix.pch */,
+				D731EE70EB4D51F666EDD7EE55D275B3 /* Alamofire-umbrella.h */,
+				071A54198CB45809B9451AA84B65B7A0 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
 			sourceTree = "<group>";
 		};
 		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
@@ -476,32 +514,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CA7F81A72620CA0CBE2DE6EB69550B7D /* SnapKit */ = {
-			isa = PBXGroup;
-			children = (
-				2B0270ACC0A1AAAC0088467BF0131477 /* Constraint.swift */,
-				799F700E0350C1622AF654FBAC56DC3E /* ConstraintAttributes.swift */,
-				EDC6726B2AA1DAAC6F94E1FF507AE34F /* ConstraintDescription.swift */,
-				F79B446D865CE125AC740FDABBA29405 /* ConstraintItem.swift */,
-				E11A7B60D7208B393697E6DBAC0309DA /* ConstraintMaker.swift */,
-				79D7963F02D79E7AF9280CB2426B041D /* ConstraintRelation.swift */,
-				CA6701D0395AA53671F30906FDA34B59 /* Debugging.swift */,
-				0A76927A838B74013DE81260B84691E9 /* EdgeInsets.swift */,
-				DB44D45A9A34C20A034D0D004999B563 /* LayoutConstraint.swift */,
-				6E13811703F4D15A85A9D2260B00A6A8 /* SnapKit.swift */,
-				2A5B605BCB86C161823225245B5EDBB7 /* View+SnapKit.swift */,
-				A00F6A7822756001C1AC412B0A1751A8 /* ViewController+SnapKit.swift */,
-				41281099118DDFF03ACF53A49B25F470 /* Support Files */,
-			);
-			path = SnapKit;
-			sourceTree = "<group>";
-		};
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F21704E17CEA3094FCF33B6C40279C2E /* Alamofire.framework */,
-				14314AB0097F262B1A3086C38DEF699D /* Blockly.bundle */,
-				4DDCB6C469A664A8A1E84BA32DAA3374 /* Blockly.framework */,
+				8316EBDC8DC954FEC45C9CAB448DC08B /* Alamofire.framework */,
+				A6DC9CC05DBA6AE1BDCCD7D3104D9A49 /* Blockly.bundle */,
+				6DF94DAF80A9CEFD8C5A85FDF11CF2BA /* Blockly.framework */,
 				C5CD79E7DF6B51A134A701E157205B10 /* Pods.framework */,
 				3DBD3F68F708AA6E6115CA4B4FCA0258 /* SnapKit.framework */,
 				EB4CB50B42FA0112BD3CB968CB68AC93 /* SwiftyJSON.framework */,
@@ -509,31 +527,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EAD6D579C89DF5FF234463984131A1FF /* Pods */ = {
+		DDBB59B4234427EFD697127F9DB6ECB5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F617A997353AFEA05B152201467CE331 /* Alamofire */,
-				569C90327729488930289D38D09DD52D /* Blockly */,
-				CA7F81A72620CA0CBE2DE6EB69550B7D /* SnapKit */,
-				333C04F83F4641523DCB5D65ABF63E8F /* SwiftyJSON */,
+				CFC51935BFFA4525E4380A0A8E3883E2 /* Blockly.modulemap */,
+				60A3C9C3FA674208DAD5C704FADF6F02 /* Blockly.xcconfig */,
+				A7DF3379F2E6D568A591F51D436C7531 /* Blockly-Private.xcconfig */,
+				E6ECA4F95A9305764A3E6870205DBB0B /* Blockly-dummy.m */,
+				7C130AC91DDE8C24253640BEB9A2051B /* Blockly-prefix.pch */,
+				73984EDFF6C33F9B92E4C259F72572B1 /* Blockly-umbrella.h */,
+				BF87F94B816F3E1571346DAE2E554178 /* Info.plist */,
 			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		F617A997353AFEA05B152201467CE331 /* Alamofire */ = {
-			isa = PBXGroup;
-			children = (
-				7598224D531BB00D0059C06BFC3CB235 /* Alamofire.swift */,
-				3D389E1CE46E08964C1FA37B1848BC3D /* Download.swift */,
-				4214933A0E4690773CBEF22C9297EF3A /* Manager.swift */,
-				B8EDB051EB40DE9C046A613E2D55B3FD /* ParameterEncoding.swift */,
-				8F93D9C4B83386C30E51E533C52A62D7 /* Request.swift */,
-				8782F45C2A858EA6AD0A2B796D644436 /* ResponseSerialization.swift */,
-				C0527B3D872D85900362EEAD601AE4B8 /* Upload.swift */,
-				F32ECC119E52B5DBCD7F6D9FE1A6CE45 /* Validation.swift */,
-				6B8DD1BC3EA1445AB457D19D7A3C71B3 /* Support Files */,
-			);
-			path = Alamofire;
+			name = "Support Files";
+			path = "../Target Support Files/Blockly";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,11 +553,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B0602365808F2D2FA8CA7496E976DE1 /* Headers */ = {
+		46261439882915B634927D55DB9A6871 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09D97047C5A1EA0CFBAEFCBB7EE8D510 /* Alamofire-umbrella.h in Headers */,
+				9715F15A02386DB0F61127F1C9649B90 /* Blockly-umbrella.h in Headers */,
+				ABA64F81F19C93C5A7E14E99A0BF6312 /* Blockly.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,12 +570,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A601A360C7913331D91DBAC503AE3496 /* Headers */ = {
+		AA7BCAB5A825687624609250B784A976 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5EA8BBF186EA7CBC694BDD3AD7D648B /* Blockly-umbrella.h in Headers */,
-				2FCF869E83A270922C19D8A7F33B74D4 /* Blockly.h in Headers */,
+				BA88965D32536C463B9AE7122396C48D /* Alamofire-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,41 +589,22 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		002F6C5F7FE2BC53CDA2655AE40E6E47 /* Blockly */ = {
+		167ADAE3C03F95A67A3B7BAD7B6E3874 /* Alamofire */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC8102495FB2DFACFC9EBC52E9ECA775 /* Build configuration list for PBXNativeTarget "Blockly" */;
+			buildConfigurationList = AC5C7ACC229B68252A25D7771766EB6B /* Build configuration list for PBXNativeTarget "Alamofire" */;
 			buildPhases = (
-				B49D3B1E583AA203E385893201005A5B /* Sources */,
-				849305835D7168B77D836AC2853A6F32 /* Frameworks */,
-				96417612B39973C15B6837C5EFAF0CD1 /* Resources */,
-				A601A360C7913331D91DBAC503AE3496 /* Headers */,
+				11C0C51560DBF5AE52E26E900DB6D389 /* Sources */,
+				B97C244AFB5E6CBD00C53CDC67DF2DB2 /* Frameworks */,
+				AA7BCAB5A825687624609250B784A976 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6E750BBAF59E92EC70FFD2F241375F68 /* PBXTargetDependency */,
 			);
-			name = Blockly;
-			productName = Blockly;
-			productReference = 4DDCB6C469A664A8A1E84BA32DAA3374 /* Blockly.framework */;
+			name = Alamofire;
+			productName = Alamofire;
+			productReference = 8316EBDC8DC954FEC45C9CAB448DC08B /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		25E9DAD818126E2E0616291439E9E99B /* Blockly-Blockly */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 33F58D78C12F63C2E1ADB93F4087D7FB /* Build configuration list for PBXNativeTarget "Blockly-Blockly" */;
-			buildPhases = (
-				8FB8586AF7DD2B831B15CD7DD0929291 /* Sources */,
-				FF972FA9B60E3A6D8BA93189E09801BB /* Frameworks */,
-				D9279D1CCE6550987EE06DA1AB70956F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Blockly-Blockly";
-			productName = "Blockly-Blockly";
-			productReference = 14314AB0097F262B1A3086C38DEF699D /* Blockly.bundle */;
-			productType = "com.apple.product-type.bundle";
 		};
 		4EDA452517A913B556C7860F490D5FD3 /* SnapKit */ = {
 			isa = PBXNativeTarget;
@@ -636,6 +623,25 @@
 			productReference = 3DBD3F68F708AA6E6115CA4B4FCA0258 /* SnapKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		7BB404D33A7BC1CE4391A45F42EC3D96 /* Blockly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4812544F20E0BA73642B272C0CEE18C1 /* Build configuration list for PBXNativeTarget "Blockly" */;
+			buildPhases = (
+				47F8A20D2E322CEDE3C34C974B423CDA /* Sources */,
+				65EF4B4D02048BE2ADC9F290832DD28F /* Frameworks */,
+				CD1770C847B73A6246544F796E5B9E7E /* Resources */,
+				46261439882915B634927D55DB9A6871 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF5EB0AF06362A53228B9D463D348E2 /* PBXTargetDependency */,
+			);
+			name = Blockly;
+			productName = Blockly;
+			productReference = 6DF94DAF80A9CEFD8C5A85FDF11CF2BA /* Blockly.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		9CF08CE50642ADFD247CAC7915E495B3 /* Pods */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7AFC930EC55A8F700268EE3651162107 /* Build configuration list for PBXNativeTarget "Pods" */;
@@ -647,10 +653,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				0550B6FABF4D292BC329C832DA58FDD7 /* PBXTargetDependency */,
-				24EB2B685DF9C53797BC601F80636BFE /* PBXTargetDependency */,
-				199E977285F9357779F725A9EA178F15 /* PBXTargetDependency */,
-				0F3257FD78E6A1E05C86C8457903B96F /* PBXTargetDependency */,
+				C969CBA2C44F334054A30B21F51F63C1 /* PBXTargetDependency */,
+				CE43AF705F78F4A023CFCB199A4C9A2E /* PBXTargetDependency */,
+				CD90130D4873E262B68E2473AFC43B62 /* PBXTargetDependency */,
+				3EAF009C89E825F5973B0C242A295E97 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
@@ -674,22 +680,22 @@
 			productReference = EB4CB50B42FA0112BD3CB968CB68AC93 /* SwiftyJSON.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F8823ED50A6B9D29540522ECF62E4A05 /* Alamofire */ = {
+		C83D183594195DE2DB2B48FAE237C8D6 /* Blockly-Blockly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9875DDE7E4AA3420291991084A1CCBE6 /* Build configuration list for PBXNativeTarget "Alamofire" */;
+			buildConfigurationList = BE25F69BC4CA318792588BD3589F1B00 /* Build configuration list for PBXNativeTarget "Blockly-Blockly" */;
 			buildPhases = (
-				C67CCAF051103A248C032E5756BA62AA /* Sources */,
-				C079EDD09C3625A212C035EE0369B3E6 /* Frameworks */,
-				4B0602365808F2D2FA8CA7496E976DE1 /* Headers */,
+				B0A09663B490E7D9878E8CF2E9926C8F /* Sources */,
+				961A2545F84FF1B8FE817F65D6F44241 /* Frameworks */,
+				4412690C8D6FB3650591BD53E477C665 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Alamofire;
-			productName = Alamofire;
-			productReference = F21704E17CEA3094FCF33B6C40279C2E /* Alamofire.framework */;
-			productType = "com.apple.product-type.framework";
+			name = "Blockly-Blockly";
+			productName = "Blockly-Blockly";
+			productReference = A6DC9CC05DBA6AE1BDCCD7D3104D9A49 /* Blockly.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -712,9 +718,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F8823ED50A6B9D29540522ECF62E4A05 /* Alamofire */,
-				002F6C5F7FE2BC53CDA2655AE40E6E47 /* Blockly */,
-				25E9DAD818126E2E0616291439E9E99B /* Blockly-Blockly */,
+				167ADAE3C03F95A67A3B7BAD7B6E3874 /* Alamofire */,
+				7BB404D33A7BC1CE4391A45F42EC3D96 /* Blockly */,
+				C83D183594195DE2DB2B48FAE237C8D6 /* Blockly-Blockly */,
 				9CF08CE50642ADFD247CAC7915E495B3 /* Pods */,
 				4EDA452517A913B556C7860F490D5FD3 /* SnapKit */,
 				B9A04D3C9B208813656510FDA8ADAE02 /* SwiftyJSON */,
@@ -723,24 +729,96 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		96417612B39973C15B6837C5EFAF0CD1 /* Resources */ = {
+		4412690C8D6FB3650591BD53E477C665 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6E835BDB77ABA923CC0DC1130509B48 /* Blockly.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D9279D1CCE6550987EE06DA1AB70956F /* Resources */ = {
+		CD1770C847B73A6246544F796E5B9E7E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3FC4F93EC2EF43C6E59585B552812AE /* Blockly.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		11C0C51560DBF5AE52E26E900DB6D389 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A1BC65F374E2F3B0E8686DD1D5EDC3 /* Alamofire-dummy.m in Sources */,
+				B54D537F104B5A6941235E91EC3F9DDC /* Alamofire.swift in Sources */,
+				A47A69B9C7BF02147EE9824A5DC17A87 /* Download.swift in Sources */,
+				1772131EE772A90BF0588A511C439AE6 /* Manager.swift in Sources */,
+				208B8B14032DA50253E922849F809372 /* MultipartFormData.swift in Sources */,
+				262626DABE847DE1010A50A02A138F36 /* ParameterEncoding.swift in Sources */,
+				39A633462B3513AA7501E01C204D6AF5 /* Request.swift in Sources */,
+				03EC1B1EB41B2950AA5F1A5BD0DF151C /* ResponseSerialization.swift in Sources */,
+				93CD2D6FFC8DB4C07E784585919B5D8A /* ServerTrustPolicy.swift in Sources */,
+				7480CC679DE1C17AC34FF2A0675BAAC0 /* Upload.swift in Sources */,
+				73A3EAECC6E11C95B4FA9C374368E377 /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47F8A20D2E322CEDE3C34C974B423CDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0DD08F3369E2418527D5CCA74605A37 /* BVCExtensionGenerator.swift in Sources */,
+				8C3561655961E33EB06094415189709B /* BVCExtensionGestureRecognizer.swift in Sources */,
+				4EB4616FE0627502F59C5283000031BC /* BVCExtensionInterpretation.swift in Sources */,
+				590C7AEE736D922F0BFD5798F896F511 /* Blockly-dummy.m in Sources */,
+				7B9624EF62D54C8CBF99E4352AA0A36A /* Blockly.swift in Sources */,
+				448D990EBDFDB0695C757B00A324C4BD /* BlocklyButton.swift in Sources */,
+				0401EF7AC188CAA0A69FC93102359248 /* BlocklyConfiguration.swift in Sources */,
+				46D10385B8241AAECF18939E10F944A4 /* BlocklyCore.swift in Sources */,
+				B82A9707BE082488BF0A7F8F9E9F7F08 /* BlocklyCoreExtension.swift in Sources */,
+				0F6936FC453FEBCCAB1810CC7C5899B7 /* BlocklyCores.swift in Sources */,
+				92DB78476206889BB7C9FA2C5D519C4E /* BlocklyDelegate.swift in Sources */,
+				A14BEB6E69C71131A365E179014B459A /* BlocklyDrawer.swift in Sources */,
+				62D56D63622C2C6D712CAD7219E025E0 /* BlocklyExtensionCustomization.swift in Sources */,
+				77DF3036B624D0FA3D7DDA17B7A74D40 /* BlocklyExtensionDelegate.swift in Sources */,
+				FBD8EF173C2B72C9A4E69D2F3D622747 /* BlocklyExtensionShortcutVariables.swift in Sources */,
+				6A51B63D87794EE93326A83F35E3F3EF /* BlocklyFactory.swift in Sources */,
+				6EDF4FAE5207D09A090BEA8F5405EB98 /* BlocklyGenerator.swift in Sources */,
+				796CA3D860DF028B0BAB86D99340DEA1 /* BlocklyInterpreter.swift in Sources */,
+				6B669E84CBD05C54E916671E579118CC /* BlocklyMenuButton.swift in Sources */,
+				64E0DEB89518962104654F2EF98634D4 /* BlocklyPanGestureRecognizer.swift in Sources */,
+				2677BB486413B837F04AA680728BB2DC /* BlocklyTrashcan.swift in Sources */,
+				AAE10C04C71402B60F080E8B15ED1946 /* BlocklyUIDelegate.swift in Sources */,
+				37587BD1B6BB34863160B9118211B08C /* BlocklyUIState.swift in Sources */,
+				17154D4BBEFF1766422F1004F0539AF5 /* BlocklyViewController.swift in Sources */,
+				5D9B405817BABE13F8C98E9F5C540C13 /* Connection.swift in Sources */,
+				C510295FFD5B89766A10DB1518E1FADF /* ConnectionPoint.swift in Sources */,
+				E2AD0550B3B85DE9D55CF164D2087A87 /* ConnectionType.swift in Sources */,
+				D8E124EA63A86124FD1003F047F0B7F0 /* Extension.swift in Sources */,
+				DE6E5ED07B3752E91651BBCB3C740D58 /* FieldTextInput.swift in Sources */,
+				19D04CA5F8ED4347E01BA320242A36DC /* FieldTextInputValidator.swift in Sources */,
+				AA954EAEDB9C417D48846B9BA0132078 /* FieldType.swift in Sources */,
+				797291EB87F4739743DE61BD8F18597F /* Input.swift in Sources */,
+				620D237D13ACBA2E471383BDC69646B2 /* InputConnection.swift in Sources */,
+				D4AAD205C12A6E6E9540C4D618D06D9D /* InputConnectionPoint.swift in Sources */,
+				C61BE596542F1422F271067D7E349510 /* InputStatementConnection.swift in Sources */,
+				4A3BB5F2B5F29136940817CCF8E1C844 /* InputStatementConnectionPoint.swift in Sources */,
+				D3445100B15A6723399D18349036ED1D /* InputType.swift in Sources */,
+				05B483A12E9666EFA242BD0FD53BDFE7 /* InputValueConnection.swift in Sources */,
+				39E1DCCDEE1D2CE844434A0DE29F91BC /* InputValueConnectionPoint.swift in Sources */,
+				888255B343ABB668F911B13C60536E43 /* NextConnection.swift in Sources */,
+				4DD1EEF3B26D8C2519D13D495C5421E3 /* NextConnectionPoint.swift in Sources */,
+				C3CB5BE6A9DA451F85723E85FB2275DE /* OutputConnection.swift in Sources */,
+				1D94F3FA69C7DBC1FD351084A14B3D98 /* OutputConnectionPoint.swift in Sources */,
+				946FFAED1A5840C33447A4A340DD0834 /* PreviousConnection.swift in Sources */,
+				D517B0C37BCDBFB026612B51561B8389 /* PreviousConnectionPoint.swift in Sources */,
+				3B05D707D365BD9ECE01462B668DCE01 /* ReturnType.swift in Sources */,
+				865790200FB86A2516F3B5FB724F29A6 /* Workspace.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		857F4306B6C6D8D06B3382A44BD3CD69 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -750,64 +828,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8FB8586AF7DD2B831B15CD7DD0929291 /* Sources */ = {
+		B0A09663B490E7D9878E8CF2E9926C8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B49D3B1E583AA203E385893201005A5B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EC5DAF5154CA3976422B0A228C676BAC /* BVCExtensionGenerator.swift in Sources */,
-				14435AB3359FF67D2E5B340034B1F446 /* BVCExtensionGestureRecognizer.swift in Sources */,
-				00B4A662EFA661D21A3CD9AB841C32BC /* BVCExtensionInterpretation.swift in Sources */,
-				B077C718603CB359F923324CB14A4DBD /* Blockly-dummy.m in Sources */,
-				1159CB4AB6D3247FA5D3EEBDB0A93345 /* Blockly.swift in Sources */,
-				4E4BEED524683FA8E257379C66670988 /* BlocklyButton.swift in Sources */,
-				D1B3B5795010A2D0D32E0F4A36050396 /* BlocklyConfiguration.swift in Sources */,
-				868F9881F1F1B1FF754AAF09FA163199 /* BlocklyCore.swift in Sources */,
-				2C57CA9CA471D2B085734FC09DEA2464 /* BlocklyCoreExtension.swift in Sources */,
-				99F98A47A5E55CD58DEC42A42ECC9850 /* BlocklyCores.swift in Sources */,
-				4672C50D4D405D7262B09D8613B0770D /* BlocklyDelegate.swift in Sources */,
-				2F607F647B24198F0D6493B4B6F34DB7 /* BlocklyDrawer.swift in Sources */,
-				6D87A73B5017F0EC60D70A092BC84AA7 /* BlocklyExtensionCustomization.swift in Sources */,
-				D110B23B600D7D2D248CD50422A0E279 /* BlocklyExtensionDelegate.swift in Sources */,
-				86DA7568D10EB24E2E71438A7BFA2865 /* BlocklyExtensionShortcutVariables.swift in Sources */,
-				16510E8995F880624D041DFC3191B950 /* BlocklyFactory.swift in Sources */,
-				5044FD2AF8E2E51FDC7C7B203FBE3638 /* BlocklyGenerator.swift in Sources */,
-				3007D9B55087F8409FC330BFD697A7E9 /* BlocklyInterpreter.swift in Sources */,
-				4A05DCF855A36220803D1D8E96BD3DD5 /* BlocklyMenuButton.swift in Sources */,
-				34B1238800F75453F546F83F715C54B4 /* BlocklyPanGestureRecognizer.swift in Sources */,
-				E07C437883C895D86E225D92047104FF /* BlocklyTrashcan.swift in Sources */,
-				3950783271B2FAF914BABB36B75DDCFD /* BlocklyUIDelegate.swift in Sources */,
-				27F5099022D3CD6BD56CC421CB74203C /* BlocklyUIState.swift in Sources */,
-				934F748C72D265536AE2D9E0C1708CC4 /* BlocklyViewController.swift in Sources */,
-				AEC440529072EE061D6045D34E86BB88 /* Connection.swift in Sources */,
-				F29BB1ADFA3667CF36099034251D71D9 /* ConnectionPoint.swift in Sources */,
-				E369E6FFFE6562B8625491C6A35EABF0 /* ConnectionType.swift in Sources */,
-				8670F6862EEEFC1C3CB74251EB4D1BF0 /* Extension.swift in Sources */,
-				B5A5564CE8834404891068E23DD595B2 /* FieldTextInput.swift in Sources */,
-				F6ABC2AE92C64F3B81B8721E2F433720 /* FieldTextInputValidator.swift in Sources */,
-				F9DCCA5D9DA1D6A2D23735666863A99C /* FieldType.swift in Sources */,
-				F0DEBE20313FBB7124DF4380971E5236 /* Input.swift in Sources */,
-				89300AD9CB42179B2D32F058A3EE3509 /* InputConnection.swift in Sources */,
-				B378D82BF9D206164925E90723921C12 /* InputConnectionPoint.swift in Sources */,
-				EF7FE04325729B0CDBA734AB2AB94914 /* InputStatementConnection.swift in Sources */,
-				D08D24E605BA0132B6C2FB5090FA7C81 /* InputStatementConnectionPoint.swift in Sources */,
-				E4BDFD8852C868BC2C40D8762991FF34 /* InputType.swift in Sources */,
-				3EFD47C4F1FC176BD7B9C2307F0D5C69 /* InputValueConnection.swift in Sources */,
-				588C55800439C938F914777CC38F2467 /* InputValueConnectionPoint.swift in Sources */,
-				C0A1C38E9A5E47F7A054836A0673BE97 /* NextConnection.swift in Sources */,
-				FFF263F19D495A195FC25A3B6327C9FA /* NextConnectionPoint.swift in Sources */,
-				DB376949A94BF82E9909A4C61231B9FC /* OutputConnection.swift in Sources */,
-				F67BE5E5E80BD546AE8A328A45C482C3 /* OutputConnectionPoint.swift in Sources */,
-				C945B7197E7709CDF7591148F80B5301 /* PreviousConnection.swift in Sources */,
-				0B89C462961F5456DF8D8EDCEA1B7840 /* PreviousConnectionPoint.swift in Sources */,
-				0ACBEA024B55262C99D2F375FCB4AB43 /* ReturnType.swift in Sources */,
-				28D5D23B4BDC76A492486CE6CE784686 /* Workspace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,22 +855,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C67CCAF051103A248C032E5756BA62AA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4009A681AC759EEC0324AC87FD1C8EBF /* Alamofire-dummy.m in Sources */,
-				38AC55E36ECF3951C282A7F50E32A48A /* Alamofire.swift in Sources */,
-				674B8B6E4EC8A0B060CDA717C54FBD9E /* Download.swift in Sources */,
-				1AB8199A6C55472A0BC27528077F3EA0 /* Manager.swift in Sources */,
-				A4626324404EA99D4340E5F95E4A8866 /* ParameterEncoding.swift in Sources */,
-				3E0F042DCB56ACE543662CA2BF463542 /* Request.swift in Sources */,
-				C75BECD0FFC449CE097857634405E4D5 /* ResponseSerialization.swift in Sources */,
-				D0999A9323942A7F40AAE91181ACAE86 /* Upload.swift in Sources */,
-				034BB9C151D1C368FE7B1CFA48AEA615 /* Validation.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FF33E57F4354F23D06262B60A5A0286D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -858,58 +866,58 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0550B6FABF4D292BC329C832DA58FDD7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			target = F8823ED50A6B9D29540522ECF62E4A05 /* Alamofire */;
-			targetProxy = 167F2AE51E99099D3BB328111A01430C /* PBXContainerItemProxy */;
-		};
-		0F3257FD78E6A1E05C86C8457903B96F /* PBXTargetDependency */ = {
+		3EAF009C89E825F5973B0C242A295E97 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyJSON;
 			target = B9A04D3C9B208813656510FDA8ADAE02 /* SwiftyJSON */;
-			targetProxy = 12096A49A3BD5F3CAE047F9F47EB90B6 /* PBXContainerItemProxy */;
+			targetProxy = A0C5D33B9889AD5C5209A7E59439FC53 /* PBXContainerItemProxy */;
 		};
-		199E977285F9357779F725A9EA178F15 /* PBXTargetDependency */ = {
+		BDF5EB0AF06362A53228B9D463D348E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Blockly-Blockly";
+			target = C83D183594195DE2DB2B48FAE237C8D6 /* Blockly-Blockly */;
+			targetProxy = 31110D05052BC3ADBA49E986578B1880 /* PBXContainerItemProxy */;
+		};
+		C969CBA2C44F334054A30B21F51F63C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 167ADAE3C03F95A67A3B7BAD7B6E3874 /* Alamofire */;
+			targetProxy = 4B17BAF25E58D59FE2B80B389AE35397 /* PBXContainerItemProxy */;
+		};
+		CD90130D4873E262B68E2473AFC43B62 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SnapKit;
 			target = 4EDA452517A913B556C7860F490D5FD3 /* SnapKit */;
-			targetProxy = A6EEAA274642C7E2F162C116B98B5F8F /* PBXContainerItemProxy */;
+			targetProxy = 36F3B1F12F930641F5E1D3B2DBAAF20D /* PBXContainerItemProxy */;
 		};
-		24EB2B685DF9C53797BC601F80636BFE /* PBXTargetDependency */ = {
+		CE43AF705F78F4A023CFCB199A4C9A2E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Blockly;
-			target = 002F6C5F7FE2BC53CDA2655AE40E6E47 /* Blockly */;
-			targetProxy = FECB016BF7E10E360C902E40C4A9CCF8 /* PBXContainerItemProxy */;
-		};
-		6E750BBAF59E92EC70FFD2F241375F68 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Blockly-Blockly";
-			target = 25E9DAD818126E2E0616291439E9E99B /* Blockly-Blockly */;
-			targetProxy = 60AAABDF89D7D00CF0D4A8033B822127 /* PBXContainerItemProxy */;
+			target = 7BB404D33A7BC1CE4391A45F42EC3D96 /* Blockly */;
+			targetProxy = 97C8A92DD002CFCFFC10322C70B68F42 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0CC77AFE0523E27F4ED4041011E0768C /* Release */ = {
+		0B467278A8D4094DE833171E10E6E12F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE04E3DC1CDA0B8C8B5E1C2E6C2AD269 /* SnapKit-Private.xcconfig */;
+			baseConfigurationReference = BDFD6BDED1543DF5F7EBD546120C5980 /* SwiftyJSON-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.12.0;
+				CURRENT_PROJECT_VERSION = 2.2.1;
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 0.12.0;
+				DYLIB_COMPATIBILITY_VERSION = 2;
 				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SnapKit/SnapKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SnapKit/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SnapKit/SnapKit.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SnapKit;
+				PRODUCT_NAME = SwiftyJSON;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -917,6 +925,45 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		0E8F0973BF26598378BA2E86B92A9366 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7DF3379F2E6D568A591F51D436C7531 /* Blockly-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 0.1.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Blockly/Blockly-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Blockly/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Blockly/Blockly.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Blockly;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		143A62913852D911BA2D2AC5B4AEDF84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7DF3379F2E6D568A591F51D436C7531 /* Blockly-Private.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = Blockly;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
 		};
 		26BA2663F19BDE250A5A8C64F5AEEE10 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -948,14 +995,14 @@
 			};
 			name = Debug;
 		};
-		6B21C671AE7C60888DF24F7C589A411E /* Debug */ = {
+		52DDF0B44994F7867E5C4DC843CEFC5B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE04E3DC1CDA0B8C8B5E1C2E6C2AD269 /* SnapKit-Private.xcconfig */;
+			baseConfigurationReference = 6DCF007A22E91D2772DCEE9FA97DE861 /* SnapKit-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.12.0;
+				CURRENT_PROJECT_VERSION = 0.13.0;
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 0.12.0;
+				DYLIB_COMPATIBILITY_VERSION = 0.13.0;
 				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -976,12 +1023,12 @@
 			};
 			name = Debug;
 		};
-		6C2F9F4E3216643E6447EA43768583EE /* Debug */ = {
+		5F6F2FE628568AC1C6C159B7F6BAE9A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45473F0852DC0CA5525E67BABD621E91 /* Alamofire-Private.xcconfig */;
+			baseConfigurationReference = A5DB6782464D1CBEF6E891C2199EE990 /* Alamofire-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1.2.3;
+				CURRENT_PROJECT_VERSION = 1.3.1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
@@ -993,36 +1040,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7BF5C2B6FCAE5B769EC751BFFF7444C3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E32A16CBF86E5A323B65B4199A4BCCCA /* Blockly-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.1.0;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
-				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Blockly/Blockly-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Blockly/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Blockly/Blockly.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Blockly;
+				PRODUCT_NAME = Alamofire;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1031,9 +1050,9 @@
 			};
 			name = Release;
 		};
-		7CB702FE306637E3071D863FFAD04093 /* Debug */ = {
+		6471A374289454038695759DB3E0CB14 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E32A16CBF86E5A323B65B4199A4BCCCA /* Blockly-Private.xcconfig */;
+			baseConfigurationReference = A7DF3379F2E6D568A591F51D436C7531 /* Blockly-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0.1.0;
@@ -1059,12 +1078,12 @@
 			};
 			name = Debug;
 		};
-		8798761784CF2E6016E8F064599039CB /* Debug */ = {
+		72B31FB4A22E6D58FB51B2774BB71419 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55CED914B3193E1B401AEC36DFDF338D /* SwiftyJSON-Private.xcconfig */;
+			baseConfigurationReference = BDFD6BDED1543DF5F7EBD546120C5980 /* SwiftyJSON-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2.2.0;
+				CURRENT_PROJECT_VERSION = 2.2.1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 2;
 				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
@@ -1087,15 +1106,31 @@
 			};
 			name = Debug;
 		};
-		916DC922420C4E89E423A7339058CC08 /* Debug */ = {
+		8A50F4C47CEB8F9C43262DC1171082A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E32A16CBF86E5A323B65B4199A4BCCCA /* Blockly-Private.xcconfig */;
+			baseConfigurationReference = A5DB6782464D1CBEF6E891C2199EE990 /* Alamofire-Private.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1.3.1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = Blockly;
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Alamofire;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -1138,33 +1173,6 @@
 			};
 			name = Debug;
 		};
-		B356D0F820A849D71204F84FEEA8EC54 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55CED914B3193E1B401AEC36DFDF338D /* SwiftyJSON-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2.2.0;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 2;
-				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		B627C5711E88A183BBA4847E681EAB84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E7144448A75750D7A658638834B532D1 /* Pods.release.xcconfig */;
@@ -1194,42 +1202,42 @@
 			};
 			name = Release;
 		};
-		D60AFF6C27999E31AD91998ACEC4AD63 /* Release */ = {
+		C6040CE74689F9230116EA31B02B592F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45473F0852DC0CA5525E67BABD621E91 /* Alamofire-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1.2.3;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		EECFA54610674D6FD953AA6346C199A4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E32A16CBF86E5A323B65B4199A4BCCCA /* Blockly-Private.xcconfig */;
+			baseConfigurationReference = A7DF3379F2E6D568A591F51D436C7531 /* Blockly-Private.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				PRODUCT_NAME = Blockly;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		D248F910F3EFCD04BF6D963AA696B3A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DCF007A22E91D2772DCEE9FA97DE861 /* SnapKit-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 0.13.0;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 0.13.0;
+				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SnapKit/SnapKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SnapKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SnapKit/SnapKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SnapKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1273,8 +1281,8 @@
 		0FC2119A384FC151A822EB3716190E51 /* Build configuration list for PBXNativeTarget "SnapKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6B21C671AE7C60888DF24F7C589A411E /* Debug */,
-				0CC77AFE0523E27F4ED4041011E0768C /* Release */,
+				52DDF0B44994F7867E5C4DC843CEFC5B /* Debug */,
+				D248F910F3EFCD04BF6D963AA696B3A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1288,11 +1296,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33F58D78C12F63C2E1ADB93F4087D7FB /* Build configuration list for PBXNativeTarget "Blockly-Blockly" */ = {
+		4812544F20E0BA73642B272C0CEE18C1 /* Build configuration list for PBXNativeTarget "Blockly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				916DC922420C4E89E423A7339058CC08 /* Debug */,
-				EECFA54610674D6FD953AA6346C199A4 /* Release */,
+				6471A374289454038695759DB3E0CB14 /* Debug */,
+				0E8F0973BF26598378BA2E86B92A9366 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1300,8 +1308,8 @@
 		6AF45366202C75BFCB13738AB00EC1DF /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8798761784CF2E6016E8F064599039CB /* Debug */,
-				B356D0F820A849D71204F84FEEA8EC54 /* Release */,
+				72B31FB4A22E6D58FB51B2774BB71419 /* Debug */,
+				0B467278A8D4094DE833171E10E6E12F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1315,20 +1323,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9875DDE7E4AA3420291991084A1CCBE6 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
+		AC5C7ACC229B68252A25D7771766EB6B /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C2F9F4E3216643E6447EA43768583EE /* Debug */,
-				D60AFF6C27999E31AD91998ACEC4AD63 /* Release */,
+				8A50F4C47CEB8F9C43262DC1171082A3 /* Debug */,
+				5F6F2FE628568AC1C6C159B7F6BAE9A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC8102495FB2DFACFC9EBC52E9ECA775 /* Build configuration list for PBXNativeTarget "Blockly" */ = {
+		BE25F69BC4CA318792588BD3589F1B00 /* Build configuration list for PBXNativeTarget "Blockly-Blockly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7CB702FE306637E3071D863FFAD04093 /* Debug */,
-				7BF5C2B6FCAE5B769EC751BFFF7444C3 /* Release */,
+				143A62913852D911BA2D2AC5B4AEDF84 /* Debug */,
+				C6040CE74689F9230116EA31B02B592F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
