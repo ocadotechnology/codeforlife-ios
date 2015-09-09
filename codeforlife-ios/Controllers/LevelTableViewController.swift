@@ -12,6 +12,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let SegueIdentifier = "LoadLevel"
     let CellReuseIdentifier = "Level"
+    let TableViewAccessibilityIdentifier = "LevelList"
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -34,6 +35,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.accessibilityIdentifier = TableViewAccessibilityIdentifier
         tableView.delegate = self
         tableView.dataSource = self
         loadEpisode(self.index)

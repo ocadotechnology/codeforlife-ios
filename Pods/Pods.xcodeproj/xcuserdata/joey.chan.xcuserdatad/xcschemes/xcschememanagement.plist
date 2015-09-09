@@ -19,7 +19,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>KIF.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Nimble.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-codeforlife-iosTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Quick.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,17 +57,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>167ADAE3C03F95A67A3B7BAD7B6E3874</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4EDA452517A913B556C7860F490D5FD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7BB404D33A7BC1CE4391A45F42EC3D96</key>
+		<key>5BE2FA93B97812C65240C447D992C57A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5DA6109180428475A3B8B4BBA6AE88CB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8E97B2B8641D6ABF6854EC521BC7520D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +82,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B2AF040D8078DD3BF60B41B51C96904D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B9A04D3C9B208813656510FDA8ADAE02</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C83D183594195DE2DB2B48FAE237C8D6</key>
+		<key>E46F7A3949A4CB02A0D2EDC3B7CC21AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F43DC259EF4402F826CAD103F74A3D7E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F499CC87C10B7E6C9AB06B0AD29D6112</key>
 		<dict>
 			<key>primary</key>
 			<true/>

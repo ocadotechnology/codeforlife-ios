@@ -106,6 +106,7 @@ class GameMenuViewController: UIViewController {
     @IBOutlet weak var muteButton: GameViewButton!
     @IBOutlet weak var playButton: GameViewButton!
     @IBOutlet weak var stepButton: GameViewButton!
+    @IBOutlet weak var stopButton: GameViewButton!
     
     @IBAction func clear() {
         gvcDelegate?.clear(nil)

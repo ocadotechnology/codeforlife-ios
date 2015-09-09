@@ -78,6 +78,7 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         gameViewInteractionHandler.gameViewController = self
+        activityIndicator?.accessibilityIdentifier = "Spinner"
         activityIndicator?.startAnimating()
     }
     
@@ -95,6 +96,8 @@ class GameViewController: UIViewController, WKNavigationDelegate {
             gameViewInteractionHandler.gvcDelegate.displayPregameMessage(nil)
             gameViewInteractionHandler.gvcDelegate.clear(nil)
             self.webView.loadRequest(NSURLRequest(URL: NSURL(string: self.level!.webViewUrl)!))
+            self.activityIndicator?.startAnimating()
+            gameViewInteractionHandler.gvcDelegate.enableMultimediaButtons(false, completion: nil)
         }
     }
     
@@ -105,6 +108,7 @@ class GameViewController: UIViewController, WKNavigationDelegate {
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         webView.evaluateJavaScript(webViewPreloadScript, completionHandler: nil)
         self.activityIndicator?.stopAnimating()
+        self.gameViewInteractionHandler.gvcDelegate.enableMultimediaButtons(true, completion: nil)
     }
     
     func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {

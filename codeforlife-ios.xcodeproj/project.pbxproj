@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CD66AD011DAAB35F28CAFB8 /* Pods_codeforlife_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3915C524D4187AB82BC368 /* Pods_codeforlife_iosTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		68551E6CF0BF93CECF16DB9E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ED0622401B6256FC0062D3A5 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06223F1B6256FC0062D3A5 /* LaunchScreenViewController.swift */; };
-		ED0622411B6256FC0062D3A5 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06223F1B6256FC0062D3A5 /* LaunchScreenViewController.swift */; };
 		ED0622421B6258770062D3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
 		ED0622441B6259760062D3A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED0622431B6259760062D3A5 /* CoreData.framework */; };
 		ED06227A1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */; };
@@ -20,7 +20,6 @@
 		ED0BC5911B305D720060FC84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
 		ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5941B305D720060FC84 /* Main.storyboard */; };
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
-		ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */; };
 		ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* GameViewController.swift */; };
 		ED191B2B1B99D51C00E2627A /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED191B2A1B99D51C00E2627A /* ArrayExtension.swift */; };
 		ED191B2C1B99D55400E2627A /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED191B2A1B99D51C00E2627A /* ArrayExtension.swift */; };
@@ -180,6 +179,17 @@
 		ED575B7D1BA0638E0093153E /* MessageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B7B1BA0638E0093153E /* MessageViewControllerDelegate.swift */; };
 		ED575B7F1BA065BC0093153E /* BlocklyViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B7E1BA065BC0093153E /* BlocklyViewControllerDelegate.swift */; };
 		ED575B801BA065BC0093153E /* BlocklyViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B7E1BA065BC0093153E /* BlocklyViewControllerDelegate.swift */; };
+		ED575B821BA079B90093153E /* GameMenuViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B811BA079B90093153E /* GameMenuViewControllerDelegate.swift */; };
+		ED575B831BA079B90093153E /* GameMenuViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B811BA079B90093153E /* GameMenuViewControllerDelegate.swift */; };
+		ED575B851BA079CE0093153E /* MapSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B841BA079CE0093153E /* MapSceneDelegate.swift */; };
+		ED575B861BA079CE0093153E /* MapSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B841BA079CE0093153E /* MapSceneDelegate.swift */; };
+		ED575B8B1BA07AD40093153E /* GameViewInteractionHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B8A1BA07AD40093153E /* GameViewInteractionHandlerDelegate.swift */; };
+		ED575B8C1BA07AD40093153E /* GameViewInteractionHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B8A1BA07AD40093153E /* GameViewInteractionHandlerDelegate.swift */; };
+		ED575B911BA089EC0093153E /* KIF+SwiftExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B8F1BA089EC0093153E /* KIF+SwiftExtension.swift */; };
+		ED575B981BA17A840093153E /* T1LaunchScreenViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B971BA17A840093153E /* T1LaunchScreenViewControllerUITests.swift */; };
+		ED575B9A1BA17B000093153E /* T2EpisodeViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B991BA17B000093153E /* T2EpisodeViewControllerUITests.swift */; };
+		ED575B9C1BA180260093153E /* T3LevelViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B9B1BA180260093153E /* T3LevelViewControllerUITests.swift */; };
+		ED575B9E1BA184E70093153E /* T4GameViewControllerUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575B9D1BA184E70093153E /* T4GameViewControllerUITest.swift */; };
 		ED5D7E911B9D947A006723B3 /* InteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5D7E901B9D947A006723B3 /* InteractionHandler.swift */; };
 		ED5D7E921B9D947A006723B3 /* InteractionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5D7E901B9D947A006723B3 /* InteractionHandler.swift */; };
 		ED5D7EC21B9DBEAF006723B3 /* LevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5D7EC11B9DBEAF006723B3 /* LevelTableViewCell.swift */; };
@@ -257,6 +267,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E3915C524D4187AB82BC368 /* Pods_codeforlife_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_codeforlife_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A870087E59B342A6EF1BED1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D77FE0166D1735B9290ACD65 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98E0ACB1B0824664611C8C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -271,7 +282,6 @@
 		ED0BC59A1B305D720060FC84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ED0BC5A01B305D720060FC84 /* codeforlife-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "codeforlife-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeforlife_iosTests.swift; sourceTree = "<group>"; };
 		ED0BC5B21B3062E60060FC84 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ED191B2A1B99D51C00E2627A /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		ED191B2D1B99D98300E2627A /* WorldNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldNode.swift; sourceTree = "<group>"; };
@@ -284,29 +294,29 @@
 		ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovableGameObject.swift; path = ../../../../GameScenes/Objects/MovableGameObjects/MovableGameObject.swift; sourceTree = "<group>"; };
 		ED5759F31B9EE9DE0093153E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED575A5D1B9EEAE50093153E /* GameViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerDelegate.swift; sourceTree = "<group>"; };
-		ED575A5E1B9EEAE50093153E /* AnimationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationHandler.swift; path = ../Actions/AnimationHandler.swift; sourceTree = "<group>"; };
+		ED575A5E1B9EEAE50093153E /* AnimationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHandler.swift; sourceTree = "<group>"; };
 		ED575A5F1B9EEAE50093153E /* AnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
-		ED575A611B9EEAE50093153E /* BlocklyHighlightAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlocklyHighlightAnimation.swift; path = ../Actions/BlocklyHighlightAnimation.swift; sourceTree = "<group>"; };
-		ED575A621B9EEAE50093153E /* BlocklyHighlightIncorrectAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlocklyHighlightIncorrectAnimation.swift; path = ../Actions/BlocklyHighlightIncorrectAnimation.swift; sourceTree = "<group>"; };
-		ED575A6D1B9EEAE50093153E /* GameSoundAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameSoundAnimation.swift; path = ../Actions/GameSoundAnimation.swift; sourceTree = "<group>"; };
-		ED575A6E1B9EEAE50093153E /* GameVanDeliverAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameVanDeliverAnimation.swift; path = ../Actions/GameVanDeliverAnimation.swift; sourceTree = "<group>"; };
-		ED575A6F1B9EEAE50093153E /* GameVanMoveForwardAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameVanMoveForwardAnimation.swift; path = ../Actions/GameVanMoveForwardAnimation.swift; sourceTree = "<group>"; };
-		ED575A701B9EEAE50093153E /* GameVanMoveForwardCrashAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameVanMoveForwardCrashAnimation.swift; path = ../Actions/GameVanMoveForwardCrashAnimation.swift; sourceTree = "<group>"; };
-		ED575A711B9EEAE50093153E /* GameVanStartEngineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameVanStartEngineAnimation.swift; path = ../Actions/GameVanStartEngineAnimation.swift; sourceTree = "<group>"; };
-		ED575A721B9EEAE50093153E /* GameVanStopEngineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameVanStopEngineAnimation.swift; path = ../Actions/GameVanStopEngineAnimation.swift; sourceTree = "<group>"; };
-		ED575A731B9EEAE50093153E /* GameVanTurnLeftAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameVanTurnLeftAnimation.swift; path = ../Actions/GameVanTurnLeftAnimation.swift; sourceTree = "<group>"; };
-		ED575A741B9EEAE50093153E /* GameVanTurnLeftCrashAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameVanTurnLeftCrashAnimation.swift; path = ../Actions/GameVanTurnLeftCrashAnimation.swift; sourceTree = "<group>"; };
-		ED575A751B9EEAE50093153E /* GameVanTurnRightAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameVanTurnRightAnimation.swift; path = ../Actions/GameVanTurnRightAnimation.swift; sourceTree = "<group>"; };
-		ED575A761B9EEAE50093153E /* GameVanTurnRightCrashAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameVanTurnRightCrashAnimation.swift; path = ../Actions/GameVanTurnRightCrashAnimation.swift; sourceTree = "<group>"; };
-		ED575A7A1B9EEAE50093153E /* GameViewPopUpAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewPopUpAnimation.swift; path = ../Actions/GameViewPopUpAnimation.swift; sourceTree = "<group>"; };
-		ED575A7C1B9EEAE50093153E /* OnStopControlsAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnStopControlsAnimation.swift; path = ../Actions/OnStopControlsAnimation.swift; sourceTree = "<group>"; };
-		ED575AC01B9EEAF60093153E /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = crash.mp3; path = Sounds/crash.mp3; sourceTree = "<group>"; };
-		ED575AC11B9EEAF60093153E /* delivery.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = delivery.mp3; path = Sounds/delivery.mp3; sourceTree = "<group>"; };
-		ED575AC21B9EEAF60093153E /* failure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = failure.mp3; path = Sounds/failure.mp3; sourceTree = "<group>"; };
-		ED575AC31B9EEAF60093153E /* moving.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = moving.mp3; path = Sounds/moving.mp3; sourceTree = "<group>"; };
-		ED575AC41B9EEAF60093153E /* starting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = starting.mp3; path = Sounds/starting.mp3; sourceTree = "<group>"; };
-		ED575AC51B9EEAF60093153E /* tension.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tension.mp3; path = Sounds/tension.mp3; sourceTree = "<group>"; };
-		ED575AC61B9EEAF60093153E /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = win.mp3; path = Sounds/win.mp3; sourceTree = "<group>"; };
+		ED575A611B9EEAE50093153E /* BlocklyHighlightAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyHighlightAnimation.swift; sourceTree = "<group>"; };
+		ED575A621B9EEAE50093153E /* BlocklyHighlightIncorrectAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyHighlightIncorrectAnimation.swift; sourceTree = "<group>"; };
+		ED575A6D1B9EEAE50093153E /* GameSoundAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSoundAnimation.swift; sourceTree = "<group>"; };
+		ED575A6E1B9EEAE50093153E /* GameVanDeliverAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVanDeliverAnimation.swift; sourceTree = "<group>"; };
+		ED575A6F1B9EEAE50093153E /* GameVanMoveForwardAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVanMoveForwardAnimation.swift; sourceTree = "<group>"; };
+		ED575A701B9EEAE50093153E /* GameVanMoveForwardCrashAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVanMoveForwardCrashAnimation.swift; sourceTree = "<group>"; };
+		ED575A711B9EEAE50093153E /* GameVanStartEngineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVanStartEngineAnimation.swift; sourceTree = "<group>"; };
+		ED575A721B9EEAE50093153E /* GameVanStopEngineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVanStopEngineAnimation.swift; sourceTree = "<group>"; };
+		ED575A731B9EEAE50093153E /* GameVanTurnLeftAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVanTurnLeftAnimation.swift; sourceTree = "<group>"; };
+		ED575A741B9EEAE50093153E /* GameVanTurnLeftCrashAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVanTurnLeftCrashAnimation.swift; sourceTree = "<group>"; };
+		ED575A751B9EEAE50093153E /* GameVanTurnRightAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVanTurnRightAnimation.swift; sourceTree = "<group>"; };
+		ED575A761B9EEAE50093153E /* GameVanTurnRightCrashAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVanTurnRightCrashAnimation.swift; sourceTree = "<group>"; };
+		ED575A7A1B9EEAE50093153E /* GameViewPopUpAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewPopUpAnimation.swift; sourceTree = "<group>"; };
+		ED575A7C1B9EEAE50093153E /* OnStopControlsAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnStopControlsAnimation.swift; sourceTree = "<group>"; };
+		ED575AC01B9EEAF60093153E /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crash.mp3; sourceTree = "<group>"; };
+		ED575AC11B9EEAF60093153E /* delivery.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = delivery.mp3; sourceTree = "<group>"; };
+		ED575AC21B9EEAF60093153E /* failure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = failure.mp3; sourceTree = "<group>"; };
+		ED575AC31B9EEAF60093153E /* moving.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = moving.mp3; sourceTree = "<group>"; };
+		ED575AC41B9EEAF60093153E /* starting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starting.mp3; sourceTree = "<group>"; };
+		ED575AC51B9EEAF60093153E /* tension.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tension.mp3; sourceTree = "<group>"; };
+		ED575AC61B9EEAF60093153E /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
 		ED575AD51B9EEB110093153E /* APIRequestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestDelegate.swift; sourceTree = "<group>"; };
 		ED575AD61B9EEB110093153E /* LoadEpisodesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadEpisodesRequest.swift; sourceTree = "<group>"; };
 		ED575AD71B9EEB110093153E /* LoadEpisodesRequestMockDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadEpisodesRequestMockDelegate.swift; sourceTree = "<group>"; };
@@ -349,10 +359,19 @@
 		ED575B4B1B9EEE1E0093153E /* GameMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMenuView.swift; sourceTree = "<group>"; };
 		ED575B501B9EEE2C0093153E /* LevelTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTitleLabel.swift; sourceTree = "<group>"; };
 		ED575B571B9F375D0093153E /* AnimationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationFactory.swift; sourceTree = "<group>"; };
-		ED575B781BA05D390093153E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = ../Actions/Animation.swift; sourceTree = "<group>"; };
+		ED575B781BA05D390093153E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		ED575B7B1BA0638E0093153E /* MessageViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewControllerDelegate.swift; sourceTree = "<group>"; };
 		ED575B7E1BA065BC0093153E /* BlocklyViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyViewControllerDelegate.swift; sourceTree = "<group>"; };
-		ED5D7E901B9D947A006723B3 /* InteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InteractionHandler.swift; path = InteractionHandler/InteractionHandler.swift; sourceTree = "<group>"; };
+		ED575B811BA079B90093153E /* GameMenuViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMenuViewControllerDelegate.swift; sourceTree = "<group>"; };
+		ED575B841BA079CE0093153E /* MapSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSceneDelegate.swift; sourceTree = "<group>"; };
+		ED575B8A1BA07AD40093153E /* GameViewInteractionHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewInteractionHandlerDelegate.swift; sourceTree = "<group>"; };
+		ED575B8E1BA089850093153E /* codeforlife-ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "codeforlife-ios-Bridging-Header.h"; path = "../codeforlife-ios/codeforlife-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED575B8F1BA089EC0093153E /* KIF+SwiftExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KIF+SwiftExtension.swift"; sourceTree = "<group>"; };
+		ED575B971BA17A840093153E /* T1LaunchScreenViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = T1LaunchScreenViewControllerUITests.swift; sourceTree = "<group>"; };
+		ED575B991BA17B000093153E /* T2EpisodeViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = T2EpisodeViewControllerUITests.swift; sourceTree = "<group>"; };
+		ED575B9B1BA180260093153E /* T3LevelViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = T3LevelViewControllerUITests.swift; sourceTree = "<group>"; };
+		ED575B9D1BA184E70093153E /* T4GameViewControllerUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = T4GameViewControllerUITest.swift; sourceTree = "<group>"; };
+		ED5D7E901B9D947A006723B3 /* InteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionHandler.swift; sourceTree = "<group>"; };
 		ED5D7EC11B9DBEAF006723B3 /* LevelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableViewCell.swift; sourceTree = "<group>"; };
 		ED6DC3BE1B5FC77B00EB6F22 /* EpisodeNavigationButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeNavigationButton.swift; sourceTree = "<group>"; };
 		ED6F79891B3D565B00DD2AFE /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -366,7 +385,7 @@
 		EDA47C3E1B442411003356AB /* LevelBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelBackButton.swift; sourceTree = "<group>"; };
 		EDA47C411B442798003356AB /* LevelTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableView.swift; sourceTree = "<group>"; };
 		EDA47C441B442A1E003356AB /* Configurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurations.swift; path = ../Configurations.swift; sourceTree = "<group>"; };
-		EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewInteractionHandler.swift; path = InteractionHandler/GameViewInteractionHandler.swift; sourceTree = "<group>"; };
+		EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewInteractionHandler.swift; sourceTree = "<group>"; };
 		EDBB668F1B3B009C009020A5 /* GameMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMenuViewController.swift; sourceTree = "<group>"; };
 		EDBB66961B3C0A61009020A5 /* BlockTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableViewController.swift; sourceTree = "<group>"; };
 		EDBB66981B3C0B34009020A5 /* BlockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableViewCell.swift; sourceTree = "<group>"; };
@@ -402,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68551E6CF0BF93CECF16DB9E /* Pods.framework in Frameworks */,
+				4CD66AD011DAAB35F28CAFB8 /* Pods_codeforlife_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +434,7 @@
 				ED0622431B6259760062D3A5 /* CoreData.framework */,
 				ED8AEB9A1B5FE8020049EA8D /* AVFoundation.framework */,
 				D77FE0166D1735B9290ACD65 /* Pods.framework */,
+				4E3915C524D4187AB82BC368 /* Pods_codeforlife_iosTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -499,7 +520,7 @@
 		ED0BC5A31B305D720060FC84 /* codeforlife-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				ED0BC5A61B305D720060FC84 /* codeforlife_iosTests.swift */,
+				ED575B961BA17A580093153E /* UI Tests */,
 				ED0BC5A41B305D720060FC84 /* Supporting Files */,
 			);
 			path = "codeforlife-iosTests";
@@ -508,6 +529,8 @@
 		ED0BC5A41B305D720060FC84 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ED575B8F1BA089EC0093153E /* KIF+SwiftExtension.swift */,
+				ED575B8E1BA089850093153E /* codeforlife-ios-Bridging-Header.h */,
 				ED0BC5A51B305D720060FC84 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -557,8 +580,9 @@
 				EDFE93481B41826A00E01322 /* PostGameMessage.swift */,
 				EDDF0F141B41783F00F2D779 /* PreGameMessage.swift */,
 			);
-			path = Messages;
-			sourceTree = "<group>";
+			name = Messages;
+			path = "codeforlife-ios/Models/Messages";
+			sourceTree = SOURCE_ROOT;
 		};
 		ED1A935F1B43FB50004E6AD4 /* TableViewCells */ = {
 			isa = PBXGroup;
@@ -607,20 +631,23 @@
 				ED575ADF1B9EEB110093153E /* RequestDelegate.swift */,
 			);
 			name = Requests;
-			path = Actions;
-			sourceTree = "<group>";
+			path = "codeforlife-ios/Models/Requests";
+			sourceTree = SOURCE_ROOT;
 		};
 		ED236EA11B341CF800B63380 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
 				ED575A5F1B9EEAE50093153E /* AnimationDelegate.swift */,
-				ED575A5D1B9EEAE50093153E /* GameViewControllerDelegate.swift */,
 				ED575B7E1BA065BC0093153E /* BlocklyViewControllerDelegate.swift */,
+				ED575B811BA079B90093153E /* GameMenuViewControllerDelegate.swift */,
+				ED575A5D1B9EEAE50093153E /* GameViewControllerDelegate.swift */,
+				ED575B8A1BA07AD40093153E /* GameViewInteractionHandlerDelegate.swift */,
+				ED575B841BA079CE0093153E /* MapSceneDelegate.swift */,
 				ED575B7B1BA0638E0093153E /* MessageViewControllerDelegate.swift */,
 			);
 			name = Delegates;
-			path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/Models/Actions";
-			sourceTree = "<absolute>";
+			path = "codeforlife-ios/Models/Delegates";
+			sourceTree = SOURCE_ROOT;
 		};
 		ED5721BD1B47EDD50011F465 /* Models */ = {
 			isa = PBXGroup;
@@ -636,8 +663,8 @@
 				ED191B2D1B99D98300E2627A /* WorldNode.swift */,
 			);
 			name = Models;
-			path = ../../GameScenes/Models;
-			sourceTree = "<group>";
+			path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/GameScenes/Models";
+			sourceTree = "<absolute>";
 		};
 		ED575ABF1B9EEAED0093153E /* Sounds */ = {
 			isa = PBXGroup;
@@ -650,8 +677,7 @@
 				ED575AC51B9EEAF60093153E /* tension.mp3 */,
 				ED575AC61B9EEAF60093153E /* win.mp3 */,
 			);
-			name = Sounds;
-			path = ../Actions;
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		ED575B531B9F2ACB0093153E /* Animations */ = {
@@ -676,7 +702,20 @@
 				ED575A7A1B9EEAE50093153E /* GameViewPopUpAnimation.swift */,
 				ED575A7C1B9EEAE50093153E /* OnStopControlsAnimation.swift */,
 			);
-			path = Animations;
+			name = Animations;
+			path = "codeforlife-ios/Models/Animations";
+			sourceTree = SOURCE_ROOT;
+		};
+		ED575B961BA17A580093153E /* UI Tests */ = {
+			isa = PBXGroup;
+			children = (
+				ED575B971BA17A840093153E /* T1LaunchScreenViewControllerUITests.swift */,
+				ED575B991BA17B000093153E /* T2EpisodeViewControllerUITests.swift */,
+				ED575B9B1BA180260093153E /* T3LevelViewControllerUITests.swift */,
+				ED575B9D1BA184E70093153E /* T4GameViewControllerUITest.swift */,
+			);
+			name = "UI Tests";
+			path = UITests;
 			sourceTree = "<group>";
 		};
 		ED5D7E8F1B9D944D006723B3 /* InteractionHandler */ = {
@@ -686,7 +725,8 @@
 				EDAEFBAA1B384EE9003398EE /* GameViewInteractionHandler.swift */,
 			);
 			name = InteractionHandler;
-			sourceTree = "<group>";
+			path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/Models/InteractionHandler";
+			sourceTree = "<absolute>";
 		};
 		ED5D7EC41B9DCBF1006723B3 /* NonMovableGameObjects */ = {
 			isa = PBXGroup;
@@ -971,7 +1011,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-codeforlife-iosTests/Pods-codeforlife-iosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CF930301A445C012281422BE /* Check Pods Manifest.lock */ = {
@@ -1001,7 +1041,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-codeforlife-iosTests/Pods-codeforlife-iosTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1060,6 +1100,7 @@
 				ED575B081B9EECA20093153E /* MapScene.swift in Sources */,
 				EDA47C421B442798003356AB /* LevelTableView.swift in Sources */,
 				ED1A934B1B43D215004E6AD4 /* EpisodeTableViewCell.swift in Sources */,
+				ED575B8B1BA07AD40093153E /* GameViewInteractionHandlerDelegate.swift in Sources */,
 				ED575AAF1B9EEAE50093153E /* GameVanTurnRightAnimation.swift in Sources */,
 				EDBB66901B3B009C009020A5 /* GameMenuViewController.swift in Sources */,
 				ED575AEA1B9EEB110093153E /* LoadLevelsRequest.swift in Sources */,
@@ -1086,6 +1127,7 @@
 				ED575AF01B9EEB110093153E /* LoadMapRequestMockDelegate.swift in Sources */,
 				ED575B061B9EECA20093153E /* Direction.swift in Sources */,
 				EDAEFBAB1B384EE9003398EE /* GameViewInteractionHandler.swift in Sources */,
+				ED575B851BA079CE0093153E /* MapSceneDelegate.swift in Sources */,
 				ED575B511B9EEE2C0093153E /* LevelTitleLabel.swift in Sources */,
 				EDFE93491B41826A00E01322 /* PostGameMessage.swift in Sources */,
 				ED575B2A1B9EED970093153E /* CFC.swift in Sources */,
@@ -1099,6 +1141,7 @@
 				ED5759F41B9EE9DE0093153E /* Constants.swift in Sources */,
 				ED575AEE1B9EEB110093153E /* LoadMapRequest.swift in Sources */,
 				ED575AA11B9EEAE50093153E /* GameVanDeliverAnimation.swift in Sources */,
+				ED575B821BA079B90093153E /* GameMenuViewControllerDelegate.swift in Sources */,
 				ED575B161B9EECE70093153E /* BlockType.swift in Sources */,
 				ED575B221B9EECE70093153E /* LevelMode.swift in Sources */,
 				ED575B461B9EEDB00093153E /* TJunction.swift in Sources */,
@@ -1131,6 +1174,7 @@
 				ED575B211B9EECE70093153E /* LevelBlock.swift in Sources */,
 				ED575ABE1B9EEAE50093153E /* OnStopControlsAnimation.swift in Sources */,
 				ED575AAC1B9EEAE50093153E /* GameVanTurnLeftAnimation.swift in Sources */,
+				ED575B9A1BA17B000093153E /* T2EpisodeViewControllerUITests.swift in Sources */,
 				ED1A93461B43D046004E6AD4 /* EpisodeViewController.swift in Sources */,
 				ED575B801BA065BC0093153E /* BlocklyViewControllerDelegate.swift in Sources */,
 				ED575B2D1B9EED970093153E /* Decoration.swift in Sources */,
@@ -1140,17 +1184,20 @@
 				ED575B7D1BA0638E0093153E /* MessageViewControllerDelegate.swift in Sources */,
 				ED575A881B9EEAE50093153E /* BlocklyHighlightAnimation.swift in Sources */,
 				EDBB666B1B3AA029009020A5 /* LevelTableViewController.swift in Sources */,
+				ED575B9E1BA184E70093153E /* T4GameViewControllerUITest.swift in Sources */,
 				ED575AA81B9EEAE50093153E /* GameVanStartEngineAnimation.swift in Sources */,
 				ED575B4F1B9EEE1E0093153E /* GameMenuView.swift in Sources */,
 				EDFE934A1B41826A00E01322 /* PostGameMessage.swift in Sources */,
 				ED5D7E921B9D947A006723B3 /* InteractionHandler.swift in Sources */,
 				ED191B2C1B99D55400E2627A /* ArrayExtension.swift in Sources */,
 				ED1A932D1B429567004E6AD4 /* GameMapViewController.swift in Sources */,
+				ED575B9C1BA180260093153E /* T3LevelViewControllerUITests.swift in Sources */,
 				ED575B031B9EECA20093153E /* Coordinates.swift in Sources */,
 				ED575B1B1B9EECE70093153E /* DecorationType.swift in Sources */,
 				EDD1A2B91B4D54D9001A82A2 /* Rotation.swift in Sources */,
 				ED575AA61B9EEAE50093153E /* GameVanMoveForwardCrashAnimation.swift in Sources */,
 				ED90B4481B60D6920076B70D /* CGPointExtension.swift in Sources */,
+				ED575B911BA089EC0093153E /* KIF+SwiftExtension.swift in Sources */,
 				ED575B491B9EEDB00093153E /* Turn.swift in Sources */,
 				EDBB667A1B3AA07E009020A5 /* GameViewInteractionHandler.swift in Sources */,
 				ED575AA41B9EEAE50093153E /* GameVanMoveForwardAnimation.swift in Sources */,
@@ -1170,15 +1217,14 @@
 				ED575AB01B9EEAE50093153E /* GameVanTurnRightAnimation.swift in Sources */,
 				ED575A801B9EEAE50093153E /* GameViewControllerDelegate.swift in Sources */,
 				ED575AEB1B9EEB110093153E /* LoadLevelsRequest.swift in Sources */,
+				ED575B8C1BA07AD40093153E /* GameViewInteractionHandlerDelegate.swift in Sources */,
 				ED575A821B9EEAE50093153E /* AnimationHandler.swift in Sources */,
-				ED0622411B6256FC0062D3A5 /* LaunchScreenViewController.swift in Sources */,
 				ED06227B1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */,
 				ED6F79951B3D875E00DD2AFE /* Message.swift in Sources */,
 				ED575AE31B9EEB110093153E /* LoadEpisodesRequest.swift in Sources */,
 				EDFE93411B41820A00E01322 /* HelpMessageView.swift in Sources */,
 				ED575B1D1B9EECE70093153E /* Episode.swift in Sources */,
 				ED575B3B1B9EEDB00093153E /* CrossRoads.swift in Sources */,
-				ED0BC5A71B305D720060FC84 /* codeforlife_iosTests.swift in Sources */,
 				EDDF0F201B417DBC00F2D779 /* ErrorMessageView.swift in Sources */,
 				EDBB669B1B3C1007009020A5 /* BlockTableViewController.swift in Sources */,
 				ED575AF51B9EEB110093153E /* RequestDelegate.swift in Sources */,
@@ -1196,6 +1242,7 @@
 				ED575B071B9EECA20093153E /* Direction.swift in Sources */,
 				ED575AF31B9EEB110093153E /* Request.swift in Sources */,
 				ED6F798F1B3D5A0E00DD2AFE /* MessageViewController.swift in Sources */,
+				ED575B861BA079CE0093153E /* MapSceneDelegate.swift in Sources */,
 				ED575ABA1B9EEAE50093153E /* GameViewPopUpAnimation.swift in Sources */,
 				ED575B521B9EEE2C0093153E /* LevelTitleLabel.swift in Sources */,
 				ED575AEF1B9EEB110093153E /* LoadMapRequest.swift in Sources */,
@@ -1204,11 +1251,13 @@
 				ED575B011B9EECA20093153E /* CompassDirection.swift in Sources */,
 				ED575B311B9EED970093153E /* Tile.swift in Sources */,
 				EDDF0F161B4178B700F2D779 /* PreGameMessage.swift in Sources */,
+				ED575B981BA17A840093153E /* T1LaunchScreenViewControllerUITests.swift in Sources */,
 				ED191B2F1B99D98300E2627A /* WorldNode.swift in Sources */,
 				ED575B451B9EEDB00093153E /* Straight.swift in Sources */,
 				ED575AA21B9EEAE50093153E /* GameVanDeliverAnimation.swift in Sources */,
 				ED575B3F1B9EEDB00093153E /* Error.swift in Sources */,
 				ED5759F51B9EE9DE0093153E /* Constants.swift in Sources */,
+				ED575B831BA079B90093153E /* GameMenuViewControllerDelegate.swift in Sources */,
 				EDBB66911B3B0103009020A5 /* GameMenuViewController.swift in Sources */,
 				ED575B171B9EECE70093153E /* BlockType.swift in Sources */,
 				ED575B231B9EECE70093153E /* LevelMode.swift in Sources */,
@@ -1297,6 +1346,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1335,6 +1385,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1391,6 +1442,7 @@
 				INFOPLIST_FILE = "codeforlife-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "codeforlife-ios/codeforlife-ios-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/codeforlife-ios.app/codeforlife-ios";
 			};
 			name = Debug;
@@ -1407,6 +1459,7 @@
 				INFOPLIST_FILE = "codeforlife-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "codeforlife-ios/codeforlife-ios-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/codeforlife-ios.app/codeforlife-ios";
 			};
 			name = Release;

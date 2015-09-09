@@ -10,6 +10,7 @@ import UIKit
 
 class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let TableViewAccessibilityLabel = "EpisodeList"
     let CellReuseIdentifier = "Episode"
     let SegueIdentifier = "FetchLevelsAction"
     
@@ -23,6 +24,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.accessibilityIdentifier = TableViewAccessibilityLabel
         tableView.delegate = self
         tableView.dataSource = self
         FetchEpisodesFromCoreData()

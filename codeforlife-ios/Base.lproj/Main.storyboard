@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fQE-jL-rKf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fQE-jL-rKf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -8,7 +8,7 @@
         <!--Launch Screen View Controller-->
         <scene sceneID="oAg-1a-aUT">
             <objects>
-                <viewController id="fQE-jL-rKf" customClass="LaunchScreenViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchScreenViewController" id="fQE-jL-rKf" customClass="LaunchScreenViewController" customModule="codeforlife_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v34-17-gCj"/>
                         <viewControllerLayoutGuide type="bottom" id="5fE-Uj-QKV"/>
@@ -419,6 +419,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3LF-ZC-6Fm" userLabel="HelpButton" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Help"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="77" id="7dL-3s-cx0">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
@@ -448,6 +449,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QX2-Zs-Bhz" userLabel="MuteButton" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Mute"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="5jY-HS-eoZ"/>
                                             <constraint firstAttribute="height" constant="50" id="GAj-nf-nZS"/>
@@ -473,6 +475,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGD-ml-QgG" userLabel="QuitButton" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="223" width="250" height="35"/>
+                                        <accessibility key="accessibilityConfiguration" label="Quit"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="1pV-dU-7Pc"/>
                                             <constraint firstAttribute="height" constant="35" id="7oO-u0-n7p"/>
@@ -506,6 +509,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfy-1c-ose" userLabel="PlayButton" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="94" width="250" height="35"/>
+                                        <accessibility key="accessibilityConfiguration" label="Play"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="7AF-B6-qL7"/>
                                             <constraint firstAttribute="width" constant="50" id="7KK-eV-Oja"/>
@@ -539,6 +543,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWJ-Yx-ZIz" userLabel="StepButton" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Step"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Kgh-lI-9FH">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="50"/>
@@ -570,6 +575,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9Y-go-kgv" userLabel="StopButton" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Stop"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="041-ep-1xD"/>
                                             <constraint firstAttribute="height" constant="35" id="0s0-Oh-Mtd">
@@ -604,6 +610,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSp-mP-2aT" userLabel="ClearButton" customClass="GameViewButton" customModule="codeforlife_ios" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" label="Clear"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="31a-Ta-TJG"/>
                                             <constraint firstAttribute="height" constant="50" id="xPJ-Hp-sVf"/>
@@ -929,12 +936,13 @@
                         <outlet property="muteButton" destination="QX2-Zs-Bhz" id="rRg-zS-BlR"/>
                         <outlet property="playButton" destination="nfy-1c-ose" id="yLR-Lz-8i0"/>
                         <outlet property="stepButton" destination="vWJ-Yx-ZIz" id="5mu-L2-CUd"/>
+                        <outlet property="stopButton" destination="a9Y-go-kgv" id="i2D-ei-WuD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCw-JG-S4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AQj-Vj-aRe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4623.5" y="-394"/>
+            <point key="canvasLocation" x="4540.875" y="-486"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
