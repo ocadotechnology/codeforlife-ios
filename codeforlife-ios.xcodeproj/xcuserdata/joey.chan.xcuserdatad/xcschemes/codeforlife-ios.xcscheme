@@ -51,14 +51,6 @@
                BlueprintName = "codeforlife-iosTests"
                ReferencedContainer = "container:codeforlife-ios.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "LaunchScreenViewControllerUITests">
-               </Test>
-               <Test
-                  Identifier = "LevelViewControllerUITests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

@@ -9,12 +9,12 @@
 import UIKit
 import CoreData
 
-class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
+public class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
     
     private static let UPDATE_FINISHED: Int = -1
 
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet public weak var startButton: UIButton!
+    @IBOutlet public weak var progressView: UIProgressView!
     
     var numberOfRequests = 0 {
         didSet {
@@ -57,7 +57,7 @@ class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
         }
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         var episodeVersion = 1.0
