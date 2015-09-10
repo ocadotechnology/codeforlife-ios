@@ -39,6 +39,8 @@
 		ED1EB06B1B32CF7700A595EF /* LevelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */; };
 		ED222FC01B4A77EA006E525A /* MovableGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */; };
 		ED222FC11B4A77EA006E525A /* MovableGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */; };
+		ED4277C11BA1CC8D00665AB1 /* CoordinatesUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4277C01BA1CC8D00665AB1 /* CoordinatesUnitTests.swift */; };
+		ED4277C31BA1D13400665AB1 /* LaunchScreenViewControllerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4277C21BA1D13400665AB1 /* LaunchScreenViewControllerUnitTests.swift */; };
 		ED5759F41B9EE9DE0093153E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5759F31B9EE9DE0093153E /* Constants.swift */; };
 		ED5759F51B9EE9DE0093153E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5759F31B9EE9DE0093153E /* Constants.swift */; };
 		ED575A7F1B9EEAE50093153E /* GameViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED575A5D1B9EEAE50093153E /* GameViewControllerDelegate.swift */; };
@@ -286,12 +288,14 @@
 		ED191B2A1B99D51C00E2627A /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		ED191B2D1B99D98300E2627A /* WorldNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldNode.swift; sourceTree = "<group>"; };
 		ED1A932B1B429567004E6AD4 /* GameMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapViewController.swift; sourceTree = "<group>"; };
-		ED1A93361B42AE81004E6AD4 /* Van.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Van.swift; path = ../../../../GameScenes/Objects/MovableGameObjects/Van.swift; sourceTree = "<group>"; };
+		ED1A93361B42AE81004E6AD4 /* Van.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Van.swift; sourceTree = "<group>"; };
 		ED1A93391B42B02A004E6AD4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "codeforlife-ios/Images.xcassets"; sourceTree = "<group>"; };
 		ED1A93441B43D046004E6AD4 /* EpisodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		ED1A934A1B43D215004E6AD4 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		ED1EB06A1B32CF7700A595EF /* LevelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTableViewController.swift; sourceTree = "<group>"; };
-		ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovableGameObject.swift; path = ../../../../GameScenes/Objects/MovableGameObjects/MovableGameObject.swift; sourceTree = "<group>"; };
+		ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovableGameObject.swift; sourceTree = "<group>"; };
+		ED4277C01BA1CC8D00665AB1 /* CoordinatesUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatesUnitTests.swift; sourceTree = "<group>"; };
+		ED4277C21BA1D13400665AB1 /* LaunchScreenViewControllerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewControllerUnitTests.swift; sourceTree = "<group>"; };
 		ED5759F31B9EE9DE0093153E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED575A5D1B9EEAE50093153E /* GameViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerDelegate.swift; sourceTree = "<group>"; };
 		ED575A5E1B9EEAE50093153E /* AnimationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHandler.swift; sourceTree = "<group>"; };
@@ -378,7 +382,7 @@
 		ED6F79901B3D7D9200DD2AFE /* DirectDriveButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectDriveButton.swift; sourceTree = "<group>"; };
 		ED6F79931B3D866F00DD2AFE /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ED6F79961B3D9DF000DD2AFE /* HelpMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMessage.swift; sourceTree = "<group>"; };
-		ED7799C71B468ADC00A854A3 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameObject.swift; path = ../../../GameScenes/Objects/GameObject.swift; sourceTree = "<group>"; };
+		ED7799C71B468ADC00A854A3 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameObject.swift; path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/GameScenes/Objects/GameObject.swift"; sourceTree = "<absolute>"; };
 		ED8AEB9A1B5FE8020049EA8D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ED90B4461B60D6920076B70D /* CGPointExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
 		EDA47C3A1B441E35003356AB /* EpisodeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeTableView.swift; sourceTree = "<group>"; };
@@ -520,6 +524,7 @@
 		ED0BC5A31B305D720060FC84 /* codeforlife-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				ED4277BD1BA1C4EB00665AB1 /* Unit Tests */,
 				ED575B961BA17A580093153E /* UI Tests */,
 				ED0BC5A41B305D720060FC84 /* Supporting Files */,
 			);
@@ -548,8 +553,9 @@
 				ED575B381B9EEDB00093153E /* TJunction.swift */,
 				ED575B391B9EEDB00093153E /* Turn.swift */,
 			);
-			path = Roads;
-			sourceTree = "<group>";
+			name = Roads;
+			path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/GameScenes/Objects/NonMovableGameObjects/Roads";
+			sourceTree = "<absolute>";
 		};
 		ED1A93311B42A96B004E6AD4 /* GameScenes */ = {
 			isa = PBXGroup;
@@ -558,8 +564,8 @@
 				ED1A93351B42AA50004E6AD4 /* Objects */,
 			);
 			name = GameScenes;
-			path = Views/GameScenes;
-			sourceTree = "<group>";
+			path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/Views/GameScenes";
+			sourceTree = "<absolute>";
 		};
 		ED1A93351B42AA50004E6AD4 /* Objects */ = {
 			isa = PBXGroup;
@@ -568,7 +574,8 @@
 				EDD1A2BE1B4FCD61001A82A2 /* MovableGameObjects */,
 				ED5D7EC41B9DCBF1006723B3 /* NonMovableGameObjects */,
 			);
-			path = Objects;
+			name = Objects;
+			path = "codeforlife-ios/GameScenes/Objects";
 			sourceTree = "<group>";
 		};
 		ED1A934D1B43D32C004E6AD4 /* Messages */ = {
@@ -648,6 +655,15 @@
 			name = Delegates;
 			path = "codeforlife-ios/Models/Delegates";
 			sourceTree = SOURCE_ROOT;
+		};
+		ED4277BD1BA1C4EB00665AB1 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				ED4277C01BA1CC8D00665AB1 /* CoordinatesUnitTests.swift */,
+				ED4277C21BA1D13400665AB1 /* LaunchScreenViewControllerUnitTests.swift */,
+			);
+			path = "Unit Tests";
+			sourceTree = "<group>";
 		};
 		ED5721BD1B47EDD50011F465 /* Models */ = {
 			isa = PBXGroup;
@@ -738,7 +754,8 @@
 				ED575B291B9EED970093153E /* Tile.swift */,
 			);
 			name = NonMovableGameObjects;
-			sourceTree = "<group>";
+			path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/GameScenes/Objects/NonMovableGameObjects";
+			sourceTree = "<absolute>";
 		};
 		ED90B4451B60D5B00076B70D /* Library */ = {
 			isa = PBXGroup;
@@ -767,8 +784,9 @@
 				ED222FBF1B4A77EA006E525A /* MovableGameObject.swift */,
 				ED1A93361B42AE81004E6AD4 /* Van.swift */,
 			);
-			path = MovableGameObjects;
-			sourceTree = "<group>";
+			name = MovableGameObjects;
+			path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/GameScenes/Objects/MovableGameObjects";
+			sourceTree = "<absolute>";
 		};
 		EDD1A2BF1B4FCDD1001A82A2 /* LabelViews */ = {
 			isa = PBXGroup;
@@ -1233,6 +1251,7 @@
 				EDA47C401B442411003356AB /* LevelBackButton.swift in Sources */,
 				ED222FC11B4A77EA006E525A /* MovableGameObject.swift in Sources */,
 				ED575B051B9EECA20093153E /* Destination.swift in Sources */,
+				ED4277C11BA1CC8D00665AB1 /* CoordinatesUnitTests.swift in Sources */,
 				ED7799C91B468ADC00A854A3 /* GameObject.swift in Sources */,
 				ED0622421B6258770062D3A5 /* AppDelegate.swift in Sources */,
 				ED575AF11B9EEB110093153E /* LoadMapRequestMockDelegate.swift in Sources */,
@@ -1245,6 +1264,7 @@
 				ED575B861BA079CE0093153E /* MapSceneDelegate.swift in Sources */,
 				ED575ABA1B9EEAE50093153E /* GameViewPopUpAnimation.swift in Sources */,
 				ED575B521B9EEE2C0093153E /* LevelTitleLabel.swift in Sources */,
+				ED4277C31BA1D13400665AB1 /* LaunchScreenViewControllerUnitTests.swift in Sources */,
 				ED575AEF1B9EEB110093153E /* LoadMapRequest.swift in Sources */,
 				ED575B0B1B9EECA20093153E /* Node.swift in Sources */,
 				ED575B2B1B9EED970093153E /* CFC.swift in Sources */,
