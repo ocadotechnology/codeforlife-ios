@@ -23,7 +23,7 @@
 ### View Controllers and Delegates
 Each view controller has its own delegate. In the current implementation, ```GameViewControllerDelegate``` is a concrete delegate which implements all the delegate protocols for other view controllers.
 
-![Relationship between View Controllers and Delegates](/Documentation/img/ViewControllerAndDelegates.png)
+![Relationship between View Controllers and Delegates](/Documentation/img/ViewControllersAndDelegates.png)
 
 When adding functionality for each view controllers, try to extend the content in the delegate instead of creating dependency between view controllers. This will allow easier addition of new features.
 
