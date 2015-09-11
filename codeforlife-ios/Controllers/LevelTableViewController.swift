@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LevelTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public class LevelTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let SegueIdentifier = "LoadLevel"
     let CellReuseIdentifier = "Level"
@@ -33,7 +33,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         tableView.accessibilityIdentifier = TableViewAccessibilityIdentifier
         tableView.delegate = self
@@ -53,20 +53,20 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
         self.titleLabel.text = Episode.fetchResults().filter({$0.id == self.index})[0].name
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return levels.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier(SegueIdentifier, sender: self)
     }
 
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! LevelTableViewCell
         let level = levels[indexPath.row]
         cell.numberLabel.text =  "Level " + level.name
@@ -74,7 +74,7 @@ class LevelTableViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let gameViewController = segue.destinationViewController as? GameViewController {
             if let identifier = segue.identifier {
                 switch identifier {

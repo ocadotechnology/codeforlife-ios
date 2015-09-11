@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import codeforlife_ios
 
 class CoordinatesUnitTests: XCTestCase {
     
@@ -43,29 +44,6 @@ class CoordinatesUnitTests: XCTestCase {
         let actualResult = c1 - c2
         let expectedResult = Coordinates(-9, -25)
         XCTAssertTrue(expectedResult == actualResult, "\(c1.toString) + \(c2.toString) shoulb be \(expectedResult) instead of \(actualResult)")
-    }
-    
-    func testAdditionEfficiency() {
-        self.measureBlock({
-            [unowned self] in
-            var c1 = Coordinates(0, 0)
-            var c2 = Coordinates(1, 1)
-            for i in 1 ... self.numberOfIterations {
-                c1 += c2
-            }
-        })
-    }
-    
-    func testAdditionEfficiencyWithoutUsingCoordinates() {
-        self.measureBlock({
-            [unowned self] in
-            var c1 = Coordinates(0, 0)
-            var c2 = Coordinates(1, 1)
-            for i in 1 ... self.numberOfIterations {
-                c1.x += c2.x
-                c1.y += c2.y
-            }
-        })
     }
     
 }

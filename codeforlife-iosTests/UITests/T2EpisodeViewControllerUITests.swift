@@ -10,7 +10,7 @@ import KIF
 import UIKit
 import XCTest
 
-class T2EpisodeViewControllerUITests: KIFTestCase {
+class UI2EpisodeViewControllerUITests: KIFTestCase {
     
     func test1NumberOfEpisodes() {
         assertThereShouldBeTwoEpisodes()

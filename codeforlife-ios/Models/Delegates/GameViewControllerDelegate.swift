@@ -10,12 +10,12 @@ import Foundation
 import SwiftyJSON
 import SpriteKit
 
-class GameViewControllerDelegate: AnimationDelegate, MessageViewControllerDelegate, GameViewInteractionHandlerDelegate, MapSceneDelegate, GameMenuViewControllerDelegate {
+public class GameViewControllerDelegate: AnimationDelegate, MessageViewControllerDelegate, GameViewInteractionHandlerDelegate, MapSceneDelegate, GameMenuViewControllerDelegate {
     
-     private weak var gameViewController: GameViewController?
-     private weak var gameMenuViewController: GameMenuViewController?
-     private weak var blocklyViewController: BlockTableViewController?
-     private weak var gameMapViewController: GameMapViewController?
+     public weak var gameViewController: GameViewController?
+     public weak var gameMenuViewController: GameMenuViewController?
+     public weak var blocklyViewController: BlockTableViewController?
+     public weak var gameMapViewController: GameMapViewController?
     
     func setGameViewController(gameViewController: GameViewController?) {
         self.gameViewController = gameViewController

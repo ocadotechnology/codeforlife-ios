@@ -10,7 +10,7 @@ import KIF
 import UIKit
 import XCTest
 
-class T4GameViewControllerUITest: KIFTestCase {
+class UI4GameViewControllerUITest: KIFTestCase {
     
     func test1Level1() {
         assertIAmAtEpisodeList()

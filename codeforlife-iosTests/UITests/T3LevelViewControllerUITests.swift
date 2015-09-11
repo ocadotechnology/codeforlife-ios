@@ -10,7 +10,7 @@ import KIF
 import UIKit
 import XCTest
 
-class T3LevelViewControllerUITests: KIFTestCase {
+class UI3LevelViewControllerUITests: KIFTestCase {
 
     func testEpisodeOne() {
         gotoEpisode(1)

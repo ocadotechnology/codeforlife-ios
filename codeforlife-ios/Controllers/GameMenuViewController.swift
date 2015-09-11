@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameMenuViewController: UIViewController {
+public class GameMenuViewController: UIViewController {
     
     let blocklyButtonText = "Blockly"
     let pythonButtonText = "Python"
@@ -89,7 +89,7 @@ class GameMenuViewController: UIViewController {
         }
     }
     
-    weak var gvcDelegate: GameViewControllerDelegate?
+    public weak var gvcDelegate: GameViewControllerDelegate?
     
     var muted = false {
         didSet {

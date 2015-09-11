@@ -11,7 +11,7 @@ import UIKit
 import Foundation
 import CoreData
 
-class Origin {
+public class Origin {
     
     var coordinates: Coordinates
     var compassDirection: CompassDirection

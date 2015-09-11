@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AnimationHandler {
+public class AnimationHandler {
     
     weak var afDelegate: GameViewControllerDelegate?
     
@@ -46,7 +46,7 @@ class AnimationHandler {
         }
     }
     
-    init(delegate: GameViewControllerDelegate?) {
+    public init(delegate: GameViewControllerDelegate?) {
         self.afDelegate = delegate
     }
     

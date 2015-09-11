@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-struct Rotation {
+public struct Rotation {
     
     // Dead End
     static let U = CGFloat(M_PI)

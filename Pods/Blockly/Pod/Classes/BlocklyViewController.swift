@@ -62,7 +62,9 @@ public class BlocklyViewController: UIViewController {
     }
     
     override public func viewWillDisappear(animated: Bool) {
-        view.removeGestureRecognizer(recognizer!)
+        if let recognizer = recognizer {
+            view.removeGestureRecognizer(recognizer)
+        }
         blocklyGenerator.willMoveToParentViewController(nil)
         blocklyGenerator.view.removeFromSuperview()
         blocklyGenerator.removeFromParentViewController()

@@ -9,21 +9,21 @@
 import UIKit
 import SpriteKit
 
-class GameMapViewController: UIViewController, UIScrollViewDelegate {
+public class GameMapViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mapView: SKView!
     
-    var animationHandler: AnimationHandler?
-    weak var gvcDelegate: GameViewControllerDelegate?
+    public var animationHandler: AnimationHandler?
+    public weak var gvcDelegate: GameViewControllerDelegate?
     
-    var mapScene: MapScene? {
+    public var mapScene: MapScene? {
         didSet {
             loadMap()
         }
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsFPS = true
         mapView.showsNodeCount = true
@@ -40,14 +40,14 @@ class GameMapViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override public func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         mapView.presentScene(nil)
         mapScene?.removeAllChildren()
         mapScene?.removeFromParent()
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    public func scrollViewDidScroll(scrollView: UIScrollView) {
         if let mapScene = mapScene {
             mapScene.camera.position = CGPointMake(mapScene.size.width/2 + scrollView.contentOffset.x, mapScene.size.height/2 - scrollView.contentOffset.y)
             mapScene.centerOnNode(mapScene.camera)

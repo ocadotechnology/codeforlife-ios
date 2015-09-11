@@ -11,16 +11,13 @@ import Foundation
 import SwiftyJSON
 import WebKit
 
-class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
+public class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
     
-    let gvcDelegate: GameViewControllerDelegate
-    let animationFactory: AnimationFactory
-    weak var gameViewController: GameViewController? {
-        didSet { gvcDelegate.setGameViewController(gameViewController) }
-    }
+    public let animationFactory: AnimationFactory
+    public weak var gvcDelegate: GameViewControllerDelegate!
     
     // AnimationQueues is a 2D array with lists of animations(ie [[Animation]])
-    func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
+    public func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         println("[GameViewInteractionController] Receiving Packages...")
         if let result = message.body as? NSString,
                 data = result.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
@@ -50,8 +47,8 @@ class GameViewInteractionHandler: NSObject, WKScriptMessageHandler {
         return animations
     }
     
-    override init() {
-        gvcDelegate = GameViewControllerDelegate()
+    public init(gameViewControllerDelegate: GameViewControllerDelegate) {
+        gvcDelegate = gameViewControllerDelegate
         animationFactory = AnimationFactory(animationDelegate: gvcDelegate)
         super.init()
     }

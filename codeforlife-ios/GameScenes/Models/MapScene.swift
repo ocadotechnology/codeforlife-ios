@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class MapScene: SKScene {
+public class MapScene: SKScene {
     
     let width: Int                      /* Number of columns in the map grid */
     let height: Int                     /* Number of rows in the map grid */
@@ -100,15 +100,15 @@ class MapScene: SKScene {
         return mapArray
     }
     
-    override func didMoveToView(view: SKView) {
+    override public func didMoveToView(view: SKView) {
         self.scaleMode = SKSceneScaleMode.AspectFill
     }
     
-    override func didFinishUpdate() {
+    override public func didFinishUpdate() {
         delegate2?.centerOnNodeDuringAnimation(van, completion: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

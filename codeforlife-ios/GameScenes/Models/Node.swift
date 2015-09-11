@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class Node: Equatable {
+public class Node: Equatable {
     
     struct Direction {
         var up    : Bool = false
@@ -176,6 +176,6 @@ class Node: Equatable {
     
 }
 
-func ==(lhs: Node, rhs: Node) -> Bool {
+public func ==(lhs: Node, rhs: Node) -> Bool {
     return lhs.coordinates == rhs.coordinates
 }

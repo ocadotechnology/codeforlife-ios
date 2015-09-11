@@ -9,7 +9,7 @@
 import SpriteKit
 import Foundation
 
-class WorldNode: SKNode {
+public class WorldNode: SKNode {
     
     func drawBorders(destinations: [Destination]) {
         destinations.foreach({[unowned self] in self.addChild($0.border)})

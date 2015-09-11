@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 @objc(Level)
-class Level: NSManagedObject {
+public class Level: NSManagedObject {
     
     @NSManaged var episodeUrl: String
     @NSManaged var level: NSNumber

@@ -10,7 +10,7 @@ import KIF
 import UIKit
 import XCTest
 
-class T1LaunchScreenViewControllerUITests: KIFTestCase {
+class UI1LaunchScreenViewControllerUITests: KIFTestCase {
     
     func test1StartButtonMoveToEpisodeList() {
         pressStart()

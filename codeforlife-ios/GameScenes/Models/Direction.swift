@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-enum Direction: Printable {
+public enum Direction: Printable {
     
     case Left
     case Right
@@ -34,7 +34,7 @@ enum Direction: Printable {
         }
     }
     
-    var description : String {
+    public var description : String {
         switch self {
             case .Up:    return "Up"
             case .Right: return "Right"

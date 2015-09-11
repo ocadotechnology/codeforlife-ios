@@ -9,7 +9,7 @@
 import UIKit
 import Blockly
 
-class BlockTableViewController: BlocklyViewController {
+public class BlockTableViewController: BlocklyViewController {
     
     let ToggleBlocklyTableAnimationDuration: NSTimeInterval = 0.5
     
@@ -17,7 +17,7 @@ class BlockTableViewController: BlocklyViewController {
     let BlocklyGeneratorButtonImageName = "button_blockly_generator"
     let JavascriptInitialContent = "ocargo.animation.serializeAnimationQueue(["
     
-    weak var gvcDelegate: GameViewControllerDelegate?
+    public weak var gvcDelegate: GameViewControllerDelegate?
     
     @IBOutlet weak var containerView: UIView!
     
@@ -31,7 +31,7 @@ class BlockTableViewController: BlocklyViewController {
         didSet  { self.incorrectBlockly?.isError = true }
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         menuButton.setImage(UIImage(named: BlocklyGeneratorButtonImageName), forState: UIControlState.Normal)

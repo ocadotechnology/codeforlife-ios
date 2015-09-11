@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-enum CompassDirection {
+public enum CompassDirection {
     
     case N
     case E

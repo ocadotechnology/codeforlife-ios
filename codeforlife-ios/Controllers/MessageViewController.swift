@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageViewController: UIViewController {
+public class MessageViewController: UIViewController {
     
     weak var gvcDelegate: GameViewControllerDelegate?
     
@@ -39,7 +39,7 @@ class MessageViewController: UIViewController {
         }
     }
     
-    required convenience init(coder: NSCoder) {
+    required convenience public init(coder: NSCoder) {
         self.init(coder, delegate: nil)
     }
     

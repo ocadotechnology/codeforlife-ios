@@ -11,7 +11,7 @@ import Quick
 import Nimble
 import codeforlife_ios
 
-class LaunchScreenViewControllerSpec: QuickSpec {
+class LaunchScreenViewControllerUnitTests: QuickSpec {
     
     var launchScreenViewController: LaunchScreenViewController!
     

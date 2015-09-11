@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+public class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let TableViewAccessibilityLabel = "EpisodeList"
     let CellReuseIdentifier = "Episode"
@@ -22,7 +22,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         tableView.accessibilityIdentifier = TableViewAccessibilityLabel
         tableView.delegate = self
@@ -35,26 +35,26 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         println("\(episodes.count) episodes in total")
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! EpisodeTableViewCell
         var episode = episodes[indexPath.row]
         cell.titleLabel.text = "Episode \(indexPath.row+1) : \(episode.name)"
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier(SegueIdentifier, sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let controller = segue.destinationViewController as? LevelTableViewController {
             if let identifier = segue.identifier {
                 switch identifier {

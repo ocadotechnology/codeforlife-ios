@@ -11,7 +11,7 @@ import UIKit
 import Foundation
 
 // This cannot be struct for some reason, probably because I want to change the value of visited
-class Destination {
+public class Destination {
     
     let coordinates: Coordinates
     let border: SKShapeNode

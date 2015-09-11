@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class AnimationFactory {
+public class AnimationFactory {
     
     weak var animationDelegate: GameViewControllerDelegate?
     
