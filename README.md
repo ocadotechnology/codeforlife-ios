@@ -5,8 +5,22 @@
 ### Gameflow
 
 ### View Controllers and Delegates
+Each view controller has its own delegate(e.g. a ```GameViewController``` has a ```GameViewControllerDelegate```). In the current implementation, ```GameViewControllerDelegate``` is a concrete delegate which implements all the delegate protocol for other view controllers.
+![Relationship between View Controllers and Delegates](/Documentation/img/ViewControllerAndDelegates.png)
+When adding functionality for each view controllers, try to extend the content in the delegate instead of creating dependency between view controllers. This will allow easier addition of new features.
 
 ### Request
+#### Framework
+HTTP Networking requests are handled by [Alamofire](https://github.com/Alamofire/Alamofire), a Swift framework recommended by a Obj-C framework, [AFNetworking](https://github.com/AFNetworking/AFNetworking), to people who seek for a Swift althernative of AFNetworking. It handles both synchronous and asynchronous requests neatly with easily-understandable syntax.
+
+### Structure
+A concrete `Request` class must contains :
+1.  Url of the request(Be it for development or deployment)
+2.  Http method
+3.  List of parameters
+4.  ```Mode```(A class which identifies whether the application is testing using MockDelegates, in development, or in deployment)
+5.  ```execute(callback: (() -> Void)?)```, a function which indicates what to perform under different ```Mode```
+6.  ```processData(dada: NSData)```, a function to handle the data processing after results are fetched. (N.B. the data are mostly in JSON format)
 
 ### Animation
 
@@ -20,11 +34,11 @@ GameMapViewController displays a MapScene which contains a ```WorldNode```(i.e a
 ## Testing
 This project was created when Swift 1.2 was the latest stable version, which does not contain a UI testing tool. Several testing frameworks had been included in this project to provide both unit tests and UI tests.
 
-### KIF
+### [KIF](https://github.com/kif-framework/KIF)
 Once again, KIF was picked because Swift 2 was still not stable at the stage of the production of this application. Swift 2 provides a UITest tool which may surpass KIT. Currently KIF focuses sole on UITest which make you difficult to check variables which cannot be accessed by accessibility label. That aside, funtionality includes asynchronous task handling which makes it a pretty neat tool to test the UI.
 
-### Quick
-This framework also include another framework, called Nimble. Introduction on Quick briefly explains its advantage over XCTest in terms of readability which is the main reason to be chosen over XCTest.
+### [Quick](https://github.com/Quick/Quick)
+This framework also include another framework, called [Nimble](https://github.com/Quick/Nimble). Introduction on Quick briefly explains its advantage over XCTest in terms of readability which is the main reason to be chosen over XCTest.
 
 ### XCTest
 The original testing framework introduced by Apple is mainly used for testing struct. While it is not as human-readable as Quick, this framework comes in handy when it comes to basic struct tests. Reason behind is that for Quick to compare equality, one class must implement equatable and struct cannot inherit any class, this leaves the code to become this style
@@ -42,3 +56,24 @@ struct Coordinates {
 expect(Coordinates(1.2)).to(BeEqual(Coordinates(1,2))     // Does not compile, Coordinates does not inherit equatable
 expect(Coordinates(1,2) == Coordinates(1,2)).to(BeTrue()) // Compile, but not as readable as the above one
 ```
+
+##FAQ - Common Problems encountered
+
+####When running unit test with ```XCTest```, the test crash saying it cannot cast certain view controller from ```codeforlife-ios._viewController``` to ```codeforlife-iosTests._viewController```
+
+
+In Swift 1.1: Instantiating view controller from Storyboard can be achieved by the following code
+````Swift
+let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+let viewController = storyboard.instantiateInitialViewController() as! LaunchScreenViewController
+````
+Make sure you use ```NSBundle.mainBundle()``` instead of ```nil```
+Also make sure in that view controller class, include ```codeforlife-iosTests``` as a target
+Another way is to use the method below
+
+In Swift 1.2(works in Swift 1.1 as well): Apple has introduced a tighten access control rules to follow.
+Above code will produce runtime errors about difficulty casting one class to another. Solution follows:
+1. *Exclude* viewcontroller as a target for ```codeforlife-iosTests```
+2. Declare the class to be tested public
+
+N.B. If you have to change certain private variables to public just for the sake of testing, that is code smell. Refactor until you no longer EVEN think about testing a private function
