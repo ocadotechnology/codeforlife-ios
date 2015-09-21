@@ -16,5 +16,8 @@ target 'codeforlife-iosTests' do
     pod 'Nimble', '~> 1.0.0'
 end
 
+pod 'Fabric'
+pod 'Crashlytics'
+
 link_with "codeforlife-ios"
 link_with "codeforlife-iosTests"

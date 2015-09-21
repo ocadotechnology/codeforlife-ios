@@ -11,7 +11,6 @@
 		68551E6CF0BF93CECF16DB9E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ED0622401B6256FC0062D3A5 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06223F1B6256FC0062D3A5 /* LaunchScreenViewController.swift */; };
-		ED0622421B6258770062D3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
 		ED0622441B6259760062D3A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED0622431B6259760062D3A5 /* CoreData.framework */; };
 		ED06227A1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */; };
 		ED06227B1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */; };
@@ -770,6 +769,7 @@
 				ED0BC5891B305D720060FC84 /* Resources */,
 				6B0A2E8A54BBF6754D40DF7C /* Embed Pods Frameworks */,
 				BAA1180D204418E4679A6A4F /* Copy Pods Resources */,
+				ED1484C41BAFF436009C7D4D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -974,6 +974,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-codeforlife-iosTests/Pods-codeforlife-iosTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ED1484C41BAFF436009C7D4D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" db7d5f04ba0600628f66aaac323272a1fe5b11a4 9020c8a09f7e2cda06d729e0ee6f679a42ac1dcb36845df89b993f495ad2231f";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1107,7 +1120,6 @@
 				ED6F79921B3D7DD400DD2AFE /* DirectDriveButton.swift in Sources */,
 				ED06227B1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */,
 				ED4277C11BA1CC8D00665AB1 /* CoordinatesUnitTests.swift in Sources */,
-				ED0622421B6258770062D3A5 /* AppDelegate.swift in Sources */,
 				EDA47C3C1B441E35003356AB /* EpisodeTableView.swift in Sources */,
 				ED575B521B9EEE2C0093153E /* LevelTitleLabel.swift in Sources */,
 				ED4277C31BA1D13400665AB1 /* LaunchScreenViewControllerUnitTests.swift in Sources */,
