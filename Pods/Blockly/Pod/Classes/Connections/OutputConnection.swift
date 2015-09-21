@@ -11,69 +11,44 @@ import Foundation
 
 public class OutputConnection: Connection {
     
-    public var returnType: ReturnType
-    public let type: ConnectionType
-    unowned public var sourceBlock: BlocklyCore
-    
-    public weak var targetConnection: Connection? {
-        willSet {
-            if targetConnection != nil {
-                Workspace.topBlocks.append(sourceBlock)
-            }
-        }
+    override public weak var targetConnection: Connection? {
+        willSet { Workspace.getInstance().topBlocks.appendIfNotNil(sourceBlockly) }
         didSet {
-            if targetConnection != nil {
-                Workspace.topBlocks.remove(sourceBlock)
+            Workspace.getInstance().topBlocks.remove(sourceBlockly)
+            if targetConnection?.targetConnection !== self {
+                targetConnection?.targetConnection = self
             }
         }
     }
     
-    init(_ sourceBlock: BlocklyCore, _ returnType: ReturnType) {
-        self.sourceBlock = sourceBlock
+    public var returnType: Int
+    
+    public init(_ sourceBlock: Blockly, _ returnType: Int) {
         self.returnType = returnType
-        self.type = .OutputValue
+        super.init(sourceBlockly: sourceBlock)
     }
     
-    public func connect(otherConnection: Connection?) {
-        
-        var oldTargetConnection: Connection?
-        var orphanConnection: Connection?
-        
-        if let targetConnection = targetConnection,
-            otherConnection = otherConnection where targetConnection == otherConnection {
-                /** No change */
-        } else {
-            /** Change */
-            
-            if targetConnection != nil {
-                /** I already have a connection */
-                /** Detach from the original connection */
-                oldTargetConnection = targetConnection
-                targetConnection?.targetConnection = nil
-                targetConnection = nil
-            }
-            
-            if otherConnection?.targetConnection != nil {
-                /** otherConnection is already connected to another connection */
-                /** detach otherConnection from its original connection */
-                orphanConnection = otherConnection?.targetConnection
-                otherConnection?.targetConnection?.targetConnection = nil
-                otherConnection?.targetConnection = nil
-            }
-            
-            /** Attach otherconnection to myself */
-            targetConnection = otherConnection
-            otherConnection?.targetConnection = self
+    override public func connect(otherConnection: Connection?) {
+        let oldTargetConnection = detachConnection()
+        let orphanConnection = otherConnection?.detachConnection()
+        targetConnection = otherConnection
+        sourceBlockly.blocklyView?.outputTargetConnectionDidChange(oldTargetConnection, orphanConnection: orphanConnection, newTargetConnection: otherConnection)
+    }
+    
+    override public func matchSearchCondition(otherConnection: Connection) -> Bool {
+        return  !sameBlocklyCoreAs(otherConnection) &&
+                isValidPairWith(otherConnection) &&
+                sameReturnTypeAs(otherConnection)
+    }
+    
+    private func sameReturnTypeAs(otherConnection: Connection) -> Bool {
+        if let otherConnection = otherConnection as? InputValueConnection {
+            return otherConnection.returnType & returnType != 0
         }
-        sourceBlock.blockly?.outputTargetConnectionDidChange(oldTargetConnection, orphanConnection: orphanConnection)
+        return false
     }
     
-    public func matchSearchCondition(otherConnection: Connection) -> Bool {
-        return  sourceBlock.blockly != otherConnection.sourceBlock.blockly &&
-                type == otherConnection.type.oppositeType &&
-                (otherConnection is InputValueConnection &&
-                    ((otherConnection as! InputValueConnection).returnType == nil ||
-                    (otherConnection as! InputValueConnection).returnType == returnType))
-        
+    private func isValidPairWith(otherConnection: Connection) -> Bool {
+        return otherConnection is InputValueConnection
     }
 }

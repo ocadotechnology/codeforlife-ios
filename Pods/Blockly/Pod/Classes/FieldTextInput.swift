@@ -14,14 +14,17 @@ public class FieldTextInput: UITextField {
     let FieldTextInputValidColor = UIColor.whiteColor()
     let FieldTextInputInvalidColor = UIColor.redColor()
     
+    let index: Int
     let sourceInput: Input
     let validator: FieldTextInputValidator
     
-    init(_ sourceInput: Input, returnType: ReturnType) {
+    init(_ sourceInput: Input, returnType: Int, index: Int) {
+        self.index = index
         self.sourceInput = sourceInput
-        self.validator = returnType.provideValidator()
+        self.validator = ReturnType.provideValidator(returnType)
         super.init(frame: CGRectZero)
         self.addTarget(self, action: "textDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        self.addTarget(self, action: "textDidEnd:", forControlEvents: UIControlEvents.EditingDidEnd)
         self.backgroundColor = FieldTextInputValidColor
         self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
@@ -29,15 +32,13 @@ public class FieldTextInput: UITextField {
     
     func textDidChange(sender: UITextField) {
         backgroundColor = validator.validate(text) ? FieldTextInputValidColor : FieldTextInputInvalidColor
-        sizeToFit()
         sourceInput.updateFieldPositions()
     }
     
-    override public func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    func textDidEnd(sender: UITextField) {
         validator.validateAndUpdate(text)
         text = validator.lastValidInput
-        sourceInput.sourceBlock.blocklyCore.args[0] = text
-        sizeToFit()
+        sourceInput.sourceBlocklyView.blockly.args[index] = text
         sourceInput.updateFieldPositions()
         backgroundColor = FieldTextInputValidColor
         self.endEditing(true)

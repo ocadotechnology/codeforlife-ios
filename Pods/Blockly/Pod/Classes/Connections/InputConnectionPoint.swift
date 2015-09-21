@@ -11,8 +11,8 @@ import Foundation
 public class InputConnectionPoint: ConnectionPoint {
     
     let sourceInput: Input
-    var sourceBlockly: Blockly {
-        return sourceInput.sourceBlock
+    var sourceBlockly: UIBlocklyView {
+        return sourceInput.sourceBlocklyView
     }
     let connection: Connection
     weak var targetConnectionPoint: ConnectionPoint?
@@ -22,7 +22,7 @@ public class InputConnectionPoint: ConnectionPoint {
     init(_ sourceInput: Input, _ connection: InputConnection) {
         self.sourceInput = sourceInput
         self.connection = connection
-        self.sourceInput.sourceBlock.blocklyCore.appendInputConnection(connection)
+        self.sourceInput.sourceBlocklyView.blockly.appendInputConnection(connection)
     }
     
     func updateTargetConnectionPosition() {}

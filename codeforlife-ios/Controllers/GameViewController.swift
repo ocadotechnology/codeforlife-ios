@@ -50,7 +50,9 @@ public class GameViewController: UIViewController, WKNavigationDelegate {
     public var level: Level?
     public var levelUrl = "" {
         didSet {
-            loadLevel(levelUrl)
+            if isViewLoaded() {
+                loadLevel(levelUrl)
+            }
         }
     }
 

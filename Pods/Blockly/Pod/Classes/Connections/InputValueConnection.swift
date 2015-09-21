@@ -11,10 +11,11 @@ import Foundation
 
 public class InputValueConnection: InputConnection {
     
-    public var returnType: ReturnType?
+    public var returnType: Int
     
-    public init(_ sourceBlock: BlocklyCore) {
-        super.init(sourceBlock, InputType.Value)
+    public init(_ sourceBlock: Blockly) {
+        self.returnType = ReturnType.All
+        super.init(sourceBlockly: sourceBlock)
     }
     
 }

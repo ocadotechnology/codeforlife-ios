@@ -11,32 +11,50 @@ import Foundation
 
 public class BlocklyTrashcan: UIView {
     
-    let TrashCanColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1).CGColor
+    let TrashCanColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1).CGColor
     let DefaultSize = CGSizeMake(60, 60)
     let DefaultBackgroundColor = UIColor.clearColor()
+    let TrashcanHeadMovement = CGFloat(30)
+    
+    var open = false {
+        willSet {
+            if open != newValue {
+                trashCanHead.position.y += newValue ? -TrashcanHeadMovement : TrashcanHeadMovement
+                trashCanHead.opacity += newValue ? 0.2 : -0.2
+                trashCanBody.opacity += newValue ? 0.2 : -0.2
+            }
+        }
+    }
+    
+    var trashCanHead: CAShapeLayer!
+    var trashCanBody: CAShapeLayer!
     
     weak var blocklyViewController: BlocklyViewController?
     
-    func setup(blocklyViewController: BlocklyViewController) {
+    public init(blocklyViewController: BlocklyViewController) {
         self.blocklyViewController = blocklyViewController
-        blocklyViewController.view.addSubview(self)
-        self.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin
-        self.frame = CGRect(
-            origin: CGPointMake(blocklyViewController.view.frame.width - DefaultSize.width - 5, blocklyViewController.view.frame.height - DefaultSize.height - 5),
-            size: DefaultSize)
+        super.init(frame: CGRect(
+            origin: CGPointMake(
+                blocklyViewController.view.frame.width - DefaultSize.width - 5,
+                blocklyViewController.view.frame.height - DefaultSize.height - 5),
+            size: DefaultSize))
         self.backgroundColor = DefaultBackgroundColor
+        self.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin
+        blocklyViewController.view.addSubview(self)
         self.draw()
     }
     
     private func draw() {
-        let trashCanBody = CAShapeLayer()
+        trashCanBody = CAShapeLayer()
         trashCanBody.path = createTrashCanBodyPath().CGPath
         trashCanBody.fillColor = TrashCanColor
+        trashCanBody.opacity = 0.8
         self.layer.addSublayer(trashCanBody)
         
-        let trashCanHead = CAShapeLayer()
+        trashCanHead = CAShapeLayer()
         trashCanHead.path = createTrashCanHeadPath().CGPath
         trashCanHead.fillColor = TrashCanColor
+        trashCanHead.opacity = 0.8
         self.layer.addSublayer(trashCanHead)
     }
     
@@ -58,6 +76,10 @@ public class BlocklyTrashcan: UIView {
         path.addLineToPoint(CGPointMake(0, -DefaultSize.height*1/15))
         path.closePath()
         return path
+    }
+    
+    required public init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

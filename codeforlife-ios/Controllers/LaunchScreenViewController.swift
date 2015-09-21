@@ -63,12 +63,16 @@ public class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
         var episodeVersion = 1.0
         var levelVersion = 1.0
         
-        let noUpdateNeeded = episodeVersion == 1.0
+//        let noUpdateNeeded = episodeVersion == 1.0
+        let noUpdateNeeded = Config.fetchResults().count > 0
         
         if noUpdateNeeded {
             println("No updates required")
             runUpdate = LaunchScreenViewController.UPDATE_FINISHED
         } else {
+            Config.removeAllEntries()
+            Config.createInManagedObjectContext("mockETag")
+            Config.save()
             println("Updates required")
             runUpdate++   // run Update
         }

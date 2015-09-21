@@ -13,15 +13,19 @@ public class BlocklyMenuButton: UIButton {
     
     weak var blocklyViewController: BlocklyViewController?
     
-    func setup(blocklyViewController: BlocklyViewController) {
+    init(blocklyViewController: BlocklyViewController) {
         self.blocklyViewController = blocklyViewController
-        blocklyViewController.view.addSubview(self)
+        super.init(frame: CGRect(
+                            origin: blocklyViewController.view.frame.origin,
+                            size: CGSizeMake(20, blocklyViewController.view.frame.height)))
         self.layer.zPosition = 1
-        self.frame = CGRect(
-            origin: blocklyViewController.view.frame.origin,
-            size: BlocklyGeneratorButtonSize)
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.blueColor()
+        blocklyViewController.view.addSubview(self)
         self.addTarget(blocklyViewController, action: "toggleMenu", forControlEvents: UIControlEvents.TouchDown)
+    }
+
+    required public init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

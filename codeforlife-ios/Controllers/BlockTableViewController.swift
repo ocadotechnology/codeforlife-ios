@@ -21,31 +21,37 @@ public class BlockTableViewController: BlocklyViewController {
     
     @IBOutlet weak var containerView: UIView!
     
-    private weak var selectedBlockly: Blockly? {
-        willSet { self.selectedBlockly?.isSelected = false }
-        didSet  { self.selectedBlockly?.isSelected = true }
+    private weak var selectedBlockly: UIBlocklyView? {
+        willSet { self.selectedBlockly?.state = BlocklyUIState.Normal }
+        didSet  { self.selectedBlockly?.state = BlocklyUIState.Selected }
     }
  
-    private weak var incorrectBlockly: Blockly? {
-        willSet { self.incorrectBlockly?.isError = false }
-        didSet  { self.incorrectBlockly?.isError = true }
+    private weak var incorrectBlockly: UIBlocklyView? {
+        willSet { self.incorrectBlockly?.state = BlocklyUIState.Normal }
+        didSet  { self.incorrectBlockly?.state = BlocklyUIState.Error }
     }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        menuButton.setImage(UIImage(named: BlocklyGeneratorButtonImageName), forState: UIControlState.Normal)
-        menuButton.backgroundColor = UIColor.clearColor()
         
-        blocklyGenerator.addBlocklyButton(BlocklyFactory.createMoveForwardBlock)
-        blocklyGenerator.addBlocklyButton(BlocklyFactory.createTurnLeftBlock)
-        blocklyGenerator.addBlocklyButton(BlocklyFactory.createTurnRightBlock)
-        blocklyGenerator.addBlocklyButton(BlocklyFactory.createDeliverBlock)
+        blocklyGenerator.addBlocklyButton(CustomBlocklyFactory.createMoveForwardBlock)
+        blocklyGenerator.addBlocklyButton(CustomBlocklyFactory.createTurnLeftBlock)
+        blocklyGenerator.addBlocklyButton(CustomBlocklyFactory.createTurnRightBlock)
+        blocklyGenerator.addBlocklyButton(CustomBlocklyFactory.createDeliverBlock)
+    }
+    
+    override public func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        menuButton.backgroundColor = kC4LBlocklyForwardBlockColour
     }
     
     final func clearBlocks() {
         resetHighlightCellVariables()
-        Workspace.topBlocks.foreach({(core) in core.blockly?.removeFromWorkspace(true)})
+        Workspace.getInstance().topBlocks.foreach({
+            (core) in
+            core.blocklyView?.removeFromWorkspace(true)
+        })
         let startBlock = BlocklyFactory.createStartBlock()
         addBlockly(startBlock)
         startBlock.center = CGPointMake(view.center.x, 100)
@@ -58,7 +64,7 @@ public class BlockTableViewController: BlocklyViewController {
     
     final func submitBlocks() {
         var str = JavascriptInitialContent
-        Workspace.topBlocks.getItemAtIndex(0)?.foreach({
+        Workspace.getInstance().topBlocks.getItemAtIndex(0)?.foreach({
             (blocklyCore) in
             switch blocklyCore.typeId {
             case 1: str += "\"move_forwards\","
@@ -68,24 +74,24 @@ public class BlockTableViewController: BlocklyViewController {
             default: break
             }
         })
-        str = Workspace.topBlocks.getItemAtIndex(0)?.nextConnection?.targetConnection != nil ? str.substringToIndex(advance(str.startIndex, count(str)-1)) + "])" : str + "])"
+        str = Workspace.getInstance().topBlocks.getItemAtIndex(0)?.nextConnection?.targetConnection != nil ? str.substringToIndex(advance(str.startIndex, count(str)-1)) + "])" : str + "])"
         gvcDelegate?.submitBlocks(str, completion: {println(str)})
     }
     
     final func highlightRow(row: Int) {
-        var currentBlock = Workspace.topBlocks.getItemAtIndex(0)
+        var currentBlock = Workspace.getInstance().topBlocks.getItemAtIndex(0)
         for i in 1...row {
-            currentBlock = currentBlock?.nextConnection?.targetConnection?.sourceBlock
+            currentBlock = currentBlock?.nextBlockly
         }
-        selectedBlockly = currentBlock?.blockly
+        selectedBlockly = currentBlock?.blocklyView
     }
     
     final func highlightIncorrectBlockly(row: Int) {
-        var currentBlock = Workspace.topBlocks.getItemAtIndex(0)
+        var currentBlock = Workspace.getInstance().topBlocks.getItemAtIndex(0)
         for i in 1...row {
-            currentBlock = currentBlock?.nextConnection?.targetConnection?.sourceBlock
+            currentBlock = currentBlock?.nextBlockly
         }
-        incorrectBlockly = currentBlock?.blockly
+        incorrectBlockly = currentBlock?.blocklyView
     }
     
 //    deinit { println("BlockTableViewController is being deallocated") }

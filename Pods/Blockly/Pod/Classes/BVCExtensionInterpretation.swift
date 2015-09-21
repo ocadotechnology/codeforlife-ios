@@ -21,8 +21,8 @@ extension BlocklyViewController {
     }
     
     func interpret() {
-        let startBlock = Workspace.topBlocks.getItemAtIndex(0)
-        BlocklyInterpreter().interpret(startBlock, 1)
+        let startBlock = Workspace.getInstance().topBlocks.getItemAtIndex(0)
+        BlocklyInterpreter().interpret(startBlock)
     }
     
 }

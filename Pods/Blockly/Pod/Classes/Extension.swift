@@ -59,9 +59,9 @@ extension Array {
         }
     }
     
-    func foreachBlockly(closure: (Blockly) -> Void) {
+    func foreachBlockly(closure: (UIBlocklyView) -> Void) {
         for element in self {
-            if let blockly = element as? Blockly {
+            if let blockly = element as? UIBlocklyView {
                 closure(blockly)
             }
         }

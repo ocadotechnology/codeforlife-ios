@@ -8,33 +8,21 @@
 
 import Foundation
 
-public class FieldTextInputValidator {
-    public var lastValidInput: String = ""
-    func validate(string: String) -> Bool {
-        fatalError("Implement validate(string: String)")
-    }
-    func validateAndUpdate(string: String) -> Bool {
-        fatalError("Implement validateAndUpdate(string: String")
-    }
+public protocol FieldTextInputValidator {
+    var lastValidInput: String {get set}
+    func validate(string: String) -> Bool
+    func validateAndUpdate(string: String) -> Bool
 }
 
 public class FieldTextInputIntegerValidator: FieldTextInputValidator {
     
-    var lastValidIntegerInput: String = "0"
-    override public var lastValidInput: String {
-        get {
-            return lastValidIntegerInput
-        }
-        set {
-            lastValidIntegerInput = newValue
-        }
-    }
+    public var lastValidInput: String = "0"
     
-    public override func validate(string: String) -> Bool {
+    public func validate(string: String) -> Bool {
         return string.toInt() != nil
     }
     
-    public override func validateAndUpdate(string: String) -> Bool {
+    public func validateAndUpdate(string: String) -> Bool {
         if let result = string.toInt() {
             lastValidInput = String(result)
         }
@@ -43,7 +31,13 @@ public class FieldTextInputIntegerValidator: FieldTextInputValidator {
 }
 
 public class FieldTextInputNoValidator: FieldTextInputValidator {
-    public override func validate(string: String) -> Bool {
+    public var lastValidInput: String = ""
+    public func validate(string: String) -> Bool {
+        return true
+    }
+    
+    public func validateAndUpdate(string: String) -> Bool {
+        lastValidInput = string
         return true
     }
 }

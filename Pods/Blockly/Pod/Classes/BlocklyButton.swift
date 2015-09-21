@@ -13,7 +13,7 @@ public class BlocklyButton: UIButton {
 
     var firstMoved = true
     weak var viewController: BlocklyViewController?
-    var closure: (() -> Blockly)?
+    var closure: (() -> UIBlocklyView)?
     
     public override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         if firstMoved {

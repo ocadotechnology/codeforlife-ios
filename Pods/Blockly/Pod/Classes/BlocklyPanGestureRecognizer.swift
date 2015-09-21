@@ -11,14 +11,14 @@ import Foundation
 
 class BlocklyPanGestureRecognizer: UIPanGestureRecognizer {
     
-    private weak var blocklyOnDrag: Blockly? {
-        willSet { self.blocklyOnDrag?.isSelected = false }
-        didSet  { self.blocklyOnDrag?.isSelected = true }
+    private weak var blocklyOnDrag: UIBlocklyView? {
+        willSet { self.blocklyOnDrag?.state = BlocklyUIState.Normal }
+        didSet  { self.blocklyOnDrag?.state = BlocklyUIState.Selected }
     }
     
     private weak var connectionHighlighted: ConnectionPoint? {
-        willSet { self.connectionHighlighted?.sourceBlockly.isHighlighted = false }
-        didSet  { self.connectionHighlighted?.sourceBlockly.isHighlighted = true }
+        willSet { self.connectionHighlighted?.sourceBlockly.state = BlocklyUIState.Normal }
+        didSet  { self.connectionHighlighted?.sourceBlockly.state = BlocklyUIState.Highlighted }
     }
     
     unowned let blocklyVC: BlocklyViewController
@@ -48,15 +48,32 @@ class BlocklyPanGestureRecognizer: UIPanGestureRecognizer {
                     /** Highlight the closest blockly if one is in search range */
                     connectionHighlighted = blockly.findHighlightConnection()
                     
+                    blocklyVC.trashcan.open = blocklyVC.trashcan.frame.contains(sender.locationInView(sender.view!))
+                    
                 }
                 sender.setTranslation(CGPointZero, inView: sender.view)
                 
             case UIGestureRecognizerState.Ended:
                 connectionHighlighted = nil
-                if blocklyVC.trashcan.frame.contains(sender.locationInView(sender.view)) {
-                    blocklyOnDrag?.removeFromWorkspace(false)
+                if blocklyVC.trashcan.frame.contains(sender.locationInView(sender.view)) ||
+                    blocklyVC.blocklyGenerator.view.frame.contains(sender.locationInView(sender.view)){
+                        //                blocklyOnDrag?.foreach({
+                        //                    (blocklyView) in
+                        //                    UIView.animateWithDuration(5.0,
+                        //                        animations: {
+                        //                            [unowned self] in
+                        //                            blocklyView.frame.origin = self.blocklyVC.trashcan.center
+                        //                            blocklyView.frame.size = CGSizeMake(1, 1)
+                        //                    },
+                        //                        completion: {
+                        //                            (waitForCompletion) in
+                        //                            blocklyView.removeFromWorkspace(false)
+                        //                    })
+                        //                })
+                        blocklyOnDrag?.removeFromWorkspace(false)
                 }
                 blocklyOnDrag = nil
+                blocklyVC.trashcan.open = false
             default: break
             }
         }

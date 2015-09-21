@@ -9,19 +9,48 @@
 import UIKit
 import Foundation
 
-typealias ConnectionResult = (Connection, CGFloat)
-
-public protocol Connection: class {
+public class Connection {
     
-    var type: ConnectionType {get}
-    unowned var sourceBlock: BlocklyCore {get}
-    weak var targetConnection: Connection? {get set}
+//    public var type: ConnectionType
+    public unowned var sourceBlockly: Blockly
+    public weak var targetConnection: Connection? {
+        didSet {
+            if targetConnection?.targetConnection !== self {
+                targetConnection?.targetConnection = self
+            }
+        }
+    }
     
-    func connect(otherConnection: Connection?)
-    func matchSearchCondition(otherConnection: Connection) -> Bool
+    public func connect(otherConnection: Connection?) {}
+    public func matchSearchCondition(otherConnection: Connection) -> Bool {return false}
+    
+    public init(sourceBlockly: Blockly) {
+        self.sourceBlockly = sourceBlockly
+    }
+    
+    public func detachConnection() -> Connection? {
+        let oldTargetConnection = targetConnection
+        targetConnection?.targetConnection = nil
+        targetConnection = nil
+        return oldTargetConnection
+    }
+    
+    func appendConnection(otherConnection: Connection?) {
+        let lastConnection = sourceBlockly.lastBlockly.nextConnection
+        lastConnection?.targetConnection = otherConnection
+        otherConnection?.targetConnection = lastConnection
+    }
+    
+    func hasNoTargetOrAlreadyConnectedTo(otherConnection: Connection) -> Bool {
+        return (targetConnection == nil || targetConnection === otherConnection)
+    }
+    
+    func sameBlocklyCoreAs(otherConnection: Connection?) -> Bool {
+        return sourceBlockly === otherConnection?.sourceBlockly
+    }
     
 }
 
-func ==(lhs: Connection, rhs: Connection) -> Bool {
-    return lhs.type == rhs.type && lhs.sourceBlock.blockly == rhs.sourceBlock.blockly
-}
+//func validConnectionTypePair(lhs: Connection, rhs: Connection) -> Bool {
+//    return lhs.type == rhs.type.oppositeType
+//}

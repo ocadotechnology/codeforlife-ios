@@ -12,18 +12,18 @@ class InputValueConnectionPoint : InputConnectionPoint {
     
     override var position: CGPoint {
         get {
-            let offset = CGPointMake(sourceInput.frame.width, sourceInput.frame.height/2)
-            return sourceInput.sourceBlock.frame.origin + sourceInput.frame.origin + offset
+            let offset = CGPointMake(sourceInput.sourceBlocklyView.frame.width - BlankSize.width, sourceInput.frame.height/2)
+            return sourceInput.sourceBlocklyView.frame.origin + sourceInput.frame.origin + offset
         }
         set {}
     }
     
     init(_ sourceInput: Input) {
-        super.init(sourceInput, InputValueConnection(sourceInput.sourceBlock.blocklyCore))
+        super.init(sourceInput, InputValueConnection(sourceInput.sourceBlocklyView.blockly))
     }
     
     override func updateTargetConnectionPosition() {
-        let targetConnectionPoint = connection.targetConnection?.sourceBlock.blockly?.outputConnectionPoint
+        let targetConnectionPoint = connection.targetConnection?.sourceBlockly.blocklyView?.outputConnectionPoint
         targetConnectionPoint?.position = position
         targetConnectionPoint?.updateSourceBlockCenter()
     }

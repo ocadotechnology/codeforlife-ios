@@ -10,14 +10,14 @@ import Foundation
 
 public class PreviousConnectionPoint: ConnectionPoint {
     
-    let sourceBlockly: Blockly
+    let sourceBlockly: UIBlocklyView
     var position: CGPoint
     var connection: Connection {
-        return sourceBlockly.blocklyCore.previousConnection!
+        return sourceBlockly.blockly.previousConnection!
     }
     weak var targetConnectionPoint: ConnectionPoint?
     
-    init(_ sourceBlockly: Blockly) {
+    init(_ sourceBlockly: UIBlocklyView) {
         self.sourceBlockly = sourceBlockly
         self.position = sourceBlockly.frame.origin + PreviousConnectionOffset
     }

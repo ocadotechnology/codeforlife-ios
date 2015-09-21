@@ -11,66 +11,32 @@ import Foundation
 
 public class NextConnection: Connection {
     
-    public unowned let sourceBlock: BlocklyCore
-    public let type: ConnectionType
-    public weak var targetConnection: Connection?
-    
-    init(_ sourceBlock: BlocklyCore) {
-        self.sourceBlock = sourceBlock
-        self.type = .NextStatement
-    }
-    
-    public func connect(otherConnection: Connection?)
-    {
-        if let targetConnection = targetConnection,
-            otherConnection = otherConnection where targetConnection == otherConnection {
-                /** No change in next blockly */
-                
-        } else {
-            /** There are changes in next blockly */
-            
-            if let previousConnection = sourceBlock.previousConnection,
-                previousTarget = previousConnection.targetConnection,
-                otherConnection = otherConnection where previousTarget == otherConnection {
-                    /** otherBlockly was my previous blockly */
-                    
-                    /** Detach the previous link */
-                    otherConnection.targetConnection = nil
-                    previousConnection.targetConnection = nil
-                    
-                    /** Attach otherBlockly as my next blockly */
-                    otherConnection.targetConnection = self
-                    targetConnection = otherConnection
-                    
-            } else if otherConnection?.targetConnection != nil {
-                /**
-                otherBlockly already has a previous Blockly
-                Do nothing
-                */
-            } else {
-                /** Attach to the next blockly */
-                targetConnection?.targetConnection = nil
-                targetConnection = otherConnection
-                otherConnection?.targetConnection = self
-            }
+    override public func connect(otherConnection: Connection?) {
+        if otherBlocklyIsPreviousBlockly(otherConnection) {
+            sourceBlockly.previousConnection?.detachConnection()
         }
-        sourceBlock.blockly?.nextTargetConnectionDidChange()
+        self.detachConnection()
+        self.targetConnection = otherConnection
+        sourceBlockly.blocklyView?.nextTargetConnectionDidChange(otherConnection)
     }
     
-    public func matchSearchCondition(otherConnection: Connection) -> Bool
-    {
-        return  !sameBlocklyCore(self, otherConnection) &&
-                validConnectionTypePair(self, otherConnection) &&
-                (otherConnection.targetConnection == nil ||
-                    otherConnection === targetConnection)
+    override public func matchSearchCondition(otherConnection: Connection) -> Bool {
+        return  !sameBlocklyCoreAs(otherConnection) &&
+                isValidPairWith(otherConnection) &&
+                otherConnection.hasNoTargetOrAlreadyConnectedTo(self)
     }
     
-}
-
-func sameBlocklyCore(lhs: Connection, rhs: Connection) -> Bool {
-    return lhs.sourceBlock === rhs.sourceBlock
-}
-
-func validConnectionTypePair(lhs: Connection, rhs: Connection) -> Bool {
-    return lhs.type == rhs.type.oppositeType
+    private func otherBlocklyIsPreviousBlockly(otherConnection: Connection?) -> Bool {
+        if let previousConnection = sourceBlockly.previousConnection,
+            previousTarget = previousConnection.targetConnection,
+            otherNextConnection = otherConnection?.sourceBlockly.nextConnection where previousTarget === otherNextConnection {
+                return true
+        }
+        return false
+    }
+    
+    private func isValidPairWith(otherConnection: Connection) -> Bool {
+        return otherConnection is PreviousConnection
+    }
+    
 }

@@ -15,13 +15,26 @@ public class BlocklyViewController: UIViewController {
     public let blocklyGenerator = BlocklyGenerator()
     
     public weak var delegate: BlocklyDelegate?
+    public var editable = true
     
     var recognizer: BlocklyPanGestureRecognizer?
     
-    public let menuButton = BlocklyMenuButton()
-    public let trashcan = BlocklyTrashcan()
+    public var menuButton: BlocklyMenuButton!
+    public var trashcan: BlocklyTrashcan!
     
-    var menuOpen = false
+    var menuOpen = false {
+        didSet {
+            UIView.animateWithDuration(AnimationDuration, animations: {
+                [unowned self] in
+                self.blocklyGenerator.view.frame.origin = self.menuOpen ?
+                    self.view.frame.origin :
+                    self.view.frame.origin - CGPointMake(self.view.frame.width, 0)
+                self.menuButton.frame.origin = self.menuOpen ?
+                    self.blocklyGenerator.view.frame.origin + CGPointMake(self.blocklyGenerator.view.frame.width, 0) :
+                    self.view.frame.origin
+                })
+        }
+    }
     
     var connectionPoints: [ConnectionPoint] {
         var connectionPoints = [ConnectionPoint]()
@@ -33,26 +46,33 @@ public class BlocklyViewController: UIViewController {
         return connectionPoints
     }
     
-    public var editable = true
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        menuButton.setup(self)
-        trashcan.setup(self)
+        menuButton = BlocklyMenuButton(blocklyViewController: self)
+        trashcan = BlocklyTrashcan(blocklyViewController: self)
         setupBlocklyGenerator()
         setupGestureRecognizer()
 //        setupInterpretButton()
     }
     
-    public func addBlockly(blockly: Blockly) {
-        view.addSubview(blockly)
-        blockly.viewController = self
-        Workspace.topBlocks.append(blockly.blocklyCore)
+    public func endEditing() {
+        self.view.endEditing(true)
     }
     
-    func findBlocklyAtPoint(pos: CGPoint) -> Blockly? {
+    public func addBlockly(blocklyView: UIBlocklyView) {
+        view.addSubview(blocklyView)
+        blocklyView.viewController = self
+        Workspace.getInstance().topBlocks.append(blocklyView.blockly)
+    }
+    
+    func findBlocklyAtPoint(pos: CGPoint) -> UIBlocklyView? {
         for subview in view.subviews.reverse() {
-            if let subview = subview as? Blockly where
+            if let subview = subview as? UIBlocklyView where
                 CGRectContainsPoint(subview.frame, pos) &&
                     CGPathContainsPoint(subview.shapeLayer.path, nil, pos - subview.frame.origin, true) {
                         return subview
@@ -62,9 +82,7 @@ public class BlocklyViewController: UIViewController {
     }
     
     override public func viewWillDisappear(animated: Bool) {
-        if let recognizer = recognizer {
-            view.removeGestureRecognizer(recognizer)
-        }
+        view.removeGestureRecognizer(recognizer!)
         blocklyGenerator.willMoveToParentViewController(nil)
         blocklyGenerator.view.removeFromSuperview()
         blocklyGenerator.removeFromParentViewController()
@@ -72,15 +90,6 @@ public class BlocklyViewController: UIViewController {
     
     func toggleMenu() {
         menuOpen = !menuOpen
-        UIView.animateWithDuration(AnimationDuration, animations: {
-            [unowned self, unowned blocklyGenerator, unowned menuButton] in
-            blocklyGenerator.view.frame.origin = self.menuOpen ?
-                self.view.frame.origin :
-                self.view.frame.origin - CGPointMake(self.view.frame.width, 0)
-            menuButton.frame.origin = self.menuOpen ?
-                self.blocklyGenerator.view.frame.origin + CGPointMake(self.blocklyGenerator.view.frame.width, 0) :
-                self.view.frame.origin
-            })
     }
 
 }

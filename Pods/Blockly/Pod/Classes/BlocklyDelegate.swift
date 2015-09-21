@@ -9,7 +9,5 @@
 import Foundation
 
 public protocol BlocklyDelegate: class {
-    
     func blocklyDidChange()
-    
 }

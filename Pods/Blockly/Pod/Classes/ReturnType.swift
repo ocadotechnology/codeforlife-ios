@@ -8,14 +8,18 @@
 
 import Foundation
 
-public enum ReturnType {
+public class ReturnType {
     
-    case Integer
-    case Boolean
+    public static let None     = 0b00000000
+    public static let Integer  = 0b00000001
+    public static let Boolean  = 0b00000010
+    public static let String   = 0b00000100
+    public static let Variable = 0b00001000
+    public static let All      = 0b11111111
     
-    func provideValidator() -> FieldTextInputValidator {
-        switch self {
-            case .Integer:
+    static func provideValidator(returnType: Int) -> FieldTextInputValidator {
+        switch returnType {
+            case ReturnType.Integer:
                 return FieldTextInputIntegerValidator()
                 
             default:

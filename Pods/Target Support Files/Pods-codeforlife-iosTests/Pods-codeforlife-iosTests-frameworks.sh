@@ -54,7 +54,6 @@ code_sign_if_enabled() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-codeforlife-iosTests/Alamofire.framework'
   install_framework 'Pods-codeforlife-iosTests/Blockly.framework'
-  install_framework 'Pods-codeforlife-iosTests/SnapKit.framework'
   install_framework 'Pods-codeforlife-iosTests/SwiftyJSON.framework'
   install_framework 'Pods-codeforlife-iosTests/KIF.framework'
   install_framework 'Pods-codeforlife-iosTests/Nimble.framework'
@@ -63,7 +62,6 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-codeforlife-iosTests/Alamofire.framework'
   install_framework 'Pods-codeforlife-iosTests/Blockly.framework'
-  install_framework 'Pods-codeforlife-iosTests/SnapKit.framework'
   install_framework 'Pods-codeforlife-iosTests/SwiftyJSON.framework'
   install_framework 'Pods-codeforlife-iosTests/Nimble.framework'
   install_framework 'Pods-codeforlife-iosTests/Quick.framework'

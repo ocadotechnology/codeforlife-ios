@@ -9,13 +9,20 @@
 import Foundation
 
 public class Workspace {
-    public static var topBlocks = BlocklyCores()
-    public static var blocklys = BlocklyCores()
+    
+    private static let instance = Workspace()
+    
+    public static func getInstance() -> Workspace {
+        return instance
+    }
+    
+    public var topBlocks = Blocklys()
+    public var blocklys = Blocklys()
 }
 
 public extension Workspace { // Read-Only Variables
     
-    public static var connections: [Connection] {
+    public var connections: [Connection] {
         var connections = [Connection]()
         blocklys.foreach({
             for connection in $0.connections {
@@ -25,19 +32,19 @@ public extension Workspace { // Read-Only Variables
         return connections
     }
     
-    public static var previousConnections: [Connection] {
+    public var previousConnections: [Connection] {
         return connections.filter({$0 is PreviousConnection})
     }
     
-    public static var nextConnections: [Connection] {
+    public var nextConnections: [Connection] {
         return connections.filter({$0 is NextConnection})
     }
     
-    public static var outputConnections: [Connection] {
+    public var outputConnections: [Connection] {
         return connections.filter({$0 is OutputConnection})
     }
     
-    public static var inputConnections: [Connection] {
+    public var inputConnections: [Connection] {
         return connections.filter({$0 is InputConnection})
     }
 }

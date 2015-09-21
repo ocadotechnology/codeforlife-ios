@@ -9,88 +9,90 @@
 import UIKit
 import Foundation
 
-/**
-    Position offset of Previous Connection from the top left of the blockly
- */
-let PreviousConnectionOffset = CGPointMake(60, BlankSize.height)
+protocol BlocklyConfiguration: class {
+    // Position offset of Previous Connection from the top left of the blockly
+    var PreviousConnectionOffset : CGPoint {get}
+    
+    // Position offset of Next Connection from the bottom left of the blockly
+    var NextConnectionOffset : CGPoint {get}
+    
+    // Animation Duration for the blockly to snap to another blockly
+    var ConnectionSnapDuration : NSTimeInterval {get}
+    
+    // Default size of a blockly
+    var DefaultBlocklySize : CGSize {get}
+    
+    // Default initial center position of the blockly when it first appears on the workspace
+    var DefaultBlocklyCenter : CGPoint {get}
+    
+    // Default color of the Blockly background
+    var DefaultBlocklyBackgroundColor : UIColor {get}
+    
+    // Size of a blank(aka female connection, hole, etc)
+    var BlankSize : CGSize {get}
+    
+    // Size of a tab(aka male connection, key, etc)
+    var TabSize : CGSize {get}
+    
+    // Radius of the range which a connection should search withing to locate another valid connection
+    var SearchRadius : CGFloat {get}
+    
+    // Position offset of a input from the left of the blockly
+    var InputOffset: CGFloat {get}
+    
+    // Height of the empty area below a StatementInput
+    var ShelfHeight: CGFloat {get}
+    
+    // Ratio of height and width a blockly should be bumped away from its original position
+    var BumpOffsetRatio: CGFloat {get}
+    
+    // Animation duration of a blockly to be bumped away
+    var BumpDuration : NSTimeInterval {get}
+    
+    // Default background color of an input
+    var DefaultInputBackgroundColor: UIColor {get}
+    
+    // Default size for an input
+    var DefaultInputFrame : CGRect {get}
+    
+    // Default width for the blockly generator area
+    var BlocklyGeneratorWidth: CGFloat {get}
+    
+    // Default size of a blockly menu button
+    var BlocklyGeneratorButtonSize: CGSize {get}
+    
+}
 
-/**
-    Position offset of Next Connection from the bottom left of the blockly
- */
-let NextConnectionOffset = CGPointMake(60, TabSize.height)
-
-/**
-    Animation Duration for the blockly to snap to another blockly
- */
+let PreviousConnectionOffset = CGPointMake(40, BlankSize.height)
+let NextConnectionOffset = CGPointMake(40, TabSize.height)
 let ConnectionSnapDuration: NSTimeInterval = 0.2
-
-/**
-    Default size of a blockly
- */
-let DefaultBlocklySize = CGSizeMake(150, 30)
-
-/**
-    Default initial center position of the blockly when it first appears on the workspace
- */
+let DefaultBlocklySize = CGSizeMake(140, 30)
 let DefaultBlocklyCenter = CGPointMake(400, 400)
-
-/**
-    Default color of the Blockly background
- */
 let DefaultBlocklyBackgroundColor = UIColor(red: 64/255, green: 208/255, blue: 192/255, alpha: 1) //#40D0C0
-
-/**
-    Size of a blank(aka female connection, hole, etc)
- */
 let BlankSize = CGSizeMake(20, 5)
-
-/**
-    Size of a tab(aka male connection, key, etc)
- */
 let TabSize = CGSizeMake(20, 5)
-
-/**
-    Radius of the range which a connection should search withing to locate another valid connection
- */
 let SearchRadius: CGFloat = 20
-
-/**
-    Position offset of a input from the left of the blockly
- */
 let InputOffset: CGFloat = 10
-
-/**
-    Height of the empty area below a StatementInput
- */
 let ShelfHeight: CGFloat = 10
-
-/**
-    Ratio of height and width a blockly should be bumped away from its original position
- */
 let BumpOffsetRatio: CGFloat = 1.2
-
-/**
-    Animation duration of a blockly to be bumped away
- */
 let BumpDuration = NSTimeInterval(0.2)
-
-/**
-    Default background color of an input
- */
 let DefaultInputBackgroundColor = UIColor.clearColor()
-
-/**
-    Default size for an input
- */
-let DefaultInputFrame = CGRect(origin: CGPointZero, size: DefaultBlocklySize)
-
-/**
-    Default width for the blockly generator area
- */
-let BlocklyGeneratorWidth: CGFloat = 200
-
-/**
-    Default size of a blockly menu button
- */
+let DefaultInputFrame = CGRect(origin: CGPointZero, size: CGSizeMake(140, 30))
+let BlocklyGeneratorWidth: CGFloat = 160
 let BlocklyGeneratorButtonSize: CGSize = CGSizeMake(50, 50)
 
+public class BlocklyUIMode {
+    public static let None      = 0b00000000
+    public static let Deletable = 0b00000010
+    public static let Editable  = 0b00000100
+    public static let Movable   = 0b00001000
+    public static let All       = 0b11111111
+}
+
+public class BlocklyUIState {
+    public static let Normal        = 0b00000000
+    public static let Highlighted   = 0b00000010
+    public static let Selected      = 0b00000100
+    public static let Error         = 0b00001000
+    public static let Warning       = 0b00010000
+}

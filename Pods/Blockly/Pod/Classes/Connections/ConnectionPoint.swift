@@ -10,7 +10,7 @@ import Foundation
 
 protocol ConnectionPoint: class {
     
-    var sourceBlockly: Blockly {get}
+    var sourceBlockly: UIBlocklyView {get}
     var position: CGPoint {get set}
     var connection: Connection {get}
     weak var targetConnectionPoint: ConnectionPoint? {get set}

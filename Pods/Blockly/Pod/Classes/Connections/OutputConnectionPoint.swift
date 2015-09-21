@@ -10,14 +10,14 @@ import Foundation
 
 public class OutputConnectionPoint: ConnectionPoint {
     
-    let sourceBlockly: Blockly
+    let sourceBlockly: UIBlocklyView
     var position: CGPoint
     var connection: Connection {
-        return sourceBlockly.blocklyCore.outputConnection!
+        return sourceBlockly.blockly.outputConnection!
     }
     weak var targetConnectionPoint: ConnectionPoint?
     
-    init(_ sourceBlockly: Blockly) {
+    init(_ sourceBlockly: UIBlocklyView) {
         self.sourceBlockly = sourceBlockly
         self.position = sourceBlockly.center + CGPointMake(-sourceBlockly.frame.width/2, 0)
     }

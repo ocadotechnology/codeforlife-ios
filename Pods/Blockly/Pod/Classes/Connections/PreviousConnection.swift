@@ -10,75 +10,26 @@ import UIKit
 import Foundation
 
 public class PreviousConnection: Connection {
-    
-    public let type: ConnectionType
-    public let sourceBlock: BlocklyCore
-    public weak var targetConnection: Connection? {
-        willSet {
-            if targetConnection != nil {
-                Workspace.topBlocks.append(sourceBlock)
-            }
-        }
-        didSet {
-            if targetConnection != nil {
-                Workspace.topBlocks.remove(sourceBlock)
-            }
-        }
+
+    override public weak var targetConnection: Connection? {
+        willSet { Workspace.getInstance().topBlocks.appendIfNotNil(sourceBlockly) }
+        didSet { Workspace.getInstance().topBlocks.remove(sourceBlockly) }
     }
     
-    init(_ sourceBlock: BlocklyCore) {
-        self.sourceBlock = sourceBlock
-        self.type = .PreviousStatement
+    override public func connect(otherConnection: Connection?) {
+        let oldTargetConnection = detachConnection()
+        let orphanConnection = otherConnection?.detachConnection()
+        self.targetConnection = otherConnection
+        self.appendConnection(orphanConnection)
+        sourceBlockly.blocklyView?.previousTargetConnectionDidChange(oldTargetConnection, orphanConnection: orphanConnection, newTargetConnection: otherConnection)
     }
     
-    public func connect(otherConnection: Connection?) {
-        
-        var oldTargetConnection: Connection?
-        var orphanConnection: Connection?
-        
-        if let targetConnection = targetConnection,
-            otherConnection = otherConnection where targetConnection == otherConnection {
-                /** No Change in Previous Blockly */
-                
-        } else {
-            
-            /** Detach the original previous blockly if there exists one */
-            oldTargetConnection = targetConnection
-            targetConnection?.targetConnection = nil
-            targetConnection = nil
-            
-            if otherConnection?.targetConnection != nil {
-                
-                /** otherBlockly Already have a next blockly */
-                orphanConnection = otherConnection?.targetConnection
-                
-                /** Detach the orginal next blockly of otherBlockly */
-                orphanConnection?.targetConnection = nil
-                otherConnection?.targetConnection = nil
-                
-                /** Attach me to the next blockly of otherBlockly */
-                otherConnection?.targetConnection = self
-                targetConnection = otherConnection
-                
-                if let lastConnection = sourceBlock.lastBlocklyCore.nextConnection {
-                    /** Attach the orphan block back to my tail */
-                    lastConnection.targetConnection = orphanConnection
-                    orphanConnection?.targetConnection = lastConnection
-                }
-                
-            } else {
-                /** Attach to the previous blockly */
-                targetConnection = otherConnection
-                otherConnection?.targetConnection = self
-            }
-        }
-        sourceBlock.blockly?.previousTargetConnectionDidChange(oldTargetConnection, orphanConnection: orphanConnection, newTargetConnection: otherConnection)
+    override public func matchSearchCondition(otherConnection: Connection) -> Bool {
+        return  !sameBlocklyCoreAs(otherConnection) && isValidPairWith(otherConnection)
     }
     
-    public func matchSearchCondition(otherConnection: Connection) -> Bool {
-        return  sourceBlock.blockly! != otherConnection.sourceBlock.blockly! &&
-                (otherConnection.type == ConnectionType.NextStatement ||
-                    otherConnection.type == ConnectionType.InputValue &&
-                    (otherConnection as! InputConnection).inputType == InputType.Statement)
+    private func isValidPairWith(otherConnection: Connection) -> Bool {
+        return otherConnection is NextConnection || otherConnection is InputStatementConnection
     }
+    
 }

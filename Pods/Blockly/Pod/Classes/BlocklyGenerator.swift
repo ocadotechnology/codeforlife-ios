@@ -11,12 +11,15 @@ import Foundation
 
 public class BlocklyGenerator: UIViewController, UIScrollViewDelegate {
     
-    let FirstButtonOrigin = CGPointMake(20, 100)
-    let HeightFromPreviousButton = CGFloat(30)
-    let DefaultBackgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02)
+    let FirstButtonOrigin = CGPointMake(20, 30)
+    let HeightFromPreviousButton = CGFloat(20)
+    let DefaultBackgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
     let NumberOfFingersRequiredToScroll = 2
     
     weak var viewController: BlocklyViewController?
+    
+    
+    var panRecognizer: UIPanGestureRecognizer!
     
     var buttons = [BlocklyButton]() {
         didSet {
@@ -42,10 +45,31 @@ public class BlocklyGenerator: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
     }
     
-    public func addBlocklyButton(closure: () -> Blockly) {
+    public func addBlocklyButton(closure: () -> UIBlocklyView) -> BlocklyGenerator {
         let blocklyButton = BlocklyButton()
         blocklyButton.closure = closure
         buttons.append(blocklyButton)
+        return self
+    }
+    
+    public func addBlocklyButtons(closures: (() -> UIBlocklyView)...) -> BlocklyGenerator {
+        closures.foreach({
+            [unowned self] in
+            let blocklyButton = BlocklyButton()
+            blocklyButton.closure = $0
+            self.buttons.append(blocklyButton)
+        })
+        return self
+    }
+    
+    public func addBlocklyButtons(closures: [() -> UIBlocklyView]) -> BlocklyGenerator {
+        closures.foreach({
+            [unowned self] in
+            let blocklyButton = BlocklyButton()
+            blocklyButton.closure = $0
+            self.buttons.append(blocklyButton)
+            })
+        return self
     }
     
     private func displayBlocklyButtons() -> CGFloat {
@@ -56,6 +80,7 @@ public class BlocklyGenerator: UIViewController, UIScrollViewDelegate {
             let y = index < 1 ? FirstButtonOrigin.y : buttons[index-1].frame.origin.y + buttons[index-1].frame.height + HeightFromPreviousButton
             button.frame = CGRect(origin: CGPointMake(x, y), size: blockly.frame.size)
             blockly.frame.origin = CGPointZero
+            blockly.shapeLayer.shadowOpacity = 0.05
             button.addSubview(blockly)
             button.viewController = viewController
             view.addSubview(button)

@@ -8,49 +8,68 @@
 
 import Foundation
 
-public typealias Closure = (BlocklyInterpreter, BlocklyCore, Int) -> Int
+public typealias Closure = (BlocklyInterpreter, Blockly) -> Int
 public class BlocklyInterpreter {
+    
+    public var vars = [String: String]()
+    private var regs: [Int] = [0]
+    public var lastReg: Int {
+        get { return regs[regs.count-1] }
+        set { regs[regs.count-1] = newValue }
+    }
+    
+    public func pushReg() { regs.append(0) }
+    public func popReg() -> Int { return regs.removeLast() }
     
     public static var closureMap = [Int : Closure]()
     
-    public func interpret(blocklyCore: BlocklyCore?, _ i: Int) {
+    public func interpret(blocklyCore: Blockly?) {
         if let blocklyCore = blocklyCore,
                 closure = BlocklyInterpreter.closureMap[blocklyCore.typeId] {
-            if i == 0 {
-                proceedToNextBlock(blocklyCore, 1)
-            } else {
-                closure(self, blocklyCore, i)
-            }
+            closure(self, blocklyCore)
         } else {
-            proceedToNextBlock(blocklyCore, i)
+            proceedToNextBlockly(blocklyCore)
         }
     }
     
-    public func proceedToNextBlock(blocklyCore: BlocklyCore?, _ i: Int) {
-        if let nextBlocklyCore = blocklyCore?.nextBlocklyCore {
-            interpret(nextBlocklyCore, i)
-        } else if let parentBlocklyCore = blocklyCore?.parentBlocklyCore {
-            interpret(parentBlocklyCore, i-1)
+    public func proceedToNextBlockly(blocklyCore: Blockly?) -> Int {
+        if let nextBlocklyCore = blocklyCore?.nextBlockly {
+            interpret(nextBlocklyCore)
+        } else if let parentBlocklyCore = blocklyCore?.parentBlockly {
+            regs.removeLast()
+            regs[regs.count-1]++
+            interpret(parentBlocklyCore)
         } else {
             exit(0)
         }
+        return -1
     }
     
-    public func proceedToSpecificBlock(blocklyCore: BlocklyCore?, _ i: Int) {
+    public func proceedToSpecificBlockly(blocklyCore: Blockly?) -> Int {
         if let blocklyCore = blocklyCore {
-            interpret(blocklyCore, i)
+            interpret(blocklyCore)
         } else {
             exit(0)
         }
+        return -1
     }
     
-    func exit(exitCode: Int) {
+    func exit(exitCode: Int) -> Int {
         switch exitCode {
         case 0 : println(" -- Interpretation has finished successfully -- ")
         case 1 : println(" -- Cannot find if condition -- ")
         default: println(" -- Unknown Error --")
         }
         println(" -- Interpretation Ended -- ")
+        return -1
+    }
+    
+    func getIfClosure(blockly: Blockly) -> Closure? {
+        var closure: Closure?
+        if let index = blockly.inputConnections[0].targetConnection?.sourceBlockly.typeId {
+            closure = BlocklyInterpreter.closureMap[index]
+        }
+        return closure
     }
     
     

@@ -8,12 +8,16 @@
 
 import Foundation
 
-protocol BlocklyUIDelegate {
+protocol BlocklyUIDelegate: class {
+    
+    
+    
+    
     func inputDidChange()
     func nextConnectionDidChange()
     func previousConnectionDidChange()
     func outputConnectionDidChange()
-    func outputTargetConnectionDidChange(oldTargetConnection: Connection?, orphanConnection: Connection?)
+    func outputTargetConnectionDidChange(oldTargetConnection: Connection?, orphanConnection: Connection?, newTargetConnection: Connection?)
     func previousTargetConnectionDidChange(oldTargetConnection: Connection?, orphanConnection: Connection?, newTargetConnection: Connection?)
-    func nextTargetConnectionDidChange()
+    func nextTargetConnectionDidChange(newTargetConnection: Connection?)
 }

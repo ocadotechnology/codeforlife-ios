@@ -9,10 +9,6 @@
 import UIKit
 import Foundation
 
-class InputStatementConnection: InputConnection {
-    
-    init(_ sourceBlock: BlocklyCore) {
-        super.init(sourceBlock, InputType.Statement)
-    }
+public class InputStatementConnection: InputConnection {
     
 }

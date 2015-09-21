@@ -11,7 +11,6 @@
 		68551E6CF0BF93CECF16DB9E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ED0622401B6256FC0062D3A5 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06223F1B6256FC0062D3A5 /* LaunchScreenViewController.swift */; };
-		ED0622421B6258770062D3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5901B305D720060FC84 /* AppDelegate.swift */; };
 		ED0622441B6259760062D3A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED0622431B6259760062D3A5 /* CoreData.framework */; };
 		ED06227A1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */; };
 		ED06227B1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED0622781B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld */; };
@@ -21,6 +20,8 @@
 		ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5941B305D720060FC84 /* Main.storyboard */; };
 		ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5991B305D720060FC84 /* LaunchScreen.xib */; };
 		ED0BC5B31B3062E60060FC84 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0BC5B21B3062E60060FC84 /* GameViewController.swift */; };
+		ED1484C81BB19166009C7D4D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1484C71BB19166009C7D4D /* Config.swift */; };
+		ED1484D51BB1A38D009C7D4D /* CustomBlocklyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1484D41BB1A38D009C7D4D /* CustomBlocklyFactory.swift */; };
 		ED191B2B1B99D51C00E2627A /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED191B2A1B99D51C00E2627A /* ArrayExtension.swift */; };
 		ED191B2C1B99D55400E2627A /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED191B2A1B99D51C00E2627A /* ArrayExtension.swift */; };
 		ED191B2E1B99D98300E2627A /* WorldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED191B2D1B99D98300E2627A /* WorldNode.swift */; };
@@ -195,6 +196,8 @@
 		ED0BC5A01B305D720060FC84 /* codeforlife-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "codeforlife-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0BC5A51B305D720060FC84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0BC5B21B3062E60060FC84 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		ED1484C71BB19166009C7D4D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		ED1484D41BB1A38D009C7D4D /* CustomBlocklyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBlocklyFactory.swift; sourceTree = "<group>"; };
 		ED191B2A1B99D51C00E2627A /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		ED191B2D1B99D98300E2627A /* WorldNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldNode.swift; sourceTree = "<group>"; };
 		ED1A932B1B429567004E6AD4 /* GameMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMapViewController.swift; sourceTree = "<group>"; };
@@ -250,14 +253,14 @@
 		ED575AFD1B9EECA20093153E /* MapScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
 		ED575AFE1B9EECA20093153E /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		ED575AFF1B9EECA20093153E /* Origin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
-		ED575B0E1B9EECE70093153E /* BlockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockType.swift; path = ../../CoreData/BlockType.swift; sourceTree = "<group>"; };
-		ED575B0F1B9EECE70093153E /* CDMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDMap.swift; path = ../../CoreData/CDMap.swift; sourceTree = "<group>"; };
-		ED575B101B9EECE70093153E /* DecorationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DecorationType.swift; path = ../../CoreData/DecorationType.swift; sourceTree = "<group>"; };
-		ED575B111B9EECE70093153E /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Episode.swift; path = ../../CoreData/Episode.swift; sourceTree = "<group>"; };
-		ED575B121B9EECE70093153E /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Level.swift; path = ../../CoreData/Level.swift; sourceTree = "<group>"; };
-		ED575B131B9EECE70093153E /* LevelBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelBlock.swift; path = ../../CoreData/LevelBlock.swift; sourceTree = "<group>"; };
-		ED575B141B9EECE70093153E /* LevelMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelMode.swift; path = ../../CoreData/LevelMode.swift; sourceTree = "<group>"; };
-		ED575B151B9EECE70093153E /* ThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThemeType.swift; path = ../../CoreData/ThemeType.swift; sourceTree = "<group>"; };
+		ED575B0E1B9EECE70093153E /* BlockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockType.swift; path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/CoreData/BlockType.swift"; sourceTree = "<absolute>"; };
+		ED575B0F1B9EECE70093153E /* CDMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDMap.swift; path = "/Users/joey.chan/Documents/c4l/codeforlife-ios/codeforlife-ios/CoreData/CDMap.swift"; sourceTree = "<absolute>"; };
+		ED575B101B9EECE70093153E /* DecorationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorationType.swift; sourceTree = "<group>"; };
+		ED575B111B9EECE70093153E /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		ED575B121B9EECE70093153E /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		ED575B131B9EECE70093153E /* LevelBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelBlock.swift; sourceTree = "<group>"; };
+		ED575B141B9EECE70093153E /* LevelMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelMode.swift; sourceTree = "<group>"; };
+		ED575B151B9EECE70093153E /* ThemeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeType.swift; sourceTree = "<group>"; };
 		ED575B261B9EED970093153E /* CFC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CFC.swift; path = ../../../GameScenes/Objects/NonMovableGameObjects/CFC.swift; sourceTree = "<group>"; };
 		ED575B271B9EED970093153E /* Decoration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Decoration.swift; path = ../../../GameScenes/Objects/NonMovableGameObjects/Decoration.swift; sourceTree = "<group>"; };
 		ED575B281B9EED970093153E /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = House.swift; path = ../../../GameScenes/Objects/NonMovableGameObjects/House.swift; sourceTree = "<group>"; };
@@ -367,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				ED575B0E1B9EECE70093153E /* BlockType.swift */,
+				ED1484C71BB19166009C7D4D /* Config.swift */,
 				ED575B0F1B9EECE70093153E /* CDMap.swift */,
 				ED575B101B9EECE70093153E /* DecorationType.swift */,
 				ED575B111B9EECE70093153E /* Episode.swift */,
@@ -376,7 +380,7 @@
 				ED575B151B9EECE70093153E /* ThemeType.swift */,
 			);
 			name = "Core Data";
-			path = Models/CoreData;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		ED0A77051B34553000267191 /* Views */ = {
@@ -753,6 +757,7 @@
 				ED575B531B9F2ACB0093153E /* Animations */,
 				ED1A934D1B43D32C004E6AD4 /* Messages */,
 				ED1EB0621B32C09800A595EF /* Requests */,
+				ED1484D41BB1A38D009C7D4D /* CustomBlocklyFactory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -770,6 +775,7 @@
 				ED0BC5891B305D720060FC84 /* Resources */,
 				6B0A2E8A54BBF6754D40DF7C /* Embed Pods Frameworks */,
 				BAA1180D204418E4679A6A4F /* Copy Pods Resources */,
+				ED1484C41BAFF436009C7D4D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -974,6 +980,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-codeforlife-iosTests/Pods-codeforlife-iosTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ED1484C41BAFF436009C7D4D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" db7d5f04ba0600628f66aaac323272a1fe5b11a4 9020c8a09f7e2cda06d729e0ee6f679a42ac1dcb36845df89b993f495ad2231f";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1036,6 +1055,7 @@
 				ED575AEA1B9EEB110093153E /* LoadLevelsRequest.swift in Sources */,
 				ED575A7F1B9EEAE50093153E /* GameViewControllerDelegate.swift in Sources */,
 				EDFE93401B41820A00E01322 /* HelpMessageView.swift in Sources */,
+				ED1484C81BB19166009C7D4D /* Config.swift in Sources */,
 				ED575A811B9EEAE50093153E /* AnimationHandler.swift in Sources */,
 				ED191B2E1B99D98300E2627A /* WorldNode.swift in Sources */,
 				ED06227A1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */,
@@ -1044,6 +1064,7 @@
 				ED575AE21B9EEB110093153E /* LoadEpisodesRequest.swift in Sources */,
 				ED90B4471B60D6920076B70D /* CGPointExtension.swift in Sources */,
 				EDDF0F111B416DD300F2D779 /* PreGameMessageView.swift in Sources */,
+				ED1484D51BB1A38D009C7D4D /* CustomBlocklyFactory.swift in Sources */,
 				EDD1A2B81B4D5497001A82A2 /* Rotation.swift in Sources */,
 				ED575AF41B9EEB110093153E /* RequestDelegate.swift in Sources */,
 				ED575AAD1B9EEAE50093153E /* GameVanTurnLeftCrashAnimation.swift in Sources */,
@@ -1107,7 +1128,6 @@
 				ED6F79921B3D7DD400DD2AFE /* DirectDriveButton.swift in Sources */,
 				ED06227B1B625B3F0062D3A5 /* codeforlife-ios.xcdatamodeld in Sources */,
 				ED4277C11BA1CC8D00665AB1 /* CoordinatesUnitTests.swift in Sources */,
-				ED0622421B6258770062D3A5 /* AppDelegate.swift in Sources */,
 				EDA47C3C1B441E35003356AB /* EpisodeTableView.swift in Sources */,
 				ED575B521B9EEE2C0093153E /* LevelTitleLabel.swift in Sources */,
 				ED4277C31BA1D13400665AB1 /* LaunchScreenViewControllerUnitTests.swift in Sources */,

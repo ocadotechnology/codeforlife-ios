@@ -10,20 +10,20 @@ import Foundation
 
 public class NextConnectionPoint: ConnectionPoint {
     
-    let sourceBlockly: Blockly
+    let sourceBlockly: UIBlocklyView
     var position: CGPoint {
         didSet {
-            let targetConnectionPoint = connection.targetConnection?.sourceBlock.blockly?.previousConnectionPoint
+            let targetConnectionPoint = connection.targetConnection?.sourceBlockly.blocklyView?.previousConnectionPoint
             targetConnectionPoint?.position = position
             targetConnectionPoint?.updateSourceBlockCenter()
         }
     }
     var connection: Connection {
-        return sourceBlockly.blocklyCore.nextConnection!
+        return sourceBlockly.blockly.nextConnection!
     }
     weak var targetConnectionPoint: ConnectionPoint?
     
-    init(_ sourceBlockly: Blockly) {
+    init(_ sourceBlockly: UIBlocklyView) {
         self.sourceBlockly = sourceBlockly
         self.position = sourceBlockly.frame.origin + CGPointMake(0, sourceBlockly.frame.height - TabSize.height) + NextConnectionOffset
     }
