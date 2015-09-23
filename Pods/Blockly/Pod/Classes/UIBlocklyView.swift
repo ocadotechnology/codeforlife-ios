@@ -35,7 +35,6 @@ public class UIBlocklyView: UIView, BlocklyUIDelegate {
         self.blockly = Blockly()
         super.init(frame: CGRect(origin: CGPointZero, size: CGSizeZero))
         self.blockly.blocklyView = self
-        Workspace.getInstance().blocklys.append(self.blockly)
         self.backgroundColor = UIColor.clearColor()
         self.center = DefaultBlocklyCenter
         self.blockly.setNextStatement(true)
@@ -94,11 +93,10 @@ public class UIBlocklyView: UIView, BlocklyUIDelegate {
     
     public func removeFromWorkspace(force: Bool) {
         if (force || (mode & BlocklyUIMode.Deletable != 0)) {
-            println("HI")
             inputs.foreach({$0.targetBlockly?.removeFromWorkspace(force)})
             nextBlockly?.removeFromWorkspace(force)
-            self.removeFromSuperview()
             blockly.removeFromWorkspace()
+            self.removeFromSuperview()
         }
     }
     

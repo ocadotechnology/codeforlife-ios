@@ -10,17 +10,17 @@ import UIKit
 import Foundation
 
 public class PreviousConnection: Connection {
-
-    override public weak var targetConnection: Connection? {
-        willSet { Workspace.getInstance().topBlocks.appendIfNotNil(sourceBlockly) }
-        didSet { Workspace.getInstance().topBlocks.remove(sourceBlockly) }
-    }
     
     override public func connect(otherConnection: Connection?) {
         let oldTargetConnection = detachConnection()
         let orphanConnection = otherConnection?.detachConnection()
         self.targetConnection = otherConnection
         self.appendConnection(orphanConnection)
+        if targetConnection == nil {
+            Workspace.getInstance().topBlocks.appendIfNotNil(sourceBlockly)
+        } else {
+            Workspace.getInstance().topBlocks.remove(sourceBlockly)
+        }
         sourceBlockly.blocklyView?.previousTargetConnectionDidChange(oldTargetConnection, orphanConnection: orphanConnection, newTargetConnection: otherConnection)
     }
     

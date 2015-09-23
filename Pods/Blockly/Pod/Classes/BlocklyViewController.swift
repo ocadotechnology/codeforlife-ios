@@ -68,6 +68,7 @@ public class BlocklyViewController: UIViewController {
         view.addSubview(blocklyView)
         blocklyView.viewController = self
         Workspace.getInstance().topBlocks.append(blocklyView.blockly)
+        Workspace.getInstance().blocklys.append(blocklyView.blockly)
     }
     
     func findBlocklyAtPoint(pos: CGPoint) -> UIBlocklyView? {
@@ -82,7 +83,7 @@ public class BlocklyViewController: UIViewController {
     }
     
     override public func viewWillDisappear(animated: Bool) {
-        view.removeGestureRecognizer(recognizer!)
+//        view.removeGestureRecognizer(recognizer!)
         blocklyGenerator.willMoveToParentViewController(nil)
         blocklyGenerator.view.removeFromSuperview()
         blocklyGenerator.removeFromParentViewController()

@@ -17,6 +17,7 @@ public class NextConnection: Connection {
         }
         self.detachConnection()
         self.targetConnection = otherConnection
+        Workspace.getInstance().topBlocks.remove(otherConnection?.sourceBlockly)
         sourceBlockly.blocklyView?.nextTargetConnectionDidChange(otherConnection)
     }
     

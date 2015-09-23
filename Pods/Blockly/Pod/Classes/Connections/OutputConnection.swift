@@ -12,9 +12,7 @@ import Foundation
 public class OutputConnection: Connection {
     
     override public weak var targetConnection: Connection? {
-        willSet { Workspace.getInstance().topBlocks.appendIfNotNil(sourceBlockly) }
         didSet {
-            Workspace.getInstance().topBlocks.remove(sourceBlockly)
             if targetConnection?.targetConnection !== self {
                 targetConnection?.targetConnection = self
             }
@@ -32,6 +30,11 @@ public class OutputConnection: Connection {
         let oldTargetConnection = detachConnection()
         let orphanConnection = otherConnection?.detachConnection()
         targetConnection = otherConnection
+        if targetConnection == nil {
+            Workspace.getInstance().topBlocks.appendIfNotNil(sourceBlockly)
+        } else {
+            Workspace.getInstance().topBlocks.remove(sourceBlockly)
+        }
         sourceBlockly.blocklyView?.outputTargetConnectionDidChange(oldTargetConnection, orphanConnection: orphanConnection, newTargetConnection: otherConnection)
     }
     

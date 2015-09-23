@@ -55,25 +55,14 @@ class BlocklyPanGestureRecognizer: UIPanGestureRecognizer {
                 
             case UIGestureRecognizerState.Ended:
                 connectionHighlighted = nil
+                var blocklyToBeDeleted: UIBlocklyView?
                 if blocklyVC.trashcan.frame.contains(sender.locationInView(sender.view)) ||
                     blocklyVC.blocklyGenerator.view.frame.contains(sender.locationInView(sender.view)){
-                        //                blocklyOnDrag?.foreach({
-                        //                    (blocklyView) in
-                        //                    UIView.animateWithDuration(5.0,
-                        //                        animations: {
-                        //                            [unowned self] in
-                        //                            blocklyView.frame.origin = self.blocklyVC.trashcan.center
-                        //                            blocklyView.frame.size = CGSizeMake(1, 1)
-                        //                    },
-                        //                        completion: {
-                        //                            (waitForCompletion) in
-                        //                            blocklyView.removeFromWorkspace(false)
-                        //                    })
-                        //                })
-                        blocklyOnDrag?.removeFromWorkspace(false)
+                        blocklyToBeDeleted = blocklyOnDrag
                 }
                 blocklyOnDrag = nil
                 blocklyVC.trashcan.open = false
+                blocklyToBeDeleted?.removeFromWorkspace(false)
             default: break
             }
         }
