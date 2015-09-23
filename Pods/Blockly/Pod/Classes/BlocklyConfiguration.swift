@@ -78,7 +78,7 @@ let BumpOffsetRatio: CGFloat = 1.2
 let BumpDuration = NSTimeInterval(0.2)
 let DefaultInputBackgroundColor = UIColor.clearColor()
 let DefaultInputFrame = CGRect(origin: CGPointZero, size: CGSizeMake(140, 30))
-let BlocklyGeneratorWidth: CGFloat = 160
+let BlocklyGeneratorWidth: CGFloat = 200
 let BlocklyGeneratorButtonSize: CGSize = CGSizeMake(50, 50)
 
 public class BlocklyUIMode {

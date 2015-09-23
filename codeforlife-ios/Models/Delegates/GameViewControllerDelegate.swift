@@ -281,9 +281,14 @@ public class GameViewControllerDelegate: AnimationDelegate, MessageViewControlle
     }
     
     func stepAnimation(step: Bool, completion: (() -> Void)?) {
-        println(gameMapViewController?.animationHandler)
         gameMapViewController?.animationHandler?.step = step
         completion?()
+    }
+    
+    func stopStepAnimation(completion: (() -> Void)?) {
+        if gameMenuViewController?.controlMode != .onStopControls {
+            switchControlMode(.onPauseControls, completion: completion)
+        }
     }
     
     func enableMultimediaButtons(enable: Bool, completion: (() -> Void)?) {

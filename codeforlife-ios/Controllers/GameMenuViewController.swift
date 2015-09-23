@@ -69,21 +69,26 @@ public class GameMenuViewController: UIViewController {
             case .onPlayControls:
                 clearButton.enabled = false
                 gvcDelegate?.setBlocklyEditable(false, completion: nil)
+                println("changed to onPlayControls")
                 
             case .onStepControls:
                 clearButton.enabled = false
                 playButton.enabled = false
                 gvcDelegate?.setBlocklyEditable(false, completion: nil)
+                println("changed to onStepControls")
                 
             case .onPauseControls:
                 playButton.enabled = true
+                println("changed to onPauseControls")
                 
-            case .onResumeControls: break
+            case .onResumeControls:
+                println("changed to onResumeControls")
                 
             case .onStopControls:
                 clearButton.enabled = true
                 playButton.enabled = true
                 gvcDelegate?.setBlocklyEditable(true, completion: nil)
+                println("changed to onStopControls")
                 
             }
         }

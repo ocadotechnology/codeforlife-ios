@@ -40,7 +40,7 @@ public class AnimationHandler {
                 runAnimation = step ? false : runAnimation.boolValue
                 if step {
                     step = false
-                    afDelegate?.switchControlMode(.onPauseControls, completion: nil)
+                    afDelegate?.stopStepAnimation(nil)
                 }
             }
         }
