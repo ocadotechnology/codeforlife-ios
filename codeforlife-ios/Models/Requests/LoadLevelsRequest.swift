@@ -24,7 +24,7 @@ class LoadLevelsRequest: Request {
     
     init(viewController: LoadScreenDelegate?) {
         self.viewController = viewController
-        self.url = ""
+        self.url = "https://www.codeforlife.education/rapidrouter/api/levels/"
         self.method = .GET
         self.params = [String: String]()
         self.mode = DefaultMode

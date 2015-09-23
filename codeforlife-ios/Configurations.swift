@@ -9,11 +9,11 @@
 import UIKit
 import Foundation
 
-let DefaultMode = Mode.Development
+let DefaultMode = Mode.Normal
 let WebViewEnabled = true
 
-let DevUsername = "trial"
-let DevPassword = "cabbage"
+//let DevUsername = "trial"
+//let DevPassword = "cabbage"
 
 enum Mode {
     case Development

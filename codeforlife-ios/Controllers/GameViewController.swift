@@ -114,10 +114,10 @@ public class GameViewController: UIViewController, WKNavigationDelegate {
         self.gameViewInteractionHandler.gvcDelegate.enableMultimediaButtons(true, completion: nil)
     }
     
-    public func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
-        var credential = NSURLCredential(user: DevUsername, password: DevPassword, persistence: NSURLCredentialPersistence.Permanent)
-        completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
-    }
+//    public func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
+//        var credential = NSURLCredential(user: DevUsername, password: DevPassword, persistence: NSURLCredentialPersistence.Permanent)
+//        completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
+//    }
     
     override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {

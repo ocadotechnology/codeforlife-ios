@@ -28,7 +28,7 @@ class LoadEpisodesRequest: Request {
     let devUrl = "https://dev-dot-decent-digit-629.appspot.com/rapidrouter/api/episodes/"
     
     init(viewController: LoadScreenDelegate?) {
-        self.url = ""
+        self.url = "https://www.codeforlife.education/rapidrouter/api/episodes/"
         self.method = .GET
         self.params = [String: String]()
         self.mode = DefaultMode

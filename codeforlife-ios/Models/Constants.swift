@@ -11,8 +11,8 @@ import Foundation
 
 /* URLs */
 
-//let kCFLDomain = "https://www.codeforlife.education/"
-let kCFLDomain = "https://dev-dot-decent-digit-629.appspot.com/"
+let kCFLDomain = "https://www.codeforlife.education/"
+//let kCFLDomain = "https://dev-dot-decent-digit-629.appspot.com/"
 //let kCFLDomain = "http://localhost:8000/"
 let kCFLFetchLevelsAction = "TODO"
 let kCFLRapidRouter = "rapidrouter/"
