@@ -8,7 +8,6 @@
 
 import UIKit
 import WebKit
-import SnapKit
 import AVFoundation
 
 public class GameViewController: UIViewController, WKNavigationDelegate {
