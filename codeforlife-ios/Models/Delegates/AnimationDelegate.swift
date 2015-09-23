@@ -17,6 +17,7 @@ protocol AnimationDelegate {
     func vanMoveForward(completion: (() -> Void)?)
     func vanCrashForward(completion: (() -> Void)?)
     func vanStartEngine(completion: (() -> Void)?)
+    func vanStopEngine(completion: (() -> Void)?)
     func vanTurnLeft(completion: (() -> Void)?)
     func vanCrashLeft(completion: (() -> Void)?)
     func vanTurnRight(completion: (() -> Void)?)

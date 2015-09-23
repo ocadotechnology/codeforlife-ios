@@ -8,9 +8,14 @@
 
 import Foundation
 
+public protocol AnimationHandlerDelegate: class {
+    func stopStepAnimation(completion: (() -> Void)?)
+    func resetVan(completion: (() -> Void)?)
+}
+
 public class AnimationHandler {
     
-    weak var afDelegate: GameViewControllerDelegate?
+    weak var afDelegate: AnimationHandlerDelegate?
     
     lazy var animationQueues: [[Animation]] = [[]]
     
@@ -18,14 +23,14 @@ public class AnimationHandler {
     
     var step = false 
     
-    var runAnimation = false {
+    var shouldRunNextSetOfAnimations = false {
         didSet {
-            if runAnimation && runningAnimationsRemained == 0 {
+            if shouldRunNextSetOfAnimations && runningAnimationsRemained == 0 {
                 // reset animations if all animations are run
                 if isAnimationCycleFinished {
                     resetAnimation()
                 }
-                runAnimations()
+                runNextSetOfAnimations()
             }
         }
     }
@@ -37,7 +42,7 @@ public class AnimationHandler {
     var runningAnimationsRemained = 0 {
         didSet {
             if runningAnimationsRemained == 0 {
-                runAnimation = step ? false : runAnimation.boolValue
+                shouldRunNextSetOfAnimations = step ? false : shouldRunNextSetOfAnimations.boolValue
                 if step {
                     step = false
                     afDelegate?.stopStepAnimation(nil)
@@ -46,14 +51,14 @@ public class AnimationHandler {
         }
     }
     
-    public init(delegate: GameViewControllerDelegate?) {
+    public init(delegate: AnimationHandlerDelegate?) {
         self.afDelegate = delegate
     }
     
     func executeAnimations(animationQueues: [[Animation]]) {
         self.animationQueues = animationQueues
         currentIndex = 0
-        runAnimation = true
+        shouldRunNextSetOfAnimations = true
     }
     
     func removeAllAnimations() {
@@ -62,7 +67,7 @@ public class AnimationHandler {
     
     func resetVariables() {
         currentIndex = 0
-        runAnimation = false
+        shouldRunNextSetOfAnimations = false
     }
     
     private func resetAnimation() {
@@ -70,7 +75,7 @@ public class AnimationHandler {
         self.afDelegate?.resetVan(nil)
     }
     
-    private func runAnimations() {
+    private func runNextSetOfAnimations() {
         println("===== \(currentIndex+1)/\(animationQueues.count) ======")
         println("Number of Animations to run = \(animationQueues[currentIndex].count)")
         runningAnimationsRemained = animationQueues[currentIndex].count
@@ -78,7 +83,7 @@ public class AnimationHandler {
             animation.execute {
                 [unowned self] in
                 if self.isAnimationCycleFinished {
-                    self.runAnimation = false
+                    self.shouldRunNextSetOfAnimations = false
                 }
                 // Notify to run next Animation if all concurrent animations finish
                 self.runningAnimationsRemained--

@@ -25,8 +25,8 @@ public class GameMapViewController: UIViewController, UIScrollViewDelegate {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        mapView.showsFPS = true
-        mapView.showsNodeCount = true
+//        mapView.showsFPS = true
+//        mapView.showsNodeCount = true
         mapView.ignoresSiblingOrder = true
         scrollView.delegate = self
         animationHandler = AnimationHandler(delegate: gvcDelegate)

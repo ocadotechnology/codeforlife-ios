@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Animation {
+public class Animation {
     
-    let delegate: GameViewControllerDelegate?
+    let delegate: AnimationDelegate?
     
-    init(delegate: GameViewControllerDelegate?) {
+    init(delegate: AnimationDelegate?) {
         self.delegate = delegate
     }
     

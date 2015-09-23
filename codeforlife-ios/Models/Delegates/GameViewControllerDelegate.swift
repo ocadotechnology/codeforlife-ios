@@ -10,7 +10,14 @@ import Foundation
 import SwiftyJSON
 import SpriteKit
 
-public class GameViewControllerDelegate: AnimationDelegate, MessageViewControllerDelegate, GameViewInteractionHandlerDelegate, MapSceneDelegate, GameMenuViewControllerDelegate {
+public class GameViewControllerDelegate:
+    AnimationDelegate,
+    AnimationHandlerDelegate,
+    BlocklyViewControllerDelegate,
+    MessageViewControllerDelegate,
+    GameViewInteractionHandlerDelegate,
+    MapSceneDelegate,
+    GameMenuViewControllerDelegate {
     
      public weak var gameViewController: GameViewController?
      public weak var gameMenuViewController: GameMenuViewController?
@@ -38,7 +45,7 @@ public class GameViewControllerDelegate: AnimationDelegate, MessageViewControlle
         completion?()
     }
     
-    func clear(completion: (() -> Void)?) {
+    public func clear(completion: (() -> Void)?) {
         blocklyViewController?.clearBlocks()
         blocklyViewController?.resetHighlightCellVariables()
         gameMapViewController?.mapScene?.resetMap()
@@ -46,7 +53,7 @@ public class GameViewControllerDelegate: AnimationDelegate, MessageViewControlle
         completion?()
     }
     
-    func help(completion: (() -> Void)?) {
+    public func help(completion: (() -> Void)?) {
         let controller = MessageViewController(nil, delegate: self)
         controller.modalPresentationStyle = UIModalPresentationStyle.FormSheet
         gameViewController?.presentViewController(controller, animated: true, completion: nil)
@@ -65,7 +72,7 @@ public class GameViewControllerDelegate: AnimationDelegate, MessageViewControlle
         completion?()
     }
     
-    func play(completion: (() -> Void)?) {
+    public func play(completion: (() -> Void)?) {
         // Native UI Update
         gameMapViewController?.mapScene?.resetMap()
         resetAnimation(nil)
@@ -232,7 +239,7 @@ public class GameViewControllerDelegate: AnimationDelegate, MessageViewControlle
         switchControlMode(.onStopControls, completion: nil)
     }
     
-    func submitBlocks(script: String, completion: (() -> Void)?) {
+    public func submitBlocks(script: String, completion: (() -> Void)?) {
         gameViewController?.runJavaScript(script, callback: completion)
     }
     
@@ -251,12 +258,12 @@ public class GameViewControllerDelegate: AnimationDelegate, MessageViewControlle
         completion?()
     }
     
-    func setBlocklyEditable(editable: Bool, completion: (() -> Void)?) {
+    public func setBlocklyEditable(editable: Bool, completion: (() -> Void)?) {
         blocklyViewController?.editable = editable
         completion?()
     }
     
-    func stop(completion: (() -> Void)?) {
+    public func stop(completion: (() -> Void)?) {
         blocklyViewController?.resetHighlightCellVariables()
         gameMapViewController?.mapScene?.van.reset()
         gameMapViewController?.mapScene?.resetMap()
@@ -270,22 +277,22 @@ public class GameViewControllerDelegate: AnimationDelegate, MessageViewControlle
         completion?()
     }
     
-    func resetVan(completion: (() -> Void)?) {
+    public func resetVan(completion: (() -> Void)?) {
         gameMapViewController?.mapScene?.van.reset()
         completion?()
     }
     
-    func runAnimation(runAnimation: Bool, completion: (() -> Void)?) {
-        gameMapViewController?.animationHandler?.runAnimation = runAnimation
+    public func runAnimation(runAnimation: Bool, completion: (() -> Void)?) {
+        gameMapViewController?.animationHandler?.shouldRunNextSetOfAnimations = runAnimation
         completion?()
     }
     
-    func stepAnimation(step: Bool, completion: (() -> Void)?) {
+    public func stepAnimation(step: Bool, completion: (() -> Void)?) {
         gameMapViewController?.animationHandler?.step = step
         completion?()
     }
     
-    func stopStepAnimation(completion: (() -> Void)?) {
+    public func stopStepAnimation(completion: (() -> Void)?) {
         if gameMenuViewController?.controlMode != .onStopControls {
             switchControlMode(.onPauseControls, completion: completion)
         }

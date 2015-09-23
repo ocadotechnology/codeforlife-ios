@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol BlocklyViewControllerDelegate {
+public protocol BlocklyViewControllerDelegate: class {
     func submitBlocks(script: String, completion: (() -> Void)?)
 }
