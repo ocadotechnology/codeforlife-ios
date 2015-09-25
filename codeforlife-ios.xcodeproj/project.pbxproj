@@ -752,12 +752,12 @@
 			children = (
 				ED5759F31B9EE9DE0093153E /* Constants.swift */,
 				EDA47C441B442A1E003356AB /* Configurations.swift */,
+				ED1484D41BB1A38D009C7D4D /* CustomBlocklyFactory.swift */,
 				ED5D7E8F1B9D944D006723B3 /* InteractionHandler */,
 				ED236EA11B341CF800B63380 /* Delegates */,
 				ED575B531B9F2ACB0093153E /* Animations */,
 				ED1A934D1B43D32C004E6AD4 /* Messages */,
 				ED1EB0621B32C09800A595EF /* Requests */,
-				ED1484D41BB1A38D009C7D4D /* CustomBlocklyFactory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
