@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CD66AD011DAAB35F28CAFB8 /* Pods_codeforlife_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3915C524D4187AB82BC368 /* Pods_codeforlife_iosTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		68551E6CF0BF93CECF16DB9E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4CD66AD011DAAB35F28CAFB8 /* Pods_codeforlife_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3915C524D4187AB82BC368 /* Pods_codeforlife_iosTests.framework */; };
+		68551E6CF0BF93CECF16DB9E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; };
 		B0CCFEA4F2910304EE9341B2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77FE0166D1735B9290ACD65 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ED0622401B6256FC0062D3A5 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED06223F1B6256FC0062D3A5 /* LaunchScreenViewController.swift */; };
 		ED0622441B6259760062D3A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED0622431B6259760062D3A5 /* CoreData.framework */; };
@@ -813,6 +813,8 @@
 		ED0BC5831B305D720060FC84 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Joey Chan";
 				TargetAttributes = {

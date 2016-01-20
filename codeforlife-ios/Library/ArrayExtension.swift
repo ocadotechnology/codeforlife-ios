@@ -10,13 +10,13 @@ import Foundation
 
 extension Array {
     
-    mutating func appendIfNotNil(newElement: T?) {
+    mutating func appendIfNotNil(newElement: Element?) {
         if let newElement = newElement {
             append(newElement)
         }
     }
     
-    func foreach(closure: (T) -> Void) {
+    func foreach(closure: (Element) -> Void) {
         for element in self {
             closure(element)
         }

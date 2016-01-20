@@ -5,9 +5,9 @@ platform :ios, '8.0'
 
 use_frameworks!
 
-pod 'Blockly', '0.1.1-beta'
-pod 'SwiftyJSON', '~> 2.2.0'
-pod 'Alamofire', '~> 1.2'
+pod 'Blockly'
+pod 'SwiftyJSON'
+pod 'Alamofire'
 
 target 'codeforlife-iosTests' do
     pod 'KIF', '~> 3.0', :configurations => ['Debug']

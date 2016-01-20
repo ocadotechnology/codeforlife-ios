@@ -1,35 +1,34 @@
 PODS:
-  - Alamofire (1.3.1)
-  - Blockly (0.1.1-beta)
-  - Crashlytics (3.3.1)
-  - Fabric (1.5.1):
-    - Fabric/Base (= 1.5.1)
-  - Fabric/Base (1.5.1)
-  - KIF (3.3.0):
-    - KIF/Core (= 3.3.0)
-  - KIF/Core (3.3.0)
+  - Alamofire (3.1.5)
+  - Blockly (0.1.3)
+  - Crashlytics (3.6.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.3)
+  - KIF (3.3.1):
+    - KIF/Core (= 3.3.1)
+  - KIF/Core (3.3.1)
   - Nimble (1.0.0)
   - Quick (0.3.1)
-  - SwiftyJSON (2.2.1)
+  - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.2)
-  - Blockly (= 0.1.1-beta)
+  - Alamofire
+  - Blockly
   - Crashlytics
   - Fabric
   - KIF (~> 3.0)
   - Nimble (~> 1.0.0)
   - Quick (~> 0.3.0)
-  - SwiftyJSON (~> 2.2.0)
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
-  Blockly: 3e7b02461de5f955e4bbcec9a619ef5efb961082
-  Crashlytics: 0e61bdda9def51f1e99720f804eebe94865442b2
-  Fabric: 03c3b3fe77e11a2bc31421b989a9c7adaa4779a5
-  KIF: 0a82046d06f3648799cac522d2d0f7934214caac
+  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  Blockly: 9c54d3ad6be39aa38b14262bebc9c3b8c66c741c
+  Crashlytics: e4e8d02914f2608fbc7bf42b1a7af838b0db67a2
+  Fabric: cbe0ca6c9531bba17910052f6f105fcbc5fa7f67
+  KIF: ff9f0e585503871bcd096937cc760081d770c5e2
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
-  SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

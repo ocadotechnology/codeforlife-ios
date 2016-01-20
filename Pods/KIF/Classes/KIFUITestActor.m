@@ -118,7 +118,7 @@
         KIFTestWaitCondition(view, error, @"Cannot find view containing accessibility element with the label \"%@\"", label);
 
         // Hidden views count as absent
-        KIFTestWaitCondition([view isHidden] || [view superview] == nil, error, @"Accessibility element with label \"%@\" is visible and not hidden.", label);
+        KIFTestWaitCondition([view isHidden] || [view superview] == nil, error, @"Accessibility element %@ with label \"%@\" is visible and not hidden.", view, label);
         
         return KIFTestStepResultSuccess;
     }];
@@ -190,7 +190,7 @@
 {
     [self runBlock:^KIFTestStepResult(NSError **error) {
         
-        KIFTestWaitCondition(view.isUserInteractionActuallyEnabled, error, @"View is not enabled for interaction");
+        KIFTestWaitCondition(view.isUserInteractionActuallyEnabled, error, @"View is not enabled for interaction: %@", view);
         
         // If the accessibilityFrame is not set, fallback to the view frame.
         CGRect elementFrame;
@@ -203,7 +203,7 @@
         CGPoint tappablePointInElement = [view tappablePointInRect:elementFrame];
         
         // This is mostly redundant of the test in _accessibilityElementWithLabel:
-        KIFTestWaitCondition(!isnan(tappablePointInElement.x), error, @"View is not tappable");
+        KIFTestWaitCondition(!isnan(tappablePointInElement.x), error, @"View is not tappable: %@", view);
         
         NSOperatingSystemVersion iOS9 = {9, 0, 0};
         BOOL isOperatingSystemAtLeastVersion9 = [NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)] && [[NSProcessInfo new] isOperatingSystemAtLeastVersion:iOS9];
@@ -213,7 +213,7 @@
             [view tapAtPoint:tappablePointInElement];
         }
 
-        KIFTestCondition(![view canBecomeFirstResponder] || [view isDescendantOfFirstResponder], error, @"Failed to make the view into the first responder");
+        KIFTestCondition(![view canBecomeFirstResponder] || [view isDescendantOfFirstResponder], error, @"Failed to make the view into the first responder: %@", view);
         
         return KIFTestStepResultSuccess;
     }];
@@ -271,16 +271,16 @@
 {
     [self runBlock:^KIFTestStepResult(NSError **error) {
         
-        KIFTestWaitCondition(view.isUserInteractionActuallyEnabled, error, @"View is not enabled for interaction");
+        KIFTestWaitCondition(view.isUserInteractionActuallyEnabled, error, @"View is not enabled for interaction: %@", view);
         
         CGRect elementFrame = [view.windowOrIdentityWindow convertRect:element.accessibilityFrame toView:view];
         CGPoint tappablePointInElement = [view tappablePointInRect:elementFrame];
         
         // This is mostly redundant of the test in _accessibilityElementWithLabel:
-        KIFTestWaitCondition(!isnan(tappablePointInElement.x), error, @"View is not tappable");
+        KIFTestWaitCondition(!isnan(tappablePointInElement.x), error, @"View is not tappable: %@", view);
         [view longPressAtPoint:tappablePointInElement duration:duration];
         
-        KIFTestCondition(![view canBecomeFirstResponder] || [view isDescendantOfFirstResponder], error, @"Failed to make the view into the first responder");
+        KIFTestCondition(![view canBecomeFirstResponder] || [view isDescendantOfFirstResponder], error, @"Failed to make the view into the first responder: %@", view);
         
         return KIFTestStepResultSuccess;
     }];
@@ -832,6 +832,51 @@
     [viewToSwipe dragFromPoint:swipeStart displacement:swipeDisplacement steps:kNumberOfPointsInSwipePath];
 }
 
+- (void)pullToRefreshViewWithAccessibilityLabel:(NSString *)label
+{
+	[self pullToRefreshViewWithAccessibilityLabel:label value:nil pullDownDuration:nil traits:UIAccessibilityTraitNone];
+}
+
+- (void)pullToRefreshViewWithAccessibilityLabel:(NSString *)label pullDownDuration:(KIFPullToRefreshTiming) pullDownDuration
+{
+	[self pullToRefreshViewWithAccessibilityLabel:label value:nil pullDownDuration: pullDownDuration traits:UIAccessibilityTraitNone];
+}
+
+- (void)pullToRefreshViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value
+{
+	[self pullToRefreshViewWithAccessibilityLabel:label value:value pullDownDuration: nil traits:UIAccessibilityTraitNone];
+}
+
+- (void)pullToRefreshViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value pullDownDuration:(KIFPullToRefreshTiming) pullDownDuration traits:(UIAccessibilityTraits)traits
+{
+	UIView *viewToSwipe = nil;
+	UIAccessibilityElement *element = nil;
+
+	[self waitForAccessibilityElement:&element view:&viewToSwipe withLabel:label value:value traits:traits tappable:YES];
+
+	[self pullToRefreshAccessibilityElement:element inView:viewToSwipe pullDownDuration:pullDownDuration];
+}
+
+- (void)pullToRefreshAccessibilityElement:(UIAccessibilityElement *)element inView:(UIView *)viewToSwipe pullDownDuration:(KIFPullToRefreshTiming) pullDownDuration
+{
+	//Based on swipeAccessibilityElement
+
+	const NSUInteger kNumberOfPointsInSwipePath = pullDownDuration ? pullDownDuration : KIFPullToRefreshInAboutAHalfSecond;
+
+	// Within this method, all geometry is done in the coordinate system of the view to swipe.
+
+	CGFloat height = [(UITableView *)viewToSwipe contentSize].height;
+	CGFloat	width = [(UITableView *)viewToSwipe contentSize].width;
+	CGRect elementFrame = CGRectMake(0,0, width, height);
+
+	CGFloat halfHeight = height/2.0;
+	CGPoint swipeDisplacement = CGPointMake(width, halfHeight);
+
+	CGPoint swipeStart = CGPointCenteredInRect(elementFrame);
+
+	[viewToSwipe dragFromPoint:swipeStart displacement:swipeDisplacement steps:kNumberOfPointsInSwipePath];
+}
+
 - (void)scrollViewWithAccessibilityLabel:(NSString *)label byFractionOfSizeHorizontal:(CGFloat)horizontalFraction vertical:(CGFloat)verticalFraction
 {
     UIView *viewToScroll;
@@ -889,7 +934,7 @@
         
         // foundLabel == label checks for the case where both are nil.
         KIFTestWaitCondition(foundLabel == label || [foundLabel isEqualToString:label], error, @"Expected accessibility label for first responder to be '%@', got '%@'", label, foundLabel);
-        KIFTestWaitCondition(firstResponder.accessibilityTraits & traits, error, @"Found first responder with accessibility label, but not traits.");
+        KIFTestWaitCondition(firstResponder.accessibilityTraits & traits, error, @"Found first responder with accessibility label, but not traits. First responder: %@", firstResponder);
         
         return KIFTestStepResultSuccess;
     }];
@@ -1058,7 +1103,7 @@
 {
 	[self runBlock:^KIFTestStepResult(NSError **error) {
 
-		KIFTestWaitCondition(view.isUserInteractionActuallyEnabled, error, @"View is not enabled for interaction");
+		KIFTestWaitCondition(view.isUserInteractionActuallyEnabled, error, @"View is not enabled for interaction: %@", view);
 
 		// If the accessibilityFrame is not set, fallback to the view frame.
 		CGRect elementFrame;
@@ -1082,10 +1127,10 @@
 		}
 
 		// This is mostly redundant of the test in _accessibilityElementWithLabel:
-		KIFTestWaitCondition(!isnan(stepperPointToTap.x), error, @"View is not tappable");
+		KIFTestWaitCondition(!isnan(stepperPointToTap.x), error, @"View is not tappable: %@", view);
 		[view tapAtPoint:stepperPointToTap];
 
-		KIFTestCondition(![view canBecomeFirstResponder] || [view isDescendantOfFirstResponder], error, @"Failed to make the view into the first responder");
+		KIFTestCondition(![view canBecomeFirstResponder] || [view isDescendantOfFirstResponder], error, @"Failed to make the view into the first responder: %@", view);
 
 		return KIFTestStepResultSuccess;
 	}];
