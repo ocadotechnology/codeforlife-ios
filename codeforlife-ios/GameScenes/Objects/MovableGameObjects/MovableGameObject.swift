@@ -59,7 +59,7 @@ class MovableGameObject: GameObject {
     /*************
      * Movements *
      *************/
-    func moveForward(#animated: Bool, completion : (() -> Void)?) {
+    func moveForward(animated animated: Bool, completion : (() -> Void)?) {
         moveForwardWithAnimation(
             movement: GameMapConfig.GridSize,
             duration: animated ? 0.5 : 0,
@@ -70,7 +70,7 @@ class MovableGameObject: GameObject {
         })
     }
     
-    func turnLeft(#animated: Bool, completion : (() -> Void)?) {
+    func turnLeft(animated animated: Bool, completion : (() -> Void)?) {
         turnLeftWithAnimation(
             radius: GameMapConfig.GridSize.height*(33+24+22)/202,
             duration: animated ? 0.5 : 0,
@@ -81,7 +81,7 @@ class MovableGameObject: GameObject {
             })
     }
     
-    func turnRight(#animated: Bool, completion : (() -> Void)?) {
+    func turnRight(animated animated: Bool, completion : (() -> Void)?) {
         turnRightWithAnimation(
             radius: GameMapConfig.GridSize.height*(33+24+44+22)/202,
             duration: animated ? 0.7 : 0,
@@ -96,7 +96,7 @@ class MovableGameObject: GameObject {
     /********************
      * Helper Functions *
      ********************/
-    private final func moveForwardWithAnimation(#movement: CGSize, duration: NSTimeInterval, completion: () -> Void) {
+    private final func moveForwardWithAnimation(movement movement: CGSize, duration: NSTimeInterval, completion: () -> Void) {
         var actionMove: SKAction
         switch direction {
         case .Left :
@@ -115,11 +115,11 @@ class MovableGameObject: GameObject {
         runAction(actionMove, completion: completion)
     }
     
-    private final func turnLeftWithAnimation(#radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+    private final func turnLeftWithAnimation(radius radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
         turnWithAnimation(radius, duration, left: true, completion)
     }
     
-    private final func turnRightWithAnimation(#radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
+    private final func turnRightWithAnimation(radius radius: CGFloat, duration: NSTimeInterval, completion: () -> Void) {
         turnWithAnimation(radius, duration, left: false, completion)
     }
     

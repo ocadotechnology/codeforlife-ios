@@ -25,7 +25,7 @@ public class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
     var numberOfRequestsLeft = 0 {
         didSet {
             if numberOfRequestsLeft == 0 {
-                println("Done")
+                print("Done")
                 switch runUpdate {
                     case 0: progressView!.progress = 0.0
                     case 1: Episode.save(); progressView!.progress = 0.2
@@ -67,13 +67,13 @@ public class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
         let noUpdateNeeded = Config.fetchResults().count > 0
         
         if noUpdateNeeded {
-            println("No updates required")
+            print("No updates required")
             runUpdate = LaunchScreenViewController.UPDATE_FINISHED
         } else {
             Config.removeAllEntries()
             Config.createInManagedObjectContext("mockETag")
             Config.save()
-            println("Updates required")
+            print("Updates required")
             runUpdate++   // run Update
         }
         
@@ -81,7 +81,7 @@ public class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
     }
     
     private func finishUpdate() {
-        println("Updates finished.")
+        print("Updates finished.")
         startButton.enabled = true
         progressView.hidden = true
     }

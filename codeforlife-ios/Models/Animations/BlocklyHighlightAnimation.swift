@@ -19,7 +19,7 @@ class BlocklyHighlightAnimation: Animation {
     }
     
     override func execute(completion: (() -> Void)? = nil) {
-        println("Highlight Cell: \(blockId)")
+        print("Highlight Cell: \(blockId)")
         delegate?.highlightCorrectBlock(blockId)
         completion?()
     }

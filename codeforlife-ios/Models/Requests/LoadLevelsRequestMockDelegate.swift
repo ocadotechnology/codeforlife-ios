@@ -14,7 +14,7 @@ class LoadLevelsRequestMockDelegate: RequestDelegate
 {
     
     func execute(processData: (NSData -> Void), callback: (() -> Void)?) {
-        var json = JSON(
+        let json = JSON(
             [
                 "level_set":
                     [
@@ -26,8 +26,8 @@ class LoadLevelsRequestMockDelegate: RequestDelegate
                     ]
             ])
         
-        var data = json.rawData()
-        processData(data!)
+        let data = try! json.rawData()
+        processData(data)
         callback?()
     }
 }

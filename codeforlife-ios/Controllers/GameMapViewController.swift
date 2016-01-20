@@ -49,8 +49,8 @@ public class GameMapViewController: UIViewController, UIScrollViewDelegate {
     
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         if let mapScene = mapScene {
-            mapScene.camera.position = CGPointMake(mapScene.size.width/2 + scrollView.contentOffset.x, mapScene.size.height/2 - scrollView.contentOffset.y)
-            mapScene.centerOnNode(mapScene.camera)
+            mapScene.kamera.position = CGPointMake(mapScene.size.width/2 + scrollView.contentOffset.x, mapScene.size.height/2 - scrollView.contentOffset.y)
+            mapScene.centerOnNode(mapScene.kamera)
         }
     }
     

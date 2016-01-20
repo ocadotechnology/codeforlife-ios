@@ -19,7 +19,7 @@ class GameViewPopUpAction: Animation {
     }
     
     override func execute(completion: (() -> Void)? = nil) {
-        println("Popup")
+        print("Popup")
         completion?()
     }
 }
@@ -39,15 +39,15 @@ class WinPopupAction: GameViewPopUpAction {
         super.init(message: message, delegate: delegate)
     }
     
-    override func execute(#completion: (() -> Void)?) {
-        println("Win Popup")
+    override func execute(completion: (() -> Void)?) {
+        print("Win Popup")
         delegate?.winPopup(popupMessage, pathScore, maxPathScore, instrScore, maxInstrScore, completion: completion)
     }
 }
 
 class FailurePopupAction: GameViewPopUpAction {
-    override func execute(#completion: (() -> Void)?) {
-        println("Failure Popup")
+    override func execute(completion: (() -> Void)?) {
+        print("Failure Popup")
         delegate?.failurePopup(popupMessage, completion: completion)
     }
 }

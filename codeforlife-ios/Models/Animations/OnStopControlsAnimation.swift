@@ -10,7 +10,7 @@ import Foundation
 
 class OnStopControlsAction: Animation {
     override func execute(completion: (() -> Void)? = nil) {
-        println("OnStopControls")
+        print("OnStopControls")
         delegate?.onStopControls(completion)
     }
 }

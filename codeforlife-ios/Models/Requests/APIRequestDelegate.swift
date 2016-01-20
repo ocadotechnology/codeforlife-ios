@@ -24,15 +24,17 @@ class APIRequestDelegate : RequestDelegate {
         Alamofire
             .request(method, url)
             .authenticate(user: "trial", password: "cabbage")
-            .responseJSON { (req, res, json, error) in
-                if(error != nil) {
-                    NSLog("Error: \(error)")
-                    println(req)
-                    println(res)
+            .responseJSON { response in
+//                if(error != nil) {
+//                    NSLog("Error: \(response. error)")
+//                    println(req)
+//                    println(res)
+//                }
+//                else if json != nil {
+                if let data = response.data {
+                    processData(data)
                 }
-                else if json != nil {
-                    processData(JSON(json!).rawData()!)
-                }
+//                }
                 callback?()
         }
     }

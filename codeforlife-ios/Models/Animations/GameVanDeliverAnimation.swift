@@ -18,7 +18,7 @@ class GameVanDeliverAction: Animation {
     }
     
     override func execute(completion: (() -> Void)? = nil) {
-        println("Van Deliver")
+        print("Van Deliver")
         delegate?.deliver(destinationId, completion: completion)
     }
 }

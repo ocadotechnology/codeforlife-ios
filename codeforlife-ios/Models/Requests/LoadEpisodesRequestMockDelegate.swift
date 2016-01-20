@@ -13,7 +13,7 @@ import Alamofire
 class LoadEpisodesRequestMockDelegate: RequestDelegate {
     
     func execute(processData: (NSData -> Void), callback: (() -> Void)?) {
-        var json = JSON(
+        let json = JSON(
             [
                 [
                     "name": "Getting Started",
@@ -34,8 +34,8 @@ class LoadEpisodesRequestMockDelegate: RequestDelegate {
             ])
         
         
-        var data = json.rawData()
-        processData(data!)
+        let data = try! json.rawData()
+        processData(data)
         callback?()
     }
     

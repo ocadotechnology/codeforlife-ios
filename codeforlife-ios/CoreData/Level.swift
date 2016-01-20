@@ -52,16 +52,15 @@ public class Level: NSManagedObject {
         let fetchRequest = NSFetchRequest(entityName: "Level")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        let fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Level]
+        let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Level]
         return fetchResults ?? []
     }
     
     class func save() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        var error: NSError?
-        managedObjectContext?.save(&error)
-        if error != nil { println("Error: Cannot save levels") }
+        try! managedObjectContext?.save()
+//        if error != nil { print("Error: Cannot save levels") }
     }
     
     class func removeAllEntries() {

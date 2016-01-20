@@ -48,7 +48,7 @@ public class Node: Equatable {
     }
     
     func indexInConnectedNodes(node: Node) -> Int? {
-        for (index, connectedNode) in enumerate(connectedNodes) {
+        for (index, connectedNode) in connectedNodes.enumerate() {
             if node == connectedNode {
                 return index
             }

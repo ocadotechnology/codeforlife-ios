@@ -42,12 +42,12 @@ public class LevelTableViewController: UIViewController, UITableViewDelegate, UI
     }
         
     private func loadEpisode(index: Int) {
-        let episodes = Episode.fetchResults().sorted({$0.id < $1.id})
+        let episodes = Episode.fetchResults().sort({$0.id.intValue < $1.id.intValue})
         let episodeUrl = episodes[index-1].url
         levels = Level.fetchResults()
-                        .filter({[unowned self] in $0.episodeUrl == episodeUrl})
-            .sorted({$0.level < $1.level})
-        println("\(levels.count) levels in Episode \(index)")
+                        .filter({$0.episodeUrl == episodeUrl})
+            .sort({$0.level.intValue < $1.level.intValue})
+        print("\(levels.count) levels in Episode \(index)")
         prevEpisodeButton.hidden = index == 1
         nextEpisodeButton.hidden = index == 2
         self.titleLabel.text = Episode.fetchResults().filter({$0.id == self.index})[0].name
@@ -79,7 +79,7 @@ public class LevelTableViewController: UIViewController, UITableViewDelegate, UI
             if let identifier = segue.identifier {
                 switch identifier {
                     case SegueIdentifier:
-                        let indexPath = tableView.indexPathForSelectedRow()!
+                        let indexPath = tableView.indexPathForSelectedRow!
                         let level = levels[indexPath.row]
                         gameViewController.levelUrl = level.url
                     default: break

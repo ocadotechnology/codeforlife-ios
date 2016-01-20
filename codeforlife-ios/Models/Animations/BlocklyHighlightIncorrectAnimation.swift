@@ -11,7 +11,7 @@ import Foundation
 
 class BlocklyHighlightIncorrectAction: BlocklyHighlightAnimation {
     override func execute(completion: (() -> Void)? = nil) {
-        println("Highlight Incorrect Cell: \(blockId)")
+        print("Highlight Incorrect Cell: \(blockId)")
         delegate?.highlightIncorrectBLock(blockId)
         completion?()
     }

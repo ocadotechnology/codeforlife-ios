@@ -31,16 +31,15 @@ class Episode: NSManagedObject {
         let fetchRequest = NSFetchRequest(entityName: "Episode")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        let fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [Episode]
+        let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Episode]
         return fetchResults ?? []
     }
     
     class func save() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        var error: NSError?
-        managedObjectContext?.save(&error)
-        if error != nil { println("Cannot save episodes") }
+        try! managedObjectContext?.save()
+//        if error != nil { println("Cannot save episodes") }
     }
     
     class func removeAllEntries() {

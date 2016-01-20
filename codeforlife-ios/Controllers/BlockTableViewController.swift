@@ -49,8 +49,8 @@ public class BlockTableViewController: BlocklyViewController {
     final func clearBlocks() {
         resetHighlightCellVariables()
         Workspace.getInstance().topBlocks.foreach({
-            (core) in
-            core.blocklyView?.removeFromWorkspace(true)
+            core in
+            core.removeFromWorkspace()
         })
         let startBlock = BlocklyFactory.createStartBlock()
         addBlockly(startBlock)
@@ -74,8 +74,8 @@ public class BlockTableViewController: BlocklyViewController {
             default: break
             }
         })
-        str = Workspace.getInstance().topBlocks.getItemAtIndex(0)?.nextConnection?.targetConnection != nil ? str.substringToIndex(advance(str.startIndex, count(str)-1)) + "])" : str + "])"
-        gvcDelegate?.submitBlocks(str, completion: {println(str)})
+        str = Workspace.getInstance().topBlocks.getItemAtIndex(0)?.nextConnection?.targetConnection != nil ? str.substringToIndex(str.startIndex.advancedBy(str.characters.count-1)) + "])" : str + "])"
+        gvcDelegate?.submitBlocks(str, completion: {print(str)})
     }
     
     final func highlightRow(row: Int) {
@@ -83,7 +83,7 @@ public class BlockTableViewController: BlocklyViewController {
         for i in 1...row {
             currentBlock = currentBlock?.nextBlockly
         }
-        selectedBlockly = currentBlock?.blocklyView
+        selectedBlockly = currentBlock?.blocklyView as! UIBlocklyView
     }
     
     final func highlightIncorrectBlockly(row: Int) {
@@ -91,7 +91,7 @@ public class BlockTableViewController: BlocklyViewController {
         for i in 1...row {
             currentBlock = currentBlock?.nextBlockly
         }
-        incorrectBlockly = currentBlock?.blocklyView
+        incorrectBlockly = currentBlock?.blocklyView as! UIBlocklyView
     }
     
 //    deinit { println("BlockTableViewController is being deallocated") }

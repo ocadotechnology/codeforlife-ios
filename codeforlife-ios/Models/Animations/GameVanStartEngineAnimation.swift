@@ -11,7 +11,7 @@ import Foundation
 
 class GameVanStartEngineAction: Animation {
     override func execute(completion: (() -> Void)? = nil) {
-        println("Starting Engine")
+        print("Starting Engine")
         delegate?.vanStartEngine(completion)
     }
 }

@@ -67,7 +67,7 @@ public class GameViewController: UIViewController, WKNavigationDelegate {
         configuration.userContentController = userContentController
         webView = WKWebView(frame: CGRectZero, configuration: configuration)
         if let coder = coder {
-            super.init(coder: coder)
+            super.init(coder: coder)!
         } else {
             super.init(nibName: nil, bundle: nil)
         }

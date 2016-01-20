@@ -33,7 +33,7 @@ public class MessageViewController: UIViewController {
     init(_ coder: NSCoder? = nil, delegate: GameViewControllerDelegate?) {
         self.gvcDelegate = delegate
         if let coder = coder {
-            super.init(coder: coder)
+            super.init(coder: coder)!
         } else {
             super.init(nibName: nil, bundle: nil)
         }

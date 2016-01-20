@@ -23,7 +23,7 @@ public class MapScene: SKScene {
     let van: Van                        /* Object representing the player */
     
     let world: WorldNode                /* Node to represent the world */
-    let camera: SKNode                  /* Node to represent the camera in the world */
+    let kamera: SKNode                  /* Node to represent the camera in the world */
     
     weak var delegate2: GameViewControllerDelegate?
     
@@ -36,7 +36,7 @@ public class MapScene: SKScene {
         self.destinations = destination
         self.decorations = decorations
         self.world = WorldNode()
-        self.camera = SKNode()
+        self.kamera = SKNode()
         self.van = world.prepareVan(origin)
     
         let sceneWidth = GameMapConfig.GridSize.width*CGFloat(width) + GameMapConfig.MapOffset.x
@@ -81,19 +81,19 @@ public class MapScene: SKScene {
     private func setupWorld() {
         
         self.addChild(world)
-        world.addChild(camera)
+        world.addChild(kamera)
         
         // Center camera
         self.anchorPoint = CGPointMake(0.5, 0.5)
-        camera.position = CGPointMake(size.width/2, size.height/2)
-        self.centerOnNode(camera)
+        kamera.position = CGPointMake(size.width/2, size.height/2)
+        self.centerOnNode(kamera)
     }
     
     private func buildMapArray(width: Int, _ height: Int) -> [[Bool]] {
         var mapArray = [[Bool]]()
         for x in 0 ..< width {
             mapArray.append([Bool]())
-            for y in 0  ..< height {
+            for _ in 0  ..< height {
                 mapArray[x].append(false)
             }
         }

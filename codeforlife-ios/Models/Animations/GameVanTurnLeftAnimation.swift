@@ -11,7 +11,7 @@ import Foundation
 
 class GameVanTurnLeftAction: Animation {
     override func execute(completion: (() -> Void)? = nil) {
-        println("Van Turn Left")
+        print("Van Turn Left")
         delegate?.vanTurnLeft(completion)
     }
     

@@ -12,7 +12,7 @@ import SwiftyJSON
 class LoadLevelRequestMockDelegate: RequestDelegate {
 
     func execute(processData: (NSData -> Void), callback: (() -> Void)?) {
-        var json = JSON(
+        let json = JSON(
             [
                 "name": "18",
                 "title": "This one is quite a tangle. ",
@@ -26,8 +26,8 @@ class LoadLevelRequestMockDelegate: RequestDelegate {
 
             ])
         
-        var data = json.rawData()
-        processData(data!)
+        let data = try! json.rawData()
+        processData(data)
         callback?()
     }
     

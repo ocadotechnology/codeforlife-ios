@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-enum RoadType: String, Printable {
+enum RoadType: String, CustomStringConvertible {
     
     case Straight = "straight"
     case Turn = "turn"

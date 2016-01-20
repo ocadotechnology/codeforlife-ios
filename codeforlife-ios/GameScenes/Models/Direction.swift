@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-public enum Direction: Printable {
+public enum Direction: CustomStringConvertible {
     
     case Left
     case Right

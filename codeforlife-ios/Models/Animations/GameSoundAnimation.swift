@@ -30,7 +30,7 @@ class GameSoundAction: Animation {
     }
     
     override func execute(completion: (() -> Void)? = nil) {
-        println("Play Game Sound: \(gameSound.rawValue)")
+        print("Play Game Sound: \(gameSound.rawValue)")
         delegate?.playSound(gameSound, waitForCompletion: waitForCompletion, completion: completion)
     }
 }

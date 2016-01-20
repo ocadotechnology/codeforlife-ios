@@ -10,7 +10,7 @@ import Foundation
 
 class GameVanMoveForwardAction: Animation {
     override func execute(completion: (() -> Void)? = nil) {
-        println("Van Move Forward")
+        print("Van Move Forward")
         delegate?.vanMoveForward(completion)
     }
     

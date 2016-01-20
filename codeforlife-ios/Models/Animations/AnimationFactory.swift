@@ -85,7 +85,7 @@ public class AnimationFactory {
                 case "CRASH":
                     action = convertToCrashAction(json)
                     
-                default: println("Implement van handling for \(vanAction)")
+                default: print("Implement van handling for \(vanAction)")
                 }
         }
         return action
@@ -127,7 +127,7 @@ public class AnimationFactory {
             case "delivery":
                 action = GameSoundAction(delegate: animationDelegate, gameSound: GameSound.Delivery, waitForCompletion: true)
                 
-            default: println("Implement sound handling for \(description)")
+            default: print("Implement sound handling for \(description)")
             }
         }
         return action

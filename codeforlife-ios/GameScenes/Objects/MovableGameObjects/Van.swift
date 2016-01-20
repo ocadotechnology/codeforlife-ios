@@ -32,7 +32,7 @@ class Van: MovableGameObject {
     
     init(origin: Origin) {
         let engineSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("moving", ofType: "mp3")!)
-        self.engine = AVAudioPlayer(contentsOfURL: engineSound, error: nil)
+        self.engine = try! AVAudioPlayer(contentsOfURL: engineSound, fileTypeHint: nil)
         self.engine.numberOfLoops = -1
         self.engine.prepareToPlay()
         super.init(
@@ -74,7 +74,7 @@ class Van: MovableGameObject {
         }
     }
     
-    final func deliver(#animated: Bool, completion: (() -> Void)?) {
+    final func deliver(animated animated: Bool, completion: (() -> Void)?) {
         if let mapScene = self.scene as? MapScene {
             for destination in mapScene.destinations {
                 if destination.coordinates == currentCoordinates {

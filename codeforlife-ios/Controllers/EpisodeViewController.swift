@@ -31,8 +31,8 @@ public class EpisodeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     private func FetchEpisodesFromCoreData() {
-        episodes = Episode.fetchResults().sorted({$0.id < $1.id}).filter({$0.id <= 2})
-        println("\(episodes.count) episodes in total")
+        episodes = Episode.fetchResults().sort({$0.id.intValue < $1.id.intValue}).filter{$0.id.intValue <= 2}
+        print("\(episodes.count) episodes in total")
     }
     
     public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -45,7 +45,7 @@ public class EpisodeViewController: UIViewController, UITableViewDelegate, UITab
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! EpisodeTableViewCell
-        var episode = episodes[indexPath.row]
+        let episode = episodes[indexPath.row]
         cell.titleLabel.text = "Episode \(indexPath.row+1) : \(episode.name)"
         return cell
     }
@@ -59,7 +59,7 @@ public class EpisodeViewController: UIViewController, UITableViewDelegate, UITab
             if let identifier = segue.identifier {
                 switch identifier {
                 case SegueIdentifier:
-                    var indexPath = tableView.indexPathForSelectedRow()!
+                    let indexPath = tableView.indexPathForSelectedRow!
                     controller.index = indexPath.row + 1
                 default: break
                 }
