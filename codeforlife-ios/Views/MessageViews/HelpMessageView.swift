@@ -29,8 +29,8 @@ class HelpMessageView: MessageView {
     }
     
     override func reloadContent() {
-        titleLabel.text = message!.title
-        contextLabel.text = message!.context
+        titleLabel.text = message?.title
+        contextLabel.text = message?.context
     }
     
     override func drawRect(rect: CGRect) {

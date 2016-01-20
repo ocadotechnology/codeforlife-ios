@@ -114,11 +114,6 @@ public class GameViewController: UIViewController, WKNavigationDelegate {
         self.gameViewInteractionHandler.gvcDelegate.enableMultimediaButtons(true, completion: nil)
     }
     
-//    public func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
-//        var credential = NSURLCredential(user: DevUsername, password: DevPassword, persistence: NSURLCredentialPersistence.Permanent)
-//        completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, credential)
-//    }
-    
     override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             switch identifier {
@@ -140,7 +135,6 @@ public class GameViewController: UIViewController, WKNavigationDelegate {
     // caused by UserContentController. It is believed that there exists a
     // retain cycle between WKUserContentController and its ScriptMessageHandler
     deinit {
-//        println("GameViewController is being deallocated")
         self.webView.stopLoading()
         self.webView.configuration.userContentController.removeScriptMessageHandlerForName(scriptMessageHandlerTitle)
     }

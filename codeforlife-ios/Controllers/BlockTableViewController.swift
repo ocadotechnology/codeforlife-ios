@@ -93,7 +93,5 @@ public class BlockTableViewController: BlocklyViewController {
         }
         incorrectBlockly = currentBlock?.blocklyView as? UIBlocklyView
     }
-    
-//    deinit { println("BlockTableViewController is being deallocated") }
 
 }

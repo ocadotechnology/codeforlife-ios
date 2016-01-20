@@ -169,6 +169,4 @@ public class GameMenuViewController: UIViewController {
         muted = !muted
     }
     
-//    deinit { println("GameMenuViewController is being deallocated") }
-    
 }

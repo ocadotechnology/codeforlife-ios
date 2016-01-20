@@ -42,7 +42,5 @@ public class MessageViewController: UIViewController {
     required convenience public init(coder: NSCoder) {
         self.init(coder, delegate: nil)
     }
-    
-//    deinit { println("MessageViewController is being deallocated") }
 
 }

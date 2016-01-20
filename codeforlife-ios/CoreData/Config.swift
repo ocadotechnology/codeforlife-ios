@@ -24,23 +24,39 @@ class Config: NSManagedObject {
     }
     
     class func fetchResults() -> [Config] {
+        guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+            return []
+        }
         let fetchRequest = NSFetchRequest(entityName: "Config")
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        let fetchResults = try! managedObjectContext?.executeFetchRequest(fetchRequest) as? [Config]
-        return fetchResults ?? []
+        
+        do {
+            if let results = try managedObjectContext?.executeFetchRequest(fetchRequest) as? [Config] {
+                return results
+            }
+        } catch let error {
+            print(error)
+        }
+        return []
     }
     
     class func save() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+            return
+        }
         let managedObjectContext = appDelegate.managedObjectContext
-        try! managedObjectContext?.save()
-//        if error != nil { println("Cannot save episodes") }
+        do {
+            try managedObjectContext?.save()
+        } catch {
+            print("Cannot save episodes, error: \(error)")
+        }
     }
     
     
     class func removeAllEntries() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        guard let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+            return
+        }
         let managedObjectContext = appDelegate.managedObjectContext
         for config in Config.fetchResults() {
             managedObjectContext?.deleteObject(config)
