@@ -98,8 +98,8 @@ public class GameViewControllerDelegate: AnimationDelegate, MessageViewControlle
     
     func loadLevel(completion: (() -> Void)?) {
         if let urlStr = gameViewController?.level?.webViewUrl {
-            var url = NSURL(string: urlStr);
-            var request = NSURLRequest(URL: url!);
+            let url = NSURL(string: urlStr)
+            let request = NSURLRequest(URL: url!)
             gameViewController?.webView.loadRequest(request)
         }
         completion?()

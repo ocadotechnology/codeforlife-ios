@@ -80,18 +80,18 @@ public class BlockTableViewController: BlocklyViewController {
     
     final func highlightRow(row: Int) {
         var currentBlock = Workspace.getInstance().topBlocks.getItemAtIndex(0)
-        for i in 1...row {
+        for _ in 1...row {
             currentBlock = currentBlock?.nextBlockly
         }
-        selectedBlockly = currentBlock?.blocklyView as! UIBlocklyView
+        selectedBlockly = currentBlock?.blocklyView as? UIBlocklyView
     }
     
     final func highlightIncorrectBlockly(row: Int) {
         var currentBlock = Workspace.getInstance().topBlocks.getItemAtIndex(0)
-        for i in 1...row {
+        for _ in 1...row {
             currentBlock = currentBlock?.nextBlockly
         }
-        incorrectBlockly = currentBlock?.blocklyView as! UIBlocklyView
+        incorrectBlockly = currentBlock?.blocklyView as? UIBlocklyView
     }
     
 //    deinit { println("BlockTableViewController is being deallocated") }

@@ -49,7 +49,6 @@ class House: GameObject {
         case .NW:
             self.position.y += GameMapConfig.GridSize.height * ratio2
             self.position.x -= GameMapConfig.GridSize.width * ratio2
-        default: break
         }
         
         let rad = compassDirection.angle + CGFloat(M_PI/2)

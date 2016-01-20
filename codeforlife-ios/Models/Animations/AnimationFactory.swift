@@ -45,7 +45,7 @@ public class AnimationFactory {
                     instrScore = json["instrScore"].float,
                     maxScoreForNumberOfInstructions = json["maxScoreForNumberOfInstructions"].int {
                         
-                        var processedMessage = popupMessage
+                        let processedMessage = popupMessage
                             .stringByReplacingOccurrencesOfString("<br>", withString: "\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
                             .stringByReplacingOccurrencesOfString("<b>", withString: "<", options: NSStringCompareOptions.LiteralSearch, range: nil)
                             .stringByReplacingOccurrencesOfString("</b>", withString: ">", options: NSStringCompareOptions.LiteralSearch, range: nil)

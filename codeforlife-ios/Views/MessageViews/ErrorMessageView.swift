@@ -20,7 +20,7 @@ class ErrorMessageView: MessageView {
     @IBOutlet weak var messageButton: UIButton!
     
     class func instsanceFromXib(message: Message) -> ErrorMessageView {
-        var view = UINib(nibName: "ErrorMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! ErrorMessageView
+        let view = UINib(nibName: "ErrorMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! ErrorMessageView
         view.message = message
         return view
     }

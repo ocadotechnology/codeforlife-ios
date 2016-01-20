@@ -19,7 +19,7 @@ class HelpMessageView: MessageView {
     @IBOutlet weak var containerView: UIView!
     
     class func instsanceFromXib(message: Message) -> HelpMessageView {
-        var view = UINib(nibName: "HelpMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! HelpMessageView
+        let view = UINib(nibName: "HelpMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! HelpMessageView
         view.message = message
         return view
     }

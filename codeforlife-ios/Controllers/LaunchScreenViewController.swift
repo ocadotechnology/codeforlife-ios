@@ -60,10 +60,6 @@ public class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        var episodeVersion = 1.0
-        var levelVersion = 1.0
-        
-//        let noUpdateNeeded = episodeVersion == 1.0
         let noUpdateNeeded = Config.fetchResults().count > 0
         
         if noUpdateNeeded {
@@ -74,10 +70,8 @@ public class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
             Config.createInManagedObjectContext("mockETag")
             Config.save()
             print("Updates required")
-            runUpdate++   // run Update
+            runUpdate++
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     private func finishUpdate() {

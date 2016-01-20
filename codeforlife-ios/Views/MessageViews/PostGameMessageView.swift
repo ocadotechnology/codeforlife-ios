@@ -26,7 +26,7 @@ class PostGameMessageView: MessageView {
     @IBOutlet weak var instrScoreImages: UIView!
     
     class func instsanceFromXib(message: Message) -> PostGameMessageView {
-        var view = UINib(nibName: "PostGameMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PostGameMessageView
+        let view = UINib(nibName: "PostGameMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PostGameMessageView
         view.message = message
         return view
     }

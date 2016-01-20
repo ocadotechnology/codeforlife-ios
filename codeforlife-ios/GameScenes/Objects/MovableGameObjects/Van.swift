@@ -70,7 +70,6 @@ class Van: MovableGameObject {
         self.position.y += GameMapConfig.GridSize.height/2
         case .Left:    self.position.x += GameMapConfig.GridSize.width/2
         self.position.y -= self.size.width/2 + GameMapConfig.GridSize.height/45
-        default : break
         }
     }
     
@@ -87,18 +86,18 @@ class Van: MovableGameObject {
     final func crash(completion: (() -> Void)?) {
         
         let numberOfExplosion = 200
-        let interval:Int = 500
+//        let interval:Int = 500
         let range:CGFloat = 30
         let fireToSmokeRatio:UInt32 = 3
         
-        for i in 1 ... numberOfExplosion {
+        for _ in 1 ... numberOfExplosion {
             
             let explosionRange = CGFloat(Float(arc4random()) / Float(UINT32_MAX)) * range
-            var explosionPosition = CGPointMake(
+            let explosionPosition = CGPointMake(
                                         (CGFloat(Float(arc4random()) / Float(UINT32_MAX))-0.5) * size.width,
                                         (CGFloat(Float(arc4random()) / Float(UINT32_MAX))-0.5) * size.height)
-            var fire = arc4random_uniform(fireToSmokeRatio)
-            var explosion = GameObject(imageNamed: fire == 0 ? "smoke": "fire", width: 1, height: 1, rotation: 0)
+            let fire = arc4random_uniform(fireToSmokeRatio)
+            let explosion = GameObject(imageNamed: fire == 0 ? "smoke": "fire", width: 1, height: 1, rotation: 0)
             explosion.position = explosionPosition
             explosion.zPosition = 1.0
             self.addChild(explosion)

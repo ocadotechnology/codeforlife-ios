@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1965F7451C501F1500D570E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1A93391B42B02A004E6AD4 /* Images.xcassets */; };
+		1965F7461C501F1600D570E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1A93391B42B02A004E6AD4 /* Images.xcassets */; };
 		19C80BD61C5003FC000DFBA0 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C80BC41C5003FC000DFBA0 /* GameObject.swift */; };
 		19C80BD71C5003FC000DFBA0 /* MovableGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C80BC61C5003FC000DFBA0 /* MovableGameObject.swift */; };
 		19C80BD81C5003FC000DFBA0 /* Van.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C80BC71C5003FC000DFBA0 /* Van.swift */; };
@@ -49,8 +51,6 @@
 		ED191B2B1B99D51C00E2627A /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED191B2A1B99D51C00E2627A /* ArrayExtension.swift */; };
 		ED191B2C1B99D55400E2627A /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED191B2A1B99D51C00E2627A /* ArrayExtension.swift */; };
 		ED1A932C1B429567004E6AD4 /* GameMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A932B1B429567004E6AD4 /* GameMapViewController.swift */; };
-		ED1A933A1B42B02A004E6AD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1A93391B42B02A004E6AD4 /* Images.xcassets */; };
-		ED1A933B1B42B02A004E6AD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED1A93391B42B02A004E6AD4 /* Images.xcassets */; };
 		ED1A93431B43CE48004E6AD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0BC5941B305D720060FC84 /* Main.storyboard */; };
 		ED1A93451B43D046004E6AD4 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A93441B43D046004E6AD4 /* EpisodeViewController.swift */; };
 		ED1A934B1B43D215004E6AD4 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1A934A1B43D215004E6AD4 /* EpisodeTableViewCell.swift */; };
@@ -811,7 +811,7 @@
 			attributes = {
 				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Joey Chan";
 				TargetAttributes = {
 					ED0BC58A1B305D720060FC84 = {
@@ -855,9 +855,9 @@
 				EDFE93461B41822600E01322 /* HelpMessageView.xib in Resources */,
 				ED575ACD1B9EEAF60093153E /* moving.mp3 in Resources */,
 				ED575ACF1B9EEAF60093153E /* starting.mp3 in Resources */,
-				ED1A933A1B42B02A004E6AD4 /* Images.xcassets in Resources */,
 				ED0BC5961B305D720060FC84 /* Main.storyboard in Resources */,
 				ED575AD31B9EEAF60093153E /* win.mp3 in Resources */,
+				1965F7451C501F1500D570E2 /* Images.xcassets in Resources */,
 				ED575AD11B9EEAF60093153E /* tension.mp3 in Resources */,
 				ED0BC59B1B305D720060FC84 /* LaunchScreen.xib in Resources */,
 				EDDF0F0D1B416C4E00F2D779 /* PreGameMessageView.xib in Resources */,
@@ -871,8 +871,8 @@
 			files = (
 				EDDF0F121B416E4700F2D779 /* PreGameMessageView.xib in Resources */,
 				ED575AD21B9EEAF60093153E /* tension.mp3 in Resources */,
-				ED1A933B1B42B02A004E6AD4 /* Images.xcassets in Resources */,
 				ED575AC81B9EEAF60093153E /* crash.mp3 in Resources */,
+				1965F7461C501F1600D570E2 /* Images.xcassets in Resources */,
 				ED575AD01B9EEAF60093153E /* starting.mp3 in Resources */,
 				EDFE93471B41822600E01322 /* HelpMessageView.xib in Resources */,
 				ED1A93431B43CE48004E6AD4 /* Main.storyboard in Resources */,
@@ -989,7 +989,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" db7d5f04ba0600628f66aaac323272a1fe5b11a4 9020c8a09f7e2cda06d729e0ee6f679a42ac1dcb36845df89b993f495ad2231f";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" db7d5f04ba0600628f66aaac323272a1fe5b11a4 9020c8a09f7e2cda06d729e0ee6f679a42ac1dcb36845df89b993f495ad2231f";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1187,6 +1187,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1262,6 +1263,7 @@
 				INFOPLIST_FILE = "codeforlife-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ocado.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1280,6 +1282,7 @@
 				INFOPLIST_FILE = "codeforlife-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ocado.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1301,6 +1304,7 @@
 				);
 				INFOPLIST_FILE = "codeforlife-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ocado.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "codeforlife-ios/codeforlife-ios-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/codeforlife-ios.app/codeforlife-ios";
@@ -1318,6 +1322,7 @@
 				);
 				INFOPLIST_FILE = "codeforlife-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ocado.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "codeforlife-ios/codeforlife-ios-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/codeforlife-ios.app/codeforlife-ios";

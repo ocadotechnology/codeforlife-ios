@@ -91,7 +91,7 @@ class CDMap: NSManagedObject {
             pathArray = JSON(data: pathDataFromString).array {
                 for elem in pathArray {
                     if let coordinates = elem["coordinate"].array {
-                        var node = Node(Coordinates(coordinates[0].int!, coordinates[1].int!))
+                        let node = Node(Coordinates(coordinates[0].int!, coordinates[1].int!))
                         nodes.append(node)
                     }
                 }
@@ -133,8 +133,8 @@ class CDMap: NSManagedObject {
             if let x = decoration["x"].int,
                 y = decoration["y"].int,
                 decorName = decoration["decorName"].string {
-                    var posX = CGFloat(x) * GameMapConfig.DecorationRatio.x + GameMapConfig.GridSize.width  * GameMapConfig.DecorationOffsetRatio.x + GameMapConfig.MapOffset.x
-                    var posY = CGFloat(y) * GameMapConfig.DecorationRatio.y + GameMapConfig.GridSize.height * GameMapConfig.DecorationOffsetRatio.y + GameMapConfig.MapOffset.y
+                    let posX = CGFloat(x) * GameMapConfig.DecorationRatio.x + GameMapConfig.GridSize.width  * GameMapConfig.DecorationOffsetRatio.x + GameMapConfig.MapOffset.x
+                    let posY = CGFloat(y) * GameMapConfig.DecorationRatio.y + GameMapConfig.GridSize.height * GameMapConfig.DecorationOffsetRatio.y + GameMapConfig.MapOffset.y
                     decorations.append(Decoration(imageNamed: decorName, position: CGPointMake(posX, posY)))
             }
         }

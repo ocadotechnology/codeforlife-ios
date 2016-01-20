@@ -59,8 +59,11 @@ public class Level: NSManagedObject {
     class func save() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        try! managedObjectContext?.save()
-//        if error != nil { print("Error: Cannot save levels") }
+        do {
+            try managedObjectContext?.save()
+        } catch let error {
+            print(error)
+        }
     }
     
     class func removeAllEntries() {

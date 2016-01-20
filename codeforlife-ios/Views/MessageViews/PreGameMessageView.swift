@@ -19,7 +19,7 @@ class PreGameMessageView: MessageView {
     
     @IBOutlet weak var containerView: UIView!
     class func instsanceFromXib(message: Message) -> PreGameMessageView {
-        var view = UINib(nibName: "PreGameMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PreGameMessageView
+        let view = UINib(nibName: "PreGameMessageView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! PreGameMessageView
         view.message = message
         return view
     }

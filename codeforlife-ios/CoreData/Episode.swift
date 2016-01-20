@@ -38,8 +38,11 @@ class Episode: NSManagedObject {
     class func save() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedObjectContext = appDelegate.managedObjectContext
-        try! managedObjectContext?.save()
-//        if error != nil { println("Cannot save episodes") }
+        do {
+            try managedObjectContext?.save()
+        } catch {
+            print("Cannot save episodes")
+        }
     }
     
     class func removeAllEntries() {
