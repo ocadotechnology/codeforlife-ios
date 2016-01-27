@@ -16,10 +16,4 @@ extension Array {
         }
     }
     
-    func foreach(closure: (Element) -> Void) {
-        for element in self {
-            closure(element)
-        }
-    }
-    
 }

@@ -52,10 +52,10 @@ public class MapScene: SKScene {
     func resetMap() {
         // Rebuild all the roads
         self.mapArray = buildMapArray(width, height)
-        nodes.foreach({[unowned self] in self.mapArray[$0.coordinates.x][$0.coordinates.y] = true})
+        nodes.forEach {[unowned self] in self.mapArray[$0.coordinates.x][$0.coordinates.y] = true}
         
         // Unvisit all the destinations
-        destinations.foreach({$0.visited = false})
+        destinations.forEach {$0.visited = false}
     }
     
     func centerOnNode(node: SKNode) {
@@ -111,7 +111,5 @@ public class MapScene: SKScene {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //    deinit { println("Map is being deallocated") }
     
 }

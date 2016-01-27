@@ -12,19 +12,18 @@ import Foundation
 public class WorldNode: SKNode {
     
     func drawBorders(destinations: [Destination]) {
-        destinations.foreach({[unowned self] in self.addChild($0.border)})
+        destinations.forEach { [unowned self] in self.addChild($0.border) }
     }
     
     func buildRoads(nodes: [Node]) {
-        nodes.foreach({[unowned self] in self.addChild(Road.Builder(node: $0).build())})
+        nodes.forEach { [unowned self] in self.addChild(Road.Builder(node: $0).build()) }
     }
     
     func buildHouses(nodes: [Node]) {
         nodes.filter({$0.isDestination})
-            .foreach({
-                [unowned self] in
+            .forEach { [unowned self] in
                 self.addChild(House(node: $0))
-            })
+            }
     }
     
     func buildGrass(width: Int, _ height: Int) {
@@ -38,7 +37,7 @@ public class WorldNode: SKNode {
     }
     
     func buildDecorations(decorations: [Decoration]) {
-        decorations.foreach({[unowned self] in self.addChild($0)})
+        decorations.forEach {[unowned self] in self.addChild($0)}
     }
     
     func buildCFC(origin: Origin) {

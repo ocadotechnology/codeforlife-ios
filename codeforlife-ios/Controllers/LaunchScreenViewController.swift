@@ -103,10 +103,10 @@ public class LaunchScreenViewController: UIViewController, LoadScreenDelegate {
         CDMap.removeAllEntries()
         let levels = Level.fetchResults()
         numberOfRequests = levels.count
-        levels.foreach({
+        levels.forEach {
             [unowned self] in
             LoadMapRequest(viewController: self, levelUrl: $0.url, mapUrl: $0.mapUrl).execute(nil)
-        })
+        }
     }
     
     func updateNumberOfTask(numberOfRequests: Int) {
